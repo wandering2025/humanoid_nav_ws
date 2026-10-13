@@ -45,7 +45,7 @@ def run(name, command, *, cwd=Path('/tmp'), expected=0, contains=None, env=None)
     record = dict(name=name, command=command, cwd=str(cwd), start_utc=start, end_utc=now(),
                   exit_code=proc.returncode, expected=expected, tested_head=HEAD,
                   ros_domain_id=ENV['ROS_DOMAIN_ID'], log=f'{name}.txt')
-    record['pass'] = (proc.returncode == 0 if expected == 0 else proc.returncode != 0)
+    record['pass'] = proc.returncode == expected
     if contains:
         record['pass'] &= contains in output
     (EVIDENCE / record['log']).write_text(json.dumps(record, sort_keys=True) + '\n' + output)
@@ -121,7 +121,8 @@ def c3():
 
 
 def c4():
-    from ament_index_python.packages import get_package_share_directory
+    import importlib.util
+    from ament_index_python.packages import get_package_prefix, get_package_share_directory
     resources = {name: Path(get_package_share_directory(name)) for name in (
         't1_mujoco', 't1_description', 't1_navigation', 't1_bringup')}
     expected = {'t1_mujoco': ['config/runtime.yaml'], 't1_description': ['config/README.md'],
@@ -129,6 +130,16 @@ def c4():
                 't1_bringup': ['launch/diagnostic.launch.py', 'launch/bringup.launch.py']}
     for name, files in expected.items():
         assert all((resources[name] / file).is_file() for file in files)
+    installed_modules = {}
+    for name in ('t1_mujoco.runtime', 't1_mujoco.diagnostic', 't1_bringup.launch_support'):
+        package, module_name = name.split('.')
+        # Find the file without executing a pure-ROS module in the sim venv.
+        installed = Path(importlib.util.find_spec(name).origin)
+        source = WS / 'src' / package / package / (module_name + '.py')
+        assert installed.is_relative_to(get_package_prefix(package))
+        assert installed.read_bytes() == source.read_bytes(), f'Stale installed module: {installed}'
+        installed_modules[name] = str(installed)
+    (EVIDENCE / 'c4-installed-modules.json').write_text(json.dumps(installed_modules, indent=2) + '\n')
     verify_report(run('c4-bringup', ['ros2', 'launch', 't1_bringup', 'bringup.launch.py',
                                     'mode:=evaluation', 'use_sim_time:=false']),
                   mode='evaluation', use_sim_time=False)

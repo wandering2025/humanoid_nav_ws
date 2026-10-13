@@ -1,0 +1,30 @@
+{
+  "utc": "2026-10-13T20:20:56.551809+00:00",
+  "status": "PASS",
+  "checks": {
+    "c2": 4,
+    "c3": 3,
+    "c4": 13
+  },
+  "pytest_tests": 16,
+  "pytest_errors": 0,
+  "pytest_failures": 0,
+  "pytest_skipped": 0,
+  "implementation_sha256_equal_across_checks": true,
+  "implementation_file_count": 29,
+  "tested_heads": {
+    "c2": "f48ee3bf711f4f2752d67526dba7bf2d3cfd1b45",
+    "c3": "ee80d408225e8542bd879cad90f3229ba98e97fa",
+    "c4": "a81fc924f11a678a98cc1cbd4987f9aef2c994e3"
+  },
+  "build": "build-final.txt (4 packages, exit 0)",
+  "installed_modules_match_source": true,
+  "external_cwd": "/tmp",
+  "upstream_clean": true,
+  "physics_started": false,
+  "failures_resolved": [
+    "Sandbox DDS socket restriction; local ROS verification rerun with approved tool escalation.",
+    "Acceptance script initially executed pure-ROS launch module in sim venv; corrected to nonexecuting find_spec file comparison. No dependency installation."
+  ],
+  "remaining_user_dirty_file": "docs/start_commands.md"
+}

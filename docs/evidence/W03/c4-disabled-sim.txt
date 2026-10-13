@@ -1,0 +1,4 @@
+{"command": ["ros2", "launch", "t1_bringup", "bringup.launch.py", "enable_sim:=true"], "cwd": "/tmp", "end_utc": "2026-10-13T20:20:21.758491+00:00", "exit_code": 1, "expected": 1, "log": "c4-disabled-sim.txt", "name": "c4-disabled-sim", "pass": true, "ros_domain_id": "73", "start_utc": "2026-10-13T20:20:21.520375+00:00", "tested_head": "a81fc924f11a678a98cc1cbd4987f9aef2c994e3"}
+[INFO] [launch]: All log files can be found below /home/haoyang/humanoid_nav_ws/run_data/w03_ros_logs/2026-10-13-22-20-21-704255-DESKTOP-MF19MEU-26974
+[INFO] [launch]: Default logging verbosity is set to INFO
+[ERROR] [launch]: Caught exception in launch (see debug for traceback): t1_sim is not implemented in W03; implement the W04 runner before enabling simulation.

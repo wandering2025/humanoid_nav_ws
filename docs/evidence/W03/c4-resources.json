@@ -1,0 +1,6 @@
+{
+  "t1_mujoco": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco",
+  "t1_description": "/home/haoyang/humanoid_nav_ws/install/t1_description/share/t1_description",
+  "t1_navigation": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation",
+  "t1_bringup": "/home/haoyang/humanoid_nav_ws/install/t1_bringup/share/t1_bringup"
+}

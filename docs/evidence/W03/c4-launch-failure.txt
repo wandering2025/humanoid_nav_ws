@@ -1,0 +1,7 @@
+{"command": ["ros2", "launch", "t1_bringup", "diagnostic.launch.py", "upstream_path:=/path/does/not/exist"], "cwd": "/tmp", "end_utc": "2026-10-13T20:20:21.519980+00:00", "exit_code": 1, "expected": 1, "log": "c4-launch-failure.txt", "name": "c4-launch-failure", "pass": true, "ros_domain_id": "73", "start_utc": "2026-10-13T20:20:20.925431+00:00", "tested_head": "a81fc924f11a678a98cc1cbd4987f9aef2c994e3"}
+[INFO] [launch]: All log files can be found below /home/haoyang/humanoid_nav_ws/run_data/w03_ros_logs/2026-10-13-22-20-21-106960-DESKTOP-MF19MEU-26929
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [t1_diagnostic-1]: process started with pid [26932]
+[t1_diagnostic-1] T1 diagnostic failed: upstream_path does not exist or has the wrong type: /path/does/not/exist
+[ERROR] [t1_diagnostic-1]: process has died [pid 26932, exit code 2, cmd '/home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/t1_mujoco/t1_diagnostic --ros-args -r __node:=t1_diagnostic --params-file /home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/runtime.yaml --params-file /tmp/launch_params_rap1min0 --params-file /tmp/launch_params_8bpflgnm'].
+[ERROR] [launch]: Caught exception in launch (see debug for traceback): t1_diagnostic exited with code 2

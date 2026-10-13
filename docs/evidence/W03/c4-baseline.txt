@@ -1,0 +1,6 @@
+{"command": ["/home/haoyang/venvs/humanoid_mujoco/bin/python", "/home/haoyang/humanoid_nav_ws/docs/baseline/verify_baseline.py"], "cwd": "/home/haoyang/humanoid_nav_ws", "end_utc": "2026-10-13T20:20:24.243842+00:00", "exit_code": 0, "expected": 0, "log": "c4-baseline.txt", "name": "c4-baseline", "pass": true, "ros_domain_id": "73", "start_utc": "2026-10-13T20:20:22.535954+00:00", "tested_head": "a81fc924f11a678a98cc1cbd4987f9aef2c994e3"}
+start_utc 2026-10-13T20:20:23.758291+00:00
+tested_head a81fc924f11a678a98cc1cbd4987f9aef2c994e3
+python /home/haoyang/venvs/humanoid_mujoco/bin/python torch_runtime 2.14.1+cu130 cuda_available True
+PASS environment/imports/repos/paths/hashes/MJCF/dependencies.repos
+end_utc 2026-10-13T20:20:23.939952+00:00

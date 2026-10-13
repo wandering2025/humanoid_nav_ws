@@ -1,0 +1,3 @@
+{"command": ["ros2", "run", "t1_mujoco", "t1_diagnostic", "--ros-args", "-p", "upstream_path:=/path/does/not/exist"], "cwd": "/tmp", "end_utc": "2026-10-13T20:20:20.925117+00:00", "exit_code": 2, "expected": 2, "log": "c4-invalid-upstream.txt", "name": "c4-invalid-upstream", "pass": true, "ros_domain_id": "73", "start_utc": "2026-10-13T20:20:20.444515+00:00", "tested_head": "a81fc924f11a678a98cc1cbd4987f9aef2c994e3"}
+T1 diagnostic failed: upstream_path does not exist or has the wrong type: /path/does/not/exist
+[ros2run]: Process exited with failure 2

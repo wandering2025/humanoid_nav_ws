@@ -1,0 +1,3 @@
+{"command": ["ros2", "run", "t1_mujoco", "t1_diagnostic"], "cwd": "/tmp", "end_utc": "2026-10-13T20:20:22.110148+00:00", "exit_code": 2, "expected": 2, "log": "c4-missing-venv.txt", "name": "c4-missing-venv", "pass": true, "ros_domain_id": "73", "start_utc": "2026-10-13T20:20:21.986117+00:00", "tested_head": "a81fc924f11a678a98cc1cbd4987f9aef2c994e3"}
+t1_diagnostic: set T1_VENV to an existing absolute Python venv directory; source scripts/env.sh.
+[ros2run]: Process exited with failure 2

@@ -1,0 +1,4 @@
+{"command": ["ros2", "launch", "t1_bringup", "diagnostic.launch.py", "params_file:=/path/does/not/exist"], "cwd": "/tmp", "end_utc": "2026-10-13T20:20:21.985614+00:00", "exit_code": 1, "expected": 1, "log": "c4-missing-params.txt", "name": "c4-missing-params", "pass": true, "ros_domain_id": "73", "start_utc": "2026-10-13T20:20:21.758983+00:00", "tested_head": "a81fc924f11a678a98cc1cbd4987f9aef2c994e3"}
+[INFO] [launch]: All log files can be found below /home/haoyang/humanoid_nav_ws/run_data/w03_ros_logs/2026-10-13-22-20-21-930698-DESKTOP-MF19MEU-26977
+[INFO] [launch]: Default logging verbosity is set to INFO
+[ERROR] [launch]: Caught exception in launch (see debug for traceback): params_file does not exist: /path/does/not/exist
