@@ -1,0 +1,22 @@
+{
+  "started_utc": "2026-10-13T20:32:40.383907+00:00",
+  "ended_utc": "2026-10-13T20:32:41.820835+00:00",
+  "code_sha": "3f9c7b7a738c01029b47d378ad061b5a3e017d16",
+  "sim_duration": 15.0,
+  "wall_duration": 1.438988863999839,
+  "max_trajectory_error": 0.0,
+  "checks": [
+    "trajectory_matches_upstream",
+    "reset_history_action_filter_counters_commands_monotonic_time",
+    "nan_action",
+    "policy_exception",
+    "nan_state",
+    "fallen",
+    "single_owner_assertion",
+    "expired_request_never_applied",
+    "non_sim_only_reset_rejected",
+    "model_rejects_order",
+    "model_rejects_gear"
+  ],
+  "exit_code": 0
+}

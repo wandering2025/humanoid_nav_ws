@@ -1,0 +1,37 @@
+Starting >>> t1_description
+Starting >>> t1_mujoco
+Starting >>> t1_navigation
+Finished <<< t1_description [0.06s]
+Finished <<< t1_navigation [0.06s]
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+cachedir: /home/haoyang/humanoid_nav_ws/build/t1_mujoco/.pytest_cache
+rootdir: /home/haoyang/humanoid_nav_ws/src/t1_mujoco
+configfile: setup.cfg
+testpaths: test
+plugins: ament-pep257-0.17.5, ament-copyright-0.17.5, launch-testing-3.4.12, ament-xmllint-0.17.5, ament-flake8-0.17.5, launch-testing-ros-0.26.13, ament-lint-0.17.5, colcon-core-0.21.3, cov-4.1.0, typeguard-4.1.5
+collected 14 items
+
+test/test_control.py ....                                                [ 28%]
+test/test_runtime.py ..........                                          [100%]
+
+- generated xml file: /home/haoyang/humanoid_nav_ws/build/t1_mujoco/pytest.xml -
+============================== 14 passed in 0.03s ==============================
+Finished <<< t1_mujoco [0.64s]
+Starting >>> t1_bringup
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+cachedir: /home/haoyang/humanoid_nav_ws/build/t1_bringup/.pytest_cache
+rootdir: /home/haoyang/humanoid_nav_ws/src/t1_bringup
+configfile: setup.cfg
+testpaths: test
+plugins: ament-pep257-0.17.5, ament-copyright-0.17.5, launch-testing-3.4.12, ament-xmllint-0.17.5, ament-flake8-0.17.5, launch-testing-ros-0.26.13, ament-lint-0.17.5, colcon-core-0.21.3, cov-4.1.0, typeguard-4.1.5
+collected 6 items
+
+test/test_launch_support.py ......                                       [100%]
+
+- generated xml file: /home/haoyang/humanoid_nav_ws/build/t1_bringup/pytest.xml -
+============================== 6 passed in 0.10s ===============================
+Finished <<< t1_bringup [0.82s]
+
+Summary: 4 packages finished [1.61s]
