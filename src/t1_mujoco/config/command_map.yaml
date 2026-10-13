@@ -5,11 +5,14 @@ schema: 1
 calibrated: true
 evidence:
   report: docs/evidence/W05/locomotion-envelope.md
-  c3_run: 20261013T212155Z_dev_w05_c3
-  c3_summary: docs/evidence/W05/c3-summary.csv
-  c3_summary_sha256: 00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe
-  tested_code_sha: e48e2f269682c2b606ccdd8bfcc6379172b926b4
+  runs:
+    20261013T212155Z_dev_w05_c3: 00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe
+    20261013T215753Z_dev_w05_dense: 50ef2baf9ae2530bac0edfdc07c131f99725909836fe07511264fcc6dd33fb01
+    20261013T220627Z_dev_w05_context: 25976d72867333007b5a1cec96b1ea9d84920a620cde6cb0f79b09525bc8f65e
+  statistic: largest 2 s window mean, >=3 s after command onset, segments >=8 s (raw traces)
+  tested_code_sha: abc5b4a8248b05037ef02f46022c2a6779915acd
   builder: docs/evidence/W05/build_command_map.py
+  validation: docs/evidence/W05/command-map-validation.json
 applicability: Frozen booster_deploy 7bb1462e t1_walk policy, booster_assets 12a97516 T1_23dof, MuJoCo 3.15.0, flat
   z=0 ground of the original scene, policy_dt 0.02/decimation 10, warmup 2.0 s. Headless deterministic simulation;
   not a hardware or safety certification. Re-run W05 suites after changing scene friction/terrain, model, policy
@@ -21,72 +24,140 @@ capabilities:
   lateral_allowed: false
   in_place_turn_allowed: true
 envelope:
-  vx_min: 0.31
+  vx_min: 0.315
   vx_max: 0.75
   wz_walking_max: 0.45
-  wz_in_place_min: 0.545
+  wz_in_place_min: 0.56
   wz_in_place_max: 0.85
 deadband: '0 < vx < vx_min -> vx=0; with vx=0: |wz| < wz_in_place_min -> wz=0. Never raised to a gait command. While
   walking, |wz| below the first table row maps proportionally to zero.'
 tables:
   vx:
-  - - 0.31
+  - - 0.315
     - 0.4
-  - - 0.385
-    - 0.45
-  - - 0.435
-    - 0.5
-  - - 0.54
-    - 0.6
-  - - 0.655
-    - 0.7
-  - - 0.775
-    - 0.8
-  - - 0.895
-    - 0.9
-  - - 1.01
-    - 1.0
-  wz_walking_pos:
-  - - 0.105
-    - 0.1
-  - - 0.195
-    - 0.2
-  - - 0.295
-    - 0.3
   - - 0.39
-    - 0.4
-  - - 0.5
+    - 0.45
+  - - 0.445
     - 0.5
-  wz_walking_neg:
-  - - 0.11
-    - 0.1
-  - - 0.2
-    - 0.2
-  - - 0.295
-    - 0.3
-  - - 0.385
-    - 0.4
-  - - 0.485
-    - 0.5
-  wz_in_place_pos:
   - - 0.545
     - 0.6
-  - - 0.645
+  - - 0.66
     - 0.7
-  - - 0.775
+  - - 0.78
     - 0.8
   - - 0.905
     - 0.9
+  - - 1.015
+    - 1.0
+  wz_walking_pos:
+  - - 0.065
+    - 0.05
+  - - 0.115
+    - 0.1
+  - - 0.16
+    - 0.15
+  - - 0.205
+    - 0.2
+  - - 0.255
+    - 0.25
+  - - 0.305
+    - 0.3
+  - - 0.35
+    - 0.35
+  - - 0.405
+    - 0.4
+  - - 0.455
+    - 0.45
+  - - 0.515
+    - 0.5
+  wz_walking_neg:
+  - - 0.07
+    - 0.05
+  - - 0.12
+    - 0.1
+  - - 0.16
+    - 0.15
+  - - 0.215
+    - 0.2
+  - - 0.255
+    - 0.25
+  - - 0.32
+    - 0.3
+  - - 0.345
+    - 0.35
+  - - 0.39
+    - 0.4
+  - - 0.44
+    - 0.45
+  - - 0.51
+    - 0.5
+  wz_in_place_pos:
+  - - 0.56
+    - 0.6
+  - - 0.58
+    - 0.625
+  - - 0.61
+    - 0.65
+  - - 0.635
+    - 0.675
+  - - 0.67
+    - 0.7
+  - - 0.705
+    - 0.725
+  - - 0.735
+    - 0.75
+  - - 0.765
+    - 0.775
+  - - 0.82
+    - 0.8
+  - - 0.845
+    - 0.825
+  - - 0.865
+    - 0.85
+  - - 0.895
+    - 0.875
+  - - 0.93
+    - 0.9
+  - - 0.945
+    - 0.925
+  - - 0.97
+    - 0.95
   - - 0.99
+    - 0.975
+  - - 1.01
     - 1.0
   wz_in_place_neg:
-  - - 0.455
+  - - 0.51
     - 0.6
-  - - 0.565
+  - - 0.55
+    - 0.625
+  - - 0.585
+    - 0.65
+  - - 0.59
+    - 0.675
+  - - 0.67
     - 0.7
-  - - 0.775
+  - - 0.675
+    - 0.725
+  - - 0.69
+    - 0.75
+  - - 0.75
+    - 0.775
+  - - 0.815
     - 0.8
-  - - 0.865
+  - - 0.82
+    - 0.825
+  - - 0.845
+    - 0.85
+  - - 0.86
+    - 0.875
+  - - 0.885
     - 0.9
-  - - 0.97
+  - - 0.91
+    - 0.925
+  - - 0.93
+    - 0.95
+  - - 0.96
+    - 0.975
+  - - 0.985
     - 1.0

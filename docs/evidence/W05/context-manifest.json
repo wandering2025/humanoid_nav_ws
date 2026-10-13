@@ -1,0 +1,799 @@
+{
+  "schema": 1,
+  "suite": "context",
+  "created_utc": "2026-10-13T22:06:27.143284+00:00",
+  "code_sha": "abc5b4a8248b05037ef02f46022c2a6779915acd",
+  "dirty": true,
+  "dirty_files": [
+    "M docs/evidence/W05/build_command_map.py",
+    " M docs/start_commands.md",
+    " M src/t1_mujoco/config/command_map.yaml",
+    "?? docs/evidence/W05/command-map-validation.json"
+  ],
+  "upstream_sha": {
+    "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+    "booster_assets": "12a97516f57469078707afb587a5f84c1cb110d1"
+  },
+  "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7",
+  "mjcf_sha256": "f00e3410362b1e2267e6db05d25c33d6240bbf2436d62a409f07042bad4f7fb2",
+  "python": "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+  "mujoco": "3.15.0",
+  "torch": "2.14.1+cu130",
+  "command_line": [
+    "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+    "-m",
+    "t1_mujoco.calibrate",
+    "context"
+  ],
+  "protocol": "warmup 2.0 s (STARTING, forced zero) then segments; commands are policy units fed through InputBuffer each policy step; headings rotate only the initial world yaw",
+  "headings_deg": [
+    0.0,
+    90.0,
+    180.0
+  ],
+  "policy_dt": 0.02,
+  "decimation": 10,
+  "physics_dt": 0.002,
+  "trials": [
+    {
+      "name": "ctx_inplace+0.6:+0.000,+0.000,+0.600@stand",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 23.999999999997577,
+      "wall_s": 1.2997700470000382
+    },
+    {
+      "name": "ctx_inplace+0.6:+0.000,+0.000,+0.600@stand",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 23.999999999997577,
+      "wall_s": 1.1644308070000307
+    },
+    {
+      "name": "ctx_inplace+0.6:+0.000,+0.000,+0.600@stand",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 23.999999999997577,
+      "wall_s": 1.1243825860000243
+    },
+    {
+      "name": "ctx_inplace+0.6:+0.000,+0.000,+0.600@after_opposite_turn",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.690715737000005
+    },
+    {
+      "name": "ctx_inplace+0.6:+0.000,+0.000,+0.600@after_opposite_turn",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.6872399399999267
+    },
+    {
+      "name": "ctx_inplace+0.6:+0.000,+0.000,+0.600@after_opposite_turn",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.728747257000009
+    },
+    {
+      "name": "ctx_inplace+0.6:+0.000,+0.000,+0.600@after_walk_stop",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 34.99999999999681,
+      "wall_s": 1.5858417040000177
+    },
+    {
+      "name": "ctx_inplace+0.6:+0.000,+0.000,+0.600@after_walk_stop",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 34.99999999999681,
+      "wall_s": 1.5947974629999635
+    },
+    {
+      "name": "ctx_inplace+0.6:+0.000,+0.000,+0.600@after_walk_stop",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 34.99999999999681,
+      "wall_s": 1.5690494070000796
+    },
+    {
+      "name": "ctx_inplace+0.6:+0.000,+0.000,+0.600@from_walk",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 29.99999999999425,
+      "wall_s": 1.4121419869999272
+    },
+    {
+      "name": "ctx_inplace+0.6:+0.000,+0.000,+0.600@from_walk",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 29.99999999999425,
+      "wall_s": 1.422309360999975
+    },
+    {
+      "name": "ctx_inplace+0.6:+0.000,+0.000,+0.600@from_walk",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 29.99999999999425,
+      "wall_s": 1.3964692460000379
+    },
+    {
+      "name": "ctx_inplace-0.6:+0.000,+0.000,-0.600@stand",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 23.999999999997577,
+      "wall_s": 1.132288487999972
+    },
+    {
+      "name": "ctx_inplace-0.6:+0.000,+0.000,-0.600@stand",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 23.999999999997577,
+      "wall_s": 1.135006954000005
+    },
+    {
+      "name": "ctx_inplace-0.6:+0.000,+0.000,-0.600@stand",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 23.999999999997577,
+      "wall_s": 1.1157946280000033
+    },
+    {
+      "name": "ctx_inplace-0.6:+0.000,+0.000,-0.600@after_opposite_turn",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.703433044999997
+    },
+    {
+      "name": "ctx_inplace-0.6:+0.000,+0.000,-0.600@after_opposite_turn",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.7083774760000097
+    },
+    {
+      "name": "ctx_inplace-0.6:+0.000,+0.000,-0.600@after_opposite_turn",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.7154008859999976
+    },
+    {
+      "name": "ctx_inplace-0.6:+0.000,+0.000,-0.600@after_walk_stop",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 34.99999999999681,
+      "wall_s": 1.5957129050000276
+    },
+    {
+      "name": "ctx_inplace-0.6:+0.000,+0.000,-0.600@after_walk_stop",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 34.99999999999681,
+      "wall_s": 1.6082333619999645
+    },
+    {
+      "name": "ctx_inplace-0.6:+0.000,+0.000,-0.600@after_walk_stop",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 34.99999999999681,
+      "wall_s": 1.589212107000094
+    },
+    {
+      "name": "ctx_inplace-0.6:+0.000,+0.000,-0.600@from_walk",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 29.99999999999425,
+      "wall_s": 1.3892415909999727
+    },
+    {
+      "name": "ctx_inplace-0.6:+0.000,+0.000,-0.600@from_walk",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 29.99999999999425,
+      "wall_s": 1.401011058999984
+    },
+    {
+      "name": "ctx_inplace-0.6:+0.000,+0.000,-0.600@from_walk",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 29.99999999999425,
+      "wall_s": 1.4124089250000225
+    },
+    {
+      "name": "ctx_inplace+0.7:+0.000,+0.000,+0.700@stand",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 23.999999999997577,
+      "wall_s": 1.1259207890000198
+    },
+    {
+      "name": "ctx_inplace+0.7:+0.000,+0.000,+0.700@stand",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 23.999999999997577,
+      "wall_s": 1.1250517500000115
+    },
+    {
+      "name": "ctx_inplace+0.7:+0.000,+0.000,+0.700@stand",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 23.999999999997577,
+      "wall_s": 1.1448711450000246
+    },
+    {
+      "name": "ctx_inplace+0.7:+0.000,+0.000,+0.700@after_opposite_turn",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.7223754430000326
+    },
+    {
+      "name": "ctx_inplace+0.7:+0.000,+0.000,+0.700@after_opposite_turn",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.7164370469999994
+    },
+    {
+      "name": "ctx_inplace+0.7:+0.000,+0.000,+0.700@after_opposite_turn",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.7202432220000219
+    },
+    {
+      "name": "ctx_inplace+0.7:+0.000,+0.000,+0.700@after_walk_stop",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 34.99999999999681,
+      "wall_s": 1.5922439839999925
+    },
+    {
+      "name": "ctx_inplace+0.7:+0.000,+0.000,+0.700@after_walk_stop",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 34.99999999999681,
+      "wall_s": 1.5855183810000426
+    },
+    {
+      "name": "ctx_inplace+0.7:+0.000,+0.000,+0.700@after_walk_stop",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 34.99999999999681,
+      "wall_s": 1.6046427459999677
+    },
+    {
+      "name": "ctx_inplace+0.7:+0.000,+0.000,+0.700@from_walk",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 29.99999999999425,
+      "wall_s": 1.3587444110000888
+    },
+    {
+      "name": "ctx_inplace+0.7:+0.000,+0.000,+0.700@from_walk",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 29.99999999999425,
+      "wall_s": 1.3634187609999344
+    },
+    {
+      "name": "ctx_inplace+0.7:+0.000,+0.000,+0.700@from_walk",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 29.99999999999425,
+      "wall_s": 1.5124074029999974
+    },
+    {
+      "name": "ctx_inplace-0.7:+0.000,+0.000,-0.700@stand",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 23.999999999997577,
+      "wall_s": 1.1497121819999165
+    },
+    {
+      "name": "ctx_inplace-0.7:+0.000,+0.000,-0.700@stand",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 23.999999999997577,
+      "wall_s": 1.1534056970000393
+    },
+    {
+      "name": "ctx_inplace-0.7:+0.000,+0.000,-0.700@stand",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 23.999999999997577,
+      "wall_s": 1.1294176349999816
+    },
+    {
+      "name": "ctx_inplace-0.7:+0.000,+0.000,-0.700@after_opposite_turn",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.688832576999971
+    },
+    {
+      "name": "ctx_inplace-0.7:+0.000,+0.000,-0.700@after_opposite_turn",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.7061503099999982
+    },
+    {
+      "name": "ctx_inplace-0.7:+0.000,+0.000,-0.700@after_opposite_turn",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.7177064380000502
+    },
+    {
+      "name": "ctx_inplace-0.7:+0.000,+0.000,-0.700@after_walk_stop",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 34.99999999999681,
+      "wall_s": 1.6152406979999796
+    },
+    {
+      "name": "ctx_inplace-0.7:+0.000,+0.000,-0.700@after_walk_stop",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 34.99999999999681,
+      "wall_s": 1.6074720340000113
+    },
+    {
+      "name": "ctx_inplace-0.7:+0.000,+0.000,-0.700@after_walk_stop",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 34.99999999999681,
+      "wall_s": 1.600275469000053
+    },
+    {
+      "name": "ctx_inplace-0.7:+0.000,+0.000,-0.700@from_walk",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 29.99999999999425,
+      "wall_s": 1.3251354950000405
+    },
+    {
+      "name": "ctx_inplace-0.7:+0.000,+0.000,-0.700@from_walk",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 29.99999999999425,
+      "wall_s": 1.351273964000029
+    },
+    {
+      "name": "ctx_inplace-0.7:+0.000,+0.000,-0.700@from_walk",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 29.99999999999425,
+      "wall_s": 1.3461330400000406
+    },
+    {
+      "name": "ctx_inplace+0.8:+0.000,+0.000,+0.800@stand",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 23.999999999997577,
+      "wall_s": 1.116834340999958
+    },
+    {
+      "name": "ctx_inplace+0.8:+0.000,+0.000,+0.800@stand",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 23.999999999997577,
+      "wall_s": 1.121056696000096
+    },
+    {
+      "name": "ctx_inplace+0.8:+0.000,+0.000,+0.800@stand",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 23.999999999997577,
+      "wall_s": 1.1091653490000226
+    },
+    {
+      "name": "ctx_inplace+0.8:+0.000,+0.000,+0.800@after_opposite_turn",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.6415188919999082
+    },
+    {
+      "name": "ctx_inplace+0.8:+0.000,+0.000,+0.800@after_opposite_turn",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.6544662600000493
+    },
+    {
+      "name": "ctx_inplace+0.8:+0.000,+0.000,+0.800@after_opposite_turn",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.669448424000052
+    },
+    {
+      "name": "ctx_inplace+0.8:+0.000,+0.000,+0.800@after_walk_stop",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 34.99999999999681,
+      "wall_s": 1.5963109559999111
+    },
+    {
+      "name": "ctx_inplace+0.8:+0.000,+0.000,+0.800@after_walk_stop",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 34.99999999999681,
+      "wall_s": 1.59597126999995
+    },
+    {
+      "name": "ctx_inplace+0.8:+0.000,+0.000,+0.800@after_walk_stop",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 34.99999999999681,
+      "wall_s": 1.6227269700000306
+    },
+    {
+      "name": "ctx_inplace+0.8:+0.000,+0.000,+0.800@from_walk",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 29.99999999999425,
+      "wall_s": 1.411172540999928
+    },
+    {
+      "name": "ctx_inplace+0.8:+0.000,+0.000,+0.800@from_walk",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 29.99999999999425,
+      "wall_s": 1.3611811440000565
+    },
+    {
+      "name": "ctx_inplace+0.8:+0.000,+0.000,+0.800@from_walk",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 29.99999999999425,
+      "wall_s": 1.374587854000083
+    },
+    {
+      "name": "ctx_inplace-0.8:+0.000,+0.000,-0.800@stand",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 23.999999999997577,
+      "wall_s": 1.1279736410000396
+    },
+    {
+      "name": "ctx_inplace-0.8:+0.000,+0.000,-0.800@stand",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 23.999999999997577,
+      "wall_s": 1.1314943439999752
+    },
+    {
+      "name": "ctx_inplace-0.8:+0.000,+0.000,-0.800@stand",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 23.999999999997577,
+      "wall_s": 1.164404142999956
+    },
+    {
+      "name": "ctx_inplace-0.8:+0.000,+0.000,-0.800@after_opposite_turn",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.7043579490000411
+    },
+    {
+      "name": "ctx_inplace-0.8:+0.000,+0.000,-0.800@after_opposite_turn",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.718865836999953
+    },
+    {
+      "name": "ctx_inplace-0.8:+0.000,+0.000,-0.800@after_opposite_turn",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.7116485679999869
+    },
+    {
+      "name": "ctx_inplace-0.8:+0.000,+0.000,-0.800@after_walk_stop",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 34.99999999999681,
+      "wall_s": 1.5939053690000264
+    },
+    {
+      "name": "ctx_inplace-0.8:+0.000,+0.000,-0.800@after_walk_stop",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 34.99999999999681,
+      "wall_s": 1.6597896170000013
+    },
+    {
+      "name": "ctx_inplace-0.8:+0.000,+0.000,-0.800@after_walk_stop",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 34.99999999999681,
+      "wall_s": 1.6660309119999965
+    },
+    {
+      "name": "ctx_inplace-0.8:+0.000,+0.000,-0.800@from_walk",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 29.99999999999425,
+      "wall_s": 1.6742066620000742
+    },
+    {
+      "name": "ctx_inplace-0.8:+0.000,+0.000,-0.800@from_walk",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 29.99999999999425,
+      "wall_s": 1.4413447680000218
+    },
+    {
+      "name": "ctx_inplace-0.8:+0.000,+0.000,-0.800@from_walk",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 29.99999999999425,
+      "wall_s": 1.449198948000003
+    },
+    {
+      "name": "ctx_walk+0.4:+0.500,+0.000,+0.400@after_inplace_left",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.7498430990000315
+    },
+    {
+      "name": "ctx_walk+0.4:+0.500,+0.000,+0.400@after_inplace_left",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.7989639549999765
+    },
+    {
+      "name": "ctx_walk+0.4:+0.500,+0.000,+0.400@after_inplace_left",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 2.0080232919999617
+    },
+    {
+      "name": "ctx_walk+0.4:+0.500,+0.000,+0.400@after_inplace_right",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 2.1954050469998947
+    },
+    {
+      "name": "ctx_walk+0.4:+0.500,+0.000,+0.400@after_inplace_right",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 2.731610459999956
+    },
+    {
+      "name": "ctx_walk+0.4:+0.500,+0.000,+0.400@after_inplace_right",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 2.0383226109998986
+    },
+    {
+      "name": "ctx_walk-0.4:+0.500,+0.000,-0.400@after_inplace_left",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 2.4583108330000414
+    },
+    {
+      "name": "ctx_walk-0.4:+0.500,+0.000,-0.400@after_inplace_left",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 3.1113238960000444
+    },
+    {
+      "name": "ctx_walk-0.4:+0.500,+0.000,-0.400@after_inplace_left",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 2.4492265139999745
+    },
+    {
+      "name": "ctx_walk-0.4:+0.500,+0.000,-0.400@after_inplace_right",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 2.453426168999954
+    },
+    {
+      "name": "ctx_walk-0.4:+0.500,+0.000,-0.400@after_inplace_right",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 2.2754259550000597
+    },
+    {
+      "name": "ctx_walk-0.4:+0.500,+0.000,-0.400@after_inplace_right",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 36.999999999999254,
+      "wall_s": 1.708880755999985
+    }
+  ],
+  "ended_utc": "2026-10-13T22:08:39.834339+00:00",
+  "wall_duration_s": 132.68601250400002,
+  "sim_time_total_s": 2711.999999999773,
+  "summary_sha256": "25976d72867333007b5a1cec96b1ea9d84920a620cde6cb0f79b09525bc8f65e"
+}

@@ -1,0 +1,8 @@
+{
+ "map_sha256": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+ "checks": 966,
+ "violations": [],
+ "statistic": "largest 2 s window mean >=3 s after onset",
+ "groups": 1194,
+ "note": "for every constant-command segment whose u lies in the admitted envelope: measured <= M^-1(u)"
+}

@@ -1,0 +1,4252 @@
+{
+  "schema": 1,
+  "suite": "dense",
+  "created_utc": "2026-10-13T21:57:53.173841+00:00",
+  "code_sha": "3a64aeeaf0221e002052ad691cb5f95f8057a587",
+  "dirty": true,
+  "dirty_files": [
+    "M docs/start_commands.md"
+  ],
+  "upstream_sha": {
+    "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+    "booster_assets": "12a97516f57469078707afb587a5f84c1cb110d1"
+  },
+  "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7",
+  "mjcf_sha256": "f00e3410362b1e2267e6db05d25c33d6240bbf2436d62a409f07042bad4f7fb2",
+  "python": "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+  "mujoco": "3.15.0",
+  "torch": "2.14.1+cu130",
+  "command_line": [
+    "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+    "-m",
+    "t1_mujoco.calibrate",
+    "dense"
+  ],
+  "protocol": "warmup 2.0 s (STARTING, forced zero) then segments; commands are policy units fed through InputBuffer each policy step; headings rotate only the initial world yaw",
+  "headings_deg": [
+    0.0,
+    90.0,
+    180.0
+  ],
+  "policy_dt": 0.02,
+  "decimation": 10,
+  "physics_dt": 0.002,
+  "trials": [
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.550",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 1.0117280180000137
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.550",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9139848800000152
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.550",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9200875729999893
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.550",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8989384070000028
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.550",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.913060994999995
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.550",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9170141990000218
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.575",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9631053190000216
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.575",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8961683950000179
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.575",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9015358370000115
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.575",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9093724420000058
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.575",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9255799690000117
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.575",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9082046359999936
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.600",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9269490890000043
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.600",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8993824709999956
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.600",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8963881279999839
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.600",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9212385159999883
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.600",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8997216209999976
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.600",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9032429960000172
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.625",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9030685399999925
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.625",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.927993081000011
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.625",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9021083350000083
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.625",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8977749359999905
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.625",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9055351359999975
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.625",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9182559369999979
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.650",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9308119750000117
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.650",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.890767956000019
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.650",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9040759910000133
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.650",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9099344859999974
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.650",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9051784060000045
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.650",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9030094570000244
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.675",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9163590170000191
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.675",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9009592269999871
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.675",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9129657240000029
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.675",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9198193920000222
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.675",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9099852550000094
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.675",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9106023800000003
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.700",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9146797969999909
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.700",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8812041950000093
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.700",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8784607959999846
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.700",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8887235850000081
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.700",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8905745110000112
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.700",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8855835360000128
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.725",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8696364420000009
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.725",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8794861660000208
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.725",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8799302870000076
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.725",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9037541460000114
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.725",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9074974830000144
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.725",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9150993480000125
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.750",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9189766309999925
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.750",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.87625345699999
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.750",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8852592079999795
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.750",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9038127020000104
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.750",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8990817030000073
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.750",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9141344370000013
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.775",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8800124290000042
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.775",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8797327949999953
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.775",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8837689020000141
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.775",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8952011940000091
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.775",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9256126399999971
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.775",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8851945410000042
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.800",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9176424720000114
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.800",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8876150670000129
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.800",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8813273539999784
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.800",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.904512498999992
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.800",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9069862629999932
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.800",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8782874359999937
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.825",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8855450990000122
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.825",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8793899469999928
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.825",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8750853740000082
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.825",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8906344819999958
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.825",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9007355739999809
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.825",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8918687480000074
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.850",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9186904389999881
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.850",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9026911799999766
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.850",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9194771220000177
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.850",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9246191420000116
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.850",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9058050000000151
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.850",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8915347850000046
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.875",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8993514839999932
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.875",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8894686390000004
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.875",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9068221379999954
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.875",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8909861209999974
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.875",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9081847209999978
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.875",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9004110790000084
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.900",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.926047963000002
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.900",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9018879140000138
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.900",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9046941189999984
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.900",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8832603089999793
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.900",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8682060300000103
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.900",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8851424939999788
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.925",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8878611509999814
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.925",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.911465211999996
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.925",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8734112039999786
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.925",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8726228390000017
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.925",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8705779059999941
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.925",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8955212869999798
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.950",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.929139202000016
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.950",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8966076950000001
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.950",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8921466420000002
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.950",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8866957559999946
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.950",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8886098639999886
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.950",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8857553039999857
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.975",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9157756580000012
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.975",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8936794040000109
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+0.975",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8864910550000218
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.975",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8737173239999834
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.975",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.874751061000012
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-0.975",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8940123590000155
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+1.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9258766199999968
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+1.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8904472179999914
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,+1.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8838138349999838
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-1.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8790330690000019
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-1.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8724202580000053
+    },
+    {
+      "name": "dense_inplace:+0.000,+0.000,-1.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8769754239999941
+    },
+    {
+      "name": "dense_vx:+0.400,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.884753561000025
+    },
+    {
+      "name": "dense_vx:+0.400,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.876551204000009
+    },
+    {
+      "name": "dense_vx:+0.400,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8715783600000009
+    },
+    {
+      "name": "dense_vx:+0.425,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8697344139999927
+    },
+    {
+      "name": "dense_vx:+0.425,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8712066970000194
+    },
+    {
+      "name": "dense_vx:+0.425,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.91650489700001
+    },
+    {
+      "name": "dense_vx:+0.450,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9233489869999971
+    },
+    {
+      "name": "dense_vx:+0.450,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.894203908999998
+    },
+    {
+      "name": "dense_vx:+0.450,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.888537054000011
+    },
+    {
+      "name": "dense_vx:+0.475,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8887281309999935
+    },
+    {
+      "name": "dense_vx:+0.475,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8764981260000013
+    },
+    {
+      "name": "dense_vx:+0.475,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8931869560000223
+    },
+    {
+      "name": "dense_vx:+0.500,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8650620340000046
+    },
+    {
+      "name": "dense_vx:+0.500,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8718629050000004
+    },
+    {
+      "name": "dense_vx:+0.500,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8813355860000058
+    },
+    {
+      "name": "dense_vx:+0.525,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8717559410000035
+    },
+    {
+      "name": "dense_vx:+0.525,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8737603339999964
+    },
+    {
+      "name": "dense_vx:+0.525,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.899867453999974
+    },
+    {
+      "name": "dense_vx:+0.550,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9064424370000097
+    },
+    {
+      "name": "dense_vx:+0.550,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8633765910000193
+    },
+    {
+      "name": "dense_vx:+0.550,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8730832589999693
+    },
+    {
+      "name": "dense_vx:+0.575,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.870078081000031
+    },
+    {
+      "name": "dense_vx:+0.575,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8814671749999548
+    },
+    {
+      "name": "dense_vx:+0.575,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.90045197500001
+    },
+    {
+      "name": "dense_vx:+0.600,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.852505122000025
+    },
+    {
+      "name": "dense_vx:+0.600,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8806023399999958
+    },
+    {
+      "name": "dense_vx:+0.600,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8850867269999867
+    },
+    {
+      "name": "dense_vx:+0.625,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8803862780000031
+    },
+    {
+      "name": "dense_vx:+0.625,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9165004160000194
+    },
+    {
+      "name": "dense_vx:+0.625,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.928912175999983
+    },
+    {
+      "name": "dense_vx:+0.650,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9565443920000121
+    },
+    {
+      "name": "dense_vx:+0.650,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9093459479999524
+    },
+    {
+      "name": "dense_vx:+0.650,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8834536539999931
+    },
+    {
+      "name": "dense_vx:+0.675,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8885850799999844
+    },
+    {
+      "name": "dense_vx:+0.675,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8980133740000156
+    },
+    {
+      "name": "dense_vx:+0.675,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8871903490000363
+    },
+    {
+      "name": "dense_vx:+0.700,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8552009730000236
+    },
+    {
+      "name": "dense_vx:+0.700,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8680432940000173
+    },
+    {
+      "name": "dense_vx:+0.700,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8672469809999939
+    },
+    {
+      "name": "dense_vx:+0.725,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8921514839999531
+    },
+    {
+      "name": "dense_vx:+0.725,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8839980669999932
+    },
+    {
+      "name": "dense_vx:+0.725,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8992228719999957
+    },
+    {
+      "name": "dense_vx:+0.750,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9112112880000041
+    },
+    {
+      "name": "dense_vx:+0.750,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8798125590000154
+    },
+    {
+      "name": "dense_vx:+0.750,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8894570699999917
+    },
+    {
+      "name": "dense_vx:+0.775,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8884130069999969
+    },
+    {
+      "name": "dense_vx:+0.775,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8771612059999825
+    },
+    {
+      "name": "dense_vx:+0.775,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.874445847000004
+    },
+    {
+      "name": "dense_vx:+0.800,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8840523400000393
+    },
+    {
+      "name": "dense_vx:+0.800,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8634890889999838
+    },
+    {
+      "name": "dense_vx:+0.800,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8864042289999929
+    },
+    {
+      "name": "dense_vx:+0.825,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9055314429999726
+    },
+    {
+      "name": "dense_vx:+0.825,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8905898309999998
+    },
+    {
+      "name": "dense_vx:+0.825,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9189171350000152
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.050",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9382649949999973
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.050",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9148492639999972
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.050",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9295477320000032
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.050",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8982675319999771
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.050",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8864230050000401
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.050",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8835411750000048
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.877395971999988
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8874513960000172
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8837562179999736
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8981637390000401
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8804279080000015
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9054364229999692
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.150",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9037936199999876
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.150",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9028607710000074
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.150",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9343885630000273
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.150",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.881669009999996
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.150",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9054680380000377
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.150",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8974108950000073
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9003567059999682
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8996132849999867
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8977539809999939
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8924461119999592
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9008636440000259
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9307416039999907
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.250",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9540293700000007
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.250",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8865527680000014
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.250",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8891919290000487
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.250",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8786122859999637
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.250",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8738720349999767
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.250",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8840726999999902
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9069262660000277
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9150038180000024
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.915505673000041
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8960632380000106
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8756394440000008
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9197430579999946
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.350",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9202493060000165
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.350",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8932883090000132
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.350",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8896370300000171
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.350",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8882846139999856
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.350",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8863894309999978
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.350",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9037612879999983
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8906245759999933
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9012506439999584
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9018115879999868
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8843155140000363
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9090049369999633
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9015361749999897
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.450",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9115088380000316
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.450",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8803776060000246
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.450",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8836931760000084
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.450",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8862238769999635
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.450",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8981024579999826
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.450",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8675231760000202
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8733049140000162
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8820541779999758
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,+0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8839889470000344
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8775888589999568
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9004206409999824
+    },
+    {
+      "name": "dense_walk_ux0.4:+0.400,+0.000,-0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9132197569999789
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.050",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9431036579999841
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.050",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8828985970000076
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.050",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8921849089999796
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.050",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9244583900000407
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.050",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9107895820000067
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.050",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8905986550000193
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8784959280000066
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9029083049999826
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8847742759999733
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9003326829999878
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8662158110000178
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8867415340000093
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.150",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9210759210000106
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.150",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8954485970000405
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.150",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.894462878000013
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.150",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8804842690000214
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.150",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8896487439999987
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.150",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.882069571000045
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8771142980000377
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8680158450000022
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8897773420000021
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.874836178999999
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8647713450000083
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8693165079999972
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.250",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.959348183999964
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.250",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9328619070000173
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.250",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9110044469999821
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.250",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.899359469999979
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.250",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8914901389999841
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.250",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8907016740000131
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9009731350000152
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8978038890000448
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8718556110000009
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8641386759999818
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8772472100000073
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8663993149999669
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.350",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9138116400000058
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.350",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9011236100000133
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.350",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8867721299999971
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.350",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8876563840000244
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.350",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8815406209999992
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.350",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9081999230000406
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9029621859999679
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9462833719999821
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8708395790000054
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8899261139999908
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9103231229999551
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8915499940000018
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.450",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9615359100000092
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.450",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9185973339999691
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.450",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9101103589999866
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.450",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9098720719999847
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.450",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8832279249999715
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.450",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9045974679999631
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8823175820000415
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8812258720000159
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,+0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8853597839999452
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8962886920000415
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8784385270000143
+    },
+    {
+      "name": "dense_walk_ux0.5:+0.500,+0.000,-0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8952315509999949
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.050",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9392288679999865
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.050",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8859119059999898
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.050",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8909706869999923
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.050",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9055705819999957
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.050",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9121013110000149
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.050",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8961857250000094
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.908780983999975
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9394540470000265
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9647322729999814
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9235099900000137
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9427083650000441
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9172708799999896
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.150",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.969135983000001
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.150",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9214480599999888
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.150",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9158471490000011
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.150",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9372794260000319
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.150",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.90580137500001
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.150",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9109565260000068
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8889800300000275
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.885558896999953
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8805148480000184
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8899473319999629
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8727238449999959
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8704524679999963
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.250",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9219434569999976
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.250",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8853935960000285
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.250",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8947588930000165
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.250",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8929746790000195
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.250",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9029614549999678
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.250",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8716888339999969
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.879260434999992
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8798082580000255
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8824300840000205
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8901846200000136
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8942164629999638
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8824482920000492
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.350",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9272399209999662
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.350",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9055671369999914
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.350",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8882948180000199
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.350",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.883855949000008
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.350",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8802427749999993
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.350",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8939385800000537
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8794056239999577
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8963411249999922
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8946022320000111
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9053990400000202
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8668403660000195
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.863106375999962
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.450",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9244676099999651
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.450",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8954232669999556
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.450",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8939199480000184
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.450",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8812520879999965
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.450",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8802954180000029
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.450",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.899631123000006
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9060004030000073
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8899752500000204
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,+0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9053312430000346
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8971588750000024
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9021064170000272
+    },
+    {
+      "name": "dense_walk_ux0.6:+0.600,+0.000,-0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9397772309999937
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.050",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9496505590000197
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.050",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9020004770000014
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.050",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8853052769999863
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.050",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8694742199999723
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.050",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8826225910000289
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.050",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.892683882999961
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9075196269999992
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8809375100000238
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8860417299999881
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.890907277999986
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8768465640000045
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9573636679999709
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.150",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9444400549999727
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.150",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9029069489999983
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.150",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8849490029999743
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.150",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8956607629999667
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.150",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9097371359999897
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.150",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9066205809999701
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.893922090999979
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8927467190000016
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8821169469999859
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.902585044000034
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9044954960000382
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9148912269999983
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.250",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9303766819999737
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.250",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.891873864000047
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.250",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8973393539999961
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.250",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8991050310000333
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.250",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8943103240000028
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.250",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8795290250000107
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8824592240000015
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8758524909999892
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8945429300000001
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8968079310000121
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8877399730000093
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9077336550000155
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.350",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.93272497199996
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.350",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8880268770000157
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.350",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.883720095000001
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.350",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9065901650000114
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.350",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8982640619999529
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.350",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9249384540000278
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8967138419999969
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9068365539999945
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9045190479999974
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.908034500000042
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8929552960000251
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9026556710000477
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.450",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9350389680000148
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.450",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8990429860000404
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.450",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.908607682999957
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.450",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8871722190000355
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.450",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8880476359999534
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.450",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9035971119999999
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8878469320000022
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8871819899999878
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,+0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8942387749999625
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8630576529999985
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8684933890000366
+    },
+    {
+      "name": "dense_walk_ux0.7:+0.700,+0.000,-0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.885834960000011
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.050",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9277601059999938
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.050",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9324534330000347
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.050",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9015050250000058
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.050",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9157072159999871
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.050",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8954499120000037
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.050",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8873090729999831
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8866527499999961
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.900050234000048
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8865637979999974
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8658409040000379
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.869622019000019
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9102267209999582
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.150",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9417100460000256
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.150",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.912987854999983
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.150",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8906638260000364
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.150",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8869296169999643
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.150",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8892768380000007
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.150",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8889923069999668
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8820486380000148
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8922368900000492
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8925284679999095
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8892075619999105
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9016590940000242
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9503078360000927
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.250",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9613497569999936
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.250",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.922290377999957
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.250",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9108674959999234
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.250",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.895549447999997
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.250",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8967464700000392
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.250",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9014082659999758
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9031469120000111
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9227110949999542
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8913047759999699
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8866746940000212
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8812411000000111
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9095279059999939
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.350",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9545558119999669
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.350",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8941127210000559
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.350",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8913191049999796
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.350",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8902870040000153
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.350",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8909961980000389
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.350",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8851619249999203
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.917050943999925
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8898886670000365
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8710688950000076
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8893045510000093
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9103163070000164
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9246814150000091
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.450",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9423231089999717
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.450",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9080785069999138
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.450",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8997732340000084
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.450",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9196237720000227
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.450",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8936863409999205
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.450",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8948537249999617
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.878750691999926
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8696573510000007
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,+0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8746052410000402
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8988998720000154
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8841070529999797
+    },
+    {
+      "name": "dense_walk_ux0.8:+0.800,+0.000,-0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.892823147999934
+    }
+  ],
+  "ended_utc": "2026-10-13T22:04:54.156367+00:00",
+  "wall_duration_s": 420.971326381,
+  "sim_time_total_s": 8892.000000000164,
+  "summary_sha256": "50ef2baf9ae2530bac0edfdc07c131f99725909836fe07511264fcc6dd33fb01"
+}
