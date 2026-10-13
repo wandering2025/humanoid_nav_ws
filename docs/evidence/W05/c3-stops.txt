@@ -1,0 +1,36 @@
+inplace |uwz|=0.35+      n=  3 v<=0.004 w<=0.220 dmax=0.046 tmax=2.74 yaw=[-16.4,-16.3] held=True
+inplace |uwz|=0.35-      n=  3 v<=0.002 w<=0.048 dmax=0.014 tmax=2.18 yaw=[18.3,18.3] held=True
+inplace |uwz|=0.40+      n=  3 v<=0.002 w<=0.273 dmax=0.046 tmax=2.76 yaw=[-16.1,-16.0] held=True
+inplace |uwz|=0.40-      n=  3 v<=0.004 w<=0.218 dmax=0.053 tmax=0.82 yaw=[3.1,4.5] held=True
+inplace |uwz|=0.45+      n=  3 v<=0.011 w<=0.345 dmax=0.049 tmax=0.68 yaw=[-2.6,-2.5] held=True
+inplace |uwz|=0.45-      n=  3 v<=0.014 w<=0.253 dmax=0.022 tmax=2.02 yaw=[12.4,17.6] held=True
+inplace |uwz|=0.50+      n=  3 v<=0.011 w<=0.435 dmax=0.040 tmax=2.66 yaw=[-17.0,-2.0] held=True
+inplace |uwz|=0.50-      n=  3 v<=0.009 w<=0.348 dmax=0.025 tmax=1.72 yaw=[11.8,12.3] held=True
+inplace |uwz|=0.55+      n=  3 v<=0.016 w<=0.469 dmax=0.026 tmax=3.16 yaw=[-18.9,-18.6] held=True
+inplace |uwz|=0.55-      n=  3 v<=0.025 w<=0.376 dmax=0.021 tmax=2.42 yaw=[17.3,22.5] held=True
+inplace |uwz|=0.60+      n=  3 v<=0.021 w<=0.541 dmax=0.026 tmax=0.70 yaw=[-1.7,-1.7] held=True
+inplace |uwz|=0.60-      n=  3 v<=0.031 w<=0.454 dmax=0.042 tmax=0.76 yaw=[2.4,6.0] held=True
+inplace |uwz|=0.70+      n=  3 v<=0.015 w<=0.641 dmax=0.041 tmax=0.72 yaw=[-1.9,-1.9] held=True
+inplace |uwz|=0.70-      n=  3 v<=0.009 w<=0.563 dmax=0.037 tmax=0.62 yaw=[4.2,4.5] held=True
+inplace |uwz|=0.80+      n=  3 v<=0.007 w<=0.773 dmax=0.029 tmax=0.72 yaw=[-2.3,-2.1] held=True
+inplace |uwz|=0.80-      n=  3 v<=0.031 w<=0.771 dmax=0.048 tmax=2.16 yaw=[-2.2,-2.2] held=True
+inplace |uwz|=0.90+      n=  3 v<=0.007 w<=0.902 dmax=0.033 tmax=0.78 yaw=[-2.9,-2.2] held=True
+inplace |uwz|=0.90-      n=  3 v<=0.027 w<=0.861 dmax=0.057 tmax=2.42 yaw=[-1.4,-1.4] held=True
+inplace |uwz|=1.00+      n=  3 v<=0.014 w<=0.990 dmax=0.055 tmax=1.22 yaw=[-3.2,-2.8] held=True
+inplace |uwz|=1.00-      n=  3 v<=0.022 w<=0.965 dmax=0.068 tmax=2.74 yaw=[0.0,0.0] held=True
+stop_inplace+            n= 36 v<=0.010 w<=0.987 dmax=0.064 tmax=2.38 yaw=[-9.5,-1.9] held=True
+stop_inplace-            n= 36 v<=0.024 w<=0.969 dmax=0.085 tmax=2.80 yaw=[-3.3,4.4] held=True
+stop_turn+               n= 36 v<=0.539 w<=0.485 dmax=0.245 tmax=1.52 yaw=[-1.9,1.5] held=True
+stop_turn-               n= 36 v<=0.506 w<=0.465 dmax=0.238 tmax=1.58 yaw=[0.0,2.8] held=True
+stop_vx0.4               n= 36 v<=0.280 w<=0.008 dmax=0.130 tmax=1.20 yaw=[0.2,1.4] held=True
+stop_vx0.6               n= 36 v<=0.510 w<=0.011 dmax=0.214 tmax=1.48 yaw=[-1.0,2.5] held=True
+stop_vx0.8               n= 36 v<=0.762 w<=0.013 dmax=0.337 tmax=1.82 yaw=[-3.9,3.3] held=True
+stop_vx1.0               n= 36 v<=0.992 w<=0.012 dmax=0.443 tmax=2.16 yaw=[-5.2,4.9] held=True
+walk ux=0.40             n= 33 v<=0.310 w<=0.496 dmax=0.140 tmax=1.52 yaw=[-1.7,3.0] held=True
+walk ux=0.45             n= 33 v<=0.382 w<=0.474 dmax=0.147 tmax=1.20 yaw=[-0.9,1.8] held=True
+walk ux=0.50             n= 33 v<=0.433 w<=0.481 dmax=0.177 tmax=1.38 yaw=[-1.1,3.2] held=True
+walk ux=0.60             n= 33 v<=0.537 w<=0.483 dmax=0.239 tmax=1.58 yaw=[-1.7,2.7] held=True
+walk ux=0.70             n= 33 v<=0.652 w<=0.475 dmax=0.290 tmax=1.60 yaw=[-2.4,0.3] held=True
+walk ux=0.80             n= 33 v<=0.772 w<=0.473 dmax=0.353 tmax=1.64 yaw=[-2.8,3.2] held=True
+walk ux=0.90             n= 33 v<=0.894 w<=0.480 dmax=0.406 tmax=1.66 yaw=[-2.8,4.1] held=True
+walk ux=1.00             n= 33 v<=1.007 w<=0.487 dmax=0.438 tmax=1.72 yaw=[-4.4,5.1] held=True

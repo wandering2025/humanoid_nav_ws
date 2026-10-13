@@ -1,0 +1,372 @@
+{
+  "started_utc": "2026-10-13T21:30:50.005115+00:00",
+  "code_sha": "7e056e4ca0b50974f6ede33e03a92cefd2f183dd",
+  "dirty": [
+    " M docs/start_commands.md"
+  ],
+  "c1_run": "run_data/20261013T211059Z_dev_w05_c1",
+  "upstream_vs_adapter": [
+    {
+      "u_pol": [
+        0.3,
+        0.0,
+        0.0
+      ],
+      "max_abs_error": 0.0,
+      "upstream_disp_xy": [
+        0.08693675177972102,
+        -0.01380220272232169
+      ],
+      "adapter_disp_xy": [
+        0.08693675177972102,
+        -0.01380220272232169
+      ]
+    },
+    {
+      "u_pol": [
+        0.35,
+        0.0,
+        0.0
+      ],
+      "max_abs_error": 0.0,
+      "upstream_disp_xy": [
+        0.45203166444727155,
+        -0.0161010496112836
+      ],
+      "adapter_disp_xy": [
+        0.45203166444727155,
+        -0.0161010496112836
+      ]
+    },
+    {
+      "u_pol": [
+        0.375,
+        0.0,
+        0.0
+      ],
+      "max_abs_error": 0.0,
+      "upstream_disp_xy": [
+        2.241912359617982,
+        0.18192004713273227
+      ],
+      "adapter_disp_xy": [
+        2.241912359617982,
+        0.18192004713273227
+      ]
+    },
+    {
+      "u_pol": [
+        0.0,
+        0.0,
+        0.3
+      ],
+      "max_abs_error": 0.0,
+      "upstream_disp_xy": [
+        0.0689675061597795,
+        -0.04193453148018836
+      ],
+      "adapter_disp_xy": [
+        0.0689675061597795,
+        -0.04193453148018836
+      ]
+    },
+    {
+      "u_pol": [
+        0.0,
+        0.0,
+        -0.3
+      ],
+      "max_abs_error": 0.0,
+      "upstream_disp_xy": [
+        0.02735666141257287,
+        0.040845490040197115
+      ],
+      "adapter_disp_xy": [
+        0.02735666141257287,
+        0.040845490040197115
+      ]
+    },
+    {
+      "u_pol": [
+        0.0,
+        0.3,
+        0.0
+      ],
+      "max_abs_error": 0.0,
+      "upstream_disp_xy": [
+        -0.009060459266850349,
+        0.02218243913254017
+      ],
+      "adapter_disp_xy": [
+        -0.009060459266850349,
+        0.02218243913254017
+      ]
+    }
+  ],
+  "frame_check": [
+    {
+      "heading_deg": 0,
+      "initial_yaw_deg": 0.37179540422559887,
+      "world_dx": 3.731193074405816,
+      "world_dy": 0.27505543117489434,
+      "body_forward": 3.732899355481629,
+      "body_lateral": 0.2508378969724607,
+      "integrated_vmeas_world": [
+        3.7437542217975763,
+        0.2730908527550331
+      ],
+      "integration_error_m": 0.012713850406753791
+    },
+    {
+      "heading_deg": 90,
+      "initial_yaw_deg": 90.37179698899786,
+      "world_dx": -0.27505557441553086,
+      "world_dy": 3.731193250143114,
+      "body_forward": 3.7328995390827693,
+      "body_lateral": 0.25083793581960917,
+      "integrated_vmeas_world": [
+        -0.2730909954498286,
+        3.74375439770475
+      ],
+      "integration_error_m": 0.012713850658933955
+    },
+    {
+      "heading_deg": 180,
+      "initial_yaw_deg": -179.62820390743457,
+      "world_dx": -3.7311930547509644,
+      "world_dy": -0.2750555679370132,
+      "body_forward": 3.732899339728159,
+      "body_lateral": 0.2508379890129467,
+      "integrated_vmeas_world": [
+        -3.743754202495876,
+        -0.27309099016907673
+      ],
+      "integration_error_m": 0.012713850654926306
+    }
+  ],
+  "policy_probe": {
+    "state": "standing after 3 s zero command; obs_history copied; command channels 6:9 replaced",
+    "base_action_norm": 2.370718240737915,
+    "rows": [
+      {
+        "axis": "vx",
+        "u": 0.05,
+        "d_action_all_frames": 0.05319812893867493,
+        "d_action_last_frame": 0.027885165065526962
+      },
+      {
+        "axis": "vx",
+        "u": 0.1,
+        "d_action_all_frames": 0.10671300441026688,
+        "d_action_last_frame": 0.05577792972326279
+      },
+      {
+        "axis": "vx",
+        "u": 0.2,
+        "d_action_all_frames": 0.21364150941371918,
+        "d_action_last_frame": 0.11160940676927567
+      },
+      {
+        "axis": "vx",
+        "u": 0.3,
+        "d_action_all_frames": 0.3280255198478699,
+        "d_action_last_frame": 0.167500302195549
+      },
+      {
+        "axis": "vx",
+        "u": 0.35,
+        "d_action_all_frames": 0.39041921496391296,
+        "d_action_last_frame": 0.19544857740402222
+      },
+      {
+        "axis": "vx",
+        "u": 0.375,
+        "d_action_all_frames": 0.42268234491348267,
+        "d_action_last_frame": 0.20940421521663666
+      },
+      {
+        "axis": "vx",
+        "u": 0.4,
+        "d_action_all_frames": 0.45481789112091064,
+        "d_action_last_frame": 0.22334741055965424
+      },
+      {
+        "axis": "vx",
+        "u": 0.5,
+        "d_action_all_frames": 0.5753613710403442,
+        "d_action_last_frame": 0.279022216796875
+      },
+      {
+        "axis": "vx",
+        "u": 0.75,
+        "d_action_all_frames": 0.836122989654541,
+        "d_action_last_frame": 0.4179624617099762
+      },
+      {
+        "axis": "vx",
+        "u": 1.0,
+        "d_action_all_frames": 1.044790267944336,
+        "d_action_last_frame": 0.5574216246604919
+      },
+      {
+        "axis": "vx",
+        "u": -0.3,
+        "d_action_all_frames": 0.32801908254623413,
+        "d_action_last_frame": 0.16757164895534515
+      },
+      {
+        "axis": "vx",
+        "u": -0.5,
+        "d_action_all_frames": 0.5855416655540466,
+        "d_action_last_frame": 0.28008827567100525
+      },
+      {
+        "axis": "vy",
+        "u": 0.05,
+        "d_action_all_frames": 0.0341951958835125,
+        "d_action_last_frame": 0.014149835333228111
+      },
+      {
+        "axis": "vy",
+        "u": 0.1,
+        "d_action_all_frames": 0.07098948210477829,
+        "d_action_last_frame": 0.028525644913315773
+      },
+      {
+        "axis": "vy",
+        "u": 0.2,
+        "d_action_all_frames": 0.15163305401802063,
+        "d_action_last_frame": 0.05804925411939621
+      },
+      {
+        "axis": "vy",
+        "u": 0.3,
+        "d_action_all_frames": 0.24486328661441803,
+        "d_action_last_frame": 0.08877076953649521
+      },
+      {
+        "axis": "vy",
+        "u": 0.35,
+        "d_action_all_frames": 0.2986419200897217,
+        "d_action_last_frame": 0.10463064163923264
+      },
+      {
+        "axis": "vy",
+        "u": 0.375,
+        "d_action_all_frames": 0.3278254568576813,
+        "d_action_last_frame": 0.11269257962703705
+      },
+      {
+        "axis": "vy",
+        "u": 0.4,
+        "d_action_all_frames": 0.3587667942047119,
+        "d_action_last_frame": 0.12082972377538681
+      },
+      {
+        "axis": "vy",
+        "u": 0.5,
+        "d_action_all_frames": 0.5011538863182068,
+        "d_action_last_frame": 0.1540926843881607
+      },
+      {
+        "axis": "vy",
+        "u": 0.75,
+        "d_action_all_frames": 0.9194361567497253,
+        "d_action_last_frame": 0.24140828847885132
+      },
+      {
+        "axis": "vy",
+        "u": 1.0,
+        "d_action_all_frames": 1.4496170282363892,
+        "d_action_last_frame": 0.33710581064224243
+      },
+      {
+        "axis": "vy",
+        "u": -0.3,
+        "d_action_all_frames": 0.19865000247955322,
+        "d_action_last_frame": 0.08083035051822662
+      },
+      {
+        "axis": "vy",
+        "u": -0.5,
+        "d_action_all_frames": 0.4944937825202942,
+        "d_action_last_frame": 0.13073010742664337
+      },
+      {
+        "axis": "wz",
+        "u": 0.05,
+        "d_action_all_frames": 0.04434715956449509,
+        "d_action_last_frame": 0.016405533999204636
+      },
+      {
+        "axis": "wz",
+        "u": 0.1,
+        "d_action_all_frames": 0.08859911561012268,
+        "d_action_last_frame": 0.032815612852573395
+      },
+      {
+        "axis": "wz",
+        "u": 0.2,
+        "d_action_all_frames": 0.17609605193138123,
+        "d_action_last_frame": 0.06565894186496735
+      },
+      {
+        "axis": "wz",
+        "u": 0.3,
+        "d_action_all_frames": 0.2616727352142334,
+        "d_action_last_frame": 0.09849710017442703
+      },
+      {
+        "axis": "wz",
+        "u": 0.35,
+        "d_action_all_frames": 0.30393531918525696,
+        "d_action_last_frame": 0.11489108949899673
+      },
+      {
+        "axis": "wz",
+        "u": 0.375,
+        "d_action_all_frames": 0.3249574601650238,
+        "d_action_last_frame": 0.12308268249034882
+      },
+      {
+        "axis": "wz",
+        "u": 0.4,
+        "d_action_all_frames": 0.3458864092826843,
+        "d_action_last_frame": 0.13127008080482483
+      },
+      {
+        "axis": "wz",
+        "u": 0.5,
+        "d_action_all_frames": 0.4283480942249298,
+        "d_action_last_frame": 0.16395635902881622
+      },
+      {
+        "axis": "wz",
+        "u": 0.75,
+        "d_action_all_frames": 0.6275302171707153,
+        "d_action_last_frame": 0.24507839977741241
+      },
+      {
+        "axis": "wz",
+        "u": 1.0,
+        "d_action_all_frames": 0.8198307156562805,
+        "d_action_last_frame": 0.3255613148212433
+      },
+      {
+        "axis": "wz",
+        "u": -0.3,
+        "d_action_all_frames": 0.265243798494339,
+        "d_action_last_frame": 0.0983804240822792
+      },
+      {
+        "axis": "wz",
+        "u": -0.5,
+        "d_action_all_frames": 0.4399140775203705,
+        "d_action_last_frame": 0.16385313868522644
+      }
+    ]
+  },
+  "ended_utc": "2026-10-13T21:30:56.782286+00:00",
+  "wall_s": 6.777177593001397,
+  "exit_code": 0
+}

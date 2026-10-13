@@ -1,0 +1,5551 @@
+{
+  "schema": 1,
+  "suite": "c3",
+  "created_utc": "2026-10-13T21:21:55.571499+00:00",
+  "code_sha": "e48e2f269682c2b606ccdd8bfcc6379172b926b4",
+  "dirty": true,
+  "dirty_files": [
+    "M docs/start_commands.md",
+    " M src/t1_mujoco/t1_mujoco/control.py",
+    " M src/t1_mujoco/t1_mujoco/runner.py",
+    "?? src/t1_mujoco/t1_mujoco/command_map.py"
+  ],
+  "upstream_sha": {
+    "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+    "booster_assets": "12a97516f57469078707afb587a5f84c1cb110d1"
+  },
+  "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7",
+  "mjcf_sha256": "f00e3410362b1e2267e6db05d25c33d6240bbf2436d62a409f07042bad4f7fb2",
+  "python": "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+  "mujoco": "3.15.0",
+  "torch": "2.14.1+cu130",
+  "command_line": [
+    "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+    "-m",
+    "t1_mujoco.calibrate",
+    "c3"
+  ],
+  "protocol": "warmup 2.0 s (STARTING, forced zero) then segments; commands are policy units fed through InputBuffer each policy step; headings rotate only the initial world yaw",
+  "headings_deg": [
+    0.0,
+    90.0,
+    180.0
+  ],
+  "policy_dt": 0.02,
+  "decimation": 10,
+  "physics_dt": 0.002,
+  "trials": [
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9805023900007654
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.902484304000609
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9073886370006221
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,+0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9237550779998855
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,+0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9431610249994264
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,+0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9146470949999639
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,-0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9549607610006206
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,-0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8953593780006486
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,-0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9034393649999402
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,+0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9235170940009994
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,+0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9382244270000228
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,+0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9024730729997827
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,-0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9078300979999767
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,-0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9185048420004023
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,-0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9172503310001048
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9153103039989219
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9403127980003774
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9236715759998333
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,-0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9209842060008668
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,-0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9124018629991042
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,-0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9178136850005103
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,+0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8825838379998459
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,+0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9076130640005431
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,+0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8948482739997417
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,-0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.925084368998796
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,-0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8972491370004718
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,-0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8913737460006814
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,+0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8958215689999633
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,+0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8867360309996002
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,+0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9029381529999227
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,-0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8947761670006003
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,-0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9308548339995468
+    },
+    {
+      "name": "grid_ux0.4:+0.400,+0.000,-0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9227024330011773
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9150841340015177
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8989424800001871
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9034742069998174
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,+0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9468332690012176
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,+0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.90992417400048
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,+0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9009422679991985
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,-0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8861082250004984
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,-0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8946004200006428
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,-0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8915408990014839
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,+0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8967018880011892
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,+0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9029256409994559
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,+0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9053496540000197
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,-0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.940752264999901
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,-0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9185155749983096
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,-0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9223189879994607
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9308801490005862
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9028490050004621
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.89491745900159
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,-0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8816091690005123
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,-0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8874464489999809
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,-0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9064388480001071
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,+0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8995258070008276
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,+0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.897797392000939
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,+0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8885272740008077
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,-0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8951290400000289
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,-0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9053197779994662
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,-0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9127130550004949
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,+0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.912928052001007
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,+0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8970705539995834
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,+0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8736704220009415
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,-0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.869926650000707
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,-0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8978716259989596
+    },
+    {
+      "name": "grid_ux0.45:+0.450,+0.000,-0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8934998099994118
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9090951139987737
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.876195667000502
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8825982529997418
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,+0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8775336329999845
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,+0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8892547739997099
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,+0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9111878690000594
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,-0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9120430900002248
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,-0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8927705619989865
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,-0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8995169299996633
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,+0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8800277460013604
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,+0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9034265580012288
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,+0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8916016620005394
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,-0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8778072220011381
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,-0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8762826210004278
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,-0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8754116079999221
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8870983779997914
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9152166149997356
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9011522509990755
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,-0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9295275929998752
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,-0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8865789709998353
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,-0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8989502700005687
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,+0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.882614096000907
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,+0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8804265379985736
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,+0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8736030609998124
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,-0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8783510880002723
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,-0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.874636381999153
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,-0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8740046689999872
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,+0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8760922229994321
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,+0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8862382610004715
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,+0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9201759000006859
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,-0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9102864590004174
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,-0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8908605199994781
+    },
+    {
+      "name": "grid_ux0.5:+0.500,+0.000,-0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9020681049987616
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8671021339996514
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8657117509992531
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8681931169994641
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,+0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9000600809995376
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,+0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8958016140004474
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,+0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8882075020010234
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,-0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8806729450006969
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,-0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8798359339998569
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,-0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9152348429997801
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,+0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9217079399986687
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,+0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9083722729992587
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,+0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8971628390008846
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,-0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8841817249995074
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,-0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9007796799996868
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,-0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8796280669994303
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8897709880002367
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8933588660001988
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.898751099999572
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,-0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8849813390006602
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,-0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.891662408999764
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,-0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9020912819996738
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,+0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.923107741999047
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,+0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8928208950001135
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,+0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8859642859988526
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,-0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8839214879990323
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,-0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.895363030000226
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,-0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8833935230013594
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,+0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9054857229984918
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,+0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9484690660010529
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,+0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8791227519996028
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,-0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8777060430002166
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,-0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8750954459992499
+    },
+    {
+      "name": "grid_ux0.6:+0.600,+0.000,-0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.916219964999982
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9225861610011634
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8791681059992698
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.871773029999531
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,+0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8826169980002305
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,+0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8683202499996696
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,+0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8632315080012631
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,-0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8752003529989452
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,-0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8592575309994572
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,-0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8791935419994843
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,+0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8829830119993858
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,+0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8968851199988421
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,+0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8829667219997646
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,-0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.92954579400066
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,-0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8897055349989387
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,-0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8947661749989493
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9130087149987958
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 1.0702873619993625
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8887797089992091
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,-0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.884290214999055
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,-0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8935836929995276
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,-0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8882115750002413
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,+0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8787388119999378
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,+0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8729173789997731
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,+0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9047428500016395
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,-0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 1.0088741130002745
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,-0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9318745710006624
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,-0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9231776890010224
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,+0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9310961680002947
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,+0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9048189080003795
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,+0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9019624499997008
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,-0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9113872090001678
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,-0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8968134780006949
+    },
+    {
+      "name": "grid_ux0.7:+0.700,+0.000,-0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9172244159999536
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8881513259984786
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9179578610001045
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8776878099997703
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,+0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.940163321
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,+0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8785285430003569
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,+0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9304546819985262
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,-0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8848811629995907
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,-0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8912524099996517
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,-0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8954276660006144
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,+0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8990666839999903
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,+0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9428873719989497
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,+0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9283821009994426
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,-0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9317853799984732
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,-0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.937009377999857
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,-0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9259521120002319
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9384943289987859
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8987139450000541
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8935378109999874
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,-0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.877237435999632
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,-0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8775446939998801
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,-0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8839701380002225
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,+0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8847123959985765
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,+0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8806757900001685
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,+0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8820561339998676
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,-0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8916666710010759
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,-0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8836074329992698
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,-0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.889871650000714
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,+0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8965587279999454
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,+0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9122764930016274
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,+0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9177797800002736
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,-0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8915434289992845
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,-0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8721144760002062
+    },
+    {
+      "name": "grid_ux0.8:+0.800,+0.000,-0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9281718199999887
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9471701130005385
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9012051579993567
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8971020310000313
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,+0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9059415980009362
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,+0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9129287989999284
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,+0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8821261569992203
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,-0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9445109250009409
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,-0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8832987549994868
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,-0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8924348989985447
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,+0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8827173619993118
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,+0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8551830750002409
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,+0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8983568090006884
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,-0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8929007329988963
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,-0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8982399079995957
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,-0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9454629159990873
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9278611369991268
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9362679459991341
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8957630800014158
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,-0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9597495470006834
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,-0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9554015519988752
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,-0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9631630270014284
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,+0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 1.005174664000151
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,+0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9611638859987579
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,+0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9344374920001428
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,-0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9270526319996861
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,-0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9356200879992684
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,-0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9361703440008569
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,+0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9018730749994575
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,+0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9110664380004891
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,+0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8779407809997792
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,-0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8950575300004857
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,-0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8751163019987871
+    },
+    {
+      "name": "grid_ux0.9:+0.900,+0.000,-0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8746986049991392
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9777851029994054
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9373984880003263
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9309299960004864
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,+0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8749052080002002
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,+0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.872525790000509
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,+0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8912819960005436
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,-0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8790531129998271
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,-0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.879241696000463
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,-0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.880582375000813
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,+0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9656752419996337
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,+0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9041799590013397
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,+0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9286529319997499
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,-0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9556720239997958
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,-0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8775977660006902
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,-0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8957364039997628
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8759663170003478
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8899417680004262
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.880669439000485
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,-0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.884861254999123
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,-0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8867150499991112
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,-0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8857992749999539
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,+0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 1.059177651999562
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,+0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9020286920003855
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,+0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8774299199994857
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,-0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8786467450008786
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,-0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8996017480003502
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,-0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8801982160002808
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,+0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8964624720010761
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,+0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8820151440013433
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,+0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9112063819993637
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,-0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9433925789999194
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,-0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8956169129996852
+    },
+    {
+      "name": "grid_ux1:+1.000,+0.000,-0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9044542239989823
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.350",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9483875250007259
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.350",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9520156479993602
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.350",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9370189110013598
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.350",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9420970450009918
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.350",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9267162899996038
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.350",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9162044820004667
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9096915450008964
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9097167769996304
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9014528759998939
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.400",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9058918859991536
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.400",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8997249229996669
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.400",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9354879440015793
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.450",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9552278659994045
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.450",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9269343769992702
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.450",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9038636139994196
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.450",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.884533933000057
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.450",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8957980449995375
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.450",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8868641150002077
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9071951979985897
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9049914900006115
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9063609610002459
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.500",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9072855109989177
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.500",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9323671620004461
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.500",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.910606765999546
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.550",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9179664200000843
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.550",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9330624449994502
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.550",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9152830240000185
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.550",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8951229280010011
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.550",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.900738285999978
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.550",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8860653720003029
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.600",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9209736699995119
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.600",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9132753719986795
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.600",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9378997490002803
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.600",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.921265808001408
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.600",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9300787590000255
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.600",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9604167620000226
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.700",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9256088720012485
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.700",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9071401639994292
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.700",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8994557089990849
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.700",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.907846205000169
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.700",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8953937520000181
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.700",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8936690780010395
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.800",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8859986170009506
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.800",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8814356820003013
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.800",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8892135300011432
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.800",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8761071999997512
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.800",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9130035879989009
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.800",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9362284449998697
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.900",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9574567480012774
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.900",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8975769490007224
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+0.900",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9162336069985031
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.900",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8954760750002606
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.900",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9084802939996734
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-0.900",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8738338439998188
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+1.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8988810470000317
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+1.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8988093129992194
+    },
+    {
+      "name": "inplace:+0.000,+0.000,+1.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8839558880008553
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-1.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9007682920000661
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-1.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8766323590007232
+    },
+    {
+      "name": "inplace:+0.000,+0.000,-1.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9238625180005329
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#0",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8508587169999373
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#0",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8249491550013772
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#0",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8091182619991741
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#1",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.8130482189990289
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#1",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.8197965229992406
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#1",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.7971774859997822
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#2",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.7925956759991095
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#2",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.802934417999495
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#2",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.8172971730000427
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#3",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.817067613999825
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#3",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.8011700269998983
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#3",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.8293445620001876
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#4",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8639148199999909
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#4",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.810163186999489
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#4",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8250401519999286
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#5",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8330320439999923
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#5",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8167273639992345
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#5",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8648344089997408
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#6",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8438336810013425
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#6",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8253951130009227
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#6",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8428001279989985
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#7",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8370176499993249
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#7",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8233885069985263
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#7",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8512884609990579
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#8",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8864917270002479
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#8",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8178371559988591
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#8",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8469054749984934
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#9",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.834793283000181
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#9",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8336371059995145
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#9",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8306687160002184
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#10",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8328221239989944
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#10",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8398288979988138
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#10",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8469123289996787
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#11",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.823545056000512
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#11",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.8319804269995075
+    },
+    {
+      "name": "stop_vx0.4:+0.400,+0.000,+0.000#11",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.859414824999476
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#0",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8402255389992206
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#0",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8071107039995695
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#0",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8149595399991085
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#1",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.81616765400031
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#1",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.817400333000478
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#1",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.8594272270001966
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#2",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.8732777219993295
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#2",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.81567733600059
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#2",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.7985636439989321
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#3",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.8003709120002895
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#3",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.8000709150001057
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#3",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.8416211740004655
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#4",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8820500959991477
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#4",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8423090670003148
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#4",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8517069909994461
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#5",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8400639589999628
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#5",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8217341119998309
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#5",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8415553260001616
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#6",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8180465610003012
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#6",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8424105770009191
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#6",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8451788140009739
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#7",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.9080334020000009
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#7",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8411981330009439
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#7",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8717668890003551
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#8",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.881951580000532
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#8",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8231995810001536
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#8",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8369825270001456
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#9",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8637669990002905
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#9",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8256867979998788
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#9",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8398487559989007
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#10",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.863325080001232
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#10",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8386657909995847
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#10",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8361557650005125
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#11",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.9097344080000767
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#11",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.857360599000458
+    },
+    {
+      "name": "stop_vx0.6:+0.600,+0.000,+0.000#11",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.8697151390006184
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#0",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8543323229987436
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#0",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8237725089984451
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#0",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8062261869999929
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#1",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.8155685530000483
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#1",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.7925178229997982
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#1",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.8173566260011285
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#2",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.7955121120012336
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#2",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.8001547900003061
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#2",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.831149382998774
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#3",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.7986751429998549
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#3",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.814222252000036
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#3",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.8259516399994027
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#4",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8558168480012682
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#4",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8302138279996143
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#4",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8094909070005087
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#5",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.814198411999314
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#5",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8186541329996544
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#5",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8138115349993313
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#6",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8256415500000003
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#6",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8287015130008513
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#6",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8231605170003604
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#7",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8185497699996631
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#7",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8206560630005697
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#7",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8444967529994756
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#8",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8485050259987474
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#8",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8473987680008577
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#8",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8421257039990451
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#9",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8194304450007621
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#9",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8095490510004311
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#9",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8236940660008258
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#10",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8210137509995548
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#10",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8330386270008603
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#10",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8474802439995983
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#11",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.835774790000869
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#11",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.8226029860015842
+    },
+    {
+      "name": "stop_vx0.8:+0.800,+0.000,+0.000#11",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.8519142950008245
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#0",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8482754220003699
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#0",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8202787800000806
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#0",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.7884128530004091
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#1",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.7933094549989619
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#1",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.8218462499989982
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#1",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.7976985139994213
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#2",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.8078681339993636
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#2",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.7986198819999117
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#2",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.7951660369999445
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#3",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.812308202001077
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#3",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.8016439610000816
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#3",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.8204627499999333
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#4",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8546873290015355
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#4",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8155050559998926
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#4",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8200127979998797
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#5",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8098958480004512
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#5",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8056708489984885
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#5",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8066223400001036
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#6",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8048359860003984
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#6",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8119057849999081
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#6",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.812785852000161
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#7",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8299230840002565
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#7",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8583075179994921
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#7",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8419344890007778
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#8",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8821433559987781
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#8",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8285702989996935
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#8",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8297781660003238
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#9",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8229738200006977
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#9",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.836239893000311
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#9",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8493438830009836
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#10",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8196309039994958
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#10",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8203667370016774
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#10",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8186092449996067
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#11",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.8217352660012693
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#11",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.8219819119985914
+    },
+    {
+      "name": "stop_vx1.0:+1.000,+0.000,+0.000#11",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.844817516999683
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#0",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8281060379995324
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#0",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8064436620006745
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#0",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.7948698809996131
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#1",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.8180970670000534
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#1",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.8303373019989522
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#1",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.804876078000234
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#2",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.8070130579999386
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#2",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.8017944050006918
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#2",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.8146710660003009
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#3",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.8064486219991522
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#3",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.7952650530005485
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#3",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.8191744920004567
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#4",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.839384875000178
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#4",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.827929810000569
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#4",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.818310274000396
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#5",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8118190370005323
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#5",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8161938139983249
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#5",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8111631059982756
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#6",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.811172906000138
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#6",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8076675920001435
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#6",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.824906337998982
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#7",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8212458729994978
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#7",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8077268679990084
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#7",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8490552740004205
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#8",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8477654559992516
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#8",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8276866729993344
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#8",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8333336310006416
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#9",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8192500329987524
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#9",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8211269009989337
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#9",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8230017490004684
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#10",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8206920470001933
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#10",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.805142346998764
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#10",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8141867220001586
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#11",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.8140224770013447
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#11",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.8227625979998265
+    },
+    {
+      "name": "stop_turn+:+0.600,+0.000,+0.500#11",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.8757417790002364
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#0",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8497961499997473
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#0",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8551311629998963
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#0",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8301390209999226
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#1",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.8096936219990312
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#1",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.8104490799996711
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#1",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.8080742719994305
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#2",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.8234350369984895
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#2",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.7856785690000834
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#2",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.7960344269995403
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#3",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.7965999620009825
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#3",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.7986962710001535
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#3",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.8309854010003619
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#4",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8591144109996094
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#4",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8123374779988808
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#4",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8070060570007627
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#5",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8138529940006265
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#5",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8240076389993192
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#5",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8075776130008308
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#6",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8151182660003542
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#6",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8075844289996894
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#6",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8135078929990414
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#7",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8215204570005881
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#7",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.814098875000127
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#7",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8399182789999031
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#8",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8708791839999321
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#8",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8207395299996278
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#8",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8204081730000325
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#9",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8132212410000648
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#9",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8279220229997009
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#9",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8238974479991157
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#10",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8163936900000408
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#10",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8587260250005784
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#10",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8244495889994141
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#11",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.8730844670008082
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#11",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.8458188549993793
+    },
+    {
+      "name": "stop_turn-:+0.600,+0.000,-0.500#11",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.8842903200002183
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#0",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8767164410000987
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#0",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8447787249988323
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#0",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.819428983000762
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#1",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.8134651599993958
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#1",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.8250401799996325
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#1",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.820181772000069
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#2",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.8159145789995819
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#2",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.8090799919991696
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#2",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.8096448420001252
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#3",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.8034906610009784
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#3",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.804923081999732
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#3",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.8376309720006248
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#4",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.86648570899888
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#4",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8261207030009245
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#4",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8208971629992448
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#5",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8263714489985432
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#5",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8205855950000114
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#5",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8271565399991232
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#6",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8117086199999903
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#6",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8079850519989122
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#6",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8194629859990528
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#7",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.822636959999727
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#7",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8205678300000727
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#7",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8443288929993287
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#8",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8893377069998678
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#8",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8434097429999383
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#8",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8450807970002643
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#9",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8361176509988582
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#9",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8225854169995728
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#9",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8333791010009008
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#10",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8178147920007177
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#10",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8193260589996498
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#10",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8288389669996832
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#11",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.8302723470005731
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#11",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.8163322569998854
+    },
+    {
+      "name": "stop_inplace+:+0.000,+0.000,+1.000#11",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.8647688759992889
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#0",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8534741760013276
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#0",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8589681560006284
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#0",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.000000000001457,
+      "wall_s": 0.8310128969988
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#1",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.8158386520008207
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#1",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.8051249000000098
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#1",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.060000000001423,
+      "wall_s": 0.8431728079995082
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#2",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.8375165659999766
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#2",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.8508875379993697
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#2",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.12000000000139,
+      "wall_s": 0.8485743250002997
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#3",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.7955752280013257
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#3",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.7766130460004206
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#3",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.180000000001357,
+      "wall_s": 0.8423700250004913
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#4",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8599657380000281
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#4",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8306374389994744
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#4",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.240000000001324,
+      "wall_s": 0.8205319200005761
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#5",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8241350820007938
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#5",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8754667390003306
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#5",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.30000000000129,
+      "wall_s": 0.8314239290011756
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#6",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.843285979999564
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#6",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8502988140007801
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#6",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.360000000001257,
+      "wall_s": 0.8066565169992828
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#7",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.821623602998443
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#7",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8192131610012439
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#7",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.420000000001224,
+      "wall_s": 0.8488850979993003
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#8",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8752231859998574
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#8",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8428776240016305
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#8",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.48000000000119,
+      "wall_s": 0.8326111749993288
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#9",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8249834519992874
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#9",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.823351303999516
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#9",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.540000000001157,
+      "wall_s": 0.8262207709994982
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#10",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8490489550003986
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#10",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8295573909999803
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#10",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.600000000001124,
+      "wall_s": 0.8206252590007352
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#11",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.8311269690002518
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#11",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.8263079309999739
+    },
+    {
+      "name": "stop_inplace-:+0.000,+0.000,-1.000#11",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 17.66000000000109,
+      "wall_s": 0.8772535339994647
+    }
+  ],
+  "ended_utc": "2026-10-13T21:30:48.415661+00:00",
+  "wall_duration_s": 532.8383767439991,
+  "sim_time_total_s": 11147.04000000048,
+  "summary_sha256": "00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe"
+}

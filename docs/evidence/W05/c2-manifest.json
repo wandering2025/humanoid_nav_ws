@@ -1,0 +1,1040 @@
+{
+  "schema": 1,
+  "suite": "c2",
+  "created_utc": "2026-10-13T21:19:59.986670+00:00",
+  "code_sha": "e48e2f269682c2b606ccdd8bfcc6379172b926b4",
+  "dirty": true,
+  "dirty_files": [
+    "M docs/start_commands.md"
+  ],
+  "upstream_sha": {
+    "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+    "booster_assets": "12a97516f57469078707afb587a5f84c1cb110d1"
+  },
+  "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7",
+  "mjcf_sha256": "f00e3410362b1e2267e6db05d25c33d6240bbf2436d62a409f07042bad4f7fb2",
+  "python": "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+  "mujoco": "3.15.0",
+  "torch": "2.14.1+cu130",
+  "command_line": [
+    "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+    "-m",
+    "t1_mujoco.calibrate",
+    "c2",
+    "--no-escalation-stop"
+  ],
+  "protocol": "warmup 2.0 s (STARTING, forced zero) then segments; commands are policy units fed through InputBuffer each policy step; headings rotate only the initial world yaw",
+  "headings_deg": [
+    0.0,
+    90.0,
+    180.0
+  ],
+  "policy_dt": 0.02,
+  "decimation": 10,
+  "physics_dt": 0.002,
+  "trials": [
+    {
+      "name": "vx_sweep:+0.050,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 1.0272302319990558
+    },
+    {
+      "name": "vx_sweep:+0.050,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8908168759990076
+    },
+    {
+      "name": "vx_sweep:+0.050,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.90414806499939
+    },
+    {
+      "name": "vx_sweep:+0.100,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9036129760006588
+    },
+    {
+      "name": "vx_sweep:+0.100,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.90998974699869
+    },
+    {
+      "name": "vx_sweep:+0.100,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.90300961200046
+    },
+    {
+      "name": "vx_sweep:+0.150,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9236390040005062
+    },
+    {
+      "name": "vx_sweep:+0.150,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9437792699991405
+    },
+    {
+      "name": "vx_sweep:+0.150,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8988236519999191
+    },
+    {
+      "name": "vx_sweep:+0.200,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8801784859988402
+    },
+    {
+      "name": "vx_sweep:+0.200,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.913797010000053
+    },
+    {
+      "name": "vx_sweep:+0.200,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.902598996000961
+    },
+    {
+      "name": "vx_sweep:+0.250,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8936778690003848
+    },
+    {
+      "name": "vx_sweep:+0.250,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9067352809997828
+    },
+    {
+      "name": "vx_sweep:+0.250,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8880801450013678
+    },
+    {
+      "name": "vx_sweep:+0.300,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9065204210000957
+    },
+    {
+      "name": "vx_sweep:+0.300,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.892828809999628
+    },
+    {
+      "name": "vx_sweep:+0.300,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8814252089996444
+    },
+    {
+      "name": "vx_sweep:+0.350,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9035257689993159
+    },
+    {
+      "name": "vx_sweep:+0.350,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8915381050010183
+    },
+    {
+      "name": "vx_sweep:+0.350,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9139516260001983
+    },
+    {
+      "name": "vx_sweep:+0.375,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9241144269999495
+    },
+    {
+      "name": "vx_sweep:+0.375,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8932198399998015
+    },
+    {
+      "name": "vx_sweep:+0.375,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8956174659997487
+    },
+    {
+      "name": "vx_sweep:+0.400,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8988804790005815
+    },
+    {
+      "name": "vx_sweep:+0.400,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9005401110007369
+    },
+    {
+      "name": "vx_sweep:+0.400,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8732329619997472
+    },
+    {
+      "name": "vx_sweep:+0.425,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8795539069997176
+    },
+    {
+      "name": "vx_sweep:+0.425,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8959762569993472
+    },
+    {
+      "name": "vx_sweep:+0.425,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8926096269988193
+    },
+    {
+      "name": "vx_sweep:+0.450,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8640019989998109
+    },
+    {
+      "name": "vx_sweep:+0.450,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9046441860009509
+    },
+    {
+      "name": "vx_sweep:+0.450,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.901144548000957
+    },
+    {
+      "name": "vx_sweep:+0.475,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9000446460013336
+    },
+    {
+      "name": "vx_sweep:+0.475,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8959054890001426
+    },
+    {
+      "name": "vx_sweep:+0.475,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8833363830017333
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.025",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8935563020004338
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.025",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9099664960012888
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.025",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9058191430012812
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.050",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9087577680002141
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.050",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8969596240003739
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.050",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8752720169995882
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.075",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8714371469995967
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.075",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.889173370998833
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.075",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8834859700000379
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.100",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9076128480010084
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.100",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8966230910009472
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.100",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9173439209989738
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.125",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9213313159998506
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.125",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9386752480004361
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.125",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8895298650004406
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.200",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.900192684999638
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.200",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9156918099997711
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.200",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.900174138998409
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.250",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9242368439990969
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.250",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8815895140014618
+    },
+    {
+      "name": "wz_sweep:+0.000,+0.000,+0.250",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.871718492000582
+    },
+    {
+      "name": "hysteresis:+0.400,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 22.99999999999813,
+      "wall_s": 1.0552026459990884
+    },
+    {
+      "name": "hysteresis:+0.400,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 22.99999999999813,
+      "wall_s": 1.0672802409990254
+    },
+    {
+      "name": "hysteresis:+0.400,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 22.99999999999813,
+      "wall_s": 1.0990146509993792
+    },
+    {
+      "name": "hysteresis:+0.300,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 22.99999999999813,
+      "wall_s": 1.0801168719990528
+    },
+    {
+      "name": "hysteresis:+0.300,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 22.99999999999813,
+      "wall_s": 1.0966111769994313
+    },
+    {
+      "name": "hysteresis:+0.300,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 22.99999999999813,
+      "wall_s": 1.0759074480010895
+    },
+    {
+      "name": "hysteresis:+0.200,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 22.99999999999813,
+      "wall_s": 1.0773102700004529
+    },
+    {
+      "name": "hysteresis:+0.200,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 22.99999999999813,
+      "wall_s": 1.0788343519998307
+    },
+    {
+      "name": "hysteresis:+0.200,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 22.99999999999813,
+      "wall_s": 1.0542819420006708
+    },
+    {
+      "name": "hysteresis:+0.150,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 22.99999999999813,
+      "wall_s": 1.0689953609999066
+    },
+    {
+      "name": "hysteresis:+0.150,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 22.99999999999813,
+      "wall_s": 1.0543145909996383
+    },
+    {
+      "name": "hysteresis:+0.150,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 22.99999999999813,
+      "wall_s": 1.085365881001053
+    },
+    {
+      "name": "hysteresis:+0.100,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 22.99999999999813,
+      "wall_s": 1.0757723429996986
+    },
+    {
+      "name": "hysteresis:+0.100,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 22.99999999999813,
+      "wall_s": 1.0645126699982939
+    },
+    {
+      "name": "hysteresis:+0.100,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 22.99999999999813,
+      "wall_s": 1.061143616998379
+    },
+    {
+      "name": "ramp:+0.500,+0.000,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 22.99999999999813,
+      "wall_s": 1.0809254790001432
+    },
+    {
+      "name": "ramp:+0.500,+0.000,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 22.99999999999813,
+      "wall_s": 1.1135395330002211
+    },
+    {
+      "name": "ramp:+0.500,+0.000,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 22.99999999999813,
+      "wall_s": 1.0858982560002914
+    },
+    {
+      "name": "vx_wz_low:+0.400,+0.000,+0.150",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9048509519998333
+    },
+    {
+      "name": "vx_wz_low:+0.400,+0.000,+0.150",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8946833779991721
+    },
+    {
+      "name": "vx_wz_low:+0.400,+0.000,+0.150",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9009563319996232
+    },
+    {
+      "name": "vx_wz_low:+0.400,+0.000,-0.150",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8919227970000065
+    },
+    {
+      "name": "vx_wz_low:+0.400,+0.000,-0.150",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8986724890000914
+    },
+    {
+      "name": "vx_wz_low:+0.400,+0.000,-0.150",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.876435369000319
+    },
+    {
+      "name": "vx_wz_low:+0.400,+0.000,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8776631239998096
+    },
+    {
+      "name": "vx_wz_low:+0.400,+0.000,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8747426070003712
+    },
+    {
+      "name": "vx_wz_low:+0.400,+0.000,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.883094931999949
+    },
+    {
+      "name": "vx_wz_low:+0.400,+0.000,-0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9119131400002516
+    },
+    {
+      "name": "vx_wz_low:+0.400,+0.000,-0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9057021209991944
+    },
+    {
+      "name": "vx_wz_low:+0.400,+0.000,-0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8624520659996051
+    },
+    {
+      "name": "vx_wz_low:+0.450,+0.000,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8652220229996601
+    },
+    {
+      "name": "vx_wz_low:+0.450,+0.000,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8794769640007871
+    },
+    {
+      "name": "vx_wz_low:+0.450,+0.000,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8832471799996711
+    },
+    {
+      "name": "norm_gate:+0.300,+0.000,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9016115499998705
+    },
+    {
+      "name": "norm_gate:+0.300,+0.000,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9459194000010029
+    },
+    {
+      "name": "norm_gate:+0.300,+0.000,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8765495150000788
+    },
+    {
+      "name": "norm_gate:+0.300,+0.000,-0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8712626270007604
+    },
+    {
+      "name": "norm_gate:+0.300,+0.000,-0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9017040079997969
+    },
+    {
+      "name": "norm_gate:+0.300,+0.000,-0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8799968140010606
+    },
+    {
+      "name": "norm_gate:+0.200,+0.000,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.917236977000357
+    },
+    {
+      "name": "norm_gate:+0.200,+0.000,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9232864240002527
+    },
+    {
+      "name": "norm_gate:+0.200,+0.000,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8918124100000568
+    },
+    {
+      "name": "norm_gate:+0.250,+0.250,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.869891758000449
+    },
+    {
+      "name": "norm_gate:+0.250,+0.250,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8797965770008886
+    },
+    {
+      "name": "norm_gate:+0.250,+0.250,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9125855769998452
+    },
+    {
+      "name": "norm_gate:+0.300,+0.300,+0.000",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8774312959994859
+    },
+    {
+      "name": "norm_gate:+0.300,+0.300,+0.000",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8826063979995524
+    },
+    {
+      "name": "norm_gate:+0.300,+0.300,+0.000",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8762562400006573
+    },
+    {
+      "name": "norm_gate:+0.000,+0.300,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8709006349999981
+    },
+    {
+      "name": "norm_gate:+0.000,+0.300,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.8801482409999153
+    },
+    {
+      "name": "norm_gate:+0.000,+0.300,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.000000000000348,
+      "wall_s": 0.9006709759996738
+    },
+    {
+      "name": "turn_then_walk:+0.300,+0.000,+0.300",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.999999999999794,
+      "wall_s": 0.9249048399997264
+    },
+    {
+      "name": "turn_then_walk:+0.300,+0.000,+0.300",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.999999999999794,
+      "wall_s": 0.968808932999309
+    },
+    {
+      "name": "turn_then_walk:+0.300,+0.000,+0.300",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 19.999999999999794,
+      "wall_s": 0.9382206880000012
+    }
+  ],
+  "ended_utc": "2026-10-13T21:21:43.152687+00:00",
+  "wall_duration_s": 103.15433417300119,
+  "sim_time_total_s": 2183.9999999999973,
+  "summary_sha256": "d694540419a3acfafe597a1510beb797a1b9666fabdbf23aa74cd21ca9ef5e28"
+}

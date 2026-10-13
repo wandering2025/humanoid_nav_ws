@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "suite": "warmup",
+  "created_utc": "2026-10-13T21:21:45.040601+00:00",
+  "code_sha": "e48e2f269682c2b606ccdd8bfcc6379172b926b4",
+  "dirty": true,
+  "dirty_files": [
+    "M docs/start_commands.md",
+    " M src/t1_mujoco/t1_mujoco/control.py",
+    " M src/t1_mujoco/t1_mujoco/runner.py",
+    "?? src/t1_mujoco/t1_mujoco/command_map.py"
+  ],
+  "upstream_sha": {
+    "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+    "booster_assets": "12a97516f57469078707afb587a5f84c1cb110d1"
+  },
+  "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7",
+  "mjcf_sha256": "f00e3410362b1e2267e6db05d25c33d6240bbf2436d62a409f07042bad4f7fb2",
+  "python": "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+  "mujoco": "3.15.0",
+  "torch": "2.14.1+cu130",
+  "command_line": [
+    "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+    "-m",
+    "t1_mujoco.calibrate",
+    "warmup"
+  ],
+  "protocol": "warmup 2.0 s (STARTING, forced zero) then segments; commands are policy units fed through InputBuffer each policy step; headings rotate only the initial world yaw",
+  "headings_deg": [
+    0.0,
+    90.0,
+    180.0
+  ],
+  "policy_dt": 0.02,
+  "decimation": 10,
+  "physics_dt": 0.002,
+  "trials": [
+    {
+      "name": "warmup:+0.600,+0.000,+0.000@w0.5",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 14.500000000001512,
+      "wall_s": 0.784098897000149
+    },
+    {
+      "name": "warmup:+0.600,+0.000,+0.000@w0.5",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 14.500000000001512,
+      "wall_s": 0.7115250949991605
+    },
+    {
+      "name": "warmup:+0.600,+0.000,+0.000@w0.5",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 14.500000000001512,
+      "wall_s": 0.6960698669990961
+    },
+    {
+      "name": "warmup:+0.600,+0.000,+0.000@w1",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 15.000000000001679,
+      "wall_s": 0.7416916950005543
+    },
+    {
+      "name": "warmup:+0.600,+0.000,+0.000@w1",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 15.000000000001679,
+      "wall_s": 0.7333425619999616
+    },
+    {
+      "name": "warmup:+0.600,+0.000,+0.000@w1",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 15.000000000001679,
+      "wall_s": 0.7532069040007627
+    },
+    {
+      "name": "warmup:+0.600,+0.000,+0.000@w1.5",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 15.500000000001846,
+      "wall_s": 0.7712653899998259
+    },
+    {
+      "name": "warmup:+0.600,+0.000,+0.000@w1.5",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 15.500000000001846,
+      "wall_s": 0.7763749490004557
+    },
+    {
+      "name": "warmup:+0.600,+0.000,+0.000@w1.5",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 15.500000000001846,
+      "wall_s": 0.8146240030000627
+    },
+    {
+      "name": "warmup:+0.600,+0.000,+0.000@w2",
+      "rep": 0,
+      "heading_deg": 0.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 16.00000000000201,
+      "wall_s": 0.7697843570003897
+    },
+    {
+      "name": "warmup:+0.600,+0.000,+0.000@w2",
+      "rep": 1,
+      "heading_deg": 90.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 16.00000000000201,
+      "wall_s": 0.7483587660008197
+    },
+    {
+      "name": "warmup:+0.600,+0.000,+0.000@w2",
+      "rep": 2,
+      "heading_deg": 180.0,
+      "final_state": "READY",
+      "fault": null,
+      "sim_end": 16.00000000000201,
+      "wall_s": 0.7701292689998809
+    }
+  ],
+  "ended_utc": "2026-10-13T21:21:54.132196+00:00",
+  "wall_duration_s": 9.085901845999615,
+  "sim_time_total_s": 183.00000000002115,
+  "summary_sha256": "459c05e77995df7292f2852a136c8d3eacb650d8a24f09bf05459f6d90aa90a7"
+}
