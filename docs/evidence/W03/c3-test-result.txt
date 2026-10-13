@@ -1,0 +1,5 @@
+{"command": ["colcon", "test-result", "--all", "--verbose"], "cwd": "/home/haoyang/humanoid_nav_ws", "end_utc": "2026-10-13T20:18:21.584021+00:00", "exit_code": 0, "expected": 0, "log": "c3-test-result.txt", "name": "c3-test-result", "pass": true, "ros_domain_id": "73", "start_utc": "2026-10-13T20:18:21.382102+00:00", "tested_head": "ee80d408225e8542bd879cad90f3229ba98e97fa"}
+build/t1_bringup/pytest.xml: 6 tests, 0 errors, 0 failures, 0 skipped
+build/t1_mujoco/pytest.xml: 10 tests, 0 errors, 0 failures, 0 skipped
+
+Summary: 16 tests, 0 errors, 0 failures, 0 skipped

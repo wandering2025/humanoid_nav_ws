@@ -1,0 +1,5 @@
+{"command": ["colcon", "list", "--base-paths", "src"], "cwd": "/home/haoyang/humanoid_nav_ws", "end_utc": "2026-10-13T20:18:19.645941+00:00", "exit_code": 0, "expected": 0, "log": "c3-colcon-list.txt", "name": "c3-colcon-list", "pass": true, "ros_domain_id": "73", "start_utc": "2026-10-13T20:18:19.222641+00:00", "tested_head": "ee80d408225e8542bd879cad90f3229ba98e97fa"}
+t1_bringup	src/t1_bringup	(ros.ament_python)
+t1_description	src/t1_description	(ros.ament_cmake)
+t1_mujoco	src/t1_mujoco	(ros.ament_python)
+t1_navigation	src/t1_navigation	(ros.ament_cmake)

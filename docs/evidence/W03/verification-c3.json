@@ -1,0 +1,104 @@
+{
+  "phase": "c3",
+  "start_utc": "2026-10-13T20:18:19.222628+00:00",
+  "end_utc": "2026-10-13T20:18:21.586486+00:00",
+  "tested_head": "ee80d408225e8542bd879cad90f3229ba98e97fa",
+  "implementation_sha256": {
+    "AGENTS.md": "83bfb8229d19bd16740dfa2e4aae424202156fdc17f7592f538dd78b600bd0b9",
+    "README.md": "aa30c566e55bc234516c4571f05dc8c5c55546c52b59974c0fb3fa9cd2c578da",
+    "scripts/env.sh": "6db4643cb6becfe5cbedaaa83706111089aa92abb08296984a44e05c88136d9f",
+    "src/t1_bringup/launch/bringup.launch.py": "945bf4ee7fcd7766ba8753bb6e8a433578b63123a71f89b6211f1bc8ffce671f",
+    "src/t1_bringup/launch/diagnostic.launch.py": "ff364e537c38b38d234a91df6131663518fd9f3121498589c94f08640bda67cb",
+    "src/t1_bringup/package.xml": "00c6f8e7131695f70860f4f81128324f8a25eef93e3b74e9e7cafbafcfdeb2b5",
+    "src/t1_bringup/resource/t1_bringup": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/t1_bringup/setup.cfg": "013d73e91c7c8716a9685a562d00c9b4ad3bddfe18b59997355691fffe26463f",
+    "src/t1_bringup/setup.py": "a65dc3e34db923c8fff7d8ddbaf86b2365b6184643cd10b8fd48efd70c49a987",
+    "src/t1_bringup/t1_bringup/__init__.py": "0c0e3bd4e08e157b7172fdabff275c583a35e518420eeb1a46f694e177a9bd33",
+    "src/t1_bringup/t1_bringup/launch_support.py": "3abb86c55b735cacd1733055e3a40500596ffcebe19cae941186e5f5d7a77f19",
+    "src/t1_bringup/test/test_launch_support.py": "87faa653ac87db8f4c8967a4258db466573f2c92a4ff0c149781b5fa53eaa4c5",
+    "src/t1_description/CMakeLists.txt": "be15252c626b731773cf71da5dbf39dc93c0e6c3b80e9ef22650612b7d49d8d7",
+    "src/t1_description/config/README.md": "2d1609634fe5b000572912c14d33467ff106b64ccfc36f2dee673809ddefa25e",
+    "src/t1_description/package.xml": "c5f5e75059d0ce5981ae0e7a40826a424094757385327d2e1ce4880fb3628e85",
+    "src/t1_mujoco/config/README.md": "d487643cd04ccfae76908ffce824544e293d10495a3df034fd3d72a772328dd8",
+    "src/t1_mujoco/config/runtime.yaml": "14071f4b8d70c2e99f596cc2fa8cda8613212e6b15c766f58f7b67580b0a3353",
+    "src/t1_mujoco/package.xml": "b8b556a8597513e671b22a99e5b940daa5f88e4e5cb716d57b82c8f2842baf94",
+    "src/t1_mujoco/resource/t1_mujoco": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/t1_mujoco/scripts/t1_diagnostic": "4204a4ab3538fcca01ed0729139780661fc0a69e6b64eb7d7c4b6212eb5fdeb9",
+    "src/t1_mujoco/setup.cfg": "3e929739b17058dc39c197e7488b3a089c75d86f22613e39064821d85ed6b44f",
+    "src/t1_mujoco/setup.py": "3d7283d50ea59ef111ebfef4d939cdaa4ba0ea94e55fc65e2aea1fe131b5e593",
+    "src/t1_mujoco/t1_mujoco/__init__.py": "4a3033a4eaf9df4522b5102755fe711830b08cc85a7c575482aa5e69c0009234",
+    "src/t1_mujoco/t1_mujoco/diagnostic.py": "df8d62735f441f535d7776908402bb75ce47cb6b8fc97a35c770cba8b642b913",
+    "src/t1_mujoco/t1_mujoco/runtime.py": "4f569f3310bd4e1a7a203af69e2d2fd94ed58f5de796fc4de2a194ca26e47d3a",
+    "src/t1_mujoco/test/test_runtime.py": "7c356cf425981714e9db77fa679db1eb88ff86fd1c9dfd37ec76485e3d5a4103",
+    "src/t1_navigation/CMakeLists.txt": "49fe5613eaeaeb2332c2cf1e8682ab7a3d5ffefa87a0300be36262c53cd9ad21",
+    "src/t1_navigation/config/README.md": "80a6b6b555dd8def1a044daf85f3e97c044ea488196ee20d8f73a75a8062c3cb",
+    "src/t1_navigation/package.xml": "79c38d7d582a1fb965c8244f968bae262f1ac606b2b6e8b1773ab9668cd30f28"
+  },
+  "environment": {
+    "T1_VENV": "/home/haoyang/venvs/humanoid_mujoco",
+    "T1_UPSTREAM": "/home/haoyang/robot_sim_sources/booster_deploy",
+    "ROS_DOMAIN_ID": "73",
+    "ROS_AUTOMATIC_DISCOVERY_RANGE": "LOCALHOST",
+    "ROS_LOG_DIR": "/home/haoyang/humanoid_nav_ws/run_data/w03_ros_logs"
+  },
+  "results": [
+    {
+      "name": "c3-colcon-list",
+      "command": [
+        "colcon",
+        "list",
+        "--base-paths",
+        "src"
+      ],
+      "cwd": "/home/haoyang/humanoid_nav_ws",
+      "start_utc": "2026-10-13T20:18:19.222641+00:00",
+      "end_utc": "2026-10-13T20:18:19.645941+00:00",
+      "exit_code": 0,
+      "expected": 0,
+      "tested_head": "ee80d408225e8542bd879cad90f3229ba98e97fa",
+      "ros_domain_id": "73",
+      "log": "c3-colcon-list.txt",
+      "pass": true
+    },
+    {
+      "name": "c3-colcon-test",
+      "command": [
+        "colcon",
+        "test",
+        "--base-paths",
+        "src",
+        "--event-handlers",
+        "console_direct+"
+      ],
+      "cwd": "/home/haoyang/humanoid_nav_ws",
+      "start_utc": "2026-10-13T20:18:19.646376+00:00",
+      "end_utc": "2026-10-13T20:18:21.381848+00:00",
+      "exit_code": 0,
+      "expected": 0,
+      "tested_head": "ee80d408225e8542bd879cad90f3229ba98e97fa",
+      "ros_domain_id": "73",
+      "log": "c3-colcon-test.txt",
+      "pass": true
+    },
+    {
+      "name": "c3-test-result",
+      "command": [
+        "colcon",
+        "test-result",
+        "--all",
+        "--verbose"
+      ],
+      "cwd": "/home/haoyang/humanoid_nav_ws",
+      "start_utc": "2026-10-13T20:18:21.382102+00:00",
+      "end_utc": "2026-10-13T20:18:21.584021+00:00",
+      "exit_code": 0,
+      "expected": 0,
+      "tested_head": "ee80d408225e8542bd879cad90f3229ba98e97fa",
+      "ros_domain_id": "73",
+      "log": "c3-test-result.txt",
+      "pass": true
+    }
+  ],
+  "failure": null,
+  "passed": true
+}

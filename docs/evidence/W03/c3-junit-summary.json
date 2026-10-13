@@ -1,0 +1,12 @@
+[
+  {
+    "package": "t1_mujoco",
+    "tests": 10,
+    "path": "/home/haoyang/humanoid_nav_ws/build/t1_mujoco/pytest.xml"
+  },
+  {
+    "package": "t1_bringup",
+    "tests": 6,
+    "path": "/home/haoyang/humanoid_nav_ws/build/t1_bringup/pytest.xml"
+  }
+]
