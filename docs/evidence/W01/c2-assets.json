@@ -1,0 +1,113 @@
+{
+  "start_utc": "2026-10-13T19:31:21.642372+00:00",
+  "repositories": {
+    "booster_deploy": {
+      "path": "/home/haoyang/robot_sim_sources/booster_deploy",
+      "sha": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+      "branch": "main",
+      "remote": "https://github.com/BoosterRobotics/booster_deploy.git",
+      "dirty": "",
+      "license_path": "/home/haoyang/robot_sim_sources/booster_deploy/LICENSE",
+      "license_sha256": "47d3bf4d0108359c1ac54bd4c5710a77efdac3741dfc02129f1a1a594b6d9c84",
+      "license_first_lines": [
+        "Copyright [2025] [Booster Robotics Technology Co., Ltd (\"Booster Robotics\")]",
+        "",
+        "Licensed under the Apache License, Version 2.0 (the \"License\");",
+        "you may not use this file except in compliance with the License."
+      ]
+    },
+    "booster_assets": {
+      "path": "/home/haoyang/robot_sim_sources/booster_assets",
+      "sha": "12a97516f57469078707afb587a5f84c1cb110d1",
+      "branch": "main",
+      "remote": "https://github.com/BoosterRobotics/booster_assets.git",
+      "dirty": "",
+      "license_path": "/home/haoyang/robot_sim_sources/booster_assets/LICENSE",
+      "license_sha256": "056db8cc7dcb21feae042d97185d4689c21bb1ba7fe59cefdc7ef5917c0ea77f",
+      "license_first_lines": [
+        "BSD 3-Clause License",
+        "",
+        "Copyright (c) 2025, BoosterRobotics",
+        ""
+      ]
+    }
+  },
+  "files": {
+    "checkpoint": {
+      "path": "/home/haoyang/robot_sim_sources/booster_deploy/tasks/locomotion/robots/t1/models/t1_walk.pt",
+      "size_bytes": 2166975,
+      "sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7",
+      "git_blob": "2d8a16b65fde478775690ada3e64d142c6541530"
+    },
+    "mjcf": {
+      "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/T1_23dof.xml",
+      "size_bytes": 18682,
+      "sha256": "f00e3410362b1e2267e6db05d25c33d6240bbf2436d62a409f07042bad4f7fb2",
+      "git_blob": "c0e069b7d72c78baef975549e489b380c3dde5b6"
+    }
+  },
+  "model": {
+    "nq": 30,
+    "nv": 29,
+    "nu": 23,
+    "njnt": 24,
+    "nbody": 26,
+    "ngeom": 48,
+    "name": "trunk",
+    "joint_names": [
+      "world_joint",
+      "aahead_yaw_joint",
+      "aahead_pitch_joint",
+      "left_shoulder_pitch_joint",
+      "left_shoulder_roll_joint",
+      "left_elbow_pitch_joint",
+      "left_elbow_yaw_joint",
+      "right_shoulder_pitch_joint",
+      "right_shoulder_roll_joint",
+      "right_elbow_pitch_joint",
+      "right_elbow_yaw_joint",
+      "waist_yaw_joint",
+      "left_hip_pitch_joint",
+      "left_hip_roll_joint",
+      "left_hip_yaw_joint",
+      "left_knee_pitch_joint",
+      "left_ankle_pitch_joint",
+      "left_ankle_roll_joint",
+      "right_hip_pitch_joint",
+      "right_hip_roll_joint",
+      "right_hip_yaw_joint",
+      "right_knee_pitch_joint",
+      "right_ankle_pitch_joint",
+      "right_ankle_roll_joint"
+    ],
+    "actuator_names": [
+      "aahead_yaw_joint",
+      "aahead_pitch_joint",
+      "left_shoulder_pitch_joint",
+      "left_shoulder_roll_joint",
+      "left_elbow_pitch_joint",
+      "left_elbow_yaw_joint",
+      "right_shoulder_pitch_joint",
+      "right_shoulder_roll_joint",
+      "right_elbow_pitch_joint",
+      "right_elbow_yaw_joint",
+      "waist_yaw_joint",
+      "left_hip_pitch_joint",
+      "left_hip_roll_joint",
+      "left_hip_yaw_joint",
+      "left_knee_pitch_joint",
+      "left_ankle_pitch_joint",
+      "left_ankle_roll_joint",
+      "right_hip_pitch_joint",
+      "right_hip_roll_joint",
+      "right_hip_yaw_joint",
+      "right_knee_pitch_joint",
+      "right_ankle_pitch_joint",
+      "right_ankle_roll_joint"
+    ],
+    "timestep": 0.002
+  },
+  "torch_runtime_version": "2.14.1+cu130",
+  "end_utc": "2026-10-13T19:31:21.740721+00:00",
+  "result": "PASS"
+}

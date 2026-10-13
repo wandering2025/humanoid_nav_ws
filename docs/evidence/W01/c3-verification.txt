@@ -1,0 +1,6 @@
+[0;93m2026-10-13 21:33:48.105932848 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+start_utc 2026-10-13T19:33:50.087915+00:00
+tested_head 6b4fb6aff0f031a7395d6aa4878e0e2e4d547bbc
+python /home/haoyang/venvs/humanoid_mujoco/bin/python torch_runtime 2.14.1+cu130 cuda_available False
+PASS environment/imports/repos/paths/hashes/MJCF/dependencies.repos
+end_utc 2026-10-13T19:33:50.217975+00:00

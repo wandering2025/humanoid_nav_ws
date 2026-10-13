@@ -1,0 +1,41 @@
+{
+  "time_utc": "2026-10-13T19:33:51.061390+00:00",
+  "tested_head": "6b4fb6aff0f031a7395d6aa4878e0e2e4d547bbc",
+  "ignored": [
+    "build/a",
+    "install/a",
+    "log/a",
+    "a.mcap",
+    "a.db3",
+    ".venv/a",
+    "venv/a",
+    "__pycache__/a.pyc",
+    "docs/evidence/W01/raw/a.log",
+    "run_data/a",
+    "a.mp4"
+  ],
+  "trackable": [
+    "docs/results/a.csv",
+    "maps/a.yaml",
+    "maps/a.pgm",
+    "docs/plans/t1_mujoco_navigation/records/W01.md",
+    "docs/evidence/W01/c3-verification.txt"
+  ],
+  "reviewed_files": [
+    "dependencies.repos",
+    "docs/baseline/apt-packages.txt",
+    "docs/baseline/verify_baseline.py",
+    "docs/baseline/python-packages.txt",
+    "docs/baseline/environment.md",
+    "docs/baseline/assets-manifest.md",
+    "docs/evidence/W01/c2-assets.json",
+    "docs/evidence/W01/c1-environment.txt",
+    "docs/evidence/W01/c3-verification.txt"
+  ],
+  "historical_logs": [
+    "/home/haoyang/t1_walk_evidence/run3_monitor.log",
+    "/home/haoyang/t1_walk_evidence/run4_monitor.log",
+    "/home/haoyang/t1_walk_evidence/run5_monitor.log"
+  ],
+  "result": "PASS"
+}

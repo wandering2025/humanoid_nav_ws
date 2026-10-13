@@ -1,0 +1,9 @@
+repositories:
+  booster_deploy:
+    type: git
+    url: https://github.com/BoosterRobotics/booster_deploy.git
+    version: 7bb1462e2ac742eba5c01659b815e2e99fbe617f
+  booster_assets:
+    type: git
+    url: https://github.com/BoosterRobotics/booster_assets.git
+    version: 12a97516f57469078707afb587a5f84c1cb110d1
