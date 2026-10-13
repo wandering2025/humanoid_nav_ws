@@ -147,7 +147,7 @@ mapping 模式下 teleop 替代 Nav2 核心作为 `/cmd_vel_nav` 源（W10 起�
 | W04 | `T1SimRunner`（§3）、索引映射与启动断言、控制周期（§5）、InputBuffer、末端保护 1–3/7/8（无标定时 UNCALIBRATED 拒绝 /cmd_vel）、`/t1/debug/policy_cmd`、`/clock`、`/t1/sim_state`、`/diagnostics`、pause/reset 服务、状态机、headless/viewer、`run_data` manifest 与基础 trace | MjData、/clock、t1_sim 状态 |
 | W05 | `command_map.yaml`（M、envelope、deadband、能力开关）、末端保护 4–6 及单元测试、warmup、停距/停时、终点容差与时间上限修订 | 速度契约 |
 | W06 | `/odom`、`odom→base_footprint→base_link` TF、`/joint_states`、RSP 基础包装 URDF（base_link→trunk）、可选 `/imu/data`、`/t1/eval/ground_truth` | 动态 TF、状态桥 |
-| W07 | 场景组合（MjSpec，缓存展开 MJCF）、三场景、A/B、包装 URDF 完整化、footprint、射线几何分组 | 场景与描述 |
+| W07 | 场景组合（MjSpec，缓存展开 MJCF）、W07 单步文件所列场景（91dd117 起：几何校准场、static_world、dynamic_crossing_world、stress_test_world 静态布局与障碍生成接口）及上游场景来源/许可证清单、A/B、包装 URDF 完整化、footprint、射线几何分组 | 场景与描述 |
 | W08 | `/scan`（frame `laser_stabilized`）、`base_footprint→laser_stabilized` TF、可选 `/t1/lidar/points`、扫描健康门、`sensor_mode` 选择 ADR | 传感器 |
 | W09 | slam_toolbox mapping、地图保存与 `*.meta.yaml`（含 `T_world_map`、场景/代码 SHA）、map_server+AMCL、`/initialpose` 流程 | map→odom（按模式）、地图 |
 | W10 | velocity_smoother、collision_monitor、命令链接线与源互斥、超时冻结、安全区、故障注入 | 最终命令通道 |
