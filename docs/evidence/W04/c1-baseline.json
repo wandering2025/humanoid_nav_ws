@@ -1,0 +1,373 @@
+{
+  "started_utc": "2026-10-13T20:27:33.009620+00:00",
+  "ended_utc": "2026-10-13T20:27:33.510428+00:00",
+  "code_sha": "b8a7ff4252a0e91b3339ff5e3265362be4e442e9",
+  "upstream_sha": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+  "policy_dt": 0.02,
+  "physics_dt": 0.002,
+  "decimation": 10,
+  "initial_pos": [
+    0.0,
+    0.0,
+    0.6
+  ],
+  "initial_quat": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "default_joint_pos": [
+    0,
+    0,
+    0.2,
+    -1.3,
+    0,
+    -0.5,
+    0.2,
+    1.3,
+    0,
+    0.5,
+    0.0,
+    -0.2,
+    0,
+    0,
+    0.4,
+    -0.2,
+    0.0,
+    -0.2,
+    0,
+    0,
+    0.4,
+    -0.2,
+    0.0
+  ],
+  "kp": [
+    4.0,
+    4.0,
+    50.0,
+    50.0,
+    50.0,
+    50.0,
+    50.0,
+    50.0,
+    50.0,
+    50.0,
+    200.0,
+    200.0,
+    200.0,
+    200.0,
+    200.0,
+    50.0,
+    50.0,
+    200.0,
+    200.0,
+    200.0,
+    200.0,
+    50.0,
+    50.0
+  ],
+  "kd": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    5.0,
+    5.0,
+    5.0,
+    5.0,
+    5.0,
+    2.0,
+    2.0,
+    5.0,
+    5.0,
+    5.0,
+    5.0,
+    2.0,
+    2.0
+  ],
+  "effort_limit": [
+    7.0,
+    7.0,
+    38.3,
+    38.3,
+    38.3,
+    38.3,
+    38.3,
+    38.3,
+    38.3,
+    38.3,
+    68,
+    98.8,
+    68,
+    68,
+    130.5,
+    73.1,
+    17.2,
+    98.8,
+    68,
+    68,
+    130.5,
+    73.1,
+    17.2
+  ],
+  "joint_mapping": [
+    {
+      "name": "aahead_yaw_joint",
+      "joint_id": 1,
+      "qpos": 7,
+      "qvel": 6,
+      "actuator": [
+        0
+      ]
+    },
+    {
+      "name": "aahead_pitch_joint",
+      "joint_id": 2,
+      "qpos": 8,
+      "qvel": 7,
+      "actuator": [
+        1
+      ]
+    },
+    {
+      "name": "left_shoulder_pitch_joint",
+      "joint_id": 3,
+      "qpos": 9,
+      "qvel": 8,
+      "actuator": [
+        2
+      ]
+    },
+    {
+      "name": "left_shoulder_roll_joint",
+      "joint_id": 4,
+      "qpos": 10,
+      "qvel": 9,
+      "actuator": [
+        3
+      ]
+    },
+    {
+      "name": "left_elbow_pitch_joint",
+      "joint_id": 5,
+      "qpos": 11,
+      "qvel": 10,
+      "actuator": [
+        4
+      ]
+    },
+    {
+      "name": "left_elbow_yaw_joint",
+      "joint_id": 6,
+      "qpos": 12,
+      "qvel": 11,
+      "actuator": [
+        5
+      ]
+    },
+    {
+      "name": "right_shoulder_pitch_joint",
+      "joint_id": 7,
+      "qpos": 13,
+      "qvel": 12,
+      "actuator": [
+        6
+      ]
+    },
+    {
+      "name": "right_shoulder_roll_joint",
+      "joint_id": 8,
+      "qpos": 14,
+      "qvel": 13,
+      "actuator": [
+        7
+      ]
+    },
+    {
+      "name": "right_elbow_pitch_joint",
+      "joint_id": 9,
+      "qpos": 15,
+      "qvel": 14,
+      "actuator": [
+        8
+      ]
+    },
+    {
+      "name": "right_elbow_yaw_joint",
+      "joint_id": 10,
+      "qpos": 16,
+      "qvel": 15,
+      "actuator": [
+        9
+      ]
+    },
+    {
+      "name": "waist_yaw_joint",
+      "joint_id": 11,
+      "qpos": 17,
+      "qvel": 16,
+      "actuator": [
+        10
+      ]
+    },
+    {
+      "name": "left_hip_pitch_joint",
+      "joint_id": 12,
+      "qpos": 18,
+      "qvel": 17,
+      "actuator": [
+        11
+      ]
+    },
+    {
+      "name": "left_hip_roll_joint",
+      "joint_id": 13,
+      "qpos": 19,
+      "qvel": 18,
+      "actuator": [
+        12
+      ]
+    },
+    {
+      "name": "left_hip_yaw_joint",
+      "joint_id": 14,
+      "qpos": 20,
+      "qvel": 19,
+      "actuator": [
+        13
+      ]
+    },
+    {
+      "name": "left_knee_pitch_joint",
+      "joint_id": 15,
+      "qpos": 21,
+      "qvel": 20,
+      "actuator": [
+        14
+      ]
+    },
+    {
+      "name": "left_ankle_pitch_joint",
+      "joint_id": 16,
+      "qpos": 22,
+      "qvel": 21,
+      "actuator": [
+        15
+      ]
+    },
+    {
+      "name": "left_ankle_roll_joint",
+      "joint_id": 17,
+      "qpos": 23,
+      "qvel": 22,
+      "actuator": [
+        16
+      ]
+    },
+    {
+      "name": "right_hip_pitch_joint",
+      "joint_id": 18,
+      "qpos": 24,
+      "qvel": 23,
+      "actuator": [
+        17
+      ]
+    },
+    {
+      "name": "right_hip_roll_joint",
+      "joint_id": 19,
+      "qpos": 25,
+      "qvel": 24,
+      "actuator": [
+        18
+      ]
+    },
+    {
+      "name": "right_hip_yaw_joint",
+      "joint_id": 20,
+      "qpos": 26,
+      "qvel": 25,
+      "actuator": [
+        19
+      ]
+    },
+    {
+      "name": "right_knee_pitch_joint",
+      "joint_id": 21,
+      "qpos": 27,
+      "qvel": 26,
+      "actuator": [
+        20
+      ]
+    },
+    {
+      "name": "right_ankle_pitch_joint",
+      "joint_id": 22,
+      "qpos": 28,
+      "qvel": 27,
+      "actuator": [
+        21
+      ]
+    },
+    {
+      "name": "right_ankle_roll_joint",
+      "joint_id": 23,
+      "qpos": 29,
+      "qvel": 28,
+      "actuator": [
+        22
+      ]
+    }
+  ],
+  "policy_joint_names": [
+    "left_shoulder_pitch_joint",
+    "right_shoulder_pitch_joint",
+    "waist_yaw_joint",
+    "left_shoulder_roll_joint",
+    "right_shoulder_roll_joint",
+    "left_hip_pitch_joint",
+    "right_hip_pitch_joint",
+    "left_elbow_pitch_joint",
+    "right_elbow_pitch_joint",
+    "left_hip_roll_joint",
+    "right_hip_roll_joint",
+    "left_elbow_yaw_joint",
+    "right_elbow_yaw_joint",
+    "left_hip_yaw_joint",
+    "right_hip_yaw_joint",
+    "left_knee_pitch_joint",
+    "right_knee_pitch_joint",
+    "left_ankle_pitch_joint",
+    "right_ankle_pitch_joint",
+    "left_ankle_roll_joint",
+    "right_ankle_roll_joint"
+  ],
+  "sim_duration": 15.000000000001679,
+  "wall_duration": 0.4974676960009674,
+  "rtf": 30.152711664660192,
+  "standing_end": [
+    -0.00042685791869048967,
+    -0.011625136277720263,
+    0.6840333912701614
+  ],
+  "walking_end": [
+    3.736619368740662,
+    0.28473196103484444,
+    0.6766458388528644
+  ],
+  "walking_displacement": [
+    3.7370462266593525,
+    0.2963570973125647,
+    -0.007387552417296939
+  ],
+  "min_height": 0.6195557038722014,
+  "trajectory_sha256": "360fd531f48d98b198b9cb785c4bc7e9a02897b09adf9a13e7c08770823ba430",
+  "exit_code": 0
+}
