@@ -31,7 +31,8 @@ class InputBuffer:
                 self.ignored_components += 1
             self.command = (values, self.sim_time, time.monotonic() if wall is None else wall)
 
-    def consume(self, sim_time, wall, timeout_sim, timeout_wall, debug):
+    def consume(self, sim_time, wall, timeout_sim, timeout_wall, debug, mapper=None):
+        """Return (incoming, u_pol, status). mapper: calibrated CommandMap.guard."""
         with self.lock:
             state, command = self.state, self.command
         zero = (0.0, 0.0, 0.0)
@@ -46,7 +47,9 @@ class InputBuffer:
         if sim_time - received_sim > timeout_sim or wall - received_wall > timeout_wall:
             return incoming, zero, 'TIMEOUT'
         if not debug:
-            return incoming, zero, 'UNCALIBRATED'
+            if mapper is None:
+                return incoming, zero, 'UNCALIBRATED'
+            return incoming, mapper(incoming)[0], 'ACTIVE'
         # Experimental policy units only. These are upstream command bounds,
         # not a calibrated physical envelope. Never raise small commands.
         return incoming, tuple(max(-1.0, min(1.0, x)) for x in incoming), 'ACTIVE'

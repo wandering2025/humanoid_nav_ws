@@ -59,6 +59,8 @@ def simulation_arguments():
     return [DeclareLaunchArgument(name, default_value=default) for name, default in (
         ('headless', 'true'), ('target_rtf', '1.0'), ('enable_policy_cmd_input', 'false'),
         ('max_sim_time', '0.0'), ('scene', ''), ('run_id', ''),
+        # W05 calibrated v_des->u_pol contract; '' keeps /cmd_vel UNCALIBRATED.
+        ('command_map_file', str(Path(get_package_share_directory('t1_mujoco')) / 'config/command_map.yaml')),
     )]
 
 
@@ -71,7 +73,7 @@ def simulation_actions(context):
               for name, kind in (
                   ('upstream_path', str), ('assets_path', str), ('mode', str), ('task', str),
                   ('headless', bool), ('target_rtf', float), ('enable_policy_cmd_input', bool),
-                  ('max_sim_time', float), ('scene', str), ('run_id', str))}
+                  ('max_sim_time', float), ('scene', str), ('run_id', str), ('command_map_file', str))}
     values['use_sim_time'] = False
     node = Node(package='t1_mujoco', executable='t1_sim', name='t1_sim', output='screen',
                 parameters=[str(params_file), values])

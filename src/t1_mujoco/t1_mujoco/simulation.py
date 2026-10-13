@@ -25,8 +25,8 @@ def parameter_defaults():
 def validate_parameters(p):
     if p['mode'] != 'sim_only':
         raise ValueError('W04 implements sim_only only; mapping/navigation/evaluation are not available')
-    if p['command_map_file']:
-        raise ValueError('command_map_file is implemented by W05, not W04')
+    if p['command_map_file'] and not Path(p['command_map_file']).is_absolute():
+        raise ValueError('command_map_file must be absolute (empty = uncalibrated, /cmd_vel rejected)')
     for name in ('target_rtf','max_sim_time','warmup_sim_s','cmd_timeout_sim','cmd_timeout_wall','viewer_rate_hz'):
         if not math.isfinite(p[name]) or p[name] < 0:
             raise ValueError(f'{name} must be finite and nonnegative')
@@ -86,7 +86,18 @@ def main(args=None):
         torch.set_num_threads(1)
         torch.manual_seed(p['seed'])
         np.random.seed(p['seed'])
+        command_map = None
+        if p['command_map_file']:
+            from .command_map import CommandMap
+            command_map = CommandMap.load(p['command_map_file'])  # invalid map: refuse to start
+        elif p['mode'] != 'sim_only':
+            raise ValueError('navigation/evaluation modes require a calibrated command_map_file')
         log = RunLog(p, runtime)
+        if command_map is not None:
+            from .recording import sha256
+            log.manifest['parameter_files']['command_map'] = dict(
+                path=command_map.source, sha256=sha256(command_map.source),
+                evidence=command_map.data['evidence'])
         clock_pub = node.create_publisher(Clock, '/clock', QoSProfile(depth=1))
         state_pub = node.create_publisher(String, '/t1/sim_state', QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL))
         diag_pub = node.create_publisher(DiagnosticArray, '/diagnostics', 10)
@@ -94,7 +105,8 @@ def main(args=None):
         from .model_contract import ModelIncompatible
         try:
             runner = T1SimRunner(cfg, debug=p['enable_policy_cmd_input'], warmup=p['warmup_sim_s'],
-                                 timeout_sim=p['cmd_timeout_sim'], timeout_wall=p['cmd_timeout_wall'])
+                                 timeout_sim=p['cmd_timeout_sim'], timeout_wall=p['cmd_timeout_wall'],
+                                 command_map=command_map)
         except (ModelIncompatible, ValueError) as exc:
             status = dict(schema=1, state='FAULT', fault='model_incompatible', detail=str(exc),
                           sim_time=0.0, run_id=log.run_id, wall_unix=time.time())
@@ -168,6 +180,8 @@ def main(args=None):
                          wall_unix=time.time(), wall_mono=now, rtf_10s=rtf, cmd_status=runner.cmd_status,
                          cmd_source='policy_cmd' if runner.debug else 'cmd_vel',
                          v_des=[0.,0.,0.] if runner.debug else list(runner.incoming), u_pol=list(runner.u_pol),
+                         v_guard=[0.,0.,0.] if runner.debug else list(runner.v_guard), guard=list(runner.guard_flags),
+                         command_map_calibrated=runner.command_map is not None,
                          scenario=runtime['mjcf_path'], seed=p['seed'], code_sha=log.manifest['code_sha'],
                          deadline_overruns=overruns, ignored_components=runner.inputs.ignored_components)
             state_pub.publish(String(data=json.dumps(value, allow_nan=False)))

@@ -17,7 +17,7 @@ class SimulationFault(RuntimeError):
 
 
 class T1SimRunner(MujocoController):
-    def __init__(self, cfg, *, debug=False, warmup=2.0, timeout_sim=0.5, timeout_wall=0.5):
+    def __init__(self, cfg, *, debug=False, warmup=2.0, timeout_sim=0.5, timeout_wall=0.5, command_map=None):
         self.owner = threading.get_ident()
         if (cfg.policy_dt, cfg.mujoco.decimation, cfg.mujoco.physics_dt) != (0.02, 10, 0.002):
             raise ModelIncompatible('frozen timing must be 0.02/10/0.002')
@@ -29,12 +29,14 @@ class T1SimRunner(MujocoController):
         self.inputs = InputBuffer()
         self.requests = RequestQueue()
         self.debug, self.warmup = debug, warmup
+        self.command_map = command_map  # None: /cmd_vel stays UNCALIBRATED
         self.timeout_sim, self.timeout_wall = timeout_sim, timeout_wall
         self.state, self.fault = 'STARTING', None
         self.episode = 0
         self.episode_start = 0.0
         self.u_pol = (0.0, 0.0, 0.0)
-        self.incoming = self.u_pol
+        self.incoming = self.v_guard = self.u_pol
+        self.guard_flags = []
         self.cmd_status = 'BLOCKED_BY_STATE'
         self.action_norm = 0.0
         self.compute_ms = 0.0
@@ -62,7 +64,8 @@ class T1SimRunner(MujocoController):
         self.state, self.fault = state, fault
         self.inputs.boundary(state, float(self.mj_data.time), clear=True)
         self.write_command((0.0, 0.0, 0.0))
-        self.incoming = self.u_pol
+        self.incoming = self.v_guard = self.u_pol
+        self.guard_flags = []
         self.cmd_status = 'BLOCKED_BY_STATE'
         self.state_events.append((state, fault, float(self.mj_data.time), self.episode))
         if state in ('FALLEN', 'FAULT'):
@@ -165,9 +168,13 @@ class T1SimRunner(MujocoController):
         if not self.finite_state():
             self.transition('FAULT', 'nonfinite_state')
             return False
+        mapper = None if self.debug or self.command_map is None else self.command_map.guard
         self.incoming, command, self.cmd_status = self.inputs.consume(
-            float(self.mj_data.time), began, self.timeout_sim, self.timeout_wall, self.debug)
+            float(self.mj_data.time), began, self.timeout_sim, self.timeout_wall, self.debug, mapper)
         self.write_command(command)
+        if mapper is not None:
+            self.guard_flags = mapper(self.incoming)[1] if self.cmd_status == 'ACTIVE' else []
+            self.v_guard = self.command_map.expected(command)
         self.update_state()
         try:
             target = self.policy_step()

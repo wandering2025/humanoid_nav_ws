@@ -78,7 +78,8 @@ class RunLog:
         for i, axis in enumerate(('x','y','wz')):
             # Debug inputs are policy units, never label them as physical desired velocity.
             row['v_cmd_in_'+axis] = 0.0 if runner.debug else runner.incoming[i]
-            row['v_guard_'+axis] = 0.0  # physical mapping is unavailable until W05
+            # Expected physical velocity of u_pol under the W05 map (M^-1).
+            row['v_guard_'+axis] = 0.0 if runner.debug else runner.v_guard[i]
             row['u_pol_'+axis] = runner.u_pol[i]
         self.trace.writerow(row)
 
