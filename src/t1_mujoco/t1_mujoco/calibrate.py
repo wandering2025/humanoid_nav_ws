@@ -66,13 +66,41 @@ def c2_families():
     # Combined forward + small yaw near the forward threshold.
     fam.append(('vx_wz_low', [((v, 0.0, w), protocol((v, 0.0, w)))
                               for v, w in ((0.4, 0.15), (0.4, -0.15), (0.4, 0.3), (0.4, -0.3), (0.45, 0.3))]))
+    # Hypothesis: gait is gated on the command-vector norm, not per axis.
+    fam.append(('norm_gate', [((v, y, w), protocol((v, y, w)))
+                              for v, y, w in ((0.3, 0.0, 0.3), (0.3, 0.0, -0.3), (0.2, 0.0, 0.3),
+                                              (0.25, 0.25, 0.0), (0.3, 0.3, 0.0), (0.0, 0.3, 0.3))]))
     # Yaw-only then add forward: does turning in place help start walking?
     fam.append(('turn_then_walk', [((0.3, 0.0, 0.3), [Segment(1.0, ZERO), Segment(3.0, (0.0, 0.0, 0.3)),
                                                       Segment(8.0, (0.3, 0.0, 0.3)), Segment(6.0, ZERO)])]))
     return fam
 
 
-SUITES = {'c1': c1_families, 'c2': c2_families}
+def c3_families():
+    """Envelope design data: combined grid, in-place turns, stop phase, warmup."""
+    fam = []
+    for ux in (0.4, 0.45, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0):
+        fam.append((f'grid_ux{ux:g}', [((ux, 0.0, w), protocol((ux, 0.0, w)))
+                                       for w in (0.0, 0.1, -0.1, 0.2, -0.2, 0.3, -0.3, 0.4, -0.4, 0.5, -0.5)]))
+    fam.append(('inplace', [((0.0, 0.0, s * w), protocol((0.0, 0.0, s * w)))
+                            for w in (0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.7, 0.8, 0.9, 1.0) for s in (1, -1)]))
+    # Zero command issued at 12 different points of the gait cycle.
+    for name, cmd in (('stop_vx0.4', (0.4, 0.0, 0.0)), ('stop_vx0.6', (0.6, 0.0, 0.0)),
+                      ('stop_vx0.8', (0.8, 0.0, 0.0)), ('stop_vx1.0', (1.0, 0.0, 0.0)),
+                      ('stop_turn+', (0.6, 0.0, 0.5)), ('stop_turn-', (0.6, 0.0, -0.5)),
+                      ('stop_inplace+', (0.0, 0.0, 1.0)), ('stop_inplace-', (0.0, 0.0, -1.0))):
+        fam.append((name, [((cmd[0], cmd[1], cmd[2]), protocol(cmd, hold=round(8.0 + 0.06 * j, 2)))
+                           for j in range(12)]))
+    return fam
+
+
+def warmup_trials():
+    """Command u=(0.6,0,0) immediately at READY after shorter warmups."""
+    return [('warmup', [((0.6, 0.0, 0.0), [Segment(8.0, (0.6, 0.0, 0.0)), Segment(6.0, ZERO)], w)
+                        for w in (0.5, 1.0, 1.5, 2.0)])]
+
+
+SUITES = {'c1': c1_families, 'c2': c2_families, 'c3': c3_families, 'warmup': warmup_trials}
 
 
 def git(*args):
@@ -118,13 +146,20 @@ def main(argv=None):
     summaries = []
     for family, levels in SUITES[args.suite]():
         stopped = None
-        for command, segments in levels:
+        commands = [level[0] for level in levels]
+        for j, level in enumerate(levels):
+            command, segments = level[0], level[1]
+            warmup = level[2] if len(level) > 2 else 2.0
             name = f'{family}:{command[0]:+.3f},{command[1]:+.3f},{command[2]:+.3f}'
+            if len(level) > 2:
+                name += f'@w{warmup:g}'
+            elif commands.count(command) > 1:
+                name += f'#{j}'
             if stopped and not args.no_escalation_stop:
                 manifest['trials'].append(dict(name=name, skipped=f'escalation stopped after {stopped}'))
                 continue
             for rep, heading in enumerate(headings):
-                spec = TrialSpec(name, segments, heading_deg=heading, rep=rep, tags=dict(family=family))
+                spec = TrialSpec(name, segments, heading_deg=heading, warmup=warmup, rep=rep, tags=dict(family=family))
                 wall0 = time.monotonic()
                 result = run_trial(cfg, spec, record=trace.writerow)
                 wall = time.monotonic() - wall0
