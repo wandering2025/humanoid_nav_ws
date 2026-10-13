@@ -1,0 +1,12 @@
+in-place |u| 0.60-0.85 +                   n=  96 v<=0.022 dmax=0.052 tmax=3.12 yaw=[-17.4,-0.4] held=True
+in-place |u| 0.60-0.85 -                   n=  96 v<=0.033 dmax=0.091 tmax=2.72 yaw=[-2.2,26.1] held=True
+in-place |u| >0.85 +                       n=  63 v<=0.016 dmax=0.064 tmax=2.76 yaw=[-9.9,-1.9] held=True
+in-place |u| >0.85 -                       n=  63 v<=0.029 dmax=0.085 tmax=2.80 yaw=[-3.3,4.4] held=True
+in-place |u|<0.6 (excluded from envelope)  n=  81 v<=0.025 dmax=0.053 tmax=3.24 yaw=[-20.0,22.5] held=False
+walk u_x 0.40                              n= 153 v<=0.310 dmax=0.140 tmax=1.52 yaw=[-2.5,3.0] held=True
+walk u_x 0.50                              n= 150 v<=0.433 dmax=0.177 tmax=1.38 yaw=[-1.1,3.2] held=True
+walk u_x 0.60                              n= 219 v<=0.539 dmax=0.245 tmax=1.58 yaw=[-1.9,2.8] held=True
+walk u_x 0.70                              n= 105 v<=0.652 dmax=0.290 tmax=1.60 yaw=[-2.8,0.3] held=True
+walk u_x 0.80                              n= 141 v<=0.772 dmax=0.353 tmax=1.82 yaw=[-3.9,3.3] held=True
+walk u_x <=0.8 (other)                     n=  81 v<=0.728 dmax=0.275 tmax=1.56 yaw=[-2.9,2.3] held=True
+walk u_x >0.8 (other)                      n= 111 v<=1.007 dmax=0.443 tmax=2.16 yaw=[-5.2,5.1] held=True
