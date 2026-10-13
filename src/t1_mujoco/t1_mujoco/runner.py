@@ -97,8 +97,16 @@ class T1SimRunner(MujocoController):
             if not np.isfinite(torque).all():
                 raise SimulationFault('nonfinite_action')
             self.mj_data.ctrl[self.aids] = torque
+            previous_time = float(self.mj_data.time)
+            warning_ids = [mujoco.mjtWarning.mjWARN_BADQPOS, mujoco.mjtWarning.mjWARN_BADQVEL,
+                           mujoco.mjtWarning.mjWARN_BADQACC]
+            warnings_before = [self.mj_data.warning[i].number for i in warning_ids]
             mujoco.mj_step(self.mj_model, self.mj_data)
-            if not self.finite_state():
+            # MuJoCo can auto-reset invalid dynamics to a finite state. Detect
+            # that path before publishing a regressed clock as valid data.
+            reset_or_warning = self.mj_data.time <= previous_time or any(
+                self.mj_data.warning[i].number > n for i, n in zip(warning_ids, warnings_before))
+            if reset_or_warning or not self.finite_state():
                 raise SimulationFault('nonfinite_state')
 
     def reset_episode(self):

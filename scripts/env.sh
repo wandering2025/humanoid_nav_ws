@@ -31,6 +31,19 @@ _t1_load_environment() {
   fi
   source "$T1_VENV/bin/activate" || { $had_nounset && set -u; return 2; }
   export T1_WS="$workspace" T1_VENV T1_UPSTREAM
+  # Opt-in workaround verified on this WSL host; starts no background process.
+  # All communicating terminals need this setting and one local discovery server.
+  if [[ "${T1_LOCAL_DDS:-0}" == 1 ]]; then
+    if [[ ! "${T1_DDS_PORT:-42114}" =~ ^[1-9][0-9]{3,4}$ ]] || (( ${T1_DDS_PORT:-42114} < 1024 || ${T1_DDS_PORT:-42114} > 65535 )); then
+      echo 'T1_DDS_PORT must be an integer between 1024 and 65535.' >&2
+      $had_nounset && set -u
+      return 2
+    fi
+    export T1_DDS_PORT="${T1_DDS_PORT:-42114}"
+    export ROS_AUTOMATIC_DISCOVERY_RANGE=SYSTEM_DEFAULT
+    export ROS_DISCOVERY_SERVER="TCPv4:[127.0.0.1]:${T1_DDS_PORT}"
+    export ROS_SUPER_CLIENT=TRUE
+  fi
   $had_nounset && set -u
   return 0
 }

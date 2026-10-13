@@ -38,10 +38,11 @@ assert r.inputs.command is None and r.u_pol==(0.,0.,0.) and r.mj_data.time > old
 checks=['trajectory_matches_upstream','reset_history_action_filter_counters_commands_monotonic_time']
 
 # Fault injection only in this test process: no production injection parameters.
-for kind in ('nan_action','policy_exception','nan_state','fallen'):
+for kind in ('nan_action','inf_action','policy_exception','nan_state','fallen'):
     r=T1SimRunner(cfg)
-    if kind=='nan_action':
-        r.policy.inference=lambda: torch.full((23,),float('nan'))
+    if kind in ('nan_action','inf_action'):
+        bad=float('nan') if kind=='nan_action' else float('inf')
+        r.policy.inference=lambda: torch.full((23,),bad)
     elif kind=='policy_exception':
         def fail(): raise RuntimeError('test fault')
         r.policy.inference=fail
@@ -63,6 +64,18 @@ def wrong_thread():
 th=threading.Thread(target=wrong_thread);th.start();th.join()
 assert errors
 checks.append('single_owner_assertion')
+# Simulate MuJoCo's automatic finite reset after a bad integration step.
+import mujoco
+original_step=mujoco.mj_step
+r=T1SimRunner(cfg)
+def reset_instead_of_step(model,data): data.time=0.
+mujoco.mj_step=reset_instead_of_step
+try:
+    assert not r.step() and r.fault=='nonfinite_state'
+finally:
+    mujoco.mj_step=original_step
+checks.append('mujoco_implicit_time_reset_rejected')
+r=T1SimRunner(cfg)
 req=Request('pause',True,deadline=time.monotonic()-1)
 r.requests.queue.put(req);r.handle_requests('sim_only')
 assert not req.result[0] and r.state=='STARTING'

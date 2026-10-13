@@ -1,6 +1,5 @@
 """ROS-facing entry point; physics lives only on this process's main thread."""
 from collections import deque
-from contextlib import nullcontext
 import json
 import math
 import os
@@ -58,6 +57,7 @@ def main(args=None):
     from diagnostic_msgs.msg import DiagnosticArray, DiagnosticStatus, KeyValue
 
     context, node, executor, worker, runner, log, viewer = Context(), None, None, None, None, None, None
+    viewer_threads = []
     stop = threading.Event()
     old_signals = {}
     code, terminal = 0, 'SHUTDOWN'
@@ -137,8 +137,10 @@ def main(args=None):
                     with runner.inputs.lock:
                         paused = runner.inputs.state == 'PAUSED'
                     runner.requests.queue.put(Request('pause', not paused))
+            before_viewer_threads = set(threading.enumerate())
             viewer = mujoco.viewer.launch_passive(view_model, view_data, key_callback=key,
                                                   show_left_ui=False, show_right_ui=False)
+            viewer_threads = [t for t in threading.enumerate() if t not in before_viewer_threads]
             viewer.cam.elevation = -20
 
         samples = deque()
@@ -244,6 +246,13 @@ def main(args=None):
             runner.stop()
         if viewer is not None:
             viewer.close()
+            # MuJoCo 3.15 close() only requests exit; its render thread is daemon.
+            # Wait for the threads created by this launch before Python teardown.
+            for thread in viewer_threads:
+                thread.join(timeout=5)
+                if thread.is_alive():
+                    code = 2
+                    print('viewer thread failed to exit', file=sys.stderr)
         if executor is not None:
             executor.shutdown(timeout_sec=3)
         if worker is not None:

@@ -1,0 +1,8 @@
+{
+  "suite": "controls",
+  "started_utc": "2026-10-13T20:35:31.798337+00:00",
+  "code_sha": "49f78d6f90c03fc8933772a167770d634996c77d",
+  "verdict": "FAIL",
+  "failure": "AssertionError('timeout; latest={}')",
+  "ended_utc": "2026-10-13T20:35:44.751292+00:00"
+}

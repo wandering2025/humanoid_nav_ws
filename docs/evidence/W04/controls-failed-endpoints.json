@@ -1,0 +1,8 @@
+{
+  "suite": "controls",
+  "started_utc": "2026-10-13T20:36:18.746110+00:00",
+  "code_sha": "49f78d6f90c03fc8933772a167770d634996c77d",
+  "verdict": "FAIL",
+  "failure": "AssertionError(\"timeout; latest={}; nodes=['w04_acceptance']; state_publishers=[<rclpy.topic_endpoint_info.TopicEndpointInfo object at 0x72edec1d74c0>]; clocks=0\")",
+  "ended_utc": "2026-10-13T20:36:31.289616+00:00"
+}
