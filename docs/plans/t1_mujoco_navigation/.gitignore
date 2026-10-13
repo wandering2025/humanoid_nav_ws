@@ -1,0 +1,11 @@
+# Local notes and generated transient files
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+# No source code, models or recordings belong in this plan repository
+*.bag
+*.db3
+*.mcap
+*.mp4
+*.pt
