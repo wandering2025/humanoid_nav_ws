@@ -106,6 +106,29 @@ def dense_families():
     return fam
 
 
+def context_families():
+    """Same command after different preceding motion: history dependence."""
+    fam = []
+    for u in (0.6, -0.6, 0.7, -0.7, 0.8, -0.8):
+        turn = (0.0, 0.0, u)
+        fam.append((f'ctx_inplace{u:+g}', [
+            (turn, [Segment(1.0, ZERO), Segment(15.0, turn), Segment(6.0, ZERO)], 2.0, 'stand'),
+            (turn, [Segment(1.0, ZERO), Segment(8.0, (0.0, 0.0, -u)), Segment(5.0, ZERO),
+                    Segment(15.0, turn), Segment(6.0, ZERO)], 2.0, 'after_opposite_turn'),
+            (turn, [Segment(1.0, ZERO), Segment(6.0, (0.5, 0.0, 0.0)), Segment(5.0, ZERO),
+                    Segment(15.0, turn), Segment(6.0, ZERO)], 2.0, 'after_walk_stop'),
+            (turn, [Segment(1.0, ZERO), Segment(6.0, (0.5, 0.0, 0.0)), Segment(15.0, turn),
+                    Segment(6.0, ZERO)], 2.0, 'from_walk')]))
+    for w in (0.4, -0.4):
+        cmd = (0.5, 0.0, w)
+        fam.append((f'ctx_walk{w:+g}', [
+            (cmd, [Segment(1.0, ZERO), Segment(8.0, (0.0, 0.0, 0.8)), Segment(5.0, ZERO),
+                   Segment(15.0, cmd), Segment(6.0, ZERO)], 2.0, 'after_inplace_left'),
+            (cmd, [Segment(1.0, ZERO), Segment(8.0, (0.0, 0.0, -0.8)), Segment(5.0, ZERO),
+                   Segment(15.0, cmd), Segment(6.0, ZERO)], 2.0, 'after_inplace_right')]))
+    return fam
+
+
 def warmup_trials():
     """Command u=(0.6,0,0) immediately at READY after shorter warmups."""
     return [('warmup', [((0.6, 0.0, 0.0), [Segment(8.0, (0.6, 0.0, 0.0)), Segment(6.0, ZERO)], w)
@@ -113,7 +136,7 @@ def warmup_trials():
 
 
 SUITES = {'c1': c1_families, 'c2': c2_families, 'c3': c3_families, 'dense': dense_families,
-          'warmup': warmup_trials}
+          'context': context_families, 'warmup': warmup_trials}
 
 
 def git(*args):
@@ -164,7 +187,9 @@ def main(argv=None):
             command, segments = level[0], level[1]
             warmup = level[2] if len(level) > 2 else 2.0
             name = f'{family}:{command[0]:+.3f},{command[1]:+.3f},{command[2]:+.3f}'
-            if len(level) > 2:
+            if len(level) > 3:
+                name += f'@{level[3]}'
+            elif len(level) > 2:
                 name += f'@w{warmup:g}'
             elif commands.count(command) > 1:
                 name += f'#{j}'

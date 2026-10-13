@@ -204,6 +204,19 @@ def verdict(run):
     checks['turn_in_place_both'] = seg['turn_in_place_left']['yaw_change_deg'] > 90 and seg['turn_in_place_right']['yaw_change_deg'] < -90
     checks['deadband_not_raised'] = seg['deadband_forward_0.15']['u_pol_last'] == [0.0, 0.0, 0.0] and \
         seg['deadband_forward_0.15']['displacement_m'] < 0.1
+    # Contract: the robot must not be faster than requested (steady 2nd half).
+    excess, drift = [], []
+    for s in run['segments']:
+        if s.get('rows') and s['v_des'] != (0.0, 0.0, 0.0) and 'deadband' not in s['label']:
+            for measured, requested in ((s['mean_vx_2nd_half'], s['v_des'][0]), (s['mean_wz_2nd_half'], s['v_des'][2])):
+                if requested:
+                    excess.append(abs(measured) - abs(requested))
+                elif measured is s['mean_vx_2nd_half']:
+                    drift.append(abs(measured))  # in-place turn: translation drift, not commanded
+    run['max_excess_over_request'] = max(excess)
+    run['max_in_place_translation_drift'] = max(drift) if drift else 0.0
+    checks['not_faster_than_request'] = max(excess) <= 0.01
+    checks['in_place_drift_below_still_speed'] = run['max_in_place_translation_drift'] < STILL_SPEED
     active = sum(s['cmd_status'].get('ACTIVE', 0) for s in run['segments'])
     timeouts = sum(s['cmd_status'].get('TIMEOUT', 0) for s in run['segments'])
     checks['commands_fresh'] = timeouts <= 0.01 * active
