@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+if [[ "${T1_VENV:-}" != /* || ! -x "${T1_VENV:-}/bin/python" || ! -f "${T1_VENV:-}/pyvenv.cfg" ]]; then
+  echo 't1_diagnostic: set T1_VENV to an existing absolute Python venv directory; source scripts/env.sh.' >&2
+  exit 2
+fi
+exec "$T1_VENV/bin/python" -m t1_mujoco.diagnostic "$@"

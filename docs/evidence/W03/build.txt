@@ -1,0 +1,159 @@
+Starting >>> t1_description
+Starting >>> t1_mujoco
+Starting >>> t1_navigation
+-- The C compiler identification is GNU 13.3.0
+-- The C compiler identification is GNU 13.3.0
+running egg_info
+creating ../../build/t1_mujoco/t1_mujoco.egg-info
+writing ../../build/t1_mujoco/t1_mujoco.egg-info/PKG-INFO
+writing dependency_links to ../../build/t1_mujoco/t1_mujoco.egg-info/dependency_links.txt
+writing entry points to ../../build/t1_mujoco/t1_mujoco.egg-info/entry_points.txt
+writing requirements to ../../build/t1_mujoco/t1_mujoco.egg-info/requires.txt
+writing top-level names to ../../build/t1_mujoco/t1_mujoco.egg-info/top_level.txt
+writing manifest file '../../build/t1_mujoco/t1_mujoco.egg-info/SOURCES.txt'
+-- The CXX compiler identification is GNU 13.3.0
+reading manifest file '../../build/t1_mujoco/t1_mujoco.egg-info/SOURCES.txt'
+writing manifest file '../../build/t1_mujoco/t1_mujoco.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/haoyang/humanoid_nav_ws/build/t1_mujoco/build
+creating /home/haoyang/humanoid_nav_ws/build/t1_mujoco/build/lib
+creating /home/haoyang/humanoid_nav_ws/build/t1_mujoco/build/lib/t1_mujoco
+copying t1_mujoco/runtime.py -> /home/haoyang/humanoid_nav_ws/build/t1_mujoco/build/lib/t1_mujoco
+copying t1_mujoco/diagnostic.py -> /home/haoyang/humanoid_nav_ws/build/t1_mujoco/build/lib/t1_mujoco
+copying t1_mujoco/__init__.py -> /home/haoyang/humanoid_nav_ws/build/t1_mujoco/build/lib/t1_mujoco
+running install
+running install_lib
+creating /home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/python3.12/site-packages/t1_mujoco
+copying /home/haoyang/humanoid_nav_ws/build/t1_mujoco/build/lib/t1_mujoco/runtime.py -> /home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/python3.12/site-packages/t1_mujoco
+copying /home/haoyang/humanoid_nav_ws/build/t1_mujoco/build/lib/t1_mujoco/diagnostic.py -> /home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/python3.12/site-packages/t1_mujoco
+copying /home/haoyang/humanoid_nav_ws/build/t1_mujoco/build/lib/t1_mujoco/__init__.py -> /home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/python3.12/site-packages/t1_mujoco
+byte-compiling /home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/python3.12/site-packages/t1_mujoco/runtime.py to runtime.cpython-312.pyc
+byte-compiling /home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/python3.12/site-packages/t1_mujoco/diagnostic.py to diagnostic.cpython-312.pyc
+byte-compiling /home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/python3.12/site-packages/t1_mujoco/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/ament_index
+creating /home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/ament_index/resource_index
+creating /home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/ament_index/resource_index/packages
+copying resource/t1_mujoco -> /home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/ament_index/resource_index/packages
+copying package.xml -> /home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco
+creating /home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config
+copying config/runtime.yaml -> /home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config
+copying config/README.md -> /home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config
+creating /home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/t1_mujoco
+copying scripts/t1_diagnostic -> /home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/t1_mujoco
+running install_egg_info
+Copying ../../build/t1_mujoco/t1_mujoco.egg-info to /home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/python3.12/site-packages/t1_mujoco-0.1.0-py3.12.egg-info
+running install_scripts
+-- The CXX compiler identification is GNU 13.3.0
+Installing t1_diagnostic_python script to /home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/t1_mujoco
+writing list of installed files to '/home/haoyang/humanoid_nav_ws/build/t1_mujoco/install.log'
+Finished <<< t1_mujoco [1.13s]
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Configuring done (2.4s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/haoyang/humanoid_nav_ws/build/t1_description
+-- Configuring done (2.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/haoyang/humanoid_nav_ws/build/t1_navigation
+-- Install configuration: ""
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_description/share/t1_description/config
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_description/share/t1_description/config/README.md
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_description/share/ament_index/resource_index/package_run_dependencies/t1_description
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_description/share/ament_index/resource_index/parent_prefix_path/t1_description
+-- Install configuration: ""
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_description/share/t1_description/environment/ament_prefix_path.sh
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_description/share/t1_description/environment/ament_prefix_path.dsv
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_description/share/t1_description/environment/path.sh
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_description/share/t1_description/environment/path.dsv
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_description/share/t1_description/local_setup.bash
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_description/share/t1_description/local_setup.sh
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_description/share/t1_description/local_setup.zsh
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_description/share/t1_description/local_setup.dsv
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_description/share/t1_description/package.dsv
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/README.md
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_description/share/ament_index/resource_index/packages/t1_description
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/ament_index/resource_index/package_run_dependencies/t1_navigation
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/ament_index/resource_index/parent_prefix_path/t1_navigation
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_description/share/t1_description/cmake/t1_descriptionConfig.cmake
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_description/share/t1_description/cmake/t1_descriptionConfig-version.cmake
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_description/share/t1_description/package.xml
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/environment/ament_prefix_path.sh
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/environment/ament_prefix_path.dsv
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/environment/path.sh
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/environment/path.dsv
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/local_setup.bash
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/local_setup.sh
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/local_setup.zsh
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/local_setup.dsv
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/package.dsv
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/ament_index/resource_index/packages/t1_navigation
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/cmake/t1_navigationConfig.cmake
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/cmake/t1_navigationConfig-version.cmake
+-- Installing: /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/package.xml
+Finished <<< t1_description [2.55s]
+Finished <<< t1_navigation [2.54s]
+Starting >>> t1_bringup
+running egg_info
+creating ../../build/t1_bringup/t1_bringup.egg-info
+writing ../../build/t1_bringup/t1_bringup.egg-info/PKG-INFO
+writing dependency_links to ../../build/t1_bringup/t1_bringup.egg-info/dependency_links.txt
+writing requirements to ../../build/t1_bringup/t1_bringup.egg-info/requires.txt
+writing top-level names to ../../build/t1_bringup/t1_bringup.egg-info/top_level.txt
+writing manifest file '../../build/t1_bringup/t1_bringup.egg-info/SOURCES.txt'
+reading manifest file '../../build/t1_bringup/t1_bringup.egg-info/SOURCES.txt'
+writing manifest file '../../build/t1_bringup/t1_bringup.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/haoyang/humanoid_nav_ws/build/t1_bringup/build
+creating /home/haoyang/humanoid_nav_ws/build/t1_bringup/build/lib
+creating /home/haoyang/humanoid_nav_ws/build/t1_bringup/build/lib/t1_bringup
+copying t1_bringup/__init__.py -> /home/haoyang/humanoid_nav_ws/build/t1_bringup/build/lib/t1_bringup
+copying t1_bringup/launch_support.py -> /home/haoyang/humanoid_nav_ws/build/t1_bringup/build/lib/t1_bringup
+running install
+running install_lib
+creating /home/haoyang/humanoid_nav_ws/install/t1_bringup/lib/python3.12/site-packages/t1_bringup
+copying /home/haoyang/humanoid_nav_ws/build/t1_bringup/build/lib/t1_bringup/__init__.py -> /home/haoyang/humanoid_nav_ws/install/t1_bringup/lib/python3.12/site-packages/t1_bringup
+copying /home/haoyang/humanoid_nav_ws/build/t1_bringup/build/lib/t1_bringup/launch_support.py -> /home/haoyang/humanoid_nav_ws/install/t1_bringup/lib/python3.12/site-packages/t1_bringup
+byte-compiling /home/haoyang/humanoid_nav_ws/install/t1_bringup/lib/python3.12/site-packages/t1_bringup/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/haoyang/humanoid_nav_ws/install/t1_bringup/lib/python3.12/site-packages/t1_bringup/launch_support.py to launch_support.cpython-312.pyc
+running install_data
+creating /home/haoyang/humanoid_nav_ws/install/t1_bringup/share/ament_index
+creating /home/haoyang/humanoid_nav_ws/install/t1_bringup/share/ament_index/resource_index
+creating /home/haoyang/humanoid_nav_ws/install/t1_bringup/share/ament_index/resource_index/packages
+copying resource/t1_bringup -> /home/haoyang/humanoid_nav_ws/install/t1_bringup/share/ament_index/resource_index/packages
+copying package.xml -> /home/haoyang/humanoid_nav_ws/install/t1_bringup/share/t1_bringup
+creating /home/haoyang/humanoid_nav_ws/install/t1_bringup/share/t1_bringup/launch
+copying launch/bringup.launch.py -> /home/haoyang/humanoid_nav_ws/install/t1_bringup/share/t1_bringup/launch
+copying launch/diagnostic.launch.py -> /home/haoyang/humanoid_nav_ws/install/t1_bringup/share/t1_bringup/launch
+running install_egg_info
+Copying ../../build/t1_bringup/t1_bringup.egg-info to /home/haoyang/humanoid_nav_ws/install/t1_bringup/lib/python3.12/site-packages/t1_bringup-0.1.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/home/haoyang/humanoid_nav_ws/build/t1_bringup/install.log'
+Finished <<< t1_bringup [1.25s]
+
+Summary: 4 packages finished [3.94s]

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>t1_bringup</name>
+  <version>0.1.0</version>
+  <description>T1 launch entrypoints and future Python evaluation tools.</description>
+  <maintainer email="codex@local.invalid">T1 navigation contributors</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_python</buildtool_depend>
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>t1_mujoco</exec_depend>
+  <exec_depend>t1_description</exec_depend>
+  <exec_depend>t1_navigation</exec_depend>
+  <test_depend>python3-pytest</test_depend>
+  <export><build_type>ament_python</build_type></export>
+</package>

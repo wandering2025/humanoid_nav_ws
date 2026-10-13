@@ -1,0 +1,22 @@
+# W03 config location is fixed here. Only diagnostic parameters are active.
+t1_diagnostic:
+  ros__parameters:
+    task: t1_walk
+    mode: sim_only
+    use_sim_time: false
+    upstream_path: ""  # launch argument or T1_UPSTREAM
+    assets_path: ""    # optional; defaults to installed booster_assets
+
+# TODO W04: t1_sim owns physics. This block does not start a node.
+t1_sim:
+  ros__parameters:
+    use_sim_time: false  # explicit data.time stamps; no /clock feedback
+    task: t1_walk
+    mode: sim_only
+    upstream_path: ""
+    headless: true
+    target_rtf: 1.0
+    enable_policy_cmd_input: false
+# W04 adds scene/viewer_rate_hz/run_id/run_dir/seed/publish divisors.
+# cmd_timeout_sim/wall are initially 0.5 s per contract, frozen by W10.
+# warmup_sim_s belongs to W04/W05; command_map_file belongs to W05.

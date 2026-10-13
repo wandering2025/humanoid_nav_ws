@@ -1,0 +1,55 @@
+"""Shared W03 launch arguments, validation and one-shot diagnostic action."""
+
+from pathlib import Path
+
+from ament_index_python.packages import get_package_share_directory
+from launch.actions import DeclareLaunchArgument, EmitEvent, RegisterEventHandler
+from launch.event_handlers import OnProcessExit
+from launch.events import Shutdown
+from launch.substitutions import EnvironmentVariable, LaunchConfiguration
+from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterValue
+
+MODES = ('sim_only', 'mapping', 'navigation', 'evaluation')
+
+
+def launch_arguments():
+    return [
+        DeclareLaunchArgument('mode', default_value='sim_only', choices=MODES),
+        DeclareLaunchArgument('use_sim_time', default_value='true', choices=['true', 'false']),
+        DeclareLaunchArgument('upstream_path', default_value=EnvironmentVariable('T1_UPSTREAM', default_value='')),
+        DeclareLaunchArgument('assets_path', default_value=EnvironmentVariable('T1_ASSETS', default_value='')),
+        DeclareLaunchArgument('task', default_value='t1_walk', choices=['t1_walk']),
+        DeclareLaunchArgument('params_file', default_value=str(
+            Path(get_package_share_directory('t1_mujoco')) / 'config/runtime.yaml')),
+    ]
+
+
+def validate_request(mode, enable_sim):
+    if mode not in MODES:
+        raise RuntimeError(f'Unknown mode {mode!r}; expected one of {MODES}')
+    if enable_sim not in ('true', 'false'):
+        raise RuntimeError('enable_sim must be true or false')
+    if enable_sim == 'true':
+        raise RuntimeError('t1_sim is not implemented in W03; implement the W04 runner before enabling simulation.')
+
+
+def diagnostic_actions(context):
+    params_file = Path(LaunchConfiguration('params_file').perform(context))
+    if not params_file.is_file():
+        raise RuntimeError(f'params_file does not exist: {params_file}')
+    node = Node(
+        package='t1_mujoco', executable='t1_diagnostic', name='t1_diagnostic', output='screen',
+        parameters=[str(params_file), {
+            name: ParameterValue(LaunchConfiguration(name), value_type=str)
+            for name in ('upstream_path', 'assets_path', 'mode', 'task')
+        }, {'use_sim_time': ParameterValue(LaunchConfiguration('use_sim_time'), value_type=bool)}],
+    )
+
+    def finished(event, _context):
+        # launch otherwise reports success even when a child exited nonzero.
+        if event.returncode != 0:
+            raise RuntimeError(f't1_diagnostic exited with code {event.returncode}')
+        return [EmitEvent(event=Shutdown(reason='W03 diagnostic completed; no physics started.'))]
+
+    return [RegisterEventHandler(OnProcessExit(target_action=node, on_exit=finished)), node]

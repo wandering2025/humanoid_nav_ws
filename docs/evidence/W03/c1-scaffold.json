@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-13T20:14:59.518740+00:00",
+  "starting_head": "1343c67f8c62bce5562615b3f244025c481f50ad",
+  "branch": "feat/t1-mujoco-navigation",
+  "preserved_user_edit": "docs/start_commands.md",
+  "build_exit": 0,
+  "build_evidence": "docs/evidence/W03/build.txt",
+  "packages": {
+    "t1_mujoco": "ament_python",
+    "t1_description": "ament_cmake",
+    "t1_navigation": "ament_cmake",
+    "t1_bringup": "ament_python"
+  },
+  "scope": "diagnostics only; no simulator/sensors/navigation implemented"
+}
