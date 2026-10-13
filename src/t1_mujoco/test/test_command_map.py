@@ -110,6 +110,8 @@ def test_input_buffer_uses_map_only_when_given():
     m = CommandMap(copy.deepcopy(FIXTURE))
     b = InputBuffer()
     b.boundary('READY', 10.)
+    assert b.consume(10., 20., .5, .5, False, m.guard)[1:] == ((0., 0., 0.), 'IDLE')  # calibrated, no input yet
+    assert b.consume(10., 20., .5, .5, False)[2] == 'UNCALIBRATED'
     b.receive((0.1, 0, 0, 0, 0, 0), wall=20.)  # below walking minimum
     assert b.consume(10., 20., .5, .5, False)[1:] == ((0., 0., 0.), 'UNCALIBRATED')
     assert b.consume(10., 20., .5, .5, False, m.guard)[1:] == ((0., 0., 0.), 'ACTIVE')

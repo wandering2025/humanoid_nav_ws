@@ -94,13 +94,26 @@ def c3_families():
     return fam
 
 
+def dense_families():
+    """Fine steps so linear interpolation between table rows is checkable."""
+    fam = [('dense_inplace', [((0.0, 0.0, s * round(0.55 + 0.025 * i, 3)), protocol((0.0, 0.0, s * round(0.55 + 0.025 * i, 3))))
+                              for i in range(19) for s in (1, -1)]),
+           ('dense_vx', [((round(0.4 + 0.025 * i, 3), 0.0, 0.0), protocol((round(0.4 + 0.025 * i, 3), 0.0, 0.0)))
+                         for i in range(18)])]
+    for ux in (0.4, 0.5, 0.6, 0.7, 0.8):
+        fam.append((f'dense_walk_ux{ux:g}', [((ux, 0.0, s * round(0.05 * i, 3)), protocol((ux, 0.0, s * round(0.05 * i, 3))))
+                                             for i in range(1, 11) for s in (1, -1)]))
+    return fam
+
+
 def warmup_trials():
     """Command u=(0.6,0,0) immediately at READY after shorter warmups."""
     return [('warmup', [((0.6, 0.0, 0.0), [Segment(8.0, (0.6, 0.0, 0.0)), Segment(6.0, ZERO)], w)
                         for w in (0.5, 1.0, 1.5, 2.0)])]
 
 
-SUITES = {'c1': c1_families, 'c2': c2_families, 'c3': c3_families, 'warmup': warmup_trials}
+SUITES = {'c1': c1_families, 'c2': c2_families, 'c3': c3_families, 'dense': dense_families,
+          'warmup': warmup_trials}
 
 
 def git(*args):

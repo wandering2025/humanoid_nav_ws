@@ -109,7 +109,7 @@ mj_world / base_link_truth：仅评测真值，不进入 TF 树
 
 ### 6.2 映射 M：v_des → u_pol
 
-- 归属：W05 产出 `src/t1_mujoco/config/command_map.yaml`（生产者 W05，消费者 t1_sim 末端保护）。字段：`schema`、`calibrated`（bool）、`evidence`（W05 证据路径与被测 SHA）、`envelope`（允许的 vx/vy/wz 范围及组合约束）、每轴单调分段线性表 `(v_phys, u_pol)`、`deadband` 规则、`reverse_allowed`、`lateral_allowed`、`in_place_turn_allowed`、适用条件。全部数值**待W05确定**。
+- 归属：W05 产出 `src/t1_mujoco/config/command_map.yaml`（生产者 W05，消费者 t1_sim 末端保护）。字段：`schema`、`calibrated`（bool）、`evidence`（W05 证据路径与被测 SHA）、`envelope`（允许的 vx/vy/wz 范围及组合约束）、每轴单调分段线性表 `(v_phys, u_pol)`、`deadband` 规则、`reverse_allowed`、`lateral_allowed`、`in_place_turn_allowed`、适用条件。数值由 W05 确定（ADR-010）：前进 vx∈[0.31,0.75] m/s，0<vx<0.31 置零；行走中 |wz|≤0.45 rad/s；原地（vx=0）|wz|∈[0.545,0.85]，以下置零；倒退/横移禁用。wz 表按模式与符号分为 `wz_walking_pos/neg`、`wz_in_place_pos/neg`（各自单调，M(0)=0）。文件由 docs/evidence/W05/build_command_map.py 生成，依据见 docs/evidence/W05/locomotion-envelope.md。`v_guard` = M⁻¹(u_pol)。
 - 约束：M(0)=0 精确；每轴单调不减；只在 W05 实测验证区间内定义；区间外裁剪到边界，不外推。允许数值放大（例如为实现 0.39 m/s 需要 u_pol=0.5），但按 M 预期的物理速度不得超过输入的 v_des（§6.3 第 6 条）。
 - `calibrated:false` 或文件缺失时：t1_sim 拒绝 `/cmd_vel`（u_pol=0，`cmd_status=UNCALIBRATED`，diagnostics WARN），只有 `/t1/debug/policy_cmd` 可动（W04/W05 实验用）。navigation/evaluation 模式启动时若未标定则启动失败。
 - 自由度预设：只用 vx≥0 与 wz；vy 恒 0。是否允许倒退、原地旋转、横移由 W05 实测决定写入 `envelope`；未验证则禁止（MPPI/smoother 对应限值为 0，behavior_server 不启用 backup，spin 视 W05/W10 结论）。导航运动模型与该动作集一致（W11）。
@@ -135,12 +135,12 @@ mj_world / base_link_truth：仅评测真值，不进入 TF 树
 
 ### 7.1 t1_sim 状态
 
-`STARTING`（模型校验 + `warmup_sim_s` 零命令站立，初值待 W04/W05 定）→ `READY` ⇄ `PAUSED`；`READY → FALLEN | FAULT`；`任意 → RESETTING → STARTING`（仅 sim_only）；`SHUTDOWN`。READY 之前收到的命令一律丢弃。
+`STARTING`（模型校验 + `warmup_sim_s` 零命令站立，W05 冻结 2.0 s）→ `READY` ⇄ `PAUSED`；`READY → FALLEN | FAULT`；`任意 → RESETTING → STARTING`（仅 sim_only）；`SHUTDOWN`。READY 之前收到的命令一律丢弃。
 `FAULT` 原因（字符串枚举）：`model_incompatible`（拒绝启动）、`nonfinite_state`、`nonfinite_action`、`policy_exception`、`sensor_exception`、`internal_error`。FAULT 下 u_pol=0；若状态非有限则停止推进物理；无自动恢复，显式复位/重启才离开。
 
 ### 7.2 `/t1/sim_state` JSON（schema 1）
 
-`{"schema":1,"run_id":str,"episode":int,"state":str,"fault":str|null,"mode":str,"sim_time":float,"wall_unix":float,"rtf_10s":float,"cmd_status":"ACTIVE|IDLE|TIMEOUT|INVALID|UNCALIBRATED|BLOCKED_BY_STATE","cmd_source":"cmd_vel|policy_cmd","v_des":[vx,vy,wz],"u_pol":[ux,uy,uwz],"scenario":str,"seed":int,"code_sha":str}`。新增字段向后兼容；改名或改语义须提升 schema 并 ADR。
+`{"schema":1,"run_id":str,"episode":int,"state":str,"fault":str|null,"mode":str,"sim_time":float,"wall_unix":float,"rtf_10s":float,"cmd_status":"ACTIVE|IDLE|TIMEOUT|INVALID|UNCALIBRATED|BLOCKED_BY_STATE","cmd_source":"cmd_vel|policy_cmd","v_des":[vx,vy,wz],"u_pol":[ux,uy,uwz],"scenario":str,"seed":int,"code_sha":str}`。W05 追加（向后兼容）：`v_guard:[vx,vy,wz]`、`guard:[str]`（vx_deadband/wz_deadband/vx_clipped/wz_clipped/vy_disabled/reverse_disabled/in_place_disabled）、`command_map_calibrated:bool`。新增字段向后兼容；改名或改语义须提升 schema 并 ADR。
 
 ### 7.3 暂停、复位、时间回跳的清理表
 

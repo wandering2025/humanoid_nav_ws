@@ -39,7 +39,7 @@ class InputBuffer:
         if state != 'READY':
             return zero, zero, 'BLOCKED_BY_STATE'
         if command is None:
-            return zero, zero, 'IDLE' if debug else 'UNCALIBRATED'
+            return zero, zero, 'IDLE' if debug or mapper is not None else 'UNCALIBRATED'
         values, received_sim, received_wall = command
         incoming = (values[0], values[1], values[5])
         if not all(math.isfinite(x) for x in values):
