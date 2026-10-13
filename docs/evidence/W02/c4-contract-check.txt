@@ -1,0 +1,113 @@
+# W02 C4 contract check; started 2026-10-13T20:01:59.473309104+00:00; cwd=/home/haoyang/humanoid_nav_ws; python3=/usr/bin/python3 Python 3.12.3
+PASS interfaces §2 lists /clock
+PASS interfaces §2 lists /odom
+PASS interfaces §2 lists /joint_states
+PASS interfaces §2 lists /scan
+PASS interfaces §2 lists /imu/data
+PASS interfaces §2 lists /cmd_vel_nav
+PASS interfaces §2 lists /cmd_vel_smoothed
+PASS interfaces §2 lists `/cmd_vel`
+PASS interfaces §2 lists /diagnostics
+PASS interfaces §2 lists /t1/sim_state
+PASS interfaces §2 lists /t1/eval/ground_truth
+PASS topic table rows=19 >= 15
+PASS topic row complete (9 non-empty cols): `/clock`
+PASS topic row complete (9 non-empty cols): `/odom`
+PASS topic row complete (9 non-empty cols): `/tf`（odom→base_footprint、base_footprint→base_link、base_footprint→laser_stabilized（W08 起））
+PASS topic row complete (9 non-empty cols): `/tf`（关节树）、`/tf_static`
+PASS topic row complete (9 non-empty cols): `/joint_states`
+PASS topic row complete (9 non-empty cols): `/scan`
+PASS topic row complete (9 non-empty cols): `/t1/lidar/points`（可选）
+PASS topic row complete (9 non-empty cols): `/imu/data`（首版**不发布**）
+PASS topic row complete (9 non-empty cols): teleop 输出（不单独成话题）
+PASS topic row complete (9 non-empty cols): `/cmd_vel_nav`
+PASS topic row complete (9 non-empty cols): `/cmd_vel_smoothed`
+PASS topic row complete (9 non-empty cols): `/cmd_vel`
+PASS topic row complete (9 non-empty cols): `/t1/debug/policy_cmd`
+PASS topic row complete (9 non-empty cols): `/t1/sim_state`
+PASS topic row complete (9 non-empty cols): `/diagnostics`
+PASS topic row complete (9 non-empty cols): `/t1/eval/ground_truth`
+PASS topic row complete (9 non-empty cols): `/map`、`/map_metadata`
+PASS topic row complete (9 non-empty cols): `/initialpose`
+PASS topic row complete (9 non-empty cols): `/collision_monitor_state`
+PASS interfaces mentions 'enable_stamped_cmd_vel: false'
+PASS interfaces mentions 'use_sim_time: true'
+PASS interfaces mentions 'data.time'
+PASS interfaces mentions '单调'
+PASS interfaces mentions 'use_sim_time=false'
+PASS TF children unique: ['odom', 'base_footprint', 'base_link', 'trunk', '关节树 links', 'lidar_link', 'laser_stabilized']
+PASS every TF child has a named publisher
+PASS map→odom exclusivity stated
+PASS interfaces §6 contains 'v_des'
+PASS interfaces §6 contains 'u_pol'
+PASS interfaces §6 contains 'v_meas'
+PASS interfaces §6 contains 'M(0)=0'
+PASS interfaces §6 contains '只减不增'
+PASS interfaces §6 contains '禁止**以全关节力矩置零'
+PASS interfaces §6 contains 'command_map.yaml'
+PASS interfaces §6 contains '待W05确定'
+PASS pause/reset/time-jump rows present
+PASS policy_dt 0.02 consistent
+PASS decimation 10 consistent
+PASS nq/nv/nu consistent
+PASS qvel[0:3] world-frame fact consistent
+PASS IMU truth fact consistent
+PASS C1 probe all_pass
+PASS system §11 alternative '直接修改上游'
+PASS system §11 alternative '共同写 MjData'
+PASS system §11 alternative '纯真值地图导航'
+PASS system §9 row W03
+PASS system §9 row W04
+PASS system §9 row W05
+PASS system §9 row W06
+PASS system §9 row W07
+PASS system §9 row W08
+PASS system §9 row W09
+PASS system §9 row W10
+PASS system §9 row W11
+PASS system §9 row W12
+PASS system §10 review '/clock 双发布'
+PASS system §10 review 'TF 环路'
+PASS system §10 review '重复状态真相'
+PASS system §10 review '隐含依赖'
+PASS data-flow diagram and control-cycle table
+PASS acceptance contains 'run_id'
+PASS acceptance contains 'manifest.json'
+PASS acceptance contains 'sim_trace.csv'
+PASS acceptance contains 'results.csv'
+PASS acceptance contains 'fault_tests.csv'
+PASS acceptance contains '1000–1009'
+PASS acceptance contains 'F13'
+PASS ADR-000 defined
+PASS ADR-001 defined
+PASS ADR-002 defined
+PASS ADR-003 defined
+PASS ADR-004 defined
+PASS ADR-005 defined
+PASS ADR-006 defined
+PASS ADR-007 defined
+PASS ADR-008 defined
+PASS ADR-001 present
+PASS ADR-002 present
+PASS ADR-003 present
+PASS ADR-004 present
+PASS ADR-005 present
+PASS ADR-006 present
+PASS ADR-007 present
+PASS ADR-008 present
+PASS system.md link -> interfaces.md
+PASS system.md link -> acceptance.md
+PASS system.md link -> ../plans/t1_mujoco_navigation/决策记录.md
+PASS interfaces.md link -> ../plans/t1_mujoco_navigation/决策记录.md
+PASS interfaces.md link -> system.md
+PASS interfaces.md link -> acceptance.md
+PASS interfaces.md link -> ../evidence/W02/c1-source-review.md
+PASS interfaces.md link -> ../evidence/W02/c1-probe.json
+PASS acceptance.md link -> interfaces.md
+PASS acceptance.md link -> system.md
+TOTAL 106 FAIL 0
+exit=0
+# upstream status (expect empty):
+7bb1462e2ac742eba5c01659b815e2e99fbe617f
+12a97516f57469078707afb587a5f84c1cb110d1
+# finished 2026-10-13T20:01:59.534977547+00:00
