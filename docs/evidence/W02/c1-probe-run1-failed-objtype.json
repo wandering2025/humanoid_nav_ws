@@ -1,0 +1,1131 @@
+{
+ "started_utc": "2026-10-13T19:46:40.110735+00:00",
+ "task": {
+  "policy_dt": 0.02,
+  "decimation": 10,
+  "physics_dt": 0.002,
+  "init_pos": [
+   0.0,
+   0.0,
+   0.6
+  ],
+  "init_quat": [
+   1.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "vel_command": {
+   "vx_max": 1.0,
+   "vx_forward_max": null,
+   "vx_backward_max": null,
+   "vy_max": 1.0,
+   "vyaw_max": 1.0
+  },
+  "policy_cls": "tasks.locomotion.locomotion.LocomotionPolicy",
+  "checkpoint_path": "robots/t1/models/t1_walk.pt",
+  "history_len": 10,
+  "history_init": "zeros",
+  "action_scale": 0.25,
+  "action_filter": 1.0,
+  "clip_action": 100.0,
+  "clip_observation": 100.0,
+  "obs_dof_vel_scale": 1.0,
+  "enable_safety_fallback": true,
+  "n_policy_joints": 21,
+  "joints_not_in_policy": [
+   "aahead_yaw_joint",
+   "aahead_pitch_joint"
+  ],
+  "joint_names": [
+   "aahead_yaw_joint",
+   "aahead_pitch_joint",
+   "left_shoulder_pitch_joint",
+   "left_shoulder_roll_joint",
+   "left_elbow_pitch_joint",
+   "left_elbow_yaw_joint",
+   "right_shoulder_pitch_joint",
+   "right_shoulder_roll_joint",
+   "right_elbow_pitch_joint",
+   "right_elbow_yaw_joint",
+   "waist_yaw_joint",
+   "left_hip_pitch_joint",
+   "left_hip_roll_joint",
+   "left_hip_yaw_joint",
+   "left_knee_pitch_joint",
+   "left_ankle_pitch_joint",
+   "left_ankle_roll_joint",
+   "right_hip_pitch_joint",
+   "right_hip_roll_joint",
+   "right_hip_yaw_joint",
+   "right_knee_pitch_joint",
+   "right_ankle_pitch_joint",
+   "right_ankle_roll_joint"
+  ],
+  "kp": [
+   4.0,
+   4.0,
+   50.0,
+   50.0,
+   50.0,
+   50.0,
+   50.0,
+   50.0,
+   50.0,
+   50.0,
+   200.0,
+   200.0,
+   200.0,
+   200.0,
+   200.0,
+   50.0,
+   50.0,
+   200.0,
+   200.0,
+   200.0,
+   200.0,
+   50.0,
+   50.0
+  ],
+  "kd": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   5.0,
+   5.0,
+   5.0,
+   5.0,
+   5.0,
+   2.0,
+   2.0,
+   5.0,
+   5.0,
+   5.0,
+   5.0,
+   2.0,
+   2.0
+  ],
+  "effort_limit": [
+   7.0,
+   7.0,
+   38.3,
+   38.3,
+   38.3,
+   38.3,
+   38.3,
+   38.3,
+   38.3,
+   38.3,
+   68,
+   98.8,
+   68,
+   68,
+   130.5,
+   73.1,
+   17.2,
+   98.8,
+   68,
+   68,
+   130.5,
+   73.1,
+   17.2
+  ],
+  "default_joint_pos": [
+   0,
+   0,
+   0.2,
+   -1.3,
+   0,
+   -0.5,
+   0.2,
+   1.3,
+   0,
+   0.5,
+   0.0,
+   -0.2,
+   0,
+   0,
+   0.4,
+   -0.2,
+   0.0,
+   -0.2,
+   0,
+   0,
+   0.4,
+   -0.2,
+   0.0
+  ],
+  "mjcf_path": "{BOOSTER_ASSETS_DIR}/robots/T1/T1_23dof.xml"
+ },
+ "run_signatures": {
+  "start": "(self)",
+  "update_state": "(self) -> 'None'",
+  "policy_step": "(self) -> 'torch.Tensor'",
+  "ctrl_step": "(self, dof_targets: 'torch.Tensor')",
+  "update_vel_command": "(self)",
+  "run": "(self)",
+  "stop": "(self) -> 'None'"
+ },
+ "model": {
+  "mjcf": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/T1_23dof.xml",
+  "xml_timestep": 0.002,
+  "nq": 30,
+  "nv": 29,
+  "nu": 23,
+  "njnt": 24,
+  "nbody": 26,
+  "ngeom": 48,
+  "nsensor": 2,
+  "nsite": 1,
+  "nmocap": 0,
+  "joints": [
+   {
+    "id": 0,
+    "name": "world_joint",
+    "type": 0,
+    "qposadr": 0,
+    "dofadr": 0,
+    "body": "trunk"
+   },
+   {
+    "id": 1,
+    "name": "aahead_yaw_joint",
+    "type": 3,
+    "qposadr": 7,
+    "dofadr": 6,
+    "body": "aahead_yaw_link"
+   },
+   {
+    "id": 2,
+    "name": "aahead_pitch_joint",
+    "type": 3,
+    "qposadr": 8,
+    "dofadr": 7,
+    "body": "aahead_pitch_link"
+   },
+   {
+    "id": 3,
+    "name": "left_shoulder_pitch_joint",
+    "type": 3,
+    "qposadr": 9,
+    "dofadr": 8,
+    "body": "left_shoulder_pitch_link"
+   },
+   {
+    "id": 4,
+    "name": "left_shoulder_roll_joint",
+    "type": 3,
+    "qposadr": 10,
+    "dofadr": 9,
+    "body": "left_shoulder_roll_link"
+   },
+   {
+    "id": 5,
+    "name": "left_elbow_pitch_joint",
+    "type": 3,
+    "qposadr": 11,
+    "dofadr": 10,
+    "body": "left_elbow_pitch_link"
+   },
+   {
+    "id": 6,
+    "name": "left_elbow_yaw_joint",
+    "type": 3,
+    "qposadr": 12,
+    "dofadr": 11,
+    "body": "left_elbow_yaw_link"
+   },
+   {
+    "id": 7,
+    "name": "right_shoulder_pitch_joint",
+    "type": 3,
+    "qposadr": 13,
+    "dofadr": 12,
+    "body": "right_shoulder_pitch_link"
+   },
+   {
+    "id": 8,
+    "name": "right_shoulder_roll_joint",
+    "type": 3,
+    "qposadr": 14,
+    "dofadr": 13,
+    "body": "right_shoulder_roll_link"
+   },
+   {
+    "id": 9,
+    "name": "right_elbow_pitch_joint",
+    "type": 3,
+    "qposadr": 15,
+    "dofadr": 14,
+    "body": "right_elbow_pitch_link"
+   },
+   {
+    "id": 10,
+    "name": "right_elbow_yaw_joint",
+    "type": 3,
+    "qposadr": 16,
+    "dofadr": 15,
+    "body": "right_elbow_yaw_link"
+   },
+   {
+    "id": 11,
+    "name": "waist_yaw_joint",
+    "type": 3,
+    "qposadr": 17,
+    "dofadr": 16,
+    "body": "waist_yaw_link"
+   },
+   {
+    "id": 12,
+    "name": "left_hip_pitch_joint",
+    "type": 3,
+    "qposadr": 18,
+    "dofadr": 17,
+    "body": "left_hip_pitch_link"
+   },
+   {
+    "id": 13,
+    "name": "left_hip_roll_joint",
+    "type": 3,
+    "qposadr": 19,
+    "dofadr": 18,
+    "body": "left_hip_roll_link"
+   },
+   {
+    "id": 14,
+    "name": "left_hip_yaw_joint",
+    "type": 3,
+    "qposadr": 20,
+    "dofadr": 19,
+    "body": "left_hip_yaw_link"
+   },
+   {
+    "id": 15,
+    "name": "left_knee_pitch_joint",
+    "type": 3,
+    "qposadr": 21,
+    "dofadr": 20,
+    "body": "left_knee_pitch_link"
+   },
+   {
+    "id": 16,
+    "name": "left_ankle_pitch_joint",
+    "type": 3,
+    "qposadr": 22,
+    "dofadr": 21,
+    "body": "left_ankle_pitch_link"
+   },
+   {
+    "id": 17,
+    "name": "left_ankle_roll_joint",
+    "type": 3,
+    "qposadr": 23,
+    "dofadr": 22,
+    "body": "left_ankle_roll_link"
+   },
+   {
+    "id": 18,
+    "name": "right_hip_pitch_joint",
+    "type": 3,
+    "qposadr": 24,
+    "dofadr": 23,
+    "body": "right_hip_pitch_link"
+   },
+   {
+    "id": 19,
+    "name": "right_hip_roll_joint",
+    "type": 3,
+    "qposadr": 25,
+    "dofadr": 24,
+    "body": "right_hip_roll_link"
+   },
+   {
+    "id": 20,
+    "name": "right_hip_yaw_joint",
+    "type": 3,
+    "qposadr": 26,
+    "dofadr": 25,
+    "body": "right_hip_yaw_link"
+   },
+   {
+    "id": 21,
+    "name": "right_knee_pitch_joint",
+    "type": 3,
+    "qposadr": 27,
+    "dofadr": 26,
+    "body": "right_knee_pitch_link"
+   },
+   {
+    "id": 22,
+    "name": "right_ankle_pitch_joint",
+    "type": 3,
+    "qposadr": 28,
+    "dofadr": 27,
+    "body": "right_ankle_pitch_link"
+   },
+   {
+    "id": 23,
+    "name": "right_ankle_roll_joint",
+    "type": 3,
+    "qposadr": 29,
+    "dofadr": 28,
+    "body": "right_ankle_roll_link"
+   }
+  ],
+  "actuator_joint": [
+   "aahead_yaw_joint",
+   "aahead_pitch_joint",
+   "left_shoulder_pitch_joint",
+   "left_shoulder_roll_joint",
+   "left_elbow_pitch_joint",
+   "left_elbow_yaw_joint",
+   "right_shoulder_pitch_joint",
+   "right_shoulder_roll_joint",
+   "right_elbow_pitch_joint",
+   "right_elbow_yaw_joint",
+   "waist_yaw_joint",
+   "left_hip_pitch_joint",
+   "left_hip_roll_joint",
+   "left_hip_yaw_joint",
+   "left_knee_pitch_joint",
+   "left_ankle_pitch_joint",
+   "left_ankle_roll_joint",
+   "right_hip_pitch_joint",
+   "right_hip_roll_joint",
+   "right_hip_yaw_joint",
+   "right_knee_pitch_joint",
+   "right_ankle_pitch_joint",
+   "right_ankle_roll_joint"
+  ],
+  "actuator_gear0": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "actuator_ctrllimited": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "actuator_forcerange": [
+   [
+    -7.0,
+    7.0
+   ],
+   [
+    -7.0,
+    7.0
+   ],
+   [
+    -38.3,
+    38.3
+   ],
+   [
+    -38.3,
+    38.3
+   ],
+   [
+    -38.3,
+    38.3
+   ],
+   [
+    -38.3,
+    38.3
+   ],
+   [
+    -38.3,
+    38.3
+   ],
+   [
+    -38.3,
+    38.3
+   ],
+   [
+    -38.3,
+    38.3
+   ],
+   [
+    -38.3,
+    38.3
+   ],
+   [
+    -68.0,
+    68.0
+   ],
+   [
+    -98.8,
+    98.8
+   ],
+   [
+    -68.0,
+    68.0
+   ],
+   [
+    -68.0,
+    68.0
+   ],
+   [
+    -130.5,
+    130.5
+   ],
+   [
+    -73.1,
+    73.1
+   ],
+   [
+    -17.2,
+    17.2
+   ],
+   [
+    -98.8,
+    98.8
+   ],
+   [
+    -68.0,
+    68.0
+   ],
+   [
+    -68.0,
+    68.0
+   ],
+   [
+    -130.5,
+    130.5
+   ],
+   [
+    -73.1,
+    73.1
+   ],
+   [
+    -17.2,
+    17.2
+   ]
+  ],
+  "sensors": [
+   {
+    "name": "orientation",
+    "type": 27,
+    "adr": 0,
+    "dim": 4,
+    "noise_attr": 0.001
+   },
+   {
+    "name": "angular-velocity",
+    "type": 3,
+    "adr": 4,
+    "dim": 3,
+    "noise_attr": 0.005
+   }
+  ],
+  "geoms": [
+   {
+    "id": 0,
+    "name": "ground",
+    "body": "world",
+    "robot": false,
+    "type": 0,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 1,
+    "name": null,
+    "body": "trunk",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 2,
+    "name": null,
+    "body": "trunk",
+    "robot": true,
+    "type": 6,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 3,
+    "name": null,
+    "body": "trunk",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 4,
+    "name": null,
+    "body": "aahead_yaw_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 5,
+    "name": null,
+    "body": "aahead_yaw_link",
+    "robot": true,
+    "type": 5,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 6,
+    "name": null,
+    "body": "aahead_pitch_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 7,
+    "name": null,
+    "body": "aahead_pitch_link",
+    "robot": true,
+    "type": 2,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 8,
+    "name": null,
+    "body": "left_shoulder_pitch_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 9,
+    "name": null,
+    "body": "left_shoulder_pitch_link",
+    "robot": true,
+    "type": 5,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 10,
+    "name": null,
+    "body": "left_shoulder_roll_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 11,
+    "name": null,
+    "body": "left_elbow_pitch_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 12,
+    "name": null,
+    "body": "left_elbow_pitch_link",
+    "robot": true,
+    "type": 5,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 13,
+    "name": null,
+    "body": "left_elbow_yaw_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 14,
+    "name": null,
+    "body": "left_elbow_yaw_link",
+    "robot": true,
+    "type": 5,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 15,
+    "name": null,
+    "body": "left_elbow_yaw_link",
+    "robot": true,
+    "type": 2,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 16,
+    "name": null,
+    "body": "right_shoulder_pitch_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 17,
+    "name": null,
+    "body": "right_shoulder_pitch_link",
+    "robot": true,
+    "type": 5,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 18,
+    "name": null,
+    "body": "right_shoulder_roll_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 19,
+    "name": null,
+    "body": "right_elbow_pitch_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 20,
+    "name": null,
+    "body": "right_elbow_pitch_link",
+    "robot": true,
+    "type": 5,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 21,
+    "name": null,
+    "body": "right_elbow_yaw_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 22,
+    "name": null,
+    "body": "right_elbow_yaw_link",
+    "robot": true,
+    "type": 5,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 23,
+    "name": null,
+    "body": "right_elbow_yaw_link",
+    "robot": true,
+    "type": 2,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 24,
+    "name": null,
+    "body": "waist_yaw_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 25,
+    "name": null,
+    "body": "waist_yaw_link",
+    "robot": true,
+    "type": 5,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 26,
+    "name": null,
+    "body": "left_hip_pitch_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 27,
+    "name": null,
+    "body": "left_hip_pitch_link",
+    "robot": true,
+    "type": 5,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 28,
+    "name": null,
+    "body": "left_hip_roll_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 29,
+    "name": null,
+    "body": "left_hip_roll_link",
+    "robot": true,
+    "type": 5,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 30,
+    "name": null,
+    "body": "left_hip_yaw_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 31,
+    "name": null,
+    "body": "left_hip_yaw_link",
+    "robot": true,
+    "type": 5,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 32,
+    "name": null,
+    "body": "left_knee_pitch_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 33,
+    "name": null,
+    "body": "left_knee_pitch_link",
+    "robot": true,
+    "type": 6,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 34,
+    "name": null,
+    "body": "left_ankle_pitch_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 35,
+    "name": null,
+    "body": "left_ankle_roll_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 36,
+    "name": null,
+    "body": "left_ankle_roll_link",
+    "robot": true,
+    "type": 6,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 37,
+    "name": null,
+    "body": "right_hip_pitch_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 38,
+    "name": null,
+    "body": "right_hip_pitch_link",
+    "robot": true,
+    "type": 5,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 39,
+    "name": null,
+    "body": "right_hip_roll_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 40,
+    "name": null,
+    "body": "right_hip_roll_link",
+    "robot": true,
+    "type": 5,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 41,
+    "name": null,
+    "body": "right_hip_yaw_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 42,
+    "name": null,
+    "body": "right_hip_yaw_link",
+    "robot": true,
+    "type": 5,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 43,
+    "name": null,
+    "body": "right_knee_pitch_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 44,
+    "name": null,
+    "body": "right_knee_pitch_link",
+    "robot": true,
+    "type": 6,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   },
+   {
+    "id": 45,
+    "name": null,
+    "body": "right_ankle_pitch_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 46,
+    "name": null,
+    "body": "right_ankle_roll_link",
+    "robot": true,
+    "type": 7,
+    "group": 1,
+    "contype": 0,
+    "conaffinity": 0
+   },
+   {
+    "id": 47,
+    "name": null,
+    "body": "right_ankle_roll_link",
+    "robot": true,
+    "type": 6,
+    "group": 0,
+    "contype": 1,
+    "conaffinity": 1
+   }
+  ],
+  "geom_summary": {
+   "robot=False group=0 contype=1 conaff=1": 1,
+   "robot=True group=1 contype=0 conaff=0": 25,
+   "robot=True group=0 contype=1 conaff=1": 22
+  }
+ },
+ "frame_probe": {
+  "setup": "trunk yaw=+90deg, qvel[0:3]=[1,0,0], qvel[3:6]=[0,0,0.5], mj_forward only",
+  "objectVelocity_local_[ang,lin]": [
+   0.00902,
+   1.4e-05,
+   0.499919,
+   2.8e-05,
+   -0.972431,
+   2.7e-05
+  ],
+  "objectVelocity_world_[ang,lin]": [
+   0.0,
+   0.0,
+   0.5,
+   0.972431,
+   1e-06,
+   0.0
+  ],
+  "gyro_sensordata": [
+   0.0,
+   0.0,
+   0.5
+  ],
+  "framequat_sensordata": [
+   0.707107,
+   0.0,
+   0.0,
+   0.707107
+  ],
+  "qpos_quat": [
+   0.707107,
+   0.0,
+   0.0,
+   0.707107
+  ]
+ },
+ "policy_io": {
+  "checkpoint": "/home/haoyang/robot_sim_sources/booster_deploy/tasks/locomotion/robots/t1/models/t1_walk.pt",
+  "frame_obs_dim": 72,
+  "frame_layout": "ang_vel_b(3) proj_gravity(3) cmd[vx,vy,wz](3) dq(21) dqd(21) last_action(21)",
+  "input_dim": 720,
+  "output_dim": 21
+ },
+ "mujoco_api": {
+  "mj_ray": "mj_ray(m: mujoco._structs.MjModel, d: mujoco._structs.MjData, pnt: typing.Annotated[numpy.typing.NDArray[numpy.float64], \"[3, 1]\"], vec: typing.Annotated[numpy.typing.NDArray[numpy.float64], \"[3, 1]\"], geomgroup: typing.Annotated[numpy.typing.NDArray[numpy.uint8], \"[6, 1]\"] | None, flg_static: bool, bodyexclude: typing.SupportsInt | typing.SupportsIndex, geomid: typing.Annotated[numpy.typing.NDArray[numpy.int32], \"[1, 1]\", \"flags.writeable\"] | None, normal: typing.Annotated[numpy.typing.NDArray[numpy.float64], \"[3, 1]\", \"flags.writeable\"] | None = None) -> float",
+  "mj_multiRay": "mj_multiRay(m: mujoco._structs.MjModel, d: mujoco._structs.MjData, pnt: typing.Annotated[numpy.typing.NDArray[numpy.float64], \"[3, 1]\"], vec: typing.Annotated[numpy.typing.NDArray[numpy.float64], \"[m, 1]\"], geomgroup: typing.Annotated[numpy.typing.NDArray[numpy.uint8], \"[6, 1]\"] | None, flg_static: bool, bodyexclude: typing.SupportsInt | typing.SupportsIndex, geomid: typing.Annotated[numpy.typing.NDArray[numpy.int32], \"[m, 1]\", \"flags.writeable\"], dist: typing.Annotated[numpy.typing.NDArray[numpy.float64], \"[m, 1]\", \"flags.writeable\"], normal: typing.Annotated[numpy.typing.NDArray[numpy.float64], \"[m, 1]\", \"flags.writeable\"] | None, nray: typing.SupportsInt | typing.SupportsIndex, cutoff: typing.SupportsFloat | typing.SupportsIndex) -> None",
+  "mj_objectVelocity": "mj_objectVelocity(m: mujoco._structs.MjModel, d: mujoco._structs.MjData, objtype: typing.SupportsInt | typing.SupportsIndex, objid: typing.SupportsInt | typing.SupportsIndex, res: typing.Annotated[numpy.typing.NDArray[numpy.float64], \"[6, 1]\", \"flags.writeable\"], flg_local: typing.SupportsInt | typing.SupportsIndex) -> None",
+  "mj_resetData": "mj_resetData(m: mujoco._structs.MjModel, d: mujoco._structs.MjData) -> None",
+  "mj_forward": "mj_forward(m: mujoco._structs.MjModel, d: mujoco._structs.MjData) -> None",
+  "mj_step": "mj_step(m: mujoco._structs.MjModel, d: mujoco._structs.MjData, nstep: typing.SupportsInt | typing.SupportsIndex = 1) -> None",
+  "mj_name2id": "mj_name2id(m: mujoco._structs.MjModel, type: typing.SupportsInt | typing.SupportsIndex, name: str) -> int",
+  "MjSpec": true,
+  "MjSpec.from_file": true,
+  "MjSpec.attach": true,
+  "MjSpec.compile": true,
+  "mujoco_version": "3.15.0"
+ },
+ "checks": {
+  "physics_dt == policy_dt/decimation": true,
+  "joint0 is free at qpos0/dof0": true,
+  "hinge qpos order == RobotCfg.joint_names": true,
+  "hinge qposadr contiguous 7..": true,
+  "hinge dofadr contiguous 6..": true,
+  "actuator order == RobotCfg.joint_names": true,
+  "nu == nq-7 == nv-6 == 23": true,
+  "all actuator gear == 1": true,
+  "qvel[0:3] is WORLD-frame linear vel (local lin ~ [0,-1,0])": false,
+  "qvel[3:6] is BODY-frame angular vel": false,
+  "gyro sensor == qvel[3:6] (noise attr not applied)": true,
+  "framequat == qpos[3:7]": true,
+  "policy output == 21": true,
+  "mj_multiRay available": true,
+  "MjSpec from_file/attach/compile available": true
+ },
+ "all_pass": false,
+ "finished_utc": "2026-10-13T19:46:40.350622+00:00"
+}

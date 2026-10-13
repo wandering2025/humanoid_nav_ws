@@ -1,0 +1,16 @@
+PASS physics_dt == policy_dt/decimation
+PASS joint0 is free at qpos0/dof0
+PASS hinge qpos order == RobotCfg.joint_names
+PASS hinge qposadr contiguous 7..
+PASS hinge dofadr contiguous 6..
+PASS actuator order == RobotCfg.joint_names
+PASS nu == nq-7 == nv-6 == 23
+PASS all actuator gear == 1
+PASS qvel[0:3] is WORLD-frame linear vel (local lin ~ [0,-1,0])
+PASS qvel[3:6] is BODY-frame angular vel
+PASS gyro sensor == qvel[3:6] (noise attr not applied)
+PASS framequat == qpos[3:7]
+PASS policy output == 21
+PASS mj_multiRay available
+PASS MjSpec from_file/attach/compile available
+ALL_PASS
