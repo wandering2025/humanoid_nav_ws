@@ -1,0 +1,74 @@
+{
+  "code_sha": "4c0d674f2662de346b81a9bd9f4d62c5981093ac",
+  "results": [
+    {
+      "case": "model",
+      "run_id": "20261013T205228Z_dev_reject_model_58c9a5",
+      "command": [
+        "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/t1_mujoco/t1_sim",
+        "--ros-args",
+        "-p",
+        "run_id:=20261013T205228Z_dev_reject_model_58c9a5",
+        "-p",
+        "scene:=/home/haoyang/humanoid_nav_ws/run_data/w04_incompatible.xml"
+      ],
+      "started_utc": "2026-10-13T20:52:28.776004+00:00",
+      "wall_duration": 1.8927415160014789,
+      "sim_duration": 0.0,
+      "exit_code": 2,
+      "stderr": "/home/haoyang/venvs/humanoid_mujoco/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.\n  warnings.warn(\nT1 simulation failed: ModelIncompatible: expected nq/nv/nu/njnt=30/29/23/24; extra degrees of freedom are unsupported\n"
+    },
+    {
+      "case": "sim_time",
+      "run_id": "20261013T205230Z_dev_reject_sim_time_7abfe8",
+      "command": [
+        "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/t1_mujoco/t1_sim",
+        "--ros-args",
+        "-p",
+        "run_id:=20261013T205230Z_dev_reject_sim_time_7abfe8",
+        "-p",
+        "use_sim_time:=true"
+      ],
+      "started_utc": "2026-10-13T20:52:30.668894+00:00",
+      "wall_duration": 0.5158223770013137,
+      "sim_duration": 0.0,
+      "exit_code": 2,
+      "stderr": "T1 simulation failed: ValueError: t1_sim must use_sim_time=false; stamps come explicitly from data.time\n"
+    },
+    {
+      "case": "mode",
+      "run_id": "20261013T205231Z_dev_reject_mode_088351",
+      "command": [
+        "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/t1_mujoco/t1_sim",
+        "--ros-args",
+        "-p",
+        "run_id:=20261013T205231Z_dev_reject_mode_088351",
+        "-p",
+        "mode:=navigation"
+      ],
+      "started_utc": "2026-10-13T20:52:31.184836+00:00",
+      "wall_duration": 0.5052660439996544,
+      "sim_duration": 0.0,
+      "exit_code": 2,
+      "stderr": "T1 simulation failed: ValueError: W04 implements sim_only only; mapping/navigation/evaluation are not available\n"
+    },
+    {
+      "case": "timeout",
+      "run_id": "20261013T205231Z_dev_reject_timeout_4d5043",
+      "command": [
+        "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/t1_mujoco/t1_sim",
+        "--ros-args",
+        "-p",
+        "run_id:=20261013T205231Z_dev_reject_timeout_4d5043",
+        "-p",
+        "cmd_timeout_wall:=-1.0"
+      ],
+      "started_utc": "2026-10-13T20:52:31.690224+00:00",
+      "wall_duration": 0.5180382159996952,
+      "sim_duration": 0.0,
+      "exit_code": 2,
+      "stderr": "T1 simulation failed: ValueError: cmd_timeout_wall must be finite and nonnegative\n"
+    }
+  ],
+  "verdict": "PASS"
+}

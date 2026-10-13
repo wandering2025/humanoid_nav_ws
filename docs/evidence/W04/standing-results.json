@@ -1,28 +1,24 @@
 {
   "suite": "standing",
-  "started_utc": "2026-10-13T20:40:10.129286+00:00",
-  "code_sha": "49f78d6f90c03fc8933772a167770d634996c77d",
+  "started_utc": "2026-10-13T20:52:12.479576+00:00",
+  "code_sha": "4c0d674f2662de346b81a9bd9f4d62c5981093ac",
   "results": [
     {
-      "run_id": "20261013T204010Z_dev_standing0_s0_079009",
+      "run_id": "20261013T205212Z_dev_standing0_s0_8c5542",
       "manifest": {
         "schema": 1,
-        "run_id": "20261013T204010Z_dev_standing0_s0_079009",
-        "created_utc": "2026-10-13T20:40:11.587506+00:00",
-        "code_sha": "49f78d6f90c03fc8933772a167770d634996c77d",
+        "run_id": "20261013T205212Z_dev_standing0_s0_8c5542",
+        "created_utc": "2026-10-13T20:52:13.986135+00:00",
+        "code_sha": "4c0d674f2662de346b81a9bd9f4d62c5981093ac",
         "dirty": true,
         "dirty_files": [
-          "M README.md",
-          " M docs/plans/t1_mujoco_navigation/records/W04.md",
+          "M docs/evidence/W04/check-runner.json",
+          " M docs/evidence/W04/controls-results.json",
           " M docs/start_commands.md",
-          " M src/t1_mujoco/config/README.md",
-          " M src/t1_mujoco/t1_mujoco/__init__.py",
-          " M src/t1_mujoco/t1_mujoco/simulation.py",
-          "?? docs/evidence/W04/controls-failed-discovery.json",
-          "?? docs/evidence/W04/controls-failed-endpoints.json",
-          "?? docs/evidence/W04/controls-failed-udp.json",
-          "?? docs/evidence/W04/controls-results.json",
-          "?? docs/evidence/W04/verify_ros.py"
+          "?? docs/evidence/W04/final-controls.txt",
+          "?? docs/evidence/W04/final-runner.txt",
+          "?? docs/evidence/W04/final-standing.txt",
+          "?? docs/evidence/W04/verify_all.py"
         ],
         "upstream_sha": {
           "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
@@ -65,13 +61,13 @@
           "cmd_timeout_sim": 0.5,
           "cmd_timeout_wall": 0.5,
           "warmup_sim_s": 2.0,
-          "run_id": "20261013T204010Z_dev_standing0_s0_079009",
+          "run_id": "20261013T205212Z_dev_standing0_s0_8c5542",
           "run_dir": "/home/haoyang/humanoid_nav_ws/run_data",
           "seed": 0,
           "max_sim_time": 60.0,
           "command_map_file": ""
         },
-        "parameters_sha256": "c9122f2dc25cae7b60b062d2d0baaab943dbe9b2f7cf34d4d988670d8f2dc16e",
+        "parameters_sha256": "841c71cac07d0e4a33b8d47a3ad1c26d7f54a106b28af951226d7ef47f549955",
         "headless": true,
         "target_rtf": 0.0,
         "policy_dt": 0.02,
@@ -92,7 +88,7 @@
           "-p",
           "max_sim_time:=60.0",
           "-p",
-          "run_id:=20261013T204010Z_dev_standing0_s0_079009"
+          "run_id:=20261013T205212Z_dev_standing0_s0_8c5542"
         ],
         "status": "SHUTDOWN",
         "exit_code": 0,
@@ -109,24 +105,24 @@
         "physics_steps": 30000,
         "failure_detail": null,
         "sim_time_end": 60.00000000002736,
-        "wall_duration_s": 2.729341366000881,
-        "ended_utc": "2026-10-13T20:40:14.312955+00:00"
+        "wall_duration_s": 3.494138075000592,
+        "ended_utc": "2026-10-13T20:52:17.477159+00:00"
       },
       "rows": 3000,
       "sim_time_end": 60.00000000002736,
       "min_height": 0.6195557038722014,
       "max_proj_grav_z": -0.9985789034673455,
-      "first_wall_mono": 12069.334726016,
-      "last_wall_mono": 12071.862137941,
-      "control_wall_duration": 2.527411924998887,
-      "control_rtf": 23.731786420234513,
+      "first_wall_mono": 12791.725826222,
+      "last_wall_mono": 12795.025347722,
+      "control_wall_duration": 3.299521499999173,
+      "control_rtf": 18.17839344281963,
       "final_position": [
         -0.0035907032086173493,
         -0.017798808543022522,
         0.6845700327415685
       ],
       "exit_code": 0,
-      "process_wall_duration": 4.583958667000843,
+      "process_wall_duration": 5.418672820000211,
       "command": [
         "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/t1_mujoco/t1_sim",
         "--ros-args",
@@ -135,29 +131,25 @@
         "-p",
         "max_sim_time:=60.0",
         "-p",
-        "run_id:=20261013T204010Z_dev_standing0_s0_079009"
+        "run_id:=20261013T205212Z_dev_standing0_s0_8c5542"
       ]
     },
     {
-      "run_id": "20261013T204014Z_dev_standing1_s0_6f7ef1",
+      "run_id": "20261013T205217Z_dev_standing1_s0_829d07",
       "manifest": {
         "schema": 1,
-        "run_id": "20261013T204014Z_dev_standing1_s0_6f7ef1",
-        "created_utc": "2026-10-13T20:40:16.115327+00:00",
-        "code_sha": "49f78d6f90c03fc8933772a167770d634996c77d",
+        "run_id": "20261013T205217Z_dev_standing1_s0_829d07",
+        "created_utc": "2026-10-13T20:52:19.402018+00:00",
+        "code_sha": "4c0d674f2662de346b81a9bd9f4d62c5981093ac",
         "dirty": true,
         "dirty_files": [
-          "M README.md",
-          " M docs/plans/t1_mujoco_navigation/records/W04.md",
+          "M docs/evidence/W04/check-runner.json",
+          " M docs/evidence/W04/controls-results.json",
           " M docs/start_commands.md",
-          " M src/t1_mujoco/config/README.md",
-          " M src/t1_mujoco/t1_mujoco/__init__.py",
-          " M src/t1_mujoco/t1_mujoco/simulation.py",
-          "?? docs/evidence/W04/controls-failed-discovery.json",
-          "?? docs/evidence/W04/controls-failed-endpoints.json",
-          "?? docs/evidence/W04/controls-failed-udp.json",
-          "?? docs/evidence/W04/controls-results.json",
-          "?? docs/evidence/W04/verify_ros.py"
+          "?? docs/evidence/W04/final-controls.txt",
+          "?? docs/evidence/W04/final-runner.txt",
+          "?? docs/evidence/W04/final-standing.txt",
+          "?? docs/evidence/W04/verify_all.py"
         ],
         "upstream_sha": {
           "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
@@ -200,13 +192,13 @@
           "cmd_timeout_sim": 0.5,
           "cmd_timeout_wall": 0.5,
           "warmup_sim_s": 2.0,
-          "run_id": "20261013T204014Z_dev_standing1_s0_6f7ef1",
+          "run_id": "20261013T205217Z_dev_standing1_s0_829d07",
           "run_dir": "/home/haoyang/humanoid_nav_ws/run_data",
           "seed": 0,
           "max_sim_time": 60.0,
           "command_map_file": ""
         },
-        "parameters_sha256": "6e2abb9827928730b12ecdb223bf208e34c9dcff53ef9e67e5fd4c1e0a81695e",
+        "parameters_sha256": "19dc334478383cf943b81cbf648e27aaa9e616f86e44557d385c80392c6efceb",
         "headless": true,
         "target_rtf": 0.0,
         "policy_dt": 0.02,
@@ -227,7 +219,7 @@
           "-p",
           "max_sim_time:=60.0",
           "-p",
-          "run_id:=20261013T204014Z_dev_standing1_s0_6f7ef1"
+          "run_id:=20261013T205217Z_dev_standing1_s0_829d07"
         ],
         "status": "SHUTDOWN",
         "exit_code": 0,
@@ -244,24 +236,24 @@
         "physics_steps": 30000,
         "failure_detail": null,
         "sim_time_end": 60.00000000002736,
-        "wall_duration_s": 2.741339890000745,
-        "ended_utc": "2026-10-13T20:40:18.853203+00:00"
+        "wall_duration_s": 3.4212150190014654,
+        "ended_utc": "2026-10-13T20:52:22.819853+00:00"
       },
       "rows": 3000,
       "sim_time_end": 60.00000000002736,
       "min_height": 0.6195557038722014,
       "max_proj_grav_z": -0.9985789034673455,
-      "first_wall_mono": 12073.831975962,
-      "last_wall_mono": 12076.403413494,
-      "control_wall_duration": 2.5714375319985265,
-      "control_rtf": 23.325474274076875,
+      "first_wall_mono": 12797.125223467,
+      "last_wall_mono": 12800.366408289,
+      "control_wall_duration": 3.241184822001742,
+      "control_rtf": 18.505578451704576,
       "final_position": [
         -0.0035907032086173493,
         -0.017798808543022522,
         0.6845700327415685
       ],
       "exit_code": 0,
-      "process_wall_duration": 4.518692943998758,
+      "process_wall_duration": 5.329596765999668,
       "command": [
         "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/t1_mujoco/t1_sim",
         "--ros-args",
@@ -270,29 +262,25 @@
         "-p",
         "max_sim_time:=60.0",
         "-p",
-        "run_id:=20261013T204014Z_dev_standing1_s0_6f7ef1"
+        "run_id:=20261013T205217Z_dev_standing1_s0_829d07"
       ]
     },
     {
-      "run_id": "20261013T204019Z_dev_standing2_s0_db79b0",
+      "run_id": "20261013T205223Z_dev_standing2_s0_c2f4d2",
       "manifest": {
         "schema": 1,
-        "run_id": "20261013T204019Z_dev_standing2_s0_db79b0",
-        "created_utc": "2026-10-13T20:40:20.647572+00:00",
-        "code_sha": "49f78d6f90c03fc8933772a167770d634996c77d",
+        "run_id": "20261013T205223Z_dev_standing2_s0_c2f4d2",
+        "created_utc": "2026-10-13T20:52:24.766725+00:00",
+        "code_sha": "4c0d674f2662de346b81a9bd9f4d62c5981093ac",
         "dirty": true,
         "dirty_files": [
-          "M README.md",
-          " M docs/plans/t1_mujoco_navigation/records/W04.md",
+          "M docs/evidence/W04/check-runner.json",
+          " M docs/evidence/W04/controls-results.json",
           " M docs/start_commands.md",
-          " M src/t1_mujoco/config/README.md",
-          " M src/t1_mujoco/t1_mujoco/__init__.py",
-          " M src/t1_mujoco/t1_mujoco/simulation.py",
-          "?? docs/evidence/W04/controls-failed-discovery.json",
-          "?? docs/evidence/W04/controls-failed-endpoints.json",
-          "?? docs/evidence/W04/controls-failed-udp.json",
-          "?? docs/evidence/W04/controls-results.json",
-          "?? docs/evidence/W04/verify_ros.py"
+          "?? docs/evidence/W04/final-controls.txt",
+          "?? docs/evidence/W04/final-runner.txt",
+          "?? docs/evidence/W04/final-standing.txt",
+          "?? docs/evidence/W04/verify_all.py"
         ],
         "upstream_sha": {
           "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
@@ -335,13 +323,13 @@
           "cmd_timeout_sim": 0.5,
           "cmd_timeout_wall": 0.5,
           "warmup_sim_s": 2.0,
-          "run_id": "20261013T204019Z_dev_standing2_s0_db79b0",
+          "run_id": "20261013T205223Z_dev_standing2_s0_c2f4d2",
           "run_dir": "/home/haoyang/humanoid_nav_ws/run_data",
           "seed": 0,
           "max_sim_time": 60.0,
           "command_map_file": ""
         },
-        "parameters_sha256": "9c4c4ecab50295d7609e1727f732d2b9aac66acc4b0b0d94c5690c7cc21c6cfe",
+        "parameters_sha256": "1a9626b2b2eb958061e05e60e44481bbd0d39e797d32e27096d88ac2bf1c0a20",
         "headless": true,
         "target_rtf": 0.0,
         "policy_dt": 0.02,
@@ -362,7 +350,7 @@
           "-p",
           "max_sim_time:=60.0",
           "-p",
-          "run_id:=20261013T204019Z_dev_standing2_s0_db79b0"
+          "run_id:=20261013T205223Z_dev_standing2_s0_c2f4d2"
         ],
         "status": "SHUTDOWN",
         "exit_code": 0,
@@ -379,24 +367,24 @@
         "physics_steps": 30000,
         "failure_detail": null,
         "sim_time_end": 60.00000000002736,
-        "wall_duration_s": 2.775149146000331,
-        "ended_utc": "2026-10-13T20:40:23.419965+00:00"
+        "wall_duration_s": 3.3574365039985423,
+        "ended_utc": "2026-10-13T20:52:28.121007+00:00"
       },
       "rows": 3000,
       "sim_time_end": 60.00000000002736,
       "min_height": 0.6195557038722014,
       "max_proj_grav_z": -0.9985789034673455,
-      "first_wall_mono": 12078.389925533,
-      "last_wall_mono": 12080.969704324,
-      "control_wall_duration": 2.579778790999626,
-      "control_rtf": 23.250055473471818,
+      "first_wall_mono": 12802.50211879,
+      "last_wall_mono": 12805.669049951,
+      "control_wall_duration": 3.1669311610003206,
+      "control_rtf": 18.939470721265003,
       "final_position": [
         -0.0035907032086173493,
         -0.017798808543022522,
         0.6845700327415685
       ],
       "exit_code": 0,
-      "process_wall_duration": 4.633663007998621,
+      "process_wall_duration": 5.2881978929999605,
       "command": [
         "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/t1_mujoco/t1_sim",
         "--ros-args",
@@ -405,10 +393,10 @@
         "-p",
         "max_sim_time:=60.0",
         "-p",
-        "run_id:=20261013T204019Z_dev_standing2_s0_db79b0"
+        "run_id:=20261013T205223Z_dev_standing2_s0_c2f4d2"
       ]
     }
   ],
   "verdict": "PASS",
-  "ended_utc": "2026-10-13T20:40:23.938460+00:00"
+  "ended_utc": "2026-10-13T20:52:28.615209+00:00"
 }

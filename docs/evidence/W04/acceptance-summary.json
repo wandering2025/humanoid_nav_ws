@@ -1,0 +1,86 @@
+{
+  "verified_utc": "2026-10-13T20:53:49.465254+00:00",
+  "tested_code_sha": "4c0d674f2662de346b81a9bd9f4d62c5981093ac",
+  "unit_tests": 20,
+  "unit_failures": 0,
+  "physics_checks": 13,
+  "trajectory_max_error": 0.0,
+  "standing_runs": [
+    {
+      "run_id": "20261013T205212Z_dev_standing0_s0_8c5542",
+      "sim_time_end": 60.00000000002736,
+      "control_wall_duration": 3.299521499999173,
+      "control_rtf": 18.17839344281963,
+      "min_height": 0.6195557038722014,
+      "max_proj_grav_z": -0.9985789034673455,
+      "final_position": [
+        -0.0035907032086173493,
+        -0.017798808543022522,
+        0.6845700327415685
+      ]
+    },
+    {
+      "run_id": "20261013T205217Z_dev_standing1_s0_829d07",
+      "sim_time_end": 60.00000000002736,
+      "control_wall_duration": 3.241184822001742,
+      "control_rtf": 18.505578451704576,
+      "min_height": 0.6195557038722014,
+      "max_proj_grav_z": -0.9985789034673455,
+      "final_position": [
+        -0.0035907032086173493,
+        -0.017798808543022522,
+        0.6845700327415685
+      ]
+    },
+    {
+      "run_id": "20261013T205223Z_dev_standing2_s0_c2f4d2",
+      "sim_time_end": 60.00000000002736,
+      "control_wall_duration": 3.1669311610003206,
+      "control_rtf": 18.939470721265003,
+      "min_height": 0.6195557038722014,
+      "max_proj_grav_z": -0.9985789034673455,
+      "final_position": [
+        -0.0035907032086173493,
+        -0.017798808543022522,
+        0.6845700327415685
+      ]
+    }
+  ],
+  "headless_rtf_median": 18.505578451704576,
+  "gui": [
+    {
+      "case": "gui-sigterm",
+      "exit_code": 0,
+      "run_id": "20261013T205232Z_dev_gui_s0_95eaf4",
+      "sim_time": 3.2599999999998626,
+      "rtf": 1.0053400982004859
+    },
+    {
+      "case": "gui-window",
+      "exit_code": 0,
+      "run_id": "20261013T205240Z_dev_gui_s0_0045c8",
+      "sim_time": 3.2599999999998626,
+      "rtf": 1.005377692979467
+    }
+  ],
+  "remaining_processes": [],
+  "upstream": {
+    "booster_deploy": {
+      "sha": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+      "status": ""
+    },
+    "booster_assets": {
+      "sha": "12a97516f57469078707afb587a5f84c1cb110d1",
+      "status": ""
+    }
+  },
+  "preserved_user_diff_sha256": "1f1415aa291b6d8aaeaa47fdacc6cc17239e2c802f7dbf63abf936bc823afda2",
+  "verdict": "PASS",
+  "limitations": [
+    "physical cmd_vel mapping unavailable until W05",
+    "local TCP discovery server required on this host for verified multi-process ROS",
+    "no odometry/TF/sensors/SLAM/Nav2 in W04",
+    "2s warmup and 0.5s dual timeouts provisional",
+    "RTF short development benchmark, not W13 navigation load"
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "code_sha": "4c0d674f2662de346b81a9bd9f4d62c5981093ac",
+  "implementation_sha256": {
+    "scripts/env.sh": "d299e5afbff231e56ce077eaff9d3f1cc1be84cad0d7726eae4fad5f11d35a8e",
+    "scripts/start_local_dds.sh": "d5340324882f3b1de74cdfcb57cef9c8b9a13ca0f8a5c9d25c1a6f8d0e162fdf",
+    "src/t1_bringup/launch/bringup.launch.py": "b7841763682c7ac4bc2326f401befcd892aa50d183c2005b00b7f2663eb50990",
+    "src/t1_bringup/launch/diagnostic.launch.py": "ff364e537c38b38d234a91df6131663518fd9f3121498589c94f08640bda67cb",
+    "src/t1_bringup/launch/simulation.launch.py": "ce8ea64b78879605abdff2eeecb56203449ffa94d04018a2df8f475806eee8a4",
+    "src/t1_bringup/package.xml": "00c6f8e7131695f70860f4f81128324f8a25eef93e3b74e9e7cafbafcfdeb2b5",
+    "src/t1_bringup/resource/t1_bringup": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/t1_bringup/setup.cfg": "013d73e91c7c8716a9685a562d00c9b4ad3bddfe18b59997355691fffe26463f",
+    "src/t1_bringup/setup.py": "a65dc3e34db923c8fff7d8ddbaf86b2365b6184643cd10b8fd48efd70c49a987",
+    "src/t1_bringup/t1_bringup/__init__.py": "0c0e3bd4e08e157b7172fdabff275c583a35e518420eeb1a46f694e177a9bd33",
+    "src/t1_bringup/t1_bringup/launch_support.py": "13cf10ee020d1282992067e96d22d6f85c2a5af6de7e504827cfcd0ae5814b87",
+    "src/t1_bringup/test/test_launch_support.py": "b4147bdf288bcb00727f3469ef1d2ae9861a55f36b8968d749f955def4f7fdcb",
+    "src/t1_description/CMakeLists.txt": "be15252c626b731773cf71da5dbf39dc93c0e6c3b80e9ef22650612b7d49d8d7",
+    "src/t1_description/config/README.md": "2d1609634fe5b000572912c14d33467ff106b64ccfc36f2dee673809ddefa25e",
+    "src/t1_description/package.xml": "c5f5e75059d0ce5981ae0e7a40826a424094757385327d2e1ce4880fb3628e85",
+    "src/t1_mujoco/config/README.md": "eab4d443c4827dcb47566dd0ede470a05f99e15c8320d6ddd3ae84fa0544002f",
+    "src/t1_mujoco/config/runtime.yaml": "71be48b389982c6f8c9ec669f8d69f557c9a1cff68918d1fd6ae64442a192868",
+    "src/t1_mujoco/package.xml": "e861b58b9b3e726a5784a5602bf33937f056aa4a716104c6320385b9adb49a83",
+    "src/t1_mujoco/resource/t1_mujoco": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/t1_mujoco/scripts/t1_diagnostic": "4204a4ab3538fcca01ed0729139780661fc0a69e6b64eb7d7c4b6212eb5fdeb9",
+    "src/t1_mujoco/scripts/t1_sim": "c014320d739adad679c62435e8deef415d79d1fc5d240e7c8f985b6463455a70",
+    "src/t1_mujoco/setup.cfg": "3e929739b17058dc39c197e7488b3a089c75d86f22613e39064821d85ed6b44f",
+    "src/t1_mujoco/setup.py": "b7cdecda0be5016b50910213996806f095b355eafb2c3ae84f57efdbb38df099",
+    "src/t1_mujoco/t1_mujoco/__init__.py": "a94fd83aa0d628f23565523474a3d7d21bbd22bc0d168eaabfa283bf7dc5bc3c",
+    "src/t1_mujoco/t1_mujoco/control.py": "f95d21da3419dd9c731fd009bcb35d7d86f686d7310545899d86486c7c72d998",
+    "src/t1_mujoco/t1_mujoco/diagnostic.py": "df8d62735f441f535d7776908402bb75ce47cb6b8fc97a35c770cba8b642b913",
+    "src/t1_mujoco/t1_mujoco/model_contract.py": "e39d8a450c1ac36dc5db7436fa9a371d490d0226013b6b2ee38fc0dc4e5e87cd",
+    "src/t1_mujoco/t1_mujoco/recording.py": "3d1ebbac801e4f52e1b7495374614d4a85faf7e22241a7667d76462bfbd542b8",
+    "src/t1_mujoco/t1_mujoco/runner.py": "a07390889613281587e5ed904dfd13b0682fdf577f04bd7414f5ff20ef1b9765",
+    "src/t1_mujoco/t1_mujoco/runtime.py": "4f569f3310bd4e1a7a203af69e2d2fd94ed58f5de796fc4de2a194ca26e47d3a",
+    "src/t1_mujoco/t1_mujoco/simulation.py": "cc204236d01b778dfa3b76183be47dbbda2c49ddee7be6dbcc40e69ecd1c84e2",
+    "src/t1_mujoco/test/test_control.py": "00ac69026133e3b13b6a239d49509a525c65dab67e20b789223166e47a306513",
+    "src/t1_mujoco/test/test_runtime.py": "7c356cf425981714e9db77fa679db1eb88ff86fd1c9dfd37ec76485e3d5a4103",
+    "src/t1_navigation/CMakeLists.txt": "49fe5613eaeaeb2332c2cf1e8682ab7a3d5ffefa87a0300be36262c53cd9ad21",
+    "src/t1_navigation/config/README.md": "80a6b6b555dd8def1a044daf85f3e97c044ea488196ee20d8f73a75a8062c3cb",
+    "src/t1_navigation/package.xml": "79c38d7d582a1fb965c8244f968bae262f1ac606b2b6e8b1773ab9668cd30f28"
+  },
+  "environment": {
+    "T1_WS": "/home/haoyang/humanoid_nav_ws",
+    "T1_VENV": "/home/haoyang/venvs/humanoid_mujoco",
+    "T1_UPSTREAM": "/home/haoyang/robot_sim_sources/booster_deploy",
+    "T1_LOCAL_DDS": "1",
+    "T1_DDS_PORT": "42114",
+    "ROS_DISTRO": "jazzy",
+    "ROS_DOMAIN_ID": "74",
+    "ROS_AUTOMATIC_DISCOVERY_RANGE": "SYSTEM_DEFAULT",
+    "ROS_DISCOVERY_SERVER": "TCPv4:[127.0.0.1]:42114",
+    "ROS_SUPER_CLIENT": "TRUE",
+    "ROS_LOG_DIR": "/home/haoyang/humanoid_nav_ws/run_data/w04_ros_logs"
+  },
+  "results": [
+    {
+      "name": "runner",
+      "command": [
+        "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+        "/home/haoyang/humanoid_nav_ws/docs/evidence/W04/check_runner.py"
+      ],
+      "cwd": "/home/haoyang/humanoid_nav_ws",
+      "started_utc": "2026-10-13T20:51:53.435999+00:00",
+      "ended_utc": "2026-10-13T20:51:56.662429+00:00",
+      "wall_duration": 3.2264222760004486,
+      "code_sha": "4c0d674f2662de346b81a9bd9f4d62c5981093ac",
+      "exit_code": 0,
+      "log": "final-runner.txt"
+    },
+    {
+      "name": "controls",
+      "command": [
+        "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+        "/home/haoyang/humanoid_nav_ws/docs/evidence/W04/verify_ros.py",
+        "controls"
+      ],
+      "cwd": "/home/haoyang/humanoid_nav_ws",
+      "started_utc": "2026-10-13T20:51:56.662497+00:00",
+      "ended_utc": "2026-10-13T20:52:12.284908+00:00",
+      "wall_duration": 15.62242675699963,
+      "code_sha": "4c0d674f2662de346b81a9bd9f4d62c5981093ac",
+      "exit_code": 0,
+      "log": "final-controls.txt"
+    },
+    {
+      "name": "standing",
+      "command": [
+        "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+        "/home/haoyang/humanoid_nav_ws/docs/evidence/W04/verify_ros.py",
+        "standing"
+      ],
+      "cwd": "/home/haoyang/humanoid_nav_ws",
+      "started_utc": "2026-10-13T20:52:12.284973+00:00",
+      "ended_utc": "2026-10-13T20:52:28.753946+00:00",
+      "wall_duration": 16.468990003000727,
+      "code_sha": "4c0d674f2662de346b81a9bd9f4d62c5981093ac",
+      "exit_code": 0,
+      "log": "final-standing.txt"
+    },
+    {
+      "name": "startup",
+      "command": [
+        "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+        "/home/haoyang/humanoid_nav_ws/docs/evidence/W04/verify_failures.py"
+      ],
+      "cwd": "/home/haoyang/humanoid_nav_ws",
+      "started_utc": "2026-10-13T20:52:28.754003+00:00",
+      "ended_utc": "2026-10-13T20:52:32.232059+00:00",
+      "wall_duration": 3.4780714600001374,
+      "code_sha": "4c0d674f2662de346b81a9bd9f4d62c5981093ac",
+      "exit_code": 0,
+      "log": "final-startup.txt"
+    },
+    {
+      "name": "gui-sigterm",
+      "command": [
+        "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+        "/home/haoyang/humanoid_nav_ws/docs/evidence/W04/verify_gui.py",
+        "--close",
+        "sigterm"
+      ],
+      "cwd": "/home/haoyang/humanoid_nav_ws",
+      "started_utc": "2026-10-13T20:52:32.232121+00:00",
+      "ended_utc": "2026-10-13T20:52:40.022334+00:00",
+      "wall_duration": 7.7902241770007095,
+      "code_sha": "4c0d674f2662de346b81a9bd9f4d62c5981093ac",
+      "exit_code": 0,
+      "log": "final-gui-sigterm.txt"
+    },
+    {
+      "name": "gui-window",
+      "command": [
+        "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+        "/home/haoyang/humanoid_nav_ws/docs/evidence/W04/verify_gui.py",
+        "--close",
+        "window"
+      ],
+      "cwd": "/home/haoyang/humanoid_nav_ws",
+      "started_utc": "2026-10-13T20:52:40.022378+00:00",
+      "ended_utc": "2026-10-13T20:52:47.415596+00:00",
+      "wall_duration": 7.3932345190005435,
+      "code_sha": "4c0d674f2662de346b81a9bd9f4d62c5981093ac",
+      "exit_code": 0,
+      "log": "final-gui-window.txt"
+    },
+    {
+      "name": "launch",
+      "command": [
+        "ros2",
+        "launch",
+        "t1_bringup",
+        "simulation.launch.py",
+        "target_rtf:=0.0",
+        "max_sim_time:=3.0"
+      ],
+      "cwd": "/home/haoyang/humanoid_nav_ws",
+      "started_utc": "2026-10-13T20:52:47.415653+00:00",
+      "ended_utc": "2026-10-13T20:52:49.998820+00:00",
+      "wall_duration": 2.583183452999947,
+      "code_sha": "4c0d674f2662de346b81a9bd9f4d62c5981093ac",
+      "exit_code": 0,
+      "log": "final-launch.txt"
+    },
+    {
+      "name": "bringup",
+      "command": [
+        "ros2",
+        "launch",
+        "t1_bringup",
+        "bringup.launch.py",
+        "enable_sim:=true",
+        "target_rtf:=0.0",
+        "max_sim_time:=3.0"
+      ],
+      "cwd": "/home/haoyang/humanoid_nav_ws",
+      "started_utc": "2026-10-13T20:52:49.998875+00:00",
+      "ended_utc": "2026-10-13T20:52:52.471249+00:00",
+      "wall_duration": 2.472389549999207,
+      "code_sha": "4c0d674f2662de346b81a9bd9f4d62c5981093ac",
+      "exit_code": 0,
+      "log": "final-bringup.txt"
+    }
+  ],
+  "server_exit": 0,
+  "verdict": "PASS"
+}

@@ -1,0 +1,9 @@
+[INFO] [launch]: All log files can be found below /home/haoyang/humanoid_nav_ws/run_data/w04_ros_logs/2026-10-13-22-52-47-625735-DESKTOP-MF19MEU-39644
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [t1_sim-1]: process started with pid [39649]
+[t1_sim-1] /home/haoyang/venvs/humanoid_mujoco/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+[t1_sim-1]   warnings.warn(
+[t1_sim-1] /home/haoyang/venvs/humanoid_mujoco/lib/python3.12/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+[t1_sim-1]   warnings.warn(
+[t1_sim-1] T1_RUN /home/haoyang/humanoid_nav_ws/run_data/20261013T205249Z_dev_w04_s0_d4905d27
+[INFO] [t1_sim-1]: process has finished cleanly [pid 39649]

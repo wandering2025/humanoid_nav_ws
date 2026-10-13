@@ -1,9 +1,9 @@
 {
-  "started_utc": "2026-10-13T20:50:32.708768+00:00",
-  "ended_utc": "2026-10-13T20:50:34.356483+00:00",
-  "code_sha": "49f78d6f90c03fc8933772a167770d634996c77d",
+  "started_utc": "2026-10-13T20:51:54.625055+00:00",
+  "ended_utc": "2026-10-13T20:51:56.265054+00:00",
+  "code_sha": "4c0d674f2662de346b81a9bd9f4d62c5981093ac",
   "sim_duration": 15.0,
-  "wall_duration": 1.649580015000538,
+  "wall_duration": 1.642103293999753,
   "max_trajectory_error": 0.0,
   "checks": [
     "trajectory_matches_upstream",

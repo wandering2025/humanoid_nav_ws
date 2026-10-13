@@ -1,0 +1,1 @@
+[INFO] [1791924335.442578773] [rclcpp]: signal_handler(SIGINT/SIGTERM)
