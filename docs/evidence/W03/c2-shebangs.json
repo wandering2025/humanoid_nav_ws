@@ -1,0 +1,5 @@
+{
+  "/usr/bin/colcon": "#!/usr/bin/python3",
+  "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/t1_mujoco/t1_diagnostic_python": "#!/usr/bin/python3",
+  "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/lib/t1_mujoco/t1_diagnostic": "#!/usr/bin/env bash"
+}
