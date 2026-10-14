@@ -182,7 +182,13 @@ class SafetyGate(Node):
         self.graph_ok &= len(self.get_publishers_info_by_topic('/t1/cmd_'+self.source)) == 1
         self.graph_at = now
         for name, client in self.lifecycle_clients.items():
-            future = self.pending.get(name)
+            pending = self.pending.get(name)
+            future = pending[1] if pending is not None else None
+            if future is not None and not future.done() and now-pending[0] > .3:
+                client.remove_pending_request(future)
+                future.cancel()
+                self.pending.pop(name, None)
+                future = None
             if future is not None and future.done():
                 try:
                     if future.result().current_state.id == 3:
@@ -193,7 +199,7 @@ class SafetyGate(Node):
                     self.active.pop(name, None)
                 self.pending.pop(name, None)
             if name not in self.pending and client.service_is_ready():
-                self.pending[name] = client.call_async(GetState.Request())
+                self.pending[name] = (now, client.call_async(GetState.Request()))
 
     def tick(self):
         self.poll()
