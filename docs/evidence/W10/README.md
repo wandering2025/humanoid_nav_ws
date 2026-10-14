@@ -24,6 +24,7 @@ cmake -S docs/evidence/W09 -B docs/evidence/W09/raw/authority-build
 cmake --build docs/evidence/W09/raw/authority-build
 $T1_VENV/bin/python docs/evidence/W10/mode_checks.py
 $T1_VENV/bin/python docs/evidence/W10/audit.py
+$T1_VENV/bin/python docs/evidence/W10/final_checks.py
 ```
 
 运行期需要本机DDS TCP socket权限；由启动脚本保存每个进程PID，结束只清理本次启动的进程。原始50Hz trace/manifest在ignored `run_data/w10_*`，launch日志在ignored `raw/`。停止probe时先发送源零/stop服务，等待站稳，然后SIGINT该launch。独立运行器异常试验自动终止。
@@ -62,7 +63,7 @@ $T1_VENV/bin/python docs/evidence/W10/audit.py
 
 ## 保留的开发失败
 
-首次command_gate使用rclpy Node只读属性名clients，启动失败且无permit，机器人不动；改名lifecycle_clients。另一次连续重启中GetState请求无响应导致DISARMED，增加0.3s墙钟查询超时/重试，没有绕开active门。对应`*-error.json`与raw日志。首次shell重定向因raw目录缺失未启动任何试验。
+首次command_gate使用rclpy Node只读属性名clients，启动失败且无permit，机器人不动；改名lifecycle_clients。另一次连续重启中GetState请求无响应导致DISARMED，增加0.3s墙钟查询超时/重试，没有绕开active门。对应`*-error.json`与raw日志。首次shell重定向因raw目录缺失未启动任何试验。首次最终mode回归中，证据脚本调用initial_pose缺x y yaw位置参数，argparse退出，AMCL未初始化导致localization unique_map_tf=False（`mode-regression-initialpose-error.json`）；脚本改传W09第1轮近似位姿0.2 -0.15 0.15并检查其退出码后重跑PASS，production代码未改。用户在本步执行中继续编辑docs/start_commands.md，`final_checks.py`改为核验该文件未被任何W10提交或暂存，并记录起止diff哈希。
 
 ## 适用限制
 

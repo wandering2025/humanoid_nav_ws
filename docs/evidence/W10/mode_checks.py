@@ -36,7 +36,8 @@ try:
         init=None;client=None
         try:
             if mode=='localization':
-                init=subprocess.Popen(['ros2','run','t1_bringup','initial_pose','--ros-args','-p','use_sim_time:=true'],stdout=log,stderr=subprocess.STDOUT)
+                # W09 trial-1 approximate map pose; the tool sets use_sim_time itself.
+                init=subprocess.Popen(['ros2','run','t1_bringup','initial_pose','0.2','-0.15','0.15'],stdout=log,stderr=subprocess.STDOUT)
             deadline=time.monotonic()+35;future=None
             while proc.poll() is None:
                 assert time.monotonic()<deadline
@@ -45,7 +46,7 @@ try:
                     client=node.create_client(Trigger,'/t1/safety/arm')
                 if client is not None and future is None and client.service_is_ready():
                     future=client.call_async(Trigger.Request())
-                if state.get('state')=='ARMED' and maps and time.monotonic()>deadline-22:
+                if state.get('state')=='ARMED' and maps and time.monotonic()>deadline-22 and (init is None or init.poll() is not None):
                     break
             graph={t:{'publishers':[i.node_name for i in node.get_publishers_info_by_topic(t)],
                       'subscribers':[i.node_name for i in node.get_subscriptions_info_by_topic(t)]}
@@ -62,6 +63,7 @@ try:
                 final_owner=graph['/cmd_vel']['publishers']==['collision_monitor'],
                 clock_owner=graph['/clock']['publishers']==['t1_sim'],truth_isolated=not graph['/t1/eval/ground_truth']['subscribers'],
                 debug_disabled=not graph['/t1/debug/policy_cmd']['subscribers'])
+            if init is not None:checks['initial_pose_ok']=init.returncode==0
         finally:
             if proc.poll() is None:proc.send_signal(signal.SIGINT)
             proc.wait(timeout=15)

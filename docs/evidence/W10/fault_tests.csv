@@ -1,0 +1,14 @@
+test_id,fault,injection_method,t_inject_sim,t_detect_sim,t_zero_cmd_sim,v_meas_at_inject,stop_distance_m,final_state,expected,verdict,evidence
+normal,normal,see w10_normal_d03b341d.json,7.96,7.979999999999343,7.979999999999343,0.5193162092361283,0.14549512061822029,ARMED,"zero target, continued standing; explicit fault rearm",PASS,w10_normal_d03b341d.json
+source_timeout,source_timeout,see w10_source_timeout_e6517199.json,7.78,8.08,8.099999999999374,0.5265990849749573,0.1840878094510161,STOPPED,"zero target, continued standing; explicit fault rearm",PASS,w10_source_timeout_e6517199.json
+nan,nan,see w10_nan_7f9ce3ed.json,7.78,7.8,7.799999999999363,0.5247837540130438,0.15370778161589957,STOPPED,"zero target, continued standing; explicit fault rearm",PASS,w10_nan_7f9ce3ed.json
+scan,scan,see w10_scan_23155335.json,7.78,8.0,8.039999999999354,0.5265990849749573,0.18413736312557,STOPPED,"zero target, continued standing; explicit fault rearm",PASS,w10_scan_23155335.json
+odom,odom,see w10_odom_a93c7d4d.json,7.8,8.08,8.099999999999374,0.5184712594054676,0.18409296409838616,STOPPED,"zero target, continued standing; explicit fault rearm",PASS,w10_odom_a93c7d4d.json
+tf,tf,see w10_tf_9b54c879.json,7.8,8.08,7.879999999999354,0.5184712594054676,0.12758557508035745,STOPPED,"zero target, continued standing; explicit fault rearm",PASS,w10_tf_9b54c879.json
+pause,pause,see w10_pause_742f8b38.json,7.8,7.88,7.899999999999352,0.5184712594054676,0.12569426948727289,STOPPED,"zero target, continued standing; explicit fault rearm",PASS,w10_pause_742f8b38.json
+cancel,cancel,see w10_cancel_5275842b.json,7.78,7.86,7.879999999999354,0.5265990849749573,0.12757278547774906,STOPPED,"zero target, continued standing; explicit fault rearm",PASS,w10_cancel_5275842b.json
+monitor_exit,monitor_exit,see w10_monitor_exit_d2152f70.json,7.78,7.86,7.879999999999354,0.5183860827516081,0.12563117929830928,STOPPED,"zero target, continued standing; explicit fault rearm",PASS,w10_monitor_exit_d2152f70.json
+gate_exit,gate_exit,see w10_gate_exit_9c94392d.json,7.78,7.939999999999348,7.939999999999348,0.5265990849749573,0.12555126296193403,permit expired,"zero target, continued standing; explicit fault rearm",PASS,w10_gate_exit_9c94392d.json
+limits,limits,see w10_limits_26dbe780.json,7.8,7.839999999999359,7.839999999999359,0.7727115547950079,0.2357630836754614,ARMED,"zero target, continued standing; explicit fault rearm",PASS,w10_limits_26dbe780.json
+wall,wall,see w10_wall_58de12b2.json,8.94,8.959999999999662,8.959999999999662,0.5363239942420005,0.14812216952452079,ARMED,"zero target, continued standing; explicit fault rearm",PASS,w10_wall_58de12b2.json
+deadband_wall,deadband_wall,see w10_deadband_wall_faa5d0e6.json,10.82,10.84000000000029,10.84000000000029,0.3722579930624437,0.13956452658617996,ARMED,"zero target, continued standing; explicit fault rearm",PASS,w10_deadband_wall_faa5d0e6.json

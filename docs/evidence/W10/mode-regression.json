@@ -1,0 +1,491 @@
+{
+  "completed_utc": "2026-10-14T15:14:28.448518+00:00",
+  "modes": [
+    {
+      "mode": "mapping",
+      "run_id": "w10_mapping_626e2f78",
+      "graph": {
+        "/cmd_vel": {
+          "publishers": [
+            "collision_monitor"
+          ],
+          "subscribers": [
+            "t1_sim",
+            "t1_command_gate"
+          ]
+        },
+        "/cmd_vel_nav": {
+          "publishers": [
+            "t1_command_gate"
+          ],
+          "subscribers": [
+            "velocity_smoother"
+          ]
+        },
+        "/cmd_vel_smoothed": {
+          "publishers": [
+            "velocity_smoother"
+          ],
+          "subscribers": [
+            "collision_monitor"
+          ]
+        },
+        "/clock": {
+          "publishers": [
+            "t1_sim"
+          ],
+          "subscribers": [
+            "robot_state_publisher",
+            "slam_toolbox",
+            "t1_command_gate",
+            "velocity_smoother",
+            "collision_monitor",
+            "lifecycle_manager_safety"
+          ]
+        },
+        "/t1/eval/ground_truth": {
+          "publishers": [
+            "t1_sim"
+          ],
+          "subscribers": []
+        },
+        "/t1/debug/policy_cmd": {
+          "publishers": [],
+          "subscribers": []
+        },
+        "/map": {
+          "publishers": [
+            "slam_toolbox"
+          ],
+          "subscribers": [
+            "slam_toolbox",
+            "w10_mode_probe"
+          ]
+        }
+      },
+      "tf_authorities": [
+        {
+          "parent": "odom",
+          "child": "base_footprint",
+          "gid": "010f34ba64fae82c0000000000001903",
+          "node": "t1_sim"
+        },
+        {
+          "parent": "base_footprint",
+          "child": "base_link",
+          "gid": "010f34ba64fae82c0000000000001903",
+          "node": "t1_sim"
+        },
+        {
+          "parent": "base_footprint",
+          "child": "laser_stabilized",
+          "gid": "010f34ba64fae82c0000000000001903",
+          "node": "t1_sim"
+        },
+        {
+          "parent": "aahead_yaw_link",
+          "child": "aahead_pitch_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "trunk",
+          "child": "aahead_yaw_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "left_knee_pitch_link",
+          "child": "left_ankle_pitch_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "left_ankle_pitch_link",
+          "child": "left_ankle_roll_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "left_shoulder_roll_link",
+          "child": "left_elbow_pitch_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "left_elbow_pitch_link",
+          "child": "left_elbow_yaw_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "waist_yaw_link",
+          "child": "left_hip_pitch_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "left_hip_pitch_link",
+          "child": "left_hip_roll_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "left_hip_roll_link",
+          "child": "left_hip_yaw_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "left_hip_yaw_link",
+          "child": "left_knee_pitch_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "trunk",
+          "child": "left_shoulder_pitch_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "left_shoulder_pitch_link",
+          "child": "left_shoulder_roll_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "right_knee_pitch_link",
+          "child": "right_ankle_pitch_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "right_ankle_pitch_link",
+          "child": "right_ankle_roll_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "right_shoulder_roll_link",
+          "child": "right_elbow_pitch_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "right_elbow_pitch_link",
+          "child": "right_elbow_yaw_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "waist_yaw_link",
+          "child": "right_hip_pitch_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "right_hip_pitch_link",
+          "child": "right_hip_roll_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "right_hip_roll_link",
+          "child": "right_hip_yaw_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "right_hip_yaw_link",
+          "child": "right_knee_pitch_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "trunk",
+          "child": "right_shoulder_pitch_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "right_shoulder_pitch_link",
+          "child": "right_shoulder_roll_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "trunk",
+          "child": "waist_yaw_link",
+          "gid": "010f34ba65fa0af30000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "map",
+          "child": "odom",
+          "gid": "010f34ba66fa2ba40000000000002603",
+          "node": "slam_toolbox"
+        }
+      ],
+      "checks": {
+        "armed": true,
+        "map_received": true,
+        "unique_map_tf": true,
+        "unique_tf": true,
+        "sim_tf": true,
+        "final_owner": true,
+        "clock_owner": true,
+        "truth_isolated": true,
+        "debug_disabled": true,
+        "sim_exit_zero": true
+      },
+      "code_sha": "e78e333f0c922b0d2a4b8968a9975d54ee58f870",
+      "verdict": "PASS"
+    },
+    {
+      "mode": "localization",
+      "run_id": "w10_localization_f0bc7981",
+      "graph": {
+        "/cmd_vel": {
+          "publishers": [
+            "collision_monitor"
+          ],
+          "subscribers": [
+            "t1_sim",
+            "t1_command_gate"
+          ]
+        },
+        "/cmd_vel_nav": {
+          "publishers": [
+            "t1_command_gate"
+          ],
+          "subscribers": [
+            "velocity_smoother"
+          ]
+        },
+        "/cmd_vel_smoothed": {
+          "publishers": [
+            "velocity_smoother"
+          ],
+          "subscribers": [
+            "collision_monitor"
+          ]
+        },
+        "/clock": {
+          "publishers": [
+            "t1_sim"
+          ],
+          "subscribers": [
+            "robot_state_publisher",
+            "map_server",
+            "amcl",
+            "lifecycle_manager_localization",
+            "t1_command_gate",
+            "velocity_smoother",
+            "collision_monitor",
+            "lifecycle_manager_safety"
+          ]
+        },
+        "/t1/eval/ground_truth": {
+          "publishers": [
+            "t1_sim"
+          ],
+          "subscribers": []
+        },
+        "/t1/debug/policy_cmd": {
+          "publishers": [],
+          "subscribers": []
+        },
+        "/map": {
+          "publishers": [
+            "map_server"
+          ],
+          "subscribers": [
+            "amcl",
+            "w10_mode_probe"
+          ]
+        }
+      },
+      "tf_authorities": [
+        {
+          "parent": "odom",
+          "child": "base_footprint",
+          "gid": "010f34ba85fc4d140000000000001903",
+          "node": "t1_sim"
+        },
+        {
+          "parent": "base_footprint",
+          "child": "base_link",
+          "gid": "010f34ba85fc4d140000000000001903",
+          "node": "t1_sim"
+        },
+        {
+          "parent": "base_footprint",
+          "child": "laser_stabilized",
+          "gid": "010f34ba85fc4d140000000000001903",
+          "node": "t1_sim"
+        },
+        {
+          "parent": "aahead_yaw_link",
+          "child": "aahead_pitch_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "trunk",
+          "child": "aahead_yaw_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "left_knee_pitch_link",
+          "child": "left_ankle_pitch_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "left_ankle_pitch_link",
+          "child": "left_ankle_roll_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "left_shoulder_roll_link",
+          "child": "left_elbow_pitch_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "left_elbow_pitch_link",
+          "child": "left_elbow_yaw_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "waist_yaw_link",
+          "child": "left_hip_pitch_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "left_hip_pitch_link",
+          "child": "left_hip_roll_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "left_hip_roll_link",
+          "child": "left_hip_yaw_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "left_hip_yaw_link",
+          "child": "left_knee_pitch_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "trunk",
+          "child": "left_shoulder_pitch_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "left_shoulder_pitch_link",
+          "child": "left_shoulder_roll_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "right_knee_pitch_link",
+          "child": "right_ankle_pitch_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "right_ankle_pitch_link",
+          "child": "right_ankle_roll_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "right_shoulder_roll_link",
+          "child": "right_elbow_pitch_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "right_elbow_pitch_link",
+          "child": "right_elbow_yaw_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "waist_yaw_link",
+          "child": "right_hip_pitch_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "right_hip_pitch_link",
+          "child": "right_hip_roll_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "right_hip_roll_link",
+          "child": "right_hip_yaw_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "right_hip_yaw_link",
+          "child": "right_knee_pitch_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "trunk",
+          "child": "right_shoulder_pitch_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "right_shoulder_pitch_link",
+          "child": "right_shoulder_roll_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "trunk",
+          "child": "waist_yaw_link",
+          "gid": "010f34ba86fc43440000000000001503",
+          "node": "robot_state_publisher"
+        },
+        {
+          "parent": "map",
+          "child": "odom",
+          "gid": "010f34ba88fcaa880000000000002203",
+          "node": "amcl"
+        }
+      ],
+      "checks": {
+        "armed": true,
+        "map_received": true,
+        "unique_map_tf": true,
+        "unique_tf": true,
+        "sim_tf": true,
+        "final_owner": true,
+        "clock_owner": true,
+        "truth_isolated": true,
+        "debug_disabled": true,
+        "initial_pose_ok": true,
+        "sim_exit_zero": true
+      },
+      "code_sha": "e78e333f0c922b0d2a4b8968a9975d54ee58f870",
+      "verdict": "PASS"
+    }
+  ],
+  "verdict": "PASS"
+}
