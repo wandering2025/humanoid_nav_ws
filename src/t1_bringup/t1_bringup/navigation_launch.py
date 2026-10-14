@@ -24,6 +24,10 @@ def arguments():
         # was dropped and the (timeout-less) Jazzy lifecycle manager hung. Activation
         # itself is still gated by navigation_starter readiness checks.
         DeclareLaunchArgument('nav_start_delay', default_value='8.0'),
+        # Localization/safety lifecycle managers start this long after their nodes, so
+        # the managed services finish discovery before the first change_state. Suite v1
+        # S04 hung on a lost map_server configure response (W11 C3, ADR-016).
+        DeclareLaunchArgument('lifecycle_start_delay', default_value='3.0'),
     ]
 
 
@@ -63,7 +67,8 @@ def actions(context):
         # AMCL's response time out and blocked its lifecycle bringup (W11 C2).
         nodes.append(ExecuteProcess(cmd=['ros2', 'run', 't1_bringup', 'initial_pose', *pose],
                                     output='screen', name='t1_initial_pose_once'))
-    return [TimerAction(period=delay, actions=nodes)]
+    from .launch_support import rviz_nodes
+    return [TimerAction(period=delay, actions=nodes + rviz_nodes(context))]
 
 
 def full_actions(context):

@@ -430,9 +430,34 @@ def cancel_replace(cases):
     return result
 
 
+def startup_probe(n):
+    """Startup reliability: n fresh navigation launches (RViz on, worst case observed),
+    each counted only if the readiness starter reports navigation active."""
+    rows = []
+    for i in range(n):
+        run = Run('navigation.launch.py', f'startup{i}', ['scene:=static_world', 'start_pose:=0 0 0',
+                  'initial_pose:=0 0 0', 'rviz:=true', 'max_sim_time:=60'], wall_limit=150, authority=False)
+        t0, ok, error = time.monotonic(), False, None
+        try:
+            run.ready()
+            run.until(lambda: '"starter": "navigation active"' in run.log_path.read_text(errors='replace'), 90)
+            ok = True
+        except Exception as exc:
+            error = repr(exc)
+        text = run.log_path.read_text(errors='replace')
+        rows.append(dict(i=i, run_id=run.run_id, navigation_active=ok, wall_to_active_s=time.monotonic()-t0 if ok else None,
+                         sim_at_active=run.node.sim if ok else None, error=error,
+                         lost_responses=text.count('failed to send response'), bond_failures=text.count('CRITICAL FAILURE')))
+        run.close(settle=0.)
+        print('STARTUP', rows[-1], flush=True)
+    result = dict(code_sha=git('rev-parse', 'HEAD'), runs=rows, active=sum(r['navigation_active'] for r in rows), n=n)
+    (OUT/'c3-startup-reliability.json').write_text(json.dumps(result, indent=2) + '\n')
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('mode', choices=['dev', 'case', 'suite', 'cancel'])
+    parser.add_argument('mode', choices=['dev', 'case', 'suite', 'cancel', 'startup'])
     parser.add_argument('case', nargs='?')
     parser.add_argument('--start')
     parser.add_argument('--goal')
@@ -441,7 +466,7 @@ def main():
     parser.add_argument('--time-limit', type=float, default=120.)
     parser.add_argument('--tool-args', default='', help='extra navigate_to_pose options (dev only)')
     opts = parser.parse_args()
-    cases = yaml.safe_load(CASES.read_text()) if opts.mode != 'dev' else {}
+    cases = yaml.safe_load(CASES.read_text()) if opts.mode not in ('dev', 'startup') else {}
     session = Session('nav_' + opts.mode)
     results = []
     try:
@@ -457,6 +482,8 @@ def main():
             for c in selected:
                 results.append(episode(f"w11_{c['id']}", c['start'], c['goal'], frozen, frozen['time_limit_s'],
                                        rviz=c.get('rviz', False), case_id=c['id'], seed=c['seed'], screenshot=c.get('screenshot_after_s')))
+        elif opts.mode == 'startup':
+            startup_probe(int(opts.case or 8))
         else:
             results.append(cancel_replace(cases))
     finally:

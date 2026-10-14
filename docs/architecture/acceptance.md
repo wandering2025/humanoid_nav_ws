@@ -153,3 +153,7 @@
 ## 14. W10冻结安全验收
 
 详见[safety.md](safety.md)：bridge命令双超时.50s、permit双龄.15s、source/scan/odom/TF双龄.30s；停止/减速圆1.65/1.95m，停止圈推导含.353m实测制动、.695270m身体旋转半径和.099230m额外裕量。C3停距判据零策略目标后最大位移≤.453m、0.5s窗线/角速<.05并保持2s；故障恢复需显式arm+新源命令。F09在W10验证navigation命令源取消接口，真实NavigateToPose action取消归W11集成，不能把接口试验声称为已实现自主导航。
+
+## 15. W11冻结静态导航判据
+
+W11 C2冻结（未放宽初值）：真值位置≤0.30m、偏航≤20°、静止（0.5s窗<0.05m/s且<0.05rad/s）保持2.0s，单例120s仿真上限（自首个目标接受起），Nav2结果须SUCCEEDED且目标工具核验通过；无环境接触（contact_events static_env/ground_nonfoot=0）、无跌倒。5例S01–S05与取消/替换例注册于`src/t1_navigation/config/w11_static_cases.yaml`（注册约束：起终点与1.5m进近段净距≥2.25m）。Nav2内部容差0.20m/0.20rad与工具核验是实现参数，不是验收判据。

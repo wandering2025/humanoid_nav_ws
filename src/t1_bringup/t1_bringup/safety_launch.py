@@ -22,8 +22,10 @@ def actions(context):
         raise RuntimeError('navigation requires the navigation command source')
     if not Path(path).is_file():
         raise RuntimeError('missing safety_params_file')
-    return [Node(package=package, executable=exe, name=name, output='screen',
-                 parameters=[path, extra], remappings=remaps)
+    from .launch_support import delayed
+    return [(delayed(context, node) if name == 'lifecycle_manager_safety' else node)
+            for name, node in ((name, Node(package=package, executable=exe, name=name, output='screen',
+                 parameters=[path, extra], remappings=remaps))
             for package,exe,name,extra,remaps in (
                 ('t1_bringup','command_gate','t1_command_gate',{'command_source':source},[]),
                 ('nav2_velocity_smoother','velocity_smoother','velocity_smoother',{},
@@ -34,4 +36,4 @@ def actions(context):
                 # 0.5 s /cmd_vel timeout, gate lifecycle polling <=0.6 s latch).
                 ('nav2_lifecycle_manager','lifecycle_manager','lifecycle_manager_safety',
                  {'use_sim_time':True,'autostart':True,'node_names':['velocity_smoother','collision_monitor'],
-                  'bond_timeout':4.0,'attempt_respawn_reconnection':False},[]))]
+                  'bond_timeout':4.0,'attempt_respawn_reconnection':False},[])))]

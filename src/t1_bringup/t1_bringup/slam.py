@@ -18,6 +18,7 @@ def arguments(default_source='teleop'):
 
 
 def actions(context):
+    from .launch_support import delayed
     mode = LaunchConfiguration('mode').perform(context)
     if mode == 'mapping':
         params = Path(LaunchConfiguration('slam_params_file').perform(context))
@@ -38,10 +39,10 @@ def actions(context):
                  parameters=[str(params), {'use_sim_time': True, 'yaml_filename': str(map_file)}], output='screen'),
             Node(package='nav2_amcl', executable='amcl', name='amcl',
                  parameters=[str(params), {'use_sim_time': True}], output='screen'),
-            Node(package='nav2_lifecycle_manager', executable='lifecycle_manager',
+            delayed(context, Node(package='nav2_lifecycle_manager', executable='lifecycle_manager',
                  name='lifecycle_manager_localization', output='screen',
                  parameters=[{'use_sim_time': True, 'autostart': True,
-                              'node_names': ['map_server', 'amcl'], 'bond_timeout': 4.0}]),
+                              'node_names': ['map_server', 'amcl'], 'bond_timeout': 4.0}])),
         ]
     return []
 

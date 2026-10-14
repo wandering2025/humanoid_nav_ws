@@ -206,3 +206,10 @@ mj_world / base_link_truth：仅评测真值，不进入 TF 树
 ## 14. W10 细化（ADR-014）
 
 正常launch的命令生产者入口改为`/t1/cmd_teleop`或`/t1/cmd_navigation`，启动参数command_source明确选择；仅t1_command_gate发布/cmd_vel_nav，后续smoother→CM→bridge不变。新增/t1/safety/{arm,stop} Trigger、/t1/safety/permit Bool（仅末端否决）、/t1/safety/state JSON；详见[safety.md](safety.md)。正常启动DISARMED；故障锁存、恢复须显式arm+新命令。source/健康双龄.30s，bridge cmd双龄.50s，permit双龄.15s；FALLEN增加trunk z<.50m。Nav2全部Twist、OPEN_LOOP。现有SLAM/AMCL模式亦通过完整安全链；显式sim_only policy debug保持隔离校准。
+
+## 15. W11 细化（ADR-015/016）
+
+- mode `navigation`（`navigation.launch.py`）现可用；evaluation仍待W13。t1_sim新增只读参数`start_pose`（'x y yaw'，仅在构造runner前替代场景初值，校验界内/非障碍内，不改展开MJCF哈希）与`navigation_params_file`（写入manifest parameter_files.nav2）。每物理子步记录环境接触`contact_events.csv`（acceptance §5字段），manifest追加`contact_counts`，sim_state追加`env_contacts`；仅评测。
+- 新话题：`/t1/nav/cmd_vel_raw`（Twist；controller_server、behavior_server→适配器），`/t1/nav/adapter_state`（String JSON，调试/记录）。`/t1/cmd_navigation`唯一发布者为t1_navigation_adapter。`/navigate_to_pose`（nav2_msgs/NavigateToPose）由bt_navigator提供；RViz“2D Goal Pose”经/goal_pose同样可用，但须先`ros2 service call /t1/safety/arm std_srvs/srv/Trigger`。
+- 可执行：`navigation_adapter`、`navigation_starter`、`navigate_to_pose X Y YAW [--time-limit 120]`（0=核验成功，2=中止/取消/未核验，3=超时，1=准备失败）。详见[navigation.md](navigation.md)。
+- static_world v2（ADR-015）：14×11m，A(0,0,0)→B(9,0,0)；地图与元数据已由SLAM重建并重新绑定。

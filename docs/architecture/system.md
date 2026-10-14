@@ -188,3 +188,7 @@ mapping 模式下 teleop 替代 Nav2 核心作为 `/cmd_vel_nav` 源（W10 起�
 ## 13. W10实施细化（ADR-014）
 
 正常sim_only/mapping/localization启动均含t1_command_gate、velocity_smoother、collision_monitor。所选原始源→gate→/cmd_vel_nav→smoother→/cmd_vel_smoothed→CM→/cmd_vel；gate额外发布仅供末端否决的permit，不生成第二个最终速度。只有显式sim_only policy debug隔离安全链。实际恢复协议与时延/区域推导见[safety.md](safety.md)。W11 controller/behavior须经单一导航源适配器进入/t1/cmd_navigation（本步仅接收一个发布者），并把取消接到stop服务；不能直接重映射两个发布者到最终话题。
+
+## 14. W11实施细化（ADR-015/016）
+
+navigation模式 = W09 localization对 + W10安全链（command_source=navigation）+ Nav2组（planner/controller/behavior/bt_navigator，延迟8s创建、就绪门后STARTUP）+ 单一导航源适配器。controller/behavior输出不直接进入W10链，只经适配器；取消→stop锁存；抢占替换不停车。规划/代价地图有效半径2.05m使名义路径在W10停止/减速圆之外。见[navigation.md](navigation.md)。

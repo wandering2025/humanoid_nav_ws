@@ -70,6 +70,30 @@ def simulation_arguments(default_scene='', map_rviz=False, rviz_config=None):
     )]
 
 
+def rviz_nodes(context):
+    if LaunchConfiguration('rviz').perform(context) != 'true':
+        return []
+    rviz_config = Path(LaunchConfiguration('rviz_config').perform(context))
+    if not rviz_config.is_file():
+        raise RuntimeError(f'rviz_config does not exist: {rviz_config}')
+    return [Node(package='rviz2', executable='rviz2', name='rviz2', arguments=['-d', str(rviz_config)],
+                 output='screen', parameters=[{'use_sim_time': True}])]
+
+
+def lifecycle_delay(context):
+    """Wall seconds before creating a lifecycle manager after its nodes (navigation: 3 s)."""
+    value = float(context.launch_configurations.get('lifecycle_start_delay', '0'))
+    if not 0 <= value <= 30:
+        raise RuntimeError('lifecycle_start_delay must be within [0, 30] s')
+    return value
+
+
+def delayed(context, action):
+    from launch.actions import TimerAction
+    delay = lifecycle_delay(context)
+    return TimerAction(period=delay, actions=[action]) if delay else action
+
+
 def simulation_actions(context):
     validate_request(LaunchConfiguration('mode').perform(context), 'true')
     if LaunchConfiguration('use_sim_time').perform(context) != 'true':
@@ -114,13 +138,9 @@ def simulation_actions(context):
                parameters=[{'robot_description': robot_description(assets),
                             'use_sim_time': True, 'publish_frequency': 100.0}])
     consumers = [rsp]
-    if LaunchConfiguration('rviz').perform(context) == 'true':
-        rviz_config = Path(LaunchConfiguration('rviz_config').perform(context))
-        if not rviz_config.is_file():
-            raise RuntimeError(f'rviz_config does not exist: {rviz_config}')
-        consumers.append(Node(package='rviz2', executable='rviz2', name='rviz2',
-                              arguments=['-d', str(rviz_config)], output='screen',
-                              parameters=[{'use_sim_time': True}]))
+    # Navigation mode starts RViz with its delayed group (startup discovery race, W11).
+    if mode != 'navigation':
+        consumers += rviz_nodes(context)
 
     def finished(event, _context):
         if _context.is_shutdown:
