@@ -1,8 +1,8 @@
 {
-  "code_sha": "1a89191f93a8027bdad3d9be0ec138741d0ff0fa",
-  "started_utc": "2026-10-14T08:46:08.217377+00:00",
-  "ended_utc": "2026-10-14T08:46:18.556548+00:00",
-  "wall_s": 10.33916589799992,
+  "code_sha": "669cae8421cf1f221bb285bee665729a83658ee8",
+  "started_utc": "2026-10-14T08:54:29.684499+00:00",
+  "ended_utc": "2026-10-14T08:54:39.988139+00:00",
+  "wall_s": 10.303635447000033,
   "cwd": "/home/haoyang/humanoid_nav_ws",
   "command": "source scripts/env.sh; $T1_VENV/bin/python docs/evidence/W07/check_motion.py",
   "sequence": [
@@ -62,7 +62,7 @@
         "stopped": true
       },
       "sim_s": 17.000000000001457,
-      "wall_s": 1.9541573050000807,
+      "wall_s": 1.9264218650000657,
       "physics_substeps": 8500,
       "qpos_qvel_max_error": 0.0,
       "forward_m_s": 0.35708618301002915,
@@ -85,7 +85,7 @@
         "stopped": true
       },
       "sim_s": 17.000000000001457,
-      "wall_s": 1.9145534240001325,
+      "wall_s": 1.9050164310001492,
       "physics_substeps": 8500,
       "qpos_qvel_max_error": 0.0,
       "forward_m_s": 0.35708618301002915,
@@ -258,7 +258,7 @@
         "stopped": true
       },
       "sim_s": 17.000000000001457,
-      "wall_s": 1.9590863349999381,
+      "wall_s": 1.9473966390000896,
       "physics_substeps": 8500,
       "qpos_qvel_max_error": 0.0,
       "forward_m_s": 0.35708618301002915,
@@ -471,7 +471,7 @@
         "stopped": true
       },
       "sim_s": 17.000000000001457,
-      "wall_s": 2.003015742000116,
+      "wall_s": 2.0131601670000236,
       "physics_substeps": 8500,
       "qpos_qvel_max_error": 0.0,
       "forward_m_s": 0.35708618301002915,
@@ -713,7 +713,7 @@
         "stopped": true
       },
       "sim_s": 17.000000000001457,
-      "wall_s": 1.9373159709998617,
+      "wall_s": 1.9286309200001597,
       "physics_substeps": 8500,
       "qpos_qvel_max_error": 0.0,
       "forward_m_s": 0.35708618301002915,
@@ -732,7 +732,7 @@
         },
         "layout": {
           "path": "/home/haoyang/humanoid_nav_ws/src/t1_mujoco/worlds/stress_test_world.yaml",
-          "sha256": "a12f238c206358c41ef34576be5ea088da190d08627f41f70bb9c2b40e469fa3"
+          "sha256": "9984e4ce04993e36579b980a63826b78b5e3aeb4115ca3b6827311d4c550330d"
         },
         "license": {
           "path": "/home/haoyang/robot_sim_sources/booster_assets/LICENSE",
@@ -855,7 +855,7 @@
             0
           ],
           "goal": [
-            6,
+            7,
             0,
             0
           ],
@@ -971,7 +971,7 @@
         },
         "dynamic_motion_implemented": false,
         "expanded_xml": {
-          "path": "/home/haoyang/humanoid_nav_ws/run_data/cache/scenes/bc118d6cfef5723ffa6c72c56ef4739ecd677f21eace45a6bcca019cca963f59/stress_test_world.xml",
+          "path": "/home/haoyang/humanoid_nav_ws/run_data/cache/scenes/fd2af258c200fe0d1840e67f8ef4761a863ccdd80f5aceaa7783f191eefc3fc5/stress_test_world.xml",
           "sha256": "65d3f726dfe21260d1e651643ab757db4ba13f9d0f1d3eb6fcaeed4b715060e0"
         }
       }

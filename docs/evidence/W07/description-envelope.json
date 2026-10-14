@@ -1,10 +1,10 @@
 {
-  "code_sha": "fc420a1218f533c7ce97dbec36c43c1b9942789d",
-  "started_utc": "2026-10-14T08:42:29.067592+00:00",
-  "ended_utc": "2026-10-14T08:42:49.285375+00:00",
+  "code_sha": "669cae8421cf1f221bb285bee665729a83658ee8",
+  "started_utc": "2026-10-14T08:54:08.185819+00:00",
+  "ended_utc": "2026-10-14T08:54:28.055585+00:00",
   "cwd": "/home/haoyang/humanoid_nav_ws",
   "command": "source scripts/env.sh; $T1_VENV/bin/python docs/evidence/W07/check_description.py",
-  "wall_s": 20.750967014000253,
+  "wall_s": 20.43944200199985,
   "source_trace": {
     "path": "/home/haoyang/humanoid_nav_ws/run_data/20261013T212155Z_dev_w05_c3/trace.csv",
     "sha256": "187457df70c04498388f1a6776d6b2a5581f310e250b97a42e5cb61639bf054e",
@@ -5691,7 +5691,7 @@
       "trial": "grid_ux0.4:+0.400,+0.000,+0.000",
       "steps": 850,
       "sim_s": 19.000000000000348,
-      "wall_s": 1.549732683000002,
+      "wall_s": 1.5749203929999567,
       "trace_max_error": 0.0,
       "final_state": "READY"
     },
@@ -5699,7 +5699,7 @@
       "trial": "grid_ux0.4:+0.400,+0.000,+0.500",
       "steps": 850,
       "sim_s": 19.000000000000348,
-      "wall_s": 1.5413307819999318,
+      "wall_s": 1.5699293269999544,
       "trace_max_error": 0.0,
       "final_state": "READY"
     },
@@ -5707,7 +5707,7 @@
       "trial": "grid_ux0.4:+0.400,+0.000,-0.500",
       "steps": 850,
       "sim_s": 19.000000000000348,
-      "wall_s": 1.60438904800003,
+      "wall_s": 1.5745262139998886,
       "trace_max_error": 0.0,
       "final_state": "READY"
     },
@@ -5715,7 +5715,7 @@
       "trial": "grid_ux1:+1.000,+0.000,+0.000",
       "steps": 850,
       "sim_s": 19.000000000000348,
-      "wall_s": 1.5763179479999962,
+      "wall_s": 1.562126869000167,
       "trace_max_error": 0.0,
       "final_state": "READY"
     },
@@ -5723,7 +5723,7 @@
       "trial": "grid_ux1:+1.000,+0.000,+0.500",
       "steps": 850,
       "sim_s": 19.000000000000348,
-      "wall_s": 1.5761558300000615,
+      "wall_s": 1.5682441310000286,
       "trace_max_error": 0.0,
       "final_state": "READY"
     },
@@ -5731,7 +5731,7 @@
       "trial": "grid_ux1:+1.000,+0.000,-0.500",
       "steps": 850,
       "sim_s": 19.000000000000348,
-      "wall_s": 1.575218040999971,
+      "wall_s": 1.5835693819999506,
       "trace_max_error": 0.0,
       "final_state": "READY"
     },
@@ -5739,7 +5739,7 @@
       "trial": "inplace:+0.000,+0.000,+0.600",
       "steps": 850,
       "sim_s": 19.000000000000348,
-      "wall_s": 1.6224685170000157,
+      "wall_s": 1.5547220299999935,
       "trace_max_error": 0.0,
       "final_state": "READY"
     },
@@ -5747,7 +5747,7 @@
       "trial": "inplace:+0.000,+0.000,-0.600",
       "steps": 850,
       "sim_s": 19.000000000000348,
-      "wall_s": 1.6119205639997745,
+      "wall_s": 1.5543425720002233,
       "trace_max_error": 0.0,
       "final_state": "READY"
     },
@@ -5755,7 +5755,7 @@
       "trial": "inplace:+0.000,+0.000,+0.800",
       "steps": 850,
       "sim_s": 19.000000000000348,
-      "wall_s": 1.5920487530001992,
+      "wall_s": 1.575844409000183,
       "trace_max_error": 0.0,
       "final_state": "READY"
     },
@@ -5763,7 +5763,7 @@
       "trial": "inplace:+0.000,+0.000,-0.800",
       "steps": 850,
       "sim_s": 19.000000000000348,
-      "wall_s": 1.649829175999912,
+      "wall_s": 1.5649647080003888,
       "trace_max_error": 0.0,
       "final_state": "READY"
     }

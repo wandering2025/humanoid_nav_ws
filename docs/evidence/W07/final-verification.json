@@ -1,0 +1,50 @@
+{
+  "created_utc": "2026-10-14T08:56:20.516464+00:00",
+  "tested_code_sha": "669cae8421cf1f221bb285bee665729a83658ee8",
+  "cwd": "/home/haoyang/humanoid_nav_ws",
+  "command": "source scripts/env.sh; /usr/bin/colcon build --base-paths src; /usr/bin/colcon test --base-paths src --event-handlers console_direct+; /usr/bin/colcon test-result --verbose; $T1_VENV/bin/python docs/evidence/W07/{check_scenes,check_description,check_motion,verify_ros}.py; MUJOCO_GL=glfw $T1_VENV/bin/python docs/evidence/W07/render_snapshot.py",
+  "exit_codes": {
+    "build": 0,
+    "colcon_test": 0,
+    "colcon_test_result": 0,
+    "scene_load": 0,
+    "description": 0,
+    "motion": 0,
+    "ros_rviz": 0,
+    "render_snapshot": 0
+  },
+  "test_summary": "Summary: 68 tests, 0 errors, 0 failures, 0 skipped",
+  "verdicts": {
+    "scene-load": "PASS",
+    "description-envelope": "PASS",
+    "scene-motion": "PASS",
+    "ros-rviz": "PASS"
+  },
+  "sim_seconds_motion": [
+    17.000000000001457,
+    17.000000000001457,
+    17.000000000001457,
+    17.000000000001457,
+    17.000000000001457
+  ],
+  "wall_seconds_motion": 10.303635447000033,
+  "sim_seconds_ros": 18.560000000000592,
+  "wall_seconds_ros": 18.84431196000014,
+  "screenshots_viewed": [
+    "calibration_world-top.png",
+    "static_world-top.png",
+    "dynamic_crossing_world-top.png",
+    "stress_test_world-top.png",
+    "rviz-moving.png",
+    "mujoco-static-top.png",
+    "mujoco-robot.png",
+    "rviz-standing.png"
+  ],
+  "checks": {
+    "suites_all_pass": true,
+    "same_committed_source_sha": true,
+    "tests_68_zero_failures": true,
+    "process_cleanup": true
+  },
+  "verdict": "PASS"
+}

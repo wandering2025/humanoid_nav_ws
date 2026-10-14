@@ -1,6 +1,6 @@
 {
-  "started_utc": "2026-10-14T08:48:40.873756+00:00",
-  "code_sha": "1a89191f93a8027bdad3d9be0ec138741d0ff0fa",
+  "started_utc": "2026-10-14T08:54:45.516752+00:00",
+  "code_sha": "669cae8421cf1f221bb285bee665729a83658ee8",
   "rsp_fk": {
     "samples": 20677,
     "children": [
@@ -31,6 +31,7 @@
     "max_translation_m": 2.13913390866957e-16,
     "max_rotation_element": 4.440892098500626e-16
   },
+  "launch_pid": 19959,
   "screenshots": [
     "rviz-standing.png",
     "rviz-moving.png"
@@ -55,51 +56,38 @@
     "venv_interpreter": true
   },
   "run": {
-    "run_id": "20261014T084841Z_dev_w06_w07_static_s0_d772f2",
+    "run_id": "20261014T085445Z_dev_w06_w07_static_s0_e5e2e1",
     "command": [
       "ros2",
       "launch",
       "t1_bringup",
       "simulation.launch.py",
-      "run_id:=20261014T084841Z_dev_w06_w07_static_s0_d772f2",
+      "run_id:=20261014T085445Z_dev_w06_w07_static_s0_e5e2e1",
       "target_rtf:=1.0",
       "max_sim_time:=55.0",
       "rviz:=true",
       "scene:=static_world"
     ],
     "cwd": "/home/haoyang/humanoid_nav_ws",
-    "started_utc": "2026-10-14T08:48:41.292183+00:00",
-    "ended_utc": "2026-10-14T08:49:03.750161+00:00",
-    "wall_s": 22.992698921999818,
+    "started_utc": "2026-10-14T08:54:45.931546+00:00",
+    "ended_utc": "2026-10-14T08:55:06.694571+00:00",
+    "wall_s": 21.336231952000162,
     "exit_code": 0,
-    "log": "raw/20261014T084841Z_dev_w06_w07_static_s0_d772f2.txt",
+    "log": "raw/20261014T085445Z_dev_w06_w07_static_s0_e5e2e1.txt",
     "manifest": {
       "schema": 1,
-      "run_id": "20261014T084841Z_dev_w06_w07_static_s0_d772f2",
-      "created_utc": "2026-10-14T08:48:44.564968+00:00",
-      "code_sha": "1a89191f93a8027bdad3d9be0ec138741d0ff0fa",
+      "run_id": "20261014T085445Z_dev_w06_w07_static_s0_e5e2e1",
+      "created_utc": "2026-10-14T08:54:47.869825+00:00",
+      "code_sha": "669cae8421cf1f221bb285bee665729a83658ee8",
       "dirty": true,
       "dirty_files": [
-        "M docs/evidence/W07/failed-attempts.json",
-        " M docs/plans/t1_mujoco_navigation/records/W07.md",
+        "M docs/evidence/W07/build.txt",
+        " M docs/evidence/W07/colcon-test.txt",
+        " M docs/evidence/W07/description-envelope.json",
+        " M docs/evidence/W07/scene-load.json",
+        " M docs/evidence/W07/scene-motion.json",
         " M docs/start_commands.md",
-        " M src/t1_mujoco/package.xml",
-        " M src/t1_mujoco/t1_mujoco/scenes.py",
-        " M src/t1_mujoco/worlds/README.md",
-        " M src/t1_mujoco/worlds/stress_test_world.yaml",
-        "?? docs/evidence/W07/build.txt",
-        "?? docs/evidence/W07/calibration_world-top.png",
-        "?? docs/evidence/W07/check_motion.py",
-        "?? docs/evidence/W07/colcon-result.txt",
-        "?? docs/evidence/W07/colcon-test.txt",
-        "?? docs/evidence/W07/draw_scenes.py",
-        "?? docs/evidence/W07/dynamic_crossing_world-top.png",
-        "?? docs/evidence/W07/ros-rviz.json",
-        "?? docs/evidence/W07/scene-motion.json",
-        "?? docs/evidence/W07/static_world-top.png",
-        "?? docs/evidence/W07/stress_test_world-top.png",
-        "?? docs/evidence/W07/verify_ros.py",
-        "?? src/t1_mujoco/test/test_scenes.py"
+        "?? docs/evidence/W07/source-audit.json"
       ],
       "upstream_sha": {
         "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
@@ -161,14 +149,14 @@
         "cmd_timeout_sim": 0.5,
         "cmd_timeout_wall": 0.5,
         "warmup_sim_s": 2.0,
-        "run_id": "20261014T084841Z_dev_w06_w07_static_s0_d772f2",
+        "run_id": "20261014T085445Z_dev_w06_w07_static_s0_e5e2e1",
         "run_dir": "/home/haoyang/humanoid_nav_ws/run_data",
         "seed": 0,
         "max_sim_time": 55.0,
         "command_map_file": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
         "joint_state_divisor": 1
       },
-      "parameters_sha256": "82311f2754b863bc470398c81eb0060fc86c5d50a0837266d5c6346f11d5f743",
+      "parameters_sha256": "db305f314221779d9bec855b4ced3200607b223817ed862f7bdf0bb1b6c35789",
       "headless": true,
       "target_rtf": 1.0,
       "policy_dt": 0.02,
@@ -189,7 +177,7 @@
         "--params-file",
         "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/runtime.yaml",
         "--params-file",
-        "/tmp/launch_params_dqpbr0_9"
+        "/tmp/launch_params_k6h162wm"
       ],
       "status": "SHUTDOWN",
       "exit_code": 0,
@@ -394,11 +382,11 @@
         0.0
       ],
       "deadline_overruns": 1,
-      "physics_steps": 9270,
+      "physics_steps": 9280,
       "failure_detail": null,
-      "sim_time_end": 18.540000000000603,
-      "wall_duration_s": 18.864535396000065,
-      "ended_utc": "2026-10-14T08:49:03.426604+00:00"
+      "sim_time_end": 18.560000000000592,
+      "wall_duration_s": 18.84431196000014,
+      "ended_utc": "2026-10-14T08:55:06.137638+00:00"
     },
     "topics": {
       "/clock": {
@@ -464,18 +452,18 @@
           {
             "node": "t1_sim",
             "type": "rosgraph_msgs/msg/Clock",
-            "gid": "010fcc817b42dd920000000000001303",
+            "gid": "010fcc81004e4a5c0000000000001303",
             "reliability": "RELIABLE",
             "durability": "VOLATILE",
             "depth": 0
           }
         ],
         "subscribers": [
-          "w06_probe",
-          "w06_probe",
           "robot_state_publisher",
           "rviz2",
-          "transform_listener_impl_5d7d4bed7bd0"
+          "transform_listener_impl_621c6d79c630",
+          "w06_probe",
+          "w06_probe"
         ]
       },
       "/odom": {
@@ -483,15 +471,15 @@
           {
             "node": "t1_sim",
             "type": "nav_msgs/msg/Odometry",
-            "gid": "010fcc817b42dd920000000000001603",
+            "gid": "010fcc81004e4a5c0000000000001603",
             "reliability": "RELIABLE",
             "durability": "VOLATILE",
             "depth": 0
           }
         ],
         "subscribers": [
-          "w06_probe",
-          "rviz2"
+          "rviz2",
+          "w06_probe"
         ]
       },
       "/joint_states": {
@@ -499,15 +487,15 @@
           {
             "node": "t1_sim",
             "type": "sensor_msgs/msg/JointState",
-            "gid": "010fcc817b42dd920000000000001703",
+            "gid": "010fcc81004e4a5c0000000000001703",
             "reliability": "RELIABLE",
             "durability": "VOLATILE",
             "depth": 0
           }
         ],
         "subscribers": [
-          "w06_probe",
-          "robot_state_publisher"
+          "robot_state_publisher",
+          "w06_probe"
         ]
       },
       "/t1/eval/ground_truth": {
@@ -515,7 +503,7 @@
           {
             "node": "t1_sim",
             "type": "nav_msgs/msg/Odometry",
-            "gid": "010fcc817b42dd920000000000001803",
+            "gid": "010fcc81004e4a5c0000000000001803",
             "reliability": "RELIABLE",
             "durability": "VOLATILE",
             "depth": 0
@@ -530,7 +518,7 @@
           {
             "node": "t1_sim",
             "type": "tf2_msgs/msg/TFMessage",
-            "gid": "010fcc817b42dd920000000000001903",
+            "gid": "010fcc81004e4a5c0000000000001903",
             "reliability": "RELIABLE",
             "durability": "VOLATILE",
             "depth": 0
@@ -538,16 +526,16 @@
           {
             "node": "robot_state_publisher",
             "type": "tf2_msgs/msg/TFMessage",
-            "gid": "010fcc817c4276550000000000001503",
+            "gid": "010fcc81014ee1860000000000001503",
             "reliability": "RELIABLE",
             "durability": "VOLATILE",
             "depth": 0
           }
         ],
         "subscribers": [
+          "transform_listener_impl_621c6d79c630",
           "w06_probe",
-          "w06_probe",
-          "transform_listener_impl_5d7d4bed7bd0"
+          "w06_probe"
         ]
       },
       "/tf_static": {
@@ -555,15 +543,15 @@
           {
             "node": "robot_state_publisher",
             "type": "tf2_msgs/msg/TFMessage",
-            "gid": "010fcc817c4276550000000000001603",
+            "gid": "010fcc81014ee1860000000000001603",
             "reliability": "RELIABLE",
             "durability": "TRANSIENT_LOCAL",
             "depth": 0
           }
         ],
         "subscribers": [
-          "w06_probe",
-          "transform_listener_impl_5d7d4bed7bd0"
+          "transform_listener_impl_621c6d79c630",
+          "w06_probe"
         ]
       },
       "/robot_description": {
@@ -571,7 +559,7 @@
           {
             "node": "robot_state_publisher",
             "type": "std_msgs/msg/String",
-            "gid": "010fcc817c4276550000000000001703",
+            "gid": "010fcc81014ee1860000000000001703",
             "reliability": "RELIABLE",
             "durability": "TRANSIENT_LOCAL",
             "depth": 0
@@ -749,7 +737,8 @@
       "imu_absent": true
     }
   },
-  "ended_utc": "2026-10-14T08:49:03.932567+00:00",
+  "ended_utc": "2026-10-14T08:55:06.878866+00:00",
+  "server_pid": 19907,
   "server_exit": 0,
   "verdict": "PASS"
 }

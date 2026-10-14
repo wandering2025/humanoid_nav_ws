@@ -1,0 +1,24 @@
+{
+  "created_utc": "2026-10-14T08:56:20.513537+00:00",
+  "owned_pids": [
+    17019,
+    17020,
+    17021,
+    19907,
+    19959,
+    19968,
+    19969,
+    19970
+  ],
+  "remaining_processes": [],
+  "dedicated_port": 42117,
+  "dedicated_server_processes": [],
+  "launch_exit_code": 0,
+  "sim_exit_code": 0,
+  "discovery_exit_code": 0,
+  "checks": {
+    "no_owned_processes": true,
+    "no_dedicated_server": true,
+    "orderly_exit": true
+  }
+}
