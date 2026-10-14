@@ -1,10 +1,10 @@
 {
-  "code_sha": "7b86827b97530af4419334ad47989cbba5202fe8",
-  "started_utc": "2026-10-14T09:11:40.376032+00:00",
-  "ended_utc": "2026-10-14T09:11:43.869900+00:00",
+  "code_sha": "9fa009bc50b601f41db16b7ee4d5f6627a6db78a",
+  "started_utc": "2026-10-14T09:20:20.826209+00:00",
+  "ended_utc": "2026-10-14T09:20:24.340270+00:00",
   "cwd": "/home/haoyang/humanoid_nav_ws",
   "command": "$T1_VENV/bin/python docs/evidence/W08/check_motion.py",
-  "wall_s": 3.493892581000182,
+  "wall_s": 3.5141028750003898,
   "sequence": [
     [
       "standing",
@@ -225,7 +225,7 @@
       },
       "qpos_qvel_max_error": 0.0,
       "min_trunk_z_m": 0.6195557038722014,
-      "wall_s": 1.363982137999301,
+      "wall_s": 1.3728291800007355,
       "sim_s": 25.44,
       "robot_hits": 0,
       "scan_compute_ms": null,
@@ -565,13 +565,13 @@
       },
       "qpos_qvel_max_error": 0.0,
       "min_trunk_z_m": 0.6195557038722014,
-      "wall_s": 1.776004649999777,
+      "wall_s": 1.775116646999777,
       "sim_s": 25.44,
       "robot_hits": 0,
       "scan_compute_ms": {
-        "p50": 0.9481124998274026,
-        "p95": 1.3888853000025847,
-        "max": 2.2100530004536267
+        "p50": 0.9472139995523321,
+        "p95": 1.2850109502323903,
+        "max": 2.754058999926201
       },
       "provenance": {
         "schema": 1,

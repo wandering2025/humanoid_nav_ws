@@ -184,3 +184,12 @@ mj_world / base_link_truth：仅评测真值，不进入 TF 树
 - 初始 x/y/yaw 只在构造 runner 前设置任务初值；reset沿用该初值且时钟单调。A/B/活动区域/slot为测试元数据，不提供预写路线或未来障碍轨迹，不送入规划器。W07 无动态障碍运动。
 - `t1_description/config/footprint.yaml` 为base_footprint下保守几何矩形，0.90×0.89 m、基座旋转直径1.390539m；测量依据与适用范围见W07证据。不是W10停止/减速安全区。
 - W06 TF所有权/发布率不变。URDF只改ROS可视材质alpha为1；新增scene.rviz更清晰地显示冻结mesh，保留state.rviz可选。全部body FK与mesh尺度在W07独立验证。
+
+## 12. W08 LiDAR 细化（ADR-012）
+
+- 模式固定 `compensated`，已实现 trunk 固定9层×360射线、10Hz瞬时采样。安装平移(0.10,0,0.20)m，旋转identity；RSP唯一发布trunk→lidar_link；t1_sim在同一状态快照发布base_footprint→laser_stabilized动态TF，50Hz。
+- 量程/高度/角度/调度、角格量化误差和覆盖限制冻结于[传感器契约](lidar.md)及 `t1_mujoco/lidar_config.py`。启动只读 `lidar_noise_std`（默认0m）、`lidar_dropout`（默认0）、`lidar_publish_points`（默认false）；独立seeded RNG。完整配置写入manifest `lidar_config`，`sensor_mode=compensated`。
+- 物理后owner线程刷新mj_kinematics再求交；整trunk子树geom专用group5，仅射线掩码排除，不改碰撞属性。外部group5冲突启动拒绝；地面、墙和独立mocap物体仍参与求交。
+- `/scan` 保持Reliable/Volatile/KeepLast(5)。+inf=实际未命中；NaN=未知；-inf=range_min内有效高度回波且内部健康门关闭。已知角格<75%也关门，下一策略步立即零命令、继续站立采样；首次scan前/reset后门关闭，正常warmup不变。生成异常不发布该帧，FAULT sensor_exception、ERROR diagnostics、零命令、停止推进。
+- sim_state追加 `sensor_mode/sensor_healthy/scan_compute_ms/scan_known_fraction/scan_blind_bins`；trace既有scan_due/scan_compute_ms现为真实测量。诊断包含模式、健康度和覆盖计数。可选PointCloud2在lidar_link发布0..12m原始无噪声命中点（含地面/高物/近端），仅调试使用。
+- 无逐束扫描时间、无姿态估计误差、无机器人自身遮挡、无材质噪声模型。地面z=0；有限垂直束不保证发现所有高度的物体；W10必须处理未知/盲区，不能把这些配置称为全空间碰撞安全覆盖。

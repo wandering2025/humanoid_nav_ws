@@ -1,8 +1,8 @@
 {
-  "code_sha": "79b6174c4e4ad0f30b167a527b2f4f2696d2e354",
-  "started_utc": "2026-10-14T09:08:18.284156+00:00",
-  "ended_utc": "2026-10-14T09:08:18.323651+00:00",
-  "wall_s": 0.0394878979996065,
+  "code_sha": "9fa009bc50b601f41db16b7ee4d5f6627a6db78a",
+  "started_utc": "2026-10-14T09:20:19.342947+00:00",
+  "ended_utc": "2026-10-14T09:20:19.374104+00:00",
+  "wall_s": 0.031149440000262985,
   "command": "$T1_VENV/bin/python docs/evidence/W08/check_rays.py",
   "cwd": "/home/haoyang/humanoid_nav_ws",
   "mujoco": "3.15.0",

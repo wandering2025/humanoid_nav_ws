@@ -1,0 +1,53 @@
+{
+  "verified_utc": "2026-10-14T09:21:31.871882+00:00",
+  "cwd": "/home/haoyang/humanoid_nav_ws",
+  "tested_sha": "9fa009bc50b601f41db16b7ee4d5f6627a6db78a",
+  "branch": "feat/t1-mujoco-navigation",
+  "checks": {
+    "C1": true,
+    "C2": true,
+    "C3": true,
+    "C4": true,
+    "G2": true,
+    "build_exit_0": true,
+    "colcon_tests_77_no_errors": true,
+    "source_same_as_tested": true,
+    "user_edit_preserved": true,
+    "upstream_frozen_clean": true,
+    "own_processes_exited": true
+  },
+  "ray_checks": 26,
+  "unit_result": "Summary: 77 tests, 0 errors, 0 failures, 0 skipped",
+  "ros_checks": 37,
+  "health_checks": 19,
+  "metrics": {
+    "physical_sim_s": 25.44,
+    "physical_full_state_max_difference": 0.0,
+    "scan_compute_ms": {
+      "p50": 0.9472139995523321,
+      "p95": 1.2850109502323903,
+      "max": 2.754058999926201
+    },
+    "physical_wall_p95_max_m": 0.014230883637541278,
+    "physical_wall_max_m": 0.0577185396679889,
+    "physical_stop_yaw_deg": 102.05174248226804,
+    "ros_scan_count": 307,
+    "ros_scan_sim_hz": 10.0,
+    "ros_wall_p95_m": 0.00873622617450202,
+    "ros_wall_max_m": 0.04174905318827005,
+    "ros_stop_yaw_deg": 94.59441754108018,
+    "ros_scan_compute_p95_ms": 1.8165649998991285,
+    "ros_rtf_median": 0.9999813303084448
+  },
+  "screenshots_inspected": [
+    "rviz-standing.png",
+    "rviz-moving.png",
+    "wall-overlay.png"
+  ],
+  "not_run_or_not_implemented": [
+    "SLAM/AMCL/Nav2 (W09+)",
+    "Collision Monitor/safety chain (W10)",
+    "dynamic scenario motion (W12)"
+  ],
+  "verdict": "PASS"
+}

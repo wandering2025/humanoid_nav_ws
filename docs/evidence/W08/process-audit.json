@@ -1,0 +1,32 @@
+{
+  "checked_utc": "2026-10-14T09:21:31.864129+00:00",
+  "own_pids_checked": [
+    25769,
+    25810,
+    25816,
+    25817,
+    25818,
+    26974,
+    27018,
+    27026,
+    27027,
+    27028,
+    27849,
+    27879,
+    28074,
+    28560,
+    28590,
+    28784,
+    28958,
+    29007,
+    29014,
+    29015,
+    29016
+  ],
+  "remaining": {},
+  "dedicated_port": 42118,
+  "listener_output": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+  "no_unrelated_process_killed": true,
+  "listener_verified_with_local_socket_permission": true,
+  "initial_sandbox_netlink_denied": "First sandboxed ss printed Operation not permitted; disregarded and repeated with local socket permission."
+}
