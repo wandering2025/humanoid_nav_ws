@@ -213,3 +213,4 @@ mj_world / base_link_truth：仅评测真值，不进入 TF 树
 - 新话题：`/t1/nav/cmd_vel_raw`（Twist；controller_server、behavior_server→适配器），`/t1/nav/adapter_state`（String JSON，调试/记录）。`/t1/cmd_navigation`唯一发布者为t1_navigation_adapter。`/navigate_to_pose`（nav2_msgs/NavigateToPose）由bt_navigator提供；RViz“2D Goal Pose”经/goal_pose同样可用，但须先`ros2 service call /t1/safety/arm std_srvs/srv/Trigger`。
 - 可执行：`navigation_adapter`、`navigation_starter`、`navigate_to_pose X Y YAW [--time-limit 120]`（0=核验成功，2=中止/取消/未核验，3=超时，1=准备失败）。详见[navigation.md](navigation.md)。
 - static_world v2（ADR-015）：14×11m，A(0,0,0)→B(9,0,0)；地图与元数据已由SLAM重建并重新绑定。
+- dynamic_crossing_world v2（ADR-017，W12前）：同14×11m外壳，A(0,0,0)→B(9,0,0)主走廊空旷，crossing/blocking/approach三个活动区；尚无地图，W12在场景冻结后建图。

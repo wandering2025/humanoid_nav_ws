@@ -85,3 +85,20 @@ def test_contact_events_dedupe_and_gap(tmp_path):
     rows = list(csv.DictReader((tmp_path/'c.csv').open()))
     assert m.counts['static_env'] == 2 and len(rows) == 2
     assert rows[0]['n_substeps'] == '3' and float(rows[0]['t_end']) == 1.03
+
+
+def test_dynamic_world_respects_frozen_w10_zones():
+    """ADR-017: clear A-B corridor with >=2.25 m clearance; a blocker parked at the
+    blocking-region centre blocks the straight line but leaves both 5 m passages."""
+    data = load_layout(LAYOUT.with_name('dynamic_crossing_world.yaml'))
+    (ax, ay, _), (bx, by, _) = data['initial_pose'], data['goal']
+    for x, y in ((ax, ay), (bx, by)):
+        assert _clearance(data, x, y) >= 2.25
+    assert min(_clearance(data, ax+(bx-ax)*t/100, ay+(by-ay)*t/100) for t in range(101)) >= 2.25
+    region = next(r['bounds'] for r in data['activity_regions'] if r['name'] == 'blocking')
+    slot = next(s for s in data['obstacle_slots'] if s['region'] == 'blocking')
+    blocked = dict(data, boxes=data['boxes'] + [dict(name='blocking_slot', size=slot['size'],
+                   center=[(region[0]+region[1])/2, (region[2]+region[3])/2, slot['size'][2]/2])])
+    assert min(_clearance(blocked, ax+(bx-ax)*t/100, ay+(by-ay)*t/100) for t in range(101)) < 1.65
+    for side in (1, -1):
+        assert min(_clearance(blocked, x/10, side*2.75) for x in range(15, 76)) >= 2.25

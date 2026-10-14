@@ -1,55 +1,77 @@
 schema: 1
 source_model: robots/T1/T1_23dof.xml
+# v2 (ADR-017, pre-W12): same 14x11 m shell and wall features as static_world v2
+# (ADR-015) so every static point keeps >=2.25 m clearance under the frozen W10
+# 1.65/1.95 m zones and the W11 2.05 m navigation radius. The A->B corridor is
+# clear; the blocking region coincides with static_world's validated island, so a
+# parked blocker leaves the two proven 5 m passages as detours. Dynamic timing,
+# speeds and seeds belong in a separate W12 events/test-suite file, not here:
+# any byte change of this file invalidates its saved map (W09 provenance).
 bounds:
-- -2
-- 8
-- -5
-- 5
+- -2.5
+- 11.5
+- -5.5
+- 5.5
 initial_pose:
 - 0
 - 0
 - 0
 goal:
-- 6
+- 9
 - 0
 - 0
-minimum_passage_m: 1.9
+minimum_passage_m: 5.0
 obstacle_height_m: 1.5
 name: dynamic_crossing_world
-purpose: Clear A/B main corridor and buffer; W12 will implement single crossing/approaching
-  obstacle motion.
+purpose: Clear A/B main corridor; crossing, blocking (detour via north/south passage)
+  and sudden-approach regions for W12 mocap obstacles.
 boxes:
-- name: north_box
+- name: north_ledge
   center:
-  - 4
-  - 3.5
+  - 9.5
+  - 5.1
   - 0.75
   size:
-  - 1
-  - 1
+  - 1.2
+  - 0.8
   - 1.5
-- name: south_box
+- name: south_pillar
   center:
-  - 4
-  - -3.5
+  - -1.9
+  - -4.9
   - 0.75
   size:
-  - 1
-  - 1
+  - 1.2
+  - 1.2
+  - 1.5
+- name: east_bump
+  center:
+  - 11.2
+  - -2.0
+  - 0.75
+  size:
+  - 0.6
+  - 1.0
   - 1.5
 activity_regions:
 - name: crossing
   bounds:
-  - 2.5
-  - 4
-  - -2.5
-  - 2.5
+  - 2.0
+  - 3.5
+  - -4.5
+  - 4.5
+- name: blocking
+  bounds:
+  - 4.0
+  - 5.0
+  - -0.5
+  - 0.5
 - name: approach
   bounds:
-  - 4.5
+  - 5.5
   - 6.5
-  - -1.5
-  - 1.5
+  - -3.0
+  - 3.0
 obstacle_slots:
 - name: crossing_slot
   region: crossing
@@ -57,6 +79,14 @@ obstacle_slots:
   size:
   - 0.5
   - 0.5
+  - 1.5
+  motion_implemented: false
+- name: blocking_slot
+  region: blocking
+  shape: box
+  size:
+  - 1.0
+  - 1.0
   - 1.5
   motion_implemented: false
 - name: approach_slot

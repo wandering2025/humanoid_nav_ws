@@ -1,0 +1,96 @@
+{
+  "scene_yaml": "src/t1_mujoco/worlds/dynamic_crossing_world.yaml",
+  "cases": [
+    {
+      "case": "no_dynamic_obstacle",
+      "A": 2.5,
+      "B": 2.421,
+      "approach_segment_B": 2.421,
+      "straight_AB_min": 2.421,
+      "connected": {
+        "1.65": true,
+        "1.95": true,
+        "2.05": true,
+        "2.25": true
+      },
+      "north_passage_min": 2.401,
+      "south_passage_min": 2.75
+    },
+    {
+      "case": "blocker_parked_at_region_centre",
+      "A": 2.5,
+      "B": 2.421,
+      "approach_segment_B": 2.421,
+      "straight_AB_min": 0.0,
+      "connected": {
+        "1.65": true,
+        "1.95": true,
+        "2.05": true,
+        "2.25": true
+      },
+      "north_passage_min": 2.25,
+      "south_passage_min": 2.25
+    },
+    {
+      "case": "crosser_on_A_B_line",
+      "A": 2.5,
+      "B": 2.421,
+      "approach_segment_B": 2.421,
+      "straight_AB_min": 0.0,
+      "connected": {
+        "1.65": true,
+        "1.95": true,
+        "2.05": true,
+        "2.25": true
+      },
+      "north_passage_min": 2.401,
+      "south_passage_min": 2.5
+    },
+    {
+      "case": "approacher_on_A_B_line",
+      "A": 2.5,
+      "B": 2.421,
+      "approach_segment_B": 1.25,
+      "straight_AB_min": 0.0,
+      "connected": {
+        "1.65": true,
+        "1.95": true,
+        "2.05": true,
+        "2.25": true
+      },
+      "north_passage_min": 2.401,
+      "south_passage_min": 2.5
+    }
+  ],
+  "info": {
+    "regions": {
+      "crossing": [
+        2.0,
+        3.5,
+        -4.5,
+        4.5
+      ],
+      "blocking": [
+        4.0,
+        5.0,
+        -0.5,
+        0.5
+      ],
+      "approach": [
+        5.5,
+        6.5,
+        -3.0,
+        3.0
+      ]
+    },
+    "frozen": {
+      "R_stop": 1.65,
+      "R_slow": 1.95,
+      "nav_radius": 2.05,
+      "nav_vx_max": 0.45,
+      "brake_at_0_45_m": 0.245,
+      "note": "slow zone acts as stop: <=0.45 m/s halved falls in W05 deadband"
+    },
+    "approach_region_lateral_edge_to_AB_line_m": 3.0
+  }
+}
