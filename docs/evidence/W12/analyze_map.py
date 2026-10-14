@@ -115,7 +115,7 @@ meta=dict(schema=1,map_source='slam_toolbox /map saved with nav2_map_server/map_
           T_world_map=dict(x=float(world_map_xy[0]),y=float(world_map_xy[1]),yaw=float(-a)),
           anchor=dict(map_to_odom_at_start=result['initial_map_odom'],odom_at_start=result['initial_odom'],
                       method='initial SLAM map->odom inverted, odom equals world truth horizontal projection (W06 contract)'),
-          pose_graph=dict(path='docs/evidence/W12/raw/static_world.*',purpose='optional continuation/debug; localization only needs yaml/image',tracked=False),
+          pose_graph=dict(path='docs/evidence/W12/raw/dynamic_crossing_world.*',purpose='optional continuation/debug; localization only needs yaml/image',tracked=False),
           expected_localization=dict(initial_inputs=[[.2,-.15,.15],[-.2,.15,-.2],[.1,.1,.3]],
                                      convergence_sim_s=25,position_error_max_m=.25,yaw_error_max_rad=math.radians(10),scan_distance_p95_max_m=.15),
           limitations=['ideal truth odometry and truth attitude compensation','no drift/noise robustness claim','planar static scene only'],
