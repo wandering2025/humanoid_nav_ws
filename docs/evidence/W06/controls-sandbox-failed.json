@@ -1,0 +1,18 @@
+{
+  "started_utc": "2026-10-14T08:16:55.925172+00:00",
+  "ended_utc": "2026-10-14T08:16:56.351830+00:00",
+  "environment": {
+    "T1_WS": "/home/haoyang/humanoid_nav_ws",
+    "T1_VENV": "/home/haoyang/venvs/humanoid_mujoco",
+    "T1_UPSTREAM": "/home/haoyang/robot_sim_sources/booster_deploy",
+    "T1_LOCAL_DDS": "1",
+    "T1_DDS_PORT": "42116",
+    "ROS_DOMAIN_ID": "76",
+    "ROS_DISCOVERY_SERVER": "TCPv4:[127.0.0.1]:42116",
+    "ROS_SUPER_CLIENT": "TRUE",
+    "ROS_LOG_DIR": "/home/haoyang/humanoid_nav_ws/run_data/w06_ros_logs"
+  },
+  "runs": [],
+  "server_exit": -6,
+  "verdict": "FAIL"
+}

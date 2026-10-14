@@ -1,0 +1,988 @@
+{
+  "started_utc": "2026-10-14T08:20:41.144008+00:00",
+  "ended_utc": "2026-10-14T08:21:08.837989+00:00",
+  "environment": {
+    "T1_WS": "/home/haoyang/humanoid_nav_ws",
+    "T1_VENV": "/home/haoyang/venvs/humanoid_mujoco",
+    "T1_UPSTREAM": "/home/haoyang/robot_sim_sources/booster_deploy",
+    "T1_LOCAL_DDS": "1",
+    "T1_DDS_PORT": "42116",
+    "ROS_DOMAIN_ID": "76",
+    "ROS_DISCOVERY_SERVER": "TCPv4:[127.0.0.1]:42116",
+    "ROS_SUPER_CLIENT": "TRUE",
+    "ROS_LOG_DIR": "/home/haoyang/humanoid_nav_ws/run_data/w06_ros_logs"
+  },
+  "runs": [
+    {
+      "run_id": "20261014T082041Z_dev_w06_controls_s0_4c4309",
+      "command": [
+        "ros2",
+        "launch",
+        "t1_bringup",
+        "simulation.launch.py",
+        "run_id:=20261014T082041Z_dev_w06_controls_s0_4c4309",
+        "target_rtf:=1.0",
+        "max_sim_time:=55.0",
+        "rviz:=false"
+      ],
+      "cwd": "/home/haoyang/humanoid_nav_ws",
+      "started_utc": "2026-10-14T08:20:41.549800+00:00",
+      "ended_utc": "2026-10-14T08:21:00.664121+00:00",
+      "wall_s": 19.114326428999902,
+      "exit_code": 0,
+      "log": "raw/20261014T082041Z_dev_w06_controls_s0_4c4309.txt",
+      "manifest": {
+        "schema": 1,
+        "run_id": "20261014T082041Z_dev_w06_controls_s0_4c4309",
+        "created_utc": "2026-10-14T08:20:43.285234+00:00",
+        "code_sha": "7fca2597388986fcaddbf3689b1ca5f563ce1e4d",
+        "dirty": true,
+        "dirty_files": [
+          "M docs/plans/t1_mujoco_navigation/records/W06.md",
+          " M docs/start_commands.md",
+          "?? docs/evidence/W06/20261014T081810Z_dev_w06_controls_s0_bced5d-result.json",
+          "?? docs/evidence/W06/20261014T081927Z_dev_w06_controls_s0_2e5903-result.json",
+          "?? docs/evidence/W06/20261014T081947Z_dev_w06_restart_s0_c85cba-result.json",
+          "?? docs/evidence/W06/controls-integration.json",
+          "?? docs/evidence/W06/controls-sandbox-failed.json",
+          "?? docs/evidence/W06/verify_integration.py"
+        ],
+        "upstream_sha": {
+          "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+          "booster_assets": "12a97516f57469078707afb587a5f84c1cb110d1"
+        },
+        "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7",
+        "mjcf_sha256": "f00e3410362b1e2267e6db05d25c33d6240bbf2436d62a409f07042bad4f7fb2",
+        "scene_file": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/T1_23dof.xml",
+        "scene_sha256": "f00e3410362b1e2267e6db05d25c33d6240bbf2436d62a409f07042bad4f7fb2",
+        "mode": "sim_only",
+        "suite": "dev",
+        "case": "w04",
+        "seed": 0,
+        "sensor_mode": null,
+        "odom_mode": "ideal_truth",
+        "map_yaml": null,
+        "map_sha256": null,
+        "T_world_map": null,
+        "goal": null,
+        "tolerances": null,
+        "time_limit_s": 55.0,
+        "parameter_files": {
+          "nav2": null,
+          "slam": null,
+          "amcl": null,
+          "velocity_smoother": null,
+          "collision_monitor": null,
+          "command_map": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+            "sha256": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+            "evidence": {
+              "report": "docs/evidence/W05/locomotion-envelope.md",
+              "runs": {
+                "20261013T212155Z_dev_w05_c3": "00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe",
+                "20261013T215753Z_dev_w05_dense": "50ef2baf9ae2530bac0edfdc07c131f99725909836fe07511264fcc6dd33fb01",
+                "20261013T220627Z_dev_w05_context": "25976d72867333007b5a1cec96b1ea9d84920a620cde6cb0f79b09525bc8f65e"
+              },
+              "statistic": "largest 2 s window mean, >=3 s after command onset, segments >=8 s (raw traces)",
+              "tested_code_sha": "abc5b4a8248b05037ef02f46022c2a6779915acd",
+              "builder": "docs/evidence/W05/build_command_map.py",
+              "validation": "docs/evidence/W05/command-map-validation.json"
+            }
+          }
+        },
+        "resolved_parameters": {
+          "upstream_path": "/home/haoyang/robot_sim_sources/booster_deploy",
+          "assets_path": "",
+          "task": "t1_walk",
+          "mode": "sim_only",
+          "scene": "",
+          "headless": true,
+          "viewer_rate_hz": 30.0,
+          "target_rtf": 1.0,
+          "enable_policy_cmd_input": false,
+          "cmd_timeout_sim": 0.5,
+          "cmd_timeout_wall": 0.5,
+          "warmup_sim_s": 2.0,
+          "run_id": "20261014T082041Z_dev_w06_controls_s0_4c4309",
+          "run_dir": "/home/haoyang/humanoid_nav_ws/run_data",
+          "seed": 0,
+          "max_sim_time": 55.0,
+          "command_map_file": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+          "joint_state_divisor": 1
+        },
+        "parameters_sha256": "1f22a57693619bfbbe8b4008c0b6adc528f0a9a7e58af09f1a5a4cb54f505b87",
+        "headless": true,
+        "target_rtf": 1.0,
+        "policy_dt": 0.02,
+        "physics_dt": 0.002,
+        "decimation": 10,
+        "host": "DESKTOP-MF19MEU",
+        "cpu": "x86_64",
+        "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "executable": "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+        "ros": "jazzy",
+        "mujoco": "3.15.0",
+        "torch": "2.14.1+cu130",
+        "command_line": [
+          "/home/haoyang/humanoid_nav_ws/build/t1_mujoco/t1_mujoco/simulation.py",
+          "--ros-args",
+          "-r",
+          "__node:=t1_sim",
+          "--params-file",
+          "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/runtime.yaml",
+          "--params-file",
+          "/tmp/launch_params_yhfffj8_"
+        ],
+        "status": "SHUTDOWN",
+        "exit_code": 0,
+        "initial_pose": [
+          0.0,
+          0.0,
+          0.6000000238418579,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "deadline_overruns": 1,
+        "physics_steps": 2000,
+        "failure_detail": null,
+        "sim_time_end": 15.020000000001678,
+        "wall_duration_s": 16.870448287000045,
+        "ended_utc": "2026-10-14T08:21:00.151674+00:00"
+      },
+      "topics": {
+        "/clock": {
+          "count": 751,
+          "stamp_min_ns": 0,
+          "stamp_max_ns": 15020000000,
+          "median_sim_hz": 50.0,
+          "max_gap_s": 0.04,
+          "regressions": 0
+        },
+        "/odom": {
+          "count": 750,
+          "stamp_min_ns": 20000000,
+          "stamp_max_ns": 15020000000,
+          "median_sim_hz": 50.0,
+          "max_gap_s": 0.04,
+          "regressions": 0
+        },
+        "/joint_states": {
+          "count": 750,
+          "stamp_min_ns": 20000000,
+          "stamp_max_ns": 15020000000,
+          "median_sim_hz": 50.0,
+          "max_gap_s": 0.04,
+          "regressions": 0
+        },
+        "/t1/eval/ground_truth": {
+          "count": 750,
+          "stamp_min_ns": 20000000,
+          "stamp_max_ns": 15020000000,
+          "median_sim_hz": 50.0,
+          "max_gap_s": 0.04,
+          "regressions": 0
+        },
+        "/tf:base_footprint": {
+          "count": 750,
+          "stamp_min_ns": 20000000,
+          "stamp_max_ns": 15020000000,
+          "median_sim_hz": 50.0,
+          "max_gap_s": 0.04,
+          "regressions": 0
+        },
+        "/tf:base_link": {
+          "count": 750,
+          "stamp_min_ns": 20000000,
+          "stamp_max_ns": 15020000000,
+          "median_sim_hz": 50.0,
+          "max_gap_s": 0.04,
+          "regressions": 0
+        },
+        "/tf:left_ankle_roll_link": {
+          "count": 750,
+          "stamp_min_ns": 20000000,
+          "stamp_max_ns": 15020000000,
+          "median_sim_hz": 50.0,
+          "max_gap_s": 0.04,
+          "regressions": 0
+        }
+      },
+      "graph": {
+        "/clock": {
+          "publishers": [
+            {
+              "node": "t1_sim",
+              "type": "rosgraph_msgs/msg/Clock",
+              "gid": "010fcc815f1bb1fa0000000000001303",
+              "reliability": "RELIABLE",
+              "durability": "VOLATILE",
+              "depth": 0
+            }
+          ],
+          "subscribers": [
+            "w06_probe",
+            "w06_probe",
+            "robot_state_publisher"
+          ]
+        },
+        "/odom": {
+          "publishers": [
+            {
+              "node": "t1_sim",
+              "type": "nav_msgs/msg/Odometry",
+              "gid": "010fcc815f1bb1fa0000000000001603",
+              "reliability": "RELIABLE",
+              "durability": "VOLATILE",
+              "depth": 0
+            }
+          ],
+          "subscribers": [
+            "w06_probe"
+          ]
+        },
+        "/joint_states": {
+          "publishers": [
+            {
+              "node": "t1_sim",
+              "type": "sensor_msgs/msg/JointState",
+              "gid": "010fcc815f1bb1fa0000000000001703",
+              "reliability": "RELIABLE",
+              "durability": "VOLATILE",
+              "depth": 0
+            }
+          ],
+          "subscribers": [
+            "w06_probe",
+            "robot_state_publisher"
+          ]
+        },
+        "/t1/eval/ground_truth": {
+          "publishers": [
+            {
+              "node": "t1_sim",
+              "type": "nav_msgs/msg/Odometry",
+              "gid": "010fcc815f1bb1fa0000000000001803",
+              "reliability": "RELIABLE",
+              "durability": "VOLATILE",
+              "depth": 0
+            }
+          ],
+          "subscribers": [
+            "w06_probe"
+          ]
+        },
+        "/tf": {
+          "publishers": [
+            {
+              "node": "t1_sim",
+              "type": "tf2_msgs/msg/TFMessage",
+              "gid": "010fcc815f1bb1fa0000000000001903",
+              "reliability": "RELIABLE",
+              "durability": "VOLATILE",
+              "depth": 0
+            },
+            {
+              "node": "robot_state_publisher",
+              "type": "tf2_msgs/msg/TFMessage",
+              "gid": "010fcc81601b55fe0000000000001503",
+              "reliability": "RELIABLE",
+              "durability": "VOLATILE",
+              "depth": 0
+            }
+          ],
+          "subscribers": [
+            "w06_probe"
+          ]
+        },
+        "/tf_static": {
+          "publishers": [
+            {
+              "node": "robot_state_publisher",
+              "type": "tf2_msgs/msg/TFMessage",
+              "gid": "010fcc81601b55fe0000000000001603",
+              "reliability": "RELIABLE",
+              "durability": "TRANSIENT_LOCAL",
+              "depth": 0
+            }
+          ],
+          "subscribers": [
+            "w06_probe"
+          ]
+        },
+        "/robot_description": {
+          "publishers": [
+            {
+              "node": "robot_state_publisher",
+              "type": "std_msgs/msg/String",
+              "gid": "010fcc81601b55fe0000000000001703",
+              "reliability": "RELIABLE",
+              "durability": "TRANSIENT_LOCAL",
+              "depth": 0
+            }
+          ],
+          "subscribers": []
+        },
+        "/imu/data": {
+          "publishers": [],
+          "subscribers": []
+        }
+      },
+      "tf_parents": {
+        "trunk": "base_link",
+        "head_realsense_rgb_link": "aahead_pitch_link",
+        "base_footprint": "odom",
+        "base_link": "base_footprint",
+        "aahead_pitch_link": "aahead_yaw_link",
+        "aahead_yaw_link": "trunk",
+        "left_ankle_pitch_link": "left_knee_pitch_link",
+        "left_ankle_roll_link": "left_ankle_pitch_link",
+        "left_elbow_pitch_link": "left_shoulder_roll_link",
+        "left_elbow_yaw_link": "left_elbow_pitch_link",
+        "left_hip_pitch_link": "waist_yaw_link",
+        "left_hip_roll_link": "left_hip_pitch_link",
+        "left_hip_yaw_link": "left_hip_roll_link",
+        "left_knee_pitch_link": "left_hip_yaw_link",
+        "left_shoulder_pitch_link": "trunk",
+        "left_shoulder_roll_link": "left_shoulder_pitch_link",
+        "right_ankle_pitch_link": "right_knee_pitch_link",
+        "right_ankle_roll_link": "right_ankle_pitch_link",
+        "right_elbow_pitch_link": "right_shoulder_roll_link",
+        "right_elbow_yaw_link": "right_elbow_pitch_link",
+        "right_hip_pitch_link": "waist_yaw_link",
+        "right_hip_roll_link": "right_hip_pitch_link",
+        "right_hip_yaw_link": "right_hip_roll_link",
+        "right_knee_pitch_link": "right_hip_yaw_link",
+        "right_shoulder_pitch_link": "trunk",
+        "right_shoulder_roll_link": "right_shoulder_pitch_link",
+        "waist_yaw_link": "trunk"
+      },
+      "tf_authorities": {
+        "trunk": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "head_realsense_rgb_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "base_footprint": [
+          "t1_sim (batch + graph ownership)"
+        ],
+        "base_link": [
+          "t1_sim (batch + graph ownership)"
+        ],
+        "aahead_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "aahead_yaw_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_ankle_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_ankle_roll_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_elbow_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_elbow_yaw_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_hip_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_hip_roll_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_hip_yaw_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_knee_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_shoulder_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_shoulder_roll_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_ankle_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_ankle_roll_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_elbow_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_elbow_yaw_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_hip_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_hip_roll_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_hip_yaw_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_knee_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_shoulder_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_shoulder_roll_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "waist_yaw_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ]
+      },
+      "authority_method": "Jazzy MessageInfo lacks GID: disjoint TF batches + URDF ownership + endpoint graph",
+      "common_stamps": 750,
+      "max_odom_truth_xy_error_m": 0.0,
+      "max_integral_error_m": 0.001921050140985435,
+      "integrated_pairs": 748,
+      "tf_lookup_attempts": 156,
+      "tf_lookup_failures": 0,
+      "tf_lookup_failure_examples": [],
+      "tf_persistent_failures": 0,
+      "joint_names": [
+        "aahead_pitch_joint",
+        "aahead_yaw_joint",
+        "left_ankle_pitch_joint",
+        "left_ankle_roll_joint",
+        "left_elbow_pitch_joint",
+        "left_elbow_yaw_joint",
+        "left_hip_pitch_joint",
+        "left_hip_roll_joint",
+        "left_hip_yaw_joint",
+        "left_knee_pitch_joint",
+        "left_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_ankle_pitch_joint",
+        "right_ankle_roll_joint",
+        "right_elbow_pitch_joint",
+        "right_elbow_yaw_joint",
+        "right_hip_pitch_joint",
+        "right_hip_roll_joint",
+        "right_hip_yaw_joint",
+        "right_knee_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "right_shoulder_roll_joint",
+        "waist_yaw_joint"
+      ],
+      "joint_states_valid": true,
+      "checks": {
+        "clock_monotonic": true,
+        "shared_stamps": true,
+        "odom_truth_match": true,
+        "integral_within_2cm": true,
+        "joint_states_valid": true,
+        "tf_acyclic": true,
+        "single_child_authority": true,
+        "no_map_truth_tf": true,
+        "tf_queries_recover": true,
+        "rates_50hz": true,
+        "publisher_ownership": true,
+        "two_tf_publishers": true,
+        "imu_absent": true,
+        "paused_clock_and_odom_frozen": true,
+        "paused_zero_policy": true,
+        "resume_requires_new_command": true,
+        "fresh_command_works": true,
+        "reset_episode_notified": true,
+        "reset_time_monotonic": true,
+        "reset_command_cleared": true,
+        "launch_exit_0": true
+      }
+    },
+    {
+      "run_id": "20261014T082100Z_dev_w06_restart_s0_418413",
+      "command": [
+        "ros2",
+        "launch",
+        "t1_bringup",
+        "simulation.launch.py",
+        "run_id:=20261014T082100Z_dev_w06_restart_s0_418413",
+        "target_rtf:=1.0",
+        "max_sim_time:=55.0",
+        "rviz:=false"
+      ],
+      "cwd": "/home/haoyang/humanoid_nav_ws",
+      "started_utc": "2026-10-14T08:21:00.714803+00:00",
+      "ended_utc": "2026-10-14T08:21:08.697762+00:00",
+      "wall_s": 8.443494960999942,
+      "exit_code": 0,
+      "log": "raw/20261014T082100Z_dev_w06_restart_s0_418413.txt",
+      "manifest": {
+        "schema": 1,
+        "run_id": "20261014T082100Z_dev_w06_restart_s0_418413",
+        "created_utc": "2026-10-14T08:21:02.414726+00:00",
+        "code_sha": "7fca2597388986fcaddbf3689b1ca5f563ce1e4d",
+        "dirty": true,
+        "dirty_files": [
+          "M docs/plans/t1_mujoco_navigation/records/W06.md",
+          " M docs/start_commands.md",
+          "?? docs/evidence/W06/20261014T081810Z_dev_w06_controls_s0_bced5d-result.json",
+          "?? docs/evidence/W06/20261014T081927Z_dev_w06_controls_s0_2e5903-result.json",
+          "?? docs/evidence/W06/20261014T081947Z_dev_w06_restart_s0_c85cba-result.json",
+          "?? docs/evidence/W06/20261014T082041Z_dev_w06_controls_s0_4c4309-result.json",
+          "?? docs/evidence/W06/controls-integration.json",
+          "?? docs/evidence/W06/controls-sandbox-failed.json",
+          "?? docs/evidence/W06/verify_integration.py"
+        ],
+        "upstream_sha": {
+          "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+          "booster_assets": "12a97516f57469078707afb587a5f84c1cb110d1"
+        },
+        "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7",
+        "mjcf_sha256": "f00e3410362b1e2267e6db05d25c33d6240bbf2436d62a409f07042bad4f7fb2",
+        "scene_file": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/T1_23dof.xml",
+        "scene_sha256": "f00e3410362b1e2267e6db05d25c33d6240bbf2436d62a409f07042bad4f7fb2",
+        "mode": "sim_only",
+        "suite": "dev",
+        "case": "w04",
+        "seed": 0,
+        "sensor_mode": null,
+        "odom_mode": "ideal_truth",
+        "map_yaml": null,
+        "map_sha256": null,
+        "T_world_map": null,
+        "goal": null,
+        "tolerances": null,
+        "time_limit_s": 55.0,
+        "parameter_files": {
+          "nav2": null,
+          "slam": null,
+          "amcl": null,
+          "velocity_smoother": null,
+          "collision_monitor": null,
+          "command_map": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+            "sha256": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+            "evidence": {
+              "report": "docs/evidence/W05/locomotion-envelope.md",
+              "runs": {
+                "20261013T212155Z_dev_w05_c3": "00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe",
+                "20261013T215753Z_dev_w05_dense": "50ef2baf9ae2530bac0edfdc07c131f99725909836fe07511264fcc6dd33fb01",
+                "20261013T220627Z_dev_w05_context": "25976d72867333007b5a1cec96b1ea9d84920a620cde6cb0f79b09525bc8f65e"
+              },
+              "statistic": "largest 2 s window mean, >=3 s after command onset, segments >=8 s (raw traces)",
+              "tested_code_sha": "abc5b4a8248b05037ef02f46022c2a6779915acd",
+              "builder": "docs/evidence/W05/build_command_map.py",
+              "validation": "docs/evidence/W05/command-map-validation.json"
+            }
+          }
+        },
+        "resolved_parameters": {
+          "upstream_path": "/home/haoyang/robot_sim_sources/booster_deploy",
+          "assets_path": "",
+          "task": "t1_walk",
+          "mode": "sim_only",
+          "scene": "",
+          "headless": true,
+          "viewer_rate_hz": 30.0,
+          "target_rtf": 1.0,
+          "enable_policy_cmd_input": false,
+          "cmd_timeout_sim": 0.5,
+          "cmd_timeout_wall": 0.5,
+          "warmup_sim_s": 2.0,
+          "run_id": "20261014T082100Z_dev_w06_restart_s0_418413",
+          "run_dir": "/home/haoyang/humanoid_nav_ws/run_data",
+          "seed": 0,
+          "max_sim_time": 55.0,
+          "command_map_file": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+          "joint_state_divisor": 1
+        },
+        "parameters_sha256": "08039be0f425f8696d7eb9186833a01425fa138024718a31e0c4aae255e60a56",
+        "headless": true,
+        "target_rtf": 1.0,
+        "policy_dt": 0.02,
+        "physics_dt": 0.002,
+        "decimation": 10,
+        "host": "DESKTOP-MF19MEU",
+        "cpu": "x86_64",
+        "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "executable": "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+        "ros": "jazzy",
+        "mujoco": "3.15.0",
+        "torch": "2.14.1+cu130",
+        "command_line": [
+          "/home/haoyang/humanoid_nav_ws/build/t1_mujoco/t1_mujoco/simulation.py",
+          "--ros-args",
+          "-r",
+          "__node:=t1_sim",
+          "--params-file",
+          "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/runtime.yaml",
+          "--params-file",
+          "/tmp/launch_params_6lmw82rv"
+        ],
+        "status": "SHUTDOWN",
+        "exit_code": 0,
+        "initial_pose": [
+          0.0,
+          0.0,
+          0.6000000238418579,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "deadline_overruns": 1,
+        "physics_steps": 3000,
+        "failure_detail": null,
+        "sim_time_end": 5.999999999999561,
+        "wall_duration_s": 6.235100079999938,
+        "ended_utc": "2026-10-14T08:21:08.186574+00:00"
+      },
+      "topics": {
+        "/clock": {
+          "count": 301,
+          "stamp_min_ns": 0,
+          "stamp_max_ns": 6000000000,
+          "median_sim_hz": 50.0,
+          "max_gap_s": 0.02,
+          "regressions": 0
+        },
+        "/odom": {
+          "count": 300,
+          "stamp_min_ns": 20000000,
+          "stamp_max_ns": 6000000000,
+          "median_sim_hz": 50.0,
+          "max_gap_s": 0.02,
+          "regressions": 0
+        },
+        "/joint_states": {
+          "count": 300,
+          "stamp_min_ns": 20000000,
+          "stamp_max_ns": 6000000000,
+          "median_sim_hz": 50.0,
+          "max_gap_s": 0.02,
+          "regressions": 0
+        },
+        "/t1/eval/ground_truth": {
+          "count": 300,
+          "stamp_min_ns": 20000000,
+          "stamp_max_ns": 6000000000,
+          "median_sim_hz": 50.0,
+          "max_gap_s": 0.02,
+          "regressions": 0
+        },
+        "/tf:base_footprint": {
+          "count": 300,
+          "stamp_min_ns": 20000000,
+          "stamp_max_ns": 6000000000,
+          "median_sim_hz": 50.0,
+          "max_gap_s": 0.02,
+          "regressions": 0
+        },
+        "/tf:base_link": {
+          "count": 300,
+          "stamp_min_ns": 20000000,
+          "stamp_max_ns": 6000000000,
+          "median_sim_hz": 50.0,
+          "max_gap_s": 0.02,
+          "regressions": 0
+        },
+        "/tf:left_ankle_roll_link": {
+          "count": 300,
+          "stamp_min_ns": 20000000,
+          "stamp_max_ns": 6000000000,
+          "median_sim_hz": 50.0,
+          "max_gap_s": 0.02,
+          "regressions": 0
+        }
+      },
+      "graph": {
+        "/clock": {
+          "publishers": [
+            {
+              "node": "t1_sim",
+              "type": "rosgraph_msgs/msg/Clock",
+              "gid": "010fcc81901cce450000000000001303",
+              "reliability": "RELIABLE",
+              "durability": "VOLATILE",
+              "depth": 0
+            }
+          ],
+          "subscribers": [
+            "w06_probe",
+            "w06_probe",
+            "robot_state_publisher"
+          ]
+        },
+        "/odom": {
+          "publishers": [
+            {
+              "node": "t1_sim",
+              "type": "nav_msgs/msg/Odometry",
+              "gid": "010fcc81901cce450000000000001603",
+              "reliability": "RELIABLE",
+              "durability": "VOLATILE",
+              "depth": 0
+            }
+          ],
+          "subscribers": [
+            "w06_probe"
+          ]
+        },
+        "/joint_states": {
+          "publishers": [
+            {
+              "node": "t1_sim",
+              "type": "sensor_msgs/msg/JointState",
+              "gid": "010fcc81901cce450000000000001703",
+              "reliability": "RELIABLE",
+              "durability": "VOLATILE",
+              "depth": 0
+            }
+          ],
+          "subscribers": [
+            "w06_probe",
+            "robot_state_publisher"
+          ]
+        },
+        "/t1/eval/ground_truth": {
+          "publishers": [
+            {
+              "node": "t1_sim",
+              "type": "nav_msgs/msg/Odometry",
+              "gid": "010fcc81901cce450000000000001803",
+              "reliability": "RELIABLE",
+              "durability": "VOLATILE",
+              "depth": 0
+            }
+          ],
+          "subscribers": [
+            "w06_probe"
+          ]
+        },
+        "/tf": {
+          "publishers": [
+            {
+              "node": "t1_sim",
+              "type": "tf2_msgs/msg/TFMessage",
+              "gid": "010fcc81901cce450000000000001903",
+              "reliability": "RELIABLE",
+              "durability": "VOLATILE",
+              "depth": 0
+            },
+            {
+              "node": "robot_state_publisher",
+              "type": "tf2_msgs/msg/TFMessage",
+              "gid": "010fcc81911c49ec0000000000001503",
+              "reliability": "RELIABLE",
+              "durability": "VOLATILE",
+              "depth": 0
+            }
+          ],
+          "subscribers": [
+            "w06_probe"
+          ]
+        },
+        "/tf_static": {
+          "publishers": [
+            {
+              "node": "robot_state_publisher",
+              "type": "tf2_msgs/msg/TFMessage",
+              "gid": "010fcc81911c49ec0000000000001603",
+              "reliability": "RELIABLE",
+              "durability": "TRANSIENT_LOCAL",
+              "depth": 0
+            }
+          ],
+          "subscribers": [
+            "w06_probe"
+          ]
+        },
+        "/robot_description": {
+          "publishers": [
+            {
+              "node": "robot_state_publisher",
+              "type": "std_msgs/msg/String",
+              "gid": "010fcc81911c49ec0000000000001703",
+              "reliability": "RELIABLE",
+              "durability": "TRANSIENT_LOCAL",
+              "depth": 0
+            }
+          ],
+          "subscribers": []
+        },
+        "/imu/data": {
+          "publishers": [],
+          "subscribers": []
+        }
+      },
+      "tf_parents": {
+        "trunk": "base_link",
+        "head_realsense_rgb_link": "aahead_pitch_link",
+        "base_footprint": "odom",
+        "base_link": "base_footprint",
+        "aahead_pitch_link": "aahead_yaw_link",
+        "aahead_yaw_link": "trunk",
+        "left_ankle_pitch_link": "left_knee_pitch_link",
+        "left_ankle_roll_link": "left_ankle_pitch_link",
+        "left_elbow_pitch_link": "left_shoulder_roll_link",
+        "left_elbow_yaw_link": "left_elbow_pitch_link",
+        "left_hip_pitch_link": "waist_yaw_link",
+        "left_hip_roll_link": "left_hip_pitch_link",
+        "left_hip_yaw_link": "left_hip_roll_link",
+        "left_knee_pitch_link": "left_hip_yaw_link",
+        "left_shoulder_pitch_link": "trunk",
+        "left_shoulder_roll_link": "left_shoulder_pitch_link",
+        "right_ankle_pitch_link": "right_knee_pitch_link",
+        "right_ankle_roll_link": "right_ankle_pitch_link",
+        "right_elbow_pitch_link": "right_shoulder_roll_link",
+        "right_elbow_yaw_link": "right_elbow_pitch_link",
+        "right_hip_pitch_link": "waist_yaw_link",
+        "right_hip_roll_link": "right_hip_pitch_link",
+        "right_hip_yaw_link": "right_hip_roll_link",
+        "right_knee_pitch_link": "right_hip_yaw_link",
+        "right_shoulder_pitch_link": "trunk",
+        "right_shoulder_roll_link": "right_shoulder_pitch_link",
+        "waist_yaw_link": "trunk"
+      },
+      "tf_authorities": {
+        "trunk": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "head_realsense_rgb_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "base_footprint": [
+          "t1_sim (batch + graph ownership)"
+        ],
+        "base_link": [
+          "t1_sim (batch + graph ownership)"
+        ],
+        "aahead_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "aahead_yaw_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_ankle_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_ankle_roll_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_elbow_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_elbow_yaw_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_hip_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_hip_roll_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_hip_yaw_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_knee_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_shoulder_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "left_shoulder_roll_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_ankle_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_ankle_roll_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_elbow_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_elbow_yaw_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_hip_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_hip_roll_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_hip_yaw_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_knee_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_shoulder_pitch_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "right_shoulder_roll_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ],
+        "waist_yaw_link": [
+          "robot_state_publisher (URDF batch + graph ownership)"
+        ]
+      },
+      "authority_method": "Jazzy MessageInfo lacks GID: disjoint TF batches + URDF ownership + endpoint graph",
+      "common_stamps": 300,
+      "max_odom_truth_xy_error_m": 0.0,
+      "max_integral_error_m": 0.000738700627012432,
+      "integrated_pairs": 299,
+      "tf_lookup_attempts": 55,
+      "tf_lookup_failures": 0,
+      "tf_lookup_failure_examples": [],
+      "tf_persistent_failures": 0,
+      "joint_names": [
+        "aahead_pitch_joint",
+        "aahead_yaw_joint",
+        "left_ankle_pitch_joint",
+        "left_ankle_roll_joint",
+        "left_elbow_pitch_joint",
+        "left_elbow_yaw_joint",
+        "left_hip_pitch_joint",
+        "left_hip_roll_joint",
+        "left_hip_yaw_joint",
+        "left_knee_pitch_joint",
+        "left_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_ankle_pitch_joint",
+        "right_ankle_roll_joint",
+        "right_elbow_pitch_joint",
+        "right_elbow_yaw_joint",
+        "right_hip_pitch_joint",
+        "right_hip_roll_joint",
+        "right_hip_yaw_joint",
+        "right_knee_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "right_shoulder_roll_joint",
+        "waist_yaw_joint"
+      ],
+      "joint_states_valid": true,
+      "checks": {
+        "clock_monotonic": true,
+        "shared_stamps": true,
+        "odom_truth_match": true,
+        "integral_within_2cm": true,
+        "joint_states_valid": true,
+        "tf_acyclic": true,
+        "single_child_authority": true,
+        "no_map_truth_tf": true,
+        "tf_queries_recover": true,
+        "rates_50hz": true,
+        "publisher_ownership": true,
+        "two_tf_publishers": true,
+        "imu_absent": true,
+        "launch_exit_0": true,
+        "new_clock_origin": true
+      }
+    }
+  ],
+  "server_exit": 0,
+  "verdict": "PASS"
+}
