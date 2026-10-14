@@ -8,7 +8,7 @@ from rclpy.node import Node
 from rclpy.qos import QoSProfile,DurabilityPolicy
 from sensor_msgs.msg import LaserScan
 from std_msgs.msg import String
-from diagnostic_msgs.msg import DiagnosticArray
+from diagnostic_msgs.msg import DiagnosticArray, DiagnosticStatus
 from geometry_msgs.msg import Twist
 WS=Path(os.environ['T1_WS']);OUT=WS/'docs/evidence/W08';RAW=OUT/'raw'
 started=datetime.now(timezone.utc).isoformat();results=[]
@@ -43,7 +43,7 @@ try:
         trace=list(csv.DictReader((WS/'run_data'/rid/'sim_trace.csv').open()))
         events=[json.loads(line) for line in (WS/'run_data'/rid/'events.jsonl').read_text().splitlines()]
         relevant=[s for s in states if s.get('run_id')==rid]
-        checks=dict(venv=manifest['executable']==str(Path(os.environ['T1_VENV'])/'bin/python'),sensor_mode=manifest['sensor_mode']=='compensated',diagnostic_error_received=any(s.level==2 for m in diags for s in m.status),states_received=bool(relevant))
+        checks=dict(venv=manifest['executable']==str(Path(os.environ['T1_VENV'])/'bin/python'),sensor_mode=manifest['sensor_mode']=='compensated',diagnostic_error_received=any(s.level==DiagnosticStatus.ERROR and s.message==('sensor_exception' if fault=='exception' else 'sensor_coverage_blocked') for m in diags for s in m.status),states_received=bool(relevant))
         if fault=='dropout':
             checks.update(exit_0=proc.returncode==0,unknown_scans=len(scans)>30 and all(np.isnan(m.ranges).all() for m in scans),
                 zero_policy_throughout=all(float(r['u_pol_'+a])==0 for r in trace for a in ('x','y','wz')),
@@ -57,7 +57,7 @@ try:
                 stops_at_failure=abs(manifest['sim_time_end']-4)<1e-8,
                 fault_recorded=any(s.get('transition')=='FAULT' and s.get('fault')=='sensor_exception' for s in events),
                 moving_before_fault=any(float(r['u_pol_x'])>0 for r in trace))
-        result=dict(fault=fault,run_id=rid,pid=proc.pid,exit_code=proc.returncode,command=cmd,wall_s=time.monotonic()-began,scans=len(scans),checks={k:bool(v) for k,v in checks.items()},manifest=manifest)
+        result=dict(fault=fault,run_id=rid,pid=proc.pid,exit_code=proc.returncode,command=cmd,wall_s=time.monotonic()-began,scans=len(scans),diagnostics=[dict(level=int.from_bytes(s.level,'little'),message=s.message) for m in diags for s in m.status],checks={k:bool(v) for k,v in checks.items()},manifest=manifest)
         results.append(result);print(fault,result['checks'],flush=True)
 finally:
     rclpy.shutdown()
