@@ -1,0 +1,7 @@
+RUN w12_localization_0_64670776 PID 115238
+LOCALIZATION 0 PASS {'pose_updates': 59, 'position_error_final_m': 0.011958998310306928, 'yaw_error_final_rad': 0.0013767671505684476, 'yaw_error_final_deg': 0.07888294709982438, 'convergence_sim_s': 2.4, 'scan_distance_p95_m': 0.06427674116350178, 'scan_endpoints': 2880, 'scan_stamp_tf_lookups': 8, 'lookup_errors': []}
+RUN w12_localization_1_75a9d8d7 PID 116109
+LOCALIZATION 1 PASS {'pose_updates': 59, 'position_error_final_m': 0.01656128029568203, 'yaw_error_final_rad': 0.001274483398148396, 'yaw_error_final_deg': 0.07302251977339441, 'convergence_sim_s': 2.6000000000000005, 'scan_distance_p95_m': 0.03172096420427231, 'scan_endpoints': 2880, 'scan_stamp_tf_lookups': 8, 'lookup_errors': []}
+RUN w12_localization_2_d0e44ec6 PID 116885
+LOCALIZATION 2 PASS {'pose_updates': 54, 'position_error_final_m': 0.04315344476193394, 'yaw_error_final_rad': 0.00276411234516849, 'yaw_error_final_deg': 0.1583719714781627, 'convergence_sim_s': 2.6799999999999997, 'scan_distance_p95_m': 0.07827625875337248, 'scan_endpoints': 2880, 'scan_stamp_tf_lookups': 8, 'lookup_errors': []}
+VERDICT PASS
