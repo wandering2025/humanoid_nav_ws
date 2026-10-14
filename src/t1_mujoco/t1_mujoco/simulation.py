@@ -19,10 +19,13 @@ def parameter_defaults():
                 target_rtf=1.0, enable_policy_cmd_input=False, cmd_timeout_sim=0.5,
                 cmd_timeout_wall=0.5, warmup_sim_s=2.0, run_id='',
                 run_dir=str(Path(os.getenv('T1_WS', Path.cwd()))/'run_data'), seed=0,
-                max_sim_time=0.0, command_map_file='', joint_state_divisor=1)
+                max_sim_time=0.0, command_map_file='', joint_state_divisor=1,
+                lidar_noise_std=0.0, lidar_dropout=0.0, lidar_publish_points=False)
 
 
 def validate_parameters(p):
+    from .lidar_config import LidarConfig
+    LidarConfig(noise_std=p['lidar_noise_std'], dropout=p['lidar_dropout'], seed=p['seed'])
     if p['mode'] != 'sim_only':
         raise ValueError('W04 implements sim_only only; mapping/navigation/evaluation are not available')
     if p['command_map_file'] and not Path(p['command_map_file']).is_absolute():
@@ -124,6 +127,16 @@ def main(args=None):
             state_pub.publish(String(data=json.dumps(status)))
             log.event(status)
             raise
+        from dataclasses import asdict
+        from .lidar_config import LidarConfig
+        from .lidar import RayLidar, LidarPublisher
+        lidar_cfg = LidarConfig(noise_std=p['lidar_noise_std'], dropout=p['lidar_dropout'],
+                                seed=p['seed'], publish_points=p['lidar_publish_points'])
+        lidar = RayLidar(runner, lidar_cfg)
+        runner.sensor_required = True
+        runner.sensor_healthy = False  # no motion until first valid scan
+        lidar_pub = LidarPublisher(node, lidar_cfg)
+        log.manifest.update(sensor_mode='compensated', lidar_config=asdict(lidar_cfg))
         log.manifest['initial_pose'] = runner.mj_data.qpos[:7].tolist()
         log.save()
 
@@ -181,7 +194,7 @@ def main(args=None):
         def status(force=False):
             nonlocal last_heartbeat, status_signature
             now = time.monotonic()
-            signature = (runner.state, runner.fault, runner.cmd_status, runner.episode)
+            signature = (runner.state, runner.fault, runner.cmd_status, runner.episode, runner.sensor_healthy)
             if not force and signature == status_signature and now-last_heartbeat < 1:
                 return
             last_heartbeat, status_signature = now, signature
@@ -194,17 +207,24 @@ def main(args=None):
                          command_map_calibrated=runner.command_map is not None,
                          scenario=runtime['mjcf_path'], seed=p['seed'], code_sha=log.manifest['code_sha'],
                          deadline_overruns=overruns, ignored_components=runner.inputs.ignored_components,
-                         odom_mode='ideal_truth', covariance_mode='nominal_not_estimated')
+                         odom_mode='ideal_truth', covariance_mode='nominal_not_estimated',
+                         sensor_mode='compensated', sensor_healthy=runner.sensor_healthy,
+                         scan_compute_ms=runner.scan_compute_ms, scan_known_fraction=runner.scan_known_fraction,
+                         scan_blind_bins=runner.scan_blind_bins)
             state_pub.publish(String(data=json.dumps(value, allow_nan=False)))
             log.event(value)
             diag = DiagnosticArray()
             ns = round(float(runner.mj_data.time)*1_000_000_000)
             diag.header.stamp.sec, diag.header.stamp.nanosec = divmod(ns, 1_000_000_000)
-            item = DiagnosticStatus(name='t1_sim', hardware_id='mujoco_t1', message=runner.fault or runner.cmd_status,
-                                    level=DiagnosticStatus.ERROR if runner.state in ('FAULT','FALLEN') else (DiagnosticStatus.WARN if runner.cmd_status in ('UNCALIBRATED','INVALID','TIMEOUT') else DiagnosticStatus.OK))
+            item = DiagnosticStatus(name='t1_sim', hardware_id='mujoco_t1', message=runner.fault or ('sensor_coverage_blocked' if not runner.sensor_healthy else runner.cmd_status),
+                                    level=DiagnosticStatus.ERROR if runner.state in ('FAULT','FALLEN') or not runner.sensor_healthy else (DiagnosticStatus.WARN if runner.cmd_status in ('UNCALIBRATED','INVALID','TIMEOUT') else DiagnosticStatus.OK))
             item.values = [KeyValue(key='state', value=runner.state), KeyValue(key='policy_dt', value='0.02'),
                            KeyValue(key='odom_mode', value='ideal_truth'),
-                           KeyValue(key='covariance_mode', value='nominal_not_estimated')]
+                           KeyValue(key='covariance_mode', value='nominal_not_estimated'),
+                           KeyValue(key='sensor_mode', value='compensated'),
+                           KeyValue(key='sensor_healthy', value=str(runner.sensor_healthy)),
+                           KeyValue(key='scan_known_fraction', value=str(runner.scan_known_fraction)),
+                           KeyValue(key='scan_blind_bins', value=str(runner.scan_blind_bins))]
             diag.status = [item]
             diag_pub.publish(diag)
             for event in runner.state_events:
@@ -228,6 +248,20 @@ def main(args=None):
                 snapshot = capture(runner)
                 publish_clock(snapshot.stamp_ns)
                 state_bridge.publish(snapshot, runner.episode)
+                runner.scan_due = lidar.due(runner.episode)
+                runner.scan_compute_ms = 0.0
+                if runner.scan_due:
+                    try:
+                        frame = lidar.sample(snapshot)
+                        lidar_pub.publish(frame)
+                        runner.sensor_healthy = frame.healthy
+                        runner.scan_compute_ms = frame.compute_ms
+                        runner.scan_known_fraction = frame.known_fraction
+                        runner.scan_blind_bins = frame.blind_bins
+                    except Exception as exc:
+                        runner.sensor_healthy = False
+                        runner.failure_detail = repr(exc)
+                        runner.transition('FAULT', 'sensor_exception')
                 log.row(runner, rtf)
                 runner.finish_boundary()
             status()

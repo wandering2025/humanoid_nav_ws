@@ -28,4 +28,12 @@ def robot_description(assets_path):
     ET.SubElement(joint, 'parent', link='base_link')
     ET.SubElement(joint, 'child', link='trunk')
     ET.SubElement(joint, 'origin', xyz='0 0 0', rpy='0 0 0')
+    from t1_mujoco.lidar_config import MOUNT, RAW_FRAME
+    if RAW_FRAME in links:
+        raise ValueError('frozen URDF must not already contain lidar_link')
+    ET.SubElement(root, 'link', name=RAW_FRAME)
+    mount = ET.SubElement(root, 'joint', name='trunk_to_lidar', type='fixed')
+    ET.SubElement(mount, 'parent', link='trunk')
+    ET.SubElement(mount, 'child', link=RAW_FRAME)
+    ET.SubElement(mount, 'origin', xyz=' '.join(map(str, MOUNT)), rpy='0 0 0')
     return ET.tostring(root, encoding='unicode')

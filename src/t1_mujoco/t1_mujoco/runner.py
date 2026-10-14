@@ -42,6 +42,13 @@ class T1SimRunner(MujocoController):
         self.compute_ms = 0.0
         self.state_events = []
         self.had_failure = False
+        # Direct W04/W05 runner has no sensor; ROS entry point enables the gate.
+        self.sensor_required = False
+        self.sensor_healthy = True
+        self.scan_due = False
+        self.scan_compute_ms = 0.0
+        self.scan_known_fraction = 0.0
+        self.scan_blind_bins = 0
         self.update_state()
         self.start()
         self.transition('STARTING')
@@ -116,6 +123,9 @@ class T1SimRunner(MujocoController):
         self.assert_owner()
         next_time = float(self.mj_data.time) + self.cfg.policy_dt
         self.transition('RESETTING')
+        self.sensor_healthy = not self.sensor_required
+        self.scan_known_fraction = 0.0
+        self.scan_blind_bins = 0
         mujoco.mj_resetData(self.mj_model, self.mj_data)
         self.mj_data.qpos[:] = np.concatenate([
             np.asarray(self.cfg.mujoco.init_pos, dtype=np.float32),
@@ -171,6 +181,8 @@ class T1SimRunner(MujocoController):
         mapper = None if self.debug or self.command_map is None else self.command_map.guard
         self.incoming, command, self.cmd_status = self.inputs.consume(
             float(self.mj_data.time), began, self.timeout_sim, self.timeout_wall, self.debug, mapper)
+        if not self.sensor_healthy:
+            command, self.cmd_status = (0., 0., 0.), 'BLOCKED_BY_STATE'
         self.write_command(command)
         if mapper is not None:
             self.guard_flags = mapper(self.incoming)[1] if self.cmd_status == 'ACTIVE' else []

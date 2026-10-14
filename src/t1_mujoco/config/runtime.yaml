@@ -28,3 +28,6 @@ t1_sim:
     max_sim_time: 0.0  # zero = run until signal/viewer close
     command_map_file: ""  # "" = /cmd_vel UNCALIBRATED; launch passes config/command_map.yaml (W05)
     joint_state_divisor: 1  # W06: 50 Hz / divisor, integer policy-step schedule
+    lidar_noise_std: 0.0  # metres along measured ray; independent seeded RNG
+    lidar_dropout: 0.0  # probability per ray; unknown bins stay NaN
+    lidar_publish_points: false  # raw in-range hits in rigid lidar_link

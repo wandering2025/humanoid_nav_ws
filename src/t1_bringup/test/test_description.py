@@ -11,7 +11,7 @@ def test_wrapper_preserves_joint_tree_and_resolves_assets(tmp_path):
     source = '<robot name="T1"><link name="trunk"><visual><geometry><mesh filename="mesh.stl"/></geometry></visual></link><link name="leg"/><joint name="hip" type="revolute"><parent link="trunk"/><child link="leg"/></joint></robot>'
     (path / 'T1_23dof.urdf').write_text(source)
     root = ET.fromstring(robot_description(tmp_path))
-    assert {x.attrib['name'] for x in root.findall('link')} == {'base_link','trunk','leg'}
+    assert {x.attrib['name'] for x in root.findall('link')} == {'base_link','trunk','leg','lidar_link'}
     assert root.find("joint[@name='hip']/parent").attrib['link'] == 'trunk'
     joint = root.find("joint[@name='base_link_to_trunk']")
     assert joint.attrib['type'] == 'fixed'

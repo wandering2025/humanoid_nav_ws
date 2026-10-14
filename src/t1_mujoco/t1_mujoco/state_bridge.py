@@ -145,6 +145,8 @@ class StatePublisher:
             self.episode, self.step = episode, 0
         odom, transforms, joints, truth = messages(snapshot)
         self.odom.publish(odom)
+        from .lidar import scan_transform
+        transforms.append(scan_transform(snapshot))
         self.tf.sendTransform(transforms)
         if self.step % self.divisor == 0:
             self.joints.publish(joints)

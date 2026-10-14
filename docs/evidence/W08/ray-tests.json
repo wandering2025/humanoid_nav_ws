@@ -1,0 +1,52 @@
+{
+  "code_sha": "79b6174c4e4ad0f30b167a527b2f4f2696d2e354",
+  "started_utc": "2026-10-14T09:08:18.284156+00:00",
+  "ended_utc": "2026-10-14T09:08:18.323651+00:00",
+  "wall_s": 0.0394878979996065,
+  "command": "$T1_VENV/bin/python docs/evidence/W08/check_rays.py",
+  "cwd": "/home/haoyang/humanoid_nav_ws",
+  "mujoco": "3.15.0",
+  "mj_ray": "mj_ray(m: mujoco._structs.MjModel, d: mujoco._structs.MjData, pnt: typing.Annotated[numpy.typing.NDArray[numpy.float64], \"[3, 1]\"], vec: typing.Annotated[numpy.typing.NDArray[numpy.float64], \"[3, 1]\"], geomgroup: typing.Annotated[numpy.typing.NDArray[numpy.uint8], \"[6, 1]\"] | None, flg_static: bool, bodyexclude: typing.SupportsInt | typing.SupportsIndex, geomid: typing.Annotated[numpy.typing.NDArray[numpy.int32], \"[1, 1]\", \"flags.writeable\"] | None, normal: typing.Annotated[numpy.typing.NDArray[numpy.float64], \"[3, 1]\", \"flags.writeable\"] | None = None) -> float\n\nIntersect ray (pnt+x*vec, x>=0) with visible geoms, except geoms in bodyexclude. Return distance (x) to nearest surface, or -1 if no intersection. geomgroup, flg_static are as in mjvOption; geomgroup==NULL skips group exclusion.\n",
+  "mj_multiRay": "mj_multiRay(m: mujoco._structs.MjModel, d: mujoco._structs.MjData, pnt: typing.Annotated[numpy.typing.NDArray[numpy.float64], \"[3, 1]\"], vec: typing.Annotated[numpy.typing.NDArray[numpy.float64], \"[m, 1]\"], geomgroup: typing.Annotated[numpy.typing.NDArray[numpy.uint8], \"[6, 1]\"] | None, flg_static: bool, bodyexclude: typing.SupportsInt | typing.SupportsIndex, geomid: typing.Annotated[numpy.typing.NDArray[numpy.int32], \"[m, 1]\", \"flags.writeable\"], dist: typing.Annotated[numpy.typing.NDArray[numpy.float64], \"[m, 1]\", \"flags.writeable\"], normal: typing.Annotated[numpy.typing.NDArray[numpy.float64], \"[m, 1]\", \"flags.writeable\"] | None, nray: typing.SupportsInt | typing.SupportsIndex, cutoff: typing.SupportsFloat | typing.SupportsIndex) -> None\n\nIntersect multiple rays emanating from a single point, compute normals if given. Similar semantics to mj_ray, but vec, normal and dist are arrays. Geoms further than cutoff are ignored.\n",
+  "checks": {
+    "one_metre": true,
+    "three_metres": true,
+    "corner_bearing": true,
+    "all_robot_links_excluded": true,
+    "contact_properties_unchanged": true,
+    "single_matches_multi": true,
+    "thin_pole_range_bearing": true,
+    "ground_and_overhead_raw_hits": true,
+    "ground_overhead_filtered": true,
+    "no_self_echo_in_empty_scene": true,
+    "no_hit_inf": true,
+    "filtered_bins_unknown": true,
+    "tilt_points_on_wall": true,
+    "tilt_scan_planar": true,
+    "blind_return_gate": true,
+    "dropout_unknown_gate": true,
+    "noise_seed_reproducible": true,
+    "no_negative_finite_ranges": true,
+    "manual_external_object_visible": true,
+    "kinematics_refreshed": true,
+    "reserved_group_rejected": true,
+    "schedule": true,
+    "invalid_ray_rejected": true,
+    "owner_enforced": true,
+    "message_semantics": true,
+    "cloud_rigid_frame": true
+  },
+  "metrics": {
+    "wall_1m": 0.9999999999999999,
+    "wall_3m": 3.0,
+    "corner_error_m": 4.440892098500626e-16,
+    "single_multi_max_m": 0.0,
+    "pole_range_m": 1.969999999999987,
+    "tilted_known_fraction": 1.0,
+    "moved_object_ranges_m": [
+      0.9999999999999999,
+      3.0
+    ]
+  },
+  "verdict": "PASS"
+}

@@ -73,7 +73,7 @@ class RunLog:
                    state=runner.state, cmd_status=runner.cmd_status,
                    cmd_source='policy_cmd' if runner.debug else 'cmd_vel',
                    action_norm=runner.action_norm, step_compute_ms=runner.compute_ms,
-                   scan_due=False, scan_compute_ms=0, rtf_10s=rtf, nonfinite=False)
+                   scan_due=runner.scan_due, scan_compute_ms=runner.scan_compute_ms, rtf_10s=rtf, nonfinite=False)
         row.update(runner.measurements())
         for i, axis in enumerate(('x','y','wz')):
             # Debug inputs are policy units, never label them as physical desired velocity.

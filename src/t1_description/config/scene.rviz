@@ -52,6 +52,20 @@ Visualization Manager:
       Show Axes: false
       Show Arrows: false
       Show Names: false
+    - Class: rviz_default_plugins/LaserScan
+      Name: Compensated LiDAR
+      Enabled: true
+      Topic:
+        Value: /scan
+        Reliability Policy: Reliable
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 5
+      Size (m): 0.035
+      Style: Points
+      Color Transformer: FlatColor
+      Color: 220; 30; 30
+      Decay Time: 0
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
