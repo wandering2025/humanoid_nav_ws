@@ -149,3 +149,7 @@
 - 地图只从SLAM /map保存，5cm网格、1s仿真更新；人工预选闭环真实步行覆盖A/B、南北通道，保存过程RViz、轨迹、更新序列和map/scene/生成SHA绑定。评测阈值：墙面P95≤0.15m、最大≤0.30m，可见表面完整性P95≤0.20m，54个A/B/通道样点free，闭环终点≤0.40m。实测见W09/map-quality.json。
 - 三个预选初始化map pose：(0.2,-0.15,0.15)、(-0.2,0.15,-0.2)、(0.1,0.1,0.3)，每个独立启动且仅一次初始化。期望25s仿真内达到位置≤0.25m、yaw≤10°，后续更新保持，末三次pose均满足；scan→占据格距离P95≤0.15m，使用实际scan stamp查询TF。预设值保存于map.meta.yaml。
 - 重启同一map checksum，map_server先active、AMCL再active；理想truth odom与truth姿态补偿是显式实验前提，不能据此宣称真实漂移鲁棒性。无自主A→B和动态避障验收，本步不启动W10/W11。
+
+## 14. W10冻结安全验收
+
+详见[safety.md](safety.md)：bridge命令双超时.50s、permit双龄.15s、source/scan/odom/TF双龄.30s；停止/减速圆1.65/1.95m，停止圈推导含.353m实测制动、.695270m身体旋转半径和.099230m额外裕量。C3停距判据零策略目标后最大位移≤.453m、0.5s窗线/角速<.05并保持2s；故障恢复需显式arm+新源命令。F09在W10验证navigation命令源取消接口，真实NavigateToPose action取消归W11集成，不能把接口试验声称为已实现自主导航。

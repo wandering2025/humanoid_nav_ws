@@ -184,3 +184,7 @@ mapping 模式下 teleop 替代 Nav2 核心作为 `/cmd_vel_nav` 源（W10 起�
 ## 12. 交给 W05 的能力门槛（本架构不作承诺）
 
 最小可持续前进速度与死区、最大前进速度、偏航率范围、前进+转弯组合、倒退、原地旋转、横移、起步/停止延迟、零命令停距/停时与稳态判据、warmup 时长、终点位置/偏航容差与 120 s 上限是否需修订。任何一项不可行时：在 `command_map.yaml` 中禁用并让 W10/W11 的限值、恢复行为和运动模型随之收紧；若无可行包络，W05 BLOCKED（G1），不由导航层掩盖。
+
+## 13. W10实施细化（ADR-014）
+
+正常sim_only/mapping/localization启动均含t1_command_gate、velocity_smoother、collision_monitor。所选原始源→gate→/cmd_vel_nav→smoother→/cmd_vel_smoothed→CM→/cmd_vel；gate额外发布仅供末端否决的permit，不生成第二个最终速度。只有显式sim_only policy debug隔离安全链。实际恢复协议与时延/区域推导见[safety.md](safety.md)。W11 controller/behavior须经单一导航源适配器进入/t1/cmd_navigation（本步仅接收一个发布者），并把取消接到stop服务；不能直接重映射两个发布者到最终话题。

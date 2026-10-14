@@ -9,4 +9,4 @@ Use t1_bringup mapping.launch.py or localization.launch.py; each composes exactl
 one map→odom owner. Map provenance is in ../maps/static_world.meta.yaml.
 See docs/architecture/mapping_localization.md and docs/evidence/W09/README.md.
 
-W10 velocity_smoother/collision_monitor and W11 autonomous Nav2 are still pending.
+W10 safety.yaml configures the actual OPEN_LOOP velocity_smoother, Collision Monitor and command gate. See docs/architecture/safety.md for zones, explicit arm and fault recovery. W11 autonomous Nav2 is still pending.

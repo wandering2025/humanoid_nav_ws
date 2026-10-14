@@ -1,6 +1,6 @@
 # Booster T1 MuJoCo navigation
 
-This workspace implements the project one explicitly assigned step at a time. W01–W09 provide the physical strategy runner, calibrated command guard, consistent ROS state/TF, static scenes, compensated LiDAR, SLAM mapping and saved-map AMCL localization. The W10 safety chain and W11 autonomous Nav2 navigation are not yet implemented.
+This workspace implements the project one explicitly assigned step at a time. W01–W10 provide the physical strategy runner, calibrated command guard, consistent ROS state/TF, static scenes, compensated LiDAR, SLAM mapping and saved-map AMCL localization. W10 adds the single-source velocity safety chain and latched fault stops. W11 autonomous Nav2 navigation is not yet implemented.
 
 The frozen external repositories and existing venv are documented in [environment baseline](docs/baseline/environment.md) and [dependencies.repos](dependencies.repos). Design contracts: [system](docs/architecture/system.md), [interfaces](docs/architecture/interfaces.md), [acceptance](docs/architecture/acceptance.md). Progress and handoff: [execution board](docs/plans/t1_mujoco_navigation/执行看板.md), [W09 record](docs/plans/t1_mujoco_navigation/records/W09.md).
 
@@ -8,7 +8,7 @@ The frozen external repositories and existing venv are documented in [environmen
 | --- | --- | --- |
 | t1_mujoco | ament_python | Physical strategy runner, calibrated command guard, state/TF, scenes and compensated LiDAR |
 | t1_description | ament_cmake | Frozen external description wrapper, validated FK/mesh, footprint and RViz |
-| t1_navigation | ament_cmake | SLAM/AMCL configuration, LiDAR-built map and provenance; W10/W11 follow |
+| t1_navigation | ament_cmake | SLAM/AMCL configuration, LiDAR-built map and provenance; velocity safety configuration; W11 follows |
 | t1_bringup | ament_python | Simulation/mapping/localization launch, one-shot AMCL initialization; W13 evaluation follows |
 
 ## Enter the environment and build
@@ -41,7 +41,7 @@ ros2 launch t1_bringup bringup.launch.py mode:=sim_only use_sim_time:=true
 
 All commands work outside the workspace after sourcing the environment. The diagnostic prints one `T1_DIAGNOSTIC` JSON line containing the actual `sys.executable`, Python/ROS/library versions, external paths and copied T1 task timing. It imports rclpy, NumPy, MuJoCo, PyTorch and the T1 registration module; it never constructs a model, policy or controller, opens a viewer or advances physics. It then destroys the ROS node and exits. It does not publish `/clock`, TF or fake success for simulation. A child failure propagates to a nonzero launch exit.
 
-Arguments: `mode` (`sim_only|mapping|localization|navigation|evaluation`), `use_sim_time`, `upstream_path`, optional `assets_path`, `task` (only `t1_walk`), `params_file`. These select diagnostic context in W03. `enable_sim:=true mode:=sim_only` starts the W04 runner. Mapping and localization have dedicated W09 entries below; navigation/evaluation fail explicitly until W10/W11. The parameter file is installed at `share/t1_mujoco/config/runtime.yaml`. Runtime path insertion is confined to the diagnostic Python process. `booster_deploy` has no pip packaging metadata and is not installed editable. Configuration is deep-copied from its registry before use. Explicit asset paths must match the installed frozen `booster_assets` package.
+Arguments: `mode` (`sim_only|mapping|localization|navigation|evaluation`), `use_sim_time`, `upstream_path`, optional `assets_path`, `task` (only `t1_walk`), `params_file`. These select diagnostic context in W03. `enable_sim:=true mode:=sim_only` starts the W04 runner. Mapping and localization have dedicated W09 entries below; navigation/evaluation fail explicitly until W11. The parameter file is installed at `share/t1_mujoco/config/runtime.yaml`. Runtime path insertion is confined to the diagnostic Python process. `booster_deploy` has no pip packaging metadata and is not installed editable. Configuration is deep-copied from its registry before use. Explicit asset paths must match the installed frozen `booster_assets` package.
 
 ## Verify packages (W03 baseline)
 
@@ -98,8 +98,8 @@ With the environment and local discovery server configured above:
 
 ```bash
 ros2 launch t1_bringup simulation.launch.py rviz:=true
-# After READY, in another sourced terminal (physical units):
-ros2 topic pub -r 20 /cmd_vel geometry_msgs/msg/Twist '{linear: {x: 0.4}}'
+# W10 starts DISARMED. Use the selected raw source and explicit arm procedure below.
+# /cmd_vel belongs exclusively to collision_monitor.
 ```
 
 Simulation launch now starts robot_state_publisher with use_sim_time=true and
@@ -130,9 +130,8 @@ With the environment and local DDS server above configured in each terminal:
 
 ```bash
 ros2 launch t1_bringup mapping.launch.py rviz:=true
-# Separate terminal, after READY: controlled development teleop in physical units.
-ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -p speed:=0.4 -p turn:=0.6 -p stamped:=false
-# Keep clear of walls; W10 full safety chain is not implemented yet.
+# W10: controlled commands enter /t1/cmd_teleop; see the arm procedure below.
+# Do not run an unremapped keyboard publisher on /cmd_vel.
 # Save the live SLAM map to a new path (do not overwrite the versioned map casually):
 ros2 run nav2_map_server map_saver_cli -f "$T1_WS/run_data/my_map" --ros-args -p use_sim_time:=true
 ```
@@ -154,3 +153,30 @@ fails startup. Restart the complete launch to change modes or reset simulation.
 The localization demonstration uses ideal truth odometry and truth attitude
 compensation; it does not establish robustness against real odometry drift.
 Reproduction, route, convergence and map checks: [W09 evidence](docs/evidence/W09/README.md).
+
+## W10 velocity safety and explicit recovery
+
+Normal simulation, mapping and localization launches include the actual Nav2
+OPEN_LOOP velocity smoother and Collision Monitor. Select one raw input with
+`command_source:=teleop` (default, `/t1/cmd_teleop`) or `navigation`
+(`/t1/cmd_navigation`, source interface only; W11 navigation is pending).
+Only the selected source may have one publisher, emitting Twist at 20–50 Hz.
+No source may publish directly to `/cmd_vel_nav`, `/cmd_vel_smoothed` or `/cmd_vel`.
+
+Startup is DISARMED. Keep publishing zero on the selected input, wait for
+READY and healthy sensors/TF, call `ros2 service call /t1/safety/arm std_srvs/srv/Trigger '{}'`,
+then send a **new** nonzero command from that same publisher. If the source stops
+for 0.3 s, NaN arrives, scan/odom/TF becomes stale, or simulation pauses, the
+fault latches. Restore health, publish zero, explicitly arm again, then send new
+commands. `ros2 service call /t1/safety/stop std_srvs/srv/Trigger '{}'` immediately
+revokes the bridge permit; this is also the interface W11 must call on cancellation.
+The stock key-event-only keyboard publisher does not provide this heartbeat
+protocol; W09's historical direct-command scripts must not be run unchanged.
+
+The 1.65 m stop / 1.95 m slow circles cover full-body rotation and braking
+allowance. Slow commands below the calibrated walking deadband become zero.
+Software simulation protection only: finite-height LiDAR coverage and ideal
+odometry remain limitations. See [derivation and recovery](docs/architecture/safety.md)
+and [W10 tests](docs/evidence/W10/README.md) for reproducible actual walking/fault runs.
+Explicit `sim_only enable_policy_cmd_input:=true` retains isolated policy-unit
+calibration; it is not a protected navigation mode.

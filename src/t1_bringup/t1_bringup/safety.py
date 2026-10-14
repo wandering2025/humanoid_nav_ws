@@ -18,6 +18,7 @@ from tf2_msgs.msg import TFMessage
 from std_msgs.msg import String, Bool
 from std_srvs.srv import Trigger
 from lifecycle_msgs.srv import GetState
+from rcl_interfaces.msg import ParameterDescriptor
 
 
 def seconds(stamp):
@@ -27,11 +28,14 @@ def seconds(stamp):
 class SafetyGate(Node):
     def __init__(self):
         super().__init__('t1_command_gate')
-        self.source = self.declare_parameter('command_source', 'teleop').value
+        readonly = ParameterDescriptor(read_only=True)
+        self.source = self.declare_parameter('command_source', 'teleop', readonly).value
         if self.source not in ('teleop', 'navigation'):
             raise ValueError('command_source must be teleop or navigation')
-        self.timeout = float(self.declare_parameter('source_timeout', .3).value)
-        self.health_timeout = float(self.declare_parameter('health_timeout', .3).value)
+        self.timeout = float(self.declare_parameter('source_timeout', .3, readonly).value)
+        self.health_timeout = float(self.declare_parameter('health_timeout', .3, readonly).value)
+        if not all(math.isfinite(t) and 0 < t <= .3 for t in (self.timeout, self.health_timeout)):
+            raise ValueError('timeouts must be positive and <= frozen 0.3 s safety budget')
         self.state, self.reason = 'DISARMED', 'explicit arm required'
         self.health = {}
         self.sim_state = 'STARTING'

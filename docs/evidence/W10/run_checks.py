@@ -112,6 +112,8 @@ class Run:
     def call(self,kind,name,request):
         client=self.node.create_client(kind,name)
         self.until(client.service_is_ready)
+        if self.injection is not None and (name=='/t1/safety/stop' or (name=='/t1/sim/pause' and request.data)):
+            self.injection.update(sim=self.node.sim,wall=time.monotonic(),pose=self.node.rows[-1])
         future=client.call_async(request)
         self.until(future.done,10.)
         result=future.result();self.node.destroy_client(client)
@@ -238,7 +240,7 @@ class Run:
             tested_sha=manifest['code_sha'],command=self.command,injection=self.injection,
             zero_sim=float(t[iz]),zero_delay_sim=float(t[iz]-tinj),stop_distance_from_zero_m=distance,
             distance_from_injection_m=total,final_speed_mps=final_v,final_yaw_speed=final_w,
-            scan_compute_p95_ms=float(np.percentile(get('scan_compute_ms')[get('scan_due')>0],95)) if False else None,
+            scan_compute_p95_ms=float(np.percentile([float(r['scan_compute_ms']) for r in rows if r['scan_due']=='True'],95)),
             checks={k:bool(v) for k,v in checks.items()},verdict='PASS' if all(checks.values()) else 'FAIL',
             launch_exit=self.proc.returncode,manifest=str(path/'manifest.json'),children=self.children,
             timeline=self.node.rows[::2])
