@@ -30,7 +30,7 @@ from std_srvs.srv import Trigger
 
 from harness import LAYERS, OUT, RAW, WS, Run, Session, angle, digest, git
 
-CASES = WS/'src/t1_navigation/config/w12_static_cases.yaml'
+CASES = WS/'src/t1_navigation/config/w11_static_cases.yaml'
 SCENE = WS/f'src/t1_mujoco/worlds/{os.environ.get("W12_SCENE", "dynamic_crossing_world")}.yaml'
 FOOTPRINT = WS/'src/t1_description/config/footprint.yaml'
 META = WS/f'src/t1_navigation/maps/{os.environ.get("W12_SCENE", "dynamic_crossing_world")}.meta.yaml'

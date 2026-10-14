@@ -1,5 +1,6 @@
 """Read-only final audit of W12 recorded artifacts; run after suite + regression."""
 import hashlib
+import ast
 import json
 from pathlib import Path
 import subprocess
@@ -8,10 +9,19 @@ import yaml
 WS = Path(__file__).resolve().parents[3]
 OUT = WS/'docs/evidence/W12'
 SOURCE = '5149679a5ae1209991e0c4f62031dc352f59281f'
-RUNTIME = [p for p in subprocess.check_output(['git','-C',str(WS),'ls-files','src'],text=True).splitlines() if '/maps/' not in p] + [ 'docs/evidence/W12/harness.py','docs/evidence/W12/nav_run.py','docs/evidence/W12/dynamic_suite.py']
+RUNTIME = [p for p in subprocess.check_output(['git','-C',str(WS),'ls-files','src'],text=True).splitlines() if '/maps/' not in p] + [ 'docs/evidence/W12/harness.py','docs/evidence/W12/dynamic_suite.py']
 def digest(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 def git(*args):return subprocess.check_output(['git','-C',str(WS),*args],text=True).strip()
 def read(name):return json.loads((OUT/name).read_text())
+
+def evaluator_ast(source):
+    tree=ast.parse(source)
+    tree.body=[n for n in tree.body if not (isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='CASES' for t in n.targets))]
+    return ast.dump(tree,include_attributes=False)
+
+def evaluator_equal(ref):
+    before=git('show',ref+':docs/evidence/W12/nav_run.py')
+    return evaluator_ast(before)==evaluator_ast((OUT/'nav_run.py').read_text())
 
 start = read('start-state.json')
 quality = read('map-quality.json')
@@ -60,6 +70,7 @@ checks = dict(
     same_map_all_runs=all(r['run']['manifest']['map_sha256']==digest(map_path) for r in rows),
     same_runtime_sources=not git('diff',SOURCE,'--',*RUNTIME) and all(
         not git('diff',SOURCE,r['run']['manifest']['code_sha'],'--',*RUNTIME) for r in rows+[reg]),
+    static_registry_correction_only=evaluator_equal(SOURCE) and all(evaluator_equal(r['run']['manifest']['code_sha']) for r in rows+[reg]),
     static_regression=reg['outcome']=='SUCCESS',
 )
 upstream={}

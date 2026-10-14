@@ -52,7 +52,7 @@ anchor:
   method: initial SLAM map->odom inverted, odom equals world truth horizontal projection
     (W06 contract)
 pose_graph:
-  path: docs/evidence/W12/raw/static_world.*
+  path: docs/evidence/W12/raw/dynamic_crossing_world.*
   purpose: optional continuation/debug; localization only needs yaml/image
   tracked: false
 expected_localization:
