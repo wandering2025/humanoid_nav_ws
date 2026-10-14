@@ -101,6 +101,7 @@ def main():
             closed=run.close();run=None
             checks.update(one_initialization=len(closed['initializations'])==1, actual_amcl_map_odom_owner=len(closed['map_odom_gids'])==1 and closed['map_odom_nodes']==['amcl'],
                           clean_exit=closed['exit_code']==0 and closed['manifest'].get('exit_code')==0)
+            checks={k:bool(v) for k,v in checks.items()}
             result=dict(index=index,initial_pose_map=initial,initial_pose_publish_count=len(closed['initializations']),initial_pose_command=command,
                         initial_sim=initial_sim,lifecycle_states=states,map_yaml_sha256=checksum,expected=meta['expected_localization'],
                         measurements=measurements,checks=checks,run=closed,verdict='PASS' if all(checks.values()) else 'FAIL')

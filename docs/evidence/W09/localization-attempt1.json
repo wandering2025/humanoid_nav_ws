@@ -1,0 +1,13 @@
+{
+  "verdict": "FAIL",
+  "reason": "probe JSON serialization: numpy bool from physical_motion; runtime itself exited cleanly, rerun all 3 required",
+  "run_id": "w09_localization_0_3a461613",
+  "tested_sha": "3e941fad2ca5103af98aa29f0fc121359a5ffe0e",
+  "last_pose_error": [
+    19.8,
+    0.01629627694486686,
+    0.01496928244989193
+  ],
+  "raw": "raw/w09_localization_0_3a461613.txt",
+  "manifest": "run_data/w09_localization_0_3a461613/manifest.json"
+}
