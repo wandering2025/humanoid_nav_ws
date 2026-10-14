@@ -80,10 +80,13 @@ class RunLog:
         fields = ('sim_time wall_mono episode state cmd_status cmd_source '
                   'v_cmd_in_x v_cmd_in_y v_cmd_in_wz v_guard_x v_guard_y v_guard_wz '
                   'u_pol_x u_pol_y u_pol_wz v_meas_x v_meas_y v_meas_wz x_w y_w z_w yaw_w roll pitch '
-                  'proj_grav_z action_norm step_compute_ms scan_due scan_compute_ms rtf_10s nonfinite').split()
+                  'proj_grav_z action_norm step_compute_ms policy_compute_ms physics_compute_ms scan_due scan_compute_ms rtf_10s nonfinite').split()
         self.trace = csv.DictWriter(self.trace_file, fieldnames=fields)
         self.trace.writeheader()
         self.events = (self.path/'events.jsonl').open('w')
+        # Offline evaluation snapshots only; never consumed by navigation.
+        self.geometry = (self.path/'geometry.jsonl').open('w')
+        self.geometry_step = 0
         self.save()
 
     def save(self):
@@ -98,6 +101,7 @@ class RunLog:
                    state=runner.state, cmd_status=runner.cmd_status,
                    cmd_source='policy_cmd' if runner.debug else 'cmd_vel',
                    action_norm=runner.action_norm, step_compute_ms=runner.compute_ms,
+                   policy_compute_ms=runner.policy_compute_ms, physics_compute_ms=runner.physics_compute_ms,
                    scan_due=runner.scan_due, scan_compute_ms=runner.scan_compute_ms, rtf_10s=rtf, nonfinite=False)
         row.update(runner.measurements())
         for i, axis in enumerate(('x','y','wz')):
@@ -107,6 +111,11 @@ class RunLog:
             row['v_guard_'+axis] = 0.0 if runner.debug else runner.v_guard[i]
             row['u_pol_'+axis] = runner.u_pol[i]
         self.trace.writerow(row)
+        if self.geometry_step % 5 == 0:  # 10 Hz, after the physical step
+            d = runner.mj_data
+            self.geometry.write(json.dumps(dict(sim_time=float(d.time), qpos=d.qpos.tolist(),
+                mocap_pos=d.mocap_pos.tolist(), mocap_quat=d.mocap_quat.tolist())) + '\n')
+        self.geometry_step += 1
 
     def close(self, code, sim_time, status):
         self.manifest.update(exit_code=code, sim_time_end=sim_time,
@@ -115,3 +124,4 @@ class RunLog:
         self.save()
         self.trace_file.close()
         self.events.close()
+        self.geometry.close()

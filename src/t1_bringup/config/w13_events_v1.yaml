@@ -1,0 +1,534 @@
+# W13 independent timing variations; map-bound scene bytes remain frozen.
+schema: 1
+scene: dynamic_crossing_world
+scenarios:
+  C01:
+    slot: crossing_slot
+    seed: 2000
+    start:
+    - 2.75
+    - -3.0
+    trigger_x: 0.45
+    initial_surface_gap_lower_bound_m: 2.75
+    allowed: safe_wait_then_continue_or_detour
+    end: obstacle_clear_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 2.75
+      - 3.0
+      speed: 0.4
+      hold: 180.0
+  C02:
+    slot: crossing_slot
+    seed: 2001
+    start:
+    - 2.75
+    - -3.0
+    trigger_x: 0.5
+    initial_surface_gap_lower_bound_m: 2.75
+    allowed: safe_wait_then_continue_or_detour
+    end: obstacle_clear_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 2.75
+      - 3.0
+      speed: 0.42
+      hold: 180.0
+  C03:
+    slot: crossing_slot
+    seed: 2002
+    start:
+    - 2.75
+    - -3.0
+    trigger_x: 0.55
+    initial_surface_gap_lower_bound_m: 2.75
+    allowed: safe_wait_then_continue_or_detour
+    end: obstacle_clear_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 2.75
+      - 3.0
+      speed: 0.44
+      hold: 180.0
+  C04:
+    slot: crossing_slot
+    seed: 2003
+    start:
+    - 2.75
+    - -3.0
+    trigger_x: 0.6
+    initial_surface_gap_lower_bound_m: 2.75
+    allowed: safe_wait_then_continue_or_detour
+    end: obstacle_clear_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 2.75
+      - 3.0
+      speed: 0.46
+      hold: 180.0
+  C05:
+    slot: crossing_slot
+    seed: 2004
+    start:
+    - 2.75
+    - -3.0
+    trigger_x: 0.65
+    initial_surface_gap_lower_bound_m: 2.75
+    allowed: safe_wait_then_continue_or_detour
+    end: obstacle_clear_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 2.75
+      - 3.0
+      speed: 0.48
+      hold: 180.0
+  C06:
+    slot: crossing_slot
+    seed: 2005
+    start:
+    - 2.75
+    - -3.0
+    trigger_x: 0.7
+    initial_surface_gap_lower_bound_m: 2.75
+    allowed: safe_wait_then_continue_or_detour
+    end: obstacle_clear_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 2.75
+      - 3.0
+      speed: 0.5
+      hold: 180.0
+  C07:
+    slot: crossing_slot
+    seed: 2006
+    start:
+    - 2.75
+    - -3.0
+    trigger_x: 0.75
+    initial_surface_gap_lower_bound_m: 2.75
+    allowed: safe_wait_then_continue_or_detour
+    end: obstacle_clear_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 2.75
+      - 3.0
+      speed: 0.52
+      hold: 180.0
+  C08:
+    slot: crossing_slot
+    seed: 2007
+    start:
+    - 2.75
+    - -3.0
+    trigger_x: 0.8
+    initial_surface_gap_lower_bound_m: 2.75
+    allowed: safe_wait_then_continue_or_detour
+    end: obstacle_clear_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 2.75
+      - 3.0
+      speed: 0.54
+      hold: 180.0
+  C09:
+    slot: crossing_slot
+    seed: 2008
+    start:
+    - 2.75
+    - -3.0
+    trigger_x: 0.85
+    initial_surface_gap_lower_bound_m: 2.75
+    allowed: safe_wait_then_continue_or_detour
+    end: obstacle_clear_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 2.75
+      - 3.0
+      speed: 0.56
+      hold: 180.0
+  C10:
+    slot: crossing_slot
+    seed: 2009
+    start:
+    - 2.75
+    - -3.0
+    trigger_x: 0.9
+    initial_surface_gap_lower_bound_m: 2.75
+    allowed: safe_wait_then_continue_or_detour
+    end: obstacle_clear_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 2.75
+      - 3.0
+      speed: 0.58
+      hold: 180.0
+  B01:
+    slot: blocking_slot
+    seed: 3000
+    start:
+    - 4.5
+    - 3.0
+    trigger_x: 0.15
+    initial_surface_gap_lower_bound_m: 3.75
+    allowed: real_detour_while_blocker_remains
+    end: goal_verified_within_120_sim_s_and_blocker_still_present
+    legs:
+    - to:
+      - 4.5
+      - 0.0
+      speed: 0.5
+      hold: 180.0
+  B02:
+    slot: blocking_slot
+    seed: 3001
+    start:
+    - 4.5
+    - 3.0
+    trigger_x: 0.17
+    initial_surface_gap_lower_bound_m: 3.75
+    allowed: real_detour_while_blocker_remains
+    end: goal_verified_within_120_sim_s_and_blocker_still_present
+    legs:
+    - to:
+      - 4.5
+      - 0.0
+      speed: 0.52
+      hold: 182.0
+  B03:
+    slot: blocking_slot
+    seed: 3002
+    start:
+    - 4.5
+    - 3.0
+    trigger_x: 0.19
+    initial_surface_gap_lower_bound_m: 3.75
+    allowed: real_detour_while_blocker_remains
+    end: goal_verified_within_120_sim_s_and_blocker_still_present
+    legs:
+    - to:
+      - 4.5
+      - 0.0
+      speed: 0.54
+      hold: 184.0
+  B04:
+    slot: blocking_slot
+    seed: 3003
+    start:
+    - 4.5
+    - 3.0
+    trigger_x: 0.21
+    initial_surface_gap_lower_bound_m: 3.75
+    allowed: real_detour_while_blocker_remains
+    end: goal_verified_within_120_sim_s_and_blocker_still_present
+    legs:
+    - to:
+      - 4.5
+      - 0.0
+      speed: 0.56
+      hold: 186.0
+  B05:
+    slot: blocking_slot
+    seed: 3004
+    start:
+    - 4.5
+    - 3.0
+    trigger_x: 0.23
+    initial_surface_gap_lower_bound_m: 3.75
+    allowed: real_detour_while_blocker_remains
+    end: goal_verified_within_120_sim_s_and_blocker_still_present
+    legs:
+    - to:
+      - 4.5
+      - 0.0
+      speed: 0.58
+      hold: 188.0
+  B06:
+    slot: blocking_slot
+    seed: 3005
+    start:
+    - 4.5
+    - 3.0
+    trigger_x: 0.25
+    initial_surface_gap_lower_bound_m: 3.75
+    allowed: real_detour_while_blocker_remains
+    end: goal_verified_within_120_sim_s_and_blocker_still_present
+    legs:
+    - to:
+      - 4.5
+      - 0.0
+      speed: 0.6
+      hold: 190.0
+  B07:
+    slot: blocking_slot
+    seed: 3006
+    start:
+    - 4.5
+    - 3.0
+    trigger_x: 0.27
+    initial_surface_gap_lower_bound_m: 3.75
+    allowed: real_detour_while_blocker_remains
+    end: goal_verified_within_120_sim_s_and_blocker_still_present
+    legs:
+    - to:
+      - 4.5
+      - 0.0
+      speed: 0.62
+      hold: 192.0
+  B08:
+    slot: blocking_slot
+    seed: 3007
+    start:
+    - 4.5
+    - 3.0
+    trigger_x: 0.29
+    initial_surface_gap_lower_bound_m: 3.75
+    allowed: real_detour_while_blocker_remains
+    end: goal_verified_within_120_sim_s_and_blocker_still_present
+    legs:
+    - to:
+      - 4.5
+      - 0.0
+      speed: 0.64
+      hold: 194.0
+  B09:
+    slot: blocking_slot
+    seed: 3008
+    start:
+    - 4.5
+    - 3.0
+    trigger_x: 0.31
+    initial_surface_gap_lower_bound_m: 3.75
+    allowed: real_detour_while_blocker_remains
+    end: goal_verified_within_120_sim_s_and_blocker_still_present
+    legs:
+    - to:
+      - 4.5
+      - 0.0
+      speed: 0.66
+      hold: 196.0
+  B10:
+    slot: blocking_slot
+    seed: 3009
+    start:
+    - 4.5
+    - 3.0
+    trigger_x: 0.33
+    initial_surface_gap_lower_bound_m: 3.75
+    allowed: real_detour_while_blocker_remains
+    end: goal_verified_within_120_sim_s_and_blocker_still_present
+    legs:
+    - to:
+      - 4.5
+      - 0.0
+      speed: 0.68
+      hold: 198.0
+  U01:
+    slot: approach_slot
+    seed: 4000
+    start:
+    - 6.0
+    - 3.0
+    trigger_x: 2.9
+    initial_surface_gap_lower_bound_m: 2.85
+    allowed: physical_stop_then_resume_when_scan_clear
+    end: obstacle_retreat_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 6.0
+      - 0.0
+      speed: 0.5
+      hold: 2.0
+    - to:
+      - 6.0
+      - 3.0
+      speed: 0.5
+      hold: 180.0
+  U02:
+    slot: approach_slot
+    seed: 4001
+    start:
+    - 6.0
+    - 3.0
+    trigger_x: 2.94
+    initial_surface_gap_lower_bound_m: 2.81
+    allowed: physical_stop_then_resume_when_scan_clear
+    end: obstacle_retreat_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 6.0
+      - 0.0
+      speed: 0.51
+      hold: 2.2
+    - to:
+      - 6.0
+      - 3.0
+      speed: 0.51
+      hold: 180.0
+  U03:
+    slot: approach_slot
+    seed: 4002
+    start:
+    - 6.0
+    - 3.0
+    trigger_x: 2.98
+    initial_surface_gap_lower_bound_m: 2.77
+    allowed: physical_stop_then_resume_when_scan_clear
+    end: obstacle_retreat_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 6.0
+      - 0.0
+      speed: 0.52
+      hold: 2.4
+    - to:
+      - 6.0
+      - 3.0
+      speed: 0.52
+      hold: 180.0
+  U04:
+    slot: approach_slot
+    seed: 4003
+    start:
+    - 6.0
+    - 3.0
+    trigger_x: 3.02
+    initial_surface_gap_lower_bound_m: 2.73
+    allowed: physical_stop_then_resume_when_scan_clear
+    end: obstacle_retreat_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 6.0
+      - 0.0
+      speed: 0.53
+      hold: 2.6
+    - to:
+      - 6.0
+      - 3.0
+      speed: 0.53
+      hold: 180.0
+  U05:
+    slot: approach_slot
+    seed: 4004
+    start:
+    - 6.0
+    - 3.0
+    trigger_x: 3.06
+    initial_surface_gap_lower_bound_m: 2.69
+    allowed: physical_stop_then_resume_when_scan_clear
+    end: obstacle_retreat_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 6.0
+      - 0.0
+      speed: 0.54
+      hold: 2.8
+    - to:
+      - 6.0
+      - 3.0
+      speed: 0.54
+      hold: 180.0
+  U06:
+    slot: approach_slot
+    seed: 4005
+    start:
+    - 6.0
+    - 3.0
+    trigger_x: 3.1
+    initial_surface_gap_lower_bound_m: 2.65
+    allowed: physical_stop_then_resume_when_scan_clear
+    end: obstacle_retreat_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 6.0
+      - 0.0
+      speed: 0.55
+      hold: 3.0
+    - to:
+      - 6.0
+      - 3.0
+      speed: 0.55
+      hold: 180.0
+  U07:
+    slot: approach_slot
+    seed: 4006
+    start:
+    - 6.0
+    - 3.0
+    trigger_x: 3.14
+    initial_surface_gap_lower_bound_m: 2.61
+    allowed: physical_stop_then_resume_when_scan_clear
+    end: obstacle_retreat_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 6.0
+      - 0.0
+      speed: 0.56
+      hold: 3.2
+    - to:
+      - 6.0
+      - 3.0
+      speed: 0.56
+      hold: 180.0
+  U08:
+    slot: approach_slot
+    seed: 4007
+    start:
+    - 6.0
+    - 3.0
+    trigger_x: 3.18
+    initial_surface_gap_lower_bound_m: 2.57
+    allowed: physical_stop_then_resume_when_scan_clear
+    end: obstacle_retreat_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 6.0
+      - 0.0
+      speed: 0.57
+      hold: 3.4
+    - to:
+      - 6.0
+      - 3.0
+      speed: 0.57
+      hold: 180.0
+  U09:
+    slot: approach_slot
+    seed: 4008
+    start:
+    - 6.0
+    - 3.0
+    trigger_x: 3.22
+    initial_surface_gap_lower_bound_m: 2.53
+    allowed: physical_stop_then_resume_when_scan_clear
+    end: obstacle_retreat_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 6.0
+      - 0.0
+      speed: 0.58
+      hold: 3.6
+    - to:
+      - 6.0
+      - 3.0
+      speed: 0.58
+      hold: 180.0
+  U10:
+    slot: approach_slot
+    seed: 4009
+    start:
+    - 6.0
+    - 3.0
+    trigger_x: 3.26
+    initial_surface_gap_lower_bound_m: 2.49
+    allowed: physical_stop_then_resume_when_scan_clear
+    end: obstacle_retreat_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 6.0
+      - 0.0
+      speed: 0.59
+      hold: 3.8
+    - to:
+      - 6.0
+      - 3.0
+      speed: 0.59
+      hold: 180.0

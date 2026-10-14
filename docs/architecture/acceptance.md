@@ -157,3 +157,7 @@
 ## 15. W11冻结静态导航判据
 
 W11 C2冻结（未放宽初值）：真值位置≤0.30m、偏航≤20°、静止（0.5s窗<0.05m/s且<0.05rad/s）保持2.0s，单例120s仿真上限（自首个目标接受起），Nav2结果须SUCCEEDED且目标工具核验通过；无环境接触（contact_events static_env/ground_nonfoot=0）、无跌倒。5例S01–S05与取消/替换例注册于`src/t1_navigation/config/w11_static_cases.yaml`（注册约束：起终点与1.5m进近段净距≥2.25m）。Nav2内部容差0.20m/0.20rad与工具核验是实现参数，不是验收判据。
+
+## 16. W13 版本审计例外（ADR-018，用户授权）
+
+§4 dirty=false仅对本会话用户文档采用一个明确例外：docs/start_commands.md，SHA256 2cbea0e2865a633ada3df75db27a06464fe0e2c280e2971819aede1bbbaab0d5。实际dirty=true和文件列表必须保留；源码、配置、测试集、地图和评测器必须干净，出现其他dirty路径或该文档字节变化仍为INVALID。所有到达、安全与样本数门槛保持。

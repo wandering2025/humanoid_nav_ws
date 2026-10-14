@@ -40,6 +40,7 @@ class T1SimRunner(MujocoController):
         self.cmd_status = 'BLOCKED_BY_STATE'
         self.action_norm = 0.0
         self.compute_ms = 0.0
+        self.policy_compute_ms = self.physics_compute_ms = 0.0
         self.state_events = []
         self.had_failure = False
         # Direct W04/W05 runner has no sensor; ROS entry point enables the gate.
@@ -202,7 +203,9 @@ class T1SimRunner(MujocoController):
             self.v_guard = self.command_map.expected(command)
         self.update_state()
         try:
+            policy_began = time.perf_counter()
             target = self.policy_step()
+            self.policy_compute_ms = (time.perf_counter() - policy_began) * 1000
         except Exception as exc:
             self.transition('FAULT', 'policy_exception')
             self.failure_detail = repr(exc)
@@ -215,7 +218,9 @@ class T1SimRunner(MujocoController):
             return False
         self.action_norm = float(torch.linalg.vector_norm(self.policy.last_action))
         try:
+            physics_began = time.perf_counter()
             self.ctrl_step(target)
+            self.physics_compute_ms = (time.perf_counter() - physics_began) * 1000
         except SimulationFault as exc:
             self.transition('FAULT', str(exc))
             return False
