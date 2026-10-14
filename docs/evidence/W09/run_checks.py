@@ -264,7 +264,7 @@ class Run:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('phase', choices=['c1', 'mapping', 'localization'])
+    parser.add_argument('phase', choices=['c1', 'mapping'])
     opts = parser.parse_args()
     assert os.environ.get('T1_LOCAL_DDS') == '1'
     server_log = (RAW/f'{opts.phase}-dds.txt').open('w')
@@ -308,8 +308,6 @@ def main():
                 assert response.result == 0, 'graph serialization failed'
                 result['map_save_command'] = cmd
                 result['serialized_pose_graph'] = str(RAW/'static_world')
-        else:
-            raise NotImplementedError('localization experiment follows saved map')
         result['verdict'] = 'PASS' if all(result['checks'].values()) else 'FAIL'
     except Exception as exc:
         result.update(verdict='FAIL', error=repr(exc))
@@ -317,7 +315,7 @@ def main():
     finally:
         if run:
             result['run'] = run.close()
-            expected='amcl' if opts.phase=='localization' else 'slam_toolbox'
+            expected='slam_toolbox'
             result.setdefault('checks', {})['actual_map_odom_owner']=(len(result['run']['map_odom_gids'])==1 and result['run']['map_odom_nodes']==[expected])
             result['checks']['clean_exit']=result['run']['exit_code']==0 and result['run']['manifest'].get('exit_code')==0
             if not all(result['checks'].values()):

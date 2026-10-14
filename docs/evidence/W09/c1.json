@@ -13,64 +13,64 @@
     "/tf": [
       {
         "node": "t1_sim",
-        "gid": "010fcc8173462e280000000000001903",
+        "gid": "010fcc81f962e2d70000000000001903",
         "type": "tf2_msgs/msg/TFMessage"
       },
       {
         "node": "robot_state_publisher",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "type": "tf2_msgs/msg/TFMessage"
       },
       {
         "node": "slam_toolbox",
-        "gid": "010fcc817546c70a0000000000002603",
+        "gid": "010fcc81fb627cfe0000000000002603",
         "type": "tf2_msgs/msg/TFMessage"
       },
       {
         "node": "slam_toolbox",
-        "gid": "010fcc817546c70a0000000000002a03",
+        "gid": "010fcc81fb627cfe0000000000002a03",
         "type": "tf2_msgs/msg/TFMessage"
       }
     ],
     "/clock": [
       {
         "node": "t1_sim",
-        "gid": "010fcc8173462e280000000000001303",
+        "gid": "010fcc81f962e2d70000000000001303",
         "type": "rosgraph_msgs/msg/Clock"
       }
     ],
     "/scan": [
       {
         "node": "t1_sim",
-        "gid": "010fcc8173462e280000000000001a03",
+        "gid": "010fcc81f962e2d70000000000001a03",
         "type": "sensor_msgs/msg/LaserScan"
       }
     ],
     "/odom": [
       {
         "node": "t1_sim",
-        "gid": "010fcc8173462e280000000000001603",
+        "gid": "010fcc81f962e2d70000000000001603",
         "type": "nav_msgs/msg/Odometry"
       }
     ],
     "/map": [
       {
         "node": "slam_toolbox",
-        "gid": "010fcc817546c70a0000000000003803",
+        "gid": "010fcc81fb627cfe0000000000003803",
         "type": "nav_msgs/msg/OccupancyGrid"
       }
     ],
     "/cmd_vel": [
       {
         "node": "w09_probe",
-        "gid": "010fcc81f7453b730000000000001303",
+        "gid": "010fcc817362d75c0000000000001303",
         "type": "geometry_msgs/msg/Twist"
       }
     ],
     "/initialpose": [
       {
         "node": "w09_probe",
-        "gid": "010fcc81f7453b730000000000001403",
+        "gid": "010fcc817362d75c0000000000001403",
         "type": "geometry_msgs/msg/PoseWithCovarianceStamped"
       }
     ]
@@ -89,35 +89,35 @@
   "initial_map_tf_stamp": 3.2,
   "verdict": "PASS",
   "run": {
-    "run_id": "w09_c1_f1f7c40d",
+    "run_id": "w09_c1_74a8cb44",
     "command": [
       "ros2",
       "launch",
       "t1_bringup",
       "mapping.launch.py",
-      "run_id:=w09_c1_f1f7c40d",
+      "run_id:=w09_c1_74a8cb44",
       "scene:=static_world",
       "target_rtf:=1.0",
       "rviz:=false",
       "max_sim_time:=220.0"
     ],
     "cwd": "/home/haoyang/humanoid_nav_ws",
-    "started_utc": "2026-10-14T13:17:51.131918+00:00",
-    "ended_utc": "2026-10-14T13:17:59.697439+00:00",
+    "started_utc": "2026-10-14T13:30:20.972952+00:00",
+    "ended_utc": "2026-10-14T13:30:29.158403+00:00",
     "exit_code": 0,
-    "wall_s": 8.565541912001208,
+    "wall_s": 8.185475949998363,
     "sim_end": 5.08,
     "manifest": {
       "schema": 1,
-      "run_id": "w09_c1_f1f7c40d",
-      "created_utc": "2026-10-14T13:17:53.125573+00:00",
-      "code_sha": "6954ae939672c9fceb9586d0c87f399357b97835",
+      "run_id": "w09_c1_74a8cb44",
+      "created_utc": "2026-10-14T13:30:22.847342+00:00",
+      "code_sha": "5d5ce34be030a7c060ebdd56c43023be7eca7cc1",
       "dirty": true,
       "dirty_files": [
         "M docs/start_commands.md",
-        "?? docs/evidence/W09/w09_c1_0e3941a0-trajectory.csv",
-        "?? docs/evidence/W09/w09_c1_1aa1c4c6-trajectory.csv",
-        "?? docs/evidence/W09/w09_c1_4e57f1cf-trajectory.csv"
+        "?? docs/evidence/W09/build-final.txt",
+        "?? docs/evidence/W09/test-final.txt",
+        "?? docs/evidence/W09/test-result-final.txt"
       ],
       "upstream_sha": {
         "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
@@ -145,7 +145,10 @@
       "time_limit_s": 220.0,
       "parameter_files": {
         "nav2": null,
-        "slam": null,
+        "slam": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/slam.yaml",
+          "sha256": "45ae81fab86f6d3755c9c03212a1f13f80209914ac6e46cce9bffbb9e5f3d357"
+        },
         "amcl": null,
         "velocity_smoother": null,
         "collision_monitor": null,
@@ -179,7 +182,7 @@
         "cmd_timeout_sim": 0.5,
         "cmd_timeout_wall": 0.5,
         "warmup_sim_s": 2.0,
-        "run_id": "w09_c1_f1f7c40d",
+        "run_id": "w09_c1_74a8cb44",
         "run_dir": "/home/haoyang/humanoid_nav_ws/run_data",
         "seed": 0,
         "max_sim_time": 220.0,
@@ -187,9 +190,12 @@
         "joint_state_divisor": 1,
         "lidar_noise_std": 0.0,
         "lidar_dropout": 0.0,
-        "lidar_publish_points": false
+        "lidar_publish_points": false,
+        "map_file": "",
+        "slam_params_file": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/slam.yaml",
+        "localization_params_file": ""
       },
-      "parameters_sha256": "ae55c331d4775d446e36e33f71734865580f1881b4ee27289985fe68421ff33c",
+      "parameters_sha256": "79d7df2622ed1551ff5d476e79b9359c3769abdfe8b7f9a907f424645073063b",
       "headless": true,
       "target_rtf": 1.0,
       "policy_dt": 0.02,
@@ -210,7 +216,7 @@
         "--params-file",
         "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/runtime.yaml",
         "--params-file",
-        "/tmp/launch_params_alttay06"
+        "/tmp/launch_params_eacoyea3"
       ],
       "status": "SHUTDOWN",
       "exit_code": 0,
@@ -438,116 +444,117 @@
         0.0
       ],
       "deadline_overruns": 1,
-      "physics_steps": 2690,
+      "physics_steps": 2760,
       "failure_detail": null,
-      "sim_time_end": 5.3799999999996295,
-      "wall_duration_s": 5.9822471879997465,
-      "ended_utc": "2026-10-14T13:17:59.104502+00:00"
+      "sim_time_end": 5.519999999999614,
+      "wall_duration_s": 5.7552476820019365,
+      "ended_utc": "2026-10-14T13:30:28.599716+00:00"
     },
+    "initializations": [],
     "graph": {
       "/tf": [
         {
           "node": "t1_sim",
-          "gid": "010fcc8173462e280000000000001903",
+          "gid": "010fcc81f962e2d70000000000001903",
           "type": "tf2_msgs/msg/TFMessage"
         },
         {
           "node": "robot_state_publisher",
-          "gid": "010fcc81744663dd0000000000001503",
+          "gid": "010fcc81fa62625e0000000000001503",
           "type": "tf2_msgs/msg/TFMessage"
         },
         {
           "node": "slam_toolbox",
-          "gid": "010fcc817546c70a0000000000002603",
+          "gid": "010fcc81fb627cfe0000000000002603",
           "type": "tf2_msgs/msg/TFMessage"
         },
         {
           "node": "slam_toolbox",
-          "gid": "010fcc817546c70a0000000000002a03",
+          "gid": "010fcc81fb627cfe0000000000002a03",
           "type": "tf2_msgs/msg/TFMessage"
         }
       ],
       "/clock": [
         {
           "node": "t1_sim",
-          "gid": "010fcc8173462e280000000000001303",
+          "gid": "010fcc81f962e2d70000000000001303",
           "type": "rosgraph_msgs/msg/Clock"
         }
       ],
       "/scan": [
         {
           "node": "t1_sim",
-          "gid": "010fcc8173462e280000000000001a03",
+          "gid": "010fcc81f962e2d70000000000001a03",
           "type": "sensor_msgs/msg/LaserScan"
         }
       ],
       "/odom": [
         {
           "node": "t1_sim",
-          "gid": "010fcc8173462e280000000000001603",
+          "gid": "010fcc81f962e2d70000000000001603",
           "type": "nav_msgs/msg/Odometry"
         }
       ],
       "/map": [
         {
           "node": "slam_toolbox",
-          "gid": "010fcc817546c70a0000000000003803",
+          "gid": "010fcc81fb627cfe0000000000003803",
           "type": "nav_msgs/msg/OccupancyGrid"
         }
       ],
       "/cmd_vel": [
         {
           "node": "w09_probe",
-          "gid": "010fcc81f7453b730000000000001303",
+          "gid": "010fcc817362d75c0000000000001303",
           "type": "geometry_msgs/msg/Twist"
         }
       ],
       "/initialpose": [
         {
           "node": "w09_probe",
-          "gid": "010fcc81f7453b730000000000001403",
+          "gid": "010fcc817362d75c0000000000001403",
           "type": "geometry_msgs/msg/PoseWithCovarianceStamped"
         }
       ]
     },
     "map_odom_gids": [
-      "010fcc817546c70a0000000000002603"
+      "010fcc81fb627cfe0000000000002603"
     ],
     "map_odom_nodes": [
       "slam_toolbox"
     ],
     "map_updates": [
       [
-        0.36000000000000004,
-        0.30000000000000004,
+        0.5,
+        0.5,
         200,
         200,
         18
       ],
       [
-        1.36,
-        1.3,
+        1.5,
+        1.5,
         200,
         200,
         18
       ],
       [
-        2.3600000000000003,
-        2.3000000000000003,
+        2.5,
+        2.5,
         200,
         200,
         18
       ],
       [
-        3.3600000000000003,
-        3.3000000000000003,
+        3.5,
+        3.5,
         200,
         200,
         18
       ],
       [
-        4.36,
-        4.300000000000001,
+        4.5,
+        4.5,
         200,
         200,
         18
@@ -559,163 +566,163 @@
       {
         "parent": "odom",
         "child": "base_footprint",
-        "gid": "010fcc8173462e280000000000001903",
+        "gid": "010fcc81f962e2d70000000000001903",
         "node": "t1_sim"
       },
       {
         "parent": "base_footprint",
         "child": "base_link",
-        "gid": "010fcc8173462e280000000000001903",
+        "gid": "010fcc81f962e2d70000000000001903",
         "node": "t1_sim"
       },
       {
         "parent": "base_footprint",
         "child": "laser_stabilized",
-        "gid": "010fcc8173462e280000000000001903",
+        "gid": "010fcc81f962e2d70000000000001903",
         "node": "t1_sim"
       },
       {
         "parent": "aahead_yaw_link",
         "child": "aahead_pitch_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "trunk",
         "child": "aahead_yaw_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "left_knee_pitch_link",
         "child": "left_ankle_pitch_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "left_ankle_pitch_link",
         "child": "left_ankle_roll_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "left_shoulder_roll_link",
         "child": "left_elbow_pitch_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "left_elbow_pitch_link",
         "child": "left_elbow_yaw_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "waist_yaw_link",
         "child": "left_hip_pitch_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "left_hip_pitch_link",
         "child": "left_hip_roll_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "left_hip_roll_link",
         "child": "left_hip_yaw_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "left_hip_yaw_link",
         "child": "left_knee_pitch_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "trunk",
         "child": "left_shoulder_pitch_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "left_shoulder_pitch_link",
         "child": "left_shoulder_roll_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "right_knee_pitch_link",
         "child": "right_ankle_pitch_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "right_ankle_pitch_link",
         "child": "right_ankle_roll_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "right_shoulder_roll_link",
         "child": "right_elbow_pitch_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "right_elbow_pitch_link",
         "child": "right_elbow_yaw_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "waist_yaw_link",
         "child": "right_hip_pitch_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "right_hip_pitch_link",
         "child": "right_hip_roll_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "right_hip_roll_link",
         "child": "right_hip_yaw_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "right_hip_yaw_link",
         "child": "right_knee_pitch_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "trunk",
         "child": "right_shoulder_pitch_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "right_shoulder_pitch_link",
         "child": "right_shoulder_roll_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "trunk",
         "child": "waist_yaw_link",
-        "gid": "010fcc81744663dd0000000000001503",
+        "gid": "010fcc81fa62625e0000000000001503",
         "node": "robot_state_publisher"
       },
       {
         "parent": "map",
         "child": "odom",
-        "gid": "010fcc817546c70a0000000000002603",
+        "gid": "010fcc81fb627cfe0000000000002603",
         "node": "slam_toolbox"
       }
     ]
