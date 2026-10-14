@@ -1,0 +1,330 @@
+{
+  "campaign": "performance-gui-v1",
+  "suite_sha256": "a2c9e5d9e81abe5d9afe817b3f5ee2152b9ec7d2252100e7407ad291ed65ea34",
+  "fingerprint": "803a148ea698195fe573b411a275ae762cc7bd299b8b60055c4a2171abfa556c",
+  "complete": false,
+  "verdict": "PARTIAL",
+  "counts": {
+    "static": {
+      "n": 10,
+      "success": 0
+    },
+    "crossing": {
+      "n": 10,
+      "success": 0
+    },
+    "blocking": {
+      "n": 10,
+      "success": 0
+    },
+    "sudden": {
+      "n": 10,
+      "success": 0
+    }
+  },
+  "rows": [
+    {
+      "case": "S01",
+      "suite": "static",
+      "seed": 1000,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S02",
+      "suite": "static",
+      "seed": 1001,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S03",
+      "suite": "static",
+      "seed": 1002,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S04",
+      "suite": "static",
+      "seed": 1003,
+      "outcome": "FAIL_TIMEOUT",
+      "attempts": 1,
+      "run_id": "20261014T231504Z_performance-gui-v1_S04_s1003_5ad1d5",
+      "code_sha": "ca7829a6a21cd6fbcd8d64afbea3aa4d05b0011b",
+      "dirty": true,
+      "nav2_result": "CANCELED",
+      "arrived_truth": false,
+      "pos_err_m": 1.1426599275704274,
+      "yaw_err_deg": 41.30897990015353,
+      "settle_s": 0.0,
+      "time_to_goal_s": null,
+      "path_len_m": 18.629626940562428,
+      "clear_body_env_min_m": 1.7442982194407224,
+      "clear_footprint_min_m": 1.3311100509081104,
+      "scan_min_range_m": 1.9110382795333862,
+      "n_env_collisions": 0,
+      "fell": false,
+      "n_safety_stops": 5,
+      "n_replans": 19,
+      "n_recoveries": 4,
+      "rtf_median": 0.9991126404656759,
+      "sim_time_s": 145.2599999999655,
+      "wall_time_s": 152.91400784299913,
+      "notes": "",
+      "evidence": "docs/evidence/W13/raw/performance-gui-v1/20261014T231504Z_performance-gui-v1_S04_s1003_5ad1d5/result.json"
+    },
+    {
+      "case": "S05",
+      "suite": "static",
+      "seed": 1004,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S06",
+      "suite": "static",
+      "seed": 1005,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S07",
+      "suite": "static",
+      "seed": 1006,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S08",
+      "suite": "static",
+      "seed": 1007,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S09",
+      "suite": "static",
+      "seed": 1008,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S10",
+      "suite": "static",
+      "seed": 1009,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C01",
+      "suite": "crossing",
+      "seed": 2000,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C02",
+      "suite": "crossing",
+      "seed": 2001,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C03",
+      "suite": "crossing",
+      "seed": 2002,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C04",
+      "suite": "crossing",
+      "seed": 2003,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C05",
+      "suite": "crossing",
+      "seed": 2004,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C06",
+      "suite": "crossing",
+      "seed": 2005,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C07",
+      "suite": "crossing",
+      "seed": 2006,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C08",
+      "suite": "crossing",
+      "seed": 2007,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C09",
+      "suite": "crossing",
+      "seed": 2008,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C10",
+      "suite": "crossing",
+      "seed": 2009,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B01",
+      "suite": "blocking",
+      "seed": 3000,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B02",
+      "suite": "blocking",
+      "seed": 3001,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B03",
+      "suite": "blocking",
+      "seed": 3002,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B04",
+      "suite": "blocking",
+      "seed": 3003,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B05",
+      "suite": "blocking",
+      "seed": 3004,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B06",
+      "suite": "blocking",
+      "seed": 3005,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B07",
+      "suite": "blocking",
+      "seed": 3006,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B08",
+      "suite": "blocking",
+      "seed": 3007,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B09",
+      "suite": "blocking",
+      "seed": 3008,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B10",
+      "suite": "blocking",
+      "seed": 3009,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U01",
+      "suite": "sudden",
+      "seed": 4000,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U02",
+      "suite": "sudden",
+      "seed": 4001,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U03",
+      "suite": "sudden",
+      "seed": 4002,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U04",
+      "suite": "sudden",
+      "seed": 4003,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U05",
+      "suite": "sudden",
+      "seed": 4004,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U06",
+      "suite": "sudden",
+      "seed": 4005,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U07",
+      "suite": "sudden",
+      "seed": 4006,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U08",
+      "suite": "sudden",
+      "seed": 4007,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U09",
+      "suite": "sudden",
+      "seed": 4008,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U10",
+      "suite": "sudden",
+      "seed": 4009,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    }
+  ]
+}

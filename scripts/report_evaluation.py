@@ -50,7 +50,7 @@ def performance(name, results):
             if result.get('nav2',{}).get('accepted_sim',float('inf')) <= sample['sim'] <= result.get('nav2',{}).get('end_sim',-float('inf')):
                 nav.setdefault(sample['process'],[]).append(sample['cpu_ms_per_wall_s'])
         sources.append(dict(run_id=result['run_id'],trace_sha256=sha(run/'sim_trace.csv'),geometry_sha256=sha(run/'geometry.jsonl'),contacts_sha256=sha(run/'contact_events.csv'),cpu_sha256=sha(cpu)))
-    return dict(samples={k:distribution(v) for k,v in pooled.items()},navigation_cpu_ms_per_wall_s={k:distribution(v) for k,v in nav.items()},sources=sources)
+    return dict(runs=[dict(run_id=r['run_id'],outcome=r['outcome'],target_rtf=r['manifest']['target_rtf'],headless=r['manifest']['headless'],sim_s=r['metrics']['sim_time_s'],wall_s=r['metrics']['wall_time_s']) for r in results.values()],samples={k:distribution(v) for k,v in pooled.items()},navigation_cpu_ms_per_wall_s={k:distribution(v) for k,v in nav.items()},sources=sources)
 
 
 
@@ -141,6 +141,7 @@ def main():
     previous=ast.parse(subprocess.check_output(['git','-C',str(WS),'show','e31e18313d05b9023c18b4d43e342409572d7c23:src/t1_mujoco/t1_mujoco/runner.py'],text=True))
     current=RemoveTimers().visit(ast.parse((WS/'src/t1_mujoco/t1_mujoco/runner.py').read_text()))
     checks['runner_control_ast_unchanged']=ast.dump(previous)==ast.dump(current)
+    checks['formal_headless_rtf_target']=perf['formal_headless_capped']['samples']['rtf']['median']>=1.0
     for campaign,threshold in [('performance-headless-v1',1.),('performance-gui-v1',.7)]:
         if campaign in perf:
             checks[campaign+'_rtf']=perf[campaign]['samples']['rtf'].get('median',0)>=threshold
@@ -190,18 +191,21 @@ def main():
     hardware=json.loads((WS/'docs/evidence/W13/start-state.json').read_text())
     lines=['# W13 性能测量','', '硬件：Intel Core Ultra 7 155H，WSL2 Ubuntu 24.04，22逻辑CPU；ROS2 Jazzy、MuJoCo3.15.0，具体Python/Torch/解释器、线程、checkpoint和命令行见逐run manifest。torch.set_num_threads(1)，同一进程owner推进2ms物理/20ms策略，9×360束扫描10Hz，Nav2 controller20Hz/MPPI1000×56，visualize=false、无ghost。',
         '', '正式40例采用target_rtf=1节拍。独立性能campaign使用headless target_rtf=1.1、GUI target_rtf=1.0，仅测该节拍是否可达，不声称极限容量；不混入正式可靠率。每模式只有一例S04，分布样本为该运行内策略/扫描/CPU窗口。GUI含实际MuJoCo passive viewer 30Hz和RViz；截图随专用campaign保存。',
+        '', '正式headless RTF严格目标按未舍入值比较。target_rtf=1的节拍上限使观测值接近1但有窗口抖动；没有四舍五入判PASS。额外headless1.1运行因FollowPath ACK超时失败，RTF不能证明完整导航>1.0；GUI1.0运行因终点未收敛120s超时，真实窗口/耗时仍保留，不计正式可靠率。',
         '', '| 运行组 | 指标 | N | 中位数 | P5 | P95 | 最大 |','|---|---|---:|---:|---:|---:|---:|']
     for campaign,data in perf.items():
         for key,d in data['samples'].items():
-            lines.append(f'| {campaign} | {key} {"" if key=="rtf" else "ms"} | {d["n"]} | {d.get("median",0):.5f} | {d.get("p5",0):.5f} | {d.get("p95",0):.5f} | {d.get("max",0):.5f} |')
+            lines.append(f'| {campaign} | {key} {"" if key=="rtf" else "ms"} | {d["n"]} | {d.get("median",0):.8f} | {d.get("p5",0):.8f} | {d.get("p95",0):.8f} | {d.get("max",0):.8f} |')
         for key,d in data['navigation_cpu_ms_per_wall_s'].items():
             lines.append(f'| {campaign} | {key} CPU ms/wall-s | {d["n"]} | {d.get("median",0):.3f} | {d.get("p5",0):.3f} | {d.get("p95",0):.3f} | {d.get("max",0):.3f} |')
     lines += ['', 'RTF来自10s墙钟滑窗Δsim/Δwall，排除前10s墙钟启动段；其他耗时为所有策略步的墙钟计时，scan仅统计due样本。physics_compute_ms包含10个PD/物理子步、mocap及接触钩子；policy_compute_ms只包policy_step；step_compute_ms还含状态处理。',
         '', '导航耗时为Linux /proc 对自持进程约0.5s墙钟窗口采样的user+sys CPU增量，归一化为CPU ms/wall-s；controller_server包含costmap和控制线程，不能解释为单次控制回调延迟。仅统计首个目标接受至工具结果结束之间的活动任务样本。按进程区分planner/controller/BT/behavior/AMCL/CM，完整采样及原trace留ignored raw并保存SHA。',
         '', '优化选择：现有配置已关闭MPPI采样轨迹visualize与ghost，raycast已批处理。本步增加观测并测量，未改变策略、物理dt/decimation、安全参数、扫描分辨率或Nav2参数。没有为改善数字改变/clock；若GUI未达0.7或headless未达1.0如实标记。']
+    median_formal=perf['formal_headless_capped']['samples']['rtf']['median']
+    lines.append(f'\n正式headless：中位数{median_formal:.10f}，严格目标≥1.0：{"PASS" if median_formal>=1.0 else "FAIL"}。')
     for name,threshold in [('performance-headless-v1',1.),('performance-gui-v1',.7)]:
         if name in perf:
-            median=perf[name]['samples']['rtf']['median'];lines.append(f'\n{name}: 中位数{median:.6f}，目标≥{threshold}：{"PASS" if median>=threshold else "FAIL"}。')
+            median=perf[name]['samples']['rtf']['median'];lines.append(f'\n专用运行结果：{perf[name]["runs"][0]["outcome"]}，run_id={perf[name]["runs"][0]["run_id"]}。');lines.append(f'\n{name}: 中位数{median:.6f}，目标≥{threshold}：{"PASS" if median>=threshold else "FAIL"}。')
     (out/'performance.md').write_text('\n'.join(lines)+'\n')
     fig,axes=plt.subplots(1,4,figsize=(16,4))
     for ax,suite in zip(axes,['static','crossing','blocking','sudden']):
