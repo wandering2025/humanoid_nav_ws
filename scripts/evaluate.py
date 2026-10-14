@@ -159,11 +159,18 @@ def export(opts):
             source=Path(attempt['output'])/'result.json'
             if source.exists():
                 shutil.copyfile(source,destination/(attempt['run_id']+'.json'))
+                # Compact 10 Hz physical tracks and actual obstacle/costmap samples.
+                for suffix in ('trajectory.csv','obstacle.csv','costmap.csv'):
+                    sample=source.parent/(case['id']+'-'+suffix)
+                    if sample.exists():
+                        shutil.copyfile(sample,destination/(attempt['run_id']+'-'+suffix))
+                for sample in source.parent.glob('*-final*.png'):
+                    shutil.copyfile(sample,destination/(attempt['run_id']+'-'+sample.name))
     save(destination/'state.json',state);save(destination/'summary.json',report)
     fields='run_id suite case seed code_sha dirty outcome nav2_result arrived_truth pos_err_m yaw_err_deg settle_s time_to_goal_s path_len_m clear_body_env_min_m clear_footprint_min_m scan_min_range_m n_env_collisions fell n_safety_stops n_replans n_recoveries rtf_median sim_time_s wall_time_s notes evidence attempts'.split()
     for filename,rows in [('results.csv',report['rows']),('failures.csv',[r for r in report['rows'] if r['outcome']!='SUCCESS'])]:
         with (destination/filename).open('w') as f:
-            writer=csv.DictWriter(f,fieldnames=fields);writer.writeheader();writer.writerows(rows)
+            writer=csv.DictWriter(f,fieldnames=fields,lineterminator='\n');writer.writeheader();writer.writerows(rows)
     print(json.dumps({k:v for k,v in report.items() if k!='rows'},indent=2))
 
 

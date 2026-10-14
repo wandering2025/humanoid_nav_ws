@@ -1,0 +1,2403 @@
+{
+  "label": "U09",
+  "case": null,
+  "seed": 4008,
+  "start": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "goal": [
+    9.0,
+    0.0,
+    0.0
+  ],
+  "tolerances": {
+    "position_m": 0.3,
+    "yaw_deg": 20.0,
+    "settle_s": 2.0,
+    "time_limit_s": 120.0
+  },
+  "time_limit_s": 120.0,
+  "nav_active_sim": 10.14,
+  "parameters": {
+    "controller_server": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "controller_frequency": 20.0
+    },
+    "behavior_server": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "behavior_plugins": [
+        "wait"
+      ],
+      "robot_base_frame": "base_footprint"
+    },
+    "planner_server": {
+      "use_sim_time": true,
+      "planner_plugins": [
+        "GridBased"
+      ]
+    },
+    "bt_navigator": {
+      "use_sim_time": true,
+      "robot_base_frame": "base_footprint"
+    },
+    "velocity_smoother": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "feedback": "OPEN_LOOP"
+    },
+    "collision_monitor": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "base_frame_id": "base_footprint"
+    },
+    "amcl": {
+      "use_sim_time": true,
+      "base_frame_id": "base_footprint"
+    },
+    "local_costmap/local_costmap": {
+      "robot_base_frame": "base_footprint",
+      "robot_radius": 2.05,
+      "use_sim_time": true
+    },
+    "global_costmap/global_costmap": {
+      "robot_base_frame": "base_footprint",
+      "robot_radius": 2.05,
+      "use_sim_time": true
+    },
+    "t1_navigation_adapter": {
+      "use_sim_time": true
+    },
+    "t1_command_gate": {
+      "use_sim_time": true,
+      "command_source": "navigation"
+    }
+  },
+  "parameter_checks": {
+    "sim_time_everywhere": true,
+    "unstamped": true,
+    "base_footprint": true,
+    "wait_only_behaviors": true,
+    "nav_radius": true,
+    "gate_navigation": true
+  },
+  "tool_exit": 0,
+  "run": {
+    "run_id": "20261014T230850Z_formal-v1_U09_s4008_278ae9",
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261014T230850Z_formal-v1_U09_s4008_278ae9",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=4008",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=U09"
+    ],
+    "cwd": "/home/haoyang/humanoid_nav_ws",
+    "started_utc": "2026-10-14T23:08:51.540982+00:00",
+    "ended_utc": "2026-10-14T23:10:17.678760+00:00",
+    "exit_code": 0,
+    "wall_s": 80.83336073499959,
+    "sim_end": 76.60000000000001,
+    "graph": {
+      "/clock": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "t1_evaluator",
+          "controller_server",
+          "local_costmap",
+          "transform_listener_impl_5755ff3c5030",
+          "planner_server",
+          "global_costmap",
+          "transform_listener_impl_5f5d7daba280",
+          "behavior_server",
+          "bt_navigator",
+          "bt_navigator_navigate_to_pose_rclcpp_node",
+          "lifecycle_manager_navigation",
+          "t1_navigation_adapter",
+          "robot_state_publisher",
+          "map_server",
+          "amcl",
+          "t1_command_gate",
+          "velocity_smoother",
+          "collision_monitor",
+          "lifecycle_manager_localization",
+          "lifecycle_manager_safety"
+        ],
+        "types": [
+          "rosgraph_msgs/msg/Clock"
+        ]
+      },
+      "/cmd_vel": {
+        "publishers": [
+          "collision_monitor"
+        ],
+        "subscribers": [
+          "t1_evaluator",
+          "t1_sim",
+          "t1_command_gate"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/cmd_vel_nav": {
+        "publishers": [
+          "t1_command_gate"
+        ],
+        "subscribers": [
+          "t1_evaluator",
+          "velocity_smoother"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/cmd_vel_smoothed": {
+        "publishers": [
+          "velocity_smoother"
+        ],
+        "subscribers": [
+          "t1_evaluator",
+          "collision_monitor"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/cmd_navigation": {
+        "publishers": [
+          "t1_navigation_adapter"
+        ],
+        "subscribers": [
+          "t1_evaluator",
+          "t1_command_gate"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/cmd_teleop": {
+        "publishers": [],
+        "subscribers": [
+          "t1_evaluator"
+        ],
+        "types": []
+      },
+      "/t1/nav/cmd_vel_raw": {
+        "publishers": [
+          "controller_server",
+          "behavior_server"
+        ],
+        "subscribers": [
+          "t1_evaluator",
+          "t1_navigation_adapter"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/eval/ground_truth": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "t1_evaluator"
+        ],
+        "types": [
+          "nav_msgs/msg/Odometry"
+        ]
+      },
+      "/t1/debug/policy_cmd": {
+        "publishers": [],
+        "subscribers": [],
+        "types": []
+      },
+      "/map": {
+        "publishers": [
+          "map_server"
+        ],
+        "subscribers": [
+          "t1_evaluator",
+          "global_costmap",
+          "amcl"
+        ],
+        "types": [
+          "nav_msgs/msg/OccupancyGrid"
+        ]
+      },
+      "/scan": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "t1_evaluator",
+          "local_costmap",
+          "global_costmap",
+          "amcl",
+          "t1_command_gate",
+          "collision_monitor"
+        ],
+        "types": [
+          "sensor_msgs/msg/LaserScan"
+        ]
+      },
+      "/odom": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "t1_evaluator",
+          "controller_server",
+          "bt_navigator",
+          "t1_command_gate"
+        ],
+        "types": [
+          "nav_msgs/msg/Odometry"
+        ]
+      },
+      "/initialpose": {
+        "publishers": [],
+        "subscribers": [
+          "t1_evaluator",
+          "amcl"
+        ],
+        "types": []
+      },
+      "/t1/eval/obstacle": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "t1_evaluator"
+        ],
+        "types": [
+          "std_msgs/msg/String"
+        ]
+      },
+      "/local_costmap/costmap": {
+        "publishers": [
+          "local_costmap"
+        ],
+        "subscribers": [
+          "t1_evaluator"
+        ],
+        "types": [
+          "nav_msgs/msg/OccupancyGrid"
+        ]
+      }
+    },
+    "tf_owners": {
+      "base_footprint": [
+        "t1_sim"
+      ],
+      "base_link": [
+        "t1_sim"
+      ],
+      "laser_stabilized": [
+        "t1_sim"
+      ],
+      "aahead_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "aahead_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_ankle_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_ankle_roll_link": [
+        "robot_state_publisher"
+      ],
+      "left_elbow_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_elbow_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_roll_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_knee_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_shoulder_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_shoulder_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_ankle_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_ankle_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_elbow_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_elbow_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "right_knee_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_shoulder_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_shoulder_roll_link": [
+        "robot_state_publisher"
+      ],
+      "waist_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "odom": [
+        "amcl"
+      ]
+    },
+    "tf_gids": {
+      "base_footprint": [
+        "010f074277b4ab990000000000001903"
+      ],
+      "base_link": [
+        "010f074277b4ab990000000000001903"
+      ],
+      "laser_stabilized": [
+        "010f074277b4ab990000000000001903"
+      ],
+      "aahead_pitch_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "aahead_yaw_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "left_ankle_pitch_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "left_ankle_roll_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "left_elbow_pitch_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "left_elbow_yaw_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "left_hip_pitch_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "left_hip_roll_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "left_hip_yaw_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "left_knee_pitch_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "left_shoulder_pitch_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "left_shoulder_roll_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "right_ankle_pitch_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "right_ankle_roll_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "right_elbow_pitch_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "right_elbow_yaw_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "right_hip_pitch_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "right_hip_roll_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "right_hip_yaw_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "right_knee_pitch_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "right_shoulder_pitch_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "right_shoulder_roll_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "waist_yaw_link": [
+        "010f074278b4b4100000000000001503"
+      ],
+      "odom": [
+        "010f07427ab46ba90000000000002203"
+      ]
+    },
+    "first_clock": 0.0,
+    "clock_regressions": 0,
+    "scan_stats": {
+      "count": 765,
+      "empty": 0,
+      "known_min": 1.0,
+      "min_range": 1.4134862422943115
+    },
+    "initializations": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "events": [
+      {
+        "kind": "gate",
+        "sim": 0.0,
+        "wall": 17213.443977234,
+        "state": "DISARMED",
+        "reason": "explicit arm required"
+      },
+      {
+        "kind": "sim_state",
+        "sim": 0.0,
+        "wall": 17214.092257378,
+        "state": "STARTING",
+        "fault": null
+      },
+      {
+        "kind": "sim_state",
+        "sim": 2.0,
+        "wall": 17216.112076943,
+        "state": "READY",
+        "fault": null
+      },
+      {
+        "kind": "gate",
+        "sim": 12.940000000000001,
+        "wall": 17227.104246687,
+        "state": "ARMED",
+        "reason": "awaiting a new source command"
+      },
+      {
+        "kind": "collision_monitor",
+        "sim": 24.6,
+        "wall": 17238.761766209,
+        "action_type": 2,
+        "polygon": "Slow"
+      },
+      {
+        "kind": "collision_monitor",
+        "sim": 24.84,
+        "wall": 17239.001444919,
+        "action_type": 0,
+        "polygon": ""
+      },
+      {
+        "kind": "collision_monitor",
+        "sim": 25.6,
+        "wall": 17239.761764514,
+        "action_type": 1,
+        "polygon": "Stop"
+      },
+      {
+        "kind": "collision_monitor",
+        "sim": 32.800000000000004,
+        "wall": 17246.961763845,
+        "action_type": 2,
+        "polygon": "Slow"
+      },
+      {
+        "kind": "collision_monitor",
+        "sim": 33.260000000000005,
+        "wall": 17247.421619094,
+        "action_type": 0,
+        "polygon": ""
+      }
+    ],
+    "children": [
+      [
+        "goal",
+        0
+      ]
+    ],
+    "manifest": {
+      "schema": 1,
+      "run_id": "20261014T230850Z_formal-v1_U09_s4008_278ae9",
+      "created_utc": "2026-10-14T23:08:54.561195+00:00",
+      "code_sha": "0ab077e201eb1b2fdab8cbccc38d4b8284f71a4c",
+      "dirty": true,
+      "dirty_files": [
+        "M docs/start_commands.md"
+      ],
+      "upstream_sha": {
+        "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+        "booster_assets": "12a97516f57469078707afb587a5f84c1cb110d1"
+      },
+      "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7",
+      "mjcf_sha256": "11633e33071833d9110e600399864611f8ad78cfc62c207949e9599e32bbcd18",
+      "scene_file": "/home/haoyang/humanoid_nav_ws/run_data/cache/scenes/24e8dea1e7c76ee40acfd5493a8b1c01dd191ad3174c213071a88be253582b0e/dynamic_crossing_world.xml",
+      "scene_sha256": "11633e33071833d9110e600399864611f8ad78cfc62c207949e9599e32bbcd18",
+      "mode": "navigation",
+      "suite": "dev",
+      "case": "dynamic_crossing_world",
+      "seed": 4008,
+      "sensor_mode": "compensated",
+      "odom_mode": "ideal_truth",
+      "map_yaml": "/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "map_sha256": "fad1a0cdc1a7b386857d79e8c5be842deb54da05ca9f180131e08caa1693563b",
+      "T_world_map": {
+        "x": 8.673617379884035e-19,
+        "y": 0.0,
+        "yaw": -4.336808689942018e-19
+      },
+      "goal": [
+        9,
+        0,
+        0
+      ],
+      "tolerances": null,
+      "time_limit_s": 180.0,
+      "parameter_files": {
+        "nav2": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml",
+          "sha256": "94ab4486b10599f6516954e45609d3db01ffef3cfee0a72b11058f55fcc2be13"
+        },
+        "slam": null,
+        "amcl": {
+          "path": "/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+          "sha256": "598d6c224834de4766018d9ab07e592f599668dceb9864f6dcdb358789f8c548"
+        },
+        "velocity_smoother": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        },
+        "collision_monitor": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        },
+        "command_map": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+          "sha256": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+          "evidence": {
+            "report": "docs/evidence/W05/locomotion-envelope.md",
+            "runs": {
+              "20261013T212155Z_dev_w05_c3": "00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe",
+              "20261013T215753Z_dev_w05_dense": "50ef2baf9ae2530bac0edfdc07c131f99725909836fe07511264fcc6dd33fb01",
+              "20261013T220627Z_dev_w05_context": "25976d72867333007b5a1cec96b1ea9d84920a620cde6cb0f79b09525bc8f65e"
+            },
+            "statistic": "largest 2 s window mean, >=3 s after command onset, segments >=8 s (raw traces)",
+            "tested_code_sha": "abc5b4a8248b05037ef02f46022c2a6779915acd",
+            "builder": "docs/evidence/W05/build_command_map.py",
+            "validation": "docs/evidence/W05/command-map-validation.json"
+          }
+        },
+        "events": {
+          "path": "/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+          "sha256": "23794bd05b3fe820c7c9dfcecf40cf8e683732b0d40c2cc99161fa587bae5853",
+          "scenario": "U09",
+          "seed": 4008,
+          "scene": "dynamic_crossing_world"
+        },
+        "command_gate": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        }
+      },
+      "resolved_parameters": {
+        "upstream_path": "/home/haoyang/robot_sim_sources/booster_deploy",
+        "assets_path": "",
+        "task": "t1_walk",
+        "mode": "navigation",
+        "scene": "dynamic_crossing_world",
+        "headless": true,
+        "viewer_rate_hz": 30.0,
+        "target_rtf": 1.0,
+        "enable_policy_cmd_input": false,
+        "cmd_timeout_sim": 0.5,
+        "cmd_timeout_wall": 0.5,
+        "warmup_sim_s": 2.0,
+        "run_id": "20261014T230850Z_formal-v1_U09_s4008_278ae9",
+        "run_dir": "/home/haoyang/humanoid_nav_ws/run_data",
+        "seed": 4008,
+        "max_sim_time": 180.0,
+        "command_map_file": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+        "joint_state_divisor": 1,
+        "lidar_noise_std": 0.0,
+        "lidar_dropout": 0.0,
+        "lidar_publish_points": false,
+        "map_file": "/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+        "slam_params_file": "",
+        "localization_params_file": "/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+        "safety_required": true,
+        "safety_params_file": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+        "start_pose": "0.0 0.0 0.0",
+        "navigation_params_file": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml",
+        "events_file": "/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+        "scenario": "U09"
+      },
+      "parameters_sha256": "a5ee46eb542ad32092ba7ae86ffc83d3eaa59d7b68d6b3d263c75b59005abded",
+      "headless": true,
+      "target_rtf": 1.0,
+      "policy_dt": 0.02,
+      "physics_dt": 0.002,
+      "decimation": 10,
+      "host": "DESKTOP-MF19MEU",
+      "cpu": "x86_64",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "executable": "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+      "ros": "jazzy",
+      "mujoco": "3.15.0",
+      "torch": "2.14.1+cu130",
+      "command_line": [
+        "/home/haoyang/humanoid_nav_ws/build/t1_mujoco/t1_mujoco/simulation.py",
+        "--ros-args",
+        "-r",
+        "__node:=t1_sim",
+        "--params-file",
+        "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/runtime.yaml",
+        "--params-file",
+        "/tmp/launch_params_t0munzsc"
+      ],
+      "status": "SHUTDOWN",
+      "exit_code": 0,
+      "map_image_sha256": "8652777ba15a030f1c57c7c4728644b22a5c182ce62ebb814c0e825edc0ecdf0",
+      "map_generated_code_sha": "a5321dbe98228bbaa6f77362e4121751f6a2fec3",
+      "scene_provenance": {
+        "schema": 1,
+        "name": "dynamic_crossing_world",
+        "assets_sha": "12a97516f57469078707afb587a5f84c1cb110d1",
+        "source_xml": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/T1_23dof.xml",
+          "sha256": "f00e3410362b1e2267e6db05d25c33d6240bbf2436d62a409f07042bad4f7fb2"
+        },
+        "layout": {
+          "path": "/home/haoyang/humanoid_nav_ws/src/t1_mujoco/worlds/dynamic_crossing_world.yaml",
+          "sha256": "55d926a636ae5c69f5685f5a746159596639d8a4ab95722b209e17f7af2fec11"
+        },
+        "license": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/LICENSE",
+          "sha256": "056db8cc7dcb21feae042d97185d4689c21bb1ba7fe59cefdc7ef5917c0ea77f"
+        },
+        "meshes": {
+          "Trunk": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Trunk.STL",
+            "sha256": "39d9610b23ef8ac7ea4343231a499f9c485903bede62df9729a2cd1254fede8f"
+          },
+          "H1": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/H1.STL",
+            "sha256": "527a2e426db4e3d476a195754764b7f9565a950b809a34e47618f177b139c3f2"
+          },
+          "H2": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/H2.STL",
+            "sha256": "9cbf4fe83a721c809de65b1f0d0a379314f4523f7e2f8af7f0edc27c2ce385aa"
+          },
+          "AL1": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AL1.STL",
+            "sha256": "43f5d268152b3c169d34731545ddfa2a510a7e16f209a2a80f8ba9ae0e1a40aa"
+          },
+          "AL2": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AL2.STL",
+            "sha256": "4bca60adb29c73f701350abd23e8a8d660dc61e87c5163a80157650dd3ad88c3"
+          },
+          "AL3": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AL3.STL",
+            "sha256": "bfdf5611dfe90f8e02b07b037c36a244f4ce7184b45113371ef46e624fb30854"
+          },
+          "left_hand_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/left_hand_link.STL",
+            "sha256": "34df992aed438446481cfa20e78327810cd5cc5ecbb4a6f32ba2bf625462f53d"
+          },
+          "AR1": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AR1.STL",
+            "sha256": "6dbbd3dab4486600747be9d0e7f8523d67bf00d24d0dc9c23db1766c4d808fcf"
+          },
+          "AR2": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AR2.STL",
+            "sha256": "0499136785fe1bc0289d9e503e1e0ea48f5a63420a2e45b0fcd9e6b3bcf8f999"
+          },
+          "AR3": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AR3.STL",
+            "sha256": "92330bd8286fe420fb76949ee4c5d5bdec2e6bb30426acdc4d6fae9257464631"
+          },
+          "right_hand_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/right_hand_link.STL",
+            "sha256": "c5a73e493e17db7611a81785f80c01167f51018271b4042f72fa8d2351d8b0eb"
+          },
+          "Waist": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Waist.STL",
+            "sha256": "2fe0a9ccfc284beca402e554db38e83022592192afa00f02db13cb374ffe9fbc"
+          },
+          "Hip_Pitch_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Pitch_Left.STL",
+            "sha256": "7bcb8be569aeb5379cb75a0827d682bc1d73a52a7f515d3aeffece43842c33c9"
+          },
+          "Hip_Roll_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Roll_Left.STL",
+            "sha256": "72dbd65bdb4e87444c8e538474f631d63bf8c0960922517456b8cf2be9e1d0f0"
+          },
+          "Hip_Yaw_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Yaw_Left.STL",
+            "sha256": "8d7de83ab4034639db3d1be1e6f43ae16e004dc2f1c2bec170b615686d187918"
+          },
+          "Shank_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Shank_Left.STL",
+            "sha256": "6ae8dd7f88cb70a4a3cb3972cad4035a76f1604fd73ea66e285da553b3703c40"
+          },
+          "Ankle_Cross_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Ankle_Cross_Left.STL",
+            "sha256": "e6ec38741838475834c147f2ad18196c0254741e602c2b676f888fd12b5d7981"
+          },
+          "left_foot_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/left_foot_link.STL",
+            "sha256": "2de026f2269fc55f80d4a8abd2e33dfd152adf9eb2c240d7d7e1dc40c13b55aa"
+          },
+          "Hip_Pitch_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Pitch_Right.STL",
+            "sha256": "054d579c3c6ccc1f97aaf1461d802dec748ce1bf26c6fdd289283a2d0dbb2032"
+          },
+          "Hip_Roll_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Roll_Right.STL",
+            "sha256": "d715a7649ea4bf20d7ee17b3a57bae31732e467b9da1053fee2242c90f50980f"
+          },
+          "Hip_Yaw_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Yaw_Right.STL",
+            "sha256": "1a7d98e021884e313c55780a3c7c24ef2aa322807d8f9f8b18b2a63c7e2b9bf6"
+          },
+          "Shank_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Shank_Right.STL",
+            "sha256": "dc66a8a0e2e31e413884a053e427d9b5007bef4508986587916a638a8a448599"
+          },
+          "Ankle_Cross_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Ankle_Cross_Right.STL",
+            "sha256": "b15d91f0f2470fc4d5634db906a3d7efaf1f700302e6671824494da8faf50308"
+          },
+          "right_foot_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/right_foot_link.STL",
+            "sha256": "313a9ff2f95da5727dce2b98c50b60226bf0a3affc72050ee251ea503e4b370a"
+          },
+          "Logo": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Logo.STL",
+            "sha256": "221b00d090fdc9e684892805db75265c9688b152b3ccf641084f950f220596c8"
+          }
+        },
+        "scene_metadata": {
+          "schema": 1,
+          "source_model": "robots/T1/T1_23dof.xml",
+          "bounds": [
+            -2.5,
+            11.5,
+            -5.5,
+            5.5
+          ],
+          "initial_pose": [
+            0,
+            0,
+            0
+          ],
+          "goal": [
+            9,
+            0,
+            0
+          ],
+          "minimum_passage_m": 5.0,
+          "obstacle_height_m": 1.5,
+          "name": "dynamic_crossing_world",
+          "purpose": "Clear A/B main corridor; crossing, blocking (detour via north/south passage) and sudden-approach regions for W12 mocap obstacles.",
+          "boxes": [
+            {
+              "name": "north_ledge",
+              "center": [
+                9.5,
+                5.1,
+                0.75
+              ],
+              "size": [
+                1.2,
+                0.8,
+                1.5
+              ]
+            },
+            {
+              "name": "south_pillar",
+              "center": [
+                -1.9,
+                -4.9,
+                0.75
+              ],
+              "size": [
+                1.2,
+                1.2,
+                1.5
+              ]
+            },
+            {
+              "name": "east_bump",
+              "center": [
+                11.2,
+                -2.0,
+                0.75
+              ],
+              "size": [
+                0.6,
+                1.0,
+                1.5
+              ]
+            }
+          ],
+          "activity_regions": [
+            {
+              "name": "crossing",
+              "bounds": [
+                2.0,
+                3.5,
+                -4.5,
+                4.5
+              ]
+            },
+            {
+              "name": "blocking",
+              "bounds": [
+                4.0,
+                5.0,
+                -0.5,
+                0.5
+              ]
+            },
+            {
+              "name": "approach",
+              "bounds": [
+                5.5,
+                6.5,
+                -3.0,
+                3.0
+              ]
+            }
+          ],
+          "obstacle_slots": [
+            {
+              "name": "crossing_slot",
+              "region": "crossing",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                1.5
+              ],
+              "motion_implemented": true
+            },
+            {
+              "name": "blocking_slot",
+              "region": "blocking",
+              "shape": "box",
+              "size": [
+                1.0,
+                1.0,
+                1.5
+              ],
+              "motion_implemented": true
+            },
+            {
+              "name": "approach_slot",
+              "region": "approach",
+              "shape": "box",
+              "size": [
+                0.5,
+                0.5,
+                1.5
+              ],
+              "motion_implemented": true
+            }
+          ]
+        },
+        "dynamic_motion_implemented": true,
+        "active_slot": "approach_slot",
+        "expanded_xml": {
+          "path": "/home/haoyang/humanoid_nav_ws/run_data/cache/scenes/24e8dea1e7c76ee40acfd5493a8b1c01dd191ad3174c213071a88be253582b0e/dynamic_crossing_world.xml",
+          "sha256": "11633e33071833d9110e600399864611f8ad78cfc62c207949e9599e32bbcd18"
+        },
+        "start_pose_override": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "start_pose_override": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "lidar_config": {
+        "noise_std": 0.0,
+        "dropout": 0.0,
+        "seed": 4008,
+        "publish_points": false,
+        "angles": 360,
+        "elevations": [
+          -20.0,
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0
+        ],
+        "range_min": 0.15,
+        "range_max": 12.0,
+        "height_min": 0.15,
+        "height_max": 1.2,
+        "divisor": 5
+      },
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.6000000238418579,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "model_dimensions": {
+        "nq": 30,
+        "nv": 29,
+        "nu": 23,
+        "nmocap": 1
+      },
+      "deadline_overruns": 5,
+      "physics_steps": 38320,
+      "failure_detail": null,
+      "contact_counts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "sim_time_end": 76.64000000000279,
+      "wall_duration_s": 77.12570969999797,
+      "ended_utc": "2026-10-14T23:10:16.985896+00:00"
+    },
+    "documentation_sha256_at_start": "6973bb1c423297cebdf2c1a97391487023d3b4af955e3a51d4fc735b2fba7027",
+    "recovery_counts_by_goal": {
+      "102765bf4ec84292915708640356fa34": 5,
+      "30a5091fe5ac4dd9b1a621f0d822f621": 0,
+      "752d1724196b42ef90cbd5d16fd04371": 0
+    },
+    "remaining_owned_pids": [],
+    "observed_owned_pids": [
+      242780,
+      242807,
+      242808,
+      242809,
+      242810,
+      242811,
+      242812,
+      242813,
+      243104,
+      243134,
+      243135,
+      243283,
+      243284,
+      243285,
+      243286,
+      243287,
+      243288,
+      243289,
+      243290,
+      243339
+    ]
+  },
+  "nav2": {
+    "event": "result",
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "time_limit_s": 120.0,
+    "tolerances": {
+      "xy": 0.2,
+      "yaw": 0.2
+    },
+    "attempts": [
+      {
+        "stage": "approach",
+        "target": [
+          7.5,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 12.940000000000001,
+        "goal_id": "102765bf4ec84292915708640356fa34",
+        "status": "PASSED",
+        "end_sim": 53.32,
+        "passed_pose": [
+          7.194006785654985,
+          0.16667477995040667,
+          -0.05868519511230331
+        ]
+      },
+      {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 53.32,
+        "goal_id": "30a5091fe5ac4dd9b1a621f0d822f621",
+        "status": "SUCCEEDED",
+        "end_sim": 54.260000000000005,
+        "error_code": 0,
+        "verify_sim": 56.0,
+        "verified_pose": [
+          7.4208560688382486,
+          0.08644440180683564,
+          -0.07250752350123711
+        ],
+        "xy_error": 1.5815082010311334,
+        "yaw_error": 0.07250752350123711,
+        "next_aim_yaw": 0.07250752350123711
+      },
+      {
+        "stage": "terminal_retry",
+        "target": [
+          9.0,
+          0.0,
+          0.07250752350123711
+        ],
+        "accepted_sim": 56.0,
+        "goal_id": "752d1724196b42ef90cbd5d16fd04371",
+        "status": "SUCCEEDED",
+        "end_sim": 62.540000000000006,
+        "error_code": 0,
+        "verify_sim": 64.4,
+        "verified_pose": [
+          9.008446911181439,
+          0.13312420924126486,
+          0.030680824487398638
+        ],
+        "xy_error": 0.13339192402323008,
+        "yaw_error": 0.030680824487398638
+      }
+    ],
+    "arm_attempts": 1,
+    "approach_distance": 1.5,
+    "accepted_sim": 12.940000000000001,
+    "goal_id": "102765bf4ec84292915708640356fa34",
+    "status": "SUCCEEDED",
+    "timed_out": false,
+    "end_sim": 64.4,
+    "duration_sim": 51.46000000000001,
+    "verified": {
+      "stage": "terminal_retry",
+      "target": [
+        9.0,
+        0.0,
+        0.07250752350123711
+      ],
+      "accepted_sim": 56.0,
+      "goal_id": "752d1724196b42ef90cbd5d16fd04371",
+      "status": "SUCCEEDED",
+      "end_sim": 62.540000000000006,
+      "error_code": 0,
+      "verify_sim": 64.4,
+      "verified_pose": [
+        9.008446911181439,
+        0.13312420924126486,
+        0.030680824487398638
+      ],
+      "xy_error": 0.13339192402323008,
+      "yaw_error": 0.030680824487398638
+    },
+    "terminal_retries": 1,
+    "error_code": 0,
+    "nav2_success_sim": 62.540000000000006,
+    "exit": 0
+  },
+  "metrics": {
+    "nav2_status": "SUCCEEDED",
+    "nav2_error_code": 0,
+    "tool_exit": 0,
+    "time_to_goal_s": 49.60000000000001,
+    "task_duration_s": 51.46000000000001,
+    "terminal_retries": 1,
+    "attempts": [
+      {
+        "stage": "approach",
+        "target": [
+          7.5,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 12.940000000000001,
+        "goal_id": "102765bf4ec84292915708640356fa34",
+        "status": "PASSED",
+        "end_sim": 53.32,
+        "passed_pose": [
+          7.194006785654985,
+          0.16667477995040667,
+          -0.05868519511230331
+        ]
+      },
+      {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 53.32,
+        "goal_id": "30a5091fe5ac4dd9b1a621f0d822f621",
+        "status": "SUCCEEDED",
+        "end_sim": 54.260000000000005,
+        "error_code": 0,
+        "verify_sim": 56.0,
+        "verified_pose": [
+          7.4208560688382486,
+          0.08644440180683564,
+          -0.07250752350123711
+        ],
+        "xy_error": 1.5815082010311334,
+        "yaw_error": 0.07250752350123711,
+        "next_aim_yaw": 0.07250752350123711
+      },
+      {
+        "stage": "terminal_retry",
+        "target": [
+          9.0,
+          0.0,
+          0.07250752350123711
+        ],
+        "accepted_sim": 56.0,
+        "goal_id": "752d1724196b42ef90cbd5d16fd04371",
+        "status": "SUCCEEDED",
+        "end_sim": 62.540000000000006,
+        "error_code": 0,
+        "verify_sim": 64.4,
+        "verified_pose": [
+          9.008446911181439,
+          0.13312420924126486,
+          0.030680824487398638
+        ],
+        "xy_error": 0.13339192402323008,
+        "yaw_error": 0.030680824487398638
+      }
+    ],
+    "verified": {
+      "stage": "terminal_retry",
+      "target": [
+        9.0,
+        0.0,
+        0.07250752350123711
+      ],
+      "accepted_sim": 56.0,
+      "goal_id": "752d1724196b42ef90cbd5d16fd04371",
+      "status": "SUCCEEDED",
+      "end_sim": 62.540000000000006,
+      "error_code": 0,
+      "verify_sim": 64.4,
+      "verified_pose": [
+        9.008446911181439,
+        0.13312420924126486,
+        0.030680824487398638
+      ],
+      "xy_error": 0.13339192402323008,
+      "yaw_error": 0.030680824487398638
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 63.160000000031225,
+      "settle_delay_s": 0.6200000000312187,
+      "pos_err_m": 0.16429974097546934,
+      "yaw_err_deg": 2.147965970061002
+    },
+    "arrived_truth": true,
+    "path_len_m": 10.25717957106315,
+    "straight_m": 9.0,
+    "detour": {
+      "first_plan_length_m": 7.47607676571895,
+      "straight_m": 9.0,
+      "max_lateral_from_straight_m": 0.0019999172985549762
+    },
+    "n_plans": 10,
+    "clear_center_min_m": 2.4651773136387263,
+    "clear_footprint_min_m": 0.9276676114225286,
+    "scan_min_range_m": 1.4134862422943115,
+    "env_contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "safety": {
+      "cm_stop": 1,
+      "cm_slowdown": 2,
+      "gate_stopped": 0,
+      "bridge_timeouts": 0
+    },
+    "log_counts": {
+      "tf_extrapolation": 0,
+      "tf_old_data": 0,
+      "tf_timeout": 0,
+      "no_valid_control": 10,
+      "progress_failure": 0,
+      "planning_failure": 6,
+      "goal_aborted": 3,
+      "collision_ahead": 0,
+      "scan_dropped": 0
+    },
+    "nav_activated_in_log": true,
+    "scan_empty": 0,
+    "scan_known_min": 1.0,
+    "rtf_median": 0.9999981885798984,
+    "sim_time_s": 76.64000000000279,
+    "wall_time_s": 80.83336073499959,
+    "min_trunk_z": 0.6195557038722014,
+    "graph_checks": {
+      "final_only_collision_monitor": true,
+      "gate_only_cmd_vel_nav": true,
+      "adapter_only_navigation_source": true,
+      "nav2_into_adapter_only": true,
+      "no_teleop_source": true,
+      "one_clock": true,
+      "truth_isolated": true,
+      "debug_disabled": true,
+      "twist_only": true,
+      "amcl_map_odom": true,
+      "sim_base": true,
+      "unique_tf": true
+    },
+    "settle_complete_task_s": 52.220000000031234,
+    "n_safety_stops": 11,
+    "n_recoveries": 5
+  },
+  "layers_csv": "docs/evidence/W13/raw/formal-v1/20261014T230850Z_formal-v1_U09_s4008_278ae9/U09-layers.csv",
+  "layer_summary": {
+    "adapter_reasons": {
+      "no_fresh_nav_command": 233,
+      "vx_lifted": 17,
+      "walk": 300,
+      "in_place": 66,
+      "stop": 8,
+      "below_gait_zeroed": 59,
+      "reverse_zeroed,below_gait_zeroed": 9,
+      "reverse_zeroed,in_place": 1
+    },
+    "samples": 766,
+    "final_vs_measured_vx_ratio_median": 0.8472638085706359,
+    "adapter_differs_from_raw": 152,
+    "final_less_than_gate": 95
+  },
+  "plans": [
+    {
+      "sim": 12.96,
+      "n": 298,
+      "length": 7.47607676571895,
+      "points": [
+        [
+          0.024000037997961243,
+          -0.0019999172985549762
+        ],
+        [
+          0.29900004209578057,
+          -0.0019999172985549762
+        ],
+        [
+          0.5490000458210709,
+          -0.0019999172985549762
+        ],
+        [
+          0.7990000495463612,
+          -0.0019999172985549762
+        ],
+        [
+          1.0490000532716515,
+          -0.0019999172985549762
+        ],
+        [
+          1.2990000569969418,
+          -0.0019999172985549762
+        ],
+        [
+          1.549000060722232,
+          -0.0019999172985549762
+        ],
+        [
+          1.7990000644475224,
+          -0.0019999172985549762
+        ],
+        [
+          2.0490000681728127,
+          -0.0019999172985549762
+        ],
+        [
+          2.299000071898103,
+          -0.0019999172985549762
+        ],
+        [
+          2.5490000756233933,
+          -0.0019999172985549762
+        ],
+        [
+          2.7990000793486836,
+          -0.0019999172985549762
+        ],
+        [
+          3.049000083073974,
+          -0.0019999172985549762
+        ],
+        [
+          3.299000086799264,
+          -0.0019999172985549762
+        ],
+        [
+          3.5490000905245545,
+          -0.0019999172985549762
+        ],
+        [
+          3.7990000942498448,
+          -0.0019999172985549762
+        ],
+        [
+          4.049000097975135,
+          -0.0019999172985549762
+        ],
+        [
+          4.299000101700425,
+          -0.0019999172985549762
+        ],
+        [
+          4.549000105425716,
+          -0.0019999172985549762
+        ],
+        [
+          4.799000109151006,
+          -0.0019999172985549762
+        ],
+        [
+          5.049000112876296,
+          -0.0019999172985549762
+        ],
+        [
+          5.2990001166015865,
+          -0.0019999172985549762
+        ],
+        [
+          5.549000120326877,
+          -0.0019999172985549762
+        ],
+        [
+          5.799000124052167,
+          -0.0019999172985549762
+        ],
+        [
+          6.049000127777457,
+          -0.0019999172985549762
+        ],
+        [
+          6.299000131502748,
+          -0.0019999172985549762
+        ],
+        [
+          6.549000135228038,
+          -0.0019999172985549762
+        ],
+        [
+          6.799000138953328,
+          -0.0019999172985549762
+        ],
+        [
+          7.049000142678619,
+          -0.0019999172985549762
+        ],
+        [
+          7.299000146403909,
+          -0.0019999172985549762
+        ],
+        [
+          7.5,
+          0.0
+        ]
+      ]
+    },
+    {
+      "sim": 62.080000000000005,
+      "n": 10,
+      "length": 0.2608428323740477,
+      "points": [
+        [
+          8.924000170618296,
+          0.1480000849366192
+        ],
+        [
+          9.0,
+          0.0
+        ]
+      ]
+    }
+  ],
+  "outcome": "SUCCESS",
+  "dynamic": {
+    "scenario": "approach",
+    "checks": {
+      "triggered_after_actual_walking": true,
+      "scan_hits_entity": true,
+      "local_costmap_marks_entity": true,
+      "no_planner_obstacle_truth": true,
+      "no_teleop": true,
+      "dimensions": true,
+      "vacated_costmap_clears": true,
+      "actual_stop_in_protection": true,
+      "safely_resumed": true,
+      "navigation_success": true
+    },
+    "verdict": "PASS",
+    "trigger_sim": 22.17399999999859,
+    "scan_hit_frames": 541,
+    "costmap_marked_samples": 79,
+    "costmap_cleared_samples": 66,
+    "actual_stop_sim": 25.279999999996868,
+    "resume_sim": 46.44000000001079,
+    "stopped_hold_s": 8.540000000000001,
+    "min_center_surface_gap_m": 1.5093162182763782,
+    "min_rotated_footprint_gap_m": 0.9276676114225286,
+    "max_robot_lateral_m": 0.22588696076862239,
+    "initial_plan_lateral_m": 0.0019999172985549762,
+    "replanned_lateral_m": 0.8515387330582556,
+    "scan_topic_samples": [
+      {
+        "sim": 22.3,
+        "obstacle": {
+          "episode": 0,
+          "sim_time": 22.219999999998564,
+          "slot": "approach_slot",
+          "position": [
+            6.0,
+            2.974480000000014,
+            0.75
+          ],
+          "size": [
+            0.5,
+            0.5,
+            1.5
+          ],
+          "phase": "move_0",
+          "triggered_at": 22.17399999999859
+        },
+        "hits": [
+          [
+            221,
+            3.812502861022949,
+            6.256888382299495,
+            2.6686814032678656
+          ],
+          [
+            225,
+            3.5377390384674072,
+            5.881118590177604,
+            2.6703086112287897
+          ],
+          [
+            226,
+            3.4776766300201416,
+            5.795357264242934,
+            2.67067608554217
+          ],
+          [
+            227,
+            3.4581706523895264,
+            5.738121950480078,
+            2.698388171030527
+          ],
+          [
+            228,
+            3.5086450576782227,
+            5.727666858848846,
+            2.7767101743928517
+          ],
+          [
+            229,
+            3.57705020904541,
+            5.726998876960263,
+            2.868915665953306
+          ],
+          [
+            230,
+            3.6493279933929443,
+            5.726316121194455,
+            2.964831956553244
+          ],
+          [
+            231,
+            3.743044376373291,
+            5.736537968217698,
+            3.078141795811823
+          ],
+          [
+            232,
+            3.8248136043548584,
+            5.736116380438892,
+            3.183246302373628
+          ]
+        ],
+        "laser_pose_odom": [
+          3.370954084302507,
+          0.17738429273431833,
+          0.8762096156964929,
+          -0.0034457772329322595
+        ],
+        "scan_frame": "laser_stabilized",
+        "cm": null
+      },
+      {
+        "sim": 49.5,
+        "obstacle": {
+          "episode": 0,
+          "sim_time": 49.42000000001443,
+          "slot": "approach_slot",
+          "position": [
+            6.0,
+            3.0,
+            0.75
+          ],
+          "size": [
+            0.5,
+            0.5,
+            1.5
+          ],
+          "phase": "hold_1",
+          "triggered_at": 22.17399999999859
+        },
+        "hits": [
+          [
+            260,
+            2.5808701515197754,
+            6.21035076696925,
+            2.749151068958833
+          ],
+          [
+            261,
+            2.573413848876953,
+            6.164758017146945,
+            2.7492382105393562
+          ],
+          [
+            262,
+            2.5667800903320312,
+            6.119414172859934,
+            2.7493248476582353
+          ],
+          [
+            263,
+            2.5609586238861084,
+            6.074289803913487,
+            2.749411156721994
+          ],
+          [
+            264,
+            2.5559403896331787,
+            6.029356008698934,
+            2.749497184192209
+          ],
+          [
+            265,
+            2.5517172813415527,
+            5.984584331934832,
+            2.7495826422951852
+          ],
+          [
+            266,
+            2.5482828617095947,
+            5.939946772802935,
+            2.749667649826205
+          ],
+          [
+            267,
+            2.5456318855285645,
+            5.895415654375702,
+            2.7497522838959303
+          ],
+          [
+            268,
+            2.543759822845459,
+            5.8509635417952826,
+            2.7498361229563124
+          ],
+          [
+            269,
+            2.5426642894744873,
+            5.806563243602707,
+            2.7499196911625408
+          ],
+          [
+            270,
+            2.5423405170440674,
+            5.762187660480971,
+            2.7499999414050627
+          ]
+        ],
+        "laser_pose_odom": [
+          5.761227307980448,
+          0.2076596057444389,
+          0.8796163403714948,
+          -0.0003776195411758373
+        ],
+        "scan_frame": "laser_stabilized",
+        "cm": [
+          0,
+          ""
+        ]
+      },
+      {
+        "sim": 76.5,
+        "obstacle": {
+          "episode": 0,
+          "sim_time": 76.4200000000033,
+          "slot": "approach_slot",
+          "position": [
+            6.0,
+            3.0,
+            0.75
+          ],
+          "size": [
+            0.5,
+            0.5,
+            1.5
+          ],
+          "phase": "hold_1",
+          "triggered_at": 22.17399999999859
+        },
+        "hits": [
+          [
+            311,
+            4.199711799621582,
+            6.250169148077491,
+            3.2189811065142337
+          ],
+          [
+            312,
+            4.123987197875977,
+            6.250151879287771,
+            3.1140529406947786
+          ],
+          [
+            313,
+            4.052156925201416,
+            6.250135597854402,
+            3.0128109859716283
+          ],
+          [
+            314,
+            3.983978033065796,
+            6.250120446344907,
+            2.9150056195194973
+          ],
+          [
+            315,
+            3.9192285537719727,
+            6.250106504941333,
+            2.820408013039573
+          ],
+          [
+            316,
+            3.873380661010742,
+            6.23839009960575,
+            2.7392357740407096
+          ],
+          [
+            317,
+            3.9508676528930664,
+            6.135115567355043,
+            2.7389008605347973
+          ],
+          [
+            318,
+            4.041855812072754,
+            6.020601981867975,
+            2.744354880675289
+          ],
+          [
+            319,
+            4.129000663757324,
+            5.908006373957734,
+            2.744175884155875
+          ],
+          [
+            320,
+            4.221304416656494,
+            5.790408648177386,
+            2.743991460854663
+          ]
+        ],
+        "laser_pose_odom": [
+          9.130379376735302,
+          0.16251775181559405,
+          0.8855280828466098,
+          0.04013314852456108
+        ],
+        "scan_frame": "laser_stabilized",
+        "cm": [
+          0,
+          ""
+        ]
+      }
+    ]
+  },
+  "case_spec": {
+    "id": "U09",
+    "suite": "sudden",
+    "seed": 4008,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "scenario": "U09",
+    "kind": "approach",
+    "attempts": [
+      {
+        "run_id": "20261014T230850Z_formal-v1_U09_s4008_278ae9",
+        "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T230850Z_formal-v1_U09_s4008_278ae9",
+        "state": "RUNNING"
+      }
+    ]
+  },
+  "run_id": "20261014T230850Z_formal-v1_U09_s4008_278ae9",
+  "protocol": "w13_v1",
+  "validity_checks": {
+    "source_clean": true,
+    "fresh_clock": true,
+    "monotonic_clock": true,
+    "one_initialpose": true,
+    "complete_manifest": true,
+    "frozen_timing": true,
+    "processes_reaped": true,
+    "runtime_graph": true
+  },
+  "documentation_dirty_exception": {
+    "authorized": true,
+    "actual_dirty": true,
+    "actual_dirty_files": [
+      "M docs/start_commands.md"
+    ],
+    "document_sha256_at_start": "6973bb1c423297cebdf2c1a97391487023d3b4af955e3a51d4fc735b2fba7027",
+    "document_sha256": "6973bb1c423297cebdf2c1a97391487023d3b4af955e3a51d4fc735b2fba7027"
+  },
+  "body_clearance": {
+    "min_m": 1.3250436692605385,
+    "sim_time": 31.919999999993188,
+    "geom_pair": [
+      "t1_geom_036",
+      "obstacle_approach_slot"
+    ],
+    "samples": 767,
+    "robot_geoms": 22,
+    "environment_geoms": 8,
+    "sample_hz": 10,
+    "definition": "signed 3D MuJoCo collision geometry distance; excludes ground/self/visual; sampled minimum, not continuous bound"
+  },
+  "stopping": [],
+  "performance": {
+    "step_compute_ms": {
+      "n": 3832,
+      "median": 3.094799001701176,
+      "p5": 2.08641275021364,
+      "p95": 5.212118951203592,
+      "max": 45.23423699720297
+    },
+    "policy_compute_ms": {
+      "n": 3832,
+      "median": 1.2598670000443235,
+      "p5": 0.687500501771865,
+      "p95": 2.203185348844272,
+      "max": 42.303198999434244
+    },
+    "physics_compute_ms": {
+      "n": 3832,
+      "median": 1.402145000611199,
+      "p5": 0.8538104508261313,
+      "p95": 3.0218781013900293,
+      "max": 6.919704999745591
+    },
+    "scan_compute_ms": {
+      "n": 766,
+      "median": 1.811032499972498,
+      "p5": 1.0210532491328195,
+      "p95": 3.097932750279142,
+      "max": 4.516281998803606
+    },
+    "rtf": {
+      "n": 3333,
+      "median": 1.0000001161983534,
+      "p5": 0.9957005297323595,
+      "p95": 1.0000243227328192,
+      "max": 1.0002217588670042
+    },
+    "navigation_cpu_ms_per_wall_s": {
+      "amcl": {
+        "n": 133,
+        "median": 99.6669781415654,
+        "p5": 39.99993249599895,
+        "p95": 159.9888363180289,
+        "max": 239.9189021327422
+      },
+      "behavior_server": {
+        "n": 133,
+        "median": 59.99433989427049,
+        "p5": 39.97323456445111,
+        "p95": 99.95268656280834,
+        "max": 99.99963980137831
+      },
+      "bt_navigator": {
+        "n": 133,
+        "median": 119.97965816964503,
+        "p5": 59.7783045847085,
+        "p95": 179.9099026340293,
+        "max": 199.95510447934805
+      },
+      "collision_monitor": {
+        "n": 133,
+        "median": 99.93282715278563,
+        "p5": 59.97001815451877,
+        "p95": 139.89908103926518,
+        "max": 139.9853986824768
+      },
+      "controller_server": {
+        "n": 133,
+        "median": 139.934802976769,
+        "p5": 71.61482117428287,
+        "p95": 239.91540533373848,
+        "max": 279.9529292738877
+      },
+      "planner_server": {
+        "n": 133,
+        "median": 79.99598596130436,
+        "p5": 59.89627148932998,
+        "p95": 119.97630335736224,
+        "max": 139.96857313554293
+      },
+      "t1_sim": {
+        "n": 133,
+        "median": 377.476326153366,
+        "p5": 259.82728235833054,
+        "p95": 558.7543879417237,
+        "max": 599.8653134380477
+      }
+    }
+  },
+  "contact_events": [],
+  "outcome_legacy": "SUCCESS",
+  "inputs": {
+    "src/t1_bringup/config/test_suite_v1.yaml": "a2c9e5d9e81abe5d9afe817b3f5ee2152b9ec7d2252100e7407ad291ed65ea34",
+    "src/t1_bringup/config/w13_events_v1.yaml": "23794bd05b3fe820c7c9dfcecf40cf8e683732b0d40c2cc99161fa587bae5853",
+    "src/t1_mujoco/worlds/dynamic_crossing_world.yaml": "55d926a636ae5c69f5685f5a746159596639d8a4ab95722b209e17f7af2fec11",
+    "src/t1_navigation/maps/dynamic_crossing_world.meta.yaml": "bad8d568ae149f4bea2315fe43646e0d98c8c9b9f03eac3e1f5f76778e2fe220"
+  },
+  "manifest": {
+    "schema": 1,
+    "run_id": "20261014T230850Z_formal-v1_U09_s4008_278ae9",
+    "created_utc": "2026-10-14T23:08:54.561195+00:00",
+    "code_sha": "0ab077e201eb1b2fdab8cbccc38d4b8284f71a4c",
+    "dirty": true,
+    "dirty_files": [
+      "M docs/start_commands.md"
+    ],
+    "upstream_sha": {
+      "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+      "booster_assets": "12a97516f57469078707afb587a5f84c1cb110d1"
+    },
+    "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7",
+    "mjcf_sha256": "11633e33071833d9110e600399864611f8ad78cfc62c207949e9599e32bbcd18",
+    "scene_file": "/home/haoyang/humanoid_nav_ws/run_data/cache/scenes/24e8dea1e7c76ee40acfd5493a8b1c01dd191ad3174c213071a88be253582b0e/dynamic_crossing_world.xml",
+    "scene_sha256": "11633e33071833d9110e600399864611f8ad78cfc62c207949e9599e32bbcd18",
+    "mode": "navigation",
+    "suite": "sudden",
+    "case": "U09",
+    "seed": 4008,
+    "sensor_mode": "compensated",
+    "odom_mode": "ideal_truth",
+    "map_yaml": "/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+    "map_sha256": "fad1a0cdc1a7b386857d79e8c5be842deb54da05ca9f180131e08caa1693563b",
+    "T_world_map": {
+      "x": 8.673617379884035e-19,
+      "y": 0.0,
+      "yaw": -4.336808689942018e-19
+    },
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "tolerances": {
+      "position_m": 0.3,
+      "yaw_deg": 20.0,
+      "settle_s": 2.0,
+      "time_limit_s": 120.0
+    },
+    "time_limit_s": 120.0,
+    "parameter_files": {
+      "nav2": {
+        "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml",
+        "sha256": "94ab4486b10599f6516954e45609d3db01ffef3cfee0a72b11058f55fcc2be13"
+      },
+      "slam": null,
+      "amcl": {
+        "path": "/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+        "sha256": "598d6c224834de4766018d9ab07e592f599668dceb9864f6dcdb358789f8c548"
+      },
+      "velocity_smoother": {
+        "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+        "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+      },
+      "collision_monitor": {
+        "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+        "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+      },
+      "command_map": {
+        "path": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+        "sha256": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+        "evidence": {
+          "report": "docs/evidence/W05/locomotion-envelope.md",
+          "runs": {
+            "20261013T212155Z_dev_w05_c3": "00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe",
+            "20261013T215753Z_dev_w05_dense": "50ef2baf9ae2530bac0edfdc07c131f99725909836fe07511264fcc6dd33fb01",
+            "20261013T220627Z_dev_w05_context": "25976d72867333007b5a1cec96b1ea9d84920a620cde6cb0f79b09525bc8f65e"
+          },
+          "statistic": "largest 2 s window mean, >=3 s after command onset, segments >=8 s (raw traces)",
+          "tested_code_sha": "abc5b4a8248b05037ef02f46022c2a6779915acd",
+          "builder": "docs/evidence/W05/build_command_map.py",
+          "validation": "docs/evidence/W05/command-map-validation.json"
+        }
+      },
+      "events": {
+        "path": "/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+        "sha256": "23794bd05b3fe820c7c9dfcecf40cf8e683732b0d40c2cc99161fa587bae5853",
+        "scenario": "U09",
+        "seed": 4008,
+        "scene": "dynamic_crossing_world"
+      },
+      "command_gate": {
+        "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+        "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+      }
+    },
+    "resolved_parameters": {
+      "upstream_path": "/home/haoyang/robot_sim_sources/booster_deploy",
+      "assets_path": "",
+      "task": "t1_walk",
+      "mode": "navigation",
+      "scene": "dynamic_crossing_world",
+      "headless": true,
+      "viewer_rate_hz": 30.0,
+      "target_rtf": 1.0,
+      "enable_policy_cmd_input": false,
+      "cmd_timeout_sim": 0.5,
+      "cmd_timeout_wall": 0.5,
+      "warmup_sim_s": 2.0,
+      "run_id": "20261014T230850Z_formal-v1_U09_s4008_278ae9",
+      "run_dir": "/home/haoyang/humanoid_nav_ws/run_data",
+      "seed": 4008,
+      "max_sim_time": 180.0,
+      "command_map_file": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+      "joint_state_divisor": 1,
+      "lidar_noise_std": 0.0,
+      "lidar_dropout": 0.0,
+      "lidar_publish_points": false,
+      "map_file": "/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "slam_params_file": "",
+      "localization_params_file": "/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "safety_required": true,
+      "safety_params_file": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+      "start_pose": "0.0 0.0 0.0",
+      "navigation_params_file": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml",
+      "events_file": "/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario": "U09"
+    },
+    "parameters_sha256": "a5ee46eb542ad32092ba7ae86ffc83d3eaa59d7b68d6b3d263c75b59005abded",
+    "headless": true,
+    "target_rtf": 1.0,
+    "policy_dt": 0.02,
+    "physics_dt": 0.002,
+    "decimation": 10,
+    "host": "DESKTOP-MF19MEU",
+    "cpu": "x86_64",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "executable": "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+    "ros": "jazzy",
+    "mujoco": "3.15.0",
+    "torch": "2.14.1+cu130",
+    "command_line": [
+      "/home/haoyang/humanoid_nav_ws/build/t1_mujoco/t1_mujoco/simulation.py",
+      "--ros-args",
+      "-r",
+      "__node:=t1_sim",
+      "--params-file",
+      "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/runtime.yaml",
+      "--params-file",
+      "/tmp/launch_params_t0munzsc"
+    ],
+    "status": "SHUTDOWN",
+    "exit_code": 0,
+    "map_image_sha256": "8652777ba15a030f1c57c7c4728644b22a5c182ce62ebb814c0e825edc0ecdf0",
+    "map_generated_code_sha": "a5321dbe98228bbaa6f77362e4121751f6a2fec3",
+    "scene_provenance": {
+      "schema": 1,
+      "name": "dynamic_crossing_world",
+      "assets_sha": "12a97516f57469078707afb587a5f84c1cb110d1",
+      "source_xml": {
+        "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/T1_23dof.xml",
+        "sha256": "f00e3410362b1e2267e6db05d25c33d6240bbf2436d62a409f07042bad4f7fb2"
+      },
+      "layout": {
+        "path": "/home/haoyang/humanoid_nav_ws/src/t1_mujoco/worlds/dynamic_crossing_world.yaml",
+        "sha256": "55d926a636ae5c69f5685f5a746159596639d8a4ab95722b209e17f7af2fec11"
+      },
+      "license": {
+        "path": "/home/haoyang/robot_sim_sources/booster_assets/LICENSE",
+        "sha256": "056db8cc7dcb21feae042d97185d4689c21bb1ba7fe59cefdc7ef5917c0ea77f"
+      },
+      "meshes": {
+        "Trunk": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Trunk.STL",
+          "sha256": "39d9610b23ef8ac7ea4343231a499f9c485903bede62df9729a2cd1254fede8f"
+        },
+        "H1": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/H1.STL",
+          "sha256": "527a2e426db4e3d476a195754764b7f9565a950b809a34e47618f177b139c3f2"
+        },
+        "H2": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/H2.STL",
+          "sha256": "9cbf4fe83a721c809de65b1f0d0a379314f4523f7e2f8af7f0edc27c2ce385aa"
+        },
+        "AL1": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AL1.STL",
+          "sha256": "43f5d268152b3c169d34731545ddfa2a510a7e16f209a2a80f8ba9ae0e1a40aa"
+        },
+        "AL2": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AL2.STL",
+          "sha256": "4bca60adb29c73f701350abd23e8a8d660dc61e87c5163a80157650dd3ad88c3"
+        },
+        "AL3": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AL3.STL",
+          "sha256": "bfdf5611dfe90f8e02b07b037c36a244f4ce7184b45113371ef46e624fb30854"
+        },
+        "left_hand_link": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/left_hand_link.STL",
+          "sha256": "34df992aed438446481cfa20e78327810cd5cc5ecbb4a6f32ba2bf625462f53d"
+        },
+        "AR1": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AR1.STL",
+          "sha256": "6dbbd3dab4486600747be9d0e7f8523d67bf00d24d0dc9c23db1766c4d808fcf"
+        },
+        "AR2": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AR2.STL",
+          "sha256": "0499136785fe1bc0289d9e503e1e0ea48f5a63420a2e45b0fcd9e6b3bcf8f999"
+        },
+        "AR3": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AR3.STL",
+          "sha256": "92330bd8286fe420fb76949ee4c5d5bdec2e6bb30426acdc4d6fae9257464631"
+        },
+        "right_hand_link": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/right_hand_link.STL",
+          "sha256": "c5a73e493e17db7611a81785f80c01167f51018271b4042f72fa8d2351d8b0eb"
+        },
+        "Waist": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Waist.STL",
+          "sha256": "2fe0a9ccfc284beca402e554db38e83022592192afa00f02db13cb374ffe9fbc"
+        },
+        "Hip_Pitch_Left": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Pitch_Left.STL",
+          "sha256": "7bcb8be569aeb5379cb75a0827d682bc1d73a52a7f515d3aeffece43842c33c9"
+        },
+        "Hip_Roll_Left": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Roll_Left.STL",
+          "sha256": "72dbd65bdb4e87444c8e538474f631d63bf8c0960922517456b8cf2be9e1d0f0"
+        },
+        "Hip_Yaw_Left": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Yaw_Left.STL",
+          "sha256": "8d7de83ab4034639db3d1be1e6f43ae16e004dc2f1c2bec170b615686d187918"
+        },
+        "Shank_Left": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Shank_Left.STL",
+          "sha256": "6ae8dd7f88cb70a4a3cb3972cad4035a76f1604fd73ea66e285da553b3703c40"
+        },
+        "Ankle_Cross_Left": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Ankle_Cross_Left.STL",
+          "sha256": "e6ec38741838475834c147f2ad18196c0254741e602c2b676f888fd12b5d7981"
+        },
+        "left_foot_link": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/left_foot_link.STL",
+          "sha256": "2de026f2269fc55f80d4a8abd2e33dfd152adf9eb2c240d7d7e1dc40c13b55aa"
+        },
+        "Hip_Pitch_Right": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Pitch_Right.STL",
+          "sha256": "054d579c3c6ccc1f97aaf1461d802dec748ce1bf26c6fdd289283a2d0dbb2032"
+        },
+        "Hip_Roll_Right": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Roll_Right.STL",
+          "sha256": "d715a7649ea4bf20d7ee17b3a57bae31732e467b9da1053fee2242c90f50980f"
+        },
+        "Hip_Yaw_Right": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Yaw_Right.STL",
+          "sha256": "1a7d98e021884e313c55780a3c7c24ef2aa322807d8f9f8b18b2a63c7e2b9bf6"
+        },
+        "Shank_Right": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Shank_Right.STL",
+          "sha256": "dc66a8a0e2e31e413884a053e427d9b5007bef4508986587916a638a8a448599"
+        },
+        "Ankle_Cross_Right": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Ankle_Cross_Right.STL",
+          "sha256": "b15d91f0f2470fc4d5634db906a3d7efaf1f700302e6671824494da8faf50308"
+        },
+        "right_foot_link": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/right_foot_link.STL",
+          "sha256": "313a9ff2f95da5727dce2b98c50b60226bf0a3affc72050ee251ea503e4b370a"
+        },
+        "Logo": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Logo.STL",
+          "sha256": "221b00d090fdc9e684892805db75265c9688b152b3ccf641084f950f220596c8"
+        }
+      },
+      "scene_metadata": {
+        "schema": 1,
+        "source_model": "robots/T1/T1_23dof.xml",
+        "bounds": [
+          -2.5,
+          11.5,
+          -5.5,
+          5.5
+        ],
+        "initial_pose": [
+          0,
+          0,
+          0
+        ],
+        "goal": [
+          9,
+          0,
+          0
+        ],
+        "minimum_passage_m": 5.0,
+        "obstacle_height_m": 1.5,
+        "name": "dynamic_crossing_world",
+        "purpose": "Clear A/B main corridor; crossing, blocking (detour via north/south passage) and sudden-approach regions for W12 mocap obstacles.",
+        "boxes": [
+          {
+            "name": "north_ledge",
+            "center": [
+              9.5,
+              5.1,
+              0.75
+            ],
+            "size": [
+              1.2,
+              0.8,
+              1.5
+            ]
+          },
+          {
+            "name": "south_pillar",
+            "center": [
+              -1.9,
+              -4.9,
+              0.75
+            ],
+            "size": [
+              1.2,
+              1.2,
+              1.5
+            ]
+          },
+          {
+            "name": "east_bump",
+            "center": [
+              11.2,
+              -2.0,
+              0.75
+            ],
+            "size": [
+              0.6,
+              1.0,
+              1.5
+            ]
+          }
+        ],
+        "activity_regions": [
+          {
+            "name": "crossing",
+            "bounds": [
+              2.0,
+              3.5,
+              -4.5,
+              4.5
+            ]
+          },
+          {
+            "name": "blocking",
+            "bounds": [
+              4.0,
+              5.0,
+              -0.5,
+              0.5
+            ]
+          },
+          {
+            "name": "approach",
+            "bounds": [
+              5.5,
+              6.5,
+              -3.0,
+              3.0
+            ]
+          }
+        ],
+        "obstacle_slots": [
+          {
+            "name": "crossing_slot",
+            "region": "crossing",
+            "shape": "box",
+            "size": [
+              0.5,
+              0.5,
+              1.5
+            ],
+            "motion_implemented": true
+          },
+          {
+            "name": "blocking_slot",
+            "region": "blocking",
+            "shape": "box",
+            "size": [
+              1.0,
+              1.0,
+              1.5
+            ],
+            "motion_implemented": true
+          },
+          {
+            "name": "approach_slot",
+            "region": "approach",
+            "shape": "box",
+            "size": [
+              0.5,
+              0.5,
+              1.5
+            ],
+            "motion_implemented": true
+          }
+        ]
+      },
+      "dynamic_motion_implemented": true,
+      "active_slot": "approach_slot",
+      "expanded_xml": {
+        "path": "/home/haoyang/humanoid_nav_ws/run_data/cache/scenes/24e8dea1e7c76ee40acfd5493a8b1c01dd191ad3174c213071a88be253582b0e/dynamic_crossing_world.xml",
+        "sha256": "11633e33071833d9110e600399864611f8ad78cfc62c207949e9599e32bbcd18"
+      },
+      "start_pose_override": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "start_pose_override": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "lidar_config": {
+      "noise_std": 0.0,
+      "dropout": 0.0,
+      "seed": 4008,
+      "publish_points": false,
+      "angles": 360,
+      "elevations": [
+        -20.0,
+        -15.0,
+        -10.0,
+        -5.0,
+        0.0,
+        5.0,
+        10.0,
+        15.0,
+        20.0
+      ],
+      "range_min": 0.15,
+      "range_max": 12.0,
+      "height_min": 0.15,
+      "height_max": 1.2,
+      "divisor": 5
+    },
+    "initial_pose": [
+      0.0,
+      0.0,
+      0.6000000238418579,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "model_dimensions": {
+      "nq": 30,
+      "nv": 29,
+      "nu": 23,
+      "nmocap": 1
+    },
+    "deadline_overruns": 5,
+    "physics_steps": 38320,
+    "failure_detail": null,
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "sim_time_end": 76.64000000000279,
+    "wall_duration_s": 77.12570969999797,
+    "ended_utc": "2026-10-14T23:10:16.985896+00:00",
+    "scene_nominal_goal": [
+      9,
+      0,
+      0
+    ],
+    "simulator_manifest_sha256": "0e837a79bae838e44ab1ddc672fc0d402c4dd72ff5b0a617d54079b5eb79d355"
+  }
+}

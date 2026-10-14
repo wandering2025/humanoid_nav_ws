@@ -102,6 +102,20 @@ def classify(result, validity):
     """Deterministic precedence, with all underlying causes retained in JSON."""
     m = result.get('metrics', {})
     c = m.get('env_contacts', {})
+    checks = result.get('validity_checks', {})
+    protocol = ('source_clean', 'fresh_clock', 'monotonic_clock', 'frozen_timing')
+    if checks and any(checks.get(k) is False for k in protocol):
+        return 'INVALID'
+    manifest = result.get('manifest') or result.get('run', {}).get('manifest', {})
+    if manifest.get('status') == 'FALLEN':
+        return 'FAIL_FALL'
+    # Missing AMCL TF/initialpose is an observed bringup failure, not a bad
+    # measurement protocol. Require intact source/time/manifest/cleanup evidence.
+    startup = (not result.get('nav_active_sim') and result.get('error') and
+               not result.get('metric_error') and
+               all(checks.get(k) is True for k in (*protocol, 'complete_manifest', 'processes_reaped')))
+    if startup:
+        return 'FAIL_LOCALIZATION' if result.get('run', {}).get('initializations') else 'FAIL_STARTUP'
     if not validity:
         return 'INVALID'
     if m.get('fell') or c.get('ground_nonfoot', 0):

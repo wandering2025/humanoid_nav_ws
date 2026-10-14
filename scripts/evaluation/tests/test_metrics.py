@@ -87,3 +87,17 @@ def test_tf_resolution_by_gid_preserves_duplicate_publishers():
 def test_timeout_cancel_is_not_mislabelled_safety_failure():
     assert classify(dict(nav_active_sim=12,nav2=dict(timed_out=True),metrics=dict(safety=dict(gate_stopped=1))), True)=='FAIL_TIMEOUT'
     assert classify(dict(outcome='SUCCESS',metrics=dict(settle_complete_task_s=120.1)), True)=='FAIL_TIMEOUT'
+
+
+
+def test_startup_missing_expected_tf_is_failed_startup_not_invalid():
+    result=dict(error='AMCL lifecycle timeout',run=dict(initializations=[],manifest=dict(status='SHUTDOWN')),
+        validity_checks=dict(source_clean=True,fresh_clock=True,monotonic_clock=True,frozen_timing=True,
+            complete_manifest=True,processes_reaped=True,one_initialpose=False,runtime_graph=False))
+    assert classify(result,False)=='FAIL_STARTUP'
+    result['validity_checks']['source_clean']=False
+    assert classify(result,False)=='INVALID'
+
+
+def test_fall_terminal_manifest_even_without_terminal_trace_row():
+    assert classify(dict(run=dict(manifest=dict(status='FALLEN')),metrics=dict(fell=False)),True)=='FAIL_FALL'

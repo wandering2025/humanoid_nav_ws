@@ -31,14 +31,14 @@ cmake --build docs/evidence/W09/raw/authority-build
 
 停车事件保存CM stop触发时刻、零策略延迟、零策略后最大平移、W05 .5s窗静止保持2s与恢复时刻。任务接受前的启动停车单独留原始events、不混入任务制动统计。`n_recoveries`来自NavigateToPose反馈number_of_recoveries（按goal UUID取最大后求和）；`n_replans`为/plan更新数减首条，包含分段目标换目标，日志失败分类另保留。
 
-性能测量记录每策略步policy/physics总计算ms、扫描due耗时及10s墙钟RTF。导航进程/proc CPU约.5s墙钟窗，单位CPU ms/wall-s，包含线程开销；不是回调延迟。正式可靠率target_rtf=1；容量测量另用T1_EVAL_RTF=0，GUI专用--gui同时打开MuJoCo viewer/RViz并截实际窗口，不混入可靠率分母。没有改dt/decimation、安全区或导航参数。
+性能测量记录每策略步policy/physics总计算ms、扫描due耗时及10s墙钟RTF。导航进程/proc CPU约.5s墙钟窗，单位CPU ms/wall-s，包含线程开销；不是回调延迟。正式可靠率target_rtf=1；独立节拍测量headless使用T1_EVAL_RTF=1.1，GUI使用1.0（不声称极限容量），GUI专用--gui同时打开MuJoCo viewer/RViz并截实际窗口，不混入可靠率分母。没有改dt/decimation、安全区或导航参数。
 
 开发pilot-v1保留布尔CSV解析/旧文档哈希错误的INVALID；pilot-v2保留TF同GID发现阶段误判；pilot-v3为最终评测器预检。它们不计正式40例。最终正式和专用性能结果见各campaign，综合报告 `docs/results/evaluation.md`、`performance.md`、`results.csv`、`failures.csv`、`audit.json`。
 
 ```bash
 # 新终端配置同上，先保证Git只剩用户文档dirty
-T1_EVAL_RTF=0 "$T1_VENV/bin/python" scripts/evaluate.py run --campaign perf-new-headless --cases S04
-T1_EVAL_RTF=0 "$T1_VENV/bin/python" scripts/evaluate.py run --campaign perf-new-gui --cases S04 --gui
+T1_EVAL_RTF=1.1 "$T1_VENV/bin/python" scripts/evaluate.py run --campaign perf-new-headless --cases S04
+T1_EVAL_RTF=1.0 "$T1_VENV/bin/python" scripts/evaluate.py run --campaign perf-new-gui --cases S04 --gui
 # 已安装系统pytest仅在测试进程追加，不安装/升级依赖
 "$T1_VENV/bin/python" -c 'import sys; sys.path.append("/usr/lib/python3/dist-packages"); import pytest; raise SystemExit(pytest.main(["-q", "scripts/evaluation/tests"]))'
 # 原始首次campaign全部仍在时，重建首次结果报告：
@@ -46,3 +46,6 @@ MPLCONFIGDIR=/tmp/t1-w13-mpl /usr/bin/python3 scripts/report_evaluation.py
 ```
 
 脚本只SIGINT自己启动的launch父进程，让launch转发一次；超时仅终止自持进程组，收集children与authority退出，并核对已观察的PID/starttime无遗留。不要kill所有ROS/Python。所有大型日志、geometry和原trace均在ignored raw/run_data，本目录只追踪轻量证据。
+
+正式40例完成后才修复启动失败分类和导出格式：原始worker JSON/CSV不改，最终结果表由report_evaluation.py统一离线分类，C01 INVALID→FAIL_STARTUP，成功数不变。附加CM stop/slowdown相关零策略位移来自同批原始trace，不能解释为受控制动实验。RTF聚合使用完整10s墙钟窗；逐run旧worker统计排除前10s仿真，原值仍保留。
+批量evaluation由scripts/evaluate.py编排完整navigation.launch.py，底层真实mode=navigation；不使用尚未接通的mode:=evaluation启动别名。

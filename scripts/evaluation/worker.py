@@ -60,6 +60,7 @@ def run(case, suite, output, run_id, gui=False):
                                  r['sim'] > result.get('nav_active_sim', 1e9)])
              for name in sorted({r['process'] for r in cpus})}
         m = result.get('metrics', {})
+        m['fell'] = bool(m.get('fell') or manifest.get('status') == 'FALLEN')
         accepted = result.get('nav2', {}).get('accepted_sim', 1e9)
         if m.get('settle', {}).get('settled'):
             m['settle_complete_task_s'] = m['settle']['settle_start_sim'] + 2. - accepted
