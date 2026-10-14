@@ -1,0 +1,13 @@
+{
+  "code_sha": "468cb8ac1c8c37f41df63fa4cd2436a85c1775c9",
+  "corrections": [
+    {
+      "run_id": "20261014T222232Z_formal-v1_C01_s2000_3cddcf",
+      "original": "INVALID",
+      "derived": "FAIL_STARTUP",
+      "input_json_sha256": "e7f0e756b48b35565054fac51babee20229aa05c1763d6e7af42a5d78a6c4247",
+      "reason": "Expected missing initialpose/AMCL TF on an intact observed startup failure; arrival remains false"
+    }
+  ],
+  "success_count_unchanged": true
+}

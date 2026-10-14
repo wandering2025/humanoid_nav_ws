@@ -1,0 +1,218 @@
+[
+  {
+    "case": "C01",
+    "outcome": "FAIL_STARTUP",
+    "code_sha": "197995af1b94d92da0846ae50dbca09bf74c26a3",
+    "run_id": "20261014T222232Z_formal-v1_C01_s2000_3cddcf",
+    "log_path": "docs/evidence/W13/raw/formal-v1/20261014T222232Z_formal-v1_C01_s2000_3cddcf/raw/20261014T222232Z_formal-v1_C01_s2000_3cddcf.txt",
+    "log_sha256": "6c89e8c92e5d0a91012636a3dd663291c39f1ad9e00856f738bfad5c23642f05",
+    "excerpts": [
+      {
+        "line": 56,
+        "text": "[map_server-3] [WARN] [1792016557.363367663] [map_server.rclcpp]: failed to send response to /map_server/change_state (timeout): client will not receive response, at ./src/rmw_response.cpp:153, at ./src/rcl/service.c:400"
+      },
+      {
+        "line": 119,
+        "text": "[t1_initial_pose_once-17]     raise RuntimeError('AMCL must be active with /clock and /initialpose subscription')"
+      },
+      {
+        "line": 120,
+        "text": "[t1_initial_pose_once-17] RuntimeError: AMCL must be active with /clock and /initialpose subscription"
+      },
+      {
+        "line": 122,
+        "text": "[ERROR] [t1_initial_pose_once-17]: process has died [pid 190811, exit code 1, cmd 'ros2 run t1_bringup initial_pose 0.0 0.0 0.0']."
+      },
+      {
+        "line": 231,
+        "text": "[navigation_starter-16] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:333"
+      },
+      {
+        "line": 243,
+        "text": "[ERROR] [navigation_starter-16]: process has died [pid 190810, exit code 1, cmd '/home/haoyang/humanoid_nav_ws/install/t1_bringup/lib/t1_bringup/navigation_starter --ros-args -r __node:=t1_navigation_starter --params-file /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml']."
+      },
+      {
+        "line": 246,
+        "text": "[ERROR] [lifecycle_manager-8]: process[lifecycle_manager-8] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'"
+      },
+      {
+        "line": 248,
+        "text": "[ERROR] [lifecycle_manager-8]: process[lifecycle_manager-8] failed to terminate '10.0' seconds after receiving 'SIGTERM', escalating to 'SIGKILL'"
+      },
+      {
+        "line": 250,
+        "text": "[ERROR] [lifecycle_manager-8]: process has died [pid 190669, exit code -9, cmd '/opt/ros/jazzy/lib/nav2_lifecycle_manager/lifecycle_manager --ros-args -r __node:=lifecycle_manager_localization --params-file /tmp/launch_params_0qzrs7gw']."
+      }
+    ]
+  },
+  {
+    "case": "C09",
+    "outcome": "FAIL_PLANNING",
+    "code_sha": "0c7c31a9ace837411987fd1ff68d4781b4042c88",
+    "run_id": "20261014T223423Z_formal-v1_C09_s2008_70370c",
+    "log_path": "docs/evidence/W13/raw/formal-v1/20261014T223423Z_formal-v1_C09_s2008_70370c/raw/20261014T223423Z_formal-v1_C09_s2008_70370c.txt",
+    "log_sha256": "26cfb268278eebe3a403c493afaa83e2cbc1570ef9937f91f722978af16ad73d",
+    "excerpts": [
+      {
+        "line": 228,
+        "text": "[bt_navigator-13] [WARN] [1792017282.584183726] [bt_navigator_navigate_to_pose_rclcpp_node]: Timed out while waiting for action server to acknowledge goal request for follow_path"
+      },
+      {
+        "line": 230,
+        "text": "[bt_navigator-13] [WARN] [1792017282.604184250] [bt_navigator_navigate_to_pose_rclcpp_node]: Node timed out while executing service call to local_costmap/clear_entirely_local_costmap."
+      },
+      {
+        "line": 231,
+        "text": "[bt_navigator-13] [WARN] [1792017282.624165606] [bt_navigator_navigate_to_pose_rclcpp_node]: Node timed out while executing service call to local_costmap/clear_entirely_local_costmap."
+      },
+      {
+        "line": 232,
+        "text": "[bt_navigator-13] [WARN] [1792017282.634284347] [bt_navigator]: [navigate_to_pose] [ActionServer] Aborting handle."
+      },
+      {
+        "line": 233,
+        "text": "[bt_navigator-13] [ERROR] [1792017282.634587064] [bt_navigator]: Goal failed"
+      },
+      {
+        "line": 235,
+        "text": "[bt_navigator-13] [WARN] [1792017282.661090072] [bt_navigator_navigate_to_pose_rclcpp_node]: Timed out while waiting for action server to acknowledge goal request for follow_path"
+      },
+      {
+        "line": 236,
+        "text": "[bt_navigator-13] [WARN] [1792017282.680781784] [bt_navigator_navigate_to_pose_rclcpp_node]: Node timed out while executing service call to local_costmap/clear_entirely_local_costmap."
+      },
+      {
+        "line": 237,
+        "text": "[bt_navigator-13] [WARN] [1792017282.705773847] [bt_navigator_navigate_to_pose_rclcpp_node]: Node timed out while executing service call to local_costmap/clear_entirely_local_costmap."
+      },
+      {
+        "line": 238,
+        "text": "[bt_navigator-13] [WARN] [1792017282.715807667] [bt_navigator]: [navigate_to_pose] [ActionServer] Aborting handle."
+      },
+      {
+        "line": 239,
+        "text": "[bt_navigator-13] [ERROR] [1792017282.715987544] [bt_navigator]: Goal failed"
+      },
+      {
+        "line": 324,
+        "text": "[controller_server-10] [WARN] [1792017294.945917320] [controller_server]: [follow_path] [ActionServer] Aborting handle."
+      }
+    ]
+  },
+  {
+    "case": "B04",
+    "outcome": "FAIL_PLANNING",
+    "code_sha": "b77aee7851739c54aefcef7e3d9d63f4a48ba886",
+    "run_id": "20261014T224241Z_formal-v1_B04_s3003_ff4d28",
+    "log_path": "docs/evidence/W13/raw/formal-v1/20261014T224241Z_formal-v1_B04_s3003_ff4d28/raw/20261014T224241Z_formal-v1_B04_s3003_ff4d28.txt",
+    "log_sha256": "ba9fe2de58c8020c531a7193861a7d359a731aa7b3debfdc34b415bbe7c835be",
+    "excerpts": [
+      {
+        "line": 268,
+        "text": "[planner_server-11] [WARN] [1792017838.646075851] [planner_server]: GridBased plugin failed to plan from (9.52, 0.77) to (9.00, 0.00): \"Failed to create plan with tolerance of: 0.000000\""
+      },
+      {
+        "line": 269,
+        "text": "[planner_server-11] [WARN] [1792017838.646162123] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle."
+      },
+      {
+        "line": 271,
+        "text": "[planner_server-11] [WARN] [1792017839.227057865] [planner_server]: GridBased plugin failed to plan from (9.52, 0.77) to (9.00, 0.00): \"Failed to create plan with tolerance of: 0.000000\""
+      },
+      {
+        "line": 272,
+        "text": "[planner_server-11] [WARN] [1792017839.227117586] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle."
+      },
+      {
+        "line": 273,
+        "text": "[bt_navigator-13] [ERROR] [1792017839.255942478] [bt_navigator_navigate_to_pose_rclcpp_node]: Failed to get result for follow_path in node halt!"
+      },
+      {
+        "line": 281,
+        "text": "[planner_server-11] [WARN] [1792017841.259431952] [planner_server]: GridBased plugin failed to plan from (9.52, 0.77) to (9.00, 0.00): \"Failed to create plan with tolerance of: 0.000000\""
+      },
+      {
+        "line": 282,
+        "text": "[planner_server-11] [WARN] [1792017841.259474957] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle."
+      },
+      {
+        "line": 284,
+        "text": "[planner_server-11] [WARN] [1792017842.219887994] [planner_server]: GridBased plugin failed to plan from (9.52, 0.77) to (9.00, 0.00): \"Failed to create plan with tolerance of: 0.000000\""
+      },
+      {
+        "line": 285,
+        "text": "[planner_server-11] [WARN] [1792017842.219945770] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle."
+      },
+      {
+        "line": 290,
+        "text": "[planner_server-11] [WARN] [1792017844.259400082] [planner_server]: GridBased plugin failed to plan from (9.53, 0.77) to (9.00, 0.00): \"Failed to create plan with tolerance of: 0.000000\""
+      },
+      {
+        "line": 291,
+        "text": "[planner_server-11] [WARN] [1792017844.259457287] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle."
+      },
+      {
+        "line": 293,
+        "text": "[planner_server-11] [WARN] [1792017845.230239141] [planner_server]: GridBased plugin failed to plan from (9.53, 0.77) to (9.00, 0.00): \"Failed to create plan with tolerance of: 0.000000\""
+      },
+      {
+        "line": 294,
+        "text": "[planner_server-11] [WARN] [1792017845.230413195] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle."
+      },
+      {
+        "line": 299,
+        "text": "[planner_server-11] [WARN] [1792017847.269485416] [planner_server]: GridBased plugin failed to plan from (9.54, 0.77) to (9.00, 0.00): \"Failed to create plan with tolerance of: 0.000000\""
+      },
+      {
+        "line": 300,
+        "text": "[planner_server-11] [WARN] [1792017847.269565410] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle."
+      },
+      {
+        "line": 302,
+        "text": "[planner_server-11] [WARN] [1792017848.220612604] [planner_server]: GridBased plugin failed to plan from (9.54, 0.77) to (9.00, 0.00): \"Failed to create plan with tolerance of: 0.000000\""
+      },
+      {
+        "line": 303,
+        "text": "[planner_server-11] [WARN] [1792017848.220679762] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle."
+      },
+      {
+        "line": 304,
+        "text": "[bt_navigator-13] [WARN] [1792017848.249004250] [bt_navigator]: [navigate_to_pose] [ActionServer] Aborting handle."
+      },
+      {
+        "line": 305,
+        "text": "[bt_navigator-13] [ERROR] [1792017848.249211371] [bt_navigator]: Goal failed"
+      }
+    ]
+  },
+  {
+    "case": "B06",
+    "outcome": "FAIL_TIMEOUT",
+    "code_sha": "ad8f92e9528b69de4d15462254a3c326c59fe4c1",
+    "run_id": "20261014T224608Z_formal-v1_B06_s3005_baa600",
+    "log_path": "docs/evidence/W13/raw/formal-v1/20261014T224608Z_formal-v1_B06_s3005_baa600/raw/20261014T224608Z_formal-v1_B06_s3005_baa600.txt",
+    "log_sha256": "6e8405671c0a595020399b8c255a767fe75e05d749142bab13f7d7667cff2331",
+    "excerpts": [
+      {
+        "line": 253,
+        "text": "[controller_server-10] [ERROR] [1792018075.360838008] [controller_server]: Failed to make progress"
+      },
+      {
+        "line": 255,
+        "text": "[controller_server-10] [WARN] [1792018075.361385776] [controller_server]: [follow_path] [ActionServer] Aborting handle."
+      },
+      {
+        "line": 262,
+        "text": "[controller_server-10] [ERROR] [1792018097.382930286] [controller_server]: Failed to make progress"
+      },
+      {
+        "line": 264,
+        "text": "[controller_server-10] [WARN] [1792018097.383461882] [controller_server]: [follow_path] [ActionServer] Aborting handle."
+      },
+      {
+        "line": 273,
+        "text": "[bt_navigator-13] [ERROR] [1792018113.150077757] [bt_navigator_navigate_to_pose_rclcpp_node]: Failed to get result for follow_path in node halt!"
+      }
+    ]
+  }
+]

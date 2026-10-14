@@ -1,0 +1,77 @@
+{
+  "checks": {
+    "forty_rows": true,
+    "all_run_sources": true,
+    "no_not_run": true,
+    "only_document_dirty": true,
+    "validity": true,
+    "static_10_of_10": true,
+    "dynamic_9_of_10": false,
+    "zero_contacts": true,
+    "zero_falls": true,
+    "successful_blocking_detour": true,
+    "processes_reaped": true,
+    "unique_ids": true,
+    "common_parameter_hashes": true,
+    "frozen_settle_analysis": true,
+    "frozen_clearances": true,
+    "behavior_files_unchanged": true,
+    "formal_sources_identical": true,
+    "one_checkpoint": true,
+    "sensor_odom_declared": true,
+    "runner_control_ast_unchanged": true,
+    "formal_headless_rtf_target": false,
+    "performance-headless-v1_rtf": true,
+    "performance-gui-v1_rtf": true,
+    "gui_render_artifacts": true
+  },
+  "verdict": "FAIL",
+  "counts": {
+    "static": {
+      "n": 10,
+      "success": 10
+    },
+    "crossing": {
+      "n": 10,
+      "success": 8
+    },
+    "blocking": {
+      "n": 10,
+      "success": 8
+    },
+    "sudden": {
+      "n": 10,
+      "success": 10
+    }
+  },
+  "body_min_m": 0.49483339813736604,
+  "stopping_displacement_m": {
+    "n": 26,
+    "median": 0.05436206541911654,
+    "p5": 0.007883331252517146,
+    "p95": 0.10529693982460854,
+    "max": 0.15536947595335215
+  },
+  "successful_blocking_cases": [
+    "B01",
+    "B02",
+    "B03",
+    "B05",
+    "B07",
+    "B08",
+    "B09",
+    "B10"
+  ],
+  "formal_registration_sha": "a8e3c6a2bf5e73a4310f3f40c35934b534899140",
+  "source_fingerprint": "2b8c5b71825db1b3d0c6afe5a267421f0741d858e01256a3916205a10cbdb5d7",
+  "runtime_shas": [
+    "0ab077e201eb1b2fdab8cbccc38d4b8284f71a4c",
+    "0c7c31a9ace837411987fd1ff68d4781b4042c88",
+    "197995af1b94d92da0846ae50dbca09bf74c26a3",
+    "a8e3c6a2bf5e73a4310f3f40c35934b534899140",
+    "ad8f92e9528b69de4d15462254a3c326c59fe4c1",
+    "b77aee7851739c54aefcef7e3d9d63f4a48ba886",
+    "ce3141ef5fd19de5230f2229c82d8413ad649516"
+  ],
+  "analysis_code_sha": "468cb8ac1c8c37f41df63fa4cd2436a85c1775c9"
+}

@@ -1,0 +1,59 @@
+{
+  "timestamp_utc": "2026-10-14T23:24:17.625748+00:00",
+  "checked_source_sha": "468cb8ac1c8c37f41df63fa4cd2436a85c1775c9",
+  "evidence_integrity": "PASS",
+  "W13_acceptance": "FAILED",
+  "expected_failed_checks": [
+    "dynamic_9_of_10",
+    "formal_headless_rtf_target"
+  ],
+  "formal_rows": 40,
+  "success": 36,
+  "counts": {
+    "static": {
+      "n": 10,
+      "success": 10
+    },
+    "crossing": {
+      "n": 10,
+      "success": 8
+    },
+    "blocking": {
+      "n": 10,
+      "success": 8
+    },
+    "sudden": {
+      "n": 10,
+      "success": 10
+    }
+  },
+  "env_contacts": 0,
+  "falls": 0,
+  "body_min_m": 0.49483339813736604,
+  "footprint_min_m": 0.1332455031417643,
+  "stopping_displacement_m": {
+    "n": 26,
+    "median": 0.05436206541911654,
+    "p5": 0.007883331252517146,
+    "p95": 0.10529693982460854,
+    "max": 0.15536947595335215
+  },
+  "package_tests": 116,
+  "evaluator_tests": 15,
+  "user_document_sha256": "6973bb1c423297cebdf2c1a97391487023d3b4af955e3a51d4fc735b2fba7027",
+  "upstreams": {
+    "/home/haoyang/robot_sim_sources/booster_deploy": {
+      "sha": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+      "dirty": false
+    },
+    "/home/haoyang/robot_sim_sources/booster_assets": {
+      "sha": "12a97516f57469078707afb587a5f84c1cb110d1",
+      "dirty": false
+    }
+  },
+  "process_audit": {
+    "remaining_owned_processes": [],
+    "dds_port42123_listeners": [],
+    "stopped_unrelated_processes": false
+  }
+}

@@ -1,5 +1,9 @@
 # W13 批量评测证据
 
+最终状态：**FAILED**。完整40例36到达：static10/10、crossing8/10、blocking8/10、sudden10/10；零环境/障碍/非足地面接触、零跌倒。两动态类未达≥9/10；headless严格RTF≥1目标亦未达到（.9999998608），GUI .9991109757达到≥.7。原门槛保留，W14未启动。
+
+综合报告：[evaluation.md](../../results/evaluation.md)、[performance.md](../../results/performance.md)；完整性审计：final-verification.json（证据完整性PASS不等于W13验收PASS）。
+
 入口为 `scripts/evaluate.py`，正式套件 `src/t1_bringup/config/test_suite_v1.yaml`：静态S01–S10、横穿C01–C10、持续阻塞B01–B10、突然接近U01–U10。30组障碍时序在独立w13_events_v1.yaml，不修改地图绑定scene。任务判据沿用W11，含完整2s稳定在120s预算内。
 
 ```bash
