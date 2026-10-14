@@ -1,0 +1,68 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Global Options:
+    Background Color: 220; 220; 220
+    Fixed Frame: odom
+    Frame Rate: 30
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Ground z=0
+      Enabled: true
+      Cell Size: 0.5
+      Plane Cell Count: 40
+      Reference Frame: odom
+    - Class: rviz_default_plugins/RobotModel
+      Name: T1 (external URDF)
+      Enabled: true
+      Description Source: Topic
+      Description Topic:
+        Value: /robot_description
+        Durability Policy: Transient Local
+        Reliability Policy: Reliable
+        History Policy: Keep Last
+        Depth: 1
+      Visual Enabled: true
+      Collision Enabled: false
+      Alpha: 1
+    - Class: rviz_default_plugins/Axes
+      Name: base_link axes
+      Enabled: true
+      Reference Frame: base_link
+      Length: 0.3
+      Radius: 0.025
+    - Class: rviz_default_plugins/Odometry
+      Name: Ideal truth odom
+      Enabled: true
+      Topic:
+        Value: /odom
+        Reliability Policy: Reliable
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 10
+      Keep: 20
+      Position Tolerance: 0.05
+      Angle Tolerance: 0.1
+      Shape: Arrow
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Enabled: true
+      Show Axes: false
+      Show Arrows: false
+      Show Names: false
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 3
+      Pitch: 0.35
+      Yaw: 0.7
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0.55
+      Target Frame: base_footprint
+Window Geometry:
+  Width: 1200
+  Height: 900

@@ -1,8 +1,8 @@
 {
-  "code_sha": "05ca00f0c65a88a0fddc3309f48eff7f3983e4fb",
-  "started_utc": "2026-10-14T08:38:37.414777+00:00",
-  "ended_utc": "2026-10-14T08:38:38.703949+00:00",
-  "wall_s": 1.2891765760000453,
+  "code_sha": "1a89191f93a8027bdad3d9be0ec138741d0ff0fa",
+  "started_utc": "2026-10-14T08:50:34.660627+00:00",
+  "ended_utc": "2026-10-14T08:50:35.958874+00:00",
+  "wall_s": 1.2982514139998784,
   "cwd": "/home/haoyang/humanoid_nav_ws",
   "command": "source scripts/env.sh; $T1_VENV/bin/python docs/evidence/W07/check_scenes.py",
   "scenes": [
@@ -930,7 +930,7 @@
     },
     {
       "name": "stress_test_world",
-      "path": "/home/haoyang/humanoid_nav_ws/run_data/cache/scenes/bc118d6cfef5723ffa6c72c56ef4739ecd677f21eace45a6bcca019cca963f59/stress_test_world.xml",
+      "path": "/home/haoyang/humanoid_nav_ws/run_data/cache/scenes/fd2af258c200fe0d1840e67f8ef4761a863ccdd80f5aceaa7783f191eefc3fc5/stress_test_world.xml",
       "provenance": {
         "schema": 1,
         "name": "stress_test_world",
@@ -941,7 +941,7 @@
         },
         "layout": {
           "path": "/home/haoyang/humanoid_nav_ws/src/t1_mujoco/worlds/stress_test_world.yaml",
-          "sha256": "a12f238c206358c41ef34576be5ea088da190d08627f41f70bb9c2b40e469fa3"
+          "sha256": "9984e4ce04993e36579b980a63826b78b5e3aeb4115ca3b6827311d4c550330d"
         },
         "license": {
           "path": "/home/haoyang/robot_sim_sources/booster_assets/LICENSE",
@@ -1064,7 +1064,7 @@
             0
           ],
           "goal": [
-            6,
+            7,
             0,
             0
           ],
@@ -1180,7 +1180,7 @@
         },
         "dynamic_motion_implemented": false,
         "expanded_xml": {
-          "path": "/home/haoyang/humanoid_nav_ws/run_data/cache/scenes/bc118d6cfef5723ffa6c72c56ef4739ecd677f21eace45a6bcca019cca963f59/stress_test_world.xml",
+          "path": "/home/haoyang/humanoid_nav_ws/run_data/cache/scenes/fd2af258c200fe0d1840e67f8ef4761a863ccdd80f5aceaa7783f191eefc3fc5/stress_test_world.xml",
           "sha256": "65d3f726dfe21260d1e651643ab757db4ba13f9d0f1d3eb6fcaeed4b715060e0"
         }
       },

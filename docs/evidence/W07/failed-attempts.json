@@ -20,5 +20,35 @@
     "exit_code": 1,
     "cause": "numpy.int32 tuple membership with pybind enum returns false for box, although direct comparison returns true",
     "resolution": "convert MuJoCo geom type scalar to native int before dispatch"
+  },
+  {
+    "check": "motion first attempt",
+    "exit_code": 1,
+    "cause": "all physical checks passed but NumPy bool in no_fall check failed JSON serialization",
+    "resolution": "convert verdict booleans to native bool; rerun suite"
+  },
+  {
+    "check": "top-view generator first attempt",
+    "exit_code": 1,
+    "cause": "simulation venv does not contain matplotlib",
+    "resolution": "use preinstalled system Python matplotlib for standalone plotting only; no environment changes"
+  },
+  {
+    "check": "ROS first attempt in sandbox",
+    "exit_code": 1,
+    "cause": "sandbox denies getifaddrs/TCP bind at local discovery port 42117",
+    "resolution": "run same dedicated-process ROS/RViz check with authorized local socket/X11 access"
+  },
+  {
+    "check": "optional recorded-snapshot renderer first attempt",
+    "exit_code": 1,
+    "cause": "simulation venv has no PIL",
+    "resolution": "render with MuJoCo into RGB/PPM and use preinstalled ImageMagick for PNG encoding; no environment changes"
+  },
+  {
+    "check": "optional snapshot renderer EGL attempt",
+    "exit_code": 1,
+    "cause": "EGL device display/platform-device extension unavailable",
+    "resolution": "use existing X11/GLFW backend already validated by W04; no dependencies changed"
   }
 ]

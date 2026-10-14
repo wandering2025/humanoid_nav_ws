@@ -10,7 +10,7 @@ initial_pose:
 - 0
 - 0
 goal:
-- 6
+- 7
 - 0
 - 0
 minimum_passage_m: 1.9

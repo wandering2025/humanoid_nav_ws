@@ -2,7 +2,7 @@
 
 All coordinates are world metres, +X forward, +Y left, +Z up, yaw radians CCW.
 `size` is full box extent, not MuJoCo half-size. Bounds describe inner wall faces.
-A=(0,0), yaw=0; B=(6,0), yaw=0. A/B are endpoints only; no route is supplied to navigation.
+A=(0,0), yaw=0; B=(6,0), yaw=0 except stress_test_world B=(7,0), yaw=0 (extra goal buffer beyond the east island). A/B are endpoints only; no route is supplied to navigation.
 
 `calibration_world` has inner walls x=-2,8 and y=-5,5. `static_world` adds a central island requiring a north/south choice, a corner and a fixed box. `dynamic_crossing_world` leaves the main corridor clear and reserves crossing/approach regions. `stress_test_world` has a 1.9 m central gate followed by a two-sided island and three activity regions. Activity bounds and obstacle slots are test metadata, never planner inputs or future trajectories. Slots specify dimensions for W12; W07 instantiates no moving objects.
 

@@ -176,3 +176,11 @@ mj_world / base_link_truth：仅评测真值，不进入 TF 树
 - 仿真 launch 强制模拟消费者 use_sim_time=true，t1_sim false；RSP publish_frequency=100（允许全部 50 Hz joint stamp 通过）；`rviz:=true` 启动基础配置，固定 frame=odom。
 - sim_only 原地 reset 沿用 §7.3 的单调时间/episode 通知，发布分频从新 episode 清零。自定义消费者可订阅 sim_state 的 episode 清其 TF 缓存；不得跨 reset 积分/插值轨迹。完整新 run 重启消费者，禁止保留跨 run TF 缓存。
 - 6D truth twist 在 `base_link_truth`：R(q)ᵀ·v_world 与 ω_body；仅用于评测/记录，frame 不入 TF。平面 odom angular.z 沿用 W05 的世界竖直角速度分量（机体倾斜时不把它改成 Euler yaw 导数）。
+
+## 11. W07 场景与描述细化（ADR-011）
+
+- `scene` 空字符串保持官方原场景；四个已安装布局名 `calibration_world|static_world|dynamic_crossing_world|stress_test_world` 或绝对 YAML 路径生成忽略缓存中的展开 MJCF；绝对 MJCF 路径保持 W04 兼容。所有选择启动时只读，参数变更须重启。
+- 组装要求冻结且干净 assets SHA，记录 XML/YAML/mesh/license 哈希；只添 worldbody 静态 group-2 box geoms。关节、qpos/qvel、actuator 映射不变；编译 geom IDs 可以偏移，按名称/所属body解析，不能缓存原场景的geom数组地址。
+- 初始 x/y/yaw 只在构造 runner 前设置任务初值；reset沿用该初值且时钟单调。A/B/活动区域/slot为测试元数据，不提供预写路线或未来障碍轨迹，不送入规划器。W07 无动态障碍运动。
+- `t1_description/config/footprint.yaml` 为base_footprint下保守几何矩形，0.90×0.89 m、基座旋转直径1.390539m；测量依据与适用范围见W07证据。不是W10停止/减速安全区。
+- W06 TF所有权/发布率不变。URDF只改ROS可视材质alpha为1；新增scene.rviz更清晰地显示冻结mesh，保留state.rviz可选。全部body FK与mesh尺度在W07独立验证。

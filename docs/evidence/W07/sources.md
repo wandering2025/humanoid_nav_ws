@@ -9,3 +9,5 @@
 - Robot description references the matching 23DOF official URDF through the W06 wrapper, resolves external mesh URIs, adds only identity `base_link→trunk`. No `base_footprint→base_link` static TF; W06 owns its dynamic pose. W08 owns future LiDAR mounting.
 
 Each generation records source XML/config/mesh/license SHA256 and assets Git SHA. Source Git SHA must match the frozen value and its working tree must be clean. Local checkout remains unchanged.
+
+W07 ROS visualization makes the original translucent CAD visual materials opaque and uses scene.rviz with a brighter background and camera following base_footprint. This changes only visual material alpha/camera, not link/mesh transforms or physical contact properties. state.rviz remains available.

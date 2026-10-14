@@ -52,10 +52,8 @@ def load_layout(path):
             raise ValueError('box outside bounds')
         for label in ('initial_pose', 'goal'):
             px, py, _ = data[label]
-            if abs(px-x) <= sx/2 or abs(py-y) <= sy/2:
-                # Both coordinates must overlap for the endpoint to be inside.
-                if abs(px-x) <= sx/2 and abs(py-y) <= sy/2:
-                    raise ValueError(f'{label} inside obstacle')
+            if abs(px-x) <= sx/2 and abs(py-y) <= sy/2:
+                raise ValueError(f'{label} inside obstacle')
     regions = set()
     for region in data['activity_regions']:
         name = region['name']

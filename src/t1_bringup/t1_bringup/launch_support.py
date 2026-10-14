@@ -60,7 +60,7 @@ def simulation_arguments():
         ('headless', 'true'), ('target_rtf', '1.0'), ('enable_policy_cmd_input', 'false'),
         ('max_sim_time', '0.0'), ('scene', ''), ('run_id', ''),
         ('rviz', 'false'),
-        ('rviz_config', str(Path(get_package_share_directory('t1_description')) / 'config/state.rviz')),
+        ('rviz_config', str(Path(get_package_share_directory('t1_description')) / 'config/scene.rviz')),
         # W05 calibrated v_des->u_pol contract; '' keeps /cmd_vel UNCALIBRATED.
         ('command_map_file', str(Path(get_package_share_directory('t1_mujoco')) / 'config/command_map.yaml')),
     )]

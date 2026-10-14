@@ -1,0 +1,42 @@
+Starting >>> t1_description
+Starting >>> t1_mujoco
+Starting >>> t1_navigation
+Finished <<< t1_description [0.04s]
+Finished <<< t1_navigation [0.05s]
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+cachedir: /home/haoyang/humanoid_nav_ws/build/t1_mujoco/.pytest_cache
+rootdir: /home/haoyang/humanoid_nav_ws/src/t1_mujoco
+configfile: setup.cfg
+testpaths: test
+plugins: ament-pep257-0.17.5, ament-copyright-0.17.5, launch-testing-3.4.12, ament-xmllint-0.17.5, ament-flake8-0.17.5, launch-testing-ros-0.26.13, ament-lint-0.17.5, colcon-core-0.21.3, cov-4.1.0, typeguard-4.1.5
+collected 60 items
+
+test/test_calibration.py .....                                           [  8%]
+test/test_command_map.py .....................                           [ 43%]
+test/test_control.py ....                                                [ 50%]
+test/test_runtime.py ..........                                          [ 66%]
+test/test_scenes.py .......                                              [ 78%]
+test/test_state_bridge.py .............                                  [100%]
+
+- generated xml file: /home/haoyang/humanoid_nav_ws/build/t1_mujoco/pytest.xml -
+============================== 60 passed in 0.52s ==============================
+Finished <<< t1_mujoco [1.06s]
+Starting >>> t1_bringup
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+cachedir: /home/haoyang/humanoid_nav_ws/build/t1_bringup/.pytest_cache
+rootdir: /home/haoyang/humanoid_nav_ws/src/t1_bringup
+configfile: setup.cfg
+testpaths: test
+plugins: ament-pep257-0.17.5, ament-copyright-0.17.5, launch-testing-3.4.12, ament-xmllint-0.17.5, ament-flake8-0.17.5, launch-testing-ros-0.26.13, ament-lint-0.17.5, colcon-core-0.21.3, cov-4.1.0, typeguard-4.1.5
+collected 8 items
+
+test/test_description.py ..                                              [ 25%]
+test/test_launch_support.py ......                                       [100%]
+
+- generated xml file: /home/haoyang/humanoid_nav_ws/build/t1_bringup/pytest.xml -
+============================== 8 passed in 0.08s ===============================
+Finished <<< t1_bringup [0.67s]
+
+Summary: 4 packages finished [1.87s]

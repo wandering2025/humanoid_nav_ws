@@ -1,4 +1,4 @@
-"""Minimal W06 wrapper of the frozen external URDF; no asset copies."""
+"""W06/W07 visualization wrapper of the frozen external URDF; no asset copies."""
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
@@ -18,6 +18,11 @@ def robot_description(assets_path):
             if not resolved.is_file():
                 raise ValueError(f'URDF mesh is missing: {resolved}')
             mesh.set('filename', resolved.as_uri())
+    # Upstream CAD materials are translucent; make only the ROS visualization
+    # opaque for inspection. Geometry, transforms and external files stay intact.
+    for color in root.findall('.//visual/material/color'):
+        rgba = color.attrib['rgba'].split()
+        color.set('rgba', ' '.join(rgba[:3] + ['1']))
     ET.SubElement(root, 'link', name='base_link')
     joint = ET.SubElement(root, 'joint', name='base_link_to_trunk', type='fixed')
     ET.SubElement(joint, 'parent', link='base_link')
