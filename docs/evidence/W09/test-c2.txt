@@ -1,0 +1,6 @@
+Starting >>> t1_mujoco
+Finished <<< t1_mujoco [1.22s]
+Starting >>> t1_bringup
+Finished <<< t1_bringup [0.78s]
+
+Summary: 2 packages finished [2.23s]

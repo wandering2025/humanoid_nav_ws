@@ -63,6 +63,7 @@ class Probe(Node):
         self.map_gids = set()
         self.scans = []
         self.poses = []
+        self.initializations = []
         self.tf_owners = {}
         self.clock_regressions = 0
         self.pub = self.create_publisher(Twist, '/cmd_vel', 1)
@@ -77,6 +78,7 @@ class Probe(Node):
         self.create_subscription(TFMessage, '/tf', self.tf, 1000)
         self.create_subscription(TFMessage, '/tf_static', self.static,
                                  QoSProfile(depth=100, durability=DurabilityPolicy.TRANSIENT_LOCAL))
+        self.create_subscription(PoseWithCovarianceStamped, '/initialpose', lambda m: self.initializations.append([m.pose.pose.position.x,m.pose.pose.position.y,yaw(m.pose.pose.orientation)]), 100)
         self.create_subscription(PoseWithCovarianceStamped, '/amcl_pose', self.amcl,
                                  QoSProfile(depth=100, durability=DurabilityPolicy.TRANSIENT_LOCAL))
 
@@ -243,7 +245,7 @@ class Run:
         result = dict(run_id=self.run_id, command=self.command, cwd=str(WS), started_utc=self.started,
                       ended_utc=datetime.now(timezone.utc).isoformat(), exit_code=code,
                       wall_s=time.monotonic()-self.wall0, sim_end=self.node.sim, manifest=manifest,
-                      graph=graph, map_odom_gids=list(owners), map_odom_nodes=[identities.get(g,'exited') for g in owners],
+                      initializations=self.node.initializations, graph=graph, map_odom_gids=list(owners), map_odom_nodes=[identities.get(g,'exited') for g in owners],
                       map_updates=self.node.map_updates, route=self.events, clock_regressions=self.node.clock_regressions)
         np.savetxt(OUT/(self.run_id+'-trajectory.csv'), np.array(self.node.rows)[::10], delimiter=',',
                    header='sim_time,x,y,yaw,vx,vy,wz', comments='')

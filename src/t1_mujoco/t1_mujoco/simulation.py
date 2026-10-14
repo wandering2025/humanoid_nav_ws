@@ -20,7 +20,8 @@ def parameter_defaults():
                 cmd_timeout_wall=0.5, warmup_sim_s=2.0, run_id='',
                 run_dir=str(Path(os.getenv('T1_WS', Path.cwd()))/'run_data'), seed=0,
                 max_sim_time=0.0, command_map_file='', joint_state_divisor=1,
-                lidar_noise_std=0.0, lidar_dropout=0.0, lidar_publish_points=False)
+                lidar_noise_std=0.0, lidar_dropout=0.0, lidar_publish_points=False,
+                map_file='', slam_params_file='', localization_params_file='')
 
 
 def validate_parameters(p):
@@ -30,6 +31,11 @@ def validate_parameters(p):
         raise ValueError('navigation/evaluation require W10/W11')
     if p['mode'] != 'sim_only' and p['enable_policy_cmd_input']:
         raise ValueError('mapping/localization forbid policy debug commands')
+    if p['mode'] == 'localization' and not p['map_file']:
+        raise ValueError('localization requires a saved map_file and matching metadata')
+    for key in ('map_file', 'slam_params_file', 'localization_params_file'):
+        if p[key] and not Path(p[key]).is_absolute():
+            raise ValueError(f'{key} must be absolute')
     if p['command_map_file'] and not Path(p['command_map_file']).is_absolute():
         raise ValueError('command_map_file must be absolute (empty = uncalibrated, /cmd_vel rejected)')
     for name in ('target_rtf','max_sim_time','warmup_sim_s','cmd_timeout_sim','cmd_timeout_wall','viewer_rate_hz'):
@@ -101,6 +107,10 @@ def main(args=None):
         elif p['mode'] != 'sim_only':
             raise ValueError('navigation/evaluation modes require a calibrated command_map_file')
         log = RunLog(p, runtime)
+        from .recording import w09_provenance
+        provenance = w09_provenance(p, scene_provenance)
+        log.manifest['parameter_files'].update(provenance.pop('parameter_files'))
+        log.manifest.update(provenance)
         if scene_provenance:
             log.manifest['scene_provenance'] = scene_provenance
             metadata = scene_provenance['scene_metadata']

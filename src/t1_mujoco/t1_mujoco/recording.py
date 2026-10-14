@@ -23,6 +23,30 @@ def git(root, *args):
         return 'unavailable'
 
 
+def w09_provenance(params, scene):
+    """Bind maps and configuration to logs; metadata never enters control/SLAM."""
+    import yaml
+    files = {}
+    for name, key in (('slam', 'slam_params_file'), ('amcl', 'localization_params_file')):
+        value = params.get(key, '')
+        if value:
+            files[name] = dict(path=value, sha256=sha256(value))
+    value = params.get('map_file', '')
+    result = dict(parameter_files=files)
+    if value:
+        path = Path(value)
+        map_config = yaml.safe_load(path.read_text())
+        meta = yaml.safe_load(path.with_suffix('.meta.yaml').read_text())
+        image = path.parent / map_config['image']
+        if sha256(path) != meta['map_yaml_sha256'] or sha256(image) != meta['map_image_sha256']:
+            raise ValueError('saved map checksum does not match map metadata')
+        if not scene or scene['layout']['sha256'] != meta['scene_yaml_sha256']:
+            raise ValueError('localization scene does not match saved map metadata')
+        result.update(map_yaml=str(path), map_sha256=sha256(path), map_image_sha256=sha256(image),
+                      T_world_map=meta['T_world_map'], map_generated_code_sha=meta['generated_code_sha'])
+    return result
+
+
 class RunLog:
     def __init__(self, params, runtime):
         import mujoco

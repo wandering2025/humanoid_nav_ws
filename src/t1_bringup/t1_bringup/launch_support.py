@@ -84,6 +84,12 @@ def simulation_actions(context):
         if not LaunchConfiguration('command_map_file').perform(context):
             raise RuntimeError('mapping/localization require calibrated command_map_file')
     values['use_sim_time'] = False
+    mode = LaunchConfiguration('mode').perform(context)
+    if mode == 'mapping':
+        values['slam_params_file'] = LaunchConfiguration('slam_params_file').perform(context)
+    elif mode == 'localization':
+        values['map_file'] = LaunchConfiguration('map').perform(context)
+        values['localization_params_file'] = LaunchConfiguration('localization_params_file').perform(context)
     node = Node(package='t1_mujoco', executable='t1_sim', name='t1_sim', output='screen',
                 parameters=[str(params_file), values])
     assets = LaunchConfiguration('assets_path').perform(context)

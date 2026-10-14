@@ -1,0 +1,77 @@
+schema: 1
+map_source: slam_toolbox /map saved with nav2_map_server/map_saver_cli; no geometry
+  rasterization
+map_yaml_sha256: b22d9fe5983490d20c7053ff0d3e19d86e1ee74d3377776dd288df95209db21a
+map_image_sha256: 7fb7926069d725fe8c200fbabb41de0dda74ccf0e17c5805ecb1a5baaa040677
+scene_yaml: t1_mujoco/worlds/static_world.yaml
+scene_yaml_sha256: 039e518209c17fb4e622dab30c40ce1aa6efe65df8708d3670482e17e4e34e47
+expanded_scene_sha256: 856c5401e741f640ea06f72528d12996d1b5bd738acdccce0d2a8dc9e834a660
+upstream_sha:
+  booster_deploy: 7bb1462e2ac742eba5c01659b815e2e99fbe617f
+  booster_assets: 12a97516f57469078707afb587a5f84c1cb110d1
+generated_code_sha: 2cf9496729f6002fdceda90663000b2550ab126d
+run_id: w09_mapping_5198435d
+created_utc: '2026-10-14T13:20:43.572996+00:00'
+sensor_mode: compensated
+odom_mode: ideal_truth
+lidar_config:
+  noise_std: 0.0
+  dropout: 0.0
+  seed: 0
+  publish_points: false
+  angles: 360
+  elevations:
+  - -20.0
+  - -15.0
+  - -10.0
+  - -5.0
+  - 0.0
+  - 5.0
+  - 10.0
+  - 15.0
+  - 20.0
+  range_min: 0.15
+  range_max: 12.0
+  height_min: 0.15
+  height_max: 1.2
+  divisor: 5
+slam_params_sha256: 45ae81fab86f6d3755c9c03212a1f13f80209914ac6e46cce9bffbb9e5f3d357
+T_world_map:
+  x: 8.673617379884035e-19
+  y: 0.0
+  yaw: -4.336808689942018e-19
+anchor:
+  map_to_odom_at_start:
+  - -8.673617379884035e-19
+  - -3.76158192263132e-37
+  - 4.336808689942018e-19
+  odom_at_start:
+  - 3.08
+  - -0.003930156944426584
+  - -0.010917085887817998
+  - 0.0068733235187890445
+  method: initial SLAM map->odom inverted, odom equals world truth horizontal projection
+    (W06 contract)
+pose_graph:
+  path: docs/evidence/W09/raw/static_world.*
+  purpose: optional continuation/debug; localization only needs yaml/image
+  tracked: false
+expected_localization:
+  initial_inputs:
+  - - 0.2
+    - -0.15
+    - 0.15
+  - - -0.2
+    - 0.15
+    - -0.2
+  - - 0.1
+    - 0.1
+    - 0.3
+  convergence_sim_s: 25
+  position_error_max_m: 0.25
+  yaw_error_max_rad: 0.17453292519943295
+  scan_distance_p95_max_m: 0.15
+limitations:
+- ideal truth odometry and truth attitude compensation
+- no drift/noise robustness claim
+- planar static scene only

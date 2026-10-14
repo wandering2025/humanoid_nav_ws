@@ -1,0 +1,1578 @@
+{
+  "checks": {
+    "map_received": true,
+    "slam_only": true,
+    "one_map_odom_owner": true,
+    "one_clock_owner": true,
+    "reset_rejected": true,
+    "sensor_frame": true,
+    "actual_map_odom_owner": true,
+    "clean_exit": true
+  },
+  "graph_active": {
+    "/tf": [
+      {
+        "node": "t1_sim",
+        "gid": "010fcc81e94846e00000000000001903",
+        "type": "tf2_msgs/msg/TFMessage"
+      },
+      {
+        "node": "robot_state_publisher",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "type": "tf2_msgs/msg/TFMessage"
+      },
+      {
+        "node": "slam_toolbox",
+        "gid": "010fcc81ec486cc20000000000002603",
+        "type": "tf2_msgs/msg/TFMessage"
+      },
+      {
+        "node": "slam_toolbox",
+        "gid": "010fcc81ec486cc20000000000002a03",
+        "type": "tf2_msgs/msg/TFMessage"
+      }
+    ],
+    "/clock": [
+      {
+        "node": "t1_sim",
+        "gid": "010fcc81e94846e00000000000001303",
+        "type": "rosgraph_msgs/msg/Clock"
+      }
+    ],
+    "/scan": [
+      {
+        "node": "t1_sim",
+        "gid": "010fcc81e94846e00000000000001a03",
+        "type": "sensor_msgs/msg/LaserScan"
+      }
+    ],
+    "/odom": [
+      {
+        "node": "t1_sim",
+        "gid": "010fcc81e94846e00000000000001603",
+        "type": "nav_msgs/msg/Odometry"
+      }
+    ],
+    "/map": [
+      {
+        "node": "slam_toolbox",
+        "gid": "010fcc81ec486cc20000000000003803",
+        "type": "nav_msgs/msg/OccupancyGrid"
+      }
+    ],
+    "/cmd_vel": [
+      {
+        "node": "w09_probe",
+        "gid": "010fcc816b48bd810000000000001303",
+        "type": "geometry_msgs/msg/Twist"
+      }
+    ],
+    "/initialpose": [
+      {
+        "node": "w09_probe",
+        "gid": "010fcc816b48bd810000000000001403",
+        "type": "geometry_msgs/msg/PoseWithCovarianceStamped"
+      },
+      {
+        "node": "rviz2",
+        "gid": "010fcc81eb4881d50000000000002503",
+        "type": "geometry_msgs/msg/PoseWithCovarianceStamped"
+      }
+    ]
+  },
+  "initial_map_odom": [
+    -8.673617379884035e-19,
+    -3.76158192263132e-37,
+    4.336808689942018e-19
+  ],
+  "initial_odom": [
+    3.08,
+    -0.003930156944426584,
+    -0.010917085887817998,
+    0.0068733235187890445
+  ],
+  "initial_map_tf_stamp": 3.2,
+  "final_map_odom": [
+    -0.003738928626462817,
+    -0.005573398198817845,
+    0.00024045125392423052
+  ],
+  "map_save_command": [
+    "ros2",
+    "run",
+    "nav2_map_server",
+    "map_saver_cli",
+    "-f",
+    "/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/static_world",
+    "--ros-args",
+    "-p",
+    "use_sim_time:=true",
+    "-p",
+    "save_map_timeout:=10.0"
+  ],
+  "serialized_pose_graph": "/home/haoyang/humanoid_nav_ws/docs/evidence/W09/raw/static_world",
+  "verdict": "PASS",
+  "run": {
+    "run_id": "w09_mapping_5198435d",
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "mapping.launch.py",
+      "run_id:=w09_mapping_5198435d",
+      "scene:=static_world",
+      "target_rtf:=1.0",
+      "rviz:=true",
+      "max_sim_time:=220.0"
+    ],
+    "cwd": "/home/haoyang/humanoid_nav_ws",
+    "started_utc": "2026-10-14T13:18:49.183293+00:00",
+    "ended_utc": "2026-10-14T13:20:43.572996+00:00",
+    "exit_code": 0,
+    "wall_s": 114.38973133699983,
+    "sim_end": 110.78,
+    "manifest": {
+      "schema": 1,
+      "run_id": "w09_mapping_5198435d",
+      "created_utc": "2026-10-14T13:18:51.435306+00:00",
+      "code_sha": "2cf9496729f6002fdceda90663000b2550ab126d",
+      "dirty": true,
+      "dirty_files": [
+        "M docs/start_commands.md",
+        "?? docs/evidence/W09/w09_c1_0e3941a0-trajectory.csv",
+        "?? docs/evidence/W09/w09_c1_1aa1c4c6-trajectory.csv",
+        "?? docs/evidence/W09/w09_c1_4e57f1cf-trajectory.csv"
+      ],
+      "upstream_sha": {
+        "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+        "booster_assets": "12a97516f57469078707afb587a5f84c1cb110d1"
+      },
+      "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7",
+      "mjcf_sha256": "856c5401e741f640ea06f72528d12996d1b5bd738acdccce0d2a8dc9e834a660",
+      "scene_file": "/home/haoyang/humanoid_nav_ws/run_data/cache/scenes/daaa6920d853daf095d73008dd5888c4ead4b05293ea64e8f4275f0ba08758a1/static_world.xml",
+      "scene_sha256": "856c5401e741f640ea06f72528d12996d1b5bd738acdccce0d2a8dc9e834a660",
+      "mode": "mapping",
+      "suite": "dev",
+      "case": "static_world",
+      "seed": 0,
+      "sensor_mode": "compensated",
+      "odom_mode": "ideal_truth",
+      "map_yaml": null,
+      "map_sha256": null,
+      "T_world_map": null,
+      "goal": [
+        6,
+        0,
+        0
+      ],
+      "tolerances": null,
+      "time_limit_s": 220.0,
+      "parameter_files": {
+        "nav2": null,
+        "slam": null,
+        "amcl": null,
+        "velocity_smoother": null,
+        "collision_monitor": null,
+        "command_map": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+          "sha256": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+          "evidence": {
+            "report": "docs/evidence/W05/locomotion-envelope.md",
+            "runs": {
+              "20261013T212155Z_dev_w05_c3": "00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe",
+              "20261013T215753Z_dev_w05_dense": "50ef2baf9ae2530bac0edfdc07c131f99725909836fe07511264fcc6dd33fb01",
+              "20261013T220627Z_dev_w05_context": "25976d72867333007b5a1cec96b1ea9d84920a620cde6cb0f79b09525bc8f65e"
+            },
+            "statistic": "largest 2 s window mean, >=3 s after command onset, segments >=8 s (raw traces)",
+            "tested_code_sha": "abc5b4a8248b05037ef02f46022c2a6779915acd",
+            "builder": "docs/evidence/W05/build_command_map.py",
+            "validation": "docs/evidence/W05/command-map-validation.json"
+          }
+        }
+      },
+      "resolved_parameters": {
+        "upstream_path": "/home/haoyang/robot_sim_sources/booster_deploy",
+        "assets_path": "",
+        "task": "t1_walk",
+        "mode": "mapping",
+        "scene": "static_world",
+        "headless": true,
+        "viewer_rate_hz": 30.0,
+        "target_rtf": 1.0,
+        "enable_policy_cmd_input": false,
+        "cmd_timeout_sim": 0.5,
+        "cmd_timeout_wall": 0.5,
+        "warmup_sim_s": 2.0,
+        "run_id": "w09_mapping_5198435d",
+        "run_dir": "/home/haoyang/humanoid_nav_ws/run_data",
+        "seed": 0,
+        "max_sim_time": 220.0,
+        "command_map_file": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+        "joint_state_divisor": 1,
+        "lidar_noise_std": 0.0,
+        "lidar_dropout": 0.0,
+        "lidar_publish_points": false
+      },
+      "parameters_sha256": "60f4b2611df127be31da7f7868f3cdde6629471d4a97caac7e0233dcf6b7488c",
+      "headless": true,
+      "target_rtf": 1.0,
+      "policy_dt": 0.02,
+      "physics_dt": 0.002,
+      "decimation": 10,
+      "host": "DESKTOP-MF19MEU",
+      "cpu": "x86_64",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "executable": "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+      "ros": "jazzy",
+      "mujoco": "3.15.0",
+      "torch": "2.14.1+cu130",
+      "command_line": [
+        "/home/haoyang/humanoid_nav_ws/build/t1_mujoco/t1_mujoco/simulation.py",
+        "--ros-args",
+        "-r",
+        "__node:=t1_sim",
+        "--params-file",
+        "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/runtime.yaml",
+        "--params-file",
+        "/tmp/launch_params_m6le8efp"
+      ],
+      "status": "SHUTDOWN",
+      "exit_code": 0,
+      "scene_provenance": {
+        "schema": 1,
+        "name": "static_world",
+        "assets_sha": "12a97516f57469078707afb587a5f84c1cb110d1",
+        "source_xml": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/T1_23dof.xml",
+          "sha256": "f00e3410362b1e2267e6db05d25c33d6240bbf2436d62a409f07042bad4f7fb2"
+        },
+        "layout": {
+          "path": "/home/haoyang/humanoid_nav_ws/src/t1_mujoco/worlds/static_world.yaml",
+          "sha256": "039e518209c17fb4e622dab30c40ce1aa6efe65df8708d3670482e17e4e34e47"
+        },
+        "license": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/LICENSE",
+          "sha256": "056db8cc7dcb21feae042d97185d4689c21bb1ba7fe59cefdc7ef5917c0ea77f"
+        },
+        "meshes": {
+          "Trunk": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Trunk.STL",
+            "sha256": "39d9610b23ef8ac7ea4343231a499f9c485903bede62df9729a2cd1254fede8f"
+          },
+          "H1": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/H1.STL",
+            "sha256": "527a2e426db4e3d476a195754764b7f9565a950b809a34e47618f177b139c3f2"
+          },
+          "H2": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/H2.STL",
+            "sha256": "9cbf4fe83a721c809de65b1f0d0a379314f4523f7e2f8af7f0edc27c2ce385aa"
+          },
+          "AL1": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AL1.STL",
+            "sha256": "43f5d268152b3c169d34731545ddfa2a510a7e16f209a2a80f8ba9ae0e1a40aa"
+          },
+          "AL2": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AL2.STL",
+            "sha256": "4bca60adb29c73f701350abd23e8a8d660dc61e87c5163a80157650dd3ad88c3"
+          },
+          "AL3": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AL3.STL",
+            "sha256": "bfdf5611dfe90f8e02b07b037c36a244f4ce7184b45113371ef46e624fb30854"
+          },
+          "left_hand_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/left_hand_link.STL",
+            "sha256": "34df992aed438446481cfa20e78327810cd5cc5ecbb4a6f32ba2bf625462f53d"
+          },
+          "AR1": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AR1.STL",
+            "sha256": "6dbbd3dab4486600747be9d0e7f8523d67bf00d24d0dc9c23db1766c4d808fcf"
+          },
+          "AR2": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AR2.STL",
+            "sha256": "0499136785fe1bc0289d9e503e1e0ea48f5a63420a2e45b0fcd9e6b3bcf8f999"
+          },
+          "AR3": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AR3.STL",
+            "sha256": "92330bd8286fe420fb76949ee4c5d5bdec2e6bb30426acdc4d6fae9257464631"
+          },
+          "right_hand_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/right_hand_link.STL",
+            "sha256": "c5a73e493e17db7611a81785f80c01167f51018271b4042f72fa8d2351d8b0eb"
+          },
+          "Waist": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Waist.STL",
+            "sha256": "2fe0a9ccfc284beca402e554db38e83022592192afa00f02db13cb374ffe9fbc"
+          },
+          "Hip_Pitch_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Pitch_Left.STL",
+            "sha256": "7bcb8be569aeb5379cb75a0827d682bc1d73a52a7f515d3aeffece43842c33c9"
+          },
+          "Hip_Roll_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Roll_Left.STL",
+            "sha256": "72dbd65bdb4e87444c8e538474f631d63bf8c0960922517456b8cf2be9e1d0f0"
+          },
+          "Hip_Yaw_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Yaw_Left.STL",
+            "sha256": "8d7de83ab4034639db3d1be1e6f43ae16e004dc2f1c2bec170b615686d187918"
+          },
+          "Shank_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Shank_Left.STL",
+            "sha256": "6ae8dd7f88cb70a4a3cb3972cad4035a76f1604fd73ea66e285da553b3703c40"
+          },
+          "Ankle_Cross_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Ankle_Cross_Left.STL",
+            "sha256": "e6ec38741838475834c147f2ad18196c0254741e602c2b676f888fd12b5d7981"
+          },
+          "left_foot_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/left_foot_link.STL",
+            "sha256": "2de026f2269fc55f80d4a8abd2e33dfd152adf9eb2c240d7d7e1dc40c13b55aa"
+          },
+          "Hip_Pitch_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Pitch_Right.STL",
+            "sha256": "054d579c3c6ccc1f97aaf1461d802dec748ce1bf26c6fdd289283a2d0dbb2032"
+          },
+          "Hip_Roll_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Roll_Right.STL",
+            "sha256": "d715a7649ea4bf20d7ee17b3a57bae31732e467b9da1053fee2242c90f50980f"
+          },
+          "Hip_Yaw_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Yaw_Right.STL",
+            "sha256": "1a7d98e021884e313c55780a3c7c24ef2aa322807d8f9f8b18b2a63c7e2b9bf6"
+          },
+          "Shank_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Shank_Right.STL",
+            "sha256": "dc66a8a0e2e31e413884a053e427d9b5007bef4508986587916a638a8a448599"
+          },
+          "Ankle_Cross_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Ankle_Cross_Right.STL",
+            "sha256": "b15d91f0f2470fc4d5634db906a3d7efaf1f700302e6671824494da8faf50308"
+          },
+          "right_foot_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/right_foot_link.STL",
+            "sha256": "313a9ff2f95da5727dce2b98c50b60226bf0a3affc72050ee251ea503e4b370a"
+          },
+          "Logo": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Logo.STL",
+            "sha256": "221b00d090fdc9e684892805db75265c9688b152b3ccf641084f950f220596c8"
+          }
+        },
+        "scene_metadata": {
+          "schema": 1,
+          "source_model": "robots/T1/T1_23dof.xml",
+          "bounds": [
+            -2,
+            8,
+            -5,
+            5
+          ],
+          "initial_pose": [
+            0,
+            0,
+            0
+          ],
+          "goal": [
+            6,
+            0,
+            0
+          ],
+          "minimum_passage_m": 1.9,
+          "obstacle_height_m": 1.5,
+          "name": "static_world",
+          "purpose": "Straight, corners, fixed boxes and two alternatives around a blocking island; W08-W11.",
+          "boxes": [
+            {
+              "name": "island",
+              "center": [
+                3,
+                0,
+                0.75
+              ],
+              "size": [
+                1,
+                2,
+                1.5
+              ]
+            },
+            {
+              "name": "north_corner",
+              "center": [
+                5.5,
+                2.8,
+                0.75
+              ],
+              "size": [
+                2,
+                0.4,
+                1.5
+              ]
+            },
+            {
+              "name": "south_box",
+              "center": [
+                5,
+                -3.5,
+                0.75
+              ],
+              "size": [
+                1,
+                1,
+                1.5
+              ]
+            }
+          ],
+          "activity_regions": [],
+          "obstacle_slots": []
+        },
+        "dynamic_motion_implemented": false,
+        "expanded_xml": {
+          "path": "/home/haoyang/humanoid_nav_ws/run_data/cache/scenes/daaa6920d853daf095d73008dd5888c4ead4b05293ea64e8f4275f0ba08758a1/static_world.xml",
+          "sha256": "856c5401e741f640ea06f72528d12996d1b5bd738acdccce0d2a8dc9e834a660"
+        }
+      },
+      "lidar_config": {
+        "noise_std": 0.0,
+        "dropout": 0.0,
+        "seed": 0,
+        "publish_points": false,
+        "angles": 360,
+        "elevations": [
+          -20.0,
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0
+        ],
+        "range_min": 0.15,
+        "range_max": 12.0,
+        "height_min": 0.15,
+        "height_max": 1.2,
+        "divisor": 5
+      },
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.6000000238418579,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "deadline_overruns": 1,
+      "physics_steps": 55540,
+      "failure_detail": null,
+      "sim_time_end": 111.07999999992252,
+      "wall_duration_s": 111.40914317900024,
+      "ended_utc": "2026-10-14T13:20:42.840995+00:00"
+    },
+    "graph": {
+      "/tf": [
+        {
+          "node": "t1_sim",
+          "gid": "010fcc81e94846e00000000000001903",
+          "type": "tf2_msgs/msg/TFMessage"
+        },
+        {
+          "node": "robot_state_publisher",
+          "gid": "010fcc81ea48449c0000000000001503",
+          "type": "tf2_msgs/msg/TFMessage"
+        },
+        {
+          "node": "slam_toolbox",
+          "gid": "010fcc81ec486cc20000000000002603",
+          "type": "tf2_msgs/msg/TFMessage"
+        },
+        {
+          "node": "slam_toolbox",
+          "gid": "010fcc81ec486cc20000000000002a03",
+          "type": "tf2_msgs/msg/TFMessage"
+        }
+      ],
+      "/clock": [
+        {
+          "node": "t1_sim",
+          "gid": "010fcc81e94846e00000000000001303",
+          "type": "rosgraph_msgs/msg/Clock"
+        }
+      ],
+      "/scan": [
+        {
+          "node": "t1_sim",
+          "gid": "010fcc81e94846e00000000000001a03",
+          "type": "sensor_msgs/msg/LaserScan"
+        }
+      ],
+      "/odom": [
+        {
+          "node": "t1_sim",
+          "gid": "010fcc81e94846e00000000000001603",
+          "type": "nav_msgs/msg/Odometry"
+        }
+      ],
+      "/map": [
+        {
+          "node": "slam_toolbox",
+          "gid": "010fcc81ec486cc20000000000003803",
+          "type": "nav_msgs/msg/OccupancyGrid"
+        }
+      ],
+      "/cmd_vel": [
+        {
+          "node": "w09_probe",
+          "gid": "010fcc816b48bd810000000000001303",
+          "type": "geometry_msgs/msg/Twist"
+        }
+      ],
+      "/initialpose": [
+        {
+          "node": "w09_probe",
+          "gid": "010fcc816b48bd810000000000001403",
+          "type": "geometry_msgs/msg/PoseWithCovarianceStamped"
+        },
+        {
+          "node": "rviz2",
+          "gid": "010fcc81eb4881d50000000000002503",
+          "type": "geometry_msgs/msg/PoseWithCovarianceStamped"
+        }
+      ]
+    },
+    "map_odom_gids": [
+      "010fcc81ec486cc20000000000002603"
+    ],
+    "map_odom_nodes": [
+      "slam_toolbox"
+    ],
+    "map_updates": [
+      [
+        1.04,
+        1.0,
+        200,
+        200,
+        18
+      ],
+      [
+        2.04,
+        2.0,
+        200,
+        200,
+        18
+      ],
+      [
+        3.04,
+        3.0,
+        200,
+        200,
+        18
+      ],
+      [
+        4.04,
+        4.0,
+        200,
+        200,
+        18
+      ],
+      [
+        5.04,
+        5.0,
+        200,
+        200,
+        18
+      ],
+      [
+        6.04,
+        6.0,
+        200,
+        200,
+        18
+      ],
+      [
+        7.04,
+        7.0,
+        200,
+        200,
+        18
+      ],
+      [
+        8.040000000000001,
+        8.0,
+        200,
+        200,
+        18
+      ],
+      [
+        9.040000000000001,
+        9.0,
+        200,
+        200,
+        192
+      ],
+      [
+        10.040000000000001,
+        10.0,
+        200,
+        200,
+        273
+      ],
+      [
+        11.040000000000001,
+        11.0,
+        200,
+        200,
+        355
+      ],
+      [
+        12.040000000000001,
+        12.0,
+        200,
+        200,
+        434
+      ],
+      [
+        13.040000000000001,
+        13.0,
+        200,
+        200,
+        486
+      ],
+      [
+        14.040000000000001,
+        14.0,
+        200,
+        200,
+        501
+      ],
+      [
+        15.040000000000001,
+        15.000000000000002,
+        200,
+        200,
+        501
+      ],
+      [
+        16.040000000000003,
+        16.0,
+        200,
+        200,
+        501
+      ],
+      [
+        17.040000000000003,
+        17.0,
+        200,
+        200,
+        501
+      ],
+      [
+        18.040000000000003,
+        18.0,
+        200,
+        200,
+        529
+      ],
+      [
+        19.040000000000003,
+        19.0,
+        200,
+        200,
+        529
+      ],
+      [
+        20.040000000000003,
+        20.0,
+        200,
+        200,
+        529
+      ],
+      [
+        21.040000000000003,
+        21.0,
+        200,
+        200,
+        529
+      ],
+      [
+        22.040000000000003,
+        22.0,
+        200,
+        200,
+        531
+      ],
+      [
+        23.040000000000003,
+        23.0,
+        200,
+        200,
+        541
+      ],
+      [
+        24.040000000000003,
+        24.0,
+        200,
+        200,
+        544
+      ],
+      [
+        25.040000000000003,
+        25.0,
+        200,
+        200,
+        538
+      ],
+      [
+        26.040000000000003,
+        26.0,
+        200,
+        200,
+        533
+      ],
+      [
+        27.040000000000003,
+        27.0,
+        200,
+        200,
+        532
+      ],
+      [
+        28.040000000000003,
+        28.0,
+        200,
+        200,
+        527
+      ],
+      [
+        29.040000000000003,
+        29.000000000000004,
+        200,
+        200,
+        525
+      ],
+      [
+        30.040000000000003,
+        30.000000000000004,
+        201,
+        201,
+        887
+      ],
+      [
+        31.040000000000003,
+        31.000000000000004,
+        201,
+        201,
+        900
+      ],
+      [
+        32.04,
+        32.0,
+        201,
+        201,
+        949
+      ],
+      [
+        33.04,
+        33.0,
+        201,
+        201,
+        1123
+      ],
+      [
+        34.04,
+        34.0,
+        201,
+        201,
+        1139
+      ],
+      [
+        35.04,
+        35.0,
+        201,
+        201,
+        1246
+      ],
+      [
+        36.04,
+        36.0,
+        201,
+        201,
+        1257
+      ],
+      [
+        37.04,
+        37.0,
+        201,
+        201,
+        1270
+      ],
+      [
+        38.04,
+        38.0,
+        201,
+        201,
+        1287
+      ],
+      [
+        39.04,
+        39.0,
+        201,
+        201,
+        1289
+      ],
+      [
+        40.04,
+        40.0,
+        201,
+        201,
+        1293
+      ],
+      [
+        41.04,
+        41.0,
+        201,
+        201,
+        1293
+      ],
+      [
+        41.900000000000006,
+        42.0,
+        201,
+        201,
+        1293
+      ],
+      [
+        43.04,
+        43.0,
+        201,
+        201,
+        1293
+      ],
+      [
+        44.040000000000006,
+        44.0,
+        201,
+        201,
+        1293
+      ],
+      [
+        45.040000000000006,
+        45.0,
+        201,
+        201,
+        1350
+      ],
+      [
+        46.040000000000006,
+        46.0,
+        201,
+        201,
+        1350
+      ],
+      [
+        47.040000000000006,
+        47.0,
+        201,
+        201,
+        1350
+      ],
+      [
+        48.040000000000006,
+        48.0,
+        201,
+        201,
+        1350
+      ],
+      [
+        49.040000000000006,
+        49.0,
+        201,
+        201,
+        1418
+      ],
+      [
+        50.040000000000006,
+        50.0,
+        201,
+        201,
+        1403
+      ],
+      [
+        51.040000000000006,
+        51.0,
+        201,
+        201,
+        1057
+      ],
+      [
+        52.040000000000006,
+        52.0,
+        201,
+        201,
+        1056
+      ],
+      [
+        53.040000000000006,
+        53.0,
+        201,
+        201,
+        1066
+      ],
+      [
+        54.040000000000006,
+        54.0,
+        201,
+        201,
+        1066
+      ],
+      [
+        55.040000000000006,
+        55.0,
+        201,
+        201,
+        1066
+      ],
+      [
+        56.040000000000006,
+        56.0,
+        201,
+        201,
+        1066
+      ],
+      [
+        57.040000000000006,
+        57.0,
+        201,
+        201,
+        1066
+      ],
+      [
+        58.040000000000006,
+        58.00000000000001,
+        201,
+        201,
+        1066
+      ],
+      [
+        59.040000000000006,
+        59.00000000000001,
+        201,
+        201,
+        1068
+      ],
+      [
+        60.040000000000006,
+        60.00000000000001,
+        202,
+        201,
+        952
+      ],
+      [
+        61.040000000000006,
+        61.00000000000001,
+        202,
+        201,
+        966
+      ],
+      [
+        62.040000000000006,
+        62.00000000000001,
+        202,
+        201,
+        968
+      ],
+      [
+        63.040000000000006,
+        63.00000000000001,
+        202,
+        201,
+        958
+      ],
+      [
+        64.04,
+        64.0,
+        202,
+        201,
+        964
+      ],
+      [
+        65.04,
+        65.0,
+        202,
+        201,
+        969
+      ],
+      [
+        66.04,
+        66.0,
+        202,
+        201,
+        969
+      ],
+      [
+        67.04,
+        67.0,
+        202,
+        201,
+        969
+      ],
+      [
+        68.04,
+        68.0,
+        202,
+        201,
+        978
+      ],
+      [
+        69.04,
+        69.0,
+        202,
+        201,
+        978
+      ],
+      [
+        70.04,
+        70.0,
+        202,
+        201,
+        978
+      ],
+      [
+        71.04,
+        71.0,
+        202,
+        201,
+        978
+      ],
+      [
+        72.04,
+        72.0,
+        202,
+        201,
+        978
+      ],
+      [
+        73.04,
+        73.0,
+        202,
+        201,
+        980
+      ],
+      [
+        74.04,
+        74.0,
+        202,
+        201,
+        985
+      ],
+      [
+        75.04,
+        75.0,
+        202,
+        201,
+        993
+      ],
+      [
+        76.04,
+        76.0,
+        202,
+        201,
+        993
+      ],
+      [
+        77.04,
+        77.0,
+        202,
+        201,
+        1001
+      ],
+      [
+        78.04,
+        78.0,
+        202,
+        202,
+        1204
+      ],
+      [
+        79.04,
+        79.0,
+        202,
+        202,
+        1217
+      ],
+      [
+        80.04,
+        80.0,
+        202,
+        202,
+        1225
+      ],
+      [
+        81.04,
+        81.0,
+        202,
+        202,
+        1195
+      ],
+      [
+        82.04,
+        82.0,
+        202,
+        202,
+        1197
+      ],
+      [
+        83.04,
+        83.0,
+        202,
+        202,
+        1224
+      ],
+      [
+        84.04,
+        84.0,
+        202,
+        202,
+        1242
+      ],
+      [
+        85.04,
+        85.0,
+        202,
+        202,
+        1252
+      ],
+      [
+        86.04,
+        86.0,
+        202,
+        202,
+        1254
+      ],
+      [
+        87.04,
+        87.0,
+        202,
+        202,
+        1255
+      ],
+      [
+        88.04,
+        88.0,
+        202,
+        202,
+        1286
+      ],
+      [
+        89.04,
+        89.0,
+        201,
+        201,
+        1465
+      ],
+      [
+        90.04,
+        90.0,
+        201,
+        201,
+        1465
+      ],
+      [
+        91.04,
+        91.0,
+        201,
+        201,
+        1465
+      ],
+      [
+        92.04,
+        92.0,
+        201,
+        201,
+        1465
+      ],
+      [
+        93.04,
+        93.0,
+        201,
+        201,
+        1465
+      ],
+      [
+        94.04,
+        94.0,
+        201,
+        201,
+        1468
+      ],
+      [
+        95.04,
+        95.0,
+        201,
+        201,
+        1468
+      ],
+      [
+        96.04,
+        96.0,
+        201,
+        201,
+        1468
+      ],
+      [
+        97.04,
+        97.0,
+        201,
+        201,
+        1468
+      ],
+      [
+        98.04,
+        98.0,
+        201,
+        201,
+        1475
+      ],
+      [
+        99.04,
+        99.0,
+        201,
+        201,
+        1476
+      ],
+      [
+        100.04,
+        100.0,
+        201,
+        201,
+        1477
+      ],
+      [
+        101.04,
+        101.0,
+        201,
+        201,
+        1479
+      ],
+      [
+        102.04,
+        102.0,
+        201,
+        201,
+        1476
+      ],
+      [
+        103.04,
+        103.0,
+        201,
+        201,
+        1476
+      ],
+      [
+        104.04,
+        104.0,
+        201,
+        201,
+        1476
+      ],
+      [
+        105.04,
+        105.0,
+        201,
+        201,
+        1476
+      ],
+      [
+        106.04,
+        106.0,
+        201,
+        201,
+        1476
+      ],
+      [
+        107.06,
+        107.0,
+        201,
+        201,
+        1476
+      ],
+      [
+        108.04,
+        108.0,
+        201,
+        201,
+        1476
+      ],
+      [
+        109.04,
+        109.0,
+        201,
+        201,
+        1476
+      ],
+      [
+        110.04,
+        110.0,
+        201,
+        201,
+        1476
+      ]
+    ],
+    "route": [
+      {
+        "leg": 0,
+        "target": [
+          0.0,
+          1.9
+        ],
+        "sim_start": 3.08,
+        "sim_end": 15.260000000000002,
+        "actual": [
+          15.24,
+          0.04305025283987826,
+          1.8131189550441846,
+          1.6867075438781627
+        ]
+      },
+      {
+        "leg": 1,
+        "target": [
+          6.8,
+          1.9
+        ],
+        "sim_start": 15.260000000000002,
+        "sim_end": 41.38,
+        "actual": [
+          41.36,
+          6.717024629485622,
+          1.875366255671219,
+          -0.03736606161165923
+        ]
+      },
+      {
+        "leg": 2,
+        "target": [
+          6.0,
+          0.0
+        ],
+        "sim_start": 41.88,
+        "sim_end": 55.2,
+        "actual": [
+          55.18000000000001,
+          6.017774899176662,
+          0.09202834570039839,
+          -2.053493649135293
+        ]
+      },
+      {
+        "leg": 3,
+        "target": [
+          6.2,
+          -2.0
+        ],
+        "sim_start": 55.2,
+        "sim_end": 66.10000000000001,
+        "actual": [
+          66.08,
+          6.167714463967778,
+          -1.9130453488778605,
+          -1.3745338582682354
+        ]
+      },
+      {
+        "leg": 4,
+        "target": [
+          0.0,
+          -2.0
+        ],
+        "sim_start": 66.60000000000001,
+        "sim_end": 91.16000000000001,
+        "actual": [
+          91.14,
+          0.08427897119802119,
+          -1.9723761042888692,
+          -3.1375973054451305
+        ]
+      },
+      {
+        "leg": 5,
+        "target": [
+          0.0,
+          0.0
+        ],
+        "sim_start": 91.16000000000001,
+        "sim_end": 103.54,
+        "actual": [
+          103.52000000000001,
+          0.010012155085132583,
+          -0.08288425552926679,
+          1.535762402888005
+        ]
+      }
+    ],
+    "clock_regressions": 0,
+    "tf_authority": [
+      {
+        "parent": "odom",
+        "child": "base_footprint",
+        "gid": "010fcc81e94846e00000000000001903",
+        "node": "t1_sim"
+      },
+      {
+        "parent": "base_footprint",
+        "child": "base_link",
+        "gid": "010fcc81e94846e00000000000001903",
+        "node": "t1_sim"
+      },
+      {
+        "parent": "base_footprint",
+        "child": "laser_stabilized",
+        "gid": "010fcc81e94846e00000000000001903",
+        "node": "t1_sim"
+      },
+      {
+        "parent": "aahead_yaw_link",
+        "child": "aahead_pitch_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "trunk",
+        "child": "aahead_yaw_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "left_knee_pitch_link",
+        "child": "left_ankle_pitch_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "left_ankle_pitch_link",
+        "child": "left_ankle_roll_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "left_shoulder_roll_link",
+        "child": "left_elbow_pitch_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "left_elbow_pitch_link",
+        "child": "left_elbow_yaw_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "waist_yaw_link",
+        "child": "left_hip_pitch_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "left_hip_pitch_link",
+        "child": "left_hip_roll_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "left_hip_roll_link",
+        "child": "left_hip_yaw_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "left_hip_yaw_link",
+        "child": "left_knee_pitch_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "trunk",
+        "child": "left_shoulder_pitch_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "left_shoulder_pitch_link",
+        "child": "left_shoulder_roll_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "right_knee_pitch_link",
+        "child": "right_ankle_pitch_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "right_ankle_pitch_link",
+        "child": "right_ankle_roll_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "right_shoulder_roll_link",
+        "child": "right_elbow_pitch_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "right_elbow_pitch_link",
+        "child": "right_elbow_yaw_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "waist_yaw_link",
+        "child": "right_hip_pitch_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "right_hip_pitch_link",
+        "child": "right_hip_roll_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "right_hip_roll_link",
+        "child": "right_hip_yaw_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "right_hip_yaw_link",
+        "child": "right_knee_pitch_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "trunk",
+        "child": "right_shoulder_pitch_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "right_shoulder_pitch_link",
+        "child": "right_shoulder_roll_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "trunk",
+        "child": "waist_yaw_link",
+        "gid": "010fcc81ea48449c0000000000001503",
+        "node": "robot_state_publisher"
+      },
+      {
+        "parent": "map",
+        "child": "odom",
+        "gid": "010fcc81ec486cc20000000000002603",
+        "node": "slam_toolbox"
+      }
+    ]
+  }
+}
