@@ -54,7 +54,7 @@ def main():
     session = Session('remap')
     result, run = dict(route=ROUTE), None
     try:
-        run = Run('mapping.launch.py', 'mapping', [f'scene:={os.environ.get("W12_SCENE", "dynamic_crossing_world")}', 'rviz:=true', 'max_sim_time:=300.0'])
+        run = Run('mapping.launch.py', 'mapping', [f'scene:={os.environ.get("W12_SCENE", "dynamic_crossing_world")}', 'rviz:=true', 'max_sim_time:=300.0', f'params_file:={WS}/src/t1_navigation/config/w12_mapping_runtime.yaml'])
         run.ready()
         run.until(lambda: run.node.map is not None and run.node.map_tf is not None, 60)
         t = run.node.map_tf.transform

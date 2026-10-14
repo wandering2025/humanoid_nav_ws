@@ -65,6 +65,8 @@ class Probe(Node):
         self.clock_regressions = 0
         self.state = self.gate = self.cm = self.odom = self.truth = self.scan = self.map = None
         self.map_tf = self.pose = self.plan = self.adapter = None
+        self.obstacle = None
+        self.obstacles, self.dynamic_scans, self.cost_samples = [], [], []
         self.cmds = {key: None for key, _ in LAYERS}
         self.buffer = Buffer()
         self.rows, self.events, self.scans, self.poses, self.initializations = [], [], [], [], []
@@ -73,6 +75,8 @@ class Probe(Node):
         self.last_row = -1.
         self.teleop = None  # created only by runs that act as the teleop source
         qos_tl = QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL)
+        self.create_subscription(String, '/t1/eval/obstacle', self.on_obstacle, 50)
+        self.create_subscription(OccupancyGrid, '/local_costmap/costmap', self.on_local_costmap, qos_tl)
         self.create_subscription(Clock, '/clock', self.on_clock, 100)
         self.create_subscription(String, '/t1/sim_state', self.on_state, qos_tl)
         self.create_subscription(String, '/t1/safety/state', self.on_gate, qos_tl)
@@ -159,6 +163,7 @@ class Probe(Node):
         self.scan_stats['known_min'] = min(self.scan_stats['known_min'], known)
         self.scan_stats['min_range'] = min(self.scan_stats.get('min_range', math.inf), min(finite) if finite else math.inf)
         self.scan = m
+        self.sample_dynamic_scan(m)
         if not self.scans or ns(m.header.stamp) - ns(self.scans[-1].header.stamp) >= 500_000_000:
             self.scans.append(m)
 
@@ -187,6 +192,67 @@ class Probe(Node):
             pts = [(q.pose.position.x, q.pose.position.y) for q in m.poses]
             length = sum(math.dist(a, b) for a, b in zip(pts, pts[1:]))
             self.plans.append(dict(sim=self.sim, n=len(pts), length=length, points=pts[::10] + [pts[-1]]))
+
+    def on_obstacle(self, msg):
+        data = json.loads(msg.data)
+        self.obstacle = data
+        if not self.obstacles or data['sim_time'] - self.obstacles[-1]['sim_time'] >= .0999:
+            self.obstacles.append(data)
+
+    def match_obstacle(self, t):
+        if not self.obstacles:
+            return None
+        data = min(self.obstacles[-20:], key=lambda d: abs(d['sim_time']-t))
+        return data if abs(data['sim_time']-t) < .2 else None
+
+    def sample_dynamic_scan(self, scan):
+        t = ns(scan.header.stamp)*1e-9
+        obstacle = self.match_obstacle(t)
+        if obstacle is None:
+            return
+        try:
+            tf = self.buffer.lookup_transform('odom', 'laser_stabilized', Time(nanoseconds=ns(scan.header.stamp)))
+        except Exception:
+            return
+        p, a = tf.transform.translation, yaw(tf.transform.rotation)
+        hits = []
+        x, y, _ = obstacle['position']
+        sx, sy, _ = obstacle['size']
+        for i, r in enumerate(scan.ranges):
+            if math.isfinite(r):
+                angle_ = scan.angle_min + i*scan.angle_increment + a
+                px, py = p.x + r*math.cos(angle_), p.y + r*math.sin(angle_)
+                if abs(px-x) <= sx/2+.06 and abs(py-y) <= sy/2+.06:
+                    hits.append([i, r, px, py])
+        self.dynamic_scans.append(dict(sim=t, obstacle=obstacle, hits=hits,
+                                       laser_pose_odom=[p.x, p.y, p.z, a],
+                                       scan_frame=scan.header.frame_id, cm=self.cm))
+
+    def on_local_costmap(self, msg):
+        t = ns(msg.header.stamp)*1e-9
+        obstacle = self.match_obstacle(t)
+        if obstacle is None:
+            return
+        if msg.header.frame_id != 'odom':
+            raise ValueError('expected local costmap in odom')
+        ox, oy, res = msg.info.origin.position.x, msg.info.origin.position.y, msg.info.resolution
+        width, height = msg.info.width, msg.info.height
+        def value(x, y):
+            ix, iy = int(math.floor((x-ox)/res)), int(math.floor((y-oy)/res))
+            if 0 <= ix < width and 0 <= iy < height:
+                return int(msg.data[iy*width+ix])
+            return None
+        x, y, _ = obstacle['position']; sx, sy, _ = obstacle['size']
+        # Inspect box boundary samples, where LaserScan marks actual surfaces.
+        values = [value(x+dx, y+dy) for dx in (-sx/2-.05, -sx/2, 0, sx/2, sx/2+.05)
+                  for dy in (-sy/2-.05, -sy/2, 0, sy/2, sy/2+.05)]
+        observed = [v for v in values if v is not None]
+        old_x = {'crossing_slot': 2.75, 'blocking_slot': 4.5, 'approach_slot': 6.0}[obstacle['slot']]
+        self.cost_samples.append(dict(sim=t, obstacle=obstacle, frame=msg.header.frame_id,
+                                      origin=[ox, oy], resolution=res, width=width, height=height,
+                                      boundary_values=values, max_cost=max(observed) if observed else None,
+                                      vacated_center_value=value(old_x, 0.),
+                                      final_cmd=self.cmds['final'], plan_count=len(self.plans)))
 
     def graph(self, topics):
         return {t: dict(publishers=[i.node_name for i in self.get_publishers_info_by_topic(t)],
@@ -292,7 +358,7 @@ class Run:
         try:
             graph = self.node.graph(('/clock', '/cmd_vel', '/cmd_vel_nav', '/cmd_vel_smoothed', '/t1/cmd_navigation',
                                      '/t1/cmd_teleop', '/t1/nav/cmd_vel_raw', '/t1/eval/ground_truth',
-                                     '/t1/debug/policy_cmd', '/map', '/scan', '/odom', '/initialpose'))
+                                     '/t1/debug/policy_cmd', '/map', '/scan', '/odom', '/initialpose', '/t1/eval/obstacle', '/local_costmap/costmap'))
         except Exception as exc:
             graph = dict(error=repr(exc))
         if self.proc.poll() is None:
@@ -339,6 +405,6 @@ class Run:
                       children=[(label, proc.returncode) for label, proc, _ in self.children],
                       manifest={k: manifest.get(k) for k in ('code_sha', 'dirty', 'dirty_files', 'exit_code', 'status',
                                 'sim_time_end', 'wall_duration_s', 'scene_sha256', 'map_sha256', 'start_pose_override',
-                                'contact_counts', 'parameter_files', 'deadline_overruns', 'upstream_sha', 'mode')})
+                                'contact_counts', 'parameter_files', 'deadline_overruns', 'upstream_sha', 'mode', 'model_dimensions')})
         self.node.destroy_node()
         return result

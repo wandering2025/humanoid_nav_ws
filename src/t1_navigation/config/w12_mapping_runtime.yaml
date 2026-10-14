@@ -1,0 +1,7 @@
+# W12 only: explicit W08 range noise, seed 0; never used by W11/static navigation.
+# Karto dimensions round(extent/res) without a border cell. Exact noiseless north
+# wall endpoints rounded to height=221 (out of bounds). Real noisy scans spread
+# endpoints across cells. No manual occupancy/meta editing; rebuild with SLAM.
+t1_sim:
+  ros__parameters:
+    lidar_noise_std: 0.01
