@@ -1,0 +1,1309 @@
+{
+  "route": [
+    [
+      1.5,
+      2.75
+    ],
+    [
+      7.5,
+      2.75
+    ],
+    [
+      9.0,
+      0.0
+    ],
+    [
+      7.5,
+      -2.75
+    ],
+    [
+      1.5,
+      -2.75
+    ],
+    [
+      0.0,
+      0.0
+    ]
+  ],
+  "initial_map_odom": [
+    -8.673617379884035e-19,
+    -3.76158192263132e-37,
+    4.336808689942018e-19
+  ],
+  "initial_odom": [
+    0.0005379299771970566,
+    -0.01024300324368287,
+    0.0026626131000107977
+  ],
+  "legs": [
+    {
+      "leg": 0,
+      "target": [
+        1.5,
+        2.75
+      ],
+      "sim_start": 2.8000000000000003,
+      "sim_end": 18.52,
+      "actual": [
+        1.4522215143931971,
+        2.682047634764348,
+        1.1203973468890187
+      ]
+    },
+    {
+      "leg": 1,
+      "target": [
+        7.5,
+        2.75
+      ],
+      "sim_start": 18.52,
+      "sim_end": 41.38,
+      "actual": [
+        7.431053051602072,
+        2.7444288172380173,
+        -0.05741689888621153
+      ]
+    },
+    {
+      "leg": 2,
+      "target": [
+        9.0,
+        0.0
+      ],
+      "sim_start": 41.88,
+      "sim_end": 57.82,
+      "actual": [
+        8.98154348725808,
+        0.08474430003464924,
+        -1.16532282309636
+      ]
+    },
+    {
+      "leg": 3,
+      "target": [
+        7.5,
+        -2.75
+      ],
+      "sim_start": 57.82,
+      "sim_end": 73.26,
+      "actual": [
+        7.52880381106521,
+        -2.660171997664183,
+        -2.140399612286954
+      ]
+    },
+    {
+      "leg": 4,
+      "target": [
+        1.5,
+        -2.75
+      ],
+      "sim_start": 73.76,
+      "sim_end": 96.78,
+      "actual": [
+        1.5534552073707548,
+        -2.736023469924961,
+        3.0735552380289604
+      ]
+    },
+    {
+      "leg": 5,
+      "target": [
+        0.0,
+        0.0
+      ],
+      "sim_start": 96.78,
+      "sim_end": 112.60000000000001,
+      "actual": [
+        0.022711644566310658,
+        -0.09868572413430482,
+        1.9420524461608548
+      ]
+    }
+  ],
+  "final_map_odom": [
+    0.007632540915277113,
+    0.0012802605246436736,
+    -0.0015944966690974803
+  ],
+  "map_save_command": [
+    "ros2",
+    "run",
+    "nav2_map_server",
+    "map_saver_cli",
+    "-f",
+    "/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world",
+    "--ros-args",
+    "-p",
+    "use_sim_time:=true",
+    "-p",
+    "save_map_timeout:=10.0"
+  ],
+  "map_updates": [
+    [
+      0.44,
+      0.4,
+      281,
+      220
+    ],
+    [
+      1.4400000000000002,
+      1.4000000000000001,
+      281,
+      220
+    ],
+    [
+      2.44,
+      2.4000000000000004,
+      281,
+      220
+    ],
+    [
+      3.4400000000000004,
+      3.4000000000000004,
+      281,
+      220
+    ],
+    [
+      4.44,
+      4.4,
+      281,
+      220
+    ],
+    [
+      5.42,
+      5.4,
+      281,
+      220
+    ],
+    [
+      6.420000000000001,
+      6.4,
+      281,
+      220
+    ],
+    [
+      6.920000000000001,
+      6.9,
+      281,
+      220
+    ],
+    [
+      6.920000000000001,
+      6.9,
+      281,
+      220
+    ],
+    [
+      7.7,
+      7.7,
+      281,
+      220
+    ],
+    [
+      8.700000000000001,
+      8.700000000000001,
+      281,
+      220
+    ],
+    [
+      9.700000000000001,
+      9.700000000000001,
+      281,
+      221
+    ],
+    [
+      10.700000000000001,
+      10.700000000000001,
+      281,
+      221
+    ],
+    [
+      11.700000000000001,
+      11.700000000000001,
+      281,
+      221
+    ],
+    [
+      12.700000000000001,
+      12.700000000000001,
+      281,
+      221
+    ],
+    [
+      13.700000000000001,
+      13.700000000000001,
+      281,
+      221
+    ],
+    [
+      14.700000000000001,
+      14.700000000000001,
+      281,
+      221
+    ],
+    [
+      15.700000000000001,
+      15.700000000000001,
+      281,
+      221
+    ],
+    [
+      16.7,
+      16.7,
+      281,
+      221
+    ],
+    [
+      17.700000000000003,
+      17.700000000000003,
+      281,
+      221
+    ],
+    [
+      18.700000000000003,
+      18.700000000000003,
+      281,
+      221
+    ],
+    [
+      19.700000000000003,
+      19.700000000000003,
+      281,
+      221
+    ],
+    [
+      20.700000000000003,
+      20.700000000000003,
+      281,
+      221
+    ],
+    [
+      21.700000000000003,
+      21.700000000000003,
+      281,
+      221
+    ],
+    [
+      22.700000000000003,
+      22.700000000000003,
+      281,
+      221
+    ],
+    [
+      23.700000000000003,
+      23.700000000000003,
+      281,
+      221
+    ],
+    [
+      24.700000000000003,
+      24.700000000000003,
+      281,
+      221
+    ],
+    [
+      25.700000000000003,
+      25.700000000000003,
+      281,
+      221
+    ],
+    [
+      26.700000000000003,
+      26.700000000000003,
+      281,
+      221
+    ],
+    [
+      27.700000000000003,
+      27.700000000000003,
+      281,
+      221
+    ],
+    [
+      28.700000000000003,
+      28.700000000000003,
+      281,
+      221
+    ],
+    [
+      29.700000000000003,
+      29.700000000000003,
+      281,
+      221
+    ],
+    [
+      30.700000000000003,
+      30.700000000000003,
+      281,
+      221
+    ],
+    [
+      31.700000000000003,
+      31.700000000000003,
+      281,
+      221
+    ],
+    [
+      32.7,
+      32.7,
+      281,
+      221
+    ],
+    [
+      33.7,
+      33.7,
+      281,
+      221
+    ],
+    [
+      34.7,
+      34.7,
+      281,
+      221
+    ],
+    [
+      35.7,
+      35.7,
+      281,
+      221
+    ],
+    [
+      36.7,
+      36.7,
+      281,
+      221
+    ],
+    [
+      37.7,
+      37.7,
+      281,
+      221
+    ],
+    [
+      38.7,
+      38.7,
+      281,
+      221
+    ],
+    [
+      39.18,
+      39.1,
+      281,
+      221
+    ],
+    [
+      39.18,
+      39.1,
+      281,
+      221
+    ],
+    [
+      39.980000000000004,
+      39.900000000000006,
+      281,
+      221
+    ],
+    [
+      40.980000000000004,
+      40.900000000000006,
+      281,
+      221
+    ],
+    [
+      41.900000000000006,
+      41.900000000000006,
+      281,
+      221
+    ],
+    [
+      42.980000000000004,
+      42.900000000000006,
+      281,
+      221
+    ],
+    [
+      43.980000000000004,
+      43.900000000000006,
+      281,
+      221
+    ],
+    [
+      44.980000000000004,
+      44.900000000000006,
+      281,
+      221
+    ],
+    [
+      45.980000000000004,
+      45.900000000000006,
+      281,
+      221
+    ],
+    [
+      46.980000000000004,
+      46.900000000000006,
+      281,
+      221
+    ],
+    [
+      47.980000000000004,
+      47.900000000000006,
+      281,
+      221
+    ],
+    [
+      48.980000000000004,
+      48.900000000000006,
+      281,
+      221
+    ],
+    [
+      49.980000000000004,
+      49.900000000000006,
+      281,
+      221
+    ],
+    [
+      50.980000000000004,
+      50.900000000000006,
+      281,
+      221
+    ],
+    [
+      51.980000000000004,
+      51.900000000000006,
+      281,
+      221
+    ],
+    [
+      52.980000000000004,
+      52.900000000000006,
+      281,
+      221
+    ],
+    [
+      53.980000000000004,
+      53.900000000000006,
+      281,
+      221
+    ],
+    [
+      54.980000000000004,
+      54.900000000000006,
+      281,
+      221
+    ],
+    [
+      55.980000000000004,
+      55.900000000000006,
+      281,
+      221
+    ],
+    [
+      56.980000000000004,
+      56.900000000000006,
+      281,
+      221
+    ],
+    [
+      57.980000000000004,
+      57.900000000000006,
+      281,
+      221
+    ],
+    [
+      58.980000000000004,
+      58.900000000000006,
+      281,
+      221
+    ],
+    [
+      59.980000000000004,
+      59.900000000000006,
+      281,
+      221
+    ],
+    [
+      60.980000000000004,
+      60.900000000000006,
+      281,
+      221
+    ],
+    [
+      62.00000000000001,
+      61.900000000000006,
+      281,
+      221
+    ],
+    [
+      62.980000000000004,
+      62.900000000000006,
+      281,
+      221
+    ],
+    [
+      64.0,
+      63.900000000000006,
+      281,
+      221
+    ],
+    [
+      65.0,
+      64.9,
+      281,
+      221
+    ],
+    [
+      66.0,
+      65.9,
+      281,
+      222
+    ],
+    [
+      67.0,
+      66.9,
+      281,
+      222
+    ],
+    [
+      68.0,
+      67.9,
+      281,
+      222
+    ],
+    [
+      69.0,
+      68.9,
+      281,
+      222
+    ],
+    [
+      69.98,
+      69.9,
+      281,
+      222
+    ],
+    [
+      70.98,
+      70.9,
+      281,
+      222
+    ],
+    [
+      71.44,
+      71.4,
+      281,
+      222
+    ],
+    [
+      71.46000000000001,
+      71.4,
+      281,
+      222
+    ],
+    [
+      72.28,
+      72.2,
+      281,
+      222
+    ],
+    [
+      73.28,
+      73.2,
+      281,
+      222
+    ],
+    [
+      74.28,
+      74.2,
+      281,
+      222
+    ],
+    [
+      75.28,
+      75.2,
+      281,
+      222
+    ],
+    [
+      76.28,
+      76.2,
+      281,
+      222
+    ],
+    [
+      77.28,
+      77.2,
+      281,
+      222
+    ],
+    [
+      78.28,
+      78.2,
+      281,
+      222
+    ],
+    [
+      79.28,
+      79.2,
+      281,
+      222
+    ],
+    [
+      80.28,
+      80.2,
+      281,
+      222
+    ],
+    [
+      81.28,
+      81.2,
+      281,
+      222
+    ],
+    [
+      82.28,
+      82.2,
+      281,
+      222
+    ],
+    [
+      83.28,
+      83.2,
+      281,
+      222
+    ],
+    [
+      84.28,
+      84.2,
+      281,
+      222
+    ],
+    [
+      85.28,
+      85.2,
+      281,
+      222
+    ],
+    [
+      86.28,
+      86.2,
+      281,
+      222
+    ],
+    [
+      87.28,
+      87.2,
+      281,
+      222
+    ],
+    [
+      88.28,
+      88.2,
+      281,
+      222
+    ],
+    [
+      89.28,
+      89.2,
+      281,
+      222
+    ],
+    [
+      90.28,
+      90.2,
+      281,
+      222
+    ],
+    [
+      91.28,
+      91.2,
+      281,
+      222
+    ],
+    [
+      92.28,
+      92.2,
+      281,
+      222
+    ],
+    [
+      93.28,
+      93.2,
+      281,
+      222
+    ],
+    [
+      94.28,
+      94.2,
+      281,
+      222
+    ],
+    [
+      95.28,
+      95.2,
+      281,
+      222
+    ],
+    [
+      96.28,
+      96.2,
+      281,
+      222
+    ],
+    [
+      97.28,
+      97.2,
+      281,
+      222
+    ],
+    [
+      98.30000000000001,
+      98.2,
+      281,
+      222
+    ],
+    [
+      99.30000000000001,
+      99.2,
+      281,
+      222
+    ],
+    [
+      100.28,
+      100.2,
+      281,
+      222
+    ],
+    [
+      101.28,
+      101.2,
+      281,
+      222
+    ],
+    [
+      102.30000000000001,
+      102.2,
+      281,
+      222
+    ],
+    [
+      103.30000000000001,
+      103.2,
+      281,
+      222
+    ],
+    [
+      103.7,
+      103.60000000000001,
+      281,
+      222
+    ],
+    [
+      103.72000000000001,
+      103.7,
+      281,
+      222
+    ],
+    [
+      104.62,
+      104.60000000000001,
+      281,
+      222
+    ],
+    [
+      105.62,
+      105.60000000000001,
+      281,
+      222
+    ],
+    [
+      106.62,
+      106.60000000000001,
+      281,
+      222
+    ],
+    [
+      107.62,
+      107.60000000000001,
+      281,
+      222
+    ],
+    [
+      108.62,
+      108.60000000000001,
+      281,
+      222
+    ],
+    [
+      109.62,
+      109.60000000000001,
+      281,
+      222
+    ],
+    [
+      110.62,
+      110.60000000000001,
+      281,
+      222
+    ],
+    [
+      111.62,
+      111.60000000000001,
+      281,
+      222
+    ],
+    [
+      112.62,
+      112.60000000000001,
+      281,
+      222
+    ],
+    [
+      113.62,
+      113.60000000000001,
+      281,
+      222
+    ],
+    [
+      114.62,
+      114.60000000000001,
+      281,
+      222
+    ],
+    [
+      115.62,
+      115.60000000000001,
+      281,
+      222
+    ],
+    [
+      116.62,
+      116.60000000000001,
+      281,
+      222
+    ],
+    [
+      117.60000000000001,
+      117.60000000000001,
+      281,
+      222
+    ],
+    [
+      118.60000000000001,
+      118.60000000000001,
+      281,
+      222
+    ],
+    [
+      119.60000000000001,
+      119.60000000000001,
+      281,
+      222
+    ]
+  ],
+  "gate_never_latched": true,
+  "cm_actions": [
+    0,
+    1
+  ],
+  "verdict": "PASS",
+  "run": {
+    "run_id": "w12_mapping_8f048e3a",
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "mapping.launch.py",
+      "run_id:=w12_mapping_8f048e3a",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "rviz:=true",
+      "max_sim_time:=300.0",
+      "params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_mapping_runtime.yaml"
+    ],
+    "cwd": "/home/haoyang/humanoid_nav_ws",
+    "started_utc": "2026-10-14T20:47:23.561244+00:00",
+    "ended_utc": "2026-10-14T20:49:35.332012+00:00",
+    "exit_code": 0,
+    "wall_s": 124.93751388199962,
+    "sim_end": 120.2,
+    "graph": {
+      "/clock": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "robot_state_publisher",
+          "rviz2",
+          "transform_listener_impl_5555b578b0b0",
+          "slam_toolbox",
+          "t1_command_gate",
+          "velocity_smoother",
+          "collision_monitor",
+          "lifecycle_manager_safety"
+        ],
+        "types": [
+          "rosgraph_msgs/msg/Clock"
+        ]
+      },
+      "/cmd_vel": {
+        "publishers": [
+          "collision_monitor"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "t1_sim",
+          "t1_command_gate"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/cmd_vel_nav": {
+        "publishers": [
+          "t1_command_gate"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "velocity_smoother"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/cmd_vel_smoothed": {
+        "publishers": [
+          "velocity_smoother"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "collision_monitor"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/cmd_navigation": {
+        "publishers": [],
+        "subscribers": [
+          "w12_evaluator"
+        ],
+        "types": []
+      },
+      "/t1/cmd_teleop": {
+        "publishers": [
+          "w12_evaluator"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "t1_command_gate"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/nav/cmd_vel_raw": {
+        "publishers": [],
+        "subscribers": [
+          "w12_evaluator"
+        ],
+        "types": []
+      },
+      "/t1/eval/ground_truth": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "w12_evaluator"
+        ],
+        "types": [
+          "nav_msgs/msg/Odometry"
+        ]
+      },
+      "/t1/debug/policy_cmd": {
+        "publishers": [],
+        "subscribers": [],
+        "types": []
+      },
+      "/map": {
+        "publishers": [
+          "slam_toolbox"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "rviz2",
+          "slam_toolbox"
+        ],
+        "types": [
+          "nav_msgs/msg/OccupancyGrid"
+        ]
+      },
+      "/scan": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "rviz2",
+          "slam_toolbox",
+          "t1_command_gate",
+          "collision_monitor"
+        ],
+        "types": [
+          "sensor_msgs/msg/LaserScan"
+        ]
+      },
+      "/odom": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "rviz2",
+          "t1_command_gate"
+        ],
+        "types": [
+          "nav_msgs/msg/Odometry"
+        ]
+      },
+      "/initialpose": {
+        "publishers": [
+          "rviz2"
+        ],
+        "subscribers": [
+          "w12_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/PoseWithCovarianceStamped"
+        ]
+      },
+      "/t1/eval/obstacle": {
+        "publishers": [],
+        "subscribers": [
+          "w12_evaluator"
+        ],
+        "types": []
+      },
+      "/local_costmap/costmap": {
+        "publishers": [],
+        "subscribers": [
+          "w12_evaluator"
+        ],
+        "types": []
+      }
+    },
+    "tf_owners": {
+      "base_footprint": [
+        "t1_sim"
+      ],
+      "base_link": [
+        "t1_sim"
+      ],
+      "laser_stabilized": [
+        "t1_sim"
+      ],
+      "aahead_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "aahead_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_ankle_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_ankle_roll_link": [
+        "robot_state_publisher"
+      ],
+      "left_elbow_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_elbow_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_roll_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_knee_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_shoulder_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_shoulder_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_ankle_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_ankle_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_elbow_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_elbow_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "right_knee_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_shoulder_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_shoulder_roll_link": [
+        "robot_state_publisher"
+      ],
+      "waist_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "odom": [
+        "slam_toolbox"
+      ]
+    },
+    "clock_regressions": 0,
+    "scan_stats": {
+      "count": 1201,
+      "empty": 0,
+      "known_min": 1.0,
+      "min_range": 2.298823833465576
+    },
+    "initializations": [],
+    "events": [
+      {
+        "kind": "gate",
+        "sim": 0.0,
+        "wall": 9155.010654268,
+        "state": "DISARMED",
+        "reason": "explicit arm required"
+      },
+      {
+        "kind": "collision_monitor",
+        "sim": 0.0,
+        "wall": 9155.195550396,
+        "action_type": 1,
+        "polygon": "invalid source"
+      },
+      {
+        "kind": "sim_state",
+        "sim": 0.0,
+        "wall": 9155.645230819,
+        "state": "STARTING",
+        "fault": null
+      },
+      {
+        "kind": "collision_monitor",
+        "sim": 0.1,
+        "wall": 9155.775401166,
+        "action_type": 0,
+        "polygon": ""
+      },
+      {
+        "kind": "sim_state",
+        "sim": 2.0,
+        "wall": 9157.664316841,
+        "state": "READY",
+        "fault": null
+      },
+      {
+        "kind": "gate",
+        "sim": 2.8000000000000003,
+        "wall": 9158.472848489,
+        "state": "ARMED",
+        "reason": "awaiting a new source command"
+      }
+    ],
+    "children": [],
+    "manifest": {
+      "code_sha": "a5321dbe98228bbaa6f77362e4121751f6a2fec3",
+      "dirty": true,
+      "dirty_files": [
+        "M docs/start_commands.md"
+      ],
+      "exit_code": 0,
+      "status": "SHUTDOWN",
+      "sim_time_end": 120.19999999990127,
+      "wall_duration_s": 120.57625202500094,
+      "scene_sha256": "f14e3aad52d1c2862321c1963483c9c614b7be3ae27644146f57e7a889df3876",
+      "map_sha256": null,
+      "start_pose_override": null,
+      "contact_counts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "parameter_files": {
+        "nav2": null,
+        "slam": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/slam.yaml",
+          "sha256": "45ae81fab86f6d3755c9c03212a1f13f80209914ac6e46cce9bffbb9e5f3d357"
+        },
+        "amcl": null,
+        "velocity_smoother": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        },
+        "collision_monitor": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        },
+        "command_map": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+          "sha256": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+          "evidence": {
+            "report": "docs/evidence/W05/locomotion-envelope.md",
+            "runs": {
+              "20261013T212155Z_dev_w05_c3": "00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe",
+              "20261013T215753Z_dev_w05_dense": "50ef2baf9ae2530bac0edfdc07c131f99725909836fe07511264fcc6dd33fb01",
+              "20261013T220627Z_dev_w05_context": "25976d72867333007b5a1cec96b1ea9d84920a620cde6cb0f79b09525bc8f65e"
+            },
+            "statistic": "largest 2 s window mean, >=3 s after command onset, segments >=8 s (raw traces)",
+            "tested_code_sha": "abc5b4a8248b05037ef02f46022c2a6779915acd",
+            "builder": "docs/evidence/W05/build_command_map.py",
+            "validation": "docs/evidence/W05/command-map-validation.json"
+          }
+        },
+        "command_gate": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        }
+      },
+      "deadline_overruns": 2,
+      "upstream_sha": {
+        "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+        "booster_assets": "12a97516f57469078707afb587a5f84c1cb110d1"
+      },
+      "mode": "mapping",
+      "model_dimensions": {
+        "nq": 30,
+        "nv": 29,
+        "nu": 23,
+        "nmocap": 0
+      }
+    }
+  },
+  "checks": {
+    "slam_only_map_odom": true,
+    "sim_owns_base": true,
+    "clean_exit": true,
+    "no_clock_jump": true,
+    "no_env_contact": true
+  }
+}
