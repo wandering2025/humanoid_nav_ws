@@ -59,6 +59,8 @@ def simulation_arguments():
     return [DeclareLaunchArgument(name, default_value=default) for name, default in (
         ('headless', 'true'), ('target_rtf', '1.0'), ('enable_policy_cmd_input', 'false'),
         ('max_sim_time', '0.0'), ('scene', ''), ('run_id', ''),
+        ('rviz', 'false'),
+        ('rviz_config', str(Path(get_package_share_directory('t1_description')) / 'config/state.rviz')),
         # W05 calibrated v_des->u_pol contract; '' keeps /cmd_vel UNCALIBRATED.
         ('command_map_file', str(Path(get_package_share_directory('t1_mujoco')) / 'config/command_map.yaml')),
     )]
@@ -66,6 +68,8 @@ def simulation_arguments():
 
 def simulation_actions(context):
     validate_request(LaunchConfiguration('mode').perform(context), 'true')
+    if LaunchConfiguration('use_sim_time').perform(context) != 'true':
+        raise RuntimeError('simulation consumers require use_sim_time=true')
     params_file = Path(LaunchConfiguration('params_file').perform(context))
     if not params_file.is_file():
         raise RuntimeError(f'params_file does not exist: {params_file}')
@@ -77,9 +81,29 @@ def simulation_actions(context):
     values['use_sim_time'] = False
     node = Node(package='t1_mujoco', executable='t1_sim', name='t1_sim', output='screen',
                 parameters=[str(params_file), values])
+    assets = LaunchConfiguration('assets_path').perform(context)
+    if not assets:
+        # System launch Python need not import venv's booster_assets package.
+        # The explicit environment and default binding share the same baseline.
+        import os
+        upstream = Path(LaunchConfiguration('upstream_path').perform(context))
+        assets = os.environ.get('T1_ASSETS', str(upstream.parent / 'booster_assets'))
+    from .description import robot_description
+    rsp = Node(package='robot_state_publisher', executable='robot_state_publisher',
+               name='robot_state_publisher', output='screen',
+               parameters=[{'robot_description': robot_description(assets),
+                            'use_sim_time': True, 'publish_frequency': 100.0}])
+    consumers = [rsp]
+    if LaunchConfiguration('rviz').perform(context) == 'true':
+        rviz_config = Path(LaunchConfiguration('rviz_config').perform(context))
+        if not rviz_config.is_file():
+            raise RuntimeError(f'rviz_config does not exist: {rviz_config}')
+        consumers.append(Node(package='rviz2', executable='rviz2', name='rviz2',
+                              arguments=['-d', str(rviz_config)], output='screen',
+                              parameters=[{'use_sim_time': True}]))
 
     def finished(event, _context):
         if event.returncode != 0:
             raise RuntimeError(f't1_sim exited with code {event.returncode}')
         return [EmitEvent(event=Shutdown(reason='t1_sim completed'))]
-    return [RegisterEventHandler(OnProcessExit(target_action=node, on_exit=finished)), node]
+    return [RegisterEventHandler(OnProcessExit(target_action=node, on_exit=finished)), node, *consumers]

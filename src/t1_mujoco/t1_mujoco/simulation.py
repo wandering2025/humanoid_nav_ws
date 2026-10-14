@@ -19,7 +19,7 @@ def parameter_defaults():
                 target_rtf=1.0, enable_policy_cmd_input=False, cmd_timeout_sim=0.5,
                 cmd_timeout_wall=0.5, warmup_sim_s=2.0, run_id='',
                 run_dir=str(Path(os.getenv('T1_WS', Path.cwd()))/'run_data'), seed=0,
-                max_sim_time=0.0, command_map_file='')
+                max_sim_time=0.0, command_map_file='', joint_state_divisor=1)
 
 
 def validate_parameters(p):
@@ -39,6 +39,8 @@ def validate_parameters(p):
         raise ValueError('run_id must be a single directory name')
     if not Path(p['run_dir']).is_absolute():
         raise ValueError('run_dir must be absolute')
+    if type(p['joint_state_divisor']) is not int or p['joint_state_divisor'] < 1:
+        raise ValueError('joint_state_divisor must be a positive integer')
 
 
 def main(args=None):
@@ -101,6 +103,8 @@ def main(args=None):
         clock_pub = node.create_publisher(Clock, '/clock', QoSProfile(depth=1))
         state_pub = node.create_publisher(String, '/t1/sim_state', QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL))
         diag_pub = node.create_publisher(DiagnosticArray, '/diagnostics', 10)
+        from .state_bridge import StatePublisher, capture, stamp
+        state_bridge = StatePublisher(node, p['joint_state_divisor'])
         from .runner import T1SimRunner
         from .model_contract import ModelIncompatible
         try:
@@ -162,10 +166,9 @@ def main(args=None):
         overruns = 0
         status_signature = None
 
-        def publish_clock():
-            ns = round(float(runner.mj_data.time)*1_000_000_000)
+        def publish_clock(ns):
             msg = Clock()
-            msg.clock.sec, msg.clock.nanosec = divmod(ns, 1_000_000_000)
+            stamp(msg.clock, ns)
             clock_pub.publish(msg)
 
         def status(force=False):
@@ -183,7 +186,8 @@ def main(args=None):
                          v_guard=[0.,0.,0.] if runner.debug else list(runner.v_guard), guard=list(runner.guard_flags),
                          command_map_calibrated=runner.command_map is not None,
                          scenario=runtime['mjcf_path'], seed=p['seed'], code_sha=log.manifest['code_sha'],
-                         deadline_overruns=overruns, ignored_components=runner.inputs.ignored_components)
+                         deadline_overruns=overruns, ignored_components=runner.inputs.ignored_components,
+                         odom_mode='ideal_truth', covariance_mode='nominal_not_estimated')
             state_pub.publish(String(data=json.dumps(value, allow_nan=False)))
             log.event(value)
             diag = DiagnosticArray()
@@ -191,14 +195,16 @@ def main(args=None):
             diag.header.stamp.sec, diag.header.stamp.nanosec = divmod(ns, 1_000_000_000)
             item = DiagnosticStatus(name='t1_sim', hardware_id='mujoco_t1', message=runner.fault or runner.cmd_status,
                                     level=DiagnosticStatus.ERROR if runner.state in ('FAULT','FALLEN') else (DiagnosticStatus.WARN if runner.cmd_status in ('UNCALIBRATED','INVALID','TIMEOUT') else DiagnosticStatus.OK))
-            item.values = [KeyValue(key='state', value=runner.state), KeyValue(key='policy_dt', value='0.02')]
+            item.values = [KeyValue(key='state', value=runner.state), KeyValue(key='policy_dt', value='0.02'),
+                           KeyValue(key='odom_mode', value='ideal_truth'),
+                           KeyValue(key='covariance_mode', value='nominal_not_estimated')]
             diag.status = [item]
             diag_pub.publish(diag)
             for event in runner.state_events:
                 log.event(dict(transition=event[0], fault=event[1], sim_time=event[2], episode=event[3], wall_mono=now))
             runner.state_events.clear()
 
-        publish_clock()
+        publish_clock(capture(runner).stamp_ns)
         status(True)
         print('T1_RUN '+str(log.path), flush=True)
         while not stop.is_set() and context.ok():
@@ -212,7 +218,9 @@ def main(args=None):
                     samples.popleft()
                 if len(samples)>1:
                     rtf = (samples[-1][1]-samples[0][1])/(samples[-1][0]-samples[0][0])
-                publish_clock()
+                snapshot = capture(runner)
+                publish_clock(snapshot.stamp_ns)
+                state_bridge.publish(snapshot, runner.episode)
                 log.row(runner, rtf)
                 runner.finish_boundary()
             status()

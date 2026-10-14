@@ -27,3 +27,4 @@ t1_sim:
     seed: 0
     max_sim_time: 0.0  # zero = run until signal/viewer close
     command_map_file: ""  # "" = /cmd_vel UNCALIBRATED; launch passes config/command_map.yaml (W05)
+    joint_state_divisor: 1  # W06: 50 Hz / divisor, integer policy-step schedule

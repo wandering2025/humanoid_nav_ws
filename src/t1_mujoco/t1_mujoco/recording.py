@@ -41,7 +41,7 @@ class RunLog:
             checkpoint_sha256=sha256(runtime['checkpoint_path']), mjcf_sha256=sha256(runtime['mjcf_path']),
             scene_file=runtime['mjcf_path'], scene_sha256=sha256(runtime['mjcf_path']),
             mode=params['mode'], suite='dev', case='w04', seed=params['seed'],
-            sensor_mode=None, odom_mode=None, map_yaml=None, map_sha256=None, T_world_map=None,
+            sensor_mode=None, odom_mode='ideal_truth', map_yaml=None, map_sha256=None, T_world_map=None,
             goal=None, tolerances=None, time_limit_s=params['max_sim_time'],
             parameter_files={key: None for key in ('nav2','slam','amcl','velocity_smoother','collision_monitor','command_map')},
             resolved_parameters=params, parameters_sha256=hashlib.sha256(json.dumps(params,sort_keys=True).encode()).hexdigest(),

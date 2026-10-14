@@ -167,3 +167,12 @@ mj_world / base_link_truth：仅评测真值，不进入 TF 树
 - twist（child = base_footprint）：`linear.xy = R_z(ψ)ᵀ·v_w.xy`，`linear.z=0`；`angular.z = (R(q)·ω_b).z`（世界竖直分量），x/y 分量 0。base_footprint 是 trunk 原点的投影，故其速度就是 v_w 的水平分量，无需额外叉乘项。W06 以积分一致性（≤0.02 m 或给出依据）和旋转 90° 前进实验验收。
 - 协方差：对角 1e-6，文档与 diagnostics 标明“仿真真值理想里程计，协方差为名义值，不是估计误差”。
 - 不得把上游 `root_lin_vel_b`（实为世界系）直接当作机体系速度发布。
+
+## 10. W06 实现细化（2026-10-14）
+
+- `state_bridge.StateSnapshot` 在仿真所有者线程复制数据；同一步 clock/odom/两个动态 TF/joints/truth 统一 `round(data.time·1e9)` stamp，发布不依赖 ROS 模拟定时器。odom/TF/truth 为 50 Hz；`joint_state_divisor` 默认 1（50 Hz），正整数策略步分频。暂停无动态消息。
+- 发布 QoS 按 §2：odom/joints/truth Reliable Volatile KeepLast(10)，clock KeepLast(1)；tf2 默认动态 Reliable Volatile，RSP static Reliable TransientLocal。可选 IMU 当前不发布，无必需消费者。nominal covariance 与 ideal_truth 在 diagnostics/sim_state/manifest 明示。
+- launch 读取外部 `T1_23dof.urdf`，仅解析包装和解析 mesh URI，添加 base_link→trunk identity；别名集中在 state_bridge/description，不重复发布 child。未加入 lidar_link（W08），关节 FK 完整验证留 W07。
+- 仿真 launch 强制模拟消费者 use_sim_time=true，t1_sim false；RSP publish_frequency=100（允许全部 50 Hz joint stamp 通过）；`rviz:=true` 启动基础配置，固定 frame=odom。
+- sim_only 原地 reset 沿用 §7.3 的单调时间/episode 通知，发布分频从新 episode 清零。自定义消费者可订阅 sim_state 的 episode 清其 TF 缓存；不得跨 reset 积分/插值轨迹。完整新 run 重启消费者，禁止保留跨 run TF 缓存。
+- 6D truth twist 在 `base_link_truth`：R(q)ᵀ·v_world 与 ω_body；仅用于评测/记录，frame 不入 TF。平面 odom angular.z 沿用 W05 的世界竖直角速度分量（机体倾斜时不把它改成 Euler yaw 导数）。
