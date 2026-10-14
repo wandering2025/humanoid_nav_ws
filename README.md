@@ -1,13 +1,13 @@
 # Booster T1 MuJoCo navigation
 
-This workspace implements the project one explicitly assigned step at a time. W04 provides a deterministic T1 physics runner, optional viewer, ROS control input and clock, alongside the W03 packages and diagnostic; robot description, LiDAR, SLAM and Nav2 remain unimplemented and disabled.
+This workspace implements the project one explicitly assigned step at a time. W06 provides consistent ROS odometry, TF, joint states and evaluation truth, with a basic external URDF wrapper and RViz configuration. The W04 physics runner and W05 calibrated command guard remain in use. LiDAR, SLAM and Nav2 remain unimplemented and disabled.
 
-The frozen external repositories and existing venv are documented in [environment baseline](docs/baseline/environment.md) and [dependencies.repos](dependencies.repos). Design contracts: [system](docs/architecture/system.md), [interfaces](docs/architecture/interfaces.md), [acceptance](docs/architecture/acceptance.md). Progress and handoff: [execution board](docs/plans/t1_mujoco_navigation/执行看板.md), [W04 record](docs/plans/t1_mujoco_navigation/records/W04.md).
+The frozen external repositories and existing venv are documented in [environment baseline](docs/baseline/environment.md) and [dependencies.repos](dependencies.repos). Design contracts: [system](docs/architecture/system.md), [interfaces](docs/architecture/interfaces.md), [acceptance](docs/architecture/acceptance.md). Progress and handoff: [execution board](docs/plans/t1_mujoco_navigation/执行看板.md), [W06 record](docs/plans/t1_mujoco_navigation/records/W06.md).
 
 | Package | Build type | Current content |
 | --- | --- | --- |
-| t1_mujoco | ament_python | Physics runner, command guard, ROS clock/state/services, diagnostic |
-| t1_description | ament_cmake | Resource location; description reserved for W06/W07 |
+| t1_mujoco | ament_python | Physics runner, calibrated command guard, ROS clock/odom/TF/joints/truth/services |
+| t1_description | ament_cmake | Basic state RViz; full description/FK/footprint reserved for W07 |
 | t1_navigation | ament_cmake | Resource location; navigation parameters reserved for W09–W11 |
 | t1_bringup | ament_python | Launch composition; Python evaluation tools reserved for W13 |
 
@@ -22,7 +22,7 @@ export T1_UPSTREAM=/home/haoyang/robot_sim_sources/booster_deploy
 source /home/haoyang/humanoid_nav_ws/scripts/env.sh
 cd "$T1_WS"
 colcon list --base-paths src
-colcon build --base-paths src --event-handlers console_direct+
+/usr/bin/colcon build --base-paths src --event-handlers console_direct+
 source "$T1_WS/scripts/env.sh"  # reload the newly installed overlay
 ```
 
@@ -84,10 +84,41 @@ ros2 service call /t1/sim/pause std_srvs/srv/SetBool '{data: false}'
 ros2 service call /t1/sim/reset std_srvs/srv/Trigger '{}'
 ```
 
-The robot walks through joint torques and contact dynamics. Zero command continues the official standing policy. `/cmd_vel` is accepted for validity/timeout checks but cannot move the robot until W05 supplies a measured velocity map (`UNCALIBRATED`). The debug input is opt-in and mutually exclusive with `/cmd_vel`; its values are policy units, bounded by the upstream ±1 limits. There is no minimum-speed boost.
+The robot walks through joint torques and contact dynamics. Zero command continues the official standing policy. W04 initially rejected physical motion on `/cmd_vel` (`UNCALIBRATED`). Since W05, the launch loads the calibrated physical velocity map by default; an empty `command_map_file` still rejects physical commands. The debug input is opt-in and mutually exclusive with `/cmd_vel`; its values are policy units, bounded by the upstream ±1 limits. There is no minimum-speed boost.
 
-Default startup warmup is 2 s of simulation time, pending W05 calibration. Commands received before READY or during pause are discarded. Pause retains physical state and policy history; resume clears commands. Reset is limited to sim_only, restores the initial pose, clears policy history/actions/counters, increments episode, and advances the clock origin by 0.02 s instead of jumping backwards. Outside sim_only restart the entire future stack. Fault/fall freezes physics and exits nonzero; no automatic recovery is claimed.
+Default startup warmup is 2 s of simulation time, frozen by W05. Commands received before READY or during pause are discarded. Pause retains physical state and policy history; resume clears commands. Reset is limited to sim_only, restores the initial pose, clears policy history/actions/counters, increments episode, and advances the clock origin by 0.02 s instead of jumping backwards. Outside sim_only restart the entire future stack. Fault/fall freezes physics and exits nonzero; no automatic recovery is claimed.
 
 Each run creates a unique ignored `run_data/<run_id>/` containing `manifest.json`, `sim_trace.csv`, and `events.jsonl`. `max_sim_time` is an absolute simulation clock limit (0 = unlimited); `target_rtf` paces deadlines without skipping physics. Parameters are startup-only. No odometry, TF, LiDAR, SLAM, navigation or calibrated stopping distances are implemented in W04.
 
 W04 reproduction scripts and results are in [docs/evidence/W04](docs/evidence/W04/README.md). Use an isolated ROS domain for tests; `ROS_LOG_DIR=$T1_WS/run_data/w04_ros_logs` keeps logs in the workspace. Only the test's own processes are stopped.
+
+## W06 state visualization
+
+With the environment and local discovery server configured above:
+
+```bash
+ros2 launch t1_bringup simulation.launch.py rviz:=true
+# After READY, in another sourced terminal (physical units):
+ros2 topic pub -r 20 /cmd_vel geometry_msgs/msg/Twist '{linear: {x: 0.4}}'
+```
+
+Simulation launch now starts robot_state_publisher with use_sim_time=true and
+wraps the frozen external T1 URDF in memory. RViz uses odom as Fixed Frame.
+The model and base_link axes follow actual simulated joints and trunk pose.
+`/odom` is ideal truth projected onto z=0, with child-frame twist;
+`/t1/eval/ground_truth` is full trunk truth for evaluation only.
+Covariance values are nominal, not measured estimation uncertainty.
+There is no map→odom transform until SLAM/AMCL is implemented.
+`/imu/data` is optional and currently absent.
+
+Clock, odom, the two base TF edges, joint states and truth share the same
+post-step snapshot stamp. They publish at 50 Hz simulation time by default.
+`joint_state_divisor` in runtime.yaml allows positive integer policy-step
+subdivision. Pause freezes dynamic publishing; resume clears commands.
+A sim_only reset preserves monotonic clock and notifies a new episode;
+consumers must avoid integrating/interpolating across that pose jump.
+Restart the whole launch and consumers for a new run.
+
+The calibrated physical command map loads by default (W05); 0<vx<0.315 m/s
+is mapped to zero, so it does not support arbitrarily slow creeping.
+W06 reproduction and measured topic/TF/time evidence: [W06 evidence](docs/evidence/W06/README.md).

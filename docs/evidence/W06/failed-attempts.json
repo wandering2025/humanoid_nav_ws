@@ -1,0 +1,32 @@
+{
+  "attempts": [
+    {
+      "run_id": "sandbox-before-launch",
+      "exit_code": 1,
+      "reason": "local socket operation not permitted; controls-sandbox-failed.json"
+    },
+    {
+      "run_id": "20261014T081719Z_dev_w06_controls_s0_400ab5",
+      "exit_code": 1,
+      "reason": "test callback assumed MessageInfo attribute; simulation import interrupted before manifest"
+    },
+    {
+      "run_id": "20261014T081810Z_dev_w06_controls_s0_bced5d",
+      "exit_code": 1,
+      "reason": "test callback assumed MessageInfo dict publisher_gid field; Jazzy lacks it"
+    },
+    {
+      "run_ids": [
+        "20261014T081927Z_dev_w06_controls_s0_2e5903",
+        "20261014T081947Z_dev_w06_restart_s0_c85cba"
+      ],
+      "exit_code": 1,
+      "launch_exit_codes": [
+        0,
+        0
+      ],
+      "reason": "offline analyzer treated integer TF stamp as a list; these attempts are not acceptance PASS"
+    }
+  ],
+  "correction": "Corrected only test harness; source state bridge unchanged from 7fca2597388986fcaddbf3689b1ca5f563ce1e4d. Final controls and motion suites passed."
+}

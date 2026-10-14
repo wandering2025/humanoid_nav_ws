@@ -143,6 +143,7 @@ class Probe(Node):
         source = tf_source(m, static=True)
         for tf in m.transforms:
             self.remember(tf, source)
+            self.rows['/tf_static'].append(ns(tf.header.stamp))
             self.static[tf.child_frame_id] = (tf, source)
             self.buffer.set_transform_static(tf, source)
 
@@ -171,10 +172,10 @@ class Probe(Node):
 
 
 class Run:
-    def __init__(self, label, rviz=False):
+    def __init__(self, label, rviz=False, extra_args=()):
         self.run_id = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ') + f'_dev_w06_{label}_s0_' + uuid.uuid4().hex[:6]
         self.command = ['ros2','launch','t1_bringup','simulation.launch.py',f'run_id:={self.run_id}',
-                        'target_rtf:=1.0', 'max_sim_time:=55.0',f'rviz:={str(rviz).lower()}']
+                        'target_rtf:=1.0', 'max_sim_time:=55.0',f'rviz:={str(rviz).lower()}', *extra_args]
         self.started = datetime.now(timezone.utc).isoformat()
         self.wall0 = time.monotonic()
         self.log_path = RAW / (self.run_id+'.txt')
@@ -250,7 +251,7 @@ class Run:
         (RAW/(self.run_id+'-received.json')).write_text(json.dumps(dict(self.node.rows))+'\n')
         (RAW/(self.run_id+'-meta.json')).write_text(json.dumps(dict(topic_info=self.node.topic_info, parents=self.node.parents, authorities={k:list(v) for k,v in self.node.authorities.items()},lookup_results=self.node.lookup_results))+'\n')
         self.node.destroy_node()
-        (OUT/(self.run_id+'-result.json')).write_text(json.dumps(result,indent=2)+'\n')
+        (RAW/(self.run_id+'-result.json')).write_text(json.dumps(result,indent=2)+'\n')
         return result
 
 

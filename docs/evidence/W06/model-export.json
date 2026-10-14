@@ -1,0 +1,60 @@
+{
+  "started_utc": "2026-10-14T08:24:07.027341+00:00",
+  "ended_utc": "2026-10-14T08:24:07.522091+00:00",
+  "wall_s": 0.4947360310000022,
+  "code_sha": "15046be93f645265bd362d98d799efbdd248f947",
+  "command": "source scripts/env.sh; python docs/evidence/W06/check_model_export.py",
+  "cwd": "/home/haoyang/humanoid_nav_ws",
+  "sim_duration_s": 7.999999999999341,
+  "samples": {
+    "standing": 150,
+    "moving": 250
+  },
+  "joint_names": [
+    "aahead_yaw_joint",
+    "aahead_pitch_joint",
+    "left_shoulder_pitch_joint",
+    "left_shoulder_roll_joint",
+    "left_elbow_pitch_joint",
+    "left_elbow_yaw_joint",
+    "right_shoulder_pitch_joint",
+    "right_shoulder_roll_joint",
+    "right_elbow_pitch_joint",
+    "right_elbow_yaw_joint",
+    "waist_yaw_joint",
+    "left_hip_pitch_joint",
+    "left_hip_roll_joint",
+    "left_hip_yaw_joint",
+    "left_knee_pitch_joint",
+    "left_ankle_pitch_joint",
+    "left_ankle_roll_joint",
+    "right_hip_pitch_joint",
+    "right_hip_roll_joint",
+    "right_hip_yaw_joint",
+    "right_knee_pitch_joint",
+    "right_ankle_pitch_joint",
+    "right_ankle_roll_joint"
+  ],
+  "units": {
+    "position": "rad",
+    "velocity": "rad/s",
+    "effort": "N*m"
+  },
+  "max_errors": {
+    "position": 0.0,
+    "velocity": 0.0,
+    "effort": 0.0,
+    "body_linear": 8.326672684688674e-16,
+    "world_angular_z": 2.498001805406602e-16,
+    "truth_orientation": 1.1102230246251565e-15,
+    "v_meas": 2.498001805406602e-16
+  },
+  "checks": {
+    "fields_exact": true,
+    "joints_23": true,
+    "real_motion": true,
+    "other_thread_rejected": true,
+    "all_steps_ready": true
+  },
+  "verdict": "PASS"
+}
