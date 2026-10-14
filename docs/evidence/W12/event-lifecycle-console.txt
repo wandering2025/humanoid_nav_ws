@@ -1,0 +1,2 @@
+RUN w12_event_lifecycle_276ba124 PID 124785
+{"paused_clock": true, "paused_position": true, "reset_trigger": true, "reset_path": true, "reset_episode": true, "monotonic_clock": true, "warmup_ready": true, "clean_exit": true, "no_contacts": true} PASS None

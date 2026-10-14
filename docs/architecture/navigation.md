@@ -53,3 +53,43 @@ Goals must therefore admit that approach corridor; every predefined case is chec
 - **Scan coverage**: the scan is a planar projection of 9 instantaneous beams. Objects outside 0.15–1.20 m height or between beams can be missed (W08).
 - **Yaw rebound**: a terminal yaw rebound can still exceed the tolerance after 3 retries, which reports UNVERIFIED and counts as failure. Measured in-place-only arrivals ranged 7–28°.
 - **Localization assumptions**: localization and stationarity use AMCL on ideal odometry. Truth is read only by the W11 evaluator (`docs/evidence/W11/nav_run.py`).
+
+## W12 sensor-driven dynamic obstacles
+
+The `dynamic_crossing_world` scene has its own SLAM map. Mapping builds no mocap
+bodies (`nmocap=0`); navigation opts into exactly one collidable group-2 mocap box
+with `events_file` and `scenario`. Robot dimensions stay nq=30/nv=29/nu=23.
+`SceneEvents.update` writes only mocap position/quaternion before each 2 ms
+physics substep on the owner thread. Pause freezes motion; episode reset restores
+the staged position and clears the trigger. Kinematic obstacles cannot be pushed.
+
+`src/t1_bringup/config/w12_events.yaml` defines crossing, prolonged blocking and
+sudden approach, including dimensions via scene slots, velocities, trigger,
+seed, permitted response and termination. Timing is independent of scene bytes;
+its absolute path, SHA256, scenario and seed enter each run manifest. The W09
+map/scene byte-hash contract remains unchanged. Editing scene YAML requires a
+fresh SLAM map and localization checks; editing events does not change the map.
+
+The event source uses robot motion/position only to trigger an experiment. Nav2
+gets `/scan` and the resulting costmaps. `/t1/eval/obstacle` (String JSON, 50 Hz,
+Reliable/Volatile depth 10) exposes the current entity position, size, phase,
+episode and simulation timestamp to the evaluator only. It publishes no future
+trajectory and no TF. Tests audit that no navigation, localization or costmap
+node subscribes. This is reactive avoidance without target tracking/prediction.
+
+W10 zones, smoothing and the ADR-016 adapter/goal tool/launch delays remain.
+The slowdown zone stops this gait at navigation speeds. Crossing and approach
+can therefore wait and automatically resume after scans clear; prolonged blocking
+must stay present while the robot actually detours. The approach configuration
+allows braking travel and obstacle advance, then withdraws so B's 1.5 m approach
+corridor is free. The stop zones do not control obstacle motion or promise that
+a kinematic obstacle will never enter them; measured gaps and contact events are
+reported alongside the outcome.
+
+W12 mapping uses a separate runtime file with 1 cm W08 range noise (seed 0).
+Noiseless parallel wall endpoints exposed Karto's boundary rounding issue; the
+failed map is retained. The new SLAM map meets the original W09 quality limits.
+Dynamic-world localization uses `w12_localization.yaml` (sigma_hit 0.05 m, all
+other parameters as W11). The W11 map, scene, safety and navigation configuration
+are preserved. Mapping and three independent AMCL initializations precede dynamic
+experiments. See [W12 evidence](../evidence/W12/README.md).
