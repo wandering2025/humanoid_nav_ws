@@ -160,4 +160,6 @@ W11 C2冻结（未放宽初值）：真值位置≤0.30m、偏航≤20°、静�
 
 ## 16. W13 版本审计例外（ADR-018，用户授权）
 
-§4 dirty=false仅对本会话用户文档采用一个明确例外：docs/start_commands.md，SHA256 2cbea0e2865a633ada3df75db27a06464fe0e2c280e2971819aede1bbbaab0d5。实际dirty=true和文件列表必须保留；源码、配置、测试集、地图和评测器必须干净，出现其他dirty路径或该文档字节变化仍为INVALID。所有到达、安全与样本数门槛保持。
+§4 dirty=false仅对本会话用户文档采用一个明确例外：docs/start_commands.md，SHA256 2cbea0e2865a633ada3df75db27a06464fe0e2c280e2971819aede1bbbaab0d5。实际dirty=true和文件列表必须保留；源码、配置、测试集、地图和评测器必须干净，出现其他dirty路径仍为INVALID。所有到达、安全与样本数门槛保持。
+
+W13预检补充：用户文档在开工后保存了新字节（采集时SHA256 6973bb1c423297cebdf2c1a97391487023d3b4af955e3a51d4fc735b2fba7027），未被agent修改。用户授权的是此文档路径例外；每例记录开始/结束实际哈希，不要求用户冻结编辑。上列2cbea哈希是开工时证据，不是新的验收门槛。

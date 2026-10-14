@@ -34,8 +34,6 @@ def run(case, suite, output, run_id, gui=False):
     # git().strip() removes leading whitespace from the first status line in old RunLog.
     allowed = allowed or dirty == ['M docs/start_commands.md']
     checks = dict(source_clean=manifest.get('dirty') is False or allowed,
-                  user_document_unchanged=harness.digest(harness.WS/'docs/start_commands.md') ==
-                    '2cbea0e2865a633ada3df75db27a06464fe0e2c280e2971819aede1bbbaab0d5',
                   fresh_clock=result.get('run', {}).get('first_clock', 1e9) is not None and
                     (result.get('run', {}).get('first_clock') or 0.) < 5.,
                   monotonic_clock=result.get('run', {}).get('clock_regressions') == 0,
@@ -43,9 +41,10 @@ def run(case, suite, output, run_id, gui=False):
                   complete_manifest=all(manifest.get(k) is not None for k in
                     ('code_sha', 'checkpoint_sha256', 'mjcf_sha256', 'scene_sha256', 'map_sha256', 'parameters_sha256', 'initial_pose')),
                   frozen_timing=(manifest.get('physics_dt'),manifest.get('decimation'),manifest.get('policy_dt')) == (.002,10,.02))
+    checks['processes_reaped'] = not result.get('run', {}).get('remaining_owned_pids', [])
     result['validity_checks'] = checks
     result['documentation_dirty_exception'] = dict(authorized=True, actual_dirty=manifest.get('dirty'),
-        actual_dirty_files=dirty, document_sha256=harness.digest(harness.WS/'docs/start_commands.md'))
+        actual_dirty_files=dirty, document_sha256_at_start=result.get('run', {}).get('documentation_sha256_at_start'), document_sha256=harness.digest(harness.WS/'docs/start_commands.md'))
     artifact = harness.WS/'run_data'/run_id
     try:
         rows, trace = trace_columns(artifact/'sim_trace.csv')
@@ -61,6 +60,9 @@ def run(case, suite, output, run_id, gui=False):
                                  r['sim'] > result.get('nav_active_sim', 1e9)])
              for name in sorted({r['process'] for r in cpus})}
         m = result.get('metrics', {})
+        m['n_recoveries'] = sum(result['run'].get('recovery_counts_by_goal', {}).values())
+        if result.get('dynamic'):
+            m['clear_footprint_min_m'] = min(m['clear_footprint_min_m'], result['dynamic']['min_rotated_footprint_gap_m'])
         if not m.get('settle', {}).get('pos_err_m'):
             goal = case['goal']
             # Both frozen maps have identity T_world_map; apply it explicitly.

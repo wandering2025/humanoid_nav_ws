@@ -62,7 +62,7 @@ def rows_for(state):
                     clear_footprint_min_m=m.get('clear_footprint_min_m'),scan_min_range_m=m.get('scan_min_range_m'),
                     n_env_collisions=contacts.get('static_env',0)+contacts.get('obstacle',0),fell=m.get('fell'),
                     n_safety_stops=m.get('safety',{}).get('cm_stop'),n_replans=max(0,m.get('n_plans',0)-1),
-                    n_recoveries=m.get('log_counts',{}).get('progress_failure'),rtf_median=result.get('performance',{}).get('rtf',{}).get('median'),
+                    n_recoveries=m.get('n_recoveries'),rtf_median=result.get('performance',{}).get('rtf',{}).get('median'),
                     sim_time_s=m.get('sim_time_s'),wall_time_s=m.get('wall_time_s'),notes=result.get('error',''),evidence=str(path.relative_to(WS)))
             else:
                 row.update(run_id=attempt['run_id'],outcome=attempt['state'],evidence=attempt['output'])
@@ -85,6 +85,8 @@ def run(opts):
     if Path(sys.executable).resolve() != Path(os.environ['T1_VENV']+'/bin/python').resolve():
         raise SystemExit('use the configured T1_VENV interpreter')
     suite=yaml.safe_load(SUITE.read_text())
+    if Path(opts.campaign).name != opts.campaign or opts.campaign in ('.','..'):
+        raise SystemExit('campaign must be a single directory name')
     root=BASE/opts.campaign;root.mkdir(parents=True,exist_ok=True)
     with (root/'lock').open('w') as lock:
         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
@@ -97,8 +99,10 @@ def run(opts):
         else:
             state=dict(campaign=opts.campaign,created_utc=datetime.now(timezone.utc).isoformat(),
                 suite_sha256=digest(SUITE),fingerprint=fingerprint,registration_sha=git('rev-parse','HEAD'),
-                gui=opts.gui,cases=suite['cases'])
+                gui=opts.gui,target_rtf=os.environ.get('T1_EVAL_RTF','1.0'),cases=suite['cases'])
             save(state_path,state)
+        if state['target_rtf'] != os.environ.get('T1_EVAL_RTF','1.0'):
+            raise SystemExit('target_rtf changed: use separate campaign')
         if state['gui'] != opts.gui:
             raise SystemExit('GUI mode differs: use separate campaign')
         ran=0
@@ -133,6 +137,11 @@ def run(opts):
                     child.send_signal(signal.SIGINT)
                     child.wait(timeout=60)
                     attempt['state']='INTERRUPTED';save(state_path,state);save(root/'summary.json',summary(state));raise
+            if not (output/'result.json').exists():
+                save(output/'result.json',dict(run_id=run_id,case_spec=case,protocol='w13_v1',outcome='FAIL_STARTUP',
+                    error=f'worker exited {code}; see console.txt',manifest=dict(code_sha=git('rev-parse','HEAD'),
+                    dirty=bool(git('status','--porcelain')),dirty_files=git('status','--porcelain').splitlines()),
+                    inputs={str(SUITE.relative_to(WS)):digest(SUITE)}))
             attempt.update(state='FINISHED' if (output/'result.json').exists() else 'FAIL_STARTUP',worker_exit=code)
             save(state_path,state);save(root/'summary.json',summary(state))
             print('FINISH',case['id'],summary(state)['rows'][state['cases'].index(case)]['outcome'],flush=True)

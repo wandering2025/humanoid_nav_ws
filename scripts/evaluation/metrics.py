@@ -17,7 +17,7 @@ def distribution(values):
 def trace_columns(path):
     with Path(path).open() as f:
         rows = list(csv.DictReader(f))
-    return rows, {k: np.array([float(r[k]) for r in rows]) for k in rows[0] if k not in
+    return rows, {k: np.array([(1. if r[k] == 'True' else 0. if r[k] == 'False' else float(r[k])) for r in rows]) for k in rows[0] if k not in
                   ('state', 'cmd_status', 'cmd_source')}
 
 

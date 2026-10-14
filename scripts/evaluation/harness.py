@@ -22,6 +22,7 @@ from rclpy.time import Time
 from geometry_msgs.msg import Twist, PoseWithCovarianceStamped
 from nav_msgs.msg import OccupancyGrid, Odometry, Path as NavPath
 from nav2_msgs.msg import CollisionMonitorState
+from nav2_msgs.action import NavigateToPose
 from rosgraph_msgs.msg import Clock
 from sensor_msgs.msg import LaserScan
 from std_msgs.msg import String
@@ -73,6 +74,9 @@ class Probe(Node):
         self.buffer = Buffer()
         self.rows, self.events, self.scans, self.poses, self.initializations = [], [], [], [], []
         self.map_updates, self.plans = [], []
+        self.recoveries = {}
+        self.create_subscription(NavigateToPose.Impl.FeedbackMessage,
+            '/navigate_to_pose/_action/feedback', self.on_feedback, 10)
         self.scan_stats = dict(count=0, empty=0, known_min=1.0)
         self.last_row = -1.
         self.teleop = None  # created only by runs that act as the teleop source
@@ -97,6 +101,10 @@ class Probe(Node):
                                  lambda m: self.initializations.append([m.pose.pose.position.x, m.pose.pose.position.y, yaw(m.pose.pose.orientation)]), 10)
         self.create_subscription(PoseWithCovarianceStamped, '/amcl_pose', self.on_amcl, qos_tl)
         self.create_subscription(NavPath, '/plan', self.on_plan, 10)
+
+    def on_feedback(self, msg):
+        key = bytes(msg.goal_id.uuid).hex()
+        self.recoveries[key] = max(self.recoveries.get(key, 0), msg.feedback.number_of_recoveries)
 
     def event(self, kind, **data):
         self.events.append(dict(kind=kind, sim=self.sim, wall=time.monotonic(), **data))
@@ -273,11 +281,19 @@ class Session:
         self.log = (RAW/f'{label}-dds.txt').open('w')
         self.server = subprocess.Popen([str(WS/'scripts/start_local_dds.sh')], stdout=self.log, stderr=subprocess.STDOUT)
         time.sleep(.5)
-        assert self.server.poll() is None, 'discovery server failed to start'
-        rclpy.init()
+        try:
+            assert self.server.poll() is None, 'discovery server failed to start'
+            rclpy.init()
+        except BaseException:
+            if self.server.poll() is None:
+                self.server.send_signal(signal.SIGINT)
+                self.server.wait(timeout=10)
+            self.log.close()
+            raise
 
     def close(self):
-        rclpy.shutdown()
+        if rclpy.ok():
+            rclpy.shutdown()
         self.server.send_signal(signal.SIGINT)
         self.server.wait(timeout=10)
         self.log.close()
@@ -304,6 +320,8 @@ class Run:
         self.cpu_samples, self.cpu_previous = [], {}
         self.next_cpu = self.wall0
         self.closed_result = None
+        self.document_hash = digest(WS/'docs/start_commands.md')
+        self.owned_processes = {}
         ACTIVE_RUNS.append(self)
         print('RUN', self.run_id, 'PID', self.proc.pid, flush=True)
 
@@ -334,6 +352,7 @@ class Run:
                 command = (root/'cmdline').read_bytes().replace(b'\0', b' ').decode(errors='replace')
                 stat = (root/'stat').read_text().rsplit(')', 1)[1].split()
                 cpu = (int(stat[11])+int(stat[12]))/ticks
+                self.owned_processes[pid] = stat[19]  # /proc starttime, guards PID reuse
                 category = next((name for name in ('controller_server', 'planner_server', 'bt_navigator',
                     'behavior_server', 'amcl', 'collision_monitor', 't1_sim', 'rviz2') if name in command), None)
                 previous = self.cpu_previous.get(pid)
@@ -386,6 +405,10 @@ class Run:
         tree = subprocess.check_output(['xwininfo', '-root', '-tree'], text=True)
         windows = [line.split()[0] for line in tree.splitlines() if '"' in line and 'RViz' in line and 'rviz2' in line.lower()]
         assert windows, 'RViz window missing'
+        if os.environ.get('T1_EVAL_HEADLESS') == 'false':
+            viewer_windows = [line.split()[0] for line in tree.splitlines() if 'MuJoCo' in line]
+            assert viewer_windows, 'MuJoCo viewer window missing'
+            subprocess.run(['import', '-window', viewer_windows[-1], str(path.with_name(path.stem+'-mujoco.png'))], check=True, timeout=15)
         subprocess.run(['import', '-window', windows[-1], str(path)], check=True, timeout=15)
 
     def close(self, settle=2.):
@@ -442,6 +465,17 @@ class Run:
                       children=[(label, proc.returncode) for label, proc, _ in self.children],
                       manifest=manifest)
         (OUT/f'{self.run_id}-cpu.json').write_text(json.dumps(self.cpu_samples))
+        result['documentation_sha256_at_start'] = self.document_hash
+        result['recovery_counts_by_goal'] = self.node.recoveries
+        result['remaining_owned_pids'] = []
+        result['observed_owned_pids'] = sorted(self.owned_processes)
+        for pid, starttime in self.owned_processes.items():
+            try:
+                stat = (Path('/proc')/str(pid)/'stat').read_text().rsplit(')', 1)[1].split()
+                if stat[19] == starttime and stat[0] != 'Z':
+                    result['remaining_owned_pids'].append(pid)
+            except OSError:
+                pass
         self.node.destroy_node()
         self.closed_result = result
         return result

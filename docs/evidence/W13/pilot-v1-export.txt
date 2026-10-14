@@ -1,0 +1,25 @@
+{
+  "campaign": "pilot-v1",
+  "suite_sha256": "a2c9e5d9e81abe5d9afe817b3f5ee2152b9ec7d2252100e7407ad291ed65ea34",
+  "fingerprint": "5bae06cd72f402a409319ac1a4cf510fc079e0005f9ad3ec65169d03b14e765b",
+  "complete": false,
+  "verdict": "PARTIAL",
+  "counts": {
+    "static": {
+      "n": 10,
+      "success": 0
+    },
+    "crossing": {
+      "n": 10,
+      "success": 0
+    },
+    "blocking": {
+      "n": 10,
+      "success": 0
+    },
+    "sudden": {
+      "n": 10,
+      "success": 0
+    }
+  }
+}

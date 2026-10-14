@@ -65,3 +65,11 @@ def test_frozen_suite_coverage_and_safe_approach():
                     assert e['initial_surface_gap_lower_bound_m'] > 1.65+.245+.61*.65+.2*.45
                 if label=='blocking':
                     assert e['legs'][0]['hold']>suite['criteria']['time_limit_s']
+
+
+def test_trace_boolean_columns(tmp_path):
+    from evaluation.metrics import trace_columns
+    path=tmp_path/'trace.csv'
+    path.write_text('sim_time,state,cmd_status,cmd_source,scan_due,nonfinite\n.02,READY,ACTIVE,cmd_vel,True,False\n')
+    _, trace=trace_columns(path)
+    assert trace['scan_due'][0]==1 and trace['nonfinite'][0]==0

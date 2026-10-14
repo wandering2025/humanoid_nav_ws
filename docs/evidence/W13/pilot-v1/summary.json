@@ -1,0 +1,376 @@
+{
+  "campaign": "pilot-v1",
+  "suite_sha256": "a2c9e5d9e81abe5d9afe817b3f5ee2152b9ec7d2252100e7407ad291ed65ea34",
+  "fingerprint": "5bae06cd72f402a409319ac1a4cf510fc079e0005f9ad3ec65169d03b14e765b",
+  "complete": false,
+  "verdict": "PARTIAL",
+  "counts": {
+    "static": {
+      "n": 10,
+      "success": 0
+    },
+    "crossing": {
+      "n": 10,
+      "success": 0
+    },
+    "blocking": {
+      "n": 10,
+      "success": 0
+    },
+    "sudden": {
+      "n": 10,
+      "success": 0
+    }
+  },
+  "rows": [
+    {
+      "case": "S01",
+      "suite": "static",
+      "seed": 1000,
+      "outcome": "INVALID",
+      "attempts": 1,
+      "run_id": "20261014T215609Z_pilot-v1_S01_s1000_01f801",
+      "code_sha": "997a5d05673bb83266dcba233fa1fe85db0f6552",
+      "dirty": true,
+      "nav2_result": "SUCCEEDED",
+      "arrived_truth": true,
+      "pos_err_m": 0.10920664403049231,
+      "yaw_err_deg": 1.6485660103641835,
+      "settle_s": 2.0,
+      "time_to_goal_s": 6.34,
+      "path_len_m": 1.939715718818773,
+      "clear_body_env_min_m": null,
+      "clear_footprint_min_m": 1.718102515548173,
+      "scan_min_range_m": 2.1972358226776123,
+      "n_env_collisions": 0,
+      "fell": false,
+      "n_safety_stops": 0,
+      "n_replans": 1,
+      "n_recoveries": null,
+      "rtf_median": null,
+      "sim_time_s": 32.699999999994,
+      "wall_time_s": 37.867985459999545,
+      "notes": "",
+      "evidence": "docs/evidence/W13/raw/pilot-v1/20261014T215609Z_pilot-v1_S01_s1000_01f801/result.json"
+    },
+    {
+      "case": "S02",
+      "suite": "static",
+      "seed": 1001,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S03",
+      "suite": "static",
+      "seed": 1002,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S04",
+      "suite": "static",
+      "seed": 1003,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S05",
+      "suite": "static",
+      "seed": 1004,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S06",
+      "suite": "static",
+      "seed": 1005,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S07",
+      "suite": "static",
+      "seed": 1006,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S08",
+      "suite": "static",
+      "seed": 1007,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S09",
+      "suite": "static",
+      "seed": 1008,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S10",
+      "suite": "static",
+      "seed": 1009,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C01",
+      "suite": "crossing",
+      "seed": 2000,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C02",
+      "suite": "crossing",
+      "seed": 2001,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C03",
+      "suite": "crossing",
+      "seed": 2002,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C04",
+      "suite": "crossing",
+      "seed": 2003,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C05",
+      "suite": "crossing",
+      "seed": 2004,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C06",
+      "suite": "crossing",
+      "seed": 2005,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C07",
+      "suite": "crossing",
+      "seed": 2006,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C08",
+      "suite": "crossing",
+      "seed": 2007,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C09",
+      "suite": "crossing",
+      "seed": 2008,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C10",
+      "suite": "crossing",
+      "seed": 2009,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B01",
+      "suite": "blocking",
+      "seed": 3000,
+      "outcome": "INVALID",
+      "attempts": 1,
+      "run_id": "20261014T215650Z_pilot-v1_B01_s3000_55e6a4",
+      "code_sha": "997a5d05673bb83266dcba233fa1fe85db0f6552",
+      "dirty": true,
+      "nav2_result": "SUCCEEDED",
+      "arrived_truth": true,
+      "pos_err_m": 0.11577665820201423,
+      "yaw_err_deg": 8.965275741627524,
+      "settle_s": 2.0,
+      "time_to_goal_s": 75.54,
+      "path_len_m": 16.56512381948572,
+      "clear_body_env_min_m": null,
+      "clear_footprint_min_m": 1.8350457760542613,
+      "scan_min_range_m": 2.2336959838867188,
+      "n_env_collisions": 0,
+      "fell": false,
+      "n_safety_stops": 0,
+      "n_replans": 15,
+      "n_recoveries": null,
+      "rtf_median": null,
+      "sim_time_s": 105.27999999993604,
+      "wall_time_s": 108.58569702800014,
+      "notes": "",
+      "evidence": "docs/evidence/W13/raw/pilot-v1/20261014T215650Z_pilot-v1_B01_s3000_55e6a4/result.json"
+    },
+    {
+      "case": "B02",
+      "suite": "blocking",
+      "seed": 3001,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B03",
+      "suite": "blocking",
+      "seed": 3002,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B04",
+      "suite": "blocking",
+      "seed": 3003,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B05",
+      "suite": "blocking",
+      "seed": 3004,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B06",
+      "suite": "blocking",
+      "seed": 3005,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B07",
+      "suite": "blocking",
+      "seed": 3006,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B08",
+      "suite": "blocking",
+      "seed": 3007,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B09",
+      "suite": "blocking",
+      "seed": 3008,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B10",
+      "suite": "blocking",
+      "seed": 3009,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U01",
+      "suite": "sudden",
+      "seed": 4000,
+      "outcome": "INVALID",
+      "attempts": 1,
+      "run_id": "20261014T215846Z_pilot-v1_U01_s4000_cddcb2",
+      "code_sha": "997a5d05673bb83266dcba233fa1fe85db0f6552",
+      "dirty": true,
+      "nav2_result": "SUCCEEDED",
+      "arrived_truth": true,
+      "pos_err_m": 0.14765691801943495,
+      "yaw_err_deg": 1.8514507988648938,
+      "settle_s": 2.0,
+      "time_to_goal_s": 44.32000000000001,
+      "path_len_m": 10.4295310224391,
+      "clear_body_env_min_m": null,
+      "clear_footprint_min_m": 1.8469264628332736,
+      "scan_min_range_m": 1.6014021635055542,
+      "n_env_collisions": 0,
+      "fell": false,
+      "n_safety_stops": 0,
+      "n_replans": 7,
+      "n_recoveries": null,
+      "rtf_median": null,
+      "sim_time_s": 71.86000000001393,
+      "wall_time_s": 75.25028464299976,
+      "notes": "",
+      "evidence": "docs/evidence/W13/raw/pilot-v1/20261014T215846Z_pilot-v1_U01_s4000_cddcb2/result.json"
+    },
+    {
+      "case": "U02",
+      "suite": "sudden",
+      "seed": 4001,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U03",
+      "suite": "sudden",
+      "seed": 4002,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U04",
+      "suite": "sudden",
+      "seed": 4003,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U05",
+      "suite": "sudden",
+      "seed": 4004,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U06",
+      "suite": "sudden",
+      "seed": 4005,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U07",
+      "suite": "sudden",
+      "seed": 4006,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U08",
+      "suite": "sudden",
+      "seed": 4007,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U09",
+      "suite": "sudden",
+      "seed": 4008,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U10",
+      "suite": "sudden",
+      "seed": 4009,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    }
+  ]
+}
