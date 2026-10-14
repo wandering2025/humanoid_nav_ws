@@ -63,7 +63,7 @@ def simulation_arguments(default_scene='', map_rviz=False, rviz_config=None):
         ('max_sim_time', '0.0'), ('scene', default_scene), ('run_id', ''),
         # '' keeps the scene initial pose; 'x y yaw' sets it before the runner exists.
         ('start_pose', ''),
-        ('events_file', ''), ('scenario', ''),
+        ('events_file', ''), ('scenario', ''), ('seed', '0'),
         ('rviz', 'false'),
         ('rviz_config', rviz_config),
         # W05 calibrated v_des->u_pol contract; '' keeps /cmd_vel UNCALIBRATED.
@@ -106,7 +106,7 @@ def simulation_actions(context):
               for name, kind in (
                   ('upstream_path', str), ('assets_path', str), ('mode', str), ('task', str),
                   ('headless', bool), ('target_rtf', float), ('enable_policy_cmd_input', bool),
-                  ('max_sim_time', float), ('scene', str), ('run_id', str), ('command_map_file', str))}
+                  ('max_sim_time', float), ('scene', str), ('run_id', str), ('command_map_file', str), ('seed', int))}
     if LaunchConfiguration('mode').perform(context) != 'sim_only':
         if LaunchConfiguration('enable_policy_cmd_input').perform(context) != 'false':
             raise RuntimeError('mapping/localization/navigation forbid policy debug commands')

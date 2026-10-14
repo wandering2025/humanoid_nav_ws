@@ -71,7 +71,7 @@ def main():
     try:
         for index, initial in enumerate(meta['expected_localization']['initial_inputs']):
             run = Run('localization.launch.py', f'localization_{index}',
-                      [f'scene:={os.environ.get("W12_SCENE", "dynamic_crossing_world")}', f'rviz:={str(index == 0).lower()}', 'max_sim_time:=90.0', f'map:={path}', 'lifecycle_start_delay:=3.0'])
+                      [f'scene:={os.environ.get("W12_SCENE", "dynamic_crossing_world")}', f'rviz:={str(index == 0).lower()}', 'max_sim_time:=90.0', f'map:={path}', f'localization_params_file:={WS}/src/t1_navigation/config/w12_localization.yaml', 'lifecycle_start_delay:=3.0'])
             run.ready()
             run.until(lambda: run.node.map is not None, 60)
             states = {n: run.call(GetState, f'/{n}/get_state', GetState.Request()).current_state.label for n in ('map_server', 'amcl')}

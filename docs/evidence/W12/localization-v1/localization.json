@@ -1,0 +1,101 @@
+{
+  "verdict": "FAIL",
+  "trials": [
+    {
+      "index": 0,
+      "verdict": "PASS",
+      "error": null,
+      "measurements": {
+        "pose_updates": 60,
+        "position_error_final_m": 0.0237379971476427,
+        "yaw_error_final_rad": 0.00483089790525959,
+        "yaw_error_final_deg": 0.27679006122996475,
+        "convergence_sim_s": 2.68,
+        "scan_distance_p95_m": 0.049143174045130245,
+        "scan_endpoints": 2880,
+        "scan_stamp_tf_lookups": 8,
+        "lookup_errors": []
+      },
+      "checks": {
+        "position_and_yaw_converged": true,
+        "scan_map_aligned": true,
+        "scan_stamp_tf_available": true,
+        "map_server_only": true,
+        "no_slam": true,
+        "same_map_checksum": true,
+        "loaded_grid_resolution": true,
+        "no_clock_jump": true,
+        "physical_motion": true,
+        "gate_stayed_armed": true,
+        "one_initialization": true,
+        "actual_amcl_map_odom_owner": true,
+        "clean_exit": true,
+        "bound_to_map": true
+      }
+    },
+    {
+      "index": 1,
+      "verdict": "FAIL",
+      "error": null,
+      "measurements": {
+        "pose_updates": 62,
+        "position_error_final_m": 0.041607730298489416,
+        "yaw_error_final_rad": 0.02556440052557707,
+        "yaw_error_final_deg": 1.4647322558975895,
+        "convergence_sim_s": 2.2000000000000006,
+        "scan_distance_p95_m": 0.1682659943252344,
+        "scan_endpoints": 2880,
+        "scan_stamp_tf_lookups": 8,
+        "lookup_errors": []
+      },
+      "checks": {
+        "position_and_yaw_converged": true,
+        "scan_map_aligned": false,
+        "scan_stamp_tf_available": true,
+        "map_server_only": true,
+        "no_slam": true,
+        "same_map_checksum": true,
+        "loaded_grid_resolution": true,
+        "no_clock_jump": true,
+        "physical_motion": true,
+        "gate_stayed_armed": true,
+        "one_initialization": true,
+        "actual_amcl_map_odom_owner": true,
+        "clean_exit": true,
+        "bound_to_map": true
+      }
+    },
+    {
+      "index": 2,
+      "verdict": "PASS",
+      "error": null,
+      "measurements": {
+        "pose_updates": 58,
+        "position_error_final_m": 0.03221654243007149,
+        "yaw_error_final_rad": 0.01639651155788679,
+        "yaw_error_final_deg": 0.9394509110043875,
+        "convergence_sim_s": 2.3600000000000003,
+        "scan_distance_p95_m": 0.10891871256016546,
+        "scan_endpoints": 2880,
+        "scan_stamp_tf_lookups": 8,
+        "lookup_errors": []
+      },
+      "checks": {
+        "position_and_yaw_converged": true,
+        "scan_map_aligned": true,
+        "scan_stamp_tf_available": true,
+        "map_server_only": true,
+        "no_slam": true,
+        "same_map_checksum": true,
+        "loaded_grid_resolution": true,
+        "no_clock_jump": true,
+        "physical_motion": true,
+        "gate_stayed_armed": true,
+        "one_initialization": true,
+        "actual_amcl_map_odom_owner": true,
+        "clean_exit": true,
+        "bound_to_map": true
+      }
+    }
+  ]
+}

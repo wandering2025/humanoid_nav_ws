@@ -213,11 +213,99 @@ def layer_summary(rows):
                 final_less_than_gate=sum(1 for r in rows if r['gate'] and r['final'] and r['final'][0] < r['gate'][0]-1e-6))
 
 
+def dynamic_evidence(run, result, trace):
+    """Evaluation only: correlate scan/costmap/commands with kinetic obstacle."""
+    label = result['label']
+    obstacle = run.node.obstacles
+    scans, costs = run.node.dynamic_scans, run.node.cost_samples
+    trigger = next((o['triggered_at'] for o in obstacle if o['triggered_at'] is not None), None)
+    hit_frames = [s for s in scans if s['hits'] and s['obstacle']['triggered_at'] is not None]
+    marked = [c for c in costs if c['max_cost'] == 100 and c['obstacle']['triggered_at'] is not None]
+    cleared = [c for c in costs if c['obstacle']['triggered_at'] is not None
+               and c['obstacle']['position'][1] >= 2.99
+               and c['obstacle']['phase'].startswith('hold')
+               and c['vacated_center_value'] == 0]
+    kind = os.environ.get('W12_SCENARIO', '')
+    t = trace['sim_time']
+    snapshot_t = np.array([o['sim_time'] for o in obstacle])
+    ox = np.interp(t, snapshot_t, [o['position'][0] for o in obstacle])
+    oy = np.interp(t, snapshot_t, [o['position'][1] for o in obstacle])
+    sx, sy, _ = obstacle[0]['size']
+    distances = np.hypot(np.maximum(np.abs(trace['x_w']-ox)-sx/2, 0),
+                         np.maximum(np.abs(trace['y_w']-oy)-sy/2, 0))
+    window = 25  # W05 .5 s at 50 Hz
+    speed = np.full(len(t), np.inf)
+    speed[window:] = np.hypot(trace['x_w'][window:]-trace['x_w'][:-window],
+                              trace['y_w'][window:]-trace['y_w'][:-window])/.5
+    rate = np.full(len(t), np.inf)
+    yaws = np.unwrap(trace['yaw_w'])
+    rate[window:] = abs(yaws[window:]-yaws[:-window])/.5
+    physical_stop = ((t > (trigger or 1e9)) & (speed < .05) & (rate < .05)
+                     & (trace['u_pol_x'] == 0) & (trace['u_pol_wz'] == 0))
+    protected = distances < 1.96
+    stops = np.flatnonzero(physical_stop & protected)
+    stop = float(t[stops[0]]) if len(stops) else None
+    resumes = np.flatnonzero((t > (stop if stop is not None else 1e9)) & (speed > .2)
+                             & (trace['u_pol_x'] > 0) & (distances > 1.95))
+    resume = float(t[resumes[0]]) if len(resumes) else None
+    stopped_hold_s = 0.
+    streak = 0
+    for active in physical_stop & protected:
+        streak = streak + 1 if active else 0
+        stopped_hold_s = max(stopped_hold_s, streak*.02)
+    plans = run.node.plans
+    initial_lateral = max((abs(p[1]) for p in plans[0]['points']), default=0) if plans else None
+    after_plans = [p for p in plans if trigger and p['sim'] > trigger]
+    replanned_lateral = max((abs(pt[1]) for p in after_plans for pt in p['points']), default=0)
+    motion = t > (trigger if trigger is not None else 1e9)
+    max_lateral = float(np.max(abs(trace['y_w'][motion]))) if motion.any() else 0.
+    current = result['run']['graph']
+    truth_subscribers = current['/t1/eval/obstacle']['subscribers']
+    checks = dict(triggered_after_actual_walking=trigger is not None and bool((trace['u_pol_x'][t < trigger] > 0).any()),
+                  scan_hits_entity=len(hit_frames) >= 3, local_costmap_marks_entity=len(marked) >= 2,
+                  no_planner_obstacle_truth=truth_subscribers == ['w12_evaluator'],
+                  no_teleop=current['/t1/cmd_teleop']['publishers'] == [],
+                  dimensions=result['run']['manifest'].get('model_dimensions') == dict(nq=30,nv=29,nu=23,nmocap=1))
+    if kind == 'blocking':
+        checks.update(real_detour=max_lateral > 2.25 and replanned_lateral > 2.25,
+                      blocker_never_removed=all(abs(o['position'][1]) < .001 for o in obstacle
+                          if o['phase'].startswith('hold')),
+                      goal_reached_while_blocked=obstacle[-1]['phase'] == 'hold_0' and abs(obstacle[-1]['position'][1]) < .001)
+    else:
+        checks['vacated_costmap_clears'] = len(cleared) >= 2
+    if kind == 'approach':
+        checks.update(actual_stop_in_protection=stop is not None and stopped_hold_s >= .5,
+                      safely_resumed=resume is not None)
+    checks['navigation_success'] = result['outcome'] == 'SUCCESS'
+    header = 'sim_time,obstacle_x,obstacle_y,max_cost,vacated_cost,cmd_vel_x,cmd_vel_wz,plans'
+    data = [[c['sim'], *c['obstacle']['position'][:2], c['max_cost'] if c['max_cost'] is not None else -999,
+             c['vacated_center_value'] if c['vacated_center_value'] is not None else -999,
+             *(c['final_cmd'] or [0,0]), c['plan_count']] for c in costs]
+    np.savetxt(OUT/f'{label}-costmap.csv', data, delimiter=',', header=header, comments='', fmt='%.4f')
+    np.savetxt(OUT/f'{label}-obstacle.csv', [[o['sim_time'], *o['position'], o['triggered_at'] or -1] for o in obstacle],
+               delimiter=',', header='sim_time,x,y,z,triggered_at', comments='', fmt='%.4f')
+    samples = [s for i, s in enumerate(hit_frames) if i in (0,len(hit_frames)//2,len(hit_frames)-1)]
+    for s in samples:
+        s['hits'] = s['hits'][:12]
+    result['dynamic'] = dict(scenario=kind, checks=checks, verdict='PASS' if all(checks.values()) else 'FAIL',
+                             trigger_sim=trigger, scan_hit_frames=len(hit_frames), costmap_marked_samples=len(marked),
+                             costmap_cleared_samples=len(cleared), actual_stop_sim=stop, resume_sim=resume,
+                             stopped_hold_s=stopped_hold_s, min_center_surface_gap_m=float(distances.min()),
+                             max_robot_lateral_m=max_lateral, initial_plan_lateral_m=initial_lateral,
+                             replanned_lateral_m=replanned_lateral, scan_topic_samples=samples)
+    (RAW/f'{label}-topic-data.json').write_text(json.dumps(dict(obstacles=obstacle, scans=scans, costs=costs, plans=plans)))
+    if not all(checks.values()):
+        result['outcome'] = 'FAIL_DYNAMIC'
+    return result['dynamic']
+
+
 def episode(label, start, goal, tol, time_limit, rviz=False, case_id=None, seed=0, screenshot=None, post_s=12., tool_args=()):
     run = Run('navigation.launch.py', label, [
         f'scene:={os.environ.get("W12_SCENE", "dynamic_crossing_world")}', f'start_pose:={start[0]} {start[1]} {start[2]}',
         f'initial_pose:={start[0]} {start[1]} {start[2]}', f'rviz:={str(rviz).lower()}',
-        f'max_sim_time:={time_limit + 60:.0f}', 'headless:=true', f'map:={META.with_suffix("").with_suffix(".yaml")}',
+        f'max_sim_time:={time_limit + 60:.0f}', 'headless:=true', f'seed:={seed}',
+        *([f'localization_params_file:={WS}/src/t1_navigation/config/w12_localization.yaml']
+          if os.environ.get('W12_SCENE','dynamic_crossing_world') == 'dynamic_crossing_world' else []), f'map:={META.with_suffix("").with_suffix(".yaml")}',
         *([f'events_file:={WS}/src/t1_bringup/config/w12_events.yaml', f'scenario:={os.environ["W12_SCENARIO"]}']
           if os.environ.get('W12_SCENARIO') else [])], wall_limit=time_limit*2.5 + 200)
     result = dict(label=label, case=case_id, seed=seed, start=start, goal=goal, tolerances=tol, time_limit_s=time_limit)
@@ -307,9 +395,12 @@ def episode(label, start, goal, tol, time_limit, rviz=False, case_id=None, seed=
     success = (metrics['nav2_status'] == 'SUCCEEDED' and metrics['arrived_truth'] and not metrics['fell'] and
                not contact.get('static_env') and not contact.get('obstacle') and not contact.get('ground_nonfoot') and
                (metrics['time_to_goal_s'] or 1e9) <= time_limit)
+    success = success and all(metrics['graph_checks'].values()) and all(result.get('parameter_checks', {}).values())
     result['outcome'] = 'SUCCESS' if success else (
         'FAIL_FALL' if metrics['fell'] else 'FAIL_COLLISION' if contact.get('static_env') else
         'FAIL_TIMEOUT' if nav.get('timed_out') else 'FAIL_PLANNING' if metrics['nav2_status'] == 'ABORTED' else 'FAIL')
+    if os.environ.get('W12_SCENARIO') and run.node.obstacles:
+        dynamic_evidence(run, result, trace)
     (OUT/f'{label}.json').write_text(json.dumps(result, indent=2, default=str) + '\n')
     print('EPISODE', label, result['outcome'], json.dumps({k: metrics[k] for k in (
         'nav2_status', 'time_to_goal_s', 'arrived_truth', 'path_len_m', 'clear_center_min_m', 'clear_footprint_min_m',

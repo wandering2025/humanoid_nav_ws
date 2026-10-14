@@ -1,0 +1,459 @@
+{
+  "index": 1,
+  "initial_pose_map": [
+    -0.2,
+    0.15,
+    -0.2
+  ],
+  "initial_pose_command": [
+    "ros2",
+    "run",
+    "t1_bringup",
+    "initial_pose",
+    "-0.2",
+    "0.15",
+    "-0.2"
+  ],
+  "initial_sim": 3.1,
+  "lifecycle_states": {
+    "map_server": "active",
+    "amcl": "active"
+  },
+  "map_yaml_sha256": "fad1a0cdc1a7b386857d79e8c5be842deb54da05ca9f180131e08caa1693563b",
+  "expected": {
+    "initial_inputs": [
+      [
+        0.2,
+        -0.15,
+        0.15
+      ],
+      [
+        -0.2,
+        0.15,
+        -0.2
+      ],
+      [
+        0.1,
+        0.1,
+        0.3
+      ]
+    ],
+    "convergence_sim_s": 25,
+    "position_error_max_m": 0.25,
+    "yaw_error_max_rad": 0.17453292519943295,
+    "scan_distance_p95_max_m": 0.15
+  },
+  "measurements": {
+    "pose_updates": 62,
+    "position_error_final_m": 0.041607730298489416,
+    "yaw_error_final_rad": 0.02556440052557707,
+    "yaw_error_final_deg": 1.4647322558975895,
+    "convergence_sim_s": 2.2000000000000006,
+    "scan_distance_p95_m": 0.1682659943252344,
+    "scan_endpoints": 2880,
+    "scan_stamp_tf_lookups": 8,
+    "lookup_errors": []
+  },
+  "checks": {
+    "position_and_yaw_converged": true,
+    "scan_map_aligned": false,
+    "scan_stamp_tf_available": true,
+    "map_server_only": true,
+    "no_slam": true,
+    "same_map_checksum": true,
+    "loaded_grid_resolution": true,
+    "no_clock_jump": true,
+    "physical_motion": true,
+    "gate_stayed_armed": true,
+    "one_initialization": true,
+    "actual_amcl_map_odom_owner": true,
+    "clean_exit": true,
+    "bound_to_map": true
+  },
+  "run": {
+    "run_id": "w12_localization_1_30448291",
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "localization.launch.py",
+      "run_id:=w12_localization_1_30448291",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "rviz:=false",
+      "max_sim_time:=90.0",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "lifecycle_start_delay:=3.0"
+    ],
+    "cwd": "/home/haoyang/humanoid_nav_ws",
+    "started_utc": "2026-10-14T20:50:40.928327+00:00",
+    "ended_utc": "2026-10-14T20:51:09.597396+00:00",
+    "exit_code": 0,
+    "wall_s": 26.969719157001236,
+    "sim_end": 23.96,
+    "graph": {
+      "/clock": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "velocity_smoother",
+          "collision_monitor",
+          "lifecycle_manager_localization",
+          "lifecycle_manager_safety",
+          "w12_evaluator",
+          "robot_state_publisher",
+          "map_server",
+          "amcl",
+          "t1_command_gate"
+        ],
+        "types": [
+          "rosgraph_msgs/msg/Clock"
+        ]
+      },
+      "/cmd_vel": {
+        "publishers": [
+          "collision_monitor"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "t1_sim",
+          "t1_command_gate"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/cmd_vel_nav": {
+        "publishers": [
+          "t1_command_gate"
+        ],
+        "subscribers": [
+          "velocity_smoother",
+          "w12_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/cmd_vel_smoothed": {
+        "publishers": [
+          "velocity_smoother"
+        ],
+        "subscribers": [
+          "collision_monitor",
+          "w12_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/cmd_navigation": {
+        "publishers": [],
+        "subscribers": [
+          "w12_evaluator"
+        ],
+        "types": []
+      },
+      "/t1/cmd_teleop": {
+        "publishers": [
+          "w12_evaluator"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "t1_command_gate"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/nav/cmd_vel_raw": {
+        "publishers": [],
+        "subscribers": [
+          "w12_evaluator"
+        ],
+        "types": []
+      },
+      "/t1/eval/ground_truth": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "w12_evaluator"
+        ],
+        "types": [
+          "nav_msgs/msg/Odometry"
+        ]
+      },
+      "/t1/debug/policy_cmd": {
+        "publishers": [],
+        "subscribers": [],
+        "types": []
+      },
+      "/map": {
+        "publishers": [
+          "map_server"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "amcl"
+        ],
+        "types": [
+          "nav_msgs/msg/OccupancyGrid"
+        ]
+      },
+      "/scan": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "collision_monitor",
+          "w12_evaluator",
+          "amcl",
+          "t1_command_gate"
+        ],
+        "types": [
+          "sensor_msgs/msg/LaserScan"
+        ]
+      },
+      "/odom": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "t1_command_gate"
+        ],
+        "types": [
+          "nav_msgs/msg/Odometry"
+        ]
+      },
+      "/initialpose": {
+        "publishers": [],
+        "subscribers": [
+          "w12_evaluator",
+          "amcl"
+        ],
+        "types": []
+      },
+      "/t1/eval/obstacle": {
+        "publishers": [],
+        "subscribers": [
+          "w12_evaluator"
+        ],
+        "types": []
+      },
+      "/local_costmap/costmap": {
+        "publishers": [],
+        "subscribers": [
+          "w12_evaluator"
+        ],
+        "types": []
+      }
+    },
+    "tf_owners": {
+      "base_footprint": [
+        "t1_sim"
+      ],
+      "base_link": [
+        "t1_sim"
+      ],
+      "laser_stabilized": [
+        "t1_sim"
+      ],
+      "aahead_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "aahead_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_ankle_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_ankle_roll_link": [
+        "robot_state_publisher"
+      ],
+      "left_elbow_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_elbow_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_roll_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_knee_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_shoulder_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_shoulder_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_ankle_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_ankle_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_elbow_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_elbow_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "right_knee_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_shoulder_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_shoulder_roll_link": [
+        "robot_state_publisher"
+      ],
+      "waist_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "odom": [
+        "amcl"
+      ]
+    },
+    "clock_regressions": 0,
+    "scan_stats": {
+      "count": 239,
+      "empty": 0,
+      "known_min": 1.0,
+      "min_range": 2.592493772506714
+    },
+    "initializations": [
+      [
+        -0.2,
+        0.15,
+        -0.20000000000000004
+      ]
+    ],
+    "events": [
+      {
+        "kind": "gate",
+        "sim": 0.0,
+        "wall": 9340.890169266,
+        "state": "DISARMED",
+        "reason": "explicit arm required"
+      },
+      {
+        "kind": "sim_state",
+        "sim": 0.0,
+        "wall": 9341.123017516,
+        "state": "STARTING",
+        "fault": null
+      },
+      {
+        "kind": "sim_state",
+        "sim": 2.0,
+        "wall": 9343.125324828,
+        "state": "READY",
+        "fault": null
+      },
+      {
+        "kind": "gate",
+        "sim": 3.1,
+        "wall": 9344.22461348,
+        "state": "ARMED",
+        "reason": "awaiting a new source command"
+      }
+    ],
+    "children": [
+      [
+        "init",
+        0
+      ]
+    ],
+    "manifest": {
+      "code_sha": "8e857694135407a7c3ac17f4bec53a3559ad2da4",
+      "dirty": true,
+      "dirty_files": [
+        "M docs/start_commands.md",
+        "?? docs/evidence/W12/localization-0.json",
+        "?? docs/evidence/W12/localization.png",
+        "?? docs/evidence/W12/w12_localization_0_78f7136c-pose-errors.csv"
+      ],
+      "exit_code": 0,
+      "status": "SHUTDOWN",
+      "sim_time_end": 23.9599999999976,
+      "wall_duration_s": 24.401015732000815,
+      "scene_sha256": "f14e3aad52d1c2862321c1963483c9c614b7be3ae27644146f57e7a889df3876",
+      "map_sha256": "fad1a0cdc1a7b386857d79e8c5be842deb54da05ca9f180131e08caa1693563b",
+      "start_pose_override": null,
+      "contact_counts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "parameter_files": {
+        "nav2": null,
+        "slam": null,
+        "amcl": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/localization.yaml",
+          "sha256": "08567e33b2ff6a113a75791c9bddb7a546cf812e2437a32faac2da53e62994c7"
+        },
+        "velocity_smoother": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        },
+        "collision_monitor": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        },
+        "command_map": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+          "sha256": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+          "evidence": {
+            "report": "docs/evidence/W05/locomotion-envelope.md",
+            "runs": {
+              "20261013T212155Z_dev_w05_c3": "00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe",
+              "20261013T215753Z_dev_w05_dense": "50ef2baf9ae2530bac0edfdc07c131f99725909836fe07511264fcc6dd33fb01",
+              "20261013T220627Z_dev_w05_context": "25976d72867333007b5a1cec96b1ea9d84920a620cde6cb0f79b09525bc8f65e"
+            },
+            "statistic": "largest 2 s window mean, >=3 s after command onset, segments >=8 s (raw traces)",
+            "tested_code_sha": "abc5b4a8248b05037ef02f46022c2a6779915acd",
+            "builder": "docs/evidence/W05/build_command_map.py",
+            "validation": "docs/evidence/W05/command-map-validation.json"
+          }
+        },
+        "command_gate": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        }
+      },
+      "deadline_overruns": 1,
+      "upstream_sha": {
+        "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+        "booster_assets": "12a97516f57469078707afb587a5f84c1cb110d1"
+      },
+      "mode": "localization",
+      "model_dimensions": {
+        "nq": 30,
+        "nv": 29,
+        "nu": 23,
+        "nmocap": 0
+      }
+    }
+  },
+  "verdict": "FAIL"
+}
