@@ -1,0 +1,18 @@
+[
+  {
+    "check": "scene-load first attempt",
+    "exit_code": 1,
+    "cause": "validator compared geometry prefix; compiler reorders world geoms",
+    "failed_fields": [
+      "geom_type",
+      "geom_bodyid",
+      "geom_size",
+      "geom_pos",
+      "geom_quat",
+      "geom_contype",
+      "geom_conaffinity",
+      "geom_group"
+    ],
+    "resolution": "compare named geometry mappings; no physics changes"
+  }
+]

@@ -9,6 +9,7 @@ setup(
         ('share/ament_index/resource_index/packages', ['resource/t1_mujoco']),
         ('share/t1_mujoco', ['package.xml']),
         ('share/t1_mujoco/config', glob('config/*.yaml') + glob('config/*.md')),
+        ('share/t1_mujoco/worlds', glob('worlds/*.yaml') + glob('worlds/*.md')),
         ('lib/t1_mujoco', ['scripts/t1_diagnostic', 'scripts/t1_sim', 'scripts/t1_calibrate']),
     ],
     install_requires=['setuptools'],

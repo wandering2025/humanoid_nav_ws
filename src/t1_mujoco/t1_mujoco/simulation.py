@@ -77,12 +77,13 @@ def main(args=None):
         validate_parameters(p)
         runtime = inspect_runtime(p['upstream_path'], p['assets_path'], p['mode'], p['task'])
         cfg = load_task_config(p['upstream_path'], p['task'])
-        if p['scene']:
-            scene = Path(p['scene'])
-            if not scene.is_absolute() or not scene.is_file():
-                raise ValueError('scene must be an existing absolute MJCF path')
-            cfg.robot = cfg.robot.replace(mjcf_path=str(scene))
-            runtime['mjcf_path'] = str(scene)
+        from ament_index_python.packages import get_package_share_directory
+        from .scenes import configure_scene
+        scene_provenance = configure_scene(
+            cfg, p['scene'], runtime['assets_path'], Path(p['run_dir'])/'cache/scenes',
+            Path(get_package_share_directory('t1_mujoco'))/'worlds')
+        if scene_provenance:
+            runtime['mjcf_path'] = scene_provenance['expanded_xml']['path']
         import torch
         import numpy as np
         torch.set_num_threads(1)
@@ -95,6 +96,12 @@ def main(args=None):
         elif p['mode'] != 'sim_only':
             raise ValueError('navigation/evaluation modes require a calibrated command_map_file')
         log = RunLog(p, runtime)
+        if scene_provenance:
+            log.manifest['scene_provenance'] = scene_provenance
+            metadata = scene_provenance['scene_metadata']
+            log.manifest['goal'] = metadata['goal'] if metadata else None
+            log.manifest['case'] = metadata['name'] if metadata else 'custom_mjcf'
+            log.save()
         if command_map is not None:
             from .recording import sha256
             log.manifest['parameter_files']['command_map'] = dict(
