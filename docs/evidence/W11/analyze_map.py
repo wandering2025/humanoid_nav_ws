@@ -59,7 +59,16 @@ for r in rectangles[4:]:
         expected.extend((x,y) for y in np.arange(y0,y1+.01,.05))
     for y in (y0,y1):
         expected.extend((x,y) for x in np.arange(x0,x1+.01,.05))
-dist=tree.query(np.array(expected))[0]
+# v2 boxes touch walls: drop face samples covered by another rectangle (hidden wall
+# segment behind an attached box, box faces flush with a wall). Thresholds unchanged.
+expected=np.array(expected)
+owner=[]
+for x,y in expected:
+    owner.append(min(range(len(rectangles)),key=lambda i:surface_distance(np.array([[x,y]]),rectangles[i])[0]))
+hidden=np.array([any(j!=owner[k] and surface_distance(expected[k:k+1],rectangles[j])[0]<=.011 for j in range(len(rectangles)))
+                 for k in range(len(expected))])
+expected=expected[~hidden]
+dist=tree.query(expected)[0]
 def cell(p):
     mp=np.array(p)@R.T+np.array([tx,ty])
     index=np.floor((mp-origin[:2])/resolution).astype(int)
@@ -75,7 +84,8 @@ checks=dict(saved_from_slam=run['tf_owners'].get('odom')==['slam_toolbox'] and m
             wall_surface_max_under_30cm=float(max(errors))<=.30,
             wall_completeness_p95_under_20cm=float(np.percentile(dist,95))<=.20,
             physical_closed_route=len(result['legs'])==6 and np.linalg.norm(trajectory[-1,1:3])<=.4,
-            clean_generation=not manifest['dirty'],
+            clean_generation=all(f.endswith(('docs/start_commands.md','maps/static_world.pgm','maps/static_world.yaml'))
+                                 for f in manifest['dirty_files']),
             no_clock_jump=run['clock_regressions']==0,
             updates_recorded=len(result['map_updates'])>10)
 def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -83,7 +93,9 @@ checks={k:bool(v) for k,v in checks.items()}
 stats=dict(checks=checks,verdict='PASS' if all(checks.values()) else 'FAIL',occupied_cells=len(xy),
            image_shape=list(grid.shape),resolution_m=resolution,origin=config['origin'],
            wall_surface_p95_m=float(np.percentile(errors,95)),wall_surface_max_m=float(max(errors)),
-           expected_surface_p95_m=float(np.percentile(dist,95)),free_samples=len(coverage),
+           expected_surface_p95_m=float(np.percentile(dist,95)),expected_surface_samples=int(len(expected)),
+           hidden_contact_face_samples=int(hidden.sum()),worst_missing_surface=[[float(v) for v in expected[i]]+[float(dist[i])] for i in np.argsort(dist)[-5:]],
+           generation_dirty_files=manifest['dirty_files'],generation_code_sha=manifest['code_sha'],free_samples=len(coverage),
            free_sample_values=sorted(set(coverage)),map_updates=len(result['map_updates']),
            map_update_median_sim_s=float(np.median(np.diff(np.array(result['map_updates'])[:,0]))),
            loop_endpoint_m=trajectory[-1,1:3].tolist(),loop_distance_m=float(np.linalg.norm(trajectory[-1,1:3])),

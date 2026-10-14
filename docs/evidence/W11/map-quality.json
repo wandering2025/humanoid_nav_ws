@@ -1,0 +1,77 @@
+{
+  "checks": {
+    "saved_from_slam": true,
+    "resolution_5cm": true,
+    "AB_and_two_corridors_free": true,
+    "wall_surface_p95_under_15cm": true,
+    "wall_surface_max_under_30cm": true,
+    "wall_completeness_p95_under_20cm": true,
+    "physical_closed_route": true,
+    "clean_generation": true,
+    "no_clock_jump": true,
+    "updates_recorded": true
+  },
+  "verdict": "PASS",
+  "occupied_cells": 1520,
+  "image_shape": [
+    222,
+    281
+  ],
+  "resolution_m": 0.05,
+  "origin": [
+    -2.523,
+    -5.533,
+    0
+  ],
+  "wall_surface_p95_m": 0.052000000000000046,
+  "wall_surface_max_m": 0.06684309986827391,
+  "expected_surface_p95_m": 0.05261178575186319,
+  "expected_surface_samples": 1136,
+  "hidden_contact_face_samples": 204,
+  "worst_missing_surface": [
+    [
+      10.1,
+      5.299999999999997,
+      0.34938231208806503
+    ],
+    [
+      10.1,
+      5.099999999999998,
+      0.35800558654858794
+    ],
+    [
+      10.1,
+      5.249999999999997,
+      0.3857045501416885
+    ],
+    [
+      10.1,
+      5.149999999999998,
+      0.40800490193133476
+    ],
+    [
+      10.1,
+      5.1999999999999975,
+      0.424815253963417
+    ]
+  ],
+  "generation_dirty_files": [
+    "M docs/start_commands.md",
+    " M src/t1_navigation/maps/static_world.pgm",
+    " M src/t1_navigation/maps/static_world.yaml"
+  ],
+  "generation_code_sha": "eb597480f5f410aac664918b57dd6c36419895b2",
+  "free_samples": 81,
+  "free_sample_values": [
+    254
+  ],
+  "map_updates": 126,
+  "map_update_median_sim_s": 1.0,
+  "loop_endpoint_m": [
+    0.04154,
+    -0.0545
+  ],
+  "loop_distance_m": 0.0685260651139404,
+  "actual_path_length_m": 27.526214326340014,
+  "measured_vx_p95_m_s": 0.496959
+}

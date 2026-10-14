@@ -1,17 +1,17 @@
 schema: 1
 map_source: slam_toolbox /map saved with nav2_map_server/map_saver_cli; no geometry
   rasterization
-map_yaml_sha256: b22d9fe5983490d20c7053ff0d3e19d86e1ee74d3377776dd288df95209db21a
-map_image_sha256: 7fb7926069d725fe8c200fbabb41de0dda74ccf0e17c5805ecb1a5baaa040677
+map_yaml_sha256: ad4f4a57ec1e2e220bad97c5226616d1c0d236884288470a299f5d5380853163
+map_image_sha256: 36df8c63639d9172cd5cd614977e6c9711a08ac88c6bb7b5efb3a79c956a8e4e
 scene_yaml: t1_mujoco/worlds/static_world.yaml
-scene_yaml_sha256: 039e518209c17fb4e622dab30c40ce1aa6efe65df8708d3670482e17e4e34e47
-expanded_scene_sha256: 856c5401e741f640ea06f72528d12996d1b5bd738acdccce0d2a8dc9e834a660
+scene_yaml_sha256: 84df038755888130fbe110e4d7a6a143b6adb8eadbeaf64e1c23cb7e3414b091
+expanded_scene_sha256: 9f174aaef834b5c50c209263a391e77c2007ea4f88069b47cbe0d7782b2dd536
 upstream_sha:
   booster_deploy: 7bb1462e2ac742eba5c01659b815e2e99fbe617f
   booster_assets: 12a97516f57469078707afb587a5f84c1cb110d1
-generated_code_sha: 2cf9496729f6002fdceda90663000b2550ab126d
-run_id: w09_mapping_5198435d
-created_utc: '2026-10-14T13:20:43.572996+00:00'
+generated_code_sha: eb597480f5f410aac664918b57dd6c36419895b2
+run_id: w11_mapping_3ce766db
+created_utc: '2026-10-14T18:41:06.086773+00:00'
 sensor_mode: compensated
 odom_mode: ideal_truth
 lidar_config:
@@ -46,14 +46,13 @@ anchor:
   - -3.76158192263132e-37
   - 4.336808689942018e-19
   odom_at_start:
-  - 3.08
-  - -0.003930156944426584
-  - -0.010917085887817998
-  - 0.0068733235187890445
+  - 0.0005379299771970566
+  - -0.01024300324368287
+  - 0.0026626131000107977
   method: initial SLAM map->odom inverted, odom equals world truth horizontal projection
     (W06 contract)
 pose_graph:
-  path: docs/evidence/W09/raw/static_world.*
+  path: docs/evidence/W11/raw/static_world.*
   purpose: optional continuation/debug; localization only needs yaml/image
   tracked: false
 expected_localization:
@@ -75,3 +74,4 @@ limitations:
 - ideal truth odometry and truth attitude compensation
 - no drift/noise robustness claim
 - planar static scene only
+layout_version: static_world v2 (ADR-015)
