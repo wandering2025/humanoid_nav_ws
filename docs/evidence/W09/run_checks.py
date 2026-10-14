@@ -103,12 +103,12 @@ class Probe(Node):
 
     def grid(self, m, info):
         self.map = m
-        self.map_gids.add(bytes(info['publisher_gid']).hex())
+        self.map_gids.add('map topic graph')
         self.map_updates.append([self.sim, ns(m.header.stamp)*1e-9, m.info.width, m.info.height,
                                  sum(v >= 65 for v in m.data)])
 
     def tf(self, m, info):
-        gid = bytes(info['publisher_gid']).hex()
+        gid = 'observed child; actual RMW authority checked by C++ sidecar'
         for t in m.transforms:
             self.tf_owners.setdefault(t.child_frame_id, set()).add(gid)
             self.buffer.set_transform(t, gid)
@@ -146,6 +146,9 @@ class Run:
         self.log = self.log_path.open('w')
         self.proc = subprocess.Popen(self.command, cwd=WS, stdout=self.log, stderr=subprocess.STDOUT,
                                      stdin=subprocess.DEVNULL)
+        self.authority_path = RAW/(self.run_id+'-authority.jsonl')
+        self.authority_log = self.authority_path.open('w')
+        self.authority = subprocess.Popen([str(RAW/'authority-build/tf_authority')], stdout=self.authority_log, stderr=subprocess.DEVNULL)
         self.wall0 = time.monotonic()
         self.started = datetime.now(timezone.utc).isoformat()
         self.next_pub = 0.
@@ -245,7 +248,14 @@ class Run:
         np.savetxt(OUT/(self.run_id+'-trajectory.csv'), np.array(self.node.rows)[::10], delimiter=',',
                    header='sim_time,x,y,yaw,vx,vy,wz', comments='')
         (RAW/(self.run_id+'-poses.json')).write_text(json.dumps(self.node.poses))
-        # Graph must be captured before shutdown for reliable endpoint names.
+        self.authority.send_signal(signal.SIGINT)
+        self.authority.wait(timeout=10)
+        self.authority_log.close()
+        records=[json.loads(line) for line in self.authority_path.read_text().splitlines()]
+        result['tf_authority']=records
+        actual=[r for r in records if r['parent']=='map' and r['child']=='odom']
+        result['map_odom_gids']=sorted({r['gid'] for r in actual})
+        result['map_odom_nodes']=sorted({r['node'] for r in actual if r['node']!='unresolved'})
         self.node.destroy_node()
         return result
 
@@ -301,6 +311,11 @@ def main():
     finally:
         if run:
             result['run'] = run.close()
+            expected='amcl' if opts.phase=='localization' else 'slam_toolbox'
+            result.setdefault('checks', {})['actual_map_odom_owner']=(len(result['run']['map_odom_gids'])==1 and result['run']['map_odom_nodes']==[expected])
+            result['checks']['clean_exit']=result['run']['exit_code']==0 and result['run']['manifest'].get('exit_code')==0
+            if not all(result['checks'].values()):
+                result['verdict']='FAIL'
         server.send_signal(signal.SIGINT)
         server.wait(timeout=10)
         server_log.close()
