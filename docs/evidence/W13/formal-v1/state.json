@@ -533,7 +533,15 @@
         0.0
       ],
       "scenario": "B01",
-      "kind": "blocking"
+      "kind": "blocking",
+      "attempts": [
+        {
+          "run_id": "20261014T223809Z_formal-v1_B01_s3000_16d726",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T223809Z_formal-v1_B01_s3000_16d726",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "B02",
@@ -551,7 +559,15 @@
         0.0
       ],
       "scenario": "B02",
-      "kind": "blocking"
+      "kind": "blocking",
+      "attempts": [
+        {
+          "run_id": "20261014T223932Z_formal-v1_B02_s3001_0fcf38",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T223932Z_formal-v1_B02_s3001_0fcf38",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "B03",
@@ -569,7 +585,15 @@
         0.0
       ],
       "scenario": "B03",
-      "kind": "blocking"
+      "kind": "blocking",
+      "attempts": [
+        {
+          "run_id": "20261014T224110Z_formal-v1_B03_s3002_a896f1",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T224110Z_formal-v1_B03_s3002_a896f1",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "B04",
@@ -587,7 +611,15 @@
         0.0
       ],
       "scenario": "B04",
-      "kind": "blocking"
+      "kind": "blocking",
+      "attempts": [
+        {
+          "run_id": "20261014T224241Z_formal-v1_B04_s3003_ff4d28",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T224241Z_formal-v1_B04_s3003_ff4d28",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "B05",
@@ -605,7 +637,15 @@
         0.0
       ],
       "scenario": "B05",
-      "kind": "blocking"
+      "kind": "blocking",
+      "attempts": [
+        {
+          "run_id": "20261014T224424Z_formal-v1_B05_s3004_285199",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T224424Z_formal-v1_B05_s3004_285199",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "B06",
@@ -623,7 +663,15 @@
         0.0
       ],
       "scenario": "B06",
-      "kind": "blocking"
+      "kind": "blocking",
+      "attempts": [
+        {
+          "run_id": "20261014T224608Z_formal-v1_B06_s3005_baa600",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T224608Z_formal-v1_B06_s3005_baa600",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "B07",
@@ -641,7 +689,15 @@
         0.0
       ],
       "scenario": "B07",
-      "kind": "blocking"
+      "kind": "blocking",
+      "attempts": [
+        {
+          "run_id": "20261014T224850Z_formal-v1_B07_s3006_aed232",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T224850Z_formal-v1_B07_s3006_aed232",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "B08",
@@ -659,7 +715,15 @@
         0.0
       ],
       "scenario": "B08",
-      "kind": "blocking"
+      "kind": "blocking",
+      "attempts": [
+        {
+          "run_id": "20261014T225036Z_formal-v1_B08_s3007_c89fd9",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T225036Z_formal-v1_B08_s3007_c89fd9",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "B09",
@@ -677,7 +741,15 @@
         0.0
       ],
       "scenario": "B09",
-      "kind": "blocking"
+      "kind": "blocking",
+      "attempts": [
+        {
+          "run_id": "20261014T225158Z_formal-v1_B09_s3008_512b2a",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T225158Z_formal-v1_B09_s3008_512b2a",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "B10",
@@ -695,7 +767,15 @@
         0.0
       ],
       "scenario": "B10",
-      "kind": "blocking"
+      "kind": "blocking",
+      "attempts": [
+        {
+          "run_id": "20261014T225406Z_formal-v1_B10_s3009_3e515f",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T225406Z_formal-v1_B10_s3009_3e515f",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "U01",
