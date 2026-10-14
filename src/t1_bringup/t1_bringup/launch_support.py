@@ -108,6 +108,8 @@ def simulation_actions(context):
                               parameters=[{'use_sim_time': True}]))
 
     def finished(event, _context):
+        if _context.is_shutdown:
+            return []
         if event.returncode != 0:
             raise RuntimeError(f't1_sim exited with code {event.returncode}')
         return [EmitEvent(event=Shutdown(reason='t1_sim completed'))]

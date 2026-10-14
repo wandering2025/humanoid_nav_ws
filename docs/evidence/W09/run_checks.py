@@ -103,12 +103,12 @@ class Probe(Node):
 
     def grid(self, m, info):
         self.map = m
-        self.map_gids.add(bytes(info.publisher_gid).hex())
+        self.map_gids.add(bytes(info['publisher_gid']).hex())
         self.map_updates.append([self.sim, ns(m.header.stamp)*1e-9, m.info.width, m.info.height,
                                  sum(v >= 65 for v in m.data)])
 
     def tf(self, m, info):
-        gid = bytes(info.publisher_gid).hex()
+        gid = bytes(info['publisher_gid']).hex()
         for t in m.transforms:
             self.tf_owners.setdefault(t.child_frame_id, set()).add(gid)
             self.buffer.set_transform(t, gid)
