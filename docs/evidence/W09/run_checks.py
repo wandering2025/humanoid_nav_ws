@@ -197,7 +197,7 @@ class Run:
     def route(self):
         # Manually selected inspection points; transitions use observed odom.
         # No environmental truth, costmap, planner or autonomous navigation goal.
-        points = [(0., 2.), (6.2, 2.), (6.2, 0.), (6.2, -2.), (0., -2.), (0., 0.)]
+        points = [(0., 1.9), (6.8, 1.9), (6., 0.), (6.2, -2.), (0., -2.), (0., 0.)]
         for i, target in enumerate(points):
             print('INSPECTION', i, target, 'at', self.node.rows[-1][:4], flush=True)
             start = self.node.sim
@@ -292,6 +292,10 @@ def main():
                 run.route()
                 run.duration(3.)
                 run.screenshot('mapping-final.png')
+                m=run.node.map
+                np.savez_compressed(RAW/'slam-grid.npz', grid=np.array(m.data).reshape(m.info.height,m.info.width), resolution=m.info.resolution, origin=[m.info.origin.position.x,m.info.origin.position.y,yaw(m.info.origin.orientation)])
+                t=run.node.map_tf.transform
+                result['final_map_odom']=[t.translation.x,t.translation.y,yaw(t.rotation)]
                 mapbase = WS/'src/t1_navigation/maps/static_world'
                 cmd = ['ros2','run','nav2_map_server','map_saver_cli','-f',str(mapbase),'--ros-args','-p','use_sim_time:=true','-p','save_map_timeout:=10.0']
                 saved = subprocess.Popen(cmd, stdout=(RAW/'map-save.txt').open('w'), stderr=subprocess.STDOUT)
