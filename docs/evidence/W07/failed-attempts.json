@@ -14,5 +14,11 @@
       "geom_group"
     ],
     "resolution": "compare named geometry mappings; no physics changes"
+  },
+  {
+    "check": "description first attempt",
+    "exit_code": 1,
+    "cause": "numpy.int32 tuple membership with pybind enum returns false for box, although direct comparison returns true",
+    "resolution": "convert MuJoCo geom type scalar to native int before dispatch"
   }
 ]
