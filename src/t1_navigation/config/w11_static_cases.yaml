@@ -1,0 +1,30 @@
+# W11 predefined static navigation cases (acceptance §6 static S01-S05), registered
+# before the first formal run. Changing any line creates a new version that must be
+# re-run completely; cases are never dropped or reordered by result.
+schema: 1
+name: w11_static_v1
+scene: static_world  # v2, ADR-015; map src/t1_navigation/maps/static_world.yaml
+# Acceptance §3 truth criteria (initial values kept; frozen in W11 C2).
+criteria:
+  position_m: 0.30
+  yaw_deg: 20.0
+  settle_s: 2.0          # W05 stationary: 0.5 s window, <0.05 m/s and <0.05 rad/s
+  time_limit_s: 120.0    # simulation time from first goal acceptance
+# Registration constraint (W11 C2, bipedal): every goal admits a 1.0 m straight
+# walking approach along its heading in navigation free space, because in-place
+# final alignment lands short by its rebound. Starts, goals and approach waypoints
+# keep >=2.25 m clearance to every surface (docs/evidence/W11/c2-cases-feasibility.json).
+cases:
+- {id: S01, seed: 1000, kind: short_straight, start: [0.0, 0.0, 0.0], goal: [1.75, 0.0, 0.0]}
+- {id: S02, seed: 1001, kind: corner, start: [0.0, 0.0, 1.5708], goal: [2.5, 2.75, 0.0]}
+- {id: S03, seed: 1002, kind: island_detour, start: [1.5, 0.0, 0.0], goal: [8.0, 0.0, -1.5708]}
+- {id: S04, seed: 1003, kind: full_A_to_B, start: [0.0, 0.0, 0.0], goal: [9.0, 0.0, 0.0], rviz: true, screenshot_after_s: 18.0}
+- {id: S05, seed: 1004, kind: return_detour_heading_change, start: [9.0, 0.0, 3.1416], goal: [0.0, 0.0, 1.5708]}
+# F09 with a real NavigateToPose action (not a formal arrival case).
+cancel_replace:
+  start: [0.0, 0.0, 0.0]
+  first_goal: [9.0, 0.0, 0.0]
+  cancel_after_moving_s: 3.0
+  second_goal: [2.5, 2.75, 0.0]
+  replace_after_moving_s: 2.0
+  replacement_goal: [1.0, -2.75, 3.1416]

@@ -44,12 +44,16 @@ controller_server:
       required_movement_radius: 0.3
       required_movement_angle: 0.5
       movement_time_allowance: 20.0
-    # Frozen in W11 C2 before the predefined runs; see README "terminal criteria".
+    # Success only when stationary inside tolerance: W05/W11 measured up to 17-26 deg
+    # yaw rebound after stopping an in-place turn, so "entered the band while
+    # turning" is not arrival. Frozen in W11 C2; see README "terminal criteria".
     general_goal_checker:
-      plugin: "nav2_controller::SimpleGoalChecker"
+      plugin: "nav2_controller::StoppedGoalChecker"
       stateful: true
       xy_goal_tolerance: 0.20
-      yaw_goal_tolerance: 0.15
+      yaw_goal_tolerance: 0.20
+      trans_stopped_velocity: 0.08
+      rot_stopped_velocity: 0.08
     FollowPath:
       plugin: "nav2_rotation_shim_controller::RotationShimController"
       primary_controller: "nav2_mppi_controller::MPPIController"
@@ -58,9 +62,13 @@ controller_server:
       angular_disengage_threshold: 0.25
       forward_sampling_distance: 0.6
       rotate_to_heading_angular_vel: 0.65
-      max_angular_accel: 6.0
+      # Stop-profile sqrt(2*a*theta) falls below the adapter's 0.2 rad/s zero threshold
+      # only within 0.1 rad of the target; in between the adapter keeps the W05 band.
+      max_angular_accel: 0.2
       simulate_ahead_time: 1.0
       rotate_to_goal_heading: true
+      # Re-check heading on every (5 s / invalid / new-goal) path; rotate in place only
+      # when the path direction is >0.6 rad off, else MPPI turns while walking.
       rotate_to_heading_once: false
       closed_loop: false
       use_path_orientations: false
@@ -68,16 +76,25 @@ controller_server:
       model_dt: 0.05
       batch_size: 1000
       iteration_count: 1
-      ax_max: 0.5
-      ax_min: -0.75
+      # MPPI clamps its first command to odom speed + ax*model_dt. From standstill the
+      # W05 deadband (vx<0.315 -> 0) would deadlock a 0.5 m/s^2 limit (0.025 m/s per
+      # step, robot never moves). Physical ramps stay in the frozen W10 smoother
+      # (0.5 / -0.75 m/s^2) downstream; these only shape MPPI's internal model.
+      ax_max: 10.0
+      ax_min: -3.0
       ay_max: 0.0
       ay_min: 0.0
       az_max: 1.0
       vx_std: 0.2
       vy_std: 0.0
       wz_std: 0.3
-      vx_max: 0.55
-      vx_min: 0.0
+      # 0.45: walking turn radius 0.45/0.45 = 1.0 m and <=0.245 m stop distance (W05).
+      vx_max: 0.45
+      # Walking-only sampling: the T1 gait cannot creep below 0.315 m/s (W05). MPPI's
+      # low-speed blends of creep+turn were zeroed or became sideways walking after
+      # shaping (W11 C2). In-place turns come from RotationShim, stops from the goal
+      # checker; the adapter zero/lift rules still apply to every output.
+      vx_min: 0.33
       vy_max: 0.0
       wz_max: 0.45
       prune_distance: 2.5
@@ -277,7 +294,7 @@ t1_navigation_adapter:
     input_timeout_s: 0.15
     # Pre-collision-monitor shaping (ADR-016). Below these a request is zeroed;
     # between them and the W05 minimum it is raised to the minimum.
-    vx_lift_threshold: 0.16
+    vx_lift_threshold: 0.05
     vx_lift_target: 0.33
     wz_lift_threshold: 0.20
     wz_in_place_target: 0.60

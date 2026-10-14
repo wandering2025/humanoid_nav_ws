@@ -29,6 +29,9 @@ def actions(context):
                 ('nav2_velocity_smoother','velocity_smoother','velocity_smoother',{},
                  [('cmd_vel','/cmd_vel_nav'),('cmd_vel_smoothed','/cmd_vel_smoothed')]),
                 ('nav2_collision_monitor','collision_monitor','collision_monitor',{},[]),
+                # ADR-016: 4.0 s like localization. W11 observed a >1 s bond heartbeat stall while
+                # the Nav2 group joined discovery; the stop path never relies on bonds (bridge
+                # 0.5 s /cmd_vel timeout, gate lifecycle polling <=0.6 s latch).
                 ('nav2_lifecycle_manager','lifecycle_manager','lifecycle_manager_safety',
                  {'use_sim_time':True,'autostart':True,'node_names':['velocity_smoother','collision_monitor'],
-                  'bond_timeout':1.0,'attempt_respawn_reconnection':False},[]))]
+                  'bond_timeout':4.0,'attempt_respawn_reconnection':False},[]))]

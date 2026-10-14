@@ -1,0 +1,1000 @@
+{
+  "label": "w11_dev_detour6",
+  "case": null,
+  "seed": 0,
+  "start": [
+    1.5,
+    0.0,
+    0.0
+  ],
+  "goal": [
+    8.0,
+    0.0,
+    -1.5708
+  ],
+  "tolerances": {
+    "position_m": 0.3,
+    "yaw_deg": 20.0,
+    "settle_s": 2.0
+  },
+  "time_limit_s": 120.0,
+  "nav_active_sim": 9.940000000000001,
+  "parameters": {
+    "controller_server": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "controller_frequency": 20.0
+    },
+    "behavior_server": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "behavior_plugins": [
+        "wait"
+      ],
+      "robot_base_frame": "base_footprint"
+    },
+    "planner_server": {
+      "use_sim_time": true,
+      "planner_plugins": [
+        "GridBased"
+      ]
+    },
+    "bt_navigator": {
+      "use_sim_time": true,
+      "robot_base_frame": "base_footprint"
+    },
+    "velocity_smoother": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "feedback": "OPEN_LOOP"
+    },
+    "collision_monitor": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "base_frame_id": "base_footprint"
+    },
+    "amcl": {
+      "use_sim_time": true,
+      "base_frame_id": "base_footprint"
+    },
+    "local_costmap/local_costmap": {
+      "robot_base_frame": "base_footprint",
+      "robot_radius": 2.05,
+      "use_sim_time": true
+    },
+    "global_costmap/global_costmap": {
+      "robot_base_frame": "base_footprint",
+      "robot_radius": 2.05,
+      "use_sim_time": true
+    },
+    "t1_navigation_adapter": {
+      "use_sim_time": true
+    },
+    "t1_command_gate": {
+      "use_sim_time": true,
+      "command_source": "navigation"
+    }
+  },
+  "parameter_checks": {
+    "sim_time_everywhere": true,
+    "unstamped": true,
+    "base_footprint": true,
+    "wait_only_behaviors": true,
+    "nav_radius": true,
+    "gate_navigation": true
+  },
+  "tool_exit": 0,
+  "run": {
+    "run_id": "w11_w11_dev_detour6_734864f2",
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=w11_w11_dev_detour6_734864f2",
+      "target_rtf:=1.0",
+      "scene:=static_world",
+      "start_pose:=1.5 0.0 0.0",
+      "initial_pose:=1.5 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true"
+    ],
+    "cwd": "/home/haoyang/humanoid_nav_ws",
+    "started_utc": "2026-10-14T19:26:34.875249+00:00",
+    "ended_utc": "2026-10-14T19:28:10.944632+00:00",
+    "exit_code": 0,
+    "wall_s": 91.06853366900032,
+    "sim_end": 85.14,
+    "graph": {
+      "/clock": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "controller_server",
+          "local_costmap",
+          "transform_listener_impl_586a9da6f200",
+          "planner_server",
+          "global_costmap",
+          "transform_listener_impl_5c888c9141f0",
+          "behavior_server",
+          "bt_navigator",
+          "bt_navigator_navigate_to_pose_rclcpp_node",
+          "robot_state_publisher",
+          "lifecycle_manager_navigation",
+          "map_server",
+          "t1_navigation_adapter",
+          "amcl",
+          "lifecycle_manager_localization",
+          "t1_command_gate",
+          "velocity_smoother",
+          "collision_monitor",
+          "lifecycle_manager_safety",
+          "w11_evaluator"
+        ],
+        "types": [
+          "rosgraph_msgs/msg/Clock"
+        ]
+      },
+      "/cmd_vel": {
+        "publishers": [
+          "collision_monitor"
+        ],
+        "subscribers": [
+          "t1_sim",
+          "t1_command_gate",
+          "w11_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/cmd_vel_nav": {
+        "publishers": [
+          "t1_command_gate"
+        ],
+        "subscribers": [
+          "velocity_smoother",
+          "w11_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/cmd_vel_smoothed": {
+        "publishers": [
+          "velocity_smoother"
+        ],
+        "subscribers": [
+          "collision_monitor",
+          "w11_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/cmd_navigation": {
+        "publishers": [
+          "t1_navigation_adapter"
+        ],
+        "subscribers": [
+          "t1_command_gate",
+          "w11_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/cmd_teleop": {
+        "publishers": [],
+        "subscribers": [
+          "w11_evaluator"
+        ],
+        "types": []
+      },
+      "/t1/nav/cmd_vel_raw": {
+        "publishers": [
+          "controller_server",
+          "behavior_server"
+        ],
+        "subscribers": [
+          "t1_navigation_adapter",
+          "w11_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/eval/ground_truth": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "w11_evaluator"
+        ],
+        "types": [
+          "nav_msgs/msg/Odometry"
+        ]
+      },
+      "/t1/debug/policy_cmd": {
+        "publishers": [],
+        "subscribers": [],
+        "types": []
+      },
+      "/map": {
+        "publishers": [
+          "map_server"
+        ],
+        "subscribers": [
+          "global_costmap",
+          "amcl",
+          "w11_evaluator"
+        ],
+        "types": [
+          "nav_msgs/msg/OccupancyGrid"
+        ]
+      },
+      "/scan": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "local_costmap",
+          "global_costmap",
+          "amcl",
+          "t1_command_gate",
+          "collision_monitor",
+          "w11_evaluator"
+        ],
+        "types": [
+          "sensor_msgs/msg/LaserScan"
+        ]
+      },
+      "/odom": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "controller_server",
+          "bt_navigator",
+          "t1_command_gate",
+          "w11_evaluator"
+        ],
+        "types": [
+          "nav_msgs/msg/Odometry"
+        ]
+      },
+      "/initialpose": {
+        "publishers": [],
+        "subscribers": [
+          "amcl",
+          "w11_evaluator"
+        ],
+        "types": []
+      }
+    },
+    "tf_owners": {
+      "aahead_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "aahead_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_ankle_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_ankle_roll_link": [
+        "robot_state_publisher"
+      ],
+      "left_elbow_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_elbow_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_roll_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_knee_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_shoulder_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_shoulder_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_ankle_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_ankle_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_elbow_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_elbow_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "right_knee_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_shoulder_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_shoulder_roll_link": [
+        "robot_state_publisher"
+      ],
+      "waist_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "base_footprint": [
+        "t1_sim"
+      ],
+      "base_link": [
+        "t1_sim"
+      ],
+      "laser_stabilized": [
+        "t1_sim"
+      ],
+      "odom": [
+        "amcl"
+      ]
+    },
+    "clock_regressions": 0,
+    "scan_stats": {
+      "count": 851,
+      "empty": 0,
+      "known_min": 1.0,
+      "min_range": 2.2198901176452637
+    },
+    "initializations": [
+      [
+        1.5,
+        0.0,
+        0.0
+      ]
+    ],
+    "events": [
+      {
+        "kind": "gate",
+        "sim": 0.34,
+        "wall": 4547.923670931,
+        "state": "DISARMED",
+        "reason": "explicit arm required"
+      },
+      {
+        "kind": "sim_state",
+        "sim": 0.36000000000000004,
+        "wall": 4547.942391475,
+        "state": "STARTING",
+        "fault": null
+      },
+      {
+        "kind": "sim_state",
+        "sim": 2.0,
+        "wall": 4549.57981946,
+        "state": "READY",
+        "fault": null
+      },
+      {
+        "kind": "gate",
+        "sim": 13.040000000000001,
+        "wall": 4561.263962946,
+        "state": "ARMED",
+        "reason": "awaiting a new source command"
+      }
+    ],
+    "children": [
+      [
+        "goal",
+        0
+      ]
+    ],
+    "manifest": {
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "dirty_files": [
+        "M docs/evidence/W11/harness.py",
+        " M docs/start_commands.md",
+        " M src/t1_bringup/t1_bringup/initial_pose.py",
+        " M src/t1_bringup/t1_bringup/navigation_launch.py",
+        " M src/t1_bringup/t1_bringup/navigation_tools.py",
+        " M src/t1_bringup/t1_bringup/safety_launch.py",
+        " M src/t1_navigation/behavior_trees/navigate_to_pose_w11.xml",
+        " M src/t1_navigation/config/navigation.yaml",
+        "?? docs/evidence/W11/nav_run.py",
+        "?? docs/evidence/W11/w11_dev_detour1-layers.csv",
+        "?? docs/evidence/W11/w11_dev_detour1-trajectory.csv",
+        "?? docs/evidence/W11/w11_dev_detour1.json",
+        "?? docs/evidence/W11/w11_dev_detour2-layers.csv",
+        "?? docs/evidence/W11/w11_dev_detour2-trajectory.csv",
+        "?? docs/evidence/W11/w11_dev_detour2.json",
+        "?? docs/evidence/W11/w11_dev_detour3-layers.csv",
+        "?? docs/evidence/W11/w11_dev_detour3-trajectory.csv",
+        "?? docs/evidence/W11/w11_dev_detour3.json",
+        "?? docs/evidence/W11/w11_dev_detour4-layers.csv",
+        "?? docs/evidence/W11/w11_dev_detour4-trajectory.csv",
+        "?? docs/evidence/W11/w11_dev_detour4.json",
+        "?? docs/evidence/W11/w11_dev_detour5-layers.csv",
+        "?? docs/evidence/W11/w11_dev_detour5-trajectory.csv",
+        "?? docs/evidence/W11/w11_dev_detour5.json",
+        "?? docs/evidence/W11/w11_dev_retry_tight-layers.csv",
+        "?? docs/evidence/W11/w11_dev_retry_tight-trajectory.csv",
+        "?? docs/evidence/W11/w11_dev_retry_tight.json",
+        "?? docs/evidence/W11/w11_dev_staged1-layers.csv",
+        "?? docs/evidence/W11/w11_dev_staged1-trajectory.csv",
+        "?? docs/evidence/W11/w11_dev_staged1.json",
+        "?? docs/evidence/W11/w11_dev_straight1-layers.csv",
+        "?? docs/evidence/W11/w11_dev_straight1-trajectory.csv",
+        "?? docs/evidence/W11/w11_dev_straight1.json",
+        "?? docs/evidence/W11/w11_dev_straight2-layers.csv",
+        "?? docs/evidence/W11/w11_dev_straight2-trajectory.csv",
+        "?? docs/evidence/W11/w11_dev_straight2.json",
+        "?? docs/evidence/W11/w11_dev_straight3-layers.csv",
+        "?? docs/evidence/W11/w11_dev_straight3-trajectory.csv",
+        "?? docs/evidence/W11/w11_dev_straight3.json",
+        "?? docs/evidence/W11/w11_dev_straight4-layers.csv",
+        "?? docs/evidence/W11/w11_dev_straight4-trajectory.csv",
+        "?? docs/evidence/W11/w11_dev_straight4.json",
+        "?? docs/evidence/W11/w11_dev_yaw180-layers.csv",
+        "?? docs/evidence/W11/w11_dev_yaw180-trajectory.csv",
+        "?? docs/evidence/W11/w11_dev_yaw180.json",
+        "?? docs/evidence/W11/w11_dev_yaw180b-layers.csv",
+        "?? docs/evidence/W11/w11_dev_yaw180b-trajectory.csv",
+        "?? docs/evidence/W11/w11_dev_yaw180b.json",
+        "?? docs/evidence/W11/w11_dev_yaw180c-layers.csv",
+        "?? docs/evidence/W11/w11_dev_yaw180c-trajectory.csv",
+        "?? docs/evidence/W11/w11_dev_yaw180c.json",
+        "?? docs/evidence/W11/w11_dev_yaw90-layers.csv",
+        "?? docs/evidence/W11/w11_dev_yaw90-trajectory.csv",
+        "?? docs/evidence/W11/w11_dev_yaw90.json",
+        "?? docs/evidence/W11/w11_dev_yawm172-layers.csv",
+        "?? docs/evidence/W11/w11_dev_yawm172-trajectory.csv",
+        "?? docs/evidence/W11/w11_dev_yawm172.json",
+        "?? docs/evidence/W11/w11_dev_yawm90-layers.csv",
+        "?? docs/evidence/W11/w11_dev_yawm90-trajectory.csv",
+        "?? docs/evidence/W11/w11_dev_yawm90.json"
+      ],
+      "exit_code": 0,
+      "status": "SHUTDOWN",
+      "sim_time_end": 85.13999999998298,
+      "wall_duration_s": 86.43588929799989,
+      "scene_sha256": "9f174aaef834b5c50c209263a391e77c2007ea4f88069b47cbe0d7782b2dd536",
+      "map_sha256": "ad4f4a57ec1e2e220bad97c5226616d1c0d236884288470a299f5d5380853163",
+      "start_pose_override": [
+        1.5,
+        0.0,
+        0.0
+      ],
+      "contact_counts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "parameter_files": {
+        "nav2": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml",
+          "sha256": "45efaeae827b4555a7c89a4b1d70c96480bb476e4554826cd2828c955ec4a315"
+        },
+        "slam": null,
+        "amcl": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/localization.yaml",
+          "sha256": "08567e33b2ff6a113a75791c9bddb7a546cf812e2437a32faac2da53e62994c7"
+        },
+        "velocity_smoother": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        },
+        "collision_monitor": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        },
+        "command_map": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+          "sha256": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+          "evidence": {
+            "report": "docs/evidence/W05/locomotion-envelope.md",
+            "runs": {
+              "20261013T212155Z_dev_w05_c3": "00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe",
+              "20261013T215753Z_dev_w05_dense": "50ef2baf9ae2530bac0edfdc07c131f99725909836fe07511264fcc6dd33fb01",
+              "20261013T220627Z_dev_w05_context": "25976d72867333007b5a1cec96b1ea9d84920a620cde6cb0f79b09525bc8f65e"
+            },
+            "statistic": "largest 2 s window mean, >=3 s after command onset, segments >=8 s (raw traces)",
+            "tested_code_sha": "abc5b4a8248b05037ef02f46022c2a6779915acd",
+            "builder": "docs/evidence/W05/build_command_map.py",
+            "validation": "docs/evidence/W05/command-map-validation.json"
+          }
+        },
+        "command_gate": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        }
+      },
+      "deadline_overruns": 7,
+      "upstream_sha": {
+        "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+        "booster_assets": "12a97516f57469078707afb587a5f84c1cb110d1"
+      },
+      "mode": "navigation"
+    }
+  },
+  "nav2": {
+    "event": "result",
+    "goal": [
+      8.0,
+      0.0,
+      -1.5708
+    ],
+    "time_limit_s": 120.0,
+    "tolerances": {
+      "xy": 0.2,
+      "yaw": 0.2
+    },
+    "attempts": [
+      {
+        "stage": "approach",
+        "target": [
+          8.000003673205104,
+          0.9999999999932537,
+          -1.5708
+        ],
+        "accepted_sim": 13.040000000000001,
+        "goal_id": "00011c0f1f174590b3d968b360e56d41",
+        "status": "PASSED",
+        "end_sim": 44.46,
+        "passed_pose": [
+          8.2254162300995,
+          1.2644221754139693,
+          -1.0997379616780256
+        ]
+      },
+      {
+        "stage": "goal",
+        "target": [
+          8.0,
+          0.0,
+          -1.5708
+        ],
+        "accepted_sim": 44.46,
+        "goal_id": "73dc5d6b9f0e4cf3a66648cbb5b50b87",
+        "status": "SUCCEEDED",
+        "end_sim": 62.74,
+        "error_code": 0,
+        "verify_sim": 65.62,
+        "verified_pose": [
+          7.978036051481303,
+          -0.02183526649817843,
+          -1.808542582210071
+        ],
+        "xy_error": 0.03097085561585989,
+        "yaw_error": 0.23774258221007094,
+        "next_aim_yaw": -1.4043801924529502
+      },
+      {
+        "stage": "terminal_retry",
+        "target": [
+          8.0,
+          0.0,
+          -1.4043801924529502
+        ],
+        "accepted_sim": 65.62,
+        "goal_id": "b89efd37d57349f7aba9b6037f3dc703",
+        "status": "SUCCEEDED",
+        "end_sim": 69.46000000000001,
+        "error_code": 0,
+        "verify_sim": 72.88000000000001,
+        "verified_pose": [
+          7.9978631747870885,
+          -0.035492185859252026,
+          -1.7638825106479923
+        ],
+        "xy_error": 0.035556452003233166,
+        "yaw_error": 0.1930825106479923
+      }
+    ],
+    "arm_attempts": 1,
+    "approach_distance": 1.0,
+    "accepted_sim": 13.040000000000001,
+    "goal_id": "00011c0f1f174590b3d968b360e56d41",
+    "status": "SUCCEEDED",
+    "timed_out": false,
+    "end_sim": 72.88000000000001,
+    "duration_sim": 59.84000000000001,
+    "verified": {
+      "stage": "terminal_retry",
+      "target": [
+        8.0,
+        0.0,
+        -1.4043801924529502
+      ],
+      "accepted_sim": 65.62,
+      "goal_id": "b89efd37d57349f7aba9b6037f3dc703",
+      "status": "SUCCEEDED",
+      "end_sim": 69.46000000000001,
+      "error_code": 0,
+      "verify_sim": 72.88000000000001,
+      "verified_pose": [
+        7.9978631747870885,
+        -0.035492185859252026,
+        -1.7638825106479923
+      ],
+      "xy_error": 0.035556452003233166,
+      "yaw_error": 0.1930825106479923
+    },
+    "terminal_retries": 1,
+    "error_code": 0,
+    "nav2_success_sim": 69.46000000000001,
+    "exit": 0
+  },
+  "metrics": {
+    "nav2_status": "SUCCEEDED",
+    "nav2_error_code": 0,
+    "tool_exit": 0,
+    "time_to_goal_s": 56.42000000000001,
+    "task_duration_s": 59.84000000000001,
+    "terminal_retries": 1,
+    "attempts": [
+      {
+        "stage": "approach",
+        "target": [
+          8.000003673205104,
+          0.9999999999932537,
+          -1.5708
+        ],
+        "accepted_sim": 13.040000000000001,
+        "goal_id": "00011c0f1f174590b3d968b360e56d41",
+        "status": "PASSED",
+        "end_sim": 44.46,
+        "passed_pose": [
+          8.2254162300995,
+          1.2644221754139693,
+          -1.0997379616780256
+        ]
+      },
+      {
+        "stage": "goal",
+        "target": [
+          8.0,
+          0.0,
+          -1.5708
+        ],
+        "accepted_sim": 44.46,
+        "goal_id": "73dc5d6b9f0e4cf3a66648cbb5b50b87",
+        "status": "SUCCEEDED",
+        "end_sim": 62.74,
+        "error_code": 0,
+        "verify_sim": 65.62,
+        "verified_pose": [
+          7.978036051481303,
+          -0.02183526649817843,
+          -1.808542582210071
+        ],
+        "xy_error": 0.03097085561585989,
+        "yaw_error": 0.23774258221007094,
+        "next_aim_yaw": -1.4043801924529502
+      },
+      {
+        "stage": "terminal_retry",
+        "target": [
+          8.0,
+          0.0,
+          -1.4043801924529502
+        ],
+        "accepted_sim": 65.62,
+        "goal_id": "b89efd37d57349f7aba9b6037f3dc703",
+        "status": "SUCCEEDED",
+        "end_sim": 69.46000000000001,
+        "error_code": 0,
+        "verify_sim": 72.88000000000001,
+        "verified_pose": [
+          7.9978631747870885,
+          -0.035492185859252026,
+          -1.7638825106479923
+        ],
+        "xy_error": 0.035556452003233166,
+        "yaw_error": 0.1930825106479923
+      }
+    ],
+    "verified": {
+      "stage": "terminal_retry",
+      "target": [
+        8.0,
+        0.0,
+        -1.4043801924529502
+      ],
+      "accepted_sim": 65.62,
+      "goal_id": "b89efd37d57349f7aba9b6037f3dc703",
+      "status": "SUCCEEDED",
+      "end_sim": 69.46000000000001,
+      "error_code": 0,
+      "verify_sim": 72.88000000000001,
+      "verified_pose": [
+        7.9978631747870885,
+        -0.035492185859252026,
+        -1.7638825106479923
+      ],
+      "xy_error": 0.035556452003233166,
+      "yaw_error": 0.1930825106479923
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 71.64000000001444,
+      "settle_delay_s": 2.180000000014431,
+      "pos_err_m": 0.04917026343795007,
+      "yaw_err_deg": 11.9510357319696
+    },
+    "arrived_truth": true,
+    "path_len_m": 14.301086446748775,
+    "straight_m": 6.5,
+    "detour": {
+      "first_plan_length_m": 9.706256895324135,
+      "straight_m": 6.5,
+      "max_lateral_from_straight_m": 2.9716914414270414
+    },
+    "n_plans": 10,
+    "clear_center_min_m": 2.222635525828678,
+    "clear_footprint_min_m": 1.7564295075569598,
+    "scan_min_range_m": 2.2198901176452637,
+    "env_contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "safety": {
+      "cm_stop": 0,
+      "cm_slowdown": 0,
+      "gate_stopped": 0,
+      "bridge_timeouts": 0
+    },
+    "log_counts": {
+      "tf_extrapolation": 0,
+      "tf_old_data": 0,
+      "tf_timeout": 0,
+      "no_valid_control": 0,
+      "progress_failure": 0,
+      "planning_failure": 0,
+      "goal_aborted": 0,
+      "collision_ahead": 0,
+      "scan_dropped": 0
+    },
+    "nav_activated_in_log": true,
+    "scan_empty": 0,
+    "scan_known_min": 1.0,
+    "rtf_median": 1.00000002730004,
+    "sim_time_s": 85.13999999998298,
+    "wall_time_s": 91.06853366900032,
+    "min_trunk_z": 0.6195557038722014,
+    "graph_checks": {
+      "final_only_collision_monitor": true,
+      "gate_only_cmd_vel_nav": true,
+      "adapter_only_navigation_source": true,
+      "nav2_into_adapter_only": true,
+      "no_teleop_source": true,
+      "one_clock": true,
+      "truth_isolated": true,
+      "debug_disabled": true,
+      "twist_only": true,
+      "amcl_map_odom": true,
+      "sim_base": true,
+      "unique_tf": true
+    }
+  },
+  "layers_csv": "docs/evidence/W11/w11_dev_detour6-layers.csv",
+  "layer_summary": {
+    "adapter_reasons": {
+      "no_fresh_nav_command": 241,
+      "below_gait_zeroed": 40,
+      "in_place": 145,
+      "walk": 346,
+      "wz_walking_clipped": 3,
+      "stop": 1
+    },
+    "samples": 848,
+    "final_vs_measured_vx_ratio_median": 0.8668756546760898,
+    "adapter_differs_from_raw": 189,
+    "final_less_than_gate": 51
+  },
+  "plans": [
+    {
+      "sim": 13.040000000000001,
+      "n": 387,
+      "length": 9.706256895324135,
+      "points": [
+        [
+          1.5270000603497027,
+          0.017000082701444263
+        ],
+        [
+          1.34424287073676,
+          0.11580379511123429
+        ],
+        [
+          1.2860252490196404,
+          0.34964970008506757
+        ],
+        [
+          1.3184757347326825,
+          0.5965380552044204
+        ],
+        [
+          1.320045101211146,
+          0.8465041081235407
+        ],
+        [
+          1.360514462165749,
+          1.0910181956293892
+        ],
+        [
+          1.4228534828700634,
+          1.3329356186678334
+        ],
+        [
+          1.501852049721062,
+          1.5699290304024354
+        ],
+        [
+          1.608744446333414,
+          1.7955218377191082
+        ],
+        [
+          1.7426654993543838,
+          2.00646239262018
+        ],
+        [
+          1.8970821581495119,
+          2.2029749993082115
+        ],
+        [
+          2.0703769910540717,
+          2.3829150349485113
+        ],
+        [
+          2.26179735828634,
+          2.543528288074257
+        ],
+        [
+          2.4685089397357234,
+          2.683485718138301
+        ],
+        [
+          2.69245723103668,
+          2.7899028034642734
+        ],
+        [
+          2.9365154622124936,
+          2.8334101893664903
+        ],
+        [
+          3.18074230300996,
+          2.8864146457227244
+        ],
+        [
+          3.428764767643283,
+          2.9130343665783736
+        ],
+        [
+          3.6748600471892945,
+          2.950038456485246
+        ],
+        [
+          3.9235180403965404,
+          2.9716914414270414
+        ],
+        [
+          4.17326322234069,
+          2.9688090561301843
+        ],
+        [
+          4.4230282407109165,
+          2.9706141709031764
+        ],
+        [
+          4.672764267381492,
+          2.97010376440143
+        ],
+        [
+          4.922509449325641,
+          2.971036839366506
+        ],
+        [
+          5.172193596112631,
+          2.9661250350940955
+        ],
+        [
+          5.421777034890308,
+          2.9693690536971227
+        ],
+        [
+          5.67113388064703,
+          2.9611010787204046
+        ],
+        [
+          5.920141300129014,
+          2.943238377038214
+        ],
+        [
+          6.161628425309484,
+          2.880617068732037
+        ],
+        [
+          6.400360576083667,
+          2.8077876303909344
+        ],
+        [
+          6.618986983150048,
+          2.688176269966008
+        ],
+        [
+          6.821065996171026,
+          2.5413409406295537
+        ],
+        [
+          7.0029225357461335,
+          2.3699122576551455
+        ],
+        [
+          7.168617728644872,
+          2.1828333974455782
+        ],
+        [
+          7.3218701418171825,
+          1.9853579611533556
+        ],
+        [
+          7.465652187416733,
+          1.7808657706061846
+        ],
+        [
+          7.603722868185084,
+          1.572458174727232
+        ],
+        [
+          7.7390790103387666,
+          1.36227140401708
+        ],
+        [
+          7.873412050670563,
+          1.151429268306928
+        ],
+        [
+          8.000003673205104,
+          0.9999999999932537
+        ]
+      ]
+    },
+    {
+      "sim": 65.62,
+      "n": 2,
+      "length": 0.0402242140215174,
+      "points": [
+        [
+          7.977000156462193,
+          -0.032999918043613796
+        ],
+        [
+          8.0,
+          0.0
+        ]
+      ]
+    }
+  ],
+  "outcome": "SUCCESS"
+}

@@ -1,0 +1,207 @@
+{
+  "minimum_m": 2.25,
+  "approach_m": 1.0,
+  "cases": [
+    {
+      "id": "S01",
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        1.75,
+        0.0,
+        0.0
+      ],
+      "approach_waypoint": [
+        0.75,
+        0.0
+      ],
+      "clearance_m": {
+        "start": 2.5,
+        "goal": 2.25,
+        "approach_segment": 2.25
+      },
+      "straight_line_min_clearance_m": 2.25,
+      "straight_line_blocked": false,
+      "ok": true
+    },
+    {
+      "id": "S02",
+      "start": [
+        0.0,
+        0.0,
+        1.5708
+      ],
+      "goal": [
+        2.5,
+        2.75,
+        0.0
+      ],
+      "approach_waypoint": [
+        1.5,
+        2.75
+      ],
+      "clearance_m": {
+        "start": 2.5,
+        "goal": 2.704,
+        "approach_segment": 2.704
+      },
+      "straight_line_min_clearance_m": 2.5,
+      "straight_line_blocked": false,
+      "ok": true
+    },
+    {
+      "id": "S03",
+      "start": [
+        1.5,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        8.0,
+        0.0,
+        -1.5708
+      ],
+      "approach_waypoint": [
+        8.000003673205104,
+        0.9999999999932537
+      ],
+      "clearance_m": {
+        "start": 2.5,
+        "goal": 3.0,
+        "approach_segment": 3.0
+      },
+      "straight_line_min_clearance_m": 0.0,
+      "straight_line_blocked": true,
+      "ok": true
+    },
+    {
+      "id": "S04",
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "approach_waypoint": [
+        8.0,
+        0.0
+      ],
+      "clearance_m": {
+        "start": 2.5,
+        "goal": 2.421,
+        "approach_segment": 2.421
+      },
+      "straight_line_min_clearance_m": 0.0,
+      "straight_line_blocked": true,
+      "ok": true
+    },
+    {
+      "id": "S05",
+      "start": [
+        9.0,
+        0.0,
+        3.1416
+      ],
+      "goal": [
+        0.0,
+        0.0,
+        1.5708
+      ],
+      "approach_waypoint": [
+        3.673205103346574e-06,
+        -0.9999999999932537
+      ],
+      "clearance_m": {
+        "start": 2.421,
+        "goal": 2.5,
+        "approach_segment": 2.5
+      },
+      "straight_line_min_clearance_m": 0.0,
+      "straight_line_blocked": true,
+      "ok": true
+    },
+    {
+      "id": "cancel_replace",
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "approach_waypoint": [
+        8.0,
+        0.0
+      ],
+      "clearance_m": {
+        "start": 2.5,
+        "goal": 2.421,
+        "approach_segment": 2.421
+      },
+      "straight_line_min_clearance_m": 0.0,
+      "straight_line_blocked": true,
+      "ok": true
+    },
+    {
+      "id": "cancel_replace",
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        2.5,
+        2.75,
+        0.0
+      ],
+      "approach_waypoint": [
+        1.5,
+        2.75
+      ],
+      "clearance_m": {
+        "start": 2.5,
+        "goal": 2.704,
+        "approach_segment": 2.704
+      },
+      "straight_line_min_clearance_m": 2.5,
+      "straight_line_blocked": false,
+      "ok": true
+    },
+    {
+      "id": "cancel_replace",
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        1.0,
+        -2.75,
+        3.1416
+      ],
+      "approach_waypoint": [
+        1.9999999999730151,
+        -2.749992653589793
+      ],
+      "clearance_m": {
+        "start": 2.5,
+        "goal": 2.75,
+        "approach_segment": 2.75
+      },
+      "straight_line_min_clearance_m": 2.5,
+      "straight_line_blocked": false,
+      "ok": true
+    }
+  ],
+  "verdict": "PASS"
+}

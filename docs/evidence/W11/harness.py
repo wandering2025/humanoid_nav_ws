@@ -71,7 +71,7 @@ class Probe(Node):
         self.map_updates, self.plans = [], []
         self.scan_stats = dict(count=0, empty=0, known_min=1.0)
         self.last_row = -1.
-        self.teleop = self.create_publisher(Twist, '/t1/cmd_teleop', 1)
+        self.teleop = None  # created only by runs that act as the teleop source
         qos_tl = QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL)
         self.create_subscription(Clock, '/clock', self.on_clock, 100)
         self.create_subscription(String, '/t1/sim_state', self.on_state, qos_tl)
@@ -238,6 +238,8 @@ class Run:
         assert time.monotonic() - self.wall0 < self.wall_limit, 'overall wall deadline'
         rclpy.spin_once(self.node, timeout_sec=.004)
         if self.source is not None and time.monotonic() >= self.next_pub:
+            if self.node.teleop is None:
+                self.node.teleop = self.node.create_publisher(Twist, '/t1/cmd_teleop', 1)
             m = Twist()
             m.linear.x, m.angular.z = self.source
             self.node.teleop.publish(m)

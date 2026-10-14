@@ -2,7 +2,7 @@
 from pathlib import Path
 
 from ament_index_python.packages import get_package_share_directory
-from launch.actions import DeclareLaunchArgument, ExecuteProcess
+from launch.actions import DeclareLaunchArgument, ExecuteProcess, TimerAction
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
@@ -19,6 +19,11 @@ def arguments():
         # Optional one-shot approximate AMCL initialization 'x y yaw' (map frame);
         # '' leaves it to RViz 2D Pose Estimate or `ros2 run t1_bringup initial_pose`.
         DeclareLaunchArgument('initial_pose', default_value=''),
+        # Wall seconds before creating the Nav2 server group. Observed on this host:
+        # with ~17 processes discovering at once, a lifecycle change_state response
+        # was dropped and the (timeout-less) Jazzy lifecycle manager hung. Activation
+        # itself is still gated by navigation_starter readiness checks.
+        DeclareLaunchArgument('nav_start_delay', default_value='8.0'),
     ]
 
 
@@ -47,13 +52,17 @@ def actions(context):
         Node(package='t1_bringup', executable='navigation_starter', name='t1_navigation_starter',
              output='screen', parameters=[str(params)]),
     ]
+    delay = float(LaunchConfiguration('nav_start_delay').perform(context))
+    if not 0 <= delay <= 60:
+        raise RuntimeError('nav_start_delay must be within [0, 60] wall seconds')
+    actions = [TimerAction(period=delay, actions=nodes)]
     pose = LaunchConfiguration('initial_pose').perform(context).split()
     if pose:
         if len(pose) != 3:
             raise RuntimeError("initial_pose must be 'x y yaw' or empty")
-        nodes.append(ExecuteProcess(cmd=['ros2', 'run', 't1_bringup', 'initial_pose', *pose],
-                                    output='screen', name='t1_initial_pose_once'))
-    return nodes
+        actions.append(ExecuteProcess(cmd=['ros2', 'run', 't1_bringup', 'initial_pose', *pose],
+                                      output='screen', name='t1_initial_pose_once'))
+    return actions
 
 
 def full_actions(context):

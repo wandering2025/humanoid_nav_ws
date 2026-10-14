@@ -47,3 +47,26 @@ if __name__ == '__main__':
     import json
     layout = yaml.safe_load(Path(sys.argv[1]).read_text())
     print(json.dumps(report(layout), indent=2))
+
+
+def check_cases(cases_path, scene_path, approach=1.0, minimum=2.25):
+    """Clearance of every registered start, goal and approach waypoint (W11 C2)."""
+    layout = yaml.safe_load(Path(scene_path).read_text())
+    clear = clearance_fn(layout)
+    data = yaml.safe_load(Path(cases_path).read_text())
+    rows = []
+    entries = [(c['id'], c['start'], c['goal']) for c in data['cases']]
+    cr = data['cancel_replace']
+    entries += [('cancel_replace', cr['start'], g) for g in (cr['first_goal'], cr['second_goal'], cr['replacement_goal'])]
+    for cid, start, goal in entries:
+        import math
+        pre = (goal[0] - approach*math.cos(goal[2]), goal[1] - approach*math.sin(goal[2]))
+        t = np.linspace(0, 1, 50)
+        segment = float(clear(pre[0] + (goal[0]-pre[0])*t, pre[1] + (goal[1]-pre[1])*t).min())
+        straight = float(clear(start[0] + (goal[0]-start[0])*t, start[1] + (goal[1]-start[1])*t).min())
+        values = dict(start=float(clear(*start[:2])), goal=float(clear(*goal[:2])), approach_segment=segment)
+        rows.append(dict(id=cid, start=start, goal=goal, approach_waypoint=list(pre),
+                         clearance_m={k: round(v, 3) for k, v in values.items()},
+                         straight_line_min_clearance_m=round(straight, 3), straight_line_blocked=straight < 1.65,
+                         ok=all(v >= minimum for v in values.values())))
+    return dict(minimum_m=minimum, approach_m=approach, cases=rows, verdict='PASS' if all(r['ok'] for r in rows) else 'FAIL')

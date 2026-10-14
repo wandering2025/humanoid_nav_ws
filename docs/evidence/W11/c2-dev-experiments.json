@@ -1,0 +1,801 @@
+{
+  "purpose": "W11 C2 development runs (dirty tree, tuning only; not acceptance)",
+  "runs": [
+    {
+      "run": "straight1",
+      "run_id": "w11_w11_dev_straight1_5c4744b6",
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        1.75,
+        0.0,
+        0.0
+      ],
+      "outcome": "FAIL_TIMEOUT",
+      "nav2": "CANCELED",
+      "time_to_goal_s": 120.02000000000001,
+      "truth": {
+        "settled": false
+      },
+      "retries": null,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "clear_center_min_m": 2.4960582026338143,
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 0,
+        "progress_failure": 5,
+        "planning_failure": 0,
+        "goal_aborted": 5,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "note": "MPPI ax_max 0.5: first command 0.025 m/s stuck in W05 deadband (deadlock)"
+    },
+    {
+      "run": "straight2",
+      "run_id": "w11_w11_dev_straight2_11685ccb",
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        1.75,
+        0.0,
+        0.0
+      ],
+      "outcome": "FAIL",
+      "nav2": null,
+      "time_to_goal_s": null,
+      "truth": {
+        "settled": false
+      },
+      "retries": null,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "clear_center_min_m": 2.4960582026338143,
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 0,
+        "progress_failure": 0,
+        "planning_failure": 0,
+        "goal_aborted": 0,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "note": "startup race: AMCL change_state response dropped, timeout-less lifecycle manager hung"
+    },
+    {
+      "run": "straight3",
+      "run_id": "w11_w11_dev_straight3_2e99a6e4",
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        1.75,
+        0.0,
+        0.0
+      ],
+      "outcome": "FAIL",
+      "nav2": null,
+      "time_to_goal_s": null,
+      "truth": {
+        "settled": false
+      },
+      "retries": null,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "clear_center_min_m": 2.4960582026338143,
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 0,
+        "progress_failure": 0,
+        "planning_failure": 0,
+        "goal_aborted": 0,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "note": "safety lifecycle bond 1.0 s missed while Nav2 group joined discovery -> fail-safe reset, no motion"
+    },
+    {
+      "run": "straight4",
+      "run_id": "w11_w11_dev_straight4_b3f48437",
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        1.75,
+        0.0,
+        0.0
+      ],
+      "outcome": "SUCCESS",
+      "nav2": "SUCCEEDED",
+      "time_to_goal_s": 5.219999999999999,
+      "truth": {
+        "settled": true,
+        "settle_start_sim": 19.54000000000005,
+        "settle_delay_s": 1.0600000000000485,
+        "pos_err_m": 0.14822901814457318,
+        "yaw_err_deg": 3.5039673370281386
+      },
+      "retries": null,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "clear_center_min_m": 2.331738557322308,
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 0,
+        "progress_failure": 0,
+        "planning_failure": 0,
+        "goal_aborted": 0,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "note": "ax_max 10, nav_start_delay 8 s, safety bond 4 s: first success"
+    },
+    {
+      "run": "yaw90",
+      "run_id": "w11_w11_dev_yaw90_0f4a06bb",
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        1.75,
+        0.0,
+        1.5708
+      ],
+      "outcome": "SUCCESS",
+      "nav2": "SUCCEEDED",
+      "time_to_goal_s": 7.899999999999999,
+      "truth": {
+        "settled": true,
+        "settle_start_sim": 21.89999999999874,
+        "settle_delay_s": 0.7199999999987412,
+        "pos_err_m": 0.09210965918634433,
+        "yaw_err_deg": 6.250606338867196
+      },
+      "retries": null,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "clear_center_min_m": 2.311130573137844,
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 0,
+        "progress_failure": 0,
+        "planning_failure": 0,
+        "goal_aborted": 0,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "note": "terminal in-place +90 deg, SimpleGoalChecker"
+    },
+    {
+      "run": "yawm90",
+      "run_id": "w11_w11_dev_yawm90_c9999afd",
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        1.75,
+        0.0,
+        -1.5708
+      ],
+      "outcome": "SUCCESS",
+      "nav2": "SUCCEEDED",
+      "time_to_goal_s": 8.360000000000001,
+      "truth": {
+        "settled": true,
+        "settle_start_sim": 22.29999999999852,
+        "settle_delay_s": 0.5799999999985168,
+        "pos_err_m": 0.11155270961771062,
+        "yaw_err_deg": 9.03910018344881
+      },
+      "retries": null,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "clear_center_min_m": 2.2338254190791913,
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 0,
+        "progress_failure": 0,
+        "planning_failure": 0,
+        "goal_aborted": 0,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "note": "terminal -90 deg"
+    },
+    {
+      "run": "yaw180",
+      "run_id": "w11_w11_dev_yaw180_7f13a408",
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        1.75,
+        0.0,
+        3.1416
+      ],
+      "outcome": "FAIL",
+      "nav2": "SUCCEEDED",
+      "time_to_goal_s": 11.14,
+      "truth": {
+        "settled": false,
+        "pos_err_m": 0.060608214916107926,
+        "yaw_err_deg": 27.881470260263274,
+        "final_window_speed": 0.00024164874132275434,
+        "final_window_rate": 0.0010704183820813284
+      },
+      "retries": null,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "clear_center_min_m": 2.2675312168642474,
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 0,
+        "progress_failure": 0,
+        "planning_failure": 0,
+        "goal_aborted": 0,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "note": "terminal 170 deg: Nav2 SUCCEEDED but rebound 17 deg -> truth 27.9 deg (FAIL)"
+    },
+    {
+      "run": "yaw180b",
+      "run_id": "w11_w11_dev_yaw180b_d4d37b46",
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        1.75,
+        0.0,
+        3.1416
+      ],
+      "outcome": "FAIL",
+      "nav2": "SUCCEEDED",
+      "time_to_goal_s": 12.06,
+      "truth": {
+        "settled": false,
+        "pos_err_m": 0.04881562351834795,
+        "yaw_err_deg": 25.021530260967076,
+        "final_window_speed": 0.0001591368235767863,
+        "final_window_rate": 0.0009266044641309534
+      },
+      "retries": null,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "clear_center_min_m": 2.2359265740121805,
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 0,
+        "progress_failure": 0,
+        "planning_failure": 0,
+        "goal_aborted": 0,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "note": "StoppedGoalChecker fooled by gait yaw oscillation crossing zero -> 25 deg"
+    },
+    {
+      "run": "yaw180c",
+      "run_id": "w11_w11_dev_yaw180c_dfd35619",
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        1.75,
+        0.0,
+        3.1416
+      ],
+      "outcome": "SUCCESS",
+      "nav2": "SUCCEEDED",
+      "time_to_goal_s": 13.06,
+      "truth": {
+        "settled": true,
+        "settle_start_sim": 27.699999999995526,
+        "settle_delay_s": 1.2399999999955256,
+        "pos_err_m": 0.12405214026749553,
+        "yaw_err_deg": 11.37911824317277
+      },
+      "retries": 0,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "clear_center_min_m": 2.2551872396936288,
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 0,
+        "progress_failure": 0,
+        "planning_failure": 0,
+        "goal_aborted": 0,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "note": "tool settle-and-verify (AMCL only): verified 0.194 rad, truth 11.4 deg"
+    },
+    {
+      "run": "yawm172",
+      "run_id": "w11_w11_dev_yawm172_05579a4a",
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        1.75,
+        0.0,
+        -3.0
+      ],
+      "outcome": "SUCCESS",
+      "nav2": "SUCCEEDED",
+      "time_to_goal_s": 11.9,
+      "truth": {
+        "settled": true,
+        "settle_start_sim": 25.099999999996967,
+        "settle_delay_s": 0.33999999999696584,
+        "pos_err_m": 0.06370793200184323,
+        "yaw_err_deg": 7.453634414736404
+      },
+      "retries": 0,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "clear_center_min_m": 2.170885474756937,
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 0,
+        "progress_failure": 0,
+        "planning_failure": 0,
+        "goal_aborted": 0,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "note": "clockwise 172 deg: truth 7.5 deg"
+    },
+    {
+      "run": "retry_tight",
+      "run_id": "w11_w11_dev_retry_tight_23293446",
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        1.75,
+        0.0,
+        3.1416
+      ],
+      "outcome": "FAIL",
+      "nav2": "UNVERIFIED",
+      "time_to_goal_s": null,
+      "truth": {
+        "settled": false
+      },
+      "retries": 3,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "clear_center_min_m": 2.2571837008908187,
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 0,
+        "progress_failure": 0,
+        "planning_failure": 0,
+        "goal_aborted": 1,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "note": "forced retries (0.06 rad): in-place corrections land short (0.40->0.30 rad), no convergence"
+    },
+    {
+      "run": "staged1",
+      "run_id": "w11_w11_dev_staged1_b2ee5dde",
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "start": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        0.5,
+        2.5,
+        3.1416
+      ],
+      "outcome": "SUCCESS",
+      "nav2": "SUCCEEDED",
+      "time_to_goal_s": 19.6,
+      "truth": {
+        "settled": true,
+        "settle_start_sim": 33.33999999999478,
+        "settle_delay_s": 0.6399999999947781,
+        "pos_err_m": 0.04318072953629896,
+        "yaw_err_deg": 10.706028943082176
+      },
+      "retries": 0,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "clear_center_min_m": 2.472137176308018,
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 0,
+        "progress_failure": 0,
+        "planning_failure": 0,
+        "goal_aborted": 0,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "note": "staged 1 m walking approach along goal heading: 0.043 m / 10.7 deg"
+    },
+    {
+      "run": "detour1",
+      "run_id": "w11_w11_dev_detour1_afcfa171",
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "start": [
+        1.5,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        7.5,
+        0.0,
+        0.0
+      ],
+      "outcome": "FAIL",
+      "nav2": "UNVERIFIED",
+      "time_to_goal_s": null,
+      "truth": {
+        "settled": false
+      },
+      "retries": 3,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "clear_center_min_m": 2.1967684733943504,
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 1,
+        "progress_failure": 0,
+        "planning_failure": 0,
+        "goal_aborted": 0,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "note": "1 Hz replanning flips N/S detour + RotationShim re-turns: 32 s dithering; final hook tighter than walking radius"
+    },
+    {
+      "run": "detour2",
+      "run_id": "w11_w11_dev_detour2_0ea83e25",
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "start": [
+        1.5,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        8.0,
+        0.0,
+        -1.5708
+      ],
+      "outcome": "FAIL_TIMEOUT",
+      "nav2": "CANCELED",
+      "time_to_goal_s": null,
+      "truth": {
+        "settled": false
+      },
+      "retries": 0,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "clear_center_min_m": 2.09943532888907,
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 0,
+        "progress_failure": 4,
+        "planning_failure": 0,
+        "goal_aborted": 4,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "note": "replan only if invalid: overshot pre-goal, goal behind, MPPI (no reverse) stuck"
+    },
+    {
+      "run": "detour3",
+      "run_id": "w11_w11_dev_detour3_5577316d",
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "start": [
+        1.5,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        8.0,
+        0.0,
+        -1.5708
+      ],
+      "outcome": "FAIL",
+      "nav2": "UNVERIFIED",
+      "time_to_goal_s": null,
+      "truth": {
+        "settled": false
+      },
+      "retries": 3,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "clear_center_min_m": 2.213418304645565,
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 0,
+        "progress_failure": 0,
+        "planning_failure": 0,
+        "goal_aborted": 0,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "note": "5 s path refresh + pass-through staging: arrives; plain retries stall at 0.24 rad"
+    },
+    {
+      "run": "detour4",
+      "run_id": "w11_w11_dev_detour4_ae416969",
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "start": [
+        1.5,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        8.0,
+        0.0,
+        -1.5708
+      ],
+      "outcome": "FAIL_TIMEOUT",
+      "nav2": "CANCELED",
+      "time_to_goal_s": null,
+      "truth": {
+        "settled": false
+      },
+      "retries": 0,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "clear_center_min_m": 2.1816649018718364,
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 0,
+        "progress_failure": 3,
+        "planning_failure": 0,
+        "goal_aborted": 3,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "note": "MPPI creep (<0.16 m/s) zeroed near goal -> stuck"
+    },
+    {
+      "run": "detour5",
+      "run_id": "w11_w11_dev_detour5_4bc37da1",
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "start": [
+        1.5,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        8.0,
+        0.0,
+        -1.5708
+      ],
+      "outcome": "SUCCESS",
+      "nav2": "SUCCEEDED",
+      "time_to_goal_s": 67.8,
+      "truth": {
+        "settled": true,
+        "settle_start_sim": 83.7999999999861,
+        "settle_delay_s": 2.1599999999860984,
+        "pos_err_m": 0.1443737867949442,
+        "yaw_err_deg": 1.5625883252354522
+      },
+      "retries": 2,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "clear_center_min_m": 2.1906331175329994,
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 0,
+        "progress_failure": 0,
+        "planning_failure": 0,
+        "goal_aborted": 0,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "note": "lift threshold 0.05 + integral retries: success, but lifted creep+turn walks sideways"
+    },
+    {
+      "run": "detour6",
+      "run_id": "w11_w11_dev_detour6_734864f2",
+      "code_sha": "283213b9aaf18e816f418bd21efa5b93fd97ee57",
+      "dirty": true,
+      "start": [
+        1.5,
+        0.0,
+        0.0
+      ],
+      "goal": [
+        8.0,
+        0.0,
+        -1.5708
+      ],
+      "outcome": "SUCCESS",
+      "nav2": "SUCCEEDED",
+      "time_to_goal_s": 56.42000000000001,
+      "truth": {
+        "settled": true,
+        "settle_start_sim": 71.64000000001444,
+        "settle_delay_s": 2.180000000014431,
+        "pos_err_m": 0.04917026343795007,
+        "yaw_err_deg": 11.9510357319696
+      },
+      "retries": 1,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "clear_center_min_m": 2.222635525828678,
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 0,
+        "progress_failure": 0,
+        "planning_failure": 0,
+        "goal_aborted": 0,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "note": "MPPI vx_min 0.33 (walking-only) + retry gain 0.7: success 0.049 m / 12.0 deg"
+    }
+  ]
+}

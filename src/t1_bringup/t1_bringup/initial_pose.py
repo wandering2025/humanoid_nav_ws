@@ -24,7 +24,7 @@ def main():
     pub = node.create_publisher(PoseWithCovarianceStamped, '/initialpose', 1)
     client = node.create_client(GetState, '/amcl/get_state')
     try:
-        deadline = time.monotonic()+20
+        deadline = time.monotonic()+60
         active = False
         while time.monotonic() < deadline:
             rclpy.spin_once(node, timeout_sec=.1)
