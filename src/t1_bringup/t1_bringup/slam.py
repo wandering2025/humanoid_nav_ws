@@ -10,7 +10,8 @@ from launch_ros.actions import Node
 
 def arguments():
     share = Path(get_package_share_directory('t1_navigation'))
-    return [DeclareLaunchArgument(name, default_value=str(share / path)) for name, path in (
+    from .safety_launch import arguments as safety_arguments
+    return safety_arguments() + [DeclareLaunchArgument(name, default_value=str(share / path)) for name, path in (
         ('slam_params_file', 'config/slam.yaml'),
         ('localization_params_file', 'config/localization.yaml'),
         ('map', 'maps/static_world.yaml'))]
@@ -47,4 +48,5 @@ def actions(context):
 
 def full_actions(context):
     from .launch_support import simulation_actions
-    return simulation_actions(context) + actions(context)
+    from .safety_launch import actions as safety_actions
+    return simulation_actions(context) + actions(context) + safety_actions(context)

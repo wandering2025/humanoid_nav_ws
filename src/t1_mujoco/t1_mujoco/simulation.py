@@ -21,7 +21,8 @@ def parameter_defaults():
                 run_dir=str(Path(os.getenv('T1_WS', Path.cwd()))/'run_data'), seed=0,
                 max_sim_time=0.0, command_map_file='', joint_state_divisor=1,
                 lidar_noise_std=0.0, lidar_dropout=0.0, lidar_publish_points=False,
-                map_file='', slam_params_file='', localization_params_file='')
+                map_file='', slam_params_file='', localization_params_file='',
+                safety_required=True, safety_params_file='')
 
 
 def validate_parameters(p):
@@ -65,7 +66,7 @@ def main(args=None):
     from rcl_interfaces.msg import SetParametersResult, ParameterDescriptor
     from geometry_msgs.msg import Twist
     from rosgraph_msgs.msg import Clock
-    from std_msgs.msg import String
+    from std_msgs.msg import String, Bool
     from std_srvs.srv import SetBool, Trigger
     from diagnostic_msgs.msg import DiagnosticArray, DiagnosticStatus, KeyValue
 
@@ -151,6 +152,16 @@ def main(args=None):
         log.manifest.update(sensor_mode='compensated', lidar_config=asdict(lidar_cfg))
         log.manifest['initial_pose'] = runner.mj_data.qpos[:7].tolist()
         log.save()
+
+        runner.inputs.safety_required = p['safety_required']
+        if p['safety_required']:
+            node.create_subscription(Bool, '/t1/safety/permit',
+                                     lambda msg: runner.inputs.safety(msg.data), 1)
+        if p['safety_params_file']:
+            from .recording import sha256
+            for key in ('velocity_smoother', 'collision_monitor', 'command_gate'):
+                log.manifest['parameter_files'][key] = dict(path=p['safety_params_file'], sha256=sha256(p['safety_params_file']))
+            log.save()
 
         def command(msg):
             runner.inputs.receive((msg.linear.x, msg.linear.y, msg.linear.z,

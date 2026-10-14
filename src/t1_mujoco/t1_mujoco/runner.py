@@ -178,6 +178,9 @@ class T1SimRunner(MujocoController):
         if not self.finite_state():
             self.transition('FAULT', 'nonfinite_state')
             return False
+        if self.mj_data.qpos[2] < .50:
+            self.transition('FALLEN', 'height_below_0.50m')
+            return False
         mapper = None if self.debug or self.command_map is None else self.command_map.guard
         self.incoming, command, self.cmd_status = self.inputs.consume(
             float(self.mj_data.time), began, self.timeout_sim, self.timeout_wall, self.debug, mapper)

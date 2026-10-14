@@ -13,6 +13,9 @@ class InputBuffer:
         self.sim_time = 0.0
         self.command = None
         self.ignored_components = 0
+        self.safety_required = False
+        self.permit = False
+        self.permit_at = None
 
     def boundary(self, state, sim_time, *, clear=False):
         with self.lock:
@@ -20,9 +23,19 @@ class InputBuffer:
             if clear:
                 self.command = None
 
+    def safety(self, enabled, wall=None):
+        with self.lock:
+            now = time.monotonic() if wall is None else wall
+            if self.permit_at is None or now-self.permit_at[0] > .15:
+                self.command = None
+            self.permit = enabled
+            self.permit_at = (now, self.sim_time)
+            if not enabled:
+                self.command = None
+
     def receive(self, components, wall=None):
         with self.lock:
-            if self.state != 'READY':
+            if self.state != 'READY' or (self.safety_required and not self.permit):
                 return
             values = tuple(float(x) for x in components)
             if len(values) != 6:
@@ -35,8 +48,13 @@ class InputBuffer:
         """Return (incoming, u_pol, status). mapper: calibrated CommandMap.guard."""
         with self.lock:
             state, command = self.state, self.command
+            permitted = (not self.safety_required or (self.permit and self.permit_at is not None
+                and 0 <= wall-self.permit_at[0] <= .15
+                and 0 <= sim_time-self.permit_at[1] <= .15))
+            if not permitted:
+                self.command = None
         zero = (0.0, 0.0, 0.0)
-        if state != 'READY':
+        if state != 'READY' or not permitted:
             return zero, zero, 'BLOCKED_BY_STATE'
         if command is None:
             return zero, zero, 'IDLE' if debug or mapper is not None else 'UNCALIBRATED'

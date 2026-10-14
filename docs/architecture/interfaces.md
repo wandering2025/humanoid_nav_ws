@@ -202,3 +202,7 @@ mj_world / base_link_truth：仅评测真值，不进入 TF 树
 - `initial_pose`可执行节点等待AMCL active、clock与订阅，再只发一次/initialpose；无truth订阅。位置/yaw协方差0.09（std0.3m/rad）。使用RViz输入近似pose也是初始化，不能每帧校正。
 - 地图由SLAM /map保存。localization startup只读map_file/localization_params_file，mapping只读slam_params_file；参数路径/哈希、map_yaml/image哈希、生成SHA与T_world_map写入manifest。地图/场景哈希不匹配拒绝启动。T_world_map仅用于记录/评测，AMCL不读取元数据。
 - 完整说明与范围限制见[mapping_localization.md](mapping_localization.md)。
+
+## 14. W10 细化（ADR-014）
+
+正常launch的命令生产者入口改为`/t1/cmd_teleop`或`/t1/cmd_navigation`，启动参数command_source明确选择；仅t1_command_gate发布/cmd_vel_nav，后续smoother→CM→bridge不变。新增/t1/safety/{arm,stop} Trigger、/t1/safety/permit Bool（仅末端否决）、/t1/safety/state JSON；详见[safety.md](safety.md)。正常启动DISARMED；故障锁存、恢复须显式arm+新命令。source/健康双龄.30s，bridge cmd双龄.50s，permit双龄.15s；FALLEN增加trunk z<.50m。Nav2全部Twist、OPEN_LOOP。现有SLAM/AMCL模式亦通过完整安全链；显式sim_only policy debug保持隔离校准。

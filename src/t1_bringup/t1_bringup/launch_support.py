@@ -84,6 +84,8 @@ def simulation_actions(context):
         if not LaunchConfiguration('command_map_file').perform(context):
             raise RuntimeError('mapping/localization require calibrated command_map_file')
     values['use_sim_time'] = False
+    values['safety_required'] = LaunchConfiguration('enable_policy_cmd_input').perform(context) != 'true'
+    values['safety_params_file'] = LaunchConfiguration('safety_params_file').perform(context)
     mode = LaunchConfiguration('mode').perform(context)
     if mode == 'mapping':
         values['slam_params_file'] = LaunchConfiguration('slam_params_file').perform(context)

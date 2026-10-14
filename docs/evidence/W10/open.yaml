@@ -1,0 +1,22 @@
+schema: 1
+source_model: robots/T1/T1_23dof.xml
+bounds:
+- -8
+- 14
+- -8
+- 8
+initial_pose:
+- 0
+- 0
+- 0
+goal:
+- 10
+- 0
+- 0
+minimum_passage_m: 1.9
+obstacle_height_m: 1.5
+name: calibration_world
+purpose: Axis-aligned wall calibration; known geometry for W08, no sensor implementation.
+boxes: []
+activity_regions: []
+obstacle_slots: []

@@ -41,3 +41,21 @@ def test_uncalibrated_and_upstream_debug_clamp():
     b.receive((5.,-5.,1.,1.,1.,5.),wall=20.)
     assert b.consume(10.,20.,.5,.5,True)[1] == (1.,-1.,1.)
     assert b.ignored_components==1
+
+
+def test_safety_lease_veto_and_no_cached_revival():
+    b = ready_buffer()
+    b.safety_required = True
+    assert b.consume(10.,20.,.5,.5,True)[2] == 'BLOCKED_BY_STATE'
+    b.safety(True,wall=20.)
+    b.receive((.5,0,0,0,0,0),wall=20.)
+    assert b.consume(10.,20.1,.5,.5,True)[1] == (.5,0.,0.)
+    # Permit timeout independent of cmd timeout; monotonic even if sim frozen.
+    assert b.consume(10.,20.16,.5,.5,True)[2] == 'BLOCKED_BY_STATE'
+    b.safety(True,wall=20.17)
+    assert b.consume(10.,20.17,.5,.5,True)[1] == (0.,0.,0.)
+    b.receive((.5,0,0,0,0,0),wall=20.18)
+    b.safety(False,wall=20.19)
+    b.safety(True,wall=20.20)
+    assert b.consume(10.,20.20,.5,.5,True)[1] == (0.,0.,0.)
+    assert b.consume(10.2,20.21,.5,.5,True)[2] == 'BLOCKED_BY_STATE'
