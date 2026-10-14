@@ -1,0 +1,92 @@
+schema: 1
+source_model: robots/T1/T1_23dof.xml
+bounds:
+- -2
+- 8
+- -5
+- 5
+initial_pose:
+- 0
+- 0
+- 0
+goal:
+- 6
+- 0
+- 0
+minimum_passage_m: 1.9
+obstacle_height_m: 1.5
+name: stress_test_world
+purpose: 1.9 m bottleneck with north/south alternatives and multiple W12/W13 activity
+  regions.
+boxes:
+- name: north_gate
+  center:
+  - 3
+  - 2.875
+  - 0.75
+  size:
+  - 0.4
+  - 3.85
+  - 1.5
+- name: south_gate
+  center:
+  - 3
+  - -2.875
+  - 0.75
+  size:
+  - 0.4
+  - 3.85
+  - 1.5
+- name: east_island
+  center:
+  - 5.3
+  - 0
+  - 0.75
+  size:
+  - 0.6
+  - 1.2
+  - 1.5
+activity_regions:
+- name: west
+  bounds:
+  - 0.5
+  - 2
+  - -2
+  - 2
+- name: east
+  bounds:
+  - 4
+  - 6.5
+  - -2.5
+  - 2.5
+- name: north
+  bounds:
+  - 4
+  - 6.5
+  - 3
+  - 4.5
+obstacle_slots:
+- name: west_slot
+  region: west
+  shape: box
+  size:
+  - 0.5
+  - 0.5
+  - 1.5
+  motion_implemented: false
+- name: east_slot
+  region: east
+  shape: box
+  size:
+  - 0.5
+  - 0.5
+  - 1.5
+  motion_implemented: false
+- name: north_slot
+  region: north
+  shape: box
+  size:
+  - 0.5
+  - 0.5
+  - 1.5
+  motion_implemented: false

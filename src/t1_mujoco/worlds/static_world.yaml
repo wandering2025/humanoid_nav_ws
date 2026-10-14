@@ -1,0 +1,50 @@
+schema: 1
+source_model: robots/T1/T1_23dof.xml
+bounds:
+- -2
+- 8
+- -5
+- 5
+initial_pose:
+- 0
+- 0
+- 0
+goal:
+- 6
+- 0
+- 0
+minimum_passage_m: 1.9
+obstacle_height_m: 1.5
+name: static_world
+purpose: Straight, corners, fixed boxes and two alternatives around a blocking island;
+  W08-W11.
+boxes:
+- name: island
+  center:
+  - 3
+  - 0
+  - 0.75
+  size:
+  - 1
+  - 2
+  - 1.5
+- name: north_corner
+  center:
+  - 5.5
+  - 2.8
+  - 0.75
+  size:
+  - 2
+  - 0.4
+  - 1.5
+- name: south_box
+  center:
+  - 5
+  - -3.5
+  - 0.75
+  size:
+  - 1
+  - 1
+  - 1.5
+activity_regions: []
+obstacle_slots: []

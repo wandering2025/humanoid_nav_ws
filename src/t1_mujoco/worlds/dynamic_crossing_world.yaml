@@ -1,0 +1,69 @@
+schema: 1
+source_model: robots/T1/T1_23dof.xml
+bounds:
+- -2
+- 8
+- -5
+- 5
+initial_pose:
+- 0
+- 0
+- 0
+goal:
+- 6
+- 0
+- 0
+minimum_passage_m: 1.9
+obstacle_height_m: 1.5
+name: dynamic_crossing_world
+purpose: Clear A/B main corridor and buffer; W12 will implement single crossing/approaching
+  obstacle motion.
+boxes:
+- name: north_box
+  center:
+  - 4
+  - 3.5
+  - 0.75
+  size:
+  - 1
+  - 1
+  - 1.5
+- name: south_box
+  center:
+  - 4
+  - -3.5
+  - 0.75
+  size:
+  - 1
+  - 1
+  - 1.5
+activity_regions:
+- name: crossing
+  bounds:
+  - 2.5
+  - 4
+  - -2.5
+  - 2.5
+- name: approach
+  bounds:
+  - 4.5
+  - 6.5
+  - -1.5
+  - 1.5
+obstacle_slots:
+- name: crossing_slot
+  region: crossing
+  shape: box
+  size:
+  - 0.5
+  - 0.5
+  - 1.5
+  motion_implemented: false
+- name: approach_slot
+  region: approach
+  shape: box
+  size:
+  - 0.5
+  - 0.5
+  - 1.5
+  motion_implemented: false
