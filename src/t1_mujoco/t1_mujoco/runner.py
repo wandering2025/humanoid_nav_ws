@@ -51,6 +51,7 @@ class T1SimRunner(MujocoController):
         self.scan_blind_bins = 0
         # Optional read-only per-physics-substep observer (contact events).
         self.substep_hook = None
+        self.scene_events = None
         self.update_state()
         self.start()
         self.transition('STARTING')
@@ -103,6 +104,8 @@ class T1SimRunner(MujocoController):
         kp, kd, limit = (x.numpy() for x in
                          (self.robot.joint_stiffness, self.robot.joint_damping, self.robot.effort_limit))
         for _ in range(self.decimation):
+            if self.scene_events is not None:
+                self.scene_events.update()
             q = self.mj_data.qpos[self.qadr].astype(np.float32)
             v = self.mj_data.qvel[self.vadr].astype(np.float32)
             torque = np.clip(kp * (targets - q) - kd * v, -limit, limit)
@@ -139,6 +142,9 @@ class T1SimRunner(MujocoController):
         mujoco.mj_forward(self.mj_model, self.mj_data)
         self.episode += 1
         self.episode_start = next_time
+        if self.scene_events is not None:
+            self.scene_events.reset()
+            mujoco.mj_forward(self.mj_model, self.mj_data)
         self.action_norm = self.compute_ms = 0.0
         self.update_state()
         self.start()  # resets history, last_action, filter, counters

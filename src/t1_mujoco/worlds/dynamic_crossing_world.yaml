@@ -80,7 +80,7 @@ obstacle_slots:
   - 0.5
   - 0.5
   - 1.5
-  motion_implemented: false
+  motion_implemented: true
 - name: blocking_slot
   region: blocking
   shape: box
@@ -88,7 +88,7 @@ obstacle_slots:
   - 1.0
   - 1.0
   - 1.5
-  motion_implemented: false
+  motion_implemented: true
 - name: approach_slot
   region: approach
   shape: box
@@ -96,4 +96,4 @@ obstacle_slots:
   - 0.5
   - 0.5
   - 1.5
-  motion_implemented: false
+  motion_implemented: true

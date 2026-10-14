@@ -1,0 +1,14 @@
+{
+  "branch": "feat/t1-mujoco-navigation",
+  "head": "3644d13add4d4a3032f58b589f551d819165fdad",
+  "dirty_files": [
+    "docs/start_commands.md"
+  ],
+  "user_file_sha256": "ca1ca2b6f3c2687a4c5dee686b322b8a6dbe04a6d5b72844891df318a1fbbd14",
+  "frozen_sha256": {
+    "src/t1_mujoco/worlds/static_world.yaml": "84df038755888130fbe110e4d7a6a143b6adb8eadbeaf64e1c23cb7e3414b091",
+    "src/t1_navigation/maps/static_world.meta.yaml": "c8343d046e5d157e37d9ae1c6afe2c292789a8c30effbf7b0d12e5916d8d8758",
+    "src/t1_navigation/maps/static_world.pgm": "36df8c63639d9172cd5cd614977e6c9711a08ac88c6bb7b5efb3a79c956a8e4e",
+    "src/t1_navigation/maps/static_world.yaml": "ad4f4a57ec1e2e220bad97c5226616d1c0d236884288470a299f5d5380853163"
+  }
+}

@@ -63,6 +63,7 @@ def simulation_arguments(default_scene='', map_rviz=False, rviz_config=None):
         ('max_sim_time', '0.0'), ('scene', default_scene), ('run_id', ''),
         # '' keeps the scene initial pose; 'x y yaw' sets it before the runner exists.
         ('start_pose', ''),
+        ('events_file', ''), ('scenario', ''),
         ('rviz', 'false'),
         ('rviz_config', rviz_config),
         # W05 calibrated v_des->u_pol contract; '' keeps /cmd_vel UNCALIBRATED.
@@ -123,6 +124,8 @@ def simulation_actions(context):
     if mode == 'navigation':
         values['navigation_params_file'] = LaunchConfiguration('navigation_params_file').perform(context)
     values['start_pose'] = ParameterValue(LaunchConfiguration('start_pose'), value_type=str)
+    for key in ('events_file', 'scenario'):
+        values[key] = ParameterValue(LaunchConfiguration(key), value_type=str)
     node = Node(package='t1_mujoco', executable='t1_sim', name='t1_sim', output='screen',
                 parameters=[str(params_file), values])
     assets = LaunchConfiguration('assets_path').perform(context)

@@ -1,0 +1,174 @@
+{
+  "models": [
+    {
+      "slot": null,
+      "nq": 30,
+      "nv": 29,
+      "nu": 23,
+      "nmocap": 0,
+      "ok": true
+    },
+    {
+      "slot": "crossing_slot",
+      "nq": 30,
+      "nv": 29,
+      "nu": 23,
+      "nmocap": 1,
+      "ray_distance_m": 2.75,
+      "ray_hit": "obstacle_crossing_slot",
+      "collision_enabled": true,
+      "ray_hits_obstacle": true,
+      "ok": true
+    },
+    {
+      "slot": "blocking_slot",
+      "nq": 30,
+      "nv": 29,
+      "nu": 23,
+      "nmocap": 1,
+      "ray_distance_m": 2.5,
+      "ray_hit": "obstacle_blocking_slot",
+      "collision_enabled": true,
+      "ray_hits_obstacle": true,
+      "ok": true
+    },
+    {
+      "slot": "approach_slot",
+      "nq": 30,
+      "nv": 29,
+      "nu": 23,
+      "nmocap": 1,
+      "ray_distance_m": 2.75,
+      "ray_hit": "obstacle_approach_slot",
+      "collision_enabled": true,
+      "ray_hits_obstacle": true,
+      "ok": true
+    }
+  ],
+  "route": {
+    "radii": {
+      "0.7": {
+        "connected": true,
+        "components": 1,
+        "largest_m2": [
+          116.52
+        ]
+      },
+      "1.2": {
+        "connected": true,
+        "components": 1,
+        "largest_m2": [
+          95.37
+        ]
+      },
+      "1.65": {
+        "connected": true,
+        "components": 1,
+        "largest_m2": [
+          78.29
+        ]
+      },
+      "1.7": {
+        "connected": true,
+        "components": 1,
+        "largest_m2": [
+          76.5
+        ]
+      },
+      "1.95": {
+        "connected": true,
+        "components": 1,
+        "largest_m2": [
+          67.9
+        ]
+      },
+      "2.0": {
+        "connected": true,
+        "components": 1,
+        "largest_m2": [
+          66.25
+        ]
+      }
+    },
+    "straight_AB_min_clearance": 2.421,
+    "points": {
+      "A": 2.5,
+      "route0": 2.75,
+      "route1": 2.401,
+      "route2": 2.421,
+      "route3": 2.75,
+      "route4": 2.75,
+      "route5": 2.5
+    },
+    "legs": [
+      [
+        [
+          0,
+          0
+        ],
+        [
+          1.5,
+          2.75
+        ],
+        2.5
+      ],
+      [
+        [
+          1.5,
+          2.75
+        ],
+        [
+          7.5,
+          2.75
+        ],
+        2.401
+      ],
+      [
+        [
+          7.5,
+          2.75
+        ],
+        [
+          9.0,
+          0.0
+        ],
+        2.401
+      ],
+      [
+        [
+          9.0,
+          0.0
+        ],
+        [
+          7.5,
+          -2.75
+        ],
+        2.386
+      ],
+      [
+        [
+          7.5,
+          -2.75
+        ],
+        [
+          1.5,
+          -2.75
+        ],
+        2.75
+      ],
+      [
+        [
+          1.5,
+          -2.75
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        2.5
+      ]
+    ]
+  },
+  "route_clearance_225cm": true,
+  "verdict": "PASS"
+}

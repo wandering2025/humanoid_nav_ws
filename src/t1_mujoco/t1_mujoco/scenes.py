@@ -66,8 +66,10 @@ def validate_layout(data):
         regions.add(name)
     slots = set()
     for slot in data['obstacle_slots']:
-        if slot['name'] in slots or slot['region'] not in regions or slot['shape'] != 'box' or slot['motion_implemented'] is not False:
-            raise ValueError('invalid static obstacle slot metadata')
+        if (not isinstance(slot['name'], str) or not slot['name'].isidentifier()
+                or slot['name'] in slots or slot['region'] not in regions or slot['shape'] != 'box'
+                or type(slot['motion_implemented']) is not bool):
+            raise ValueError('invalid obstacle slot metadata')
         if min(vector(slot['size'], 3, 'slot size')) <= 0:
             raise ValueError('slot dimensions must be positive')
         slots.add(slot['name'])
@@ -83,8 +85,8 @@ def layout_path(selection, worlds_dir):
     return path
 
 
-def assemble(layout_file, assets_path, cache_dir):
-    """Return cached XML + provenance; obstacle slots remain metadata for W12."""
+def assemble(layout_file, assets_path, cache_dir, active_slot=None):
+    """Mapping/default builds contain static geometry only; events opt in one mocap."""
     layout_file, assets = Path(layout_file).resolve(), Path(assets_path).resolve()
     data = load_layout(layout_file)
     actual = subprocess.check_output(['git', '-C', str(assets), 'rev-parse', 'HEAD'], text=True).strip()
@@ -124,11 +126,21 @@ def assemble(layout_file, assets_path, cache_dir):
         ET.SubElement(world, 'geom', name='env_'+name, type='box',
                       pos=' '.join(map(str, center)), size=' '.join(str(s/2) for s in size),
                       group='2', contype='1', conaffinity='1', rgba='0.65 0.55 0.35 1')
+    if active_slot is not None:
+        slot = next((s for s in data['obstacle_slots'] if s['name'] == active_slot), None)
+        if slot is None or not slot['motion_implemented']:
+            raise ValueError('events require an implemented obstacle slot')
+        body = ET.SubElement(world, 'body', name='obstacle_'+active_slot,
+                             mocap='true', pos='0 0 -10')
+        ET.SubElement(body, 'geom', name='obstacle_'+active_slot, type='box',
+                      size=' '.join(str(s/2) for s in slot['size']), group='2',
+                      contype='1', conaffinity='1', rgba='0.9 0.2 0.15 1')
     provenance = dict(schema=1, name=data['name'], assets_sha=actual,
                       source_xml=dict(path=str(source), sha256=digest(source)),
                       layout=dict(path=str(layout_file), sha256=digest(layout_file)),
                       license=dict(path=str(assets/'LICENSE'), sha256=digest(assets/'LICENSE')),
-                      meshes=meshes, scene_metadata=data, dynamic_motion_implemented=False)
+                      meshes=meshes, scene_metadata=data,
+                      dynamic_motion_implemented=active_slot is not None, active_slot=active_slot)
     content = ET.tostring(root, encoding='utf-8', xml_declaration=True)
     key = hashlib.sha256(content + json.dumps(provenance, sort_keys=True).encode()).hexdigest()
     directory = Path(cache_dir) / key
@@ -152,7 +164,7 @@ def parse_start_pose(text):
     return values
 
 
-def configure_scene(cfg, selection, assets_path, cache_dir, worlds_dir, start_pose=None):
+def configure_scene(cfg, selection, assets_path, cache_dir, worlds_dir, start_pose=None, active_slot=None):
     """Select before constructing runner; initial pose is never a motion method.
 
     start_pose overrides only the pre-construction task initial value of a YAML
@@ -165,7 +177,7 @@ def configure_scene(cfg, selection, assets_path, cache_dir, worlds_dir, start_po
         return None
     path = layout_path(selection, worlds_dir)
     if path.suffix in ('.yaml', '.yml'):
-        path, provenance = assemble(path, assets_path, cache_dir)
+        path, provenance = assemble(path, assets_path, cache_dir, active_slot)
         if start_pose is not None:
             checked = dict(provenance['scene_metadata'], initial_pose=list(start_pose))
             validate_layout(checked)

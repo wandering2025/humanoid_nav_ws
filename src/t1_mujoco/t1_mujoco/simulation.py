@@ -23,7 +23,7 @@ def parameter_defaults():
                 lidar_noise_std=0.0, lidar_dropout=0.0, lidar_publish_points=False,
                 map_file='', slam_params_file='', localization_params_file='',
                 safety_required=True, safety_params_file='', start_pose='',
-                navigation_params_file='')
+                navigation_params_file='', events_file='', scenario='')
 
 
 def validate_parameters(p):
@@ -39,7 +39,12 @@ def validate_parameters(p):
         raise ValueError('navigation requires the W10 safety chain and navigation_params_file')
     from .scenes import parse_start_pose
     parse_start_pose(p['start_pose'])
-    for key in ('map_file', 'slam_params_file', 'localization_params_file', 'navigation_params_file'):
+    if bool(p['events_file']) != bool(p['scenario']):
+        raise ValueError('events_file and scenario must be supplied together')
+    if p['scenario'] and (p['mode'] not in ('sim_only', 'navigation')
+                          or p['scene'] != 'dynamic_crossing_world'):
+        raise ValueError('events only supported in dynamic_crossing_world sim_only/navigation; mapping excludes bodies')
+    for key in ('map_file', 'slam_params_file', 'localization_params_file', 'navigation_params_file', 'events_file'):
         if p[key] and not Path(p[key]).is_absolute():
             raise ValueError(f'{key} must be absolute')
     if p['command_map_file'] and not Path(p['command_map_file']).is_absolute():
@@ -97,9 +102,14 @@ def main(args=None):
         cfg = load_task_config(p['upstream_path'], p['task'])
         from ament_index_python.packages import get_package_share_directory
         from .scenes import configure_scene, parse_start_pose
+        scenario, event_provenance = None, None
+        if p['scenario']:
+            from .events import load_scenario
+            scenario, event_provenance = load_scenario(p['events_file'], p['scenario'])
         scene_provenance = configure_scene(
             cfg, p['scene'], runtime['assets_path'], Path(p['run_dir'])/'cache/scenes',
-            Path(get_package_share_directory('t1_mujoco'))/'worlds', parse_start_pose(p['start_pose']))
+            Path(get_package_share_directory('t1_mujoco'))/'worlds', parse_start_pose(p['start_pose']),
+            active_slot=scenario['slot'] if scenario else None)
         if scene_provenance:
             runtime['mjcf_path'] = scene_provenance['expanded_xml']['path']
         import torch
@@ -161,6 +171,14 @@ def main(args=None):
         from .contacts import ContactMonitor
         contacts = ContactMonitor(runner.mj_model, log.path/'contact_events.csv', cfg.policy_dt)
         runner.substep_hook = contacts.sample
+        event_pub = None
+        if scenario:
+            from .events import SceneEvents
+            runner.scene_events = SceneEvents(runner, scenario, log)
+            event_pub = node.create_publisher(String, '/t1/eval/obstacle', 10)
+            log.manifest['parameter_files']['events'] = event_provenance
+        log.manifest['model_dimensions'] = dict(nq=runner.mj_model.nq, nv=runner.mj_model.nv,
+                                                 nu=runner.mj_model.nu, nmocap=runner.mj_model.nmocap)
         log.save()
 
         runner.inputs.safety_required = p['safety_required']
@@ -296,6 +314,8 @@ def main(args=None):
                         runner.sensor_healthy = False
                         runner.failure_detail = repr(exc)
                         runner.transition('FAULT', 'sensor_exception')
+                if event_pub is not None:
+                    event_pub.publish(String(data=json.dumps(runner.scene_events.snapshot())))
                 log.row(runner, rtf)
                 runner.finish_boundary()
             status()

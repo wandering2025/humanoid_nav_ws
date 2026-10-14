@@ -8,6 +8,7 @@ setup(
         ('share/ament_index/resource_index/packages', ['resource/t1_bringup']),
         ('share/t1_bringup', ['package.xml']),
         ('share/t1_bringup/launch', glob('launch/*.launch.py')),
+        ('share/t1_bringup/config', glob('config/*.yaml')),
     ],
     install_requires=['setuptools'], zip_safe=True,
     entry_points={'console_scripts': [
