@@ -1,0 +1,938 @@
+{
+  "label": "w12_S04",
+  "case": "S04",
+  "seed": 1003,
+  "start": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "goal": [
+    9.0,
+    0.0,
+    0.0
+  ],
+  "tolerances": {
+    "position_m": 0.3,
+    "yaw_deg": 20.0,
+    "settle_s": 2.0,
+    "time_limit_s": 120.0
+  },
+  "time_limit_s": 120.0,
+  "nav_active_sim": 12.360000000000001,
+  "parameters": {
+    "controller_server": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "controller_frequency": 20.0
+    },
+    "behavior_server": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "behavior_plugins": [
+        "wait"
+      ],
+      "robot_base_frame": "base_footprint"
+    },
+    "planner_server": {
+      "use_sim_time": true,
+      "planner_plugins": [
+        "GridBased"
+      ]
+    },
+    "bt_navigator": {
+      "use_sim_time": true,
+      "robot_base_frame": "base_footprint"
+    },
+    "velocity_smoother": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "feedback": "OPEN_LOOP"
+    },
+    "collision_monitor": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "base_frame_id": "base_footprint"
+    },
+    "amcl": {
+      "use_sim_time": true,
+      "base_frame_id": "base_footprint"
+    },
+    "local_costmap/local_costmap": {
+      "robot_base_frame": "base_footprint",
+      "robot_radius": 2.05,
+      "use_sim_time": true
+    },
+    "global_costmap/global_costmap": {
+      "robot_base_frame": "base_footprint",
+      "robot_radius": 2.05,
+      "use_sim_time": true
+    },
+    "t1_navigation_adapter": {
+      "use_sim_time": true
+    },
+    "t1_command_gate": {
+      "use_sim_time": true,
+      "command_source": "navigation"
+    }
+  },
+  "parameter_checks": {
+    "sim_time_everywhere": true,
+    "unstamped": true,
+    "base_footprint": true,
+    "wait_only_behaviors": true,
+    "nav_radius": true,
+    "gate_navigation": true
+  },
+  "tool_exit": 3,
+  "run": {
+    "run_id": "w12_w12_S04_b0998af4",
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=w12_w12_S04_b0998af4",
+      "target_rtf:=1.0",
+      "scene:=static_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=true",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=1003",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/static_world.yaml"
+    ],
+    "cwd": "/home/haoyang/humanoid_nav_ws",
+    "started_utc": "2026-10-14T21:17:47.794008+00:00",
+    "ended_utc": "2026-10-14T21:20:28.814977+00:00",
+    "exit_code": 0,
+    "wall_s": 152.4235513120002,
+    "sim_end": 149.20000000000002,
+    "graph": {
+      "/clock": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "controller_server",
+          "local_costmap",
+          "transform_listener_impl_5ecefec8bd10",
+          "planner_server",
+          "global_costmap",
+          "transform_listener_impl_5939ce1ab1f0",
+          "behavior_server",
+          "bt_navigator",
+          "bt_navigator_navigate_to_pose_rclcpp_node",
+          "lifecycle_manager_navigation",
+          "t1_navigation_adapter",
+          "rviz2",
+          "transform_listener_impl_59ba6288e4b0",
+          "robot_state_publisher",
+          "map_server",
+          "amcl",
+          "t1_command_gate",
+          "velocity_smoother",
+          "collision_monitor",
+          "lifecycle_manager_localization",
+          "lifecycle_manager_safety"
+        ],
+        "types": [
+          "rosgraph_msgs/msg/Clock"
+        ]
+      },
+      "/cmd_vel": {
+        "publishers": [
+          "collision_monitor"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "t1_sim",
+          "t1_command_gate"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/cmd_vel_nav": {
+        "publishers": [
+          "t1_command_gate"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "velocity_smoother"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/cmd_vel_smoothed": {
+        "publishers": [
+          "velocity_smoother"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "collision_monitor"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/cmd_navigation": {
+        "publishers": [
+          "t1_navigation_adapter"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "t1_command_gate"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/cmd_teleop": {
+        "publishers": [],
+        "subscribers": [
+          "w12_evaluator"
+        ],
+        "types": []
+      },
+      "/t1/nav/cmd_vel_raw": {
+        "publishers": [
+          "controller_server",
+          "behavior_server"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "t1_navigation_adapter"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/eval/ground_truth": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "w12_evaluator"
+        ],
+        "types": [
+          "nav_msgs/msg/Odometry"
+        ]
+      },
+      "/t1/debug/policy_cmd": {
+        "publishers": [],
+        "subscribers": [],
+        "types": []
+      },
+      "/map": {
+        "publishers": [
+          "map_server"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "global_costmap",
+          "rviz2",
+          "amcl"
+        ],
+        "types": [
+          "nav_msgs/msg/OccupancyGrid"
+        ]
+      },
+      "/scan": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "local_costmap",
+          "global_costmap",
+          "rviz2",
+          "amcl",
+          "t1_command_gate",
+          "collision_monitor"
+        ],
+        "types": [
+          "sensor_msgs/msg/LaserScan"
+        ]
+      },
+      "/odom": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "controller_server",
+          "bt_navigator",
+          "rviz2",
+          "t1_command_gate"
+        ],
+        "types": [
+          "nav_msgs/msg/Odometry"
+        ]
+      },
+      "/initialpose": {
+        "publishers": [
+          "rviz2"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "amcl"
+        ],
+        "types": [
+          "geometry_msgs/msg/PoseWithCovarianceStamped"
+        ]
+      },
+      "/t1/eval/obstacle": {
+        "publishers": [],
+        "subscribers": [
+          "w12_evaluator"
+        ],
+        "types": []
+      },
+      "/local_costmap/costmap": {
+        "publishers": [
+          "local_costmap"
+        ],
+        "subscribers": [
+          "w12_evaluator",
+          "rviz2"
+        ],
+        "types": [
+          "nav_msgs/msg/OccupancyGrid"
+        ]
+      }
+    },
+    "tf_owners": {
+      "base_footprint": [
+        "t1_sim"
+      ],
+      "base_link": [
+        "t1_sim"
+      ],
+      "laser_stabilized": [
+        "t1_sim"
+      ],
+      "aahead_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "aahead_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_ankle_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_ankle_roll_link": [
+        "robot_state_publisher"
+      ],
+      "left_elbow_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_elbow_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_roll_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_knee_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_shoulder_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_shoulder_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_ankle_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_ankle_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_elbow_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_elbow_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "right_knee_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_shoulder_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_shoulder_roll_link": [
+        "robot_state_publisher"
+      ],
+      "waist_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "odom": [
+        "amcl"
+      ]
+    },
+    "clock_regressions": 0,
+    "scan_stats": {
+      "count": 1491,
+      "empty": 0,
+      "known_min": 1.0,
+      "min_range": 1.9271831512451172
+    },
+    "initializations": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "events": [
+      {
+        "kind": "gate",
+        "sim": 0.0,
+        "wall": 10885.46928547,
+        "state": "DISARMED",
+        "reason": "explicit arm required"
+      },
+      {
+        "kind": "sim_state",
+        "sim": 0.0,
+        "wall": 10885.643556392,
+        "state": "STARTING",
+        "fault": null
+      },
+      {
+        "kind": "sim_state",
+        "sim": 2.0,
+        "wall": 10887.644689797,
+        "state": "READY",
+        "fault": null
+      },
+      {
+        "kind": "collision_monitor",
+        "sim": 8.38,
+        "wall": 10894.576119483,
+        "action_type": 1,
+        "polygon": "invalid source"
+      },
+      {
+        "kind": "collision_monitor",
+        "sim": 8.4,
+        "wall": 10894.582357066,
+        "action_type": 0,
+        "polygon": ""
+      },
+      {
+        "kind": "gate",
+        "sim": 16.42,
+        "wall": 10902.168985686,
+        "state": "ARMED",
+        "reason": "awaiting a new source command"
+      },
+      {
+        "kind": "gate",
+        "sim": 136.42000000000002,
+        "wall": 11022.189306805,
+        "state": "STOPPED",
+        "reason": "EXPLICIT_STOP_OR_CANCEL"
+      }
+    ],
+    "children": [
+      [
+        "goal",
+        3
+      ]
+    ],
+    "manifest": {
+      "code_sha": "a43d602a5f31d7f8a98320dcb2ae054ff7d7ae49",
+      "dirty": true,
+      "dirty_files": [
+        "M docs/start_commands.md"
+      ],
+      "exit_code": 0,
+      "status": "SHUTDOWN",
+      "sim_time_end": 149.35999999998506,
+      "wall_duration_s": 149.80026200000066,
+      "scene_sha256": "9f174aaef834b5c50c209263a391e77c2007ea4f88069b47cbe0d7782b2dd536",
+      "map_sha256": "ad4f4a57ec1e2e220bad97c5226616d1c0d236884288470a299f5d5380853163",
+      "start_pose_override": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "contact_counts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "parameter_files": {
+        "nav2": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml",
+          "sha256": "94ab4486b10599f6516954e45609d3db01ffef3cfee0a72b11058f55fcc2be13"
+        },
+        "slam": null,
+        "amcl": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/localization.yaml",
+          "sha256": "08567e33b2ff6a113a75791c9bddb7a546cf812e2437a32faac2da53e62994c7"
+        },
+        "velocity_smoother": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        },
+        "collision_monitor": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        },
+        "command_map": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+          "sha256": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+          "evidence": {
+            "report": "docs/evidence/W05/locomotion-envelope.md",
+            "runs": {
+              "20261013T212155Z_dev_w05_c3": "00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe",
+              "20261013T215753Z_dev_w05_dense": "50ef2baf9ae2530bac0edfdc07c131f99725909836fe07511264fcc6dd33fb01",
+              "20261013T220627Z_dev_w05_context": "25976d72867333007b5a1cec96b1ea9d84920a620cde6cb0f79b09525bc8f65e"
+            },
+            "statistic": "largest 2 s window mean, >=3 s after command onset, segments >=8 s (raw traces)",
+            "tested_code_sha": "abc5b4a8248b05037ef02f46022c2a6779915acd",
+            "builder": "docs/evidence/W05/build_command_map.py",
+            "validation": "docs/evidence/W05/command-map-validation.json"
+          }
+        },
+        "command_gate": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        }
+      },
+      "deadline_overruns": 11,
+      "upstream_sha": {
+        "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+        "booster_assets": "12a97516f57469078707afb587a5f84c1cb110d1"
+      },
+      "mode": "navigation",
+      "model_dimensions": {
+        "nq": 30,
+        "nv": 29,
+        "nu": 23,
+        "nmocap": 0
+      }
+    }
+  },
+  "nav2": {
+    "event": "result",
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "time_limit_s": 120.0,
+    "tolerances": {
+      "xy": 0.2,
+      "yaw": 0.2
+    },
+    "attempts": [
+      {
+        "stage": "approach",
+        "target": [
+          7.5,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 16.42,
+        "goal_id": "ae66e6bfd8594b0c9a52d09de61bf9f5",
+        "status": "PASSED",
+        "end_sim": 66.44,
+        "passed_pose": [
+          7.738026601184336,
+          -0.2512873084396906,
+          1.9067726739836603
+        ]
+      },
+      {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 66.44,
+        "goal_id": "c761986639b14aebbb75e065525385e4",
+        "status": "CANCELED",
+        "end_sim": 136.44,
+        "error_code": 0
+      }
+    ],
+    "arm_attempts": 1,
+    "approach_distance": 1.5,
+    "accepted_sim": 16.42,
+    "goal_id": "ae66e6bfd8594b0c9a52d09de61bf9f5",
+    "status": "CANCELED",
+    "timed_out": true,
+    "end_sim": 136.44,
+    "duration_sim": 120.02,
+    "verified": null,
+    "terminal_retries": 0,
+    "error_code": 0,
+    "nav2_success_sim": null,
+    "exit": 3
+  },
+  "metrics": {
+    "nav2_status": "CANCELED",
+    "nav2_error_code": 0,
+    "tool_exit": 3,
+    "time_to_goal_s": null,
+    "task_duration_s": 120.02,
+    "terminal_retries": 0,
+    "attempts": [
+      {
+        "stage": "approach",
+        "target": [
+          7.5,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 16.42,
+        "goal_id": "ae66e6bfd8594b0c9a52d09de61bf9f5",
+        "status": "PASSED",
+        "end_sim": 66.44,
+        "passed_pose": [
+          7.738026601184336,
+          -0.2512873084396906,
+          1.9067726739836603
+        ]
+      },
+      {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 66.44,
+        "goal_id": "c761986639b14aebbb75e065525385e4",
+        "status": "CANCELED",
+        "end_sim": 136.44,
+        "error_code": 0
+      }
+    ],
+    "verified": null,
+    "settle": {
+      "settled": false
+    },
+    "arrived_truth": false,
+    "path_len_m": 18.098190163962588,
+    "straight_m": 9.0,
+    "detour": {
+      "first_plan_length_m": 11.036411012814385,
+      "straight_m": 9.0,
+      "max_lateral_from_straight_m": 2.984273076136007
+    },
+    "n_plans": 44,
+    "clear_center_min_m": 2.0020979180292606,
+    "clear_footprint_min_m": 1.3068304556146781,
+    "scan_min_range_m": 1.9271831512451172,
+    "env_contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "safety": {
+      "cm_stop": 1,
+      "cm_slowdown": 0,
+      "gate_stopped": 1,
+      "bridge_timeouts": 0
+    },
+    "log_counts": {
+      "tf_extrapolation": 0,
+      "tf_old_data": 0,
+      "tf_timeout": 0,
+      "no_valid_control": 2,
+      "progress_failure": 2,
+      "planning_failure": 0,
+      "goal_aborted": 2,
+      "collision_ahead": 0,
+      "scan_dropped": 3
+    },
+    "nav_activated_in_log": true,
+    "scan_empty": 0,
+    "scan_known_min": 1.0,
+    "rtf_median": 0.9999986910849971,
+    "sim_time_s": 149.35999999998506,
+    "wall_time_s": 152.4235513120002,
+    "min_trunk_z": 0.6195557038722014,
+    "graph_checks": {
+      "final_only_collision_monitor": true,
+      "gate_only_cmd_vel_nav": true,
+      "adapter_only_navigation_source": true,
+      "nav2_into_adapter_only": true,
+      "no_teleop_source": true,
+      "one_clock": true,
+      "truth_isolated": true,
+      "debug_disabled": true,
+      "twist_only": true,
+      "amcl_map_odom": true,
+      "sim_base": true,
+      "unique_tf": true
+    }
+  },
+  "layers_csv": "docs/evidence/W12/w12_S04-layers.csv",
+  "layer_summary": {
+    "adapter_reasons": {
+      "no_fresh_nav_command": 102,
+      "below_gait_zeroed": 540,
+      "in_place": 126,
+      "walk": 362,
+      "vx_lifted": 114,
+      "wz_walking_clipped": 3,
+      "stop": 2,
+      "reverse_zeroed,below_gait_zeroed": 33,
+      "cancel_latched": 127
+    },
+    "samples": 1492,
+    "final_vs_measured_vx_ratio_median": 0.8380143765138357,
+    "adapter_differs_from_raw": 1132,
+    "final_less_than_gate": 38
+  },
+  "plans": [
+    {
+      "sim": 16.42,
+      "n": 440,
+      "length": 11.036411012814385,
+      "points": [
+        [
+          0.027000037997960913,
+          0.017000082701444263
+        ],
+        [
+          0.22806586741009083,
+          0.15512760245989998
+        ],
+        [
+          0.38437022917524244,
+          0.35023830788192445
+        ],
+        [
+          0.5406105040253766,
+          0.5454020375967312
+        ],
+        [
+          0.6968120596976877,
+          0.74059666635985
+        ],
+        [
+          0.852775959726809,
+          0.9359820299890922
+        ],
+        [
+          1.0084800788682702,
+          1.13157376874348
+        ],
+        [
+          1.16388855896724,
+          1.3274004928529317
+        ],
+        [
+          1.3190445061034626,
+          1.5234278700415453
+        ],
+        [
+          1.4733780044969609,
+          1.7200999310776561
+        ],
+        [
+          1.6264801185947664,
+          1.9176997265025912
+        ],
+        [
+          1.7865833466884982,
+          2.109650718132415
+        ],
+        [
+          1.9584121914120334,
+          2.2911341803093856
+        ],
+        [
+          2.145899987174569,
+          2.456376950105679
+        ],
+        [
+          2.3465751915808784,
+          2.6049815360602944
+        ],
+        [
+          2.5621467890314267,
+          2.7258303842966294
+        ],
+        [
+          2.790618166947634,
+          2.8114627097914004
+        ],
+        [
+          3.0351040256932964,
+          2.8585955840288912
+        ],
+        [
+          3.2826153208854083,
+          2.8841151461767405
+        ],
+        [
+          3.5305256334174504,
+          2.910035251543449
+        ],
+        [
+          3.775025988012938,
+          2.9606631514677852
+        ],
+        [
+          4.024369482329032,
+          2.977526402451489
+        ],
+        [
+          4.274325235565382,
+          2.9813006639823394
+        ],
+        [
+          4.524292432893699,
+          2.983789372515518
+        ],
+        [
+          4.774271837253448,
+          2.9833827257809427
+        ],
+        [
+          5.024247426915874,
+          2.984273076136007
+        ],
+        [
+          5.274186395484005,
+          2.9795695543374032
+        ],
+        [
+          5.523862149936885,
+          2.966971134960219
+        ],
+        [
+          5.773188478115028,
+          2.9488505597390295
+        ],
+        [
+          6.021069036007955,
+          2.917287754092926
+        ],
+        [
+          6.260745705839181,
+          2.8480471829928016
+        ],
+        [
+          6.494696514989382,
+          2.765078279168578
+        ],
+        [
+          6.704759689506286,
+          2.629812163871706
+        ],
+        [
+          6.893275164727495,
+          2.4658618135282646
+        ],
+        [
+          7.062858297137293,
+          2.2823733464386047
+        ],
+        [
+          7.210388664325901,
+          2.0806704625736225
+        ],
+        [
+          7.337489038534297,
+          1.8655154300706878
+        ],
+        [
+          7.442269618708931,
+          1.6386202850881242
+        ],
+        [
+          7.527634152451665,
+          1.403703594575874
+        ],
+        [
+          7.598967466502895,
+          1.1641444174221798
+        ],
+        [
+          7.634666166986019,
+          0.9192004135280891
+        ],
+        [
+          7.680220519471472,
+          0.6733866586444757
+        ],
+        [
+          7.708214294302675,
+          0.42557133207576303
+        ],
+        [
+          7.6554356680279305,
+          0.1852865994913353
+        ],
+        [
+          7.5,
+          0.0
+        ]
+      ]
+    },
+    {
+      "sim": 135.46,
+      "n": 59,
+      "length": 1.5074123547115583,
+      "points": [
+        [
+          9.477000178813935,
+          0.9170000961124893
+        ],
+        [
+          9.218988547771996,
+          0.9121195723581232
+        ],
+        [
+          8.984553272061842,
+          0.8361452975443777
+        ],
+        [
+          8.827948502882546,
+          0.6481680761153692
+        ],
+        [
+          8.769746139954716,
+          0.40545147398786785
+        ],
+        [
+          8.827924851759146,
+          0.179616051921486
+        ],
+        [
+          9.0,
+          0.0
+        ]
+      ]
+    }
+  ],
+  "outcome": "FAIL_TIMEOUT"
+}

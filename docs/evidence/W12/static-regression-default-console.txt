@@ -1,0 +1,2 @@
+RUN w12_w12_S04_b0998af4 PID 142416
+EPISODE w12_S04 FAIL_TIMEOUT {"nav2_status": "CANCELED", "time_to_goal_s": null, "arrived_truth": false, "path_len_m": 18.098190163962588, "clear_center_min_m": 2.0020979180292606, "clear_footprint_min_m": 1.3068304556146781, "env_contacts": {"static_env": 0, "obstacle": 0, "ground_nonfoot": 0}, "fell": false, "rtf_median": 0.9999986910849971} {"settled": false}

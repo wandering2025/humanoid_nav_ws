@@ -27,7 +27,7 @@ W12按单步文件的冒烟门槛验收：每类运行三次，每类至少一�
 
 ## 闭环证据与已记录失败
 
-每例JSON包含参数、图/TF归属、真实接触计数、终点核验、扫描命中端点及代价地图采样。`*-trajectory.csv`为10Hz物理轨迹/速度/策略输入；`*-layers.csv`为Nav2→adapter→gate→smoother→Collision Monitor；`*-obstacle.csv`为实体轨迹，`*-costmap.csv`为实体/旧位置占据与命令样本。完整topic数据在ignored `raw/*-topic-data.json`。规划器仅接收scan/costmap，`/t1/eval/obstacle`只被评测器订阅，无未来轨迹输入。
+dynamic-runs.png上排展示全部九条正式轨迹与各自结果，下排速度示例明确标为crossing1/blocking3/approach1。每例JSON包含参数、图/TF归属、真实接触计数、终点核验、扫描命中端点及代价地图采样。`*-trajectory.csv`为10Hz物理轨迹/速度/策略输入；`*-layers.csv`为Nav2→adapter→gate→smoother→Collision Monitor；`*-obstacle.csv`为实体轨迹，`*-costmap.csv`为实体/旧位置占据与命令样本。完整topic数据在ignored `raw/*-topic-data.json`。规划器仅接收scan/costmap，`/t1/eval/obstacle`只被评测器订阅，无未来轨迹输入。
 
 crossing和approach移开后，旧中心占据清为0，机器人无需重arm或人工速度干预即可继续。approach必须在保护区内以W05 .5s位置/偏航窗确认实际站稳≥.5s，再在距离>1.95m时观察恢复行走。blocking必须产生>2.25m实际横偏及重规划，实体保持在(4.5,0)，成功才计入到达。
 

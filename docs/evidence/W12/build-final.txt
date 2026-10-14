@@ -1,0 +1,10 @@
+Starting >>> t1_description
+Starting >>> t1_mujoco
+Starting >>> t1_navigation
+Finished <<< t1_description [0.26s]
+Finished <<< t1_navigation [0.29s]
+Finished <<< t1_mujoco [1.54s]
+Starting >>> t1_bringup
+Finished <<< t1_bringup [1.98s]
+
+Summary: 4 packages finished [3.67s]
