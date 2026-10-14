@@ -51,6 +51,7 @@ def drive(run):
 
 
 def main():
+    assert os.environ.get("W12_SCENE", "dynamic_crossing_world") == "dynamic_crossing_world", "W12 must not overwrite static_world"
     session = Session('remap')
     result, run = dict(route=ROUTE), None
     try:

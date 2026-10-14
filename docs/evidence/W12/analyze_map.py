@@ -16,6 +16,7 @@ import matplotlib.pyplot as plt
 WS=Path(__file__).resolve().parents[3]
 OUT=WS/'docs/evidence/W12'
 MAP=WS/f'src/t1_navigation/maps/{os.environ.get("W12_SCENE", "dynamic_crossing_world")}'
+assert MAP.name == 'dynamic_crossing_world', 'W12 must not overwrite static_world'
 result=json.loads((OUT/'mapping.json').read_text())
 assert result['verdict']=='PASS', result.get('error')
 run=result['run']; manifest=json.loads((WS/'run_data'/run['run_id']/'manifest.json').read_text())

@@ -1,0 +1,1305 @@
+{
+  "label": "w12_dev_blocking_1",
+  "case": null,
+  "seed": 1202,
+  "start": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "goal": [
+    9.0,
+    0.0,
+    0.0
+  ],
+  "tolerances": {
+    "position_m": 0.3,
+    "yaw_deg": 20.0,
+    "settle_s": 2.0
+  },
+  "time_limit_s": 120.0,
+  "nav_active_sim": 12.64,
+  "parameters": {
+    "controller_server": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "controller_frequency": 20.0
+    },
+    "behavior_server": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "behavior_plugins": [
+        "wait"
+      ],
+      "robot_base_frame": "base_footprint"
+    },
+    "planner_server": {
+      "use_sim_time": true,
+      "planner_plugins": [
+        "GridBased"
+      ]
+    },
+    "bt_navigator": {
+      "use_sim_time": true,
+      "robot_base_frame": "base_footprint"
+    },
+    "velocity_smoother": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "feedback": "OPEN_LOOP"
+    },
+    "collision_monitor": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "base_frame_id": "base_footprint"
+    },
+    "amcl": {
+      "use_sim_time": true,
+      "base_frame_id": "base_footprint"
+    },
+    "local_costmap/local_costmap": {
+      "robot_base_frame": "base_footprint",
+      "robot_radius": 2.05,
+      "use_sim_time": true
+    },
+    "global_costmap/global_costmap": {
+      "robot_base_frame": "base_footprint",
+      "robot_radius": 2.05,
+      "use_sim_time": true
+    },
+    "t1_navigation_adapter": {
+      "use_sim_time": true
+    },
+    "t1_command_gate": {
+      "use_sim_time": true,
+      "command_source": "navigation"
+    }
+  },
+  "parameter_checks": {
+    "sim_time_everywhere": true,
+    "unstamped": true,
+    "base_footprint": true,
+    "wait_only_behaviors": true,
+    "nav_radius": true,
+    "gate_navigation": true
+  },
+  "tool_exit": 0,
+  "run": {
+    "run_id": "w12_w12_dev_blocking_1_a3a58c50",
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=w12_w12_dev_blocking_1_a3a58c50",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=true",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=1202",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w12_events.yaml",
+      "scenario:=blocking"
+    ],
+    "cwd": "/home/haoyang/humanoid_nav_ws",
+    "started_utc": "2026-10-14T20:57:05.038242+00:00",
+    "ended_utc": "2026-10-14T20:59:02.285135+00:00",
+    "exit_code": 0,
+    "wall_s": 110.58210572799908,
+    "sim_end": 104.62,
+    "graph": {
+      "/clock": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "controller_server",
+          "local_costmap",
+          "transform_listener_impl_5aeb8fddc8f0",
+          "planner_server",
+          "global_costmap",
+          "transform_listener_impl_6073e99db700",
+          "behavior_server",
+          "bt_navigator",
+          "bt_navigator_navigate_to_pose_rclcpp_node",
+          "lifecycle_manager_navigation",
+          "t1_navigation_adapter",
+          "rviz2",
+          "transform_listener_impl_5e1a8d6a1ba0",
+          "robot_state_publisher",
+          "map_server",
+          "amcl",
+          "t1_command_gate",
+          "velocity_smoother",
+          "collision_monitor",
+          "lifecycle_manager_localization",
+          "lifecycle_manager_safety",
+          "w12_evaluator"
+        ],
+        "types": [
+          "rosgraph_msgs/msg/Clock"
+        ]
+      },
+      "/cmd_vel": {
+        "publishers": [
+          "collision_monitor"
+        ],
+        "subscribers": [
+          "t1_sim",
+          "t1_command_gate",
+          "w12_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/cmd_vel_nav": {
+        "publishers": [
+          "t1_command_gate"
+        ],
+        "subscribers": [
+          "velocity_smoother",
+          "w12_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/cmd_vel_smoothed": {
+        "publishers": [
+          "velocity_smoother"
+        ],
+        "subscribers": [
+          "collision_monitor",
+          "w12_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/cmd_navigation": {
+        "publishers": [
+          "t1_navigation_adapter"
+        ],
+        "subscribers": [
+          "t1_command_gate",
+          "w12_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/cmd_teleop": {
+        "publishers": [],
+        "subscribers": [
+          "w12_evaluator"
+        ],
+        "types": []
+      },
+      "/t1/nav/cmd_vel_raw": {
+        "publishers": [
+          "controller_server",
+          "behavior_server"
+        ],
+        "subscribers": [
+          "t1_navigation_adapter",
+          "w12_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/eval/ground_truth": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "w12_evaluator"
+        ],
+        "types": [
+          "nav_msgs/msg/Odometry"
+        ]
+      },
+      "/t1/debug/policy_cmd": {
+        "publishers": [],
+        "subscribers": [],
+        "types": []
+      },
+      "/map": {
+        "publishers": [
+          "map_server"
+        ],
+        "subscribers": [
+          "global_costmap",
+          "rviz2",
+          "amcl",
+          "w12_evaluator"
+        ],
+        "types": [
+          "nav_msgs/msg/OccupancyGrid"
+        ]
+      },
+      "/scan": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "local_costmap",
+          "global_costmap",
+          "rviz2",
+          "amcl",
+          "t1_command_gate",
+          "collision_monitor",
+          "w12_evaluator"
+        ],
+        "types": [
+          "sensor_msgs/msg/LaserScan"
+        ]
+      },
+      "/odom": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "controller_server",
+          "bt_navigator",
+          "rviz2",
+          "t1_command_gate",
+          "w12_evaluator"
+        ],
+        "types": [
+          "nav_msgs/msg/Odometry"
+        ]
+      },
+      "/initialpose": {
+        "publishers": [
+          "rviz2"
+        ],
+        "subscribers": [
+          "amcl",
+          "w12_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/PoseWithCovarianceStamped"
+        ]
+      },
+      "/t1/eval/obstacle": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "w12_evaluator"
+        ],
+        "types": [
+          "std_msgs/msg/String"
+        ]
+      },
+      "/local_costmap/costmap": {
+        "publishers": [
+          "local_costmap"
+        ],
+        "subscribers": [
+          "rviz2",
+          "w12_evaluator"
+        ],
+        "types": [
+          "nav_msgs/msg/OccupancyGrid"
+        ]
+      }
+    },
+    "tf_owners": {
+      "base_footprint": [
+        "t1_sim"
+      ],
+      "base_link": [
+        "t1_sim"
+      ],
+      "laser_stabilized": [
+        "t1_sim"
+      ],
+      "aahead_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "aahead_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_ankle_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_ankle_roll_link": [
+        "robot_state_publisher"
+      ],
+      "left_elbow_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_elbow_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_roll_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_knee_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_shoulder_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_shoulder_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_ankle_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_ankle_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_elbow_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_elbow_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "right_knee_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_shoulder_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_shoulder_roll_link": [
+        "robot_state_publisher"
+      ],
+      "waist_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "odom": [
+        "amcl"
+      ]
+    },
+    "clock_regressions": 0,
+    "scan_stats": {
+      "count": 1046,
+      "empty": 0,
+      "known_min": 1.0,
+      "min_range": 2.3141040802001953
+    },
+    "initializations": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "events": [
+      {
+        "kind": "gate",
+        "sim": 0.0,
+        "wall": 9706.399790686,
+        "state": "DISARMED",
+        "reason": "explicit arm required"
+      },
+      {
+        "kind": "sim_state",
+        "sim": 0.0,
+        "wall": 9706.553349547,
+        "state": "STARTING",
+        "fault": null
+      },
+      {
+        "kind": "sim_state",
+        "sim": 2.0,
+        "wall": 9708.6270975,
+        "state": "READY",
+        "fault": null
+      },
+      {
+        "kind": "gate",
+        "sim": 16.96,
+        "wall": 9724.099871701,
+        "state": "ARMED",
+        "reason": "awaiting a new source command"
+      }
+    ],
+    "children": [
+      [
+        "goal",
+        0
+      ]
+    ],
+    "manifest": {
+      "code_sha": "a2cecc22c56d8e9d5dc33128c2a4c4c8bc87b811",
+      "dirty": true,
+      "dirty_files": [
+        "M docs/start_commands.md",
+        "?? docs/evidence/W12/c1-event-lifecycle.json",
+        "?? docs/evidence/W12/dev-suite.json",
+        "?? docs/evidence/W12/w12_dev_crossing_1-costmap.csv",
+        "?? docs/evidence/W12/w12_dev_crossing_1-final.png",
+        "?? docs/evidence/W12/w12_dev_crossing_1-layers.csv",
+        "?? docs/evidence/W12/w12_dev_crossing_1-midroute.png",
+        "?? docs/evidence/W12/w12_dev_crossing_1-obstacle.csv",
+        "?? docs/evidence/W12/w12_dev_crossing_1-trajectory.csv",
+        "?? docs/evidence/W12/w12_dev_crossing_1.json"
+      ],
+      "exit_code": 0,
+      "status": "SHUTDOWN",
+      "sim_time_end": 104.87999999993697,
+      "wall_duration_s": 107.83954677399925,
+      "scene_sha256": "3942636b79ae4ba47ecbdf5574f38f411e29801985bef934109aaedd038fedeb",
+      "map_sha256": "fad1a0cdc1a7b386857d79e8c5be842deb54da05ca9f180131e08caa1693563b",
+      "start_pose_override": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "contact_counts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "parameter_files": {
+        "nav2": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml",
+          "sha256": "94ab4486b10599f6516954e45609d3db01ffef3cfee0a72b11058f55fcc2be13"
+        },
+        "slam": null,
+        "amcl": {
+          "path": "/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+          "sha256": "598d6c224834de4766018d9ab07e592f599668dceb9864f6dcdb358789f8c548"
+        },
+        "velocity_smoother": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        },
+        "collision_monitor": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        },
+        "command_map": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+          "sha256": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+          "evidence": {
+            "report": "docs/evidence/W05/locomotion-envelope.md",
+            "runs": {
+              "20261013T212155Z_dev_w05_c3": "00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe",
+              "20261013T215753Z_dev_w05_dense": "50ef2baf9ae2530bac0edfdc07c131f99725909836fe07511264fcc6dd33fb01",
+              "20261013T220627Z_dev_w05_context": "25976d72867333007b5a1cec96b1ea9d84920a620cde6cb0f79b09525bc8f65e"
+            },
+            "statistic": "largest 2 s window mean, >=3 s after command onset, segments >=8 s (raw traces)",
+            "tested_code_sha": "abc5b4a8248b05037ef02f46022c2a6779915acd",
+            "builder": "docs/evidence/W05/build_command_map.py",
+            "validation": "docs/evidence/W05/command-map-validation.json"
+          }
+        },
+        "events": {
+          "path": "/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w12_events.yaml",
+          "sha256": "9fd809efc6e54a4ad6154434bd2e832d07f743d7157200a5547cbca0f9113856",
+          "scenario": "blocking",
+          "seed": 1202,
+          "scene": "dynamic_crossing_world"
+        },
+        "command_gate": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        }
+      },
+      "deadline_overruns": 10,
+      "upstream_sha": {
+        "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+        "booster_assets": "12a97516f57469078707afb587a5f84c1cb110d1"
+      },
+      "mode": "navigation",
+      "model_dimensions": {
+        "nq": 30,
+        "nv": 29,
+        "nu": 23,
+        "nmocap": 1
+      }
+    }
+  },
+  "nav2": {
+    "event": "result",
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "time_limit_s": 120.0,
+    "tolerances": {
+      "xy": 0.2,
+      "yaw": 0.2
+    },
+    "attempts": [
+      {
+        "stage": "approach",
+        "target": [
+          7.5,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 16.96,
+        "goal_id": "202a7cb31cd04d4a8592b72e3a633dab",
+        "status": "PASSED",
+        "end_sim": 55.36000000000001,
+        "passed_pose": [
+          7.674833012633172,
+          -0.30124158226116327,
+          1.6139225731919533
+        ]
+      },
+      {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 55.36000000000001,
+        "goal_id": "6e0e9dc7ddb549f3ac1ddb2c991d3144",
+        "status": "SUCCEEDED",
+        "end_sim": 82.86,
+        "error_code": 0,
+        "verify_sim": 85.5,
+        "verified_pose": [
+          9.035485074987673,
+          0.12451888656287724,
+          -0.3089072053988241
+        ],
+        "xy_error": 0.12947642124240008,
+        "yaw_error": 0.3089072053988241,
+        "next_aim_yaw": 0.3089072053988241
+      },
+      {
+        "stage": "terminal_retry",
+        "target": [
+          9.0,
+          0.0,
+          0.3089072053988241
+        ],
+        "accepted_sim": 85.5,
+        "goal_id": "76d593a793ca48f7817f48707a22c4a8",
+        "status": "SUCCEEDED",
+        "end_sim": 88.2,
+        "error_code": 0,
+        "verify_sim": 91.92,
+        "verified_pose": [
+          9.045193956154115,
+          0.0920212604071699,
+          0.03875224379425698
+        ],
+        "xy_error": 0.10252027136027424,
+        "yaw_error": 0.03875224379425698
+      }
+    ],
+    "arm_attempts": 1,
+    "approach_distance": 1.5,
+    "accepted_sim": 16.96,
+    "goal_id": "202a7cb31cd04d4a8592b72e3a633dab",
+    "status": "SUCCEEDED",
+    "timed_out": false,
+    "end_sim": 91.92,
+    "duration_sim": 74.96000000000001,
+    "verified": {
+      "stage": "terminal_retry",
+      "target": [
+        9.0,
+        0.0,
+        0.3089072053988241
+      ],
+      "accepted_sim": 85.5,
+      "goal_id": "76d593a793ca48f7817f48707a22c4a8",
+      "status": "SUCCEEDED",
+      "end_sim": 88.2,
+      "error_code": 0,
+      "verify_sim": 91.92,
+      "verified_pose": [
+        9.045193956154115,
+        0.0920212604071699,
+        0.03875224379425698
+      ],
+      "xy_error": 0.10252027136027424,
+      "yaw_error": 0.03875224379425698
+    },
+    "terminal_retries": 1,
+    "error_code": 0,
+    "nav2_success_sim": 88.2,
+    "exit": 0
+  },
+  "metrics": {
+    "nav2_status": "SUCCEEDED",
+    "nav2_error_code": 0,
+    "tool_exit": 0,
+    "time_to_goal_s": 71.24000000000001,
+    "task_duration_s": 74.96000000000001,
+    "terminal_retries": 1,
+    "attempts": [
+      {
+        "stage": "approach",
+        "target": [
+          7.5,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 16.96,
+        "goal_id": "202a7cb31cd04d4a8592b72e3a633dab",
+        "status": "PASSED",
+        "end_sim": 55.36000000000001,
+        "passed_pose": [
+          7.674833012633172,
+          -0.30124158226116327,
+          1.6139225731919533
+        ]
+      },
+      {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 55.36000000000001,
+        "goal_id": "6e0e9dc7ddb549f3ac1ddb2c991d3144",
+        "status": "SUCCEEDED",
+        "end_sim": 82.86,
+        "error_code": 0,
+        "verify_sim": 85.5,
+        "verified_pose": [
+          9.035485074987673,
+          0.12451888656287724,
+          -0.3089072053988241
+        ],
+        "xy_error": 0.12947642124240008,
+        "yaw_error": 0.3089072053988241,
+        "next_aim_yaw": 0.3089072053988241
+      },
+      {
+        "stage": "terminal_retry",
+        "target": [
+          9.0,
+          0.0,
+          0.3089072053988241
+        ],
+        "accepted_sim": 85.5,
+        "goal_id": "76d593a793ca48f7817f48707a22c4a8",
+        "status": "SUCCEEDED",
+        "end_sim": 88.2,
+        "error_code": 0,
+        "verify_sim": 91.92,
+        "verified_pose": [
+          9.045193956154115,
+          0.0920212604071699,
+          0.03875224379425698
+        ],
+        "xy_error": 0.10252027136027424,
+        "yaw_error": 0.03875224379425698
+      }
+    ],
+    "verified": {
+      "stage": "terminal_retry",
+      "target": [
+        9.0,
+        0.0,
+        0.3089072053988241
+      ],
+      "accepted_sim": 85.5,
+      "goal_id": "76d593a793ca48f7817f48707a22c4a8",
+      "status": "SUCCEEDED",
+      "end_sim": 88.2,
+      "error_code": 0,
+      "verify_sim": 91.92,
+      "verified_pose": [
+        9.045193956154115,
+        0.0920212604071699,
+        0.03875224379425698
+      ],
+      "xy_error": 0.10252027136027424,
+      "yaw_error": 0.03875224379425698
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 89.69999999997235,
+      "settle_delay_s": 1.4999999999723457,
+      "pos_err_m": 0.12393695496888395,
+      "yaw_err_deg": 2.2554607217194027
+    },
+    "arrived_truth": true,
+    "path_len_m": 15.867529368387952,
+    "straight_m": 9.0,
+    "detour": {
+      "first_plan_length_m": 7.603557956575672,
+      "straight_m": 9.0,
+      "max_lateral_from_straight_m": 0.26055247242081947
+    },
+    "n_plans": 15,
+    "clear_center_min_m": 2.3820409928842863,
+    "clear_footprint_min_m": 1.7293646849909399,
+    "scan_min_range_m": 2.3141040802001953,
+    "env_contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "safety": {
+      "cm_stop": 0,
+      "cm_slowdown": 0,
+      "gate_stopped": 0,
+      "bridge_timeouts": 0
+    },
+    "log_counts": {
+      "tf_extrapolation": 0,
+      "tf_old_data": 0,
+      "tf_timeout": 0,
+      "no_valid_control": 1,
+      "progress_failure": 0,
+      "planning_failure": 0,
+      "goal_aborted": 0,
+      "collision_ahead": 0,
+      "scan_dropped": 3
+    },
+    "nav_activated_in_log": true,
+    "scan_empty": 0,
+    "scan_known_min": 1.0,
+    "rtf_median": 0.9999986888807085,
+    "sim_time_s": 104.87999999993697,
+    "wall_time_s": 110.58210572799908,
+    "min_trunk_z": 0.6195557038722014,
+    "graph_checks": {
+      "final_only_collision_monitor": true,
+      "gate_only_cmd_vel_nav": true,
+      "adapter_only_navigation_source": true,
+      "nav2_into_adapter_only": true,
+      "no_teleop_source": true,
+      "one_clock": true,
+      "truth_isolated": true,
+      "debug_disabled": true,
+      "twist_only": true,
+      "amcl_map_odom": true,
+      "sim_base": true,
+      "unique_tf": true
+    }
+  },
+  "layers_csv": "docs/evidence/W12/w12_dev_blocking_1-layers.csv",
+  "layer_summary": {
+    "adapter_reasons": {
+      "no_fresh_nav_command": 277,
+      "vx_lifted": 86,
+      "walk": 330,
+      "in_place": 177,
+      "stop": 1,
+      "below_gait_zeroed": 86,
+      "reverse_zeroed,below_gait_zeroed": 1,
+      "wz_walking_clipped": 4
+    },
+    "samples": 1046,
+    "final_vs_measured_vx_ratio_median": 0.8490103472306731,
+    "adapter_differs_from_raw": 351,
+    "final_less_than_gate": 131
+  },
+  "plans": [
+    {
+      "sim": 16.96,
+      "n": 303,
+      "length": 7.603557956575672,
+      "points": [
+        [
+          -0.025999962747096816,
+          -0.0019999172985549762
+        ],
+        [
+          0.24442030648023305,
+          -0.0019999172985549762
+        ],
+        [
+          0.49442031020552335,
+          -0.002000298768287223
+        ],
+        [
+          0.7444201231959475,
+          -0.0020018246472162105
+        ],
+        [
+          0.9944201269212378,
+          -0.002010216981325641
+        ],
+        [
+          1.2444201306465281,
+          -0.0020521786518727936
+        ],
+        [
+          1.4944201343718184,
+          -0.002263894353269791
+        ],
+        [
+          1.744417467808983,
+          -0.0033339169522221823
+        ],
+        [
+          1.9943461366943431,
+          -0.008765664469684964
+        ],
+        [
+          2.2424441323346507,
+          -0.03668696005176031
+        ],
+        [
+          2.4817210218864822,
+          -0.10897814460066257
+        ],
+        [
+          2.728529268362063,
+          -0.14681002382651087
+        ],
+        [
+          2.9780375576024873,
+          -0.16242777613442883
+        ],
+        [
+          3.2275843752858684,
+          -0.17747217943477978
+        ],
+        [
+          3.4770323923085975,
+          -0.1937746699120808
+        ],
+        [
+          3.7269808976200345,
+          -0.19827296099473557
+        ],
+        [
+          3.9752696281264654,
+          -0.22261759636726453
+        ],
+        [
+          4.225008706554899,
+          -0.23095042119846454
+        ],
+        [
+          4.47500718440126,
+          -0.23173128974037382
+        ],
+        [
+          4.724991166397796,
+          -0.23201090705411076
+        ],
+        [
+          4.971606007719128,
+          -0.25880152634980647
+        ],
+        [
+          5.221605248504954,
+          -0.2589003270104584
+        ],
+        [
+          5.471597622835599,
+          -0.26055247242081947
+        ],
+        [
+          5.716260102067292,
+          -0.23546702282826715
+        ],
+        [
+          5.957474857858937,
+          -0.18342921077354646
+        ],
+        [
+          6.206053505361876,
+          -0.1572619130203421
+        ],
+        [
+          6.455171551066211,
+          -0.13835016957447266
+        ],
+        [
+          6.704996841654133,
+          -0.1316954300954265
+        ],
+        [
+          6.954719898353812,
+          -0.11995226585793972
+        ],
+        [
+          7.203130699174562,
+          -0.09900232963267541
+        ],
+        [
+          7.449383907189723,
+          -0.056361642962123426
+        ],
+        [
+          7.5,
+          0.0
+        ]
+      ]
+    },
+    {
+      "sim": 85.5,
+      "n": 6,
+      "length": 0.17437593489943948,
+      "points": [
+        [
+          9.024000172108412,
+          0.1480000849366192
+        ],
+        [
+          9.0,
+          0.0
+        ]
+      ]
+    }
+  ],
+  "outcome": "SUCCESS",
+  "dynamic": {
+    "scenario": "blocking",
+    "checks": {
+      "triggered_after_actual_walking": true,
+      "scan_hits_entity": true,
+      "local_costmap_marks_entity": true,
+      "no_planner_obstacle_truth": true,
+      "no_teleop": true,
+      "dimensions": true,
+      "real_detour": true,
+      "blocker_never_removed": true,
+      "goal_reached_while_blocked": true,
+      "navigation_success": true
+    },
+    "verdict": "PASS",
+    "trigger_sim": 18.992000000000353,
+    "scan_hit_frames": 854,
+    "costmap_marked_samples": 142,
+    "costmap_cleared_samples": 0,
+    "actual_stop_sim": null,
+    "resume_sim": null,
+    "stopped_hold_s": 0.0,
+    "min_center_surface_gap_m": 2.4097147022333636,
+    "max_robot_lateral_m": 3.1179590071157137,
+    "initial_plan_lateral_m": 0.26055247242081947,
+    "replanned_lateral_m": 3.1019999634921547,
+    "scan_topic_samples": [
+      {
+        "sim": 19.1,
+        "obstacle": {
+          "episode": 0,
+          "sim_time": 19.020000000000337,
+          "slot": "blocking_slot",
+          "position": [
+            4.5,
+            2.984400000000009,
+            0.75
+          ],
+          "size": [
+            1.0,
+            1.0,
+            1.5
+          ],
+          "phase": "move_0",
+          "triggered_at": 18.992000000000353
+        },
+        "hits": [
+          [
+            204,
+            5.036275863647461,
+            4.8326453126438205,
+            2.4293572166102
+          ],
+          [
+            205,
+            4.880779266357422,
+            4.6546940371267915,
+            2.429719064496208
+          ],
+          [
+            206,
+            4.735996723175049,
+            4.4873529788567526,
+            2.430059441671661
+          ],
+          [
+            207,
+            4.600917339324951,
+            4.329607105658448,
+            2.4303802522267612
+          ],
+          [
+            208,
+            4.474654197692871,
+            4.180565348328918,
+            2.430682966595437
+          ],
+          [
+            209,
+            4.345911979675293,
+            4.030672969633302,
+            2.4251683071131067
+          ],
+          [
+            210,
+            4.359858512878418,
+            3.9997737624399177,
+            2.495959234691071
+          ],
+          [
+            211,
+            4.413419246673584,
+            3.9997617885938745,
+            2.5893937897381267
+          ],
+          [
+            212,
+            4.469690799713135,
+            3.9997495308013264,
+            2.685182133517943
+          ],
+          [
+            213,
+            4.528813362121582,
+            3.9997371149547742,
+            2.7834750980319956
+          ],
+          [
+            214,
+            4.590938568115234,
+            3.9997246811399,
+            2.8844346665558978
+          ],
+          [
+            215,
+            4.656230449676514,
+            3.999712261334394,
+            2.9882349977682745
+          ]
+        ],
+        "laser_pose_odom": [
+          0.4059469118763748,
+          0.027604555864112156,
+          0.8732365000367787,
+          0.07823482845099669
+        ],
+        "scan_frame": "laser_stabilized",
+        "cm": null
+      },
+      {
+        "sim": 62.00000000000001,
+        "obstacle": {
+          "episode": 0,
+          "sim_time": 61.92000000002971,
+          "slot": "blocking_slot",
+          "position": [
+            4.5,
+            0.0,
+            0.75
+          ],
+          "size": [
+            1.0,
+            1.0,
+            1.5
+          ],
+          "phase": "hold_0",
+          "triggered_at": 18.992000000000353
+        },
+        "hits": [
+          [
+            0,
+            2.8146557807922363,
+            4.999999881903781,
+            0.0216187269197102
+          ],
+          [
+            1,
+            2.817939519882202,
+            4.999998623807342,
+            -0.02764387251042727
+          ],
+          [
+            2,
+            2.822092294692993,
+            4.999996641223346,
+            -0.07703668159519539
+          ],
+          [
+            3,
+            2.827120542526245,
+            4.999993880785386,
+            -0.12659048736908474
+          ],
+          [
+            4,
+            2.8330318927764893,
+            4.9999904716471395,
+            -0.1763364548756745
+          ],
+          [
+            5,
+            2.8398358821868896,
+            4.999986044820394,
+            -0.2263062900621629
+          ],
+          [
+            6,
+            2.8475427627563477,
+            4.999980950345579,
+            -0.27653216649304097
+          ],
+          [
+            7,
+            2.8561649322509766,
+            4.999974880351043,
+            -0.32704699689984945
+          ],
+          [
+            8,
+            2.865715980529785,
+            4.999967859951264,
+            -0.3778843825136005
+          ],
+          [
+            9,
+            2.876211166381836,
+            4.99995982839692,
+            -0.4290787671596393
+          ],
+          [
+            10,
+            2.887667179107666,
+            4.999950931228441,
+            -0.4806654730933773
+          ],
+          [
+            350,
+            2.8273768424987793,
+            5.0017452983438435,
+            0.5135145752395259
+          ]
+        ],
+        "laser_pose_odom": [
+          7.809930471516923,
+          0.18464401913994183,
+          0.8747194839562235,
+          0.05795267351500952
+        ],
+        "scan_frame": "laser_stabilized",
+        "cm": null
+      },
+      {
+        "sim": 104.60000000000001,
+        "obstacle": {
+          "episode": 0,
+          "sim_time": 104.51999999993781,
+          "slot": "blocking_slot",
+          "position": [
+            4.5,
+            0.0,
+            0.75
+          ],
+          "size": [
+            1.0,
+            1.0,
+            1.5
+          ],
+          "phase": "hold_0",
+          "triggered_at": 18.992000000000353
+        },
+        "hits": [
+          [
+            0,
+            4.191245079040527,
+            5.000000094202472,
+            0.310522251542944
+          ],
+          [
+            1,
+            4.188185691833496,
+            5.000001321825268,
+            0.2373348845185827
+          ],
+          [
+            2,
+            4.186406135559082,
+            5.00000146970454,
+            0.16423205061935414
+          ],
+          [
+            3,
+            4.185897350311279,
+            5.000006883011388,
+            0.09116907642453835
+          ],
+          [
+            4,
+            4.186544418334961,
+            5.000131688184203,
+            0.018103908216474965
+          ],
+          [
+            5,
+            4.188453674316406,
+            5.000270617711213,
+            -0.05500560979822883
+          ],
+          [
+            6,
+            4.191628456115723,
+            5.000423310118225,
+            -0.12820341050723025
+          ],
+          [
+            7,
+            4.196073532104492,
+            5.000589906443499,
+            -0.20153363732835486
+          ],
+          [
+            8,
+            4.201796054840088,
+            5.000770116299929,
+            -0.27504079259448355
+          ],
+          [
+            9,
+            4.208803653717041,
+            5.000965143335512,
+            -0.3487696802328635
+          ],
+          [
+            10,
+            4.217108249664307,
+            5.001173918762345,
+            -0.4227658563147392
+          ],
+          [
+            11,
+            4.226722240447998,
+            5.001396941374028,
+            -0.49707539905763776
+          ]
+        ],
+        "laser_pose_odom": [
+          9.18589716827634,
+          0.09885978949247073,
+          0.8829765179578689,
+          -0.05052249733004685
+        ],
+        "scan_frame": "laser_stabilized",
+        "cm": null
+      }
+    ]
+  }
+}

@@ -248,6 +248,13 @@ def dynamic_evidence(run, result, trace):
     resumes = np.flatnonzero((t > (stop if stop is not None else 1e9)) & (speed > .2)
                              & (trace['u_pol_x'] > 0) & (distances > 1.95))
     resume = float(t[resumes[0]]) if len(resumes) else None
+    local, poly = footprint_points()
+    footprint_gaps = []
+    for i in range(0, len(t), 5):
+        c, sn = math.cos(trace['yaw_w'][i]), math.sin(trace['yaw_w'][i])
+        vertices = local @ np.array([[c, -sn], [sn, c]]).T + [trace['x_w'][i], trace['y_w'][i]]
+        rectangle = (ox[i]-sx/2, ox[i]+sx/2, oy[i]-sy/2, oy[i]+sy/2)
+        footprint_gaps.append(float(rect_distance(vertices, rectangle).min()))
     stopped_hold_s = 0.
     streak = 0
     for active in physical_stop & protected:
@@ -291,6 +298,7 @@ def dynamic_evidence(run, result, trace):
                              trigger_sim=trigger, scan_hit_frames=len(hit_frames), costmap_marked_samples=len(marked),
                              costmap_cleared_samples=len(cleared), actual_stop_sim=stop, resume_sim=resume,
                              stopped_hold_s=stopped_hold_s, min_center_surface_gap_m=float(distances.min()),
+                             min_rotated_footprint_gap_m=min(footprint_gaps),
                              max_robot_lateral_m=max_lateral, initial_plan_lateral_m=initial_lateral,
                              replanned_lateral_m=replanned_lateral, scan_topic_samples=samples)
     (RAW/f'{label}-topic-data.json').write_text(json.dumps(dict(obstacles=obstacle, scans=scans, costs=costs, plans=plans)))
@@ -392,9 +400,11 @@ def episode(label, start, goal, tol, time_limit, rviz=False, case_id=None, seed=
     np.savetxt(OUT/f'{label}-trajectory.csv', np.c_[trace['sim_time'], trace['x_w'], trace['y_w'], trace['yaw_w'],
                trace['v_meas_x'], trace['v_meas_wz'], trace['v_cmd_in_x'], trace['v_cmd_in_wz'], trace['u_pol_x'], trace['u_pol_wz']][::5],
                delimiter=',', header='sim_time,x_w,y_w,yaw_w,v_meas_x,v_meas_wz,cmd_vel_x,cmd_vel_wz,u_pol_x,u_pol_wz', comments='', fmt='%.4f')
-    success = (metrics['nav2_status'] == 'SUCCEEDED' and metrics['arrived_truth'] and not metrics['fell'] and
+    success = (metrics['nav2_status'] == 'SUCCEEDED' and bool(metrics['verified']) and result.get('tool_exit') == 0 and metrics['arrived_truth'] and not metrics['fell'] and
                not contact.get('static_env') and not contact.get('obstacle') and not contact.get('ground_nonfoot') and
                (metrics['time_to_goal_s'] or 1e9) <= time_limit)
+    success = (success and closed['exit_code'] == 0 and closed['manifest'].get('exit_code') == 0
+               and set(contact) == {'static_env','obstacle','ground_nonfoot'})
     success = success and all(metrics['graph_checks'].values()) and all(result.get('parameter_checks', {}).values())
     result['outcome'] = 'SUCCESS' if success else (
         'FAIL_FALL' if metrics['fell'] else 'FAIL_COLLISION' if contact.get('static_env') else

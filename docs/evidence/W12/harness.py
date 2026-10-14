@@ -368,7 +368,7 @@ class Run:
                 self.duration(settle)
             except Exception:
                 pass
-            os.killpg(self.proc.pid, signal.SIGINT)
+            self.proc.send_signal(signal.SIGINT)  # launch forwards once; group SIGINT double-interrupts children
         try:
             code = self.proc.wait(timeout=30)
         except subprocess.TimeoutExpired:
