@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 import traceback
 
-import yaml
+import numpy as np
 
 from . import harness
 from .episode import episode
@@ -60,6 +60,12 @@ def run(case, suite, output, run_id, gui=False):
                                  r['sim'] > result.get('nav_active_sim', 1e9)])
              for name in sorted({r['process'] for r in cpus})}
         m = result.get('metrics', {})
+        accepted = result.get('nav2', {}).get('accepted_sim', 1e9)
+        if m.get('settle', {}).get('settled'):
+            m['settle_complete_task_s'] = m['settle']['settle_start_sim'] + 2. - accepted
+        fault_zero = np.array([r['cmd_status'] in ('TIMEOUT','INVALID','BLOCKED_BY_STATE') and r['state']=='READY' for r in rows]) & (trace['sim_time'] >= accepted)
+        m['n_safety_stops'] = sum(e['kind']=='collision_monitor' and e.get('action_type')==1 and e['sim']>=accepted for e in result['run']['events']) + int(np.count_nonzero(fault_zero & ~np.r_[False,fault_zero[:-1]]))
+        checks['runtime_graph'] = all(m.get('graph_checks', {}).values())
         m['n_recoveries'] = sum(result['run'].get('recovery_counts_by_goal', {}).values())
         if result.get('dynamic'):
             m['clear_footprint_min_m'] = min(m['clear_footprint_min_m'], result['dynamic']['min_rotated_footprint_gap_m'])

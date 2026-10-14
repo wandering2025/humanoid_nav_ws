@@ -61,7 +61,7 @@ def rows_for(state):
                     path_len_m=m.get('path_len_m'),clear_body_env_min_m=result.get('body_clearance',{}).get('min_m'),
                     clear_footprint_min_m=m.get('clear_footprint_min_m'),scan_min_range_m=m.get('scan_min_range_m'),
                     n_env_collisions=contacts.get('static_env',0)+contacts.get('obstacle',0),fell=m.get('fell'),
-                    n_safety_stops=m.get('safety',{}).get('cm_stop'),n_replans=max(0,m.get('n_plans',0)-1),
+                    n_safety_stops=m.get('n_safety_stops'),n_replans=max(0,m.get('n_plans',0)-1),
                     n_recoveries=m.get('n_recoveries'),rtf_median=result.get('performance',{}).get('rtf',{}).get('median'),
                     sim_time_s=m.get('sim_time_s'),wall_time_s=m.get('wall_time_s'),notes=result.get('error',''),evidence=str(path.relative_to(WS)))
             else:

@@ -73,3 +73,17 @@ def test_trace_boolean_columns(tmp_path):
     path.write_text('sim_time,state,cmd_status,cmd_source,scan_due,nonfinite\n.02,READY,ACTIVE,cmd_vel,True,False\n')
     _, trace=trace_columns(path)
     assert trace['scan_due'][0]==1 and trace['nonfinite'][0]==0
+
+
+def test_tf_resolution_by_gid_preserves_duplicate_publishers():
+    from evaluation.metrics import resolve_tf_authorities
+    records=[dict(child='joint',gid='a',node='_NODE_NAME_UNKNOWN_'),dict(child='joint',gid='a',node='robot_state_publisher')]
+    owners,gids=resolve_tf_authorities(records)
+    assert owners=={'joint':['robot_state_publisher']} and len(gids['joint'])==1
+    owners,gids=resolve_tf_authorities(records+[dict(child='joint',gid='b',node='robot_state_publisher')])
+    assert len(gids['joint'])==2  # identical node names do not hide distinct authorities
+
+
+def test_timeout_cancel_is_not_mislabelled_safety_failure():
+    assert classify(dict(nav_active_sim=12,nav2=dict(timed_out=True),metrics=dict(safety=dict(gate_stopped=1))), True)=='FAIL_TIMEOUT'
+    assert classify(dict(outcome='SUCCESS',metrics=dict(settle_complete_task_s=120.1)), True)=='FAIL_TIMEOUT'

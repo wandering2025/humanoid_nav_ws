@@ -170,7 +170,7 @@ def graph_checks(closed):
                 twist_only=all(g[t]['types'] in ([], ['geometry_msgs/msg/Twist']) for t in ('/cmd_vel', '/cmd_vel_nav', '/cmd_vel_smoothed', '/t1/cmd_navigation')),
                 amcl_map_odom=closed['tf_owners'].get('odom') == ['amcl'],
                 sim_base=closed['tf_owners'].get('base_footprint') == ['t1_sim'],
-                unique_tf=all(len(v) == 1 for v in closed['tf_owners'].values()))
+                unique_tf=all(len(v) == 1 for v in closed['tf_owners'].values()) and all(len(v) == 1 for v in closed['tf_gids'].values()))
 
 
 def write_layers(run, name):

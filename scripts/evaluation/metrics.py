@@ -108,14 +108,29 @@ def classify(result, validity):
         return 'FAIL_FALL'
     if c.get('static_env', 0) or c.get('obstacle', 0):
         return 'FAIL_COLLISION'
+    if m.get('settle_complete_task_s', 0) > result.get('time_limit_s', 120.):
+        return 'FAIL_TIMEOUT'
     if result.get('outcome') == 'SUCCESS':
         return 'SUCCESS'
     if not result.get('nav_active_sim'):
         return 'FAIL_LOCALIZATION' if result.get('run', {}).get('initializations') else 'FAIL_STARTUP'
     if m.get('nav2_status') == 'ABORTED':
         return 'FAIL_PLANNING'
-    if m.get('safety', {}).get('gate_stopped', 0):
-        return 'FAIL_SAFETY_STOP_UNRECOVERED'
     if result.get('nav2', {}).get('timed_out'):
         return 'FAIL_TIMEOUT'
+    if m.get('safety', {}).get('gate_stopped', 0):
+        return 'FAIL_SAFETY_STOP_UNRECOVERED'
     return 'FAIL_LOCALIZATION' if m.get('nav2_status') == 'SUCCEEDED' and not m.get('arrived_truth') else 'FAIL_PLANNING'
+
+
+def resolve_tf_authorities(records):
+    """Resolve startup unknown names by stable RMW GID without hiding duplicates."""
+    names, child_gids = {}, {}
+    unknown = {'unresolved', '_NODE_NAME_UNKNOWN_'}
+    for r in records:
+        child_gids.setdefault(r['child'], set()).add(r['gid'])
+        if r['node'] not in unknown:
+            names.setdefault(r['gid'], set()).add(r['node'])
+    owners = {child: sorted({name for gid in gids for name in names.get(gid, {'unresolved:'+gid})})
+              for child, gids in child_gids.items()}
+    return owners, {child: sorted(gids) for child, gids in child_gids.items()}

@@ -450,16 +450,14 @@ class Run:
             self.authority.wait(timeout=10)
             self.authority_log.close()
             records = [json.loads(line) for line in self.authority_path.read_text().splitlines() if line.strip()]
-        owners = {}
-        for r in records:
-            if r['node'] != 'unresolved':
-                owners.setdefault(r['child'], set()).add(r['node'])
+        from .metrics import resolve_tf_authorities
+        owners, gids = resolve_tf_authorities(records)
         manifest_path = WS/'run_data'/self.run_id/'manifest.json'
         manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
         result = dict(run_id=self.run_id, command=self.command, cwd=str(WS), started_utc=self.started,
                       ended_utc=datetime.now(timezone.utc).isoformat(), exit_code=code,
                       wall_s=time.monotonic() - self.wall0, sim_end=self.node.sim, graph=graph,
-                      tf_owners={k: sorted(v) for k, v in owners.items()},
+                      tf_owners=owners, tf_gids=gids,
                       first_clock=self.node.first_clock, clock_regressions=self.node.clock_regressions, scan_stats=self.node.scan_stats,
                       initializations=self.node.initializations, events=self.node.events,
                       children=[(label, proc.returncode) for label, proc, _ in self.children],
