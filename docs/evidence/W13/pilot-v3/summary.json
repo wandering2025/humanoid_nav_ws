@@ -1,0 +1,353 @@
+{
+  "campaign": "pilot-v3",
+  "suite_sha256": "a2c9e5d9e81abe5d9afe817b3f5ee2152b9ec7d2252100e7407ad291ed65ea34",
+  "fingerprint": "2b8c5b71825db1b3d0c6afe5a267421f0741d858e01256a3916205a10cbdb5d7",
+  "complete": false,
+  "verdict": "PARTIAL",
+  "counts": {
+    "static": {
+      "n": 10,
+      "success": 1
+    },
+    "crossing": {
+      "n": 10,
+      "success": 0
+    },
+    "blocking": {
+      "n": 10,
+      "success": 0
+    },
+    "sudden": {
+      "n": 10,
+      "success": 1
+    }
+  },
+  "rows": [
+    {
+      "case": "S01",
+      "suite": "static",
+      "seed": 1000,
+      "outcome": "SUCCESS",
+      "attempts": 1,
+      "run_id": "20261014T220615Z_pilot-v3_S01_s1000_5c11dc",
+      "code_sha": "b8be025aa8803366c45346b4097e938f5560668b",
+      "dirty": true,
+      "nav2_result": "SUCCEEDED",
+      "arrived_truth": true,
+      "pos_err_m": 0.11950105953222341,
+      "yaw_err_deg": 0.16279882692728734,
+      "settle_s": 2.0,
+      "time_to_goal_s": 6.400000000000002,
+      "path_len_m": 1.9435677352436986,
+      "clear_body_env_min_m": 2.0493156335970424,
+      "clear_footprint_min_m": 1.7358452673450455,
+      "scan_min_range_m": 2.203335762023926,
+      "n_env_collisions": 0,
+      "fell": false,
+      "n_safety_stops": 2,
+      "n_replans": 1,
+      "n_recoveries": 0,
+      "rtf_median": 0.9999945756802128,
+      "sim_time_s": 34.15999999999578,
+      "wall_time_s": 37.34529875299995,
+      "notes": "",
+      "evidence": "docs/evidence/W13/raw/pilot-v3/20261014T220615Z_pilot-v3_S01_s1000_5c11dc/result.json"
+    },
+    {
+      "case": "S02",
+      "suite": "static",
+      "seed": 1001,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S03",
+      "suite": "static",
+      "seed": 1002,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S04",
+      "suite": "static",
+      "seed": 1003,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S05",
+      "suite": "static",
+      "seed": 1004,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S06",
+      "suite": "static",
+      "seed": 1005,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S07",
+      "suite": "static",
+      "seed": 1006,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S08",
+      "suite": "static",
+      "seed": 1007,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S09",
+      "suite": "static",
+      "seed": 1008,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S10",
+      "suite": "static",
+      "seed": 1009,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C01",
+      "suite": "crossing",
+      "seed": 2000,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C02",
+      "suite": "crossing",
+      "seed": 2001,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C03",
+      "suite": "crossing",
+      "seed": 2002,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C04",
+      "suite": "crossing",
+      "seed": 2003,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C05",
+      "suite": "crossing",
+      "seed": 2004,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C06",
+      "suite": "crossing",
+      "seed": 2005,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C07",
+      "suite": "crossing",
+      "seed": 2006,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C08",
+      "suite": "crossing",
+      "seed": 2007,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C09",
+      "suite": "crossing",
+      "seed": 2008,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C10",
+      "suite": "crossing",
+      "seed": 2009,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B01",
+      "suite": "blocking",
+      "seed": 3000,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B02",
+      "suite": "blocking",
+      "seed": 3001,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B03",
+      "suite": "blocking",
+      "seed": 3002,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B04",
+      "suite": "blocking",
+      "seed": 3003,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B05",
+      "suite": "blocking",
+      "seed": 3004,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B06",
+      "suite": "blocking",
+      "seed": 3005,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B07",
+      "suite": "blocking",
+      "seed": 3006,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B08",
+      "suite": "blocking",
+      "seed": 3007,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B09",
+      "suite": "blocking",
+      "seed": 3008,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B10",
+      "suite": "blocking",
+      "seed": 3009,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U01",
+      "suite": "sudden",
+      "seed": 4000,
+      "outcome": "SUCCESS",
+      "attempts": 1,
+      "run_id": "20261014T220656Z_pilot-v3_U01_s4000_312b8c",
+      "code_sha": "b8be025aa8803366c45346b4097e938f5560668b",
+      "dirty": true,
+      "nav2_result": "SUCCEEDED",
+      "arrived_truth": true,
+      "pos_err_m": 0.15914868939783233,
+      "yaw_err_deg": 1.7948683675478638,
+      "settle_s": 2.0,
+      "time_to_goal_s": 44.300000000000004,
+      "path_len_m": 10.31809209918141,
+      "clear_body_env_min_m": 1.4918635116084236,
+      "clear_footprint_min_m": 1.1165928287575388,
+      "scan_min_range_m": 1.6059014797210693,
+      "n_env_collisions": 0,
+      "fell": false,
+      "n_safety_stops": 7,
+      "n_replans": 7,
+      "n_recoveries": 8,
+      "rtf_median": 1.0000004928997968,
+      "sim_time_s": 73.24000000001071,
+      "wall_time_s": 76.3754859540004,
+      "notes": "",
+      "evidence": "docs/evidence/W13/raw/pilot-v3/20261014T220656Z_pilot-v3_U01_s4000_312b8c/result.json"
+    },
+    {
+      "case": "U02",
+      "suite": "sudden",
+      "seed": 4001,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U03",
+      "suite": "sudden",
+      "seed": 4002,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U04",
+      "suite": "sudden",
+      "seed": 4003,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U05",
+      "suite": "sudden",
+      "seed": 4004,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U06",
+      "suite": "sudden",
+      "seed": 4005,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U07",
+      "suite": "sudden",
+      "seed": 4006,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U08",
+      "suite": "sudden",
+      "seed": 4007,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U09",
+      "suite": "sudden",
+      "seed": 4008,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U10",
+      "suite": "sudden",
+      "seed": 4009,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    }
+  ]
+}
