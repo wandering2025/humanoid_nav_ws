@@ -1,15 +1,15 @@
 # Booster T1 MuJoCo navigation
 
-This workspace implements the project one explicitly assigned step at a time. W06 provides consistent ROS odometry, TF, joint states and evaluation truth, with a basic external URDF wrapper and RViz configuration. The W04 physics runner and W05 calibrated command guard remain in use. LiDAR, SLAM and Nav2 remain unimplemented and disabled.
+This workspace implements the project one explicitly assigned step at a time. W01–W09 provide the physical strategy runner, calibrated command guard, consistent ROS state/TF, static scenes, compensated LiDAR, SLAM mapping and saved-map AMCL localization. The W10 safety chain and W11 autonomous Nav2 navigation are not yet implemented.
 
-The frozen external repositories and existing venv are documented in [environment baseline](docs/baseline/environment.md) and [dependencies.repos](dependencies.repos). Design contracts: [system](docs/architecture/system.md), [interfaces](docs/architecture/interfaces.md), [acceptance](docs/architecture/acceptance.md). Progress and handoff: [execution board](docs/plans/t1_mujoco_navigation/执行看板.md), [W06 record](docs/plans/t1_mujoco_navigation/records/W06.md).
+The frozen external repositories and existing venv are documented in [environment baseline](docs/baseline/environment.md) and [dependencies.repos](dependencies.repos). Design contracts: [system](docs/architecture/system.md), [interfaces](docs/architecture/interfaces.md), [acceptance](docs/architecture/acceptance.md). Progress and handoff: [execution board](docs/plans/t1_mujoco_navigation/执行看板.md), [W09 record](docs/plans/t1_mujoco_navigation/records/W09.md).
 
 | Package | Build type | Current content |
 | --- | --- | --- |
-| t1_mujoco | ament_python | Physics runner, calibrated command guard, ROS clock/odom/TF/joints/truth/services |
-| t1_description | ament_cmake | Basic state RViz; full description/FK/footprint reserved for W07 |
-| t1_navigation | ament_cmake | Resource location; navigation parameters reserved for W09–W11 |
-| t1_bringup | ament_python | Launch composition; Python evaluation tools reserved for W13 |
+| t1_mujoco | ament_python | Physical strategy runner, calibrated command guard, state/TF, scenes and compensated LiDAR |
+| t1_description | ament_cmake | Frozen external description wrapper, validated FK/mesh, footprint and RViz |
+| t1_navigation | ament_cmake | SLAM/AMCL configuration, LiDAR-built map and provenance; W10/W11 follow |
+| t1_bringup | ament_python | Simulation/mapping/localization launch, one-shot AMCL initialization; W13 evaluation follows |
 
 ## Enter the environment and build
 
@@ -41,7 +41,7 @@ ros2 launch t1_bringup bringup.launch.py mode:=sim_only use_sim_time:=true
 
 All commands work outside the workspace after sourcing the environment. The diagnostic prints one `T1_DIAGNOSTIC` JSON line containing the actual `sys.executable`, Python/ROS/library versions, external paths and copied T1 task timing. It imports rclpy, NumPy, MuJoCo, PyTorch and the T1 registration module; it never constructs a model, policy or controller, opens a viewer or advances physics. It then destroys the ROS node and exits. It does not publish `/clock`, TF or fake success for simulation. A child failure propagates to a nonzero launch exit.
 
-Arguments: `mode` (`sim_only|mapping|navigation|evaluation`), `use_sim_time`, `upstream_path`, optional `assets_path`, `task` (only `t1_walk`), `params_file`. These select diagnostic context in W03. `enable_sim:=true mode:=sim_only` starts the W04 runner. Future simulation modes fail explicitly. The parameter file is installed at `share/t1_mujoco/config/runtime.yaml`. Runtime path insertion is confined to the diagnostic Python process. `booster_deploy` has no pip packaging metadata and is not installed editable. Configuration is deep-copied from its registry before use. Explicit asset paths must match the installed frozen `booster_assets` package.
+Arguments: `mode` (`sim_only|mapping|localization|navigation|evaluation`), `use_sim_time`, `upstream_path`, optional `assets_path`, `task` (only `t1_walk`), `params_file`. These select diagnostic context in W03. `enable_sim:=true mode:=sim_only` starts the W04 runner. Mapping and localization have dedicated W09 entries below; navigation/evaluation fail explicitly until W10/W11. The parameter file is installed at `share/t1_mujoco/config/runtime.yaml`. Runtime path insertion is confined to the diagnostic Python process. `booster_deploy` has no pip packaging metadata and is not installed editable. Configuration is deep-copied from its registry before use. Explicit asset paths must match the installed frozen `booster_assets` package.
 
 ## Verify packages (W03 baseline)
 
@@ -108,7 +108,7 @@ The model and base_link axes follow actual simulated joints and trunk pose.
 `/odom` is ideal truth projected onto z=0, with child-frame twist;
 `/t1/eval/ground_truth` is full trunk truth for evaluation only.
 Covariance values are nominal, not measured estimation uncertainty.
-There is no map→odom transform until SLAM/AMCL is implemented.
+sim_only has no map→odom; W09 mapping/localization add their exclusive estimator.
 `/imu/data` is optional and currently absent.
 
 Clock, odom, the two base TF edges, joint states and truth share the same
@@ -122,3 +122,35 @@ Restart the whole launch and consumers for a new run.
 The calibrated physical command map loads by default (W05); 0<vx<0.315 m/s
 is mapped to zero, so it does not support arbitrarily slow creeping.
 W06 reproduction and measured topic/TF/time evidence: [W06 evidence](docs/evidence/W06/README.md).
+
+
+## W09 mapping and saved-map localization
+
+With the environment and local DDS server above configured in each terminal:
+
+```bash
+ros2 launch t1_bringup mapping.launch.py rviz:=true
+# Separate terminal, after READY: controlled development teleop in physical units.
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -p speed:=0.4 -p turn:=0.6 -p stamped:=false
+# Keep clear of walls; W10 full safety chain is not implemented yet.
+# Save the live SLAM map to a new path (do not overwrite the versioned map casually):
+ros2 run nav2_map_server map_saver_cli -f "$T1_WS/run_data/my_map" --ros-args -p use_sim_time:=true
+```
+
+Stop the mapping launch and teleop before starting localization. The shipped map
+is tied to static_world and includes its metadata; a custom map needs matching
+metadata before it can be used by this project's localization launch.
+
+```bash
+ros2 launch t1_bringup localization.launch.py rviz:=true
+# After lifecycle activation, initialize once with an approximate pose in map:
+ros2 run t1_bringup initial_pose 0.2 -0.15 0.15
+# Or use RViz's 2D Pose Estimate. Yaw is radians; do not repeatedly reset from truth.
+```
+
+Localization starts map_server then AMCL; mapping only starts SLAM Toolbox.
+No mode includes an autonomous planner/controller. Map/scene checksum mismatch
+fails startup. Restart the complete launch to change modes or reset simulation.
+The localization demonstration uses ideal truth odometry and truth attitude
+compensation; it does not establish robustness against real odometry drift.
+Reproduction, route, convergence and map checks: [W09 evidence](docs/evidence/W09/README.md).

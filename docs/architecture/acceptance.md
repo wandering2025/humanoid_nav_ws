@@ -141,3 +141,11 @@
 ## W08 验收细化（ADR-012）
 
 补偿多束扫描的中央1/3m墙距与细柱误差门槛仍≤0.02m。1°最近角格聚合会带来≤0.5°方位量化；已在实验前冻结移动墙面误差P95≤0.08m、max≤0.12m，另报告未量化原始点误差。计算P95<50ms。每步相同状态时间戳的动态扫描TF、暂停不发布、reset单调、整机器人排除和外部mocap物体可见均需实际证据，见 `docs/evidence/W08/README.md`。这不验证SLAM/Nav2或W10完整安全链。
+
+
+## 13. W09 已验证建图/定位门槛
+
+- 两种完整launch分别验证，实际RMW map→odom发送者mapping=slam_toolbox、localization=amcl；clock仅t1_sim。sim_only行为不变；navigation/evaluation继续拒绝。
+- 地图只从SLAM /map保存，5cm网格、1s仿真更新；人工预选闭环真实步行覆盖A/B、南北通道，保存过程RViz、轨迹、更新序列和map/scene/生成SHA绑定。评测阈值：墙面P95≤0.15m、最大≤0.30m，可见表面完整性P95≤0.20m，54个A/B/通道样点free，闭环终点≤0.40m。实测见W09/map-quality.json。
+- 三个预选初始化map pose：(0.2,-0.15,0.15)、(-0.2,0.15,-0.2)、(0.1,0.1,0.3)，每个独立启动且仅一次初始化。期望25s仿真内达到位置≤0.25m、yaw≤10°，后续更新保持，末三次pose均满足；scan→占据格距离P95≤0.15m，使用实际scan stamp查询TF。预设值保存于map.meta.yaml。
+- 重启同一map checksum，map_server先active、AMCL再active；理想truth odom与truth姿态补偿是显式实验前提，不能据此宣称真实漂移鲁棒性。无自主A→B和动态避障验收，本步不启动W10/W11。

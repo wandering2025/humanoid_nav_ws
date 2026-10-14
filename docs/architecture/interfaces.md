@@ -193,3 +193,12 @@ mj_world / base_link_truth：仅评测真值，不进入 TF 树
 - `/scan` 保持Reliable/Volatile/KeepLast(5)。+inf=实际未命中；NaN=未知；-inf=range_min内有效高度回波且内部健康门关闭。已知角格<75%也关门，下一策略步立即零命令、继续站立采样；首次scan前/reset后门关闭，正常warmup不变。生成异常不发布该帧，FAULT sensor_exception、ERROR diagnostics、零命令、停止推进。
 - sim_state追加 `sensor_mode/sensor_healthy/scan_compute_ms/scan_known_fraction/scan_blind_bins`；trace既有scan_due/scan_compute_ms现为真实测量。诊断包含模式、健康度和覆盖计数。可选PointCloud2在lidar_link发布0..12m原始无噪声命中点（含地面/高物/近端），仅调试使用。
 - 无逐束扫描时间、无姿态估计误差、无机器人自身遮挡、无材质噪声模型。地面z=0；有限垂直束不保证发现所有高度的物体；W10必须处理未知/盲区，不能把这些配置称为全空间碰撞安全覆盖。
+
+
+## 13. W09 建图/定位细化（ADR-013）
+
+- `mode=localization`作为W09独立测试入口，只启动map_server+AMCL，不含W10安全链/W11规划器；navigation/evaluation仍拒绝。mapping使用SLAM Toolbox生命周期节点，与AMCL互斥。两模式禁止policy debug和原地reset。
+- frames不变：map/odom/base_footprint，scan_topic=/scan，scan header=laser_stabilized。所有消费者sim time，模拟器通过snapshot打stamp。map→odom发布者仅slam_toolbox或amcl；由实际RMW GID探针验证。
+- `initial_pose`可执行节点等待AMCL active、clock与订阅，再只发一次/initialpose；无truth订阅。位置/yaw协方差0.09（std0.3m/rad）。使用RViz输入近似pose也是初始化，不能每帧校正。
+- 地图由SLAM /map保存。localization startup只读map_file/localization_params_file，mapping只读slam_params_file；参数路径/哈希、map_yaml/image哈希、生成SHA与T_world_map写入manifest。地图/场景哈希不匹配拒绝启动。T_world_map仅用于记录/评测，AMCL不读取元数据。
+- 完整说明与范围限制见[mapping_localization.md](mapping_localization.md)。
