@@ -1,0 +1,2 @@
+RUN w12_w12_static_wait_stage_60fa9b68 PID 145680
+EPISODE w12_static_wait_stage FAIL_TIMEOUT {"nav2_status": "CANCELED", "time_to_goal_s": null, "arrived_truth": false, "path_len_m": 15.290504720590743, "clear_center_min_m": 2.0794938433813366, "clear_footprint_min_m": 1.3917246488044004, "env_contacts": {"static_env": 0, "obstacle": 0, "ground_nonfoot": 0}, "fell": false, "rtf_median": 0.9999971774636274} {"settled": false}

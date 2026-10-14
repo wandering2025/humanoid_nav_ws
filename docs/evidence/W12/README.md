@@ -35,7 +35,7 @@ crossing和approach移开后，旧中心占据清为0，机器人无需重arm或
 
 开发证据也保留：旧harness给整个launch组SIGINT后launch又转发，造成双中断；`event-lifecycle-v1/`及dev日志有退出异常。开发approach虽导航/感知成功，但末尾contact_counts未保存，旧评测把缺失当0，因此证据不足，不计正式完整通过。正式版本改为仅先向launch父进程SIGINT，并要求完整三类接触计数和sim exit0。
 
-动态运行物理代码与评测核心函数冻结于 `5149679a5ae1209991e0c4f62031dc352f59281f`；运行中检查点提交只增加文档/已生成证据，每例manifest保存实际HEAD，审计核对运行源码一致。随后只修正静态回归注册文件路径常量，评测AST核对其余代码未变；静态启动前的路径失败保留。最终代码/证据提交及完成记录SHA见records/W12.md和git log。
+动态运行物理代码与评测核心函数冻结于 `5149679a5ae1209991e0c4f62031dc352f59281f`；运行中检查点提交只增加文档/已生成证据，每例manifest保存实际HEAD，审计核对运行源码一致。随后只修正静态回归注册文件路径常量，评测AST核对其余代码未变；静态启动前的路径失败保留。默认S04静态回归的120s超时保留于w12_S04.*。另以static_regression.py验证既有--approach-pass-radius=0选项，等待进近点也超时，独立w12_static_wait_stage.*保留，未采用该参数为新配置。额外运行原W11登记S03绕岛路线作为静态回归，S04两次失败均保留，不重计动态九例。最终代码/证据提交及完成记录SHA见records/W12.md和git log。
 
 ## 复现
 
@@ -54,7 +54,7 @@ source scripts/env.sh
 /usr/bin/colcon test-result --all --verbose
 "$T1_VENV/bin/python" docs/evidence/W12/check_event_lifecycle.py
 "$T1_VENV/bin/python" docs/evidence/W12/dynamic_suite.py --repeats 3 --tag reproduce --rviz
-W12_SCENE=static_world "$T1_VENV/bin/python" docs/evidence/W12/nav_run.py case S04
+W12_SCENE=static_world "$T1_VENV/bin/python" docs/evidence/W12/nav_run.py case S03
 MPLCONFIGDIR=/tmp/t1-w12-mpl /usr/bin/python3 docs/evidence/W12/plot_runs.py
 /usr/bin/python3 docs/evidence/W12/final_checks.py
 ```

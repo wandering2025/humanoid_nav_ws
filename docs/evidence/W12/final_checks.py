@@ -28,7 +28,9 @@ quality = read('map-quality.json')
 loc = read('localization.json')
 suite = read('smoke-suite.json')
 rows = [read(r['label']+'.json') for r in suite['results']]
-reg = read('w12_S04.json')
+reg = read('w12_S03.json')
+wait_reg = read('w12_static_wait_stage.json')
+default_reg = read('w12_S04.json')
 meta_path = WS/'src/t1_navigation/maps/dynamic_crossing_world.meta.yaml'
 meta = yaml.safe_load(meta_path.read_text())
 map_path = meta_path.with_suffix('').with_suffix('.yaml')
@@ -72,6 +74,7 @@ checks = dict(
         not git('diff',SOURCE,r['run']['manifest']['code_sha'],'--',*RUNTIME) for r in rows+[reg]),
     static_registry_correction_only=evaluator_equal(SOURCE) and all(evaluator_equal(r['run']['manifest']['code_sha']) for r in rows+[reg]),
     static_regression=reg['outcome']=='SUCCESS',
+    default_static_failure_preserved=default_reg['outcome']=='FAIL_TIMEOUT' and not any(default_reg['metrics']['env_contacts'].values()) and not default_reg['metrics']['fell'],
 )
 upstream={}
 for name,path,expected in [('booster_deploy','/home/haoyang/robot_sim_sources/booster_deploy','7bb1462e2ac742eba5c01659b815e2e99fbe617f'),
@@ -83,6 +86,7 @@ for name,path,expected in [('booster_deploy','/home/haoyang/robot_sim_sources/bo
 checks={k:bool(v) for k,v in checks.items()}
 result=dict(verdict='PASS' if all(checks.values()) else 'FAIL',checks=checks,counts=counts,
             source_base_sha=SOURCE,run_shas=sorted(set(r['run']['manifest']['code_sha'] for r in rows+[reg])),
+            static_regression=dict(S04_default=default_reg['outcome'],S04_completed_approach=wait_reg['outcome'],S03_default=reg['outcome']),
             all_nine_success=all(r['outcome']=='SUCCESS' for r in rows), failed_cases=[r['label'] for r in rows if r['outcome']!='SUCCESS'],
             upstream=upstream,not_claimed=['W13 reliability','target tracking/prediction','hardware safety certification'])
 (OUT/'final-verification.json').write_text(json.dumps(result,indent=2)+'\n')
