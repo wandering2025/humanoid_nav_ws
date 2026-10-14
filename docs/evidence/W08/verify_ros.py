@@ -64,7 +64,7 @@ def analyse_scan(run):
         # Raw includes floor; either wall or z=0 must explain every return.
         cloud_err.extend(np.minimum(wall,abs(pts[:,2])))
     dt=np.diff(stamps)*1e-9;graph=n.topic_info['/scan'];pub=graph['publishers']
-    checks=dict(scan_type_qos_owner=len(pub)==1 and pub[0]==dict(node='t1_sim',type='sensor_msgs/msg/LaserScan',reliability='RELIABLE',durability='VOLATILE',depth=5),
+    checks=dict(scan_type_qos_owner=len(pub)==1 and all(pub[0][k]==v for k,v in dict(node='t1_sim',type='sensor_msgs/msg/LaserScan',reliability='RELIABLE',durability='VOLATILE').items()),
         rviz_subscribes='rviz2' in graph['subscribers'],reliable_and_be_receive=len(n.best_effort_stamps)>.95*len(stamps),
         scan_semantics=all(semantics) and len(semantics)>100,scan_same_stamp_state=all(stamp_good),scan_monotonic=bool(np.all(dt>0)),scan_sim_10hz=abs(np.median(dt)-.1)<1e-8,
         laser_tf_origin=max(tf_errors)<1e-10,laser_tf_gravity_aligned=max(tf_rot_errors)<1e-12,wall_p95_under_8cm=np.percentile(errors,95)<=.08,wall_max_under_12cm=max(errors)<=.12,
@@ -82,6 +82,14 @@ log=(RAW/'ros-dds.txt').open('w');server=subprocess.Popen([str(WS/'scripts/start
 started=datetime.now(timezone.utc).isoformat();run=None;result={};rclpy.init()
 try:
     time.sleep(.4);assert server.poll() is None,'dedicated discovery server failed'
+    # DDS remote endpoint history depth is reported as 0 on this installed RMW.
+    # Verify the exact publisher factory's local rclpy profile independently.
+    from t1_mujoco.lidar import LidarPublisher
+    from t1_mujoco.lidar_config import LidarConfig
+    qos_node=rclpy.create_node('w08_local_qos_check')
+    qos=LidarPublisher(qos_node,LidarConfig()).scan.qos_profile
+    local_qos=dict(depth=qos.depth,history=qos.history.name,reliability=qos.reliability.name,durability=qos.durability.name)
+    qos_node.destroy_node()
     run=w06.Run('w08_lidar',rviz=True,extra_args=['scene:=calibration_world',f'params_file:={params}',f'rviz_config:={rviz}'])
     run.ready();run.duration(1.,(0.,0.));standing=run.screenshot('rviz-standing.png')
     run.duration(3.,(.4,0.));run.duration(4.,(0.,0.))
@@ -91,14 +99,14 @@ try:
     run.service(run.node.pause_client,SetBool.Request(data=True));run.duration(.3,wall=True)
     count=len(run.node.scans);sim=run.node.sim
     run.duration(1.1,(.4,0.),wall=True)
-    checks=dict(pause_no_new_scan=len(run.node.scans)==count and run.node.sim==sim,physical_turn_near_90=abs(heading-90)<20)
+    checks=dict(local_scan_qos=local_qos==dict(depth=5,history='KEEP_LAST',reliability='RELIABLE',durability='VOLATILE'),pause_no_new_scan=len(run.node.scans)==count and run.node.sim==sim,physical_turn_near_90=abs(heading-90)<20)
     run.service(run.node.pause_client,SetBool.Request(data=False));run.duration(.8)
     checks['resume_no_stale_command']=run.node.state['u_pol']==[0.,0.,0.]
     before=run.node.sim;laststamp=w06.ns(run.node.scans[-1].header.stamp);epoch=run.node.epoch
     run.service(run.node.reset_client,Trigger.Request());run.until(lambda:run.node.epoch==epoch+1 and run.node.state['state']=='READY');run.duration(2.,(0.,0.))
     checks['reset_monotonic']=run.node.sim>before and w06.ns(run.node.scans[-1].header.stamp)>laststamp
     run.node.graph();detail=analyse_scan(run);checks.update(detail['checks'])
-    result=dict(code_sha=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),started_utc=started,checks=checks,scan=detail,heading_after_turn_deg=heading,screenshots=[standing,moving],launch_pid=run.proc.pid)
+    result=dict(code_sha=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),started_utc=started,checks=checks,scan=detail,heading_after_turn_deg=heading,local_publisher_qos=local_qos,screenshots=[standing,moving],launch_pid=run.proc.pid)
 finally:
     if run is not None:
         actual=run.close();result['run']=actual
