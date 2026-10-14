@@ -1,0 +1,25 @@
+{
+  "campaign": "formal-v1",
+  "suite_sha256": "a2c9e5d9e81abe5d9afe817b3f5ee2152b9ec7d2252100e7407ad291ed65ea34",
+  "fingerprint": "2b8c5b71825db1b3d0c6afe5a267421f0741d858e01256a3916205a10cbdb5d7",
+  "complete": false,
+  "verdict": "PARTIAL",
+  "counts": {
+    "static": {
+      "n": 10,
+      "success": 10
+    },
+    "crossing": {
+      "n": 10,
+      "success": 8
+    },
+    "blocking": {
+      "n": 10,
+      "success": 0
+    },
+    "sudden": {
+      "n": 10,
+      "success": 0
+    }
+  }
+}

@@ -1,14 +1,6 @@
 run_id,suite,case,seed,code_sha,dirty,outcome,nav2_result,arrived_truth,pos_err_m,yaw_err_deg,settle_s,time_to_goal_s,path_len_m,clear_body_env_min_m,clear_footprint_min_m,scan_min_range_m,n_env_collisions,fell,n_safety_stops,n_replans,n_recoveries,rtf_median,sim_time_s,wall_time_s,notes,evidence,attempts
-,crossing,C01,2000,,,NOT_RUN,,,,,,,,,,,,,,,,,,,,,0
-,crossing,C02,2001,,,NOT_RUN,,,,,,,,,,,,,,,,,,,,,0
-,crossing,C03,2002,,,NOT_RUN,,,,,,,,,,,,,,,,,,,,,0
-,crossing,C04,2003,,,NOT_RUN,,,,,,,,,,,,,,,,,,,,,0
-,crossing,C05,2004,,,NOT_RUN,,,,,,,,,,,,,,,,,,,,,0
-,crossing,C06,2005,,,NOT_RUN,,,,,,,,,,,,,,,,,,,,,0
-,crossing,C07,2006,,,NOT_RUN,,,,,,,,,,,,,,,,,,,,,0
-,crossing,C08,2007,,,NOT_RUN,,,,,,,,,,,,,,,,,,,,,0
-,crossing,C09,2008,,,NOT_RUN,,,,,,,,,,,,,,,,,,,,,0
-,crossing,C10,2009,,,NOT_RUN,,,,,,,,,,,,,,,,,,,,,0
+20261014T222232Z_formal-v1_C01_s2000_3cddcf,crossing,C01,2000,197995af1b94d92da0846ae50dbca09bf74c26a3,True,INVALID,,False,9.003455931323828,4.4708192358366015,0.0,,0.07706054594455253,2.437589714910703,2.086168197139102,2.592493772506714,0,False,0,0,0,0.9999997345194004,121.69999999989777,134.3697332920001,"AssertionError(""condition deadline; gate={'state': 'DISARMED', 'reason': 'explicit arm required', 'source': 'navigation', 'permit': False, 'wall_mono': 14699.954748721, 'sim_time': 121.58000000000001, 'health_reason': ''}"")",docs/evidence/W13/raw/formal-v1/20261014T222232Z_formal-v1_C01_s2000_3cddcf/result.json,1
+20261014T223423Z_formal-v1_C09_s2008_70370c,crossing,C09,2008,0c7c31a9ace837411987fd1ff68d4781b4042c88,True,FAIL_PLANNING,ABORTED,False,8.995852890138583,4.113707668624169,0.0,,0.0659216637191779,2.437589714910703,2.103581740831318,2.592493772506714,0,False,1,1,4,0.9999944587480493,26.35999999999627,29.66905383899939,,docs/evidence/W13/raw/formal-v1/20261014T223423Z_formal-v1_C09_s2008_70370c/result.json,1
 ,blocking,B01,3000,,,NOT_RUN,,,,,,,,,,,,,,,,,,,,,0
 ,blocking,B02,3001,,,NOT_RUN,,,,,,,,,,,,,,,,,,,,,0
 ,blocking,B03,3002,,,NOT_RUN,,,,,,,,,,,,,,,,,,,,,0

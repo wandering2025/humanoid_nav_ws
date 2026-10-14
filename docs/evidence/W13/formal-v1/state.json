@@ -273,7 +273,15 @@
         0.0
       ],
       "scenario": "C01",
-      "kind": "crossing"
+      "kind": "crossing",
+      "attempts": [
+        {
+          "run_id": "20261014T222232Z_formal-v1_C01_s2000_3cddcf",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T222232Z_formal-v1_C01_s2000_3cddcf",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "C02",
@@ -291,7 +299,15 @@
         0.0
       ],
       "scenario": "C02",
-      "kind": "crossing"
+      "kind": "crossing",
+      "attempts": [
+        {
+          "run_id": "20261014T222457Z_formal-v1_C02_s2001_362518",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T222457Z_formal-v1_C02_s2001_362518",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "C03",
@@ -309,7 +325,15 @@
         0.0
       ],
       "scenario": "C03",
-      "kind": "crossing"
+      "kind": "crossing",
+      "attempts": [
+        {
+          "run_id": "20261014T222621Z_formal-v1_C03_s2002_761eaa",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T222621Z_formal-v1_C03_s2002_761eaa",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "C04",
@@ -327,7 +351,15 @@
         0.0
       ],
       "scenario": "C04",
-      "kind": "crossing"
+      "kind": "crossing",
+      "attempts": [
+        {
+          "run_id": "20261014T222741Z_formal-v1_C04_s2003_5b2d63",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T222741Z_formal-v1_C04_s2003_5b2d63",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "C05",
@@ -345,7 +377,15 @@
         0.0
       ],
       "scenario": "C05",
-      "kind": "crossing"
+      "kind": "crossing",
+      "attempts": [
+        {
+          "run_id": "20261014T222905Z_formal-v1_C05_s2004_bcc9e0",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T222905Z_formal-v1_C05_s2004_bcc9e0",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "C06",
@@ -363,7 +403,15 @@
         0.0
       ],
       "scenario": "C06",
-      "kind": "crossing"
+      "kind": "crossing",
+      "attempts": [
+        {
+          "run_id": "20261014T223026Z_formal-v1_C06_s2005_f190aa",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T223026Z_formal-v1_C06_s2005_f190aa",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "C07",
@@ -381,7 +429,15 @@
         0.0
       ],
       "scenario": "C07",
-      "kind": "crossing"
+      "kind": "crossing",
+      "attempts": [
+        {
+          "run_id": "20261014T223150Z_formal-v1_C07_s2006_71b804",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T223150Z_formal-v1_C07_s2006_71b804",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "C08",
@@ -399,7 +455,15 @@
         0.0
       ],
       "scenario": "C08",
-      "kind": "crossing"
+      "kind": "crossing",
+      "attempts": [
+        {
+          "run_id": "20261014T223306Z_formal-v1_C08_s2007_bf1f17",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T223306Z_formal-v1_C08_s2007_bf1f17",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "C09",
@@ -417,7 +481,15 @@
         0.0
       ],
       "scenario": "C09",
-      "kind": "crossing"
+      "kind": "crossing",
+      "attempts": [
+        {
+          "run_id": "20261014T223423Z_formal-v1_C09_s2008_70370c",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T223423Z_formal-v1_C09_s2008_70370c",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "C10",
@@ -435,7 +507,15 @@
         0.0
       ],
       "scenario": "C10",
-      "kind": "crossing"
+      "kind": "crossing",
+      "attempts": [
+        {
+          "run_id": "20261014T223456Z_formal-v1_C10_s2009_6d823b",
+          "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/formal-v1/20261014T223456Z_formal-v1_C10_s2009_6d823b",
+          "state": "FINISHED",
+          "worker_exit": 0
+        }
+      ]
     },
     {
       "id": "B01",
