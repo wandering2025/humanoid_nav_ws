@@ -1,0 +1,730 @@
+{
+  "code_sha": "7b86827b97530af4419334ad47989cbba5202fe8",
+  "started_utc": "2026-10-14T09:10:32.457376+00:00",
+  "ended_utc": "2026-10-14T09:10:36.334354+00:00",
+  "cwd": "/home/haoyang/humanoid_nav_ws",
+  "command": "$T1_VENV/bin/python docs/evidence/W08/check_motion.py",
+  "wall_s": 3.877000636000048,
+  "sequence": [
+    [
+      "standing",
+      3.0,
+      0.0,
+      0.0
+    ],
+    [
+      "forward",
+      3.0,
+      0.4,
+      0.0
+    ],
+    [
+      "stop1",
+      4.0,
+      0.0,
+      0.0
+    ],
+    [
+      "turn90",
+      4.5,
+      0.0,
+      0.6
+    ],
+    [
+      "stop2",
+      4.0,
+      0.0,
+      0.0
+    ],
+    [
+      "rotated_forward",
+      4.0,
+      0.4,
+      0.0
+    ],
+    [
+      "stop3",
+      4.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "runs": [
+    {
+      "enabled": false,
+      "phases": {
+        "standing": {
+          "sim_s": 3.0,
+          "scans": 0,
+          "point_count": 0,
+          "displacement_m": [
+            -0.003941797366185712,
+            -0.01085395257341268
+          ],
+          "yaw_change_deg": 0.37179540422559887,
+          "end_yaw_deg": 0.37179540422559887,
+          "roll_pitch_span_deg": [
+            0.6600926707674314,
+            4.321985031340118
+          ],
+          "roll_pitch_abs_max_deg": [
+            0.5428783690265665,
+            3.053529541712325
+          ],
+          "wall_p95_m": null,
+          "wall_max_m": null,
+          "raw_wall_max_m": null,
+          "known_min": null
+        },
+        "forward": {
+          "sim_s": 3.0,
+          "scans": 0,
+          "point_count": 0,
+          "displacement_m": [
+            0.8137222621006913,
+            0.044280432450072627
+          ],
+          "yaw_change_deg": 1.7648732741790356,
+          "end_yaw_deg": 2.1366686784046345,
+          "roll_pitch_span_deg": [
+            5.953082587203801,
+            4.667214536238387
+          ],
+          "roll_pitch_abs_max_deg": [
+            3.959991605627521,
+            2.763016250013891
+          ],
+          "wall_p95_m": null,
+          "wall_max_m": null,
+          "raw_wall_max_m": null,
+          "known_min": null
+        },
+        "stop1": {
+          "sim_s": 4.0,
+          "scans": 0,
+          "point_count": 0,
+          "displacement_m": [
+            0.12670736873595623,
+            -0.018568874202541236
+          ],
+          "yaw_change_deg": 0.8576139986784627,
+          "end_yaw_deg": 2.9942826770830973,
+          "roll_pitch_span_deg": [
+            5.681370745472466,
+            2.4789671690890356
+          ],
+          "roll_pitch_abs_max_deg": [
+            3.2108108450637975,
+            3.2866391881675674
+          ],
+          "wall_p95_m": null,
+          "wall_max_m": null,
+          "raw_wall_max_m": null,
+          "known_min": null
+        },
+        "turn90": {
+          "sim_s": 4.5,
+          "scans": 0,
+          "point_count": 0,
+          "displacement_m": [
+            0.09097883340916857,
+            -0.06472229238735173
+          ],
+          "yaw_change_deg": 143.94842035155432,
+          "end_yaw_deg": 146.94270302863742,
+          "roll_pitch_span_deg": [
+            3.124566927415572,
+            4.889904801858828
+          ],
+          "roll_pitch_abs_max_deg": [
+            2.0540685981367592,
+            3.783207499257022
+          ],
+          "wall_p95_m": null,
+          "wall_max_m": null,
+          "raw_wall_max_m": null,
+          "known_min": null
+        },
+        "stop2": {
+          "sim_s": 4.0,
+          "scans": 0,
+          "point_count": 0,
+          "displacement_m": [
+            -0.0057726249011600395,
+            -0.0009671455910804927
+          ],
+          "yaw_change_deg": -9.965795985329814,
+          "end_yaw_deg": 136.97690704330762,
+          "roll_pitch_span_deg": [
+            0.3273085429858014,
+            1.5010587697792743
+          ],
+          "roll_pitch_abs_max_deg": [
+            0.6845294547392626,
+            1.2152796532590284
+          ],
+          "wall_p95_m": null,
+          "wall_max_m": null,
+          "raw_wall_max_m": null,
+          "known_min": null
+        },
+        "rotated_forward": {
+          "sim_s": 4.0,
+          "scans": 0,
+          "point_count": 0,
+          "displacement_m": [
+            -0.8897855841825022,
+            0.7477970363720011
+          ],
+          "yaw_change_deg": 2.408569286544663,
+          "end_yaw_deg": 139.38547632985228,
+          "roll_pitch_span_deg": [
+            5.548013454674242,
+            4.804632994558445
+          ],
+          "roll_pitch_abs_max_deg": [
+            3.9901159187359307,
+            2.8631745129374435
+          ],
+          "wall_p95_m": null,
+          "wall_max_m": null,
+          "raw_wall_max_m": null,
+          "known_min": null
+        },
+        "stop3": {
+          "sim_s": 4.0,
+          "scans": 0,
+          "point_count": 0,
+          "displacement_m": [
+            -0.07113877626803583,
+            0.11023079110033285
+          ],
+          "yaw_change_deg": 1.7348899516581557,
+          "end_yaw_deg": 141.12036628151043,
+          "roll_pitch_span_deg": [
+            5.3805343406821775,
+            2.1434730983353183
+          ],
+          "roll_pitch_abs_max_deg": [
+            2.7207173217803957,
+            3.100545536216614
+          ],
+          "wall_p95_m": null,
+          "wall_max_m": null,
+          "raw_wall_max_m": null,
+          "known_min": null
+        }
+      },
+      "checks": {
+        "physical_state_unchanged": true,
+        "no_fall": true,
+        "no_environment_contact_at_policy_samples": true,
+        "actual_turn_near_90": false,
+        "forward_displacement": true,
+        "rotated_forward_displacement": false
+      },
+      "qpos_qvel_max_error": 0.0,
+      "min_trunk_z_m": 0.6195557038722014,
+      "wall_s": 1.555662819000645,
+      "sim_s": 26.5,
+      "robot_hits": 0,
+      "scan_compute_ms": null,
+      "provenance": {
+        "schema": 1,
+        "name": "calibration_world",
+        "assets_sha": "12a97516f57469078707afb587a5f84c1cb110d1",
+        "source_xml": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/T1_23dof.xml",
+          "sha256": "f00e3410362b1e2267e6db05d25c33d6240bbf2436d62a409f07042bad4f7fb2"
+        },
+        "layout": {
+          "path": "/home/haoyang/humanoid_nav_ws/src/t1_mujoco/worlds/calibration_world.yaml",
+          "sha256": "6f45a05d1b38bc9ad61d081f59bba3b8c4d20a2083d2b30d34e15f6cbecd0422"
+        },
+        "license": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/LICENSE",
+          "sha256": "056db8cc7dcb21feae042d97185d4689c21bb1ba7fe59cefdc7ef5917c0ea77f"
+        },
+        "meshes": {
+          "Trunk": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Trunk.STL",
+            "sha256": "39d9610b23ef8ac7ea4343231a499f9c485903bede62df9729a2cd1254fede8f"
+          },
+          "H1": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/H1.STL",
+            "sha256": "527a2e426db4e3d476a195754764b7f9565a950b809a34e47618f177b139c3f2"
+          },
+          "H2": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/H2.STL",
+            "sha256": "9cbf4fe83a721c809de65b1f0d0a379314f4523f7e2f8af7f0edc27c2ce385aa"
+          },
+          "AL1": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AL1.STL",
+            "sha256": "43f5d268152b3c169d34731545ddfa2a510a7e16f209a2a80f8ba9ae0e1a40aa"
+          },
+          "AL2": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AL2.STL",
+            "sha256": "4bca60adb29c73f701350abd23e8a8d660dc61e87c5163a80157650dd3ad88c3"
+          },
+          "AL3": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AL3.STL",
+            "sha256": "bfdf5611dfe90f8e02b07b037c36a244f4ce7184b45113371ef46e624fb30854"
+          },
+          "left_hand_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/left_hand_link.STL",
+            "sha256": "34df992aed438446481cfa20e78327810cd5cc5ecbb4a6f32ba2bf625462f53d"
+          },
+          "AR1": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AR1.STL",
+            "sha256": "6dbbd3dab4486600747be9d0e7f8523d67bf00d24d0dc9c23db1766c4d808fcf"
+          },
+          "AR2": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AR2.STL",
+            "sha256": "0499136785fe1bc0289d9e503e1e0ea48f5a63420a2e45b0fcd9e6b3bcf8f999"
+          },
+          "AR3": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AR3.STL",
+            "sha256": "92330bd8286fe420fb76949ee4c5d5bdec2e6bb30426acdc4d6fae9257464631"
+          },
+          "right_hand_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/right_hand_link.STL",
+            "sha256": "c5a73e493e17db7611a81785f80c01167f51018271b4042f72fa8d2351d8b0eb"
+          },
+          "Waist": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Waist.STL",
+            "sha256": "2fe0a9ccfc284beca402e554db38e83022592192afa00f02db13cb374ffe9fbc"
+          },
+          "Hip_Pitch_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Pitch_Left.STL",
+            "sha256": "7bcb8be569aeb5379cb75a0827d682bc1d73a52a7f515d3aeffece43842c33c9"
+          },
+          "Hip_Roll_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Roll_Left.STL",
+            "sha256": "72dbd65bdb4e87444c8e538474f631d63bf8c0960922517456b8cf2be9e1d0f0"
+          },
+          "Hip_Yaw_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Yaw_Left.STL",
+            "sha256": "8d7de83ab4034639db3d1be1e6f43ae16e004dc2f1c2bec170b615686d187918"
+          },
+          "Shank_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Shank_Left.STL",
+            "sha256": "6ae8dd7f88cb70a4a3cb3972cad4035a76f1604fd73ea66e285da553b3703c40"
+          },
+          "Ankle_Cross_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Ankle_Cross_Left.STL",
+            "sha256": "e6ec38741838475834c147f2ad18196c0254741e602c2b676f888fd12b5d7981"
+          },
+          "left_foot_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/left_foot_link.STL",
+            "sha256": "2de026f2269fc55f80d4a8abd2e33dfd152adf9eb2c240d7d7e1dc40c13b55aa"
+          },
+          "Hip_Pitch_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Pitch_Right.STL",
+            "sha256": "054d579c3c6ccc1f97aaf1461d802dec748ce1bf26c6fdd289283a2d0dbb2032"
+          },
+          "Hip_Roll_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Roll_Right.STL",
+            "sha256": "d715a7649ea4bf20d7ee17b3a57bae31732e467b9da1053fee2242c90f50980f"
+          },
+          "Hip_Yaw_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Yaw_Right.STL",
+            "sha256": "1a7d98e021884e313c55780a3c7c24ef2aa322807d8f9f8b18b2a63c7e2b9bf6"
+          },
+          "Shank_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Shank_Right.STL",
+            "sha256": "dc66a8a0e2e31e413884a053e427d9b5007bef4508986587916a638a8a448599"
+          },
+          "Ankle_Cross_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Ankle_Cross_Right.STL",
+            "sha256": "b15d91f0f2470fc4d5634db906a3d7efaf1f700302e6671824494da8faf50308"
+          },
+          "right_foot_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/right_foot_link.STL",
+            "sha256": "313a9ff2f95da5727dce2b98c50b60226bf0a3affc72050ee251ea503e4b370a"
+          },
+          "Logo": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Logo.STL",
+            "sha256": "221b00d090fdc9e684892805db75265c9688b152b3ccf641084f950f220596c8"
+          }
+        },
+        "scene_metadata": {
+          "schema": 1,
+          "source_model": "robots/T1/T1_23dof.xml",
+          "bounds": [
+            -2,
+            8,
+            -5,
+            5
+          ],
+          "initial_pose": [
+            0,
+            0,
+            0
+          ],
+          "goal": [
+            6,
+            0,
+            0
+          ],
+          "minimum_passage_m": 1.9,
+          "obstacle_height_m": 1.5,
+          "name": "calibration_world",
+          "purpose": "Axis-aligned wall calibration; known geometry for W08, no sensor implementation.",
+          "boxes": [],
+          "activity_regions": [],
+          "obstacle_slots": []
+        },
+        "dynamic_motion_implemented": false,
+        "expanded_xml": {
+          "path": "/home/haoyang/humanoid_nav_ws/run_data/cache/scenes/8da691dbfdacb23ade49e6bd4685f134d557eea08283c76515f050e8d93474c5/calibration_world.xml",
+          "sha256": "f2247f57bafb5e360abcb00991267564772ae2a3e39e0b0b59b4b1250f95ded7"
+        }
+      }
+    },
+    {
+      "enabled": true,
+      "phases": {
+        "standing": {
+          "sim_s": 3.0,
+          "scans": 30,
+          "point_count": 10800,
+          "displacement_m": [
+            -0.003941797366185712,
+            -0.01085395257341268
+          ],
+          "yaw_change_deg": 0.37179540422559887,
+          "end_yaw_deg": 0.37179540422559887,
+          "roll_pitch_span_deg": [
+            0.6600926707674314,
+            4.321985031340118
+          ],
+          "roll_pitch_abs_max_deg": [
+            0.5428783690265665,
+            3.053529541712325
+          ],
+          "wall_p95_m": 0.012535690010364349,
+          "wall_max_m": 0.033664748098907626,
+          "raw_wall_max_m": 1.7763568394002505e-15,
+          "known_min": 1.0
+        },
+        "forward": {
+          "sim_s": 3.0,
+          "scans": 30,
+          "point_count": 10800,
+          "displacement_m": [
+            0.8137222621006913,
+            0.044280432450072627
+          ],
+          "yaw_change_deg": 1.7648732741790356,
+          "end_yaw_deg": 2.1366686784046345,
+          "roll_pitch_span_deg": [
+            5.953082587203801,
+            4.667214536238387
+          ],
+          "roll_pitch_abs_max_deg": [
+            3.959991605627521,
+            2.763016250013891
+          ],
+          "wall_p95_m": 0.009884272801625014,
+          "wall_max_m": 0.0329168637111148,
+          "raw_wall_max_m": 1.7763568394002505e-15,
+          "known_min": 1.0
+        },
+        "stop1": {
+          "sim_s": 4.0,
+          "scans": 40,
+          "point_count": 14400,
+          "displacement_m": [
+            0.12670736873595623,
+            -0.018568874202541236
+          ],
+          "yaw_change_deg": 0.8576139986784627,
+          "end_yaw_deg": 2.9942826770830973,
+          "roll_pitch_span_deg": [
+            5.681370745472466,
+            2.4789671690890356
+          ],
+          "roll_pitch_abs_max_deg": [
+            3.2108108450637975,
+            3.2866391881675674
+          ],
+          "wall_p95_m": 0.005988881614566353,
+          "wall_max_m": 0.021064489427424782,
+          "raw_wall_max_m": 1.7763568394002505e-15,
+          "known_min": 1.0
+        },
+        "turn90": {
+          "sim_s": 4.5,
+          "scans": 45,
+          "point_count": 16200,
+          "displacement_m": [
+            0.09097883340916857,
+            -0.06472229238735173
+          ],
+          "yaw_change_deg": 143.94842035155432,
+          "end_yaw_deg": 146.94270302863742,
+          "roll_pitch_span_deg": [
+            3.124566927415572,
+            4.889904801858828
+          ],
+          "roll_pitch_abs_max_deg": [
+            2.0540685981367592,
+            3.783207499257022
+          ],
+          "wall_p95_m": 0.008129168966077094,
+          "wall_max_m": 0.03515532340298133,
+          "raw_wall_max_m": 1.7763568394002505e-15,
+          "known_min": 1.0
+        },
+        "stop2": {
+          "sim_s": 4.0,
+          "scans": 40,
+          "point_count": 14400,
+          "displacement_m": [
+            -0.0057726249011600395,
+            -0.0009671455910804927
+          ],
+          "yaw_change_deg": -9.965795985329814,
+          "end_yaw_deg": 136.97690704330762,
+          "roll_pitch_span_deg": [
+            0.3273085429858014,
+            1.5010587697792743
+          ],
+          "roll_pitch_abs_max_deg": [
+            0.6845294547392626,
+            1.2152796532590284
+          ],
+          "wall_p95_m": 0.005163007733850441,
+          "wall_max_m": 0.011321309766968657,
+          "raw_wall_max_m": 1.7763568394002505e-15,
+          "known_min": 1.0
+        },
+        "rotated_forward": {
+          "sim_s": 4.0,
+          "scans": 40,
+          "point_count": 14400,
+          "displacement_m": [
+            -0.8897855841825022,
+            0.7477970363720011
+          ],
+          "yaw_change_deg": 2.408569286544663,
+          "end_yaw_deg": 139.38547632985228,
+          "roll_pitch_span_deg": [
+            5.548013454674242,
+            4.804632994558445
+          ],
+          "roll_pitch_abs_max_deg": [
+            3.9901159187359307,
+            2.8631745129374435
+          ],
+          "wall_p95_m": 0.009185095838925225,
+          "wall_max_m": 0.03578831347998257,
+          "raw_wall_max_m": 1.7763568394002505e-15,
+          "known_min": 1.0
+        },
+        "stop3": {
+          "sim_s": 4.0,
+          "scans": 40,
+          "point_count": 14400,
+          "displacement_m": [
+            -0.07113877626803583,
+            0.11023079110033285
+          ],
+          "yaw_change_deg": 1.7348899516581557,
+          "end_yaw_deg": 141.12036628151043,
+          "roll_pitch_span_deg": [
+            5.3805343406821775,
+            2.1434730983353183
+          ],
+          "roll_pitch_abs_max_deg": [
+            2.7207173217803957,
+            3.100545536216614
+          ],
+          "wall_p95_m": 0.010758267140314512,
+          "wall_max_m": 0.030144298123853996,
+          "raw_wall_max_m": 1.7763568394002505e-15,
+          "known_min": 1.0
+        }
+      },
+      "checks": {
+        "physical_state_unchanged": true,
+        "no_fall": true,
+        "no_environment_contact_at_policy_samples": true,
+        "actual_turn_near_90": false,
+        "forward_displacement": true,
+        "rotated_forward_displacement": false,
+        "wall_p95_under_8cm": true,
+        "wall_max_under_12cm": true,
+        "raw_wall_under_1nm": true,
+        "robot_hits_zero": true,
+        "sample_p95_under_50ms": true,
+        "tf_origin_consistent": true,
+        "sensor_health_blocks_command": true,
+        "fresh_healthy_command_resumes": true,
+        "reset_requires_new_scan": true
+      },
+      "qpos_qvel_max_error": 0.0,
+      "min_trunk_z_m": 0.6195557038722014,
+      "wall_s": 1.9321992410004896,
+      "sim_s": 26.5,
+      "robot_hits": 0,
+      "scan_compute_ms": {
+        "p50": 0.9560070002407883,
+        "p95": 1.5444103997651832,
+        "max": 2.3914040002637194
+      },
+      "provenance": {
+        "schema": 1,
+        "name": "calibration_world",
+        "assets_sha": "12a97516f57469078707afb587a5f84c1cb110d1",
+        "source_xml": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/T1_23dof.xml",
+          "sha256": "f00e3410362b1e2267e6db05d25c33d6240bbf2436d62a409f07042bad4f7fb2"
+        },
+        "layout": {
+          "path": "/home/haoyang/humanoid_nav_ws/src/t1_mujoco/worlds/calibration_world.yaml",
+          "sha256": "6f45a05d1b38bc9ad61d081f59bba3b8c4d20a2083d2b30d34e15f6cbecd0422"
+        },
+        "license": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/LICENSE",
+          "sha256": "056db8cc7dcb21feae042d97185d4689c21bb1ba7fe59cefdc7ef5917c0ea77f"
+        },
+        "meshes": {
+          "Trunk": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Trunk.STL",
+            "sha256": "39d9610b23ef8ac7ea4343231a499f9c485903bede62df9729a2cd1254fede8f"
+          },
+          "H1": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/H1.STL",
+            "sha256": "527a2e426db4e3d476a195754764b7f9565a950b809a34e47618f177b139c3f2"
+          },
+          "H2": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/H2.STL",
+            "sha256": "9cbf4fe83a721c809de65b1f0d0a379314f4523f7e2f8af7f0edc27c2ce385aa"
+          },
+          "AL1": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AL1.STL",
+            "sha256": "43f5d268152b3c169d34731545ddfa2a510a7e16f209a2a80f8ba9ae0e1a40aa"
+          },
+          "AL2": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AL2.STL",
+            "sha256": "4bca60adb29c73f701350abd23e8a8d660dc61e87c5163a80157650dd3ad88c3"
+          },
+          "AL3": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AL3.STL",
+            "sha256": "bfdf5611dfe90f8e02b07b037c36a244f4ce7184b45113371ef46e624fb30854"
+          },
+          "left_hand_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/left_hand_link.STL",
+            "sha256": "34df992aed438446481cfa20e78327810cd5cc5ecbb4a6f32ba2bf625462f53d"
+          },
+          "AR1": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AR1.STL",
+            "sha256": "6dbbd3dab4486600747be9d0e7f8523d67bf00d24d0dc9c23db1766c4d808fcf"
+          },
+          "AR2": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AR2.STL",
+            "sha256": "0499136785fe1bc0289d9e503e1e0ea48f5a63420a2e45b0fcd9e6b3bcf8f999"
+          },
+          "AR3": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AR3.STL",
+            "sha256": "92330bd8286fe420fb76949ee4c5d5bdec2e6bb30426acdc4d6fae9257464631"
+          },
+          "right_hand_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/right_hand_link.STL",
+            "sha256": "c5a73e493e17db7611a81785f80c01167f51018271b4042f72fa8d2351d8b0eb"
+          },
+          "Waist": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Waist.STL",
+            "sha256": "2fe0a9ccfc284beca402e554db38e83022592192afa00f02db13cb374ffe9fbc"
+          },
+          "Hip_Pitch_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Pitch_Left.STL",
+            "sha256": "7bcb8be569aeb5379cb75a0827d682bc1d73a52a7f515d3aeffece43842c33c9"
+          },
+          "Hip_Roll_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Roll_Left.STL",
+            "sha256": "72dbd65bdb4e87444c8e538474f631d63bf8c0960922517456b8cf2be9e1d0f0"
+          },
+          "Hip_Yaw_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Yaw_Left.STL",
+            "sha256": "8d7de83ab4034639db3d1be1e6f43ae16e004dc2f1c2bec170b615686d187918"
+          },
+          "Shank_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Shank_Left.STL",
+            "sha256": "6ae8dd7f88cb70a4a3cb3972cad4035a76f1604fd73ea66e285da553b3703c40"
+          },
+          "Ankle_Cross_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Ankle_Cross_Left.STL",
+            "sha256": "e6ec38741838475834c147f2ad18196c0254741e602c2b676f888fd12b5d7981"
+          },
+          "left_foot_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/left_foot_link.STL",
+            "sha256": "2de026f2269fc55f80d4a8abd2e33dfd152adf9eb2c240d7d7e1dc40c13b55aa"
+          },
+          "Hip_Pitch_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Pitch_Right.STL",
+            "sha256": "054d579c3c6ccc1f97aaf1461d802dec748ce1bf26c6fdd289283a2d0dbb2032"
+          },
+          "Hip_Roll_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Roll_Right.STL",
+            "sha256": "d715a7649ea4bf20d7ee17b3a57bae31732e467b9da1053fee2242c90f50980f"
+          },
+          "Hip_Yaw_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Yaw_Right.STL",
+            "sha256": "1a7d98e021884e313c55780a3c7c24ef2aa322807d8f9f8b18b2a63c7e2b9bf6"
+          },
+          "Shank_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Shank_Right.STL",
+            "sha256": "dc66a8a0e2e31e413884a053e427d9b5007bef4508986587916a638a8a448599"
+          },
+          "Ankle_Cross_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Ankle_Cross_Right.STL",
+            "sha256": "b15d91f0f2470fc4d5634db906a3d7efaf1f700302e6671824494da8faf50308"
+          },
+          "right_foot_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/right_foot_link.STL",
+            "sha256": "313a9ff2f95da5727dce2b98c50b60226bf0a3affc72050ee251ea503e4b370a"
+          },
+          "Logo": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Logo.STL",
+            "sha256": "221b00d090fdc9e684892805db75265c9688b152b3ccf641084f950f220596c8"
+          }
+        },
+        "scene_metadata": {
+          "schema": 1,
+          "source_model": "robots/T1/T1_23dof.xml",
+          "bounds": [
+            -2,
+            8,
+            -5,
+            5
+          ],
+          "initial_pose": [
+            0,
+            0,
+            0
+          ],
+          "goal": [
+            6,
+            0,
+            0
+          ],
+          "minimum_passage_m": 1.9,
+          "obstacle_height_m": 1.5,
+          "name": "calibration_world",
+          "purpose": "Axis-aligned wall calibration; known geometry for W08, no sensor implementation.",
+          "boxes": [],
+          "activity_regions": [],
+          "obstacle_slots": []
+        },
+        "dynamic_motion_implemented": false,
+        "expanded_xml": {
+          "path": "/home/haoyang/humanoid_nav_ws/run_data/cache/scenes/8da691dbfdacb23ade49e6bd4685f134d557eea08283c76515f050e8d93474c5/calibration_world.xml",
+          "sha256": "f2247f57bafb5e360abcb00991267564772ae2a3e39e0b0b59b4b1250f95ded7"
+        }
+      }
+    }
+  ],
+  "verdict": "FAIL"
+}
