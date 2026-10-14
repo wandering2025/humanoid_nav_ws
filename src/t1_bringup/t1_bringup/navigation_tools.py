@@ -90,9 +90,9 @@ def navigate(argv=None):
     parser.add_argument('--xy-tolerance', type=float, default=0.20, help='verified map position tolerance (m)')
     parser.add_argument('--yaw-tolerance', type=float, default=0.20, help='verified map yaw tolerance (rad)')
     parser.add_argument('--terminal-retries', type=int, default=3)
-    parser.add_argument('--approach-distance', type=float, default=1.0,
+    parser.add_argument('--approach-distance', type=float, default=1.5,
                         help='m; walk the last segment along the goal heading (0 disables)')
-    parser.add_argument('--retry-gain', type=float, default=0.7,
+    parser.add_argument('--retry-gain', type=float, default=1.0,
                         help='terminal retry aims past the goal yaw by gain*residual (clamped 0.5 rad)')
     parser.add_argument('--approach-pass-radius', type=float, default=0.35,
                         help='m; preempt the staging waypoint with the goal once this close')

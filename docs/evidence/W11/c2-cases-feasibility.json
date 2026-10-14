@@ -1,6 +1,6 @@
 {
   "minimum_m": 2.25,
-  "approach_m": 1.0,
+  "approach_m": 1.5,
   "cases": [
     {
       "id": "S01",
@@ -15,7 +15,7 @@
         0.0
       ],
       "approach_waypoint": [
-        0.75,
+        0.25,
         0.0
       ],
       "clearance_m": {
@@ -40,7 +40,7 @@
         0.0
       ],
       "approach_waypoint": [
-        1.5,
+        1.0,
         2.75
       ],
       "clearance_m": {
@@ -65,8 +65,8 @@
         -1.5708
       ],
       "approach_waypoint": [
-        8.000003673205104,
-        0.9999999999932537
+        8.000005509807655,
+        1.4999999999898805
       ],
       "clearance_m": {
         "start": 2.5,
@@ -90,7 +90,7 @@
         0.0
       ],
       "approach_waypoint": [
-        8.0,
+        7.5,
         0.0
       ],
       "clearance_m": {
@@ -115,8 +115,8 @@
         1.5708
       ],
       "approach_waypoint": [
-        3.673205103346574e-06,
-        -0.9999999999932537
+        5.509807655019861e-06,
+        -1.4999999999898805
       ],
       "clearance_m": {
         "start": 2.421,
@@ -140,7 +140,7 @@
         0.0
       ],
       "approach_waypoint": [
-        8.0,
+        7.5,
         0.0
       ],
       "clearance_m": {
@@ -165,7 +165,7 @@
         0.0
       ],
       "approach_waypoint": [
-        1.5,
+        1.0,
         2.75
       ],
       "clearance_m": {
@@ -190,13 +190,13 @@
         3.1416
       ],
       "approach_waypoint": [
-        1.9999999999730151,
-        -2.749992653589793
+        2.4999999999595226,
+        -2.74998898038469
       ],
       "clearance_m": {
         "start": 2.5,
         "goal": 2.75,
-        "approach_segment": 2.75
+        "approach_segment": 2.704
       },
       "straight_line_min_clearance_m": 2.5,
       "straight_line_blocked": false,

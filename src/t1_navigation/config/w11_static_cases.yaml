@@ -10,7 +10,7 @@ criteria:
   yaw_deg: 20.0
   settle_s: 2.0          # W05 stationary: 0.5 s window, <0.05 m/s and <0.05 rad/s
   time_limit_s: 120.0    # simulation time from first goal acceptance
-# Registration constraint (W11 C2, bipedal): every goal admits a 1.0 m straight
+# Registration constraint (W11 C2, bipedal): every goal admits a 1.5 m straight
 # walking approach along its heading in navigation free space, because in-place
 # final alignment lands short by its rebound. Starts, goals and approach waypoints
 # keep >=2.25 m clearance to every surface (docs/evidence/W11/c2-cases-feasibility.json).

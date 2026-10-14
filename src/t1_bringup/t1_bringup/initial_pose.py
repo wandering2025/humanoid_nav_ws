@@ -26,9 +26,13 @@ def main():
     try:
         deadline = time.monotonic()+60
         active = False
+        ready_since = None
         while time.monotonic() < deadline:
             rclpy.spin_once(node, timeout_sec=.1)
-            if client.service_is_ready():
+            if client.service_is_ready() and ready_since is None:
+                ready_since = time.monotonic()
+            # Let the response path finish discovery before the first request.
+            if ready_since is not None and time.monotonic()-ready_since >= 1.0:
                 future = client.call_async(GetState.Request())
                 rclpy.spin_until_future_complete(node, future, timeout_sec=1)
                 active = future.done() and future.result().current_state.id == 3

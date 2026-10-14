@@ -222,15 +222,9 @@ def episode(label, start, goal, tol, time_limit, rviz=False, case_id=None, seed=
     try:
         run.ready()
         run.until(lambda: any(e['kind'] == 'gate' for e in run.node.events), 30)
-        lifecycle = run.node.create_client(GetState, '/bt_navigator/get_state')
-        def nav_active():
-            if not lifecycle.service_is_ready():
-                return False
-            future = lifecycle.call_async(GetState.Request())
-            end = time.monotonic()+2
-            while not future.done() and time.monotonic() < end:
-                run.spin()
-            return future.done() and future.result().current_state.id == 3
+        # No lifecycle service polling during bringup (it raced AMCL/bt_navigator
+        # transitions); the starter prints this line after STARTUP succeeded.
+        nav_active = lambda: '"starter": "navigation active"' in run.log_path.read_text(errors='replace')
         run.until(nav_active, 120)
         result['nav_active_sim'] = run.node.sim
         params, param_ok = check_parameters(run)
@@ -356,14 +350,7 @@ def cancel_replace(cases):
         raise AssertionError('arm failed')
     try:
         run.ready()
-        lifecycle = run.node.create_client(GetState, '/bt_navigator/get_state')
-        def active():
-            if not lifecycle.service_is_ready():
-                return False
-            f = lifecycle.call_async(GetState.Request())
-            run.until(f.done, 5)
-            return f.result().current_state.id == 3
-        run.until(active, 120)
+        run.until(lambda: '"starter": "navigation active"' in run.log_path.read_text(errors='replace'), 120)
         run.until(lambda: client.server_is_ready(), 30)
         arm()
         h1 = send(g1)

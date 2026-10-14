@@ -90,11 +90,10 @@ controller_server:
       wz_std: 0.3
       # 0.45: walking turn radius 0.45/0.45 = 1.0 m and <=0.245 m stop distance (W05).
       vx_max: 0.45
-      # Walking-only sampling: the T1 gait cannot creep below 0.315 m/s (W05). MPPI's
-      # low-speed blends of creep+turn were zeroed or became sideways walking after
-      # shaping (W11 C2). In-place turns come from RotationShim, stops from the goal
-      # checker; the adapter zero/lift rules still apply to every output.
-      vx_min: 0.33
+      # vx_min 0: MPPI must be able to plan stopping. Walking-only sampling (0.33)
+      # left no collision-free 2.8 s trajectory near goals 2.4 m from a wall (W11 C2).
+      # The adapter maps its sub-gait requests by curvature (ADR-016).
+      vx_min: 0.0
       vy_max: 0.0
       wz_max: 0.45
       prune_distance: 2.5
@@ -294,8 +293,11 @@ t1_navigation_adapter:
     input_timeout_s: 0.15
     # Pre-collision-monitor shaping (ADR-016). Below these a request is zeroed;
     # between them and the W05 minimum it is raised to the minimum.
-    vx_lift_threshold: 0.05
+    vx_lift_threshold: 0.01
     vx_lift_target: 0.33
+    # Sub-gait requests curving tighter than the W05 walking minimum radius
+    # vx_min/wz_walking_max = 0.70 m become in-place turns instead of lifted walking.
+    min_walking_radius: 0.70
     wz_lift_threshold: 0.20
     wz_in_place_target: 0.60
 

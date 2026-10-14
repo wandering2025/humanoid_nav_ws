@@ -34,9 +34,12 @@ def load_envelope(path):
                 in_place=caps['in_place_turn_allowed'])
 
 
-def shape(vx, wz, env, vx_lift_threshold, vx_lift_target, wz_lift_threshold, wz_in_place_target):
+def shape(vx, wz, env, vx_lift_threshold, vx_lift_target, wz_lift_threshold, wz_in_place_target,
+          min_walking_radius=0.70):
     """Map a Nav2 (vx, wz) request into the W05 feasible set. Returns (vx, wz, reason).
 
+    Below the gait minimum, the request's curvature decides: tighter than the walking
+    minimum radius -> in-place turn, otherwise -> slowest calibrated walk.
     Non-finite input is passed through unchanged so the W10 gate latches it.
     """
     if not (math.isfinite(vx) and math.isfinite(wz)):
@@ -49,6 +52,10 @@ def shape(vx, wz, env, vx_lift_threshold, vx_lift_target, wz_lift_threshold, wz_
         if abs(wz) > env['wz_walking_max']:
             wz, reasons = math.copysign(env['wz_walking_max'], wz), reasons + ['wz_walking_clipped']
         return vx, wz, ','.join(reasons) or 'walk'
+    turning = env['in_place'] and abs(wz) >= wz_lift_threshold
+    if turning and vx < min_walking_radius*abs(wz):
+        target = min(max(abs(wz), wz_in_place_target, env['wz_in_place_min']), env['wz_in_place_max'])
+        return 0.0, math.copysign(target, wz), ','.join(reasons + ['in_place'])
     if vx >= vx_lift_threshold:
         vx = vx_lift_target
         if abs(wz) > env['wz_walking_max']:
@@ -84,7 +91,8 @@ def main(args=None):
             self.shaping = dict(vx_lift_threshold=float(get('vx_lift_threshold', .16)),
                                 vx_lift_target=float(get('vx_lift_target', .33)),
                                 wz_lift_threshold=float(get('wz_lift_threshold', .2)),
-                                wz_in_place_target=float(get('wz_in_place_target', .6)))
+                                wz_in_place_target=float(get('wz_in_place_target', .6)),
+                                min_walking_radius=float(get('min_walking_radius', .70)))
             s = self.shaping
             if not (0 < s['vx_lift_threshold'] < self.env['vx_min'] <= s['vx_lift_target'] <= self.env['vx_max']):
                 raise ValueError('vx lift must raise sub-gait requests to [vx_min, vx_max]')

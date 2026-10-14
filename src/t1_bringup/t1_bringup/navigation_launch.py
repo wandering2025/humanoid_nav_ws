@@ -55,14 +55,15 @@ def actions(context):
     delay = float(LaunchConfiguration('nav_start_delay').perform(context))
     if not 0 <= delay <= 60:
         raise RuntimeError('nav_start_delay must be within [0, 60] wall seconds')
-    actions = [TimerAction(period=delay, actions=nodes)]
     pose = LaunchConfiguration('initial_pose').perform(context).split()
     if pose:
         if len(pose) != 3:
             raise RuntimeError("initial_pose must be 'x y yaw' or empty")
-        actions.append(ExecuteProcess(cmd=['ros2', 'run', 't1_bringup', 'initial_pose', *pose],
-                                      output='screen', name='t1_initial_pose_once'))
-    return actions
+        # Also delayed: polling /amcl/get_state during the initial discovery burst made
+        # AMCL's response time out and blocked its lifecycle bringup (W11 C2).
+        nodes.append(ExecuteProcess(cmd=['ros2', 'run', 't1_bringup', 'initial_pose', *pose],
+                                    output='screen', name='t1_initial_pose_once'))
+    return [TimerAction(period=delay, actions=nodes)]
 
 
 def full_actions(context):
