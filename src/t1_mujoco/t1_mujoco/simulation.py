@@ -26,8 +26,10 @@ def parameter_defaults():
 def validate_parameters(p):
     from .lidar_config import LidarConfig
     LidarConfig(noise_std=p['lidar_noise_std'], dropout=p['lidar_dropout'], seed=p['seed'])
-    if p['mode'] != 'sim_only':
-        raise ValueError('W04 implements sim_only only; mapping/navigation/evaluation are not available')
+    if p['mode'] not in ('sim_only', 'mapping', 'localization'):
+        raise ValueError('navigation/evaluation require W10/W11')
+    if p['mode'] != 'sim_only' and p['enable_policy_cmd_input']:
+        raise ValueError('mapping/localization forbid policy debug commands')
     if p['command_map_file'] and not Path(p['command_map_file']).is_absolute():
         raise ValueError('command_map_file must be absolute (empty = uncalibrated, /cmd_vel rejected)')
     for name in ('target_rtf','max_sim_time','warmup_sim_s','cmd_timeout_sim','cmd_timeout_wall','viewer_rate_hz'):

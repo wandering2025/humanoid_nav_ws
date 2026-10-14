@@ -10,12 +10,12 @@ from launch.substitutions import EnvironmentVariable, LaunchConfiguration
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
 
-MODES = ('sim_only', 'mapping', 'navigation', 'evaluation')
+MODES = ('sim_only', 'mapping', 'localization', 'navigation', 'evaluation')
 
 
-def launch_arguments():
+def launch_arguments(default_mode='sim_only'):
     return [
-        DeclareLaunchArgument('mode', default_value='sim_only', choices=MODES),
+        DeclareLaunchArgument('mode', default_value=default_mode, choices=MODES),
         DeclareLaunchArgument('use_sim_time', default_value='true', choices=['true', 'false']),
         DeclareLaunchArgument('upstream_path', default_value=EnvironmentVariable('T1_UPSTREAM', default_value='')),
         DeclareLaunchArgument('assets_path', default_value=EnvironmentVariable('T1_ASSETS', default_value='')),
@@ -30,8 +30,8 @@ def validate_request(mode, enable_sim):
         raise RuntimeError(f'Unknown mode {mode!r}; expected one of {MODES}')
     if enable_sim not in ('true', 'false'):
         raise RuntimeError('enable_sim must be true or false')
-    if enable_sim == 'true' and mode != 'sim_only':
-        raise RuntimeError('W04 simulation supports sim_only; future modes are not implemented')
+    if enable_sim == 'true' and mode in ('navigation', 'evaluation'):
+        raise RuntimeError('navigation/evaluation require W10/W11; use mapping or localization for W09')
 
 
 def diagnostic_actions(context):
@@ -55,12 +55,12 @@ def diagnostic_actions(context):
     return [RegisterEventHandler(OnProcessExit(target_action=node, on_exit=finished)), node]
 
 
-def simulation_arguments():
+def simulation_arguments(default_scene='', map_rviz=False):
     return [DeclareLaunchArgument(name, default_value=default) for name, default in (
         ('headless', 'true'), ('target_rtf', '1.0'), ('enable_policy_cmd_input', 'false'),
-        ('max_sim_time', '0.0'), ('scene', ''), ('run_id', ''),
+        ('max_sim_time', '0.0'), ('scene', default_scene), ('run_id', ''),
         ('rviz', 'false'),
-        ('rviz_config', str(Path(get_package_share_directory('t1_description')) / 'config/scene.rviz')),
+        ('rviz_config', str(Path(get_package_share_directory('t1_navigation' if map_rviz else 't1_description')) / ('config/mapping.rviz' if map_rviz else 'config/scene.rviz'))),
         # W05 calibrated v_des->u_pol contract; '' keeps /cmd_vel UNCALIBRATED.
         ('command_map_file', str(Path(get_package_share_directory('t1_mujoco')) / 'config/command_map.yaml')),
     )]
@@ -78,6 +78,11 @@ def simulation_actions(context):
                   ('upstream_path', str), ('assets_path', str), ('mode', str), ('task', str),
                   ('headless', bool), ('target_rtf', float), ('enable_policy_cmd_input', bool),
                   ('max_sim_time', float), ('scene', str), ('run_id', str), ('command_map_file', str))}
+    if LaunchConfiguration('mode').perform(context) != 'sim_only':
+        if LaunchConfiguration('enable_policy_cmd_input').perform(context) != 'false':
+            raise RuntimeError('mapping/localization forbid policy debug commands')
+        if not LaunchConfiguration('command_map_file').perform(context):
+            raise RuntimeError('mapping/localization require calibrated command_map_file')
     values['use_sim_time'] = False
     node = Node(package='t1_mujoco', executable='t1_sim', name='t1_sim', output='screen',
                 parameters=[str(params_file), values])

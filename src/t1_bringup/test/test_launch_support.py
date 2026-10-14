@@ -2,9 +2,9 @@ import pytest
 from t1_bringup.launch_support import validate_request
 
 
-@pytest.mark.parametrize('mode', ['mapping', 'navigation', 'evaluation'])
+@pytest.mark.parametrize('mode', ['navigation', 'evaluation'])
 def test_future_simulation_cannot_silently_start(mode):
-    with pytest.raises(RuntimeError, match='W04 simulation supports sim_only'):
+    with pytest.raises(RuntimeError, match='require W10/W11'):
         validate_request(mode, 'true')
 
 
@@ -20,3 +20,8 @@ def test_invalid_boolean():
 
 def test_sim_only_enabled():
     validate_request('sim_only', 'true')
+
+
+@pytest.mark.parametrize("mode", ["mapping", "localization"])
+def test_w09_modes_enabled(mode):
+    validate_request(mode, "true")

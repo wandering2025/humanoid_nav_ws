@@ -5,7 +5,7 @@ import importlib
 from pathlib import Path
 import sys
 
-MODES = ('sim_only', 'mapping', 'navigation', 'evaluation')
+MODES = ('sim_only', 'mapping', 'localization', 'navigation', 'evaluation')
 
 
 class RuntimeSetupError(RuntimeError):
