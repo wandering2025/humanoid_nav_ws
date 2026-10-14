@@ -30,9 +30,17 @@ for slot in [None] + [s['name'] for s in layout['obstacle_slots']]:
         item.update(ray_distance_m=float(distance), ray_hit=mujoco.mj_id2name(model, mujoco.mjtObj.mjOBJ_GEOM, int(hit[0])),
                     collision_enabled=int(geom.contype[0]) == 1 and int(geom.conaffinity[0]) == 1,
                     ray_hits_obstacle=int(hit[0]) == geom.id)
+        # Isolated contact fixture: move only the mocap onto the frozen T1 torso.
+        # No robot qpos edits or walking claim; not a formal navigation episode.
+        data.mocap_pos[0] = data.xpos[model.body('trunk').id]
+        mujoco.mj_forward(model, data)
+        pairs = [(int(c.geom1),int(c.geom2)) for c in data.contact[:data.ncon]
+                 if int(c.geom1)==geom.id or int(c.geom2)==geom.id]
+        item['physical_contacts_detected'] = len(pairs)
+        item['contact_pairs'] = [[mujoco.mj_id2name(model,mujoco.mjtObj.mjOBJ_GEOM,g) for g in pair] for pair in pairs[:3]]
     item['ok'] = ((model.nq, model.nv, model.nu) == (30, 29, 23)
                   and model.nmocap == (1 if slot else 0)
-                  and (not slot or item['collision_enabled'] and item['ray_hits_obstacle']))
+                  and (not slot or item['collision_enabled'] and item['ray_hits_obstacle'] and item['physical_contacts_detected'] > 0))
     rows.append(item)
 points = [('A', (0, 0))] + [(f'route{i}', p) for i, p in enumerate(ROUTE)]
 legs = list(zip([(0, 0)] + ROUTE[:-1], ROUTE))

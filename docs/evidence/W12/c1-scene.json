@@ -18,6 +18,21 @@
       "ray_hit": "obstacle_crossing_slot",
       "collision_enabled": true,
       "ray_hits_obstacle": true,
+      "physical_contacts_detected": 53,
+      "contact_pairs": [
+        [
+          "t1_geom_002",
+          "obstacle_crossing_slot"
+        ],
+        [
+          "t1_geom_002",
+          "obstacle_crossing_slot"
+        ],
+        [
+          "t1_geom_002",
+          "obstacle_crossing_slot"
+        ]
+      ],
       "ok": true
     },
     {
@@ -30,6 +45,21 @@
       "ray_hit": "obstacle_blocking_slot",
       "collision_enabled": true,
       "ray_hits_obstacle": true,
+      "physical_contacts_detected": 61,
+      "contact_pairs": [
+        [
+          "t1_geom_002",
+          "obstacle_blocking_slot"
+        ],
+        [
+          "t1_geom_002",
+          "obstacle_blocking_slot"
+        ],
+        [
+          "t1_geom_002",
+          "obstacle_blocking_slot"
+        ]
+      ],
       "ok": true
     },
     {
@@ -42,6 +72,21 @@
       "ray_hit": "obstacle_approach_slot",
       "collision_enabled": true,
       "ray_hits_obstacle": true,
+      "physical_contacts_detected": 53,
+      "contact_pairs": [
+        [
+          "t1_geom_002",
+          "obstacle_approach_slot"
+        ],
+        [
+          "t1_geom_002",
+          "obstacle_approach_slot"
+        ],
+        [
+          "t1_geom_002",
+          "obstacle_approach_slot"
+        ]
+      ],
       "ok": true
     }
   ],

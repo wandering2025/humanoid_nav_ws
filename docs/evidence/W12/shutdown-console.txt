@@ -1,0 +1,10 @@
+EXIT {'index': 0, 'exit_code': 0, 'traceback': False, 'invalid_context': False}
+EXIT {'index': 1, 'exit_code': 0, 'traceback': False, 'invalid_context': False}
+EXIT {'index': 2, 'exit_code': 0, 'traceback': False, 'invalid_context': False}
+EXIT {'index': 3, 'exit_code': 0, 'traceback': False, 'invalid_context': False}
+EXIT {'index': 4, 'exit_code': 0, 'traceback': False, 'invalid_context': False}
+EXIT {'index': 5, 'exit_code': 0, 'traceback': False, 'invalid_context': False}
+EXIT {'index': 6, 'exit_code': 0, 'traceback': False, 'invalid_context': False}
+EXIT {'index': 7, 'exit_code': 0, 'traceback': False, 'invalid_context': False}
+EXIT {'index': 8, 'exit_code': 0, 'traceback': False, 'invalid_context': False}
+EXIT {'index': 9, 'exit_code': 0, 'traceback': False, 'invalid_context': False}

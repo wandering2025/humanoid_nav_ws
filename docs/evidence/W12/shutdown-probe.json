@@ -1,0 +1,65 @@
+{
+  "verdict": "PASS",
+  "trials": [
+    {
+      "index": 0,
+      "exit_code": 0,
+      "traceback": false,
+      "invalid_context": false
+    },
+    {
+      "index": 1,
+      "exit_code": 0,
+      "traceback": false,
+      "invalid_context": false
+    },
+    {
+      "index": 2,
+      "exit_code": 0,
+      "traceback": false,
+      "invalid_context": false
+    },
+    {
+      "index": 3,
+      "exit_code": 0,
+      "traceback": false,
+      "invalid_context": false
+    },
+    {
+      "index": 4,
+      "exit_code": 0,
+      "traceback": false,
+      "invalid_context": false
+    },
+    {
+      "index": 5,
+      "exit_code": 0,
+      "traceback": false,
+      "invalid_context": false
+    },
+    {
+      "index": 6,
+      "exit_code": 0,
+      "traceback": false,
+      "invalid_context": false
+    },
+    {
+      "index": 7,
+      "exit_code": 0,
+      "traceback": false,
+      "invalid_context": false
+    },
+    {
+      "index": 8,
+      "exit_code": 0,
+      "traceback": false,
+      "invalid_context": false
+    },
+    {
+      "index": 9,
+      "exit_code": 0,
+      "traceback": false,
+      "invalid_context": false
+    }
+  ]
+}

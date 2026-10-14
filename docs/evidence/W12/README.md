@@ -1,5 +1,7 @@
 # W12 动态障碍与传感器闭环证据
 
+W12 C1–C4通过原单步冒烟门槛。最终审计32/32、system colcon四包构建及116 tests（0失败）通过。正式动态结果：横穿3/3、长期阻塞1/3、突然接近3/3，共7/9成功；全部无环境/障碍/非足地面接触及跌倒。静态S03绕岛回归通过（truth .125m/5.85°、46.04s到Nav2成功）；默认S04与等待进近选项各一次超时均保留。
+
 W12按单步文件的冒烟门槛验收：每类运行三次，每类至少一次完整成功；所有正式运行保留结果。W13可靠率评测未开始。最终计数和逐项审计见 `final-verification.json`；九例详情见 `smoke-suite.json`、每例 JSON/CSV。`smoke-suite.json.verdict`额外要求九例全部成功，因此包含已记录的导航失败时为FAIL。
 
 运行使用Booster T1官方策略与MuJoCo接触动力学。没有机器人基座位姿行走替代，没有人工中途速度救场。目标用 `navigate_to_pose 9 0 0`，沿用显式arm、分段进近、定位静止核验、.30m/20°/2s真值门槛和120s任务上限。Nav2、安全区及命令整形沿用W11/W10；动态场独立AMCL配置仅将sigma_hit从.1m改为.05m。`static_world`场景、地图及W11证据按起始哈希检查保持。
@@ -13,7 +15,7 @@ W12按单步文件的冒烟门槛验收：每类运行三次，每类至少一�
 - blocking：.6m/s进入(4.5,0)，至少保持180s；机器人行走且x≥.25触发，要求到达期间实体不移除且真实绕行。
 - approach：.6m/s进入(6,0)、保持3s后退到y3；机器人行走且x≥3.2触发。轴向初始间距约2.55m，保留.245m机器人制动、障碍继续推进及传感器/控制延迟余量；接近体必须撤离以释放B的1.5m进近走廊。
 
-`c1-scene.json`核对真实模型nq30/nv29/nu23，mapping nmocap0、事件运行nmocap1，实际mj_ray命中实体，碰撞位打开；六段建图路线净距最小2.386m。`c1-event-lifecycle.json`为真实步行触发后的ROS暂停/复位复验。
+`c1-scene.json`核对真实模型nq30/nv29/nu23，mapping nmocap0、事件运行nmocap1，实际mj_ray命中实体，碰撞位打开；额外孤立接触fixture只把mocap移到T1躯干（不写机器人qpos），三类各检出53/61/53接触点，不属于正式导航统计；六段建图路线净距最小2.386m。`c1-event-lifecycle.json`为真实步行触发后的ROS暂停/复位复验。
 
 ## 独立建图与定位
 
@@ -33,7 +35,7 @@ crossing和approach移开后，旧中心占据清为0，机器人无需重arm或
 
 正式blocking1为ABORTED208：goal段过冲到约(9.50,.35)，进入规划2.05m膨胀区，无法从该起点重规划。blocking2为120.02s到期取消，末端进展失败。两例无接触/跌倒，均保留FAIL并未计成功；blocking3完整真实绕行到达。该类的1/3冒烟结果说明终点进近仍有可靠性问题，不能宣称达到W13的9/10目标。
 
-开发证据也保留：旧harness给整个launch组SIGINT后launch又转发，造成双中断；`event-lifecycle-v1/`及dev日志有退出异常。开发approach虽导航/感知成功，但末尾contact_counts未保存，旧评测把缺失当0，因此证据不足，不计正式完整通过。正式版本改为仅先向launch父进程SIGINT，并要求完整三类接触计数和sim exit0。
+开发证据也保留：旧harness给整个launch组SIGINT后launch又转发，造成双中断；`event-lifecycle-v1/`及dev日志有退出异常。开发approach虽导航/感知成功，但末尾contact_counts未保存，旧评测把缺失当0，因此证据不足，不计正式完整通过。正式版本改为仅先向launch父进程SIGINT，并要求完整三类接触计数和sim exit0。正式blocking1/approach1还出现旧gate finally检查context与publish之间的关闭竞态，均在SIGINT之后且运行证据完整；日志不删除、不宣称旧子节点全部正常。最小修复仅在已关闭context时处理RCLError，活跃context错误继续抛出；SafetyGate控制类、限速、阈值、命令链保持。四个针对性测试、10/10真实ROS退出及修复后真实步行事件复验通过，见shutdown-probe.json及c1-event-lifecycle-after-shutdown-fix.json。
 
 动态运行物理代码与评测核心函数冻结于 `5149679a5ae1209991e0c4f62031dc352f59281f`；运行中检查点提交只增加文档/已生成证据，每例manifest保存实际HEAD，审计核对运行源码一致。随后只修正静态回归注册文件路径常量，评测AST核对其余代码未变；静态启动前的路径失败保留。默认S04静态回归的120s超时保留于w12_S04.*。另以static_regression.py验证既有--approach-pass-radius=0选项，等待进近点也超时，独立w12_static_wait_stage.*保留，未采用该参数为新配置。额外运行原W11登记S03绕岛路线作为静态回归，S04两次失败均保留，不重计动态九例。最终代码/证据提交及完成记录SHA见records/W12.md和git log。
 

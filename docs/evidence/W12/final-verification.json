@@ -1,0 +1,95 @@
+{
+  "verdict": "PASS",
+  "checks": {
+    "user_edits_preserved": true,
+    "static_world_unchanged": true,
+    "w11_evidence_unchanged": true,
+    "map_quality": true,
+    "mapping_clean": true,
+    "scene_bound": true,
+    "map_bound": true,
+    "independent_amcl": true,
+    "frozen_w09_limits": true,
+    "live_event_lifecycle": true,
+    "scene_dimensions_and_rays": true,
+    "three_runs_per_class": true,
+    "complete_success_per_class": true,
+    "exactly_nine_runs": true,
+    "sensor_loop": true,
+    "graph_tf_parameters": true,
+    "complete_contact_evidence": true,
+    "zero_contacts_and_falls": true,
+    "clean_launch_and_sim": true,
+    "recorded_shutdown_warnings_after_run": true,
+    "shutdown_fix_verified": true,
+    "safety_control_unchanged": true,
+    "event_file_manifest": true,
+    "safety_nav_contracts_unchanged": true,
+    "actual_seeds_recorded": true,
+    "same_map_all_runs": true,
+    "same_runtime_sources": true,
+    "static_registry_correction_only": true,
+    "static_regression": true,
+    "default_static_failure_preserved": true,
+    "booster_deploy_frozen_clean": true,
+    "booster_assets_frozen_clean": true
+  },
+  "counts": {
+    "crossing": {
+      "runs": 3,
+      "success": 3
+    },
+    "blocking": {
+      "runs": 3,
+      "success": 1
+    },
+    "approach": {
+      "runs": 3,
+      "success": 3
+    }
+  },
+  "source_base_sha": "5149679a5ae1209991e0c4f62031dc352f59281f",
+  "run_shas": [
+    "087f93ce02c47df96a24cc66ea5510c598c5dd1d",
+    "1699cc449017a1274dcd87577654346b533660df",
+    "5149679a5ae1209991e0c4f62031dc352f59281f",
+    "dbfae4ed5d611c4ac345dc5cd339dea114f1d7d0"
+  ],
+  "static_regression": {
+    "S04_default": "FAIL_TIMEOUT",
+    "S04_completed_approach": "FAIL_TIMEOUT",
+    "S03_default": "SUCCESS"
+  },
+  "all_nine_success": false,
+  "failed_cases": [
+    "w12_smoke_blocking_1",
+    "w12_smoke_blocking_2"
+  ],
+  "shutdown_warnings": [
+    {
+      "case": "w12_smoke_blocking_1",
+      "after_sigint": true,
+      "only_context_teardown": true
+    },
+    {
+      "case": "w12_smoke_approach_1",
+      "after_sigint": true,
+      "only_context_teardown": true
+    }
+  ],
+  "upstream": {
+    "booster_deploy": {
+      "head": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+      "dirty": ""
+    },
+    "booster_assets": {
+      "head": "12a97516f57469078707afb587a5f84c1cb110d1",
+      "dirty": ""
+    }
+  },
+  "not_claimed": [
+    "W13 reliability",
+    "target tracking/prediction",
+    "hardware safety certification"
+  ]
+}
