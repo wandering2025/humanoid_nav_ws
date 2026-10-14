@@ -1,0 +1,127 @@
+{
+  "code_sha": "66f1069bef3d5120aa3acbcc8891cac78cb3ab4d",
+  "cases_sha256": "f4a0e5b5473814a6e96a1a12a259a6262538f2e347c98126cecbcdeeec2c1981",
+  "results": [
+    {
+      "case": "S01",
+      "outcome": "SUCCESS",
+      "nav2_status": "SUCCEEDED",
+      "time_to_goal_s": 6.34,
+      "arrived_truth": true,
+      "path_len_m": 1.9319610943385939,
+      "clear_center_min_m": 2.29117436504401,
+      "clear_footprint_min_m": 1.7140555699982976,
+      "env_contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "rtf_median": 0.98773795404059,
+      "settle": {
+        "settled": true,
+        "settle_start_sim": 21.53999999999894,
+        "settle_delay_s": 0.2799999999989389,
+        "pos_err_m": 0.10747223572407862,
+        "yaw_err_deg": 1.8237376713038862
+      }
+    },
+    {
+      "case": "S02",
+      "outcome": "SUCCESS",
+      "nav2_status": "SUCCEEDED",
+      "time_to_goal_s": 17.1,
+      "arrived_truth": true,
+      "path_len_m": 5.247826562197567,
+      "clear_center_min_m": 2.4508779034676853,
+      "clear_footprint_min_m": 1.9364326367185987,
+      "env_contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "rtf_median": 0.9995960229327334,
+      "settle": {
+        "settled": true,
+        "settle_start_sim": 35.2399999999971,
+        "settle_delay_s": 0.7799999999971021,
+        "pos_err_m": 0.17463042063938897,
+        "yaw_err_deg": 6.496520532404956
+      }
+    },
+    {
+      "case": "S03",
+      "outcome": "SUCCESS",
+      "nav2_status": "SUCCEEDED",
+      "time_to_goal_s": 47.760000000000005,
+      "arrived_truth": true,
+      "path_len_m": 13.421219548885432,
+      "clear_center_min_m": 2.114167521916558,
+      "clear_footprint_min_m": 1.5451572282682728,
+      "env_contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "rtf_median": 0.9999998346701946,
+      "settle": {
+        "settled": true,
+        "settle_start_sim": 63.380000000031494,
+        "settle_delay_s": 1.1400000000314918,
+        "pos_err_m": 0.19025330262535115,
+        "yaw_err_deg": 8.460191699335516
+      }
+    },
+    {
+      "case": "S04",
+      "outcome": "SUCCESS",
+      "nav2_status": "SUCCEEDED",
+      "time_to_goal_s": 75.8,
+      "arrived_truth": true,
+      "path_len_m": 18.88652256279124,
+      "clear_center_min_m": 2.1490901130113684,
+      "clear_footprint_min_m": 1.574660754998301,
+      "env_contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "rtf_median": 0.9999994283547384,
+      "settle": {
+        "settled": true,
+        "settle_start_sim": 95.21999999995948,
+        "settle_delay_s": 2.6599999999594814,
+        "pos_err_m": 0.032988264220688984,
+        "yaw_err_deg": 3.4055147140374022
+      }
+    },
+    {
+      "case": "S05",
+      "outcome": "SUCCESS",
+      "nav2_status": "SUCCEEDED",
+      "time_to_goal_s": 54.72000000000001,
+      "arrived_truth": true,
+      "path_len_m": 14.27473261059001,
+      "clear_center_min_m": 2.158228630722584,
+      "clear_footprint_min_m": 1.6823338545808393,
+      "env_contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "rtf_median": 0.9999975816182056,
+      "settle": {
+        "settled": true,
+        "settle_start_sim": 72.76000000001183,
+        "settle_delay_s": 0.4600000000118172,
+        "pos_err_m": 0.15286512350382903,
+        "yaw_err_deg": 3.517224991118687
+      }
+    }
+  ],
+  "verdict": "PASS"
+}

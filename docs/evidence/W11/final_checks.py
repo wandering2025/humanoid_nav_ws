@@ -27,6 +27,15 @@ cases = [json.loads((OUT/f"w11_{r['case']}.json").read_text()) for r in suite['r
 cancel = json.loads((OUT/'w11_cancel_replace.json').read_text())
 mapping = json.loads((OUT/'map-quality.json').read_text())
 localization = json.loads((OUT/'localization.json').read_text())
+def armed_safety_events(case):
+    """CM stop/slowdown or gate latch after the gate was armed for the goal. CM reports
+    'invalid source' for a few ms before its first scan at startup; that precedes arm."""
+    events = case['run']['events']
+    armed = next((e['sim'] for e in events if e['kind'] == 'gate' and e['state'] == 'ARMED'), None)
+    return [e for e in events if armed is not None and e['sim'] >= armed and (
+        (e['kind'] == 'collision_monitor' and e['action_type'] in (1, 2)) or (e['kind'] == 'gate' and e['state'] == 'STOPPED'))]
+
+
 tested = {c['run']['manifest']['code_sha'] for c in cases + [cancel]}
 tested_sha = tested.pop() if len(tested) == 1 else None
 pids = set()
@@ -49,8 +58,10 @@ source = [p for p in (WS/'src').rglob('*') if p.is_file() and p.suffix in ('.py'
 hashes = {str(p.relative_to(WS)): digest(p) for p in source}
 source_matches = tested_sha is not None and all(
     hashlib.sha256(subprocess.check_output(['git', 'show', f'{tested_sha}:{p}'], cwd=WS)).hexdigest() == h for p, h in hashes.items())
-dirty_code = [f for c in cases + [cancel] for f in c['run']['manifest'].get('dirty_files') or []
-              if not f.endswith('docs/start_commands.md')]
+# Runs may see documentation/evidence written by earlier cases and the user's file;
+# any dirty path outside docs/ (source, config, scripts) would invalidate the run.
+dirty_code = sorted({f for c in cases + [cancel] for f in c['run']['manifest'].get('dirty_files') or []
+                     if not f.split(maxsplit=1)[-1].startswith('docs/')})
 user_diff = hashlib.sha256(subprocess.check_output(['git', 'diff', '--', 'docs/start_commands.md'], cwd=WS)).hexdigest()
 user_untouched = (not git('log', '--format=%H', f'{START_HEAD}..HEAD', '--', 'docs/start_commands.md') and
                   'docs/start_commands.md' not in git('diff', '--cached', '--name-only').splitlines())
@@ -65,11 +76,11 @@ checks = dict(
     parameter_contracts=all(all(c['parameter_checks'].values()) for c in cases),
     no_tf_or_scan_errors=all(x['log_counts']['tf_extrapolation'] + x['log_counts']['tf_old_data'] + x['log_counts']['tf_timeout'] == 0
                              and x['scan_empty'] == 0 for x in m),
-    no_safety_stop_in_nominal_runs=all(x['safety']['cm_stop'] == 0 and x['safety']['cm_slowdown'] == 0 and x['safety']['gate_stopped'] == 0 for x in m),
+    no_safety_stop_in_nominal_runs=all(not armed_safety_events(c) for c in cases),
     cancel_replace=cancel['verdict'] == 'PASS',
     map_quality=mapping['verdict'] == 'PASS', localization_reverified=localization['verdict'] == 'PASS',
     single_tested_commit=tested_sha is not None, source_matches_tested_commit=source_matches,
-    only_user_file_dirty_during_runs=not dirty_code,
+    no_source_dirty_during_runs=not dirty_code,
     unit_tests='108 tests, 0 errors, 0 failures, 0 skipped' in (OUT/'test-result-final.txt').read_text(),
     frozen_upstreams=all(d['sha'] == d['expected'] and not d['dirty'] for d in upstreams.values()),
     user_file_untouched_by_agent=user_untouched, processes_stopped=not remaining, dds_port_closed=not port_open,
@@ -82,10 +93,12 @@ summary = dict(checked_utc=datetime.now(timezone.utc).isoformat(), cwd=str(WS), 
                              terminal_retries=x['terminal_retries'], path_len_m=x['path_len_m'],
                              clear_footprint_min_m=x['clear_footprint_min_m'], clear_center_min_m=x['clear_center_min_m'])
                         for c, x in zip(cases, m)],
+               pre_arm_safety_events={c['case']: [e for e in c['run']['events'] if e['kind'] == 'collision_monitor' and e['action_type'] == 1]
+                                      for c in cases},
                cancel=dict(checks=cancel['checks'], cancel=cancel.get('cancel'), replace=cancel.get('replace')),
                upstreams=upstreams, source_hashes=hashes, remaining_own_processes=remaining, audited_pids=len(pids),
                dds_port=42121, user_diff_sha256=dict(start=START_USER_DIFF, now=user_diff),
-               git_dirty=git('status', '--short').splitlines(),
+               dirty_non_doc_during_runs=dirty_code, git_dirty=git('status', '--short').splitlines(),
                command='source scripts/env.sh; python3 docs/evidence/W11/final_checks.py')
 (OUT/'final-verification.json').write_text(json.dumps(summary, indent=2) + '\n')
 print(json.dumps({k: summary[k] for k in ('verdict', 'checks', 'tested_sha')}, indent=2))

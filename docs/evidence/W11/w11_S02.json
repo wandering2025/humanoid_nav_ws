@@ -1,0 +1,817 @@
+{
+  "label": "w11_S02",
+  "case": "S02",
+  "seed": 1001,
+  "start": [
+    0.0,
+    0.0,
+    1.5708
+  ],
+  "goal": [
+    2.5,
+    2.75,
+    0.0
+  ],
+  "tolerances": {
+    "position_m": 0.3,
+    "yaw_deg": 20.0,
+    "settle_s": 2.0,
+    "time_limit_s": 120.0
+  },
+  "time_limit_s": 120.0,
+  "nav_active_sim": 13.420000000000002,
+  "parameters": {
+    "controller_server": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "controller_frequency": 20.0
+    },
+    "behavior_server": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "behavior_plugins": [
+        "wait"
+      ],
+      "robot_base_frame": "base_footprint"
+    },
+    "planner_server": {
+      "use_sim_time": true,
+      "planner_plugins": [
+        "GridBased"
+      ]
+    },
+    "bt_navigator": {
+      "use_sim_time": true,
+      "robot_base_frame": "base_footprint"
+    },
+    "velocity_smoother": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "feedback": "OPEN_LOOP"
+    },
+    "collision_monitor": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "base_frame_id": "base_footprint"
+    },
+    "amcl": {
+      "use_sim_time": true,
+      "base_frame_id": "base_footprint"
+    },
+    "local_costmap/local_costmap": {
+      "robot_base_frame": "base_footprint",
+      "robot_radius": 2.05,
+      "use_sim_time": true
+    },
+    "global_costmap/global_costmap": {
+      "robot_base_frame": "base_footprint",
+      "robot_radius": 2.05,
+      "use_sim_time": true
+    },
+    "t1_navigation_adapter": {
+      "use_sim_time": true
+    },
+    "t1_command_gate": {
+      "use_sim_time": true,
+      "command_source": "navigation"
+    }
+  },
+  "parameter_checks": {
+    "sim_time_everywhere": true,
+    "unstamped": true,
+    "base_footprint": true,
+    "wait_only_behaviors": true,
+    "nav_radius": true,
+    "gate_navigation": true
+  },
+  "tool_exit": 0,
+  "run": {
+    "run_id": "w11_w11_S02_04b44a62",
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=w11_w11_S02_04b44a62",
+      "target_rtf:=1.0",
+      "scene:=static_world",
+      "start_pose:=0.0 0.0 1.5708",
+      "initial_pose:=0.0 0.0 1.5708",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true"
+    ],
+    "cwd": "/home/haoyang/humanoid_nav_ws",
+    "started_utc": "2026-10-14T19:59:05.577095+00:00",
+    "ended_utc": "2026-10-14T19:59:58.914484+00:00",
+    "exit_code": 0,
+    "wall_s": 51.62213714399968,
+    "sim_end": 48.540000000000006,
+    "graph": {
+      "/clock": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "controller_server",
+          "local_costmap",
+          "transform_listener_impl_5bd599375e90",
+          "planner_server",
+          "global_costmap",
+          "transform_listener_impl_5c3aa47b2020",
+          "behavior_server",
+          "bt_navigator",
+          "bt_navigator_navigate_to_pose_rclcpp_node",
+          "lifecycle_manager_navigation",
+          "t1_navigation_adapter",
+          "robot_state_publisher",
+          "map_server",
+          "amcl",
+          "t1_command_gate",
+          "velocity_smoother",
+          "collision_monitor",
+          "lifecycle_manager_localization",
+          "lifecycle_manager_safety",
+          "w11_evaluator"
+        ],
+        "types": [
+          "rosgraph_msgs/msg/Clock"
+        ]
+      },
+      "/cmd_vel": {
+        "publishers": [
+          "collision_monitor"
+        ],
+        "subscribers": [
+          "t1_sim",
+          "t1_command_gate",
+          "w11_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/cmd_vel_nav": {
+        "publishers": [
+          "t1_command_gate"
+        ],
+        "subscribers": [
+          "velocity_smoother",
+          "w11_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/cmd_vel_smoothed": {
+        "publishers": [
+          "velocity_smoother"
+        ],
+        "subscribers": [
+          "collision_monitor",
+          "w11_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/cmd_navigation": {
+        "publishers": [
+          "t1_navigation_adapter"
+        ],
+        "subscribers": [
+          "t1_command_gate",
+          "w11_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/cmd_teleop": {
+        "publishers": [],
+        "subscribers": [
+          "w11_evaluator"
+        ],
+        "types": []
+      },
+      "/t1/nav/cmd_vel_raw": {
+        "publishers": [
+          "controller_server",
+          "behavior_server"
+        ],
+        "subscribers": [
+          "t1_navigation_adapter",
+          "w11_evaluator"
+        ],
+        "types": [
+          "geometry_msgs/msg/Twist"
+        ]
+      },
+      "/t1/eval/ground_truth": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "w11_evaluator"
+        ],
+        "types": [
+          "nav_msgs/msg/Odometry"
+        ]
+      },
+      "/t1/debug/policy_cmd": {
+        "publishers": [],
+        "subscribers": [],
+        "types": []
+      },
+      "/map": {
+        "publishers": [
+          "map_server"
+        ],
+        "subscribers": [
+          "global_costmap",
+          "amcl",
+          "w11_evaluator"
+        ],
+        "types": [
+          "nav_msgs/msg/OccupancyGrid"
+        ]
+      },
+      "/scan": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "local_costmap",
+          "global_costmap",
+          "amcl",
+          "t1_command_gate",
+          "collision_monitor",
+          "w11_evaluator"
+        ],
+        "types": [
+          "sensor_msgs/msg/LaserScan"
+        ]
+      },
+      "/odom": {
+        "publishers": [
+          "t1_sim"
+        ],
+        "subscribers": [
+          "controller_server",
+          "bt_navigator",
+          "t1_command_gate",
+          "w11_evaluator"
+        ],
+        "types": [
+          "nav_msgs/msg/Odometry"
+        ]
+      },
+      "/initialpose": {
+        "publishers": [],
+        "subscribers": [
+          "amcl",
+          "w11_evaluator"
+        ],
+        "types": []
+      }
+    },
+    "tf_owners": {
+      "base_footprint": [
+        "t1_sim"
+      ],
+      "base_link": [
+        "t1_sim"
+      ],
+      "laser_stabilized": [
+        "t1_sim"
+      ],
+      "aahead_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "aahead_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_ankle_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_ankle_roll_link": [
+        "robot_state_publisher"
+      ],
+      "left_elbow_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_elbow_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_roll_link": [
+        "robot_state_publisher"
+      ],
+      "left_hip_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "left_knee_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_shoulder_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "left_shoulder_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_ankle_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_ankle_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_elbow_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_elbow_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_roll_link": [
+        "robot_state_publisher"
+      ],
+      "right_hip_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "right_knee_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_shoulder_pitch_link": [
+        "robot_state_publisher"
+      ],
+      "right_shoulder_roll_link": [
+        "robot_state_publisher"
+      ],
+      "waist_yaw_link": [
+        "robot_state_publisher"
+      ],
+      "odom": [
+        "amcl"
+      ]
+    },
+    "clock_regressions": 0,
+    "scan_stats": {
+      "count": 485,
+      "empty": 0,
+      "known_min": 1.0,
+      "min_range": 2.451273202896118
+    },
+    "initializations": [
+      [
+        0.0,
+        0.0,
+        1.5707999999999998
+      ]
+    ],
+    "events": [
+      {
+        "kind": "gate",
+        "sim": 0.0,
+        "wall": 6399.791388256,
+        "state": "DISARMED",
+        "reason": "explicit arm required"
+      },
+      {
+        "kind": "sim_state",
+        "sim": 0.0,
+        "wall": 6399.957525539,
+        "state": "STARTING",
+        "fault": null
+      },
+      {
+        "kind": "sim_state",
+        "sim": 2.0,
+        "wall": 6401.998888213,
+        "state": "READY",
+        "fault": null
+      },
+      {
+        "kind": "collision_monitor",
+        "sim": 2.3600000000000003,
+        "wall": 6402.365581546,
+        "action_type": 1,
+        "polygon": "invalid source"
+      },
+      {
+        "kind": "collision_monitor",
+        "sim": 2.4000000000000004,
+        "wall": 6402.405601155,
+        "action_type": 0,
+        "polygon": ""
+      },
+      {
+        "kind": "gate",
+        "sim": 17.36,
+        "wall": 6417.411496321,
+        "state": "ARMED",
+        "reason": "awaiting a new source command"
+      }
+    ],
+    "children": [
+      [
+        "goal",
+        0
+      ]
+    ],
+    "manifest": {
+      "code_sha": "66f1069bef3d5120aa3acbcc8891cac78cb3ab4d",
+      "dirty": true,
+      "dirty_files": [
+        "M docs/plans/t1_mujoco_navigation/records/W11.md",
+        " M docs/start_commands.md",
+        "?? docs/evidence/W11/c3-startup-reliability.json",
+        "?? docs/evidence/W11/w11_S01-layers.csv",
+        "?? docs/evidence/W11/w11_S01-trajectory.csv",
+        "?? docs/evidence/W11/w11_S01.json"
+      ],
+      "exit_code": 0,
+      "status": "SHUTDOWN",
+      "sim_time_end": 48.54000000001336,
+      "wall_duration_s": 48.87761632100046,
+      "scene_sha256": "9f174aaef834b5c50c209263a391e77c2007ea4f88069b47cbe0d7782b2dd536",
+      "map_sha256": "ad4f4a57ec1e2e220bad97c5226616d1c0d236884288470a299f5d5380853163",
+      "start_pose_override": [
+        0.0,
+        0.0,
+        1.5708
+      ],
+      "contact_counts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "parameter_files": {
+        "nav2": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml",
+          "sha256": "94ab4486b10599f6516954e45609d3db01ffef3cfee0a72b11058f55fcc2be13"
+        },
+        "slam": null,
+        "amcl": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/localization.yaml",
+          "sha256": "08567e33b2ff6a113a75791c9bddb7a546cf812e2437a32faac2da53e62994c7"
+        },
+        "velocity_smoother": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        },
+        "collision_monitor": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        },
+        "command_map": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+          "sha256": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+          "evidence": {
+            "report": "docs/evidence/W05/locomotion-envelope.md",
+            "runs": {
+              "20261013T212155Z_dev_w05_c3": "00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe",
+              "20261013T215753Z_dev_w05_dense": "50ef2baf9ae2530bac0edfdc07c131f99725909836fe07511264fcc6dd33fb01",
+              "20261013T220627Z_dev_w05_context": "25976d72867333007b5a1cec96b1ea9d84920a620cde6cb0f79b09525bc8f65e"
+            },
+            "statistic": "largest 2 s window mean, >=3 s after command onset, segments >=8 s (raw traces)",
+            "tested_code_sha": "abc5b4a8248b05037ef02f46022c2a6779915acd",
+            "builder": "docs/evidence/W05/build_command_map.py",
+            "validation": "docs/evidence/W05/command-map-validation.json"
+          }
+        },
+        "command_gate": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+          "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+        }
+      },
+      "deadline_overruns": 5,
+      "upstream_sha": {
+        "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+        "booster_assets": "12a97516f57469078707afb587a5f84c1cb110d1"
+      },
+      "mode": "navigation"
+    }
+  },
+  "nav2": {
+    "event": "result",
+    "goal": [
+      2.5,
+      2.75,
+      0.0
+    ],
+    "time_limit_s": 120.0,
+    "tolerances": {
+      "xy": 0.2,
+      "yaw": 0.2
+    },
+    "attempts": [
+      {
+        "stage": "approach",
+        "target": [
+          1.0,
+          2.75,
+          0.0
+        ],
+        "accepted_sim": 17.36,
+        "goal_id": "f81afe5842a44393bb9b89b732d11aed",
+        "status": "PASSED",
+        "end_sim": 26.28,
+        "passed_pose": [
+          0.6529831673526031,
+          2.7342764170716745,
+          0.9638713682025072
+        ]
+      },
+      {
+        "stage": "goal",
+        "target": [
+          2.5,
+          2.75,
+          0.0
+        ],
+        "accepted_sim": 26.28,
+        "goal_id": "235335e43f0848ce8fec7f5224156db0",
+        "status": "SUCCEEDED",
+        "end_sim": 34.46,
+        "error_code": 0,
+        "verify_sim": 36.32,
+        "verified_pose": [
+          2.4410496547499543,
+          2.8988457394602825,
+          -0.12159145382665054
+        ],
+        "xy_error": 0.16009433893981972,
+        "yaw_error": 0.12159145382665056
+      }
+    ],
+    "arm_attempts": 1,
+    "approach_distance": 1.5,
+    "accepted_sim": 17.36,
+    "goal_id": "f81afe5842a44393bb9b89b732d11aed",
+    "status": "SUCCEEDED",
+    "timed_out": false,
+    "end_sim": 36.32,
+    "duration_sim": 18.96,
+    "verified": {
+      "stage": "goal",
+      "target": [
+        2.5,
+        2.75,
+        0.0
+      ],
+      "accepted_sim": 26.28,
+      "goal_id": "235335e43f0848ce8fec7f5224156db0",
+      "status": "SUCCEEDED",
+      "end_sim": 34.46,
+      "error_code": 0,
+      "verify_sim": 36.32,
+      "verified_pose": [
+        2.4410496547499543,
+        2.8988457394602825,
+        -0.12159145382665054
+      ],
+      "xy_error": 0.16009433893981972,
+      "yaw_error": 0.12159145382665056
+    },
+    "terminal_retries": 0,
+    "error_code": 0,
+    "nav2_success_sim": 34.46,
+    "exit": 0
+  },
+  "metrics": {
+    "nav2_status": "SUCCEEDED",
+    "nav2_error_code": 0,
+    "tool_exit": 0,
+    "time_to_goal_s": 17.1,
+    "task_duration_s": 18.96,
+    "terminal_retries": 0,
+    "attempts": [
+      {
+        "stage": "approach",
+        "target": [
+          1.0,
+          2.75,
+          0.0
+        ],
+        "accepted_sim": 17.36,
+        "goal_id": "f81afe5842a44393bb9b89b732d11aed",
+        "status": "PASSED",
+        "end_sim": 26.28,
+        "passed_pose": [
+          0.6529831673526031,
+          2.7342764170716745,
+          0.9638713682025072
+        ]
+      },
+      {
+        "stage": "goal",
+        "target": [
+          2.5,
+          2.75,
+          0.0
+        ],
+        "accepted_sim": 26.28,
+        "goal_id": "235335e43f0848ce8fec7f5224156db0",
+        "status": "SUCCEEDED",
+        "end_sim": 34.46,
+        "error_code": 0,
+        "verify_sim": 36.32,
+        "verified_pose": [
+          2.4410496547499543,
+          2.8988457394602825,
+          -0.12159145382665054
+        ],
+        "xy_error": 0.16009433893981972,
+        "yaw_error": 0.12159145382665056
+      }
+    ],
+    "verified": {
+      "stage": "goal",
+      "target": [
+        2.5,
+        2.75,
+        0.0
+      ],
+      "accepted_sim": 26.28,
+      "goal_id": "235335e43f0848ce8fec7f5224156db0",
+      "status": "SUCCEEDED",
+      "end_sim": 34.46,
+      "error_code": 0,
+      "verify_sim": 36.32,
+      "verified_pose": [
+        2.4410496547499543,
+        2.8988457394602825,
+        -0.12159145382665054
+      ],
+      "xy_error": 0.16009433893981972,
+      "yaw_error": 0.12159145382665056
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 35.2399999999971,
+      "settle_delay_s": 0.7799999999971021,
+      "pos_err_m": 0.17463042063938897,
+      "yaw_err_deg": 6.496520532404956
+    },
+    "arrived_truth": true,
+    "path_len_m": 5.247826562197567,
+    "straight_m": 3.7165171868296265,
+    "detour": {
+      "first_plan_length_m": 3.0140014861573357,
+      "straight_m": 3.7165171868296265,
+      "max_lateral_from_straight_m": 1.1099101100939155
+    },
+    "n_plans": 4,
+    "clear_center_min_m": 2.4508779034676853,
+    "clear_footprint_min_m": 1.9364326367185987,
+    "scan_min_range_m": 2.451273202896118,
+    "env_contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "safety": {
+      "cm_stop": 1,
+      "cm_slowdown": 0,
+      "gate_stopped": 0,
+      "bridge_timeouts": 0
+    },
+    "log_counts": {
+      "tf_extrapolation": 0,
+      "tf_old_data": 0,
+      "tf_timeout": 0,
+      "no_valid_control": 0,
+      "progress_failure": 0,
+      "planning_failure": 0,
+      "goal_aborted": 0,
+      "collision_ahead": 0,
+      "scan_dropped": 0
+    },
+    "nav_activated_in_log": true,
+    "scan_empty": 0,
+    "scan_known_min": 1.0,
+    "rtf_median": 0.9995960229327334,
+    "sim_time_s": 48.54000000001336,
+    "wall_time_s": 51.62213714399968,
+    "min_trunk_z": 0.6195557038722014,
+    "graph_checks": {
+      "final_only_collision_monitor": true,
+      "gate_only_cmd_vel_nav": true,
+      "adapter_only_navigation_source": true,
+      "nav2_into_adapter_only": true,
+      "no_teleop_source": true,
+      "one_clock": true,
+      "truth_isolated": true,
+      "debug_disabled": true,
+      "twist_only": true,
+      "amcl_map_odom": true,
+      "sim_base": true,
+      "unique_tf": true
+    }
+  },
+  "layers_csv": "docs/evidence/W11/w11_S02-layers.csv",
+  "layer_summary": {
+    "adapter_reasons": {
+      "no_fresh_nav_command": 227,
+      "vx_lifted": 21,
+      "walk": 119,
+      "in_place": 25,
+      "wz_walking_clipped": 1,
+      "below_gait_zeroed": 4
+    },
+    "samples": 486,
+    "final_vs_measured_vx_ratio_median": 0.8443258705311,
+    "adapter_differs_from_raw": 170,
+    "final_less_than_gate": 20
+  },
+  "plans": [
+    {
+      "sim": 17.380000000000003,
+      "n": 119,
+      "length": 3.0140014861573357,
+      "points": [
+        [
+          -0.022999962747097147,
+          0.017000082701444263
+        ],
+        [
+          0.1564916552229465,
+          0.18727176797794787
+        ],
+        [
+          0.19956702665339376,
+          0.4310755588423527
+        ],
+        [
+          0.2667785602476971,
+          0.6718573464878981
+        ],
+        [
+          0.33899326011528386,
+          0.9111971785455504
+        ],
+        [
+          0.41364211834433773,
+          1.14979123727666
+        ],
+        [
+          0.4900884619517387,
+          1.3878161431672575
+        ],
+        [
+          0.5677946093498849,
+          1.6254321135048864
+        ],
+        [
+          0.6465217604863898,
+          1.862712390478138
+        ],
+        [
+          0.7260688808123592,
+          2.099719535123101
+        ],
+        [
+          0.8063427009782589,
+          2.3364810132604967
+        ],
+        [
+          0.8872333577012017,
+          2.573032683045157
+        ],
+        [
+          1.0,
+          2.75
+        ]
+      ]
+    },
+    {
+      "sim": 32.46,
+      "n": 30,
+      "length": 0.7868860952847667,
+      "points": [
+        [
+          1.827000064820051,
+          2.96700012665987
+        ],
+        [
+          2.014277670760119,
+          2.805402681624927
+        ],
+        [
+          2.256578470879471,
+          2.7801440447739347
+        ],
+        [
+          2.5,
+          2.75
+        ]
+      ]
+    }
+  ],
+  "outcome": "SUCCESS"
+}
