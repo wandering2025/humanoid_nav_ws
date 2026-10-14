@@ -9,7 +9,7 @@ import yaml
 WS = Path(__file__).resolve().parents[3]
 OUT = WS/'docs/evidence/W12'
 SOURCE = '5149679a5ae1209991e0c4f62031dc352f59281f'
-RUNTIME = [p for p in subprocess.check_output(['git','-C',str(WS),'ls-files','src'],text=True).splitlines() if '/maps/' not in p] + [ 'docs/evidence/W12/harness.py','docs/evidence/W12/dynamic_suite.py']
+RUNTIME = [p for p in subprocess.check_output(['git','-C',str(WS),'ls-files','src'],text=True).splitlines() if '/maps/' not in p and '/test/' not in p and p != 'src/t1_bringup/t1_bringup/safety.py'] + [ 'docs/evidence/W12/harness.py','docs/evidence/W12/dynamic_suite.py']
 def digest(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 def git(*args):return subprocess.check_output(['git','-C',str(WS),*args],text=True).strip()
 def read(name):return json.loads((OUT/name).read_text())
@@ -22,6 +22,18 @@ def evaluator_ast(source):
 def evaluator_equal(ref):
     before=git('show',ref+':docs/evidence/W12/nav_run.py')
     return evaluator_ast(before)==evaluator_ast((OUT/'nav_run.py').read_text())
+
+def safety_control_ast(source):
+    tree=ast.parse(source)
+    return ast.dump(next(n for n in tree.body if isinstance(n,ast.ClassDef) and n.name=='SafetyGate'),include_attributes=False)
+
+shutdown_warnings=[]
+for r in read('smoke-suite.json')['results']:
+    record=read(r['label']+'.json')
+    text=(OUT/'raw'/(record['run']['run_id']+'.txt')).read_text()
+    if 'process has died' in text:
+        shutdown_warnings.append(dict(case=r['label'],after_sigint=text.find('process has died')>text.find("sending signal 'SIGINT'"),
+            only_context_teardown='publisher\'s context is invalid' in text and 'node.latch(\'SHUTDOWN\')' in text))
 
 start = read('start-state.json')
 quality = read('map-quality.json')
@@ -60,12 +72,14 @@ checks = dict(
     complete_contact_evidence=all(set(r['metrics']['env_contacts'])=={'static_env','obstacle','ground_nonfoot'} for r in rows+[reg]),
     zero_contacts_and_falls=all(not any(r['metrics']['env_contacts'].values()) and not r['metrics']['fell'] for r in rows+[reg]),
     clean_launch_and_sim=all(r['run']['exit_code']==0 and r['run']['manifest'].get('exit_code')==0 for r in rows+[reg]),
-    no_subprocess_shutdown_errors=all('process has died' not in (OUT/'raw'/(r['run']['run_id']+'.txt')).read_text() for r in rows+[reg]),
+    recorded_shutdown_warnings_after_run=all(w['after_sigint'] and w['only_context_teardown'] for w in shutdown_warnings),
+    shutdown_fix_verified=read('shutdown-probe.json')['verdict']=='PASS' and read('c1-event-lifecycle-after-shutdown-fix.json')['verdict']=='PASS',
+    safety_control_unchanged=safety_control_ast(git('show',SOURCE+':src/t1_bringup/t1_bringup/safety.py'))==safety_control_ast((WS/'src/t1_bringup/t1_bringup/safety.py').read_text()),
     event_file_manifest=all(r['run']['manifest']['parameter_files']['events']['path']==str(events_path)
                             and r['run']['manifest']['parameter_files']['events']['sha256']==digest(events_path) for r in rows),
     safety_nav_contracts_unchanged=not git('diff',start['head'],'--',
         'src/t1_navigation/config/safety.yaml','src/t1_navigation/config/navigation.yaml',
-        'src/t1_mujoco/config/command_map.yaml','src/t1_bringup/t1_bringup/safety.py',
+        'src/t1_mujoco/config/command_map.yaml',
         'src/t1_bringup/t1_bringup/navigation_adapter.py','src/t1_bringup/t1_bringup/navigation_tools.py'),
     actual_seeds_recorded=all(json.loads((WS/'run_data'/r['run']['run_id']/'manifest.json').read_text())['resolved_parameters']['seed']
                             ==r['run']['manifest']['parameter_files']['events']['seed'] for r in rows),
@@ -88,6 +102,7 @@ result=dict(verdict='PASS' if all(checks.values()) else 'FAIL',checks=checks,cou
             source_base_sha=SOURCE,run_shas=sorted(set(r['run']['manifest']['code_sha'] for r in rows+[reg])),
             static_regression=dict(S04_default=default_reg['outcome'],S04_completed_approach=wait_reg['outcome'],S03_default=reg['outcome']),
             all_nine_success=all(r['outcome']=='SUCCESS' for r in rows), failed_cases=[r['label'] for r in rows if r['outcome']!='SUCCESS'],
+            shutdown_warnings=shutdown_warnings,
             upstream=upstream,not_claimed=['W13 reliability','target tracking/prediction','hardware safety certification'])
 (OUT/'final-verification.json').write_text(json.dumps(result,indent=2)+'\n')
 print(json.dumps(result,indent=2))

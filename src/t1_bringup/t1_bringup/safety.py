@@ -19,6 +19,7 @@ from std_msgs.msg import String, Bool
 from std_srvs.srv import Trigger
 from lifecycle_msgs.srv import GetState
 from rcl_interfaces.msg import ParameterDescriptor
+from rclpy.impl.implementation_singleton import rclpy_implementation as _rclpy
 
 
 def seconds(stamp):
@@ -222,6 +223,16 @@ class SafetyGate(Node):
             sim_time=self.get_clock().now().nanoseconds*1e-9,health_reason=self.health_reason()))))
 
 
+def shutdown_gate(node):
+    """The signal handler can invalidate context between ok() and publish()."""
+    try:
+        if node.context.ok():
+            node.latch('SHUTDOWN')
+    except _rclpy.RCLError:
+        if node.context.ok():
+            raise  # A publish failure in a live context must remain visible.
+
+
 def main(args=None):
     rclpy.init(args=args)
     node = SafetyGate()
@@ -230,8 +241,7 @@ def main(args=None):
     except KeyboardInterrupt:
         pass
     finally:
-        if rclpy.ok():
-            node.latch('SHUTDOWN')
+        shutdown_gate(node)
         node.destroy_node()
         if rclpy.ok():
             rclpy.shutdown()

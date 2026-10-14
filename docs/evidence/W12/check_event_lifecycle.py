@@ -1,5 +1,6 @@
 """Live C1 fixture: actual walking trigger, pause freezes, reset restages events."""
 import json
+import os
 import time
 from std_srvs.srv import SetBool, Trigger
 from harness import OUT, WS, Run, Session
@@ -47,6 +48,6 @@ finally:
         result['checks']['no_contacts']=not any((closed['manifest'].get('contact_counts') or {'missing':1}).values())
     session.close()
     result['verdict']='PASS' if result.get('checks') and all(result['checks'].values()) and not result.get('error') else 'FAIL'
-    (OUT/'c1-event-lifecycle.json').write_text(json.dumps(result,indent=2)+'\n')
+    (OUT/os.environ.get('W12_EVENT_OUTPUT','c1-event-lifecycle.json')).write_text(json.dumps(result,indent=2)+'\n')
 print(json.dumps(result.get('checks')),result['verdict'],result.get('error'),flush=True)
 raise SystemExit(0 if result['verdict']=='PASS' else 1)
