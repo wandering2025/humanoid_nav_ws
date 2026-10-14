@@ -22,19 +22,24 @@ def parameter_defaults():
                 max_sim_time=0.0, command_map_file='', joint_state_divisor=1,
                 lidar_noise_std=0.0, lidar_dropout=0.0, lidar_publish_points=False,
                 map_file='', slam_params_file='', localization_params_file='',
-                safety_required=True, safety_params_file='')
+                safety_required=True, safety_params_file='', start_pose='',
+                navigation_params_file='')
 
 
 def validate_parameters(p):
     from .lidar_config import LidarConfig
     LidarConfig(noise_std=p['lidar_noise_std'], dropout=p['lidar_dropout'], seed=p['seed'])
-    if p['mode'] not in ('sim_only', 'mapping', 'localization'):
-        raise ValueError('navigation/evaluation require W10/W11')
+    if p['mode'] not in ('sim_only', 'mapping', 'localization', 'navigation'):
+        raise ValueError('evaluation requires W13')
     if p['mode'] != 'sim_only' and p['enable_policy_cmd_input']:
         raise ValueError('mapping/localization forbid policy debug commands')
-    if p['mode'] == 'localization' and not p['map_file']:
-        raise ValueError('localization requires a saved map_file and matching metadata')
-    for key in ('map_file', 'slam_params_file', 'localization_params_file'):
+    if p['mode'] in ('localization', 'navigation') and not p['map_file']:
+        raise ValueError('localization/navigation require a saved map_file and matching metadata')
+    if p['mode'] == 'navigation' and not (p['safety_required'] and p['navigation_params_file']):
+        raise ValueError('navigation requires the W10 safety chain and navigation_params_file')
+    from .scenes import parse_start_pose
+    parse_start_pose(p['start_pose'])
+    for key in ('map_file', 'slam_params_file', 'localization_params_file', 'navigation_params_file'):
         if p[key] and not Path(p[key]).is_absolute():
             raise ValueError(f'{key} must be absolute')
     if p['command_map_file'] and not Path(p['command_map_file']).is_absolute():
@@ -71,6 +76,7 @@ def main(args=None):
     from diagnostic_msgs.msg import DiagnosticArray, DiagnosticStatus, KeyValue
 
     context, node, executor, worker, runner, log, viewer = Context(), None, None, None, None, None, None
+    contacts = None
     viewer_threads = []
     stop = threading.Event()
     old_signals = {}
@@ -90,10 +96,10 @@ def main(args=None):
         runtime = inspect_runtime(p['upstream_path'], p['assets_path'], p['mode'], p['task'])
         cfg = load_task_config(p['upstream_path'], p['task'])
         from ament_index_python.packages import get_package_share_directory
-        from .scenes import configure_scene
+        from .scenes import configure_scene, parse_start_pose
         scene_provenance = configure_scene(
             cfg, p['scene'], runtime['assets_path'], Path(p['run_dir'])/'cache/scenes',
-            Path(get_package_share_directory('t1_mujoco'))/'worlds')
+            Path(get_package_share_directory('t1_mujoco'))/'worlds', parse_start_pose(p['start_pose']))
         if scene_provenance:
             runtime['mjcf_path'] = scene_provenance['expanded_xml']['path']
         import torch
@@ -117,6 +123,7 @@ def main(args=None):
             metadata = scene_provenance['scene_metadata']
             log.manifest['goal'] = metadata['goal'] if metadata else None
             log.manifest['case'] = metadata['name'] if metadata else 'custom_mjcf'
+            log.manifest['start_pose_override'] = scene_provenance.get('start_pose_override')
             log.save()
         if command_map is not None:
             from .recording import sha256
@@ -151,6 +158,9 @@ def main(args=None):
         lidar_pub = LidarPublisher(node, lidar_cfg)
         log.manifest.update(sensor_mode='compensated', lidar_config=asdict(lidar_cfg))
         log.manifest['initial_pose'] = runner.mj_data.qpos[:7].tolist()
+        from .contacts import ContactMonitor
+        contacts = ContactMonitor(runner.mj_model, log.path/'contact_events.csv', cfg.policy_dt)
+        runner.substep_hook = contacts.sample
         log.save()
 
         runner.inputs.safety_required = p['safety_required']
@@ -233,7 +243,8 @@ def main(args=None):
                          odom_mode='ideal_truth', covariance_mode='nominal_not_estimated',
                          sensor_mode='compensated', sensor_healthy=runner.sensor_healthy,
                          scan_compute_ms=runner.scan_compute_ms, scan_known_fraction=runner.scan_known_fraction,
-                         scan_blind_bins=runner.scan_blind_bins)
+                         scan_blind_bins=runner.scan_blind_bins,
+                         env_contacts=dict(contacts.counts))
             state_pub.publish(String(data=json.dumps(value, allow_nan=False)))
             log.event(value)
             diag = DiagnosticArray()
@@ -352,6 +363,10 @@ def main(args=None):
             context.shutdown()
         for sig, handler in old_signals.items():
             signal.signal(sig, handler)
+        if contacts is not None:
+            contacts.close()
+            if log is not None:
+                log.manifest['contact_counts'] = dict(contacts.counts)
         if log is not None:
             log.close(code, float(runner.mj_data.time) if runner else 0.0, terminal)
     return code

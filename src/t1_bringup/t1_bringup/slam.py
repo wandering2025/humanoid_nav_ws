@@ -8,10 +8,10 @@ from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
 
-def arguments():
+def arguments(default_source='teleop'):
     share = Path(get_package_share_directory('t1_navigation'))
     from .safety_launch import arguments as safety_arguments
-    return safety_arguments() + [DeclareLaunchArgument(name, default_value=str(share / path)) for name, path in (
+    return safety_arguments(default_source) + [DeclareLaunchArgument(name, default_value=str(share / path)) for name, path in (
         ('slam_params_file', 'config/slam.yaml'),
         ('localization_params_file', 'config/localization.yaml'),
         ('map', 'maps/static_world.yaml'))]
@@ -27,7 +27,7 @@ def actions(context):
             Path(get_package_share_directory('slam_toolbox')) / 'launch/online_async_launch.py')),
             launch_arguments={'use_sim_time': 'true', 'slam_params_file': str(params),
                               'autostart': 'true', 'use_lifecycle_manager': 'false'}.items())]
-    if mode == 'localization':
+    if mode in ('localization', 'navigation'):
         params = Path(LaunchConfiguration('localization_params_file').perform(context))
         map_file = Path(LaunchConfiguration('map').perform(context))
         if not params.is_file() or not map_file.is_file():

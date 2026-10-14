@@ -2,10 +2,9 @@ import pytest
 from t1_bringup.launch_support import validate_request
 
 
-@pytest.mark.parametrize('mode', ['navigation', 'evaluation'])
-def test_future_simulation_cannot_silently_start(mode):
-    with pytest.raises(RuntimeError, match='require W10/W11'):
-        validate_request(mode, 'true')
+def test_evaluation_cannot_silently_start():
+    with pytest.raises(RuntimeError, match='requires W13'):
+        validate_request('evaluation', 'true')
 
 
 def test_unknown_mode():
@@ -22,6 +21,6 @@ def test_sim_only_enabled():
     validate_request('sim_only', 'true')
 
 
-@pytest.mark.parametrize("mode", ["mapping", "localization"])
-def test_w09_modes_enabled(mode):
+@pytest.mark.parametrize("mode", ["mapping", "localization", "navigation"])
+def test_w09_w11_modes_enabled(mode):
     validate_request(mode, "true")

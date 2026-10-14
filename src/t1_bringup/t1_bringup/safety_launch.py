@@ -5,8 +5,8 @@ from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
 
-def arguments():
-    return [DeclareLaunchArgument('command_source', default_value='teleop', choices=['teleop','navigation']),
+def arguments(default_source='teleop'):
+    return [DeclareLaunchArgument('command_source', default_value=default_source, choices=['teleop','navigation']),
             DeclareLaunchArgument('safety_params_file', default_value=str(
                 Path(get_package_share_directory('t1_navigation'))/'config/safety.yaml'))]
 
@@ -18,6 +18,8 @@ def actions(context):
     source = LaunchConfiguration('command_source').perform(context)
     if LaunchConfiguration('mode').perform(context) == 'mapping' and source != 'teleop':
         raise RuntimeError('mapping requires teleop source')
+    if LaunchConfiguration('mode').perform(context) == 'navigation' and source != 'navigation':
+        raise RuntimeError('navigation requires the navigation command source')
     if not Path(path).is_file():
         raise RuntimeError('missing safety_params_file')
     return [Node(package=package, executable=exe, name=name, output='screen',

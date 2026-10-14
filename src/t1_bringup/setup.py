@@ -10,7 +10,11 @@ setup(
         ('share/t1_bringup/launch', glob('launch/*.launch.py')),
     ],
     install_requires=['setuptools'], zip_safe=True,
-    entry_points={'console_scripts': ['initial_pose = t1_bringup.initial_pose:main', 'command_gate = t1_bringup.safety:main']},
+    entry_points={'console_scripts': [
+        'initial_pose = t1_bringup.initial_pose:main', 'command_gate = t1_bringup.safety:main',
+        'navigation_adapter = t1_bringup.navigation_adapter:main',
+        'navigation_starter = t1_bringup.navigation_tools:starter_main',
+        'navigate_to_pose = t1_bringup.navigation_tools:navigate_main']},
     maintainer='T1 navigation contributors', maintainer_email='codex@local.invalid',
     description='T1 launch skeleton and future evaluation tools.',
     license='Apache-2.0', tests_require=['pytest'],

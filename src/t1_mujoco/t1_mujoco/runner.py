@@ -49,6 +49,8 @@ class T1SimRunner(MujocoController):
         self.scan_compute_ms = 0.0
         self.scan_known_fraction = 0.0
         self.scan_blind_bins = 0
+        # Optional read-only per-physics-substep observer (contact events).
+        self.substep_hook = None
         self.update_state()
         self.start()
         self.transition('STARTING')
@@ -118,6 +120,8 @@ class T1SimRunner(MujocoController):
                 self.mj_data.warning[i].number > n for i, n in zip(warning_ids, warnings_before))
             if reset_or_warning or not self.finite_state():
                 raise SimulationFault('nonfinite_state')
+            if self.substep_hook is not None:
+                self.substep_hook(self.mj_data, self.episode)
 
     def reset_episode(self):
         self.assert_owner()

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
 project(t1_navigation)
 find_package(ament_cmake REQUIRED)
-install(DIRECTORY config maps DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY config maps behavior_trees DESTINATION share/${PROJECT_NAME})
 ament_package()

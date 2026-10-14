@@ -24,7 +24,10 @@ def vector(value, length, label):
 
 
 def load_layout(path):
-    data = yaml.safe_load(Path(path).read_text())
+    return validate_layout(yaml.safe_load(Path(path).read_text()))
+
+
+def validate_layout(data):
     if not isinstance(data, dict) or data.get('schema') != 1 or data.get('name') not in SCENES:
         raise ValueError('unknown scene/schema')
     if data.get('source_model') != 'robots/T1/T1_23dof.xml':
@@ -139,17 +142,40 @@ def assemble(layout_file, assets_path, cache_dir):
     return path, provenance
 
 
-def configure_scene(cfg, selection, assets_path, cache_dir, worlds_dir):
-    """Select before constructing runner; initial pose is never a motion method."""
+def parse_start_pose(text):
+    """'' keeps the scene initial pose; otherwise 'x y yaw' (m, m, rad in world)."""
+    if not text.strip():
+        return None
+    values = [float(v) for v in text.replace(',', ' ').split()]
+    if len(values) != 3 or not all(math.isfinite(v) for v in values):
+        raise ValueError('start_pose must be three finite numbers: x y yaw')
+    return values
+
+
+def configure_scene(cfg, selection, assets_path, cache_dir, worlds_dir, start_pose=None):
+    """Select before constructing runner; initial pose is never a motion method.
+
+    start_pose overrides only the pre-construction task initial value of a YAML
+    layout (W11 predefined cases). It is validated like the scene's own pose and
+    does not change the expanded MJCF or its checksum.
+    """
     if not selection:
+        if start_pose is not None:
+            raise ValueError('start_pose requires a YAML scene layout')
         return None
     path = layout_path(selection, worlds_dir)
     if path.suffix in ('.yaml', '.yml'):
         path, provenance = assemble(path, assets_path, cache_dir)
-        x, y, yaw = provenance['scene_metadata']['initial_pose']
+        if start_pose is not None:
+            checked = dict(provenance['scene_metadata'], initial_pose=list(start_pose))
+            validate_layout(checked)
+            provenance['start_pose_override'] = list(start_pose)
+        x, y, yaw = start_pose or provenance['scene_metadata']['initial_pose']
         cfg.mujoco.init_pos = [x, y, cfg.mujoco.init_pos[2]]
         cfg.mujoco.init_quat = [math.cos(yaw/2), 0.0, 0.0, math.sin(yaw/2)]
     else:
+        if start_pose is not None:
+            raise ValueError('start_pose requires a YAML scene layout')
         provenance = dict(expanded_xml=dict(path=str(path), sha256=digest(path)),
                           scene_metadata=None, dynamic_motion_implemented=False)
     cfg.robot = cfg.robot.replace(mjcf_path=str(path))

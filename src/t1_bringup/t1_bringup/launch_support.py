@@ -30,8 +30,8 @@ def validate_request(mode, enable_sim):
         raise RuntimeError(f'Unknown mode {mode!r}; expected one of {MODES}')
     if enable_sim not in ('true', 'false'):
         raise RuntimeError('enable_sim must be true or false')
-    if enable_sim == 'true' and mode in ('navigation', 'evaluation'):
-        raise RuntimeError('navigation/evaluation require W10/W11; use mapping or localization for W09')
+    if enable_sim == 'true' and mode == 'evaluation':
+        raise RuntimeError('evaluation requires W13; use navigation for W11 static goals')
 
 
 def diagnostic_actions(context):
@@ -55,12 +55,16 @@ def diagnostic_actions(context):
     return [RegisterEventHandler(OnProcessExit(target_action=node, on_exit=finished)), node]
 
 
-def simulation_arguments(default_scene='', map_rviz=False):
+def simulation_arguments(default_scene='', map_rviz=False, rviz_config=None):
+    if rviz_config is None:
+        rviz_config = str(Path(get_package_share_directory('t1_navigation' if map_rviz else 't1_description')) / ('config/mapping.rviz' if map_rviz else 'config/scene.rviz'))
     return [DeclareLaunchArgument(name, default_value=default) for name, default in (
         ('headless', 'true'), ('target_rtf', '1.0'), ('enable_policy_cmd_input', 'false'),
         ('max_sim_time', '0.0'), ('scene', default_scene), ('run_id', ''),
+        # '' keeps the scene initial pose; 'x y yaw' sets it before the runner exists.
+        ('start_pose', ''),
         ('rviz', 'false'),
-        ('rviz_config', str(Path(get_package_share_directory('t1_navigation' if map_rviz else 't1_description')) / ('config/mapping.rviz' if map_rviz else 'config/scene.rviz'))),
+        ('rviz_config', rviz_config),
         # W05 calibrated v_des->u_pol contract; '' keeps /cmd_vel UNCALIBRATED.
         ('command_map_file', str(Path(get_package_share_directory('t1_mujoco')) / 'config/command_map.yaml')),
     )]
@@ -80,18 +84,21 @@ def simulation_actions(context):
                   ('max_sim_time', float), ('scene', str), ('run_id', str), ('command_map_file', str))}
     if LaunchConfiguration('mode').perform(context) != 'sim_only':
         if LaunchConfiguration('enable_policy_cmd_input').perform(context) != 'false':
-            raise RuntimeError('mapping/localization forbid policy debug commands')
+            raise RuntimeError('mapping/localization/navigation forbid policy debug commands')
         if not LaunchConfiguration('command_map_file').perform(context):
-            raise RuntimeError('mapping/localization require calibrated command_map_file')
+            raise RuntimeError('mapping/localization/navigation require calibrated command_map_file')
     values['use_sim_time'] = False
     values['safety_required'] = LaunchConfiguration('enable_policy_cmd_input').perform(context) != 'true'
     values['safety_params_file'] = LaunchConfiguration('safety_params_file').perform(context)
     mode = LaunchConfiguration('mode').perform(context)
     if mode == 'mapping':
         values['slam_params_file'] = LaunchConfiguration('slam_params_file').perform(context)
-    elif mode == 'localization':
+    elif mode in ('localization', 'navigation'):
         values['map_file'] = LaunchConfiguration('map').perform(context)
         values['localization_params_file'] = LaunchConfiguration('localization_params_file').perform(context)
+    if mode == 'navigation':
+        values['navigation_params_file'] = LaunchConfiguration('navigation_params_file').perform(context)
+    values['start_pose'] = ParameterValue(LaunchConfiguration('start_pose'), value_type=str)
     node = Node(package='t1_mujoco', executable='t1_sim', name='t1_sim', output='screen',
                 parameters=[str(params_file), values])
     assets = LaunchConfiguration('assets_path').perform(context)

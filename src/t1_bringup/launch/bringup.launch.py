@@ -1,4 +1,5 @@
-from t1_bringup.slam import arguments, full_actions
+from t1_bringup.slam import arguments
+from t1_bringup.navigation_launch import arguments as navigation_arguments, full_actions
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, OpaqueFunction
 from launch.substitutions import LaunchConfiguration
@@ -14,7 +15,7 @@ def configure(context):
 
 
 def generate_launch_description():
-    return LaunchDescription(launch_arguments() + simulation_arguments() + arguments() + [
+    return LaunchDescription(launch_arguments() + simulation_arguments() + arguments() + navigation_arguments() + [
         DeclareLaunchArgument('enable_sim', default_value='false', choices=['true', 'false']),
         OpaqueFunction(function=configure),
     ])
