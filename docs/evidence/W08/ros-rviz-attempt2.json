@@ -1,0 +1,807 @@
+{
+  "code_sha": "757cad7f41af7ec6b356109547b6deb03e7ba494",
+  "started_utc": "2026-10-14T09:16:06.618177+00:00",
+  "checks": {
+    "local_scan_qos": true,
+    "pause_no_new_scan": true,
+    "physical_turn_near_90": false,
+    "resume_no_stale_command": true,
+    "reset_monotonic": true,
+    "scan_type_qos_owner": true,
+    "rviz_subscribes": true,
+    "reliable_and_be_receive": true,
+    "scan_semantics": true,
+    "scan_same_stamp_state": true,
+    "scan_monotonic": true,
+    "scan_sim_10hz": true,
+    "laser_tf_origin": true,
+    "laser_tf_gravity_aligned": true,
+    "wall_p95_under_8cm": true,
+    "wall_max_under_12cm": true,
+    "points_received": true,
+    "raw_points_frame": true,
+    "raw_points_on_geometry": true,
+    "scan_tf_single_owner": true,
+    "rigid_mount_rsp": true,
+    "clock_monotonic": true,
+    "shared_stamps": true,
+    "odom_truth_match": true,
+    "integral_within_2cm": true,
+    "joint_states_valid": true,
+    "tf_acyclic": true,
+    "single_child_authority": true,
+    "no_map_truth_tf": true,
+    "tf_queries_recover": true,
+    "rates_50hz": true,
+    "publisher_ownership": true,
+    "two_tf_publishers": true,
+    "imu_absent": true,
+    "launch_exit_0": true,
+    "venv_interpreter": true,
+    "sensor_mode": true
+  },
+  "scan": {
+    "checks": {
+      "scan_type_qos_owner": true,
+      "rviz_subscribes": true,
+      "reliable_and_be_receive": true,
+      "scan_semantics": true,
+      "scan_same_stamp_state": true,
+      "scan_monotonic": true,
+      "scan_sim_10hz": true,
+      "laser_tf_origin": true,
+      "laser_tf_gravity_aligned": true,
+      "wall_p95_under_8cm": true,
+      "wall_max_under_12cm": true,
+      "points_received": true,
+      "raw_points_frame": true,
+      "raw_points_on_geometry": true,
+      "scan_tf_single_owner": true,
+      "rigid_mount_rsp": true
+    },
+    "scans": 309,
+    "best_effort_scans": 309,
+    "clouds": 309,
+    "sim_hz": 10.0,
+    "wall_p95_m": 0.007860493125294708,
+    "wall_max_m": 0.03398906289586612,
+    "tf_origin_max_m": 5.551115123125783e-17,
+    "raw_cloud_surface_error_m": 5.08350933792201e-07,
+    "graph": {
+      "publishers": [
+        {
+          "node": "t1_sim",
+          "type": "sensor_msgs/msg/LaserScan",
+          "reliability": "RELIABLE",
+          "durability": "VOLATILE",
+          "depth": 0
+        }
+      ],
+      "subscribers": [
+        "w06_probe",
+        "w06_probe",
+        "rviz2"
+      ]
+    }
+  },
+  "heading_after_turn_deg": 112.29180588066167,
+  "local_publisher_qos": {
+    "depth": 5,
+    "history": "KEEP_LAST",
+    "reliability": "RELIABLE",
+    "durability": "VOLATILE"
+  },
+  "screenshots": [
+    "rviz-standing.png",
+    "rviz-moving.png"
+  ],
+  "launch_pid": 27018,
+  "run": {
+    "run_id": "20261014T091607Z_dev_w06_w08_lidar_s0_9b22b3",
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "simulation.launch.py",
+      "run_id:=20261014T091607Z_dev_w06_w08_lidar_s0_9b22b3",
+      "target_rtf:=1.0",
+      "max_sim_time:=55.0",
+      "rviz:=true",
+      "scene:=calibration_world",
+      "params_file:=/home/haoyang/humanoid_nav_ws/docs/evidence/W08/raw/runtime-points.yaml",
+      "rviz_config:=/home/haoyang/humanoid_nav_ws/docs/evidence/W08/raw/lidar.rviz"
+    ],
+    "cwd": "/home/haoyang/humanoid_nav_ws",
+    "started_utc": "2026-10-14T09:16:07.190510+00:00",
+    "ended_utc": "2026-10-14T09:16:42.179427+00:00",
+    "wall_s": 35.55910827599928,
+    "exit_code": 0,
+    "log": "raw/20261014T091607Z_dev_w06_w08_lidar_s0_9b22b3.txt",
+    "manifest": {
+      "schema": 1,
+      "run_id": "20261014T091607Z_dev_w06_w08_lidar_s0_9b22b3",
+      "created_utc": "2026-10-14T09:16:09.007070+00:00",
+      "code_sha": "757cad7f41af7ec6b356109547b6deb03e7ba494",
+      "dirty": true,
+      "dirty_files": [
+        "M docs/start_commands.md",
+        "?? docs/evidence/W08/rviz-moving.png",
+        "?? docs/evidence/W08/rviz-standing.png",
+        "?? docs/evidence/W08/wall-overlay.png"
+      ],
+      "upstream_sha": {
+        "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+        "booster_assets": "12a97516f57469078707afb587a5f84c1cb110d1"
+      },
+      "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7",
+      "mjcf_sha256": "f2247f57bafb5e360abcb00991267564772ae2a3e39e0b0b59b4b1250f95ded7",
+      "scene_file": "/home/haoyang/humanoid_nav_ws/run_data/cache/scenes/8da691dbfdacb23ade49e6bd4685f134d557eea08283c76515f050e8d93474c5/calibration_world.xml",
+      "scene_sha256": "f2247f57bafb5e360abcb00991267564772ae2a3e39e0b0b59b4b1250f95ded7",
+      "mode": "sim_only",
+      "suite": "dev",
+      "case": "calibration_world",
+      "seed": 0,
+      "sensor_mode": "compensated",
+      "odom_mode": "ideal_truth",
+      "map_yaml": null,
+      "map_sha256": null,
+      "T_world_map": null,
+      "goal": [
+        6,
+        0,
+        0
+      ],
+      "tolerances": null,
+      "time_limit_s": 55.0,
+      "parameter_files": {
+        "nav2": null,
+        "slam": null,
+        "amcl": null,
+        "velocity_smoother": null,
+        "collision_monitor": null,
+        "command_map": {
+          "path": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+          "sha256": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+          "evidence": {
+            "report": "docs/evidence/W05/locomotion-envelope.md",
+            "runs": {
+              "20261013T212155Z_dev_w05_c3": "00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe",
+              "20261013T215753Z_dev_w05_dense": "50ef2baf9ae2530bac0edfdc07c131f99725909836fe07511264fcc6dd33fb01",
+              "20261013T220627Z_dev_w05_context": "25976d72867333007b5a1cec96b1ea9d84920a620cde6cb0f79b09525bc8f65e"
+            },
+            "statistic": "largest 2 s window mean, >=3 s after command onset, segments >=8 s (raw traces)",
+            "tested_code_sha": "abc5b4a8248b05037ef02f46022c2a6779915acd",
+            "builder": "docs/evidence/W05/build_command_map.py",
+            "validation": "docs/evidence/W05/command-map-validation.json"
+          }
+        }
+      },
+      "resolved_parameters": {
+        "upstream_path": "/home/haoyang/robot_sim_sources/booster_deploy",
+        "assets_path": "",
+        "task": "t1_walk",
+        "mode": "sim_only",
+        "scene": "calibration_world",
+        "headless": true,
+        "viewer_rate_hz": 30.0,
+        "target_rtf": 1.0,
+        "enable_policy_cmd_input": false,
+        "cmd_timeout_sim": 0.5,
+        "cmd_timeout_wall": 0.5,
+        "warmup_sim_s": 2.0,
+        "run_id": "20261014T091607Z_dev_w06_w08_lidar_s0_9b22b3",
+        "run_dir": "/home/haoyang/humanoid_nav_ws/run_data",
+        "seed": 0,
+        "max_sim_time": 55.0,
+        "command_map_file": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+        "joint_state_divisor": 1,
+        "lidar_noise_std": 0.0,
+        "lidar_dropout": 0.0,
+        "lidar_publish_points": true
+      },
+      "parameters_sha256": "2229eca1cf7e9eb37f6368138c13c7e26fb3dec94940eba489c91e22117ac46d",
+      "headless": true,
+      "target_rtf": 1.0,
+      "policy_dt": 0.02,
+      "physics_dt": 0.002,
+      "decimation": 10,
+      "host": "DESKTOP-MF19MEU",
+      "cpu": "x86_64",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "executable": "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+      "ros": "jazzy",
+      "mujoco": "3.15.0",
+      "torch": "2.14.1+cu130",
+      "command_line": [
+        "/home/haoyang/humanoid_nav_ws/build/t1_mujoco/t1_mujoco/simulation.py",
+        "--ros-args",
+        "-r",
+        "__node:=t1_sim",
+        "--params-file",
+        "/home/haoyang/humanoid_nav_ws/docs/evidence/W08/raw/runtime-points.yaml",
+        "--params-file",
+        "/tmp/launch_params_avq2h6ps"
+      ],
+      "status": "SHUTDOWN",
+      "exit_code": 0,
+      "scene_provenance": {
+        "schema": 1,
+        "name": "calibration_world",
+        "assets_sha": "12a97516f57469078707afb587a5f84c1cb110d1",
+        "source_xml": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/T1_23dof.xml",
+          "sha256": "f00e3410362b1e2267e6db05d25c33d6240bbf2436d62a409f07042bad4f7fb2"
+        },
+        "layout": {
+          "path": "/home/haoyang/humanoid_nav_ws/src/t1_mujoco/worlds/calibration_world.yaml",
+          "sha256": "6f45a05d1b38bc9ad61d081f59bba3b8c4d20a2083d2b30d34e15f6cbecd0422"
+        },
+        "license": {
+          "path": "/home/haoyang/robot_sim_sources/booster_assets/LICENSE",
+          "sha256": "056db8cc7dcb21feae042d97185d4689c21bb1ba7fe59cefdc7ef5917c0ea77f"
+        },
+        "meshes": {
+          "Trunk": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Trunk.STL",
+            "sha256": "39d9610b23ef8ac7ea4343231a499f9c485903bede62df9729a2cd1254fede8f"
+          },
+          "H1": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/H1.STL",
+            "sha256": "527a2e426db4e3d476a195754764b7f9565a950b809a34e47618f177b139c3f2"
+          },
+          "H2": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/H2.STL",
+            "sha256": "9cbf4fe83a721c809de65b1f0d0a379314f4523f7e2f8af7f0edc27c2ce385aa"
+          },
+          "AL1": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AL1.STL",
+            "sha256": "43f5d268152b3c169d34731545ddfa2a510a7e16f209a2a80f8ba9ae0e1a40aa"
+          },
+          "AL2": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AL2.STL",
+            "sha256": "4bca60adb29c73f701350abd23e8a8d660dc61e87c5163a80157650dd3ad88c3"
+          },
+          "AL3": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AL3.STL",
+            "sha256": "bfdf5611dfe90f8e02b07b037c36a244f4ce7184b45113371ef46e624fb30854"
+          },
+          "left_hand_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/left_hand_link.STL",
+            "sha256": "34df992aed438446481cfa20e78327810cd5cc5ecbb4a6f32ba2bf625462f53d"
+          },
+          "AR1": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AR1.STL",
+            "sha256": "6dbbd3dab4486600747be9d0e7f8523d67bf00d24d0dc9c23db1766c4d808fcf"
+          },
+          "AR2": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AR2.STL",
+            "sha256": "0499136785fe1bc0289d9e503e1e0ea48f5a63420a2e45b0fcd9e6b3bcf8f999"
+          },
+          "AR3": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/AR3.STL",
+            "sha256": "92330bd8286fe420fb76949ee4c5d5bdec2e6bb30426acdc4d6fae9257464631"
+          },
+          "right_hand_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/right_hand_link.STL",
+            "sha256": "c5a73e493e17db7611a81785f80c01167f51018271b4042f72fa8d2351d8b0eb"
+          },
+          "Waist": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Waist.STL",
+            "sha256": "2fe0a9ccfc284beca402e554db38e83022592192afa00f02db13cb374ffe9fbc"
+          },
+          "Hip_Pitch_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Pitch_Left.STL",
+            "sha256": "7bcb8be569aeb5379cb75a0827d682bc1d73a52a7f515d3aeffece43842c33c9"
+          },
+          "Hip_Roll_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Roll_Left.STL",
+            "sha256": "72dbd65bdb4e87444c8e538474f631d63bf8c0960922517456b8cf2be9e1d0f0"
+          },
+          "Hip_Yaw_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Yaw_Left.STL",
+            "sha256": "8d7de83ab4034639db3d1be1e6f43ae16e004dc2f1c2bec170b615686d187918"
+          },
+          "Shank_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Shank_Left.STL",
+            "sha256": "6ae8dd7f88cb70a4a3cb3972cad4035a76f1604fd73ea66e285da553b3703c40"
+          },
+          "Ankle_Cross_Left": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Ankle_Cross_Left.STL",
+            "sha256": "e6ec38741838475834c147f2ad18196c0254741e602c2b676f888fd12b5d7981"
+          },
+          "left_foot_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/left_foot_link.STL",
+            "sha256": "2de026f2269fc55f80d4a8abd2e33dfd152adf9eb2c240d7d7e1dc40c13b55aa"
+          },
+          "Hip_Pitch_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Pitch_Right.STL",
+            "sha256": "054d579c3c6ccc1f97aaf1461d802dec748ce1bf26c6fdd289283a2d0dbb2032"
+          },
+          "Hip_Roll_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Roll_Right.STL",
+            "sha256": "d715a7649ea4bf20d7ee17b3a57bae31732e467b9da1053fee2242c90f50980f"
+          },
+          "Hip_Yaw_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Hip_Yaw_Right.STL",
+            "sha256": "1a7d98e021884e313c55780a3c7c24ef2aa322807d8f9f8b18b2a63c7e2b9bf6"
+          },
+          "Shank_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Shank_Right.STL",
+            "sha256": "dc66a8a0e2e31e413884a053e427d9b5007bef4508986587916a638a8a448599"
+          },
+          "Ankle_Cross_Right": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Ankle_Cross_Right.STL",
+            "sha256": "b15d91f0f2470fc4d5634db906a3d7efaf1f700302e6671824494da8faf50308"
+          },
+          "right_foot_link": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/right_foot_link.STL",
+            "sha256": "313a9ff2f95da5727dce2b98c50b60226bf0a3affc72050ee251ea503e4b370a"
+          },
+          "Logo": {
+            "path": "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/meshes/Logo.STL",
+            "sha256": "221b00d090fdc9e684892805db75265c9688b152b3ccf641084f950f220596c8"
+          }
+        },
+        "scene_metadata": {
+          "schema": 1,
+          "source_model": "robots/T1/T1_23dof.xml",
+          "bounds": [
+            -2,
+            8,
+            -5,
+            5
+          ],
+          "initial_pose": [
+            0,
+            0,
+            0
+          ],
+          "goal": [
+            6,
+            0,
+            0
+          ],
+          "minimum_passage_m": 1.9,
+          "obstacle_height_m": 1.5,
+          "name": "calibration_world",
+          "purpose": "Axis-aligned wall calibration; known geometry for W08, no sensor implementation.",
+          "boxes": [],
+          "activity_regions": [],
+          "obstacle_slots": []
+        },
+        "dynamic_motion_implemented": false,
+        "expanded_xml": {
+          "path": "/home/haoyang/humanoid_nav_ws/run_data/cache/scenes/8da691dbfdacb23ade49e6bd4685f134d557eea08283c76515f050e8d93474c5/calibration_world.xml",
+          "sha256": "f2247f57bafb5e360abcb00991267564772ae2a3e39e0b0b59b4b1250f95ded7"
+        }
+      },
+      "lidar_config": {
+        "noise_std": 0.0,
+        "dropout": 0.0,
+        "seed": 0,
+        "publish_points": true,
+        "angles": 360,
+        "elevations": [
+          -20.0,
+          -15.0,
+          -10.0,
+          -5.0,
+          0.0,
+          5.0,
+          10.0,
+          15.0,
+          20.0
+        ],
+        "range_min": 0.15,
+        "range_max": 12.0,
+        "height_min": 0.15,
+        "height_max": 1.2,
+        "divisor": 5
+      },
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.6000000238418579,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "deadline_overruns": 1,
+      "physics_steps": 2120,
+      "failure_detail": null,
+      "sim_time_end": 31.31999999999353,
+      "wall_duration_s": 33.188293277999946,
+      "ended_utc": "2026-10-14T09:16:41.621886+00:00"
+    },
+    "topics": {
+      "/clock": {
+        "count": 1558,
+        "stamp_min_ns": 0,
+        "stamp_max_ns": 31160000000,
+        "median_sim_hz": 50.0,
+        "max_gap_s": 0.04,
+        "regressions": 0
+      },
+      "/odom": {
+        "count": 1556,
+        "stamp_min_ns": 20000000,
+        "stamp_max_ns": 31140000000,
+        "median_sim_hz": 50.0,
+        "max_gap_s": 0.04,
+        "regressions": 0
+      },
+      "/joint_states": {
+        "count": 1555,
+        "stamp_min_ns": 20000000,
+        "stamp_max_ns": 31120000000,
+        "median_sim_hz": 50.0,
+        "max_gap_s": 0.04,
+        "regressions": 0
+      },
+      "/t1/eval/ground_truth": {
+        "count": 1556,
+        "stamp_min_ns": 20000000,
+        "stamp_max_ns": 31140000000,
+        "median_sim_hz": 50.0,
+        "max_gap_s": 0.04,
+        "regressions": 0
+      },
+      "/tf:base_footprint": {
+        "count": 1554,
+        "stamp_min_ns": 20000000,
+        "stamp_max_ns": 31100000000,
+        "median_sim_hz": 50.0,
+        "max_gap_s": 0.04,
+        "regressions": 0
+      },
+      "/tf:base_link": {
+        "count": 1554,
+        "stamp_min_ns": 20000000,
+        "stamp_max_ns": 31100000000,
+        "median_sim_hz": 50.0,
+        "max_gap_s": 0.04,
+        "regressions": 0
+      },
+      "/tf:left_ankle_roll_link": {
+        "count": 1553,
+        "stamp_min_ns": 20000000,
+        "stamp_max_ns": 31080000000,
+        "median_sim_hz": 50.0,
+        "max_gap_s": 0.04,
+        "regressions": 0
+      }
+    },
+    "graph": {
+      "/clock": {
+        "publishers": [
+          {
+            "node": "t1_sim",
+            "type": "rosgraph_msgs/msg/Clock",
+            "gid": "010fcc819269739a0000000000001303",
+            "reliability": "RELIABLE",
+            "durability": "VOLATILE",
+            "depth": 0
+          }
+        ],
+        "subscribers": [
+          "w06_probe",
+          "w06_probe",
+          "robot_state_publisher",
+          "rviz2",
+          "transform_listener_impl_61a9b8365550"
+        ]
+      },
+      "/odom": {
+        "publishers": [
+          {
+            "node": "t1_sim",
+            "type": "nav_msgs/msg/Odometry",
+            "gid": "010fcc819269739a0000000000001603",
+            "reliability": "RELIABLE",
+            "durability": "VOLATILE",
+            "depth": 0
+          }
+        ],
+        "subscribers": [
+          "w06_probe",
+          "rviz2"
+        ]
+      },
+      "/joint_states": {
+        "publishers": [
+          {
+            "node": "t1_sim",
+            "type": "sensor_msgs/msg/JointState",
+            "gid": "010fcc819269739a0000000000001703",
+            "reliability": "RELIABLE",
+            "durability": "VOLATILE",
+            "depth": 0
+          }
+        ],
+        "subscribers": [
+          "w06_probe",
+          "robot_state_publisher"
+        ]
+      },
+      "/t1/eval/ground_truth": {
+        "publishers": [
+          {
+            "node": "t1_sim",
+            "type": "nav_msgs/msg/Odometry",
+            "gid": "010fcc819269739a0000000000001803",
+            "reliability": "RELIABLE",
+            "durability": "VOLATILE",
+            "depth": 0
+          }
+        ],
+        "subscribers": [
+          "w06_probe"
+        ]
+      },
+      "/tf": {
+        "publishers": [
+          {
+            "node": "t1_sim",
+            "type": "tf2_msgs/msg/TFMessage",
+            "gid": "010fcc819269739a0000000000001903",
+            "reliability": "RELIABLE",
+            "durability": "VOLATILE",
+            "depth": 0
+          },
+          {
+            "node": "robot_state_publisher",
+            "type": "tf2_msgs/msg/TFMessage",
+            "gid": "010fcc81936912d00000000000001503",
+            "reliability": "RELIABLE",
+            "durability": "VOLATILE",
+            "depth": 0
+          }
+        ],
+        "subscribers": [
+          "w06_probe",
+          "transform_listener_impl_61a9b8365550"
+        ]
+      },
+      "/tf_static": {
+        "publishers": [
+          {
+            "node": "robot_state_publisher",
+            "type": "tf2_msgs/msg/TFMessage",
+            "gid": "010fcc81936912d00000000000001603",
+            "reliability": "RELIABLE",
+            "durability": "TRANSIENT_LOCAL",
+            "depth": 0
+          }
+        ],
+        "subscribers": [
+          "w06_probe",
+          "transform_listener_impl_61a9b8365550"
+        ]
+      },
+      "/robot_description": {
+        "publishers": [
+          {
+            "node": "robot_state_publisher",
+            "type": "std_msgs/msg/String",
+            "gid": "010fcc81936912d00000000000001703",
+            "reliability": "RELIABLE",
+            "durability": "TRANSIENT_LOCAL",
+            "depth": 0
+          }
+        ],
+        "subscribers": [
+          "rviz2"
+        ]
+      },
+      "/imu/data": {
+        "publishers": [],
+        "subscribers": []
+      },
+      "/scan": {
+        "publishers": [
+          {
+            "node": "t1_sim",
+            "type": "sensor_msgs/msg/LaserScan",
+            "reliability": "RELIABLE",
+            "durability": "VOLATILE",
+            "depth": 0
+          }
+        ],
+        "subscribers": [
+          "w06_probe",
+          "w06_probe",
+          "rviz2"
+        ]
+      },
+      "/t1/lidar/points": {
+        "publishers": [
+          {
+            "node": "t1_sim",
+            "type": "sensor_msgs/msg/PointCloud2",
+            "reliability": "RELIABLE",
+            "durability": "VOLATILE",
+            "depth": 0
+          }
+        ],
+        "subscribers": [
+          "w06_probe"
+        ]
+      }
+    },
+    "tf_parents": {
+      "trunk": "base_link",
+      "head_realsense_rgb_link": "aahead_pitch_link",
+      "lidar_link": "trunk",
+      "base_footprint": "odom",
+      "base_link": "base_footprint",
+      "laser_stabilized": "base_footprint",
+      "aahead_pitch_link": "aahead_yaw_link",
+      "aahead_yaw_link": "trunk",
+      "left_ankle_pitch_link": "left_knee_pitch_link",
+      "left_ankle_roll_link": "left_ankle_pitch_link",
+      "left_elbow_pitch_link": "left_shoulder_roll_link",
+      "left_elbow_yaw_link": "left_elbow_pitch_link",
+      "left_hip_pitch_link": "waist_yaw_link",
+      "left_hip_roll_link": "left_hip_pitch_link",
+      "left_hip_yaw_link": "left_hip_roll_link",
+      "left_knee_pitch_link": "left_hip_yaw_link",
+      "left_shoulder_pitch_link": "trunk",
+      "left_shoulder_roll_link": "left_shoulder_pitch_link",
+      "right_ankle_pitch_link": "right_knee_pitch_link",
+      "right_ankle_roll_link": "right_ankle_pitch_link",
+      "right_elbow_pitch_link": "right_shoulder_roll_link",
+      "right_elbow_yaw_link": "right_elbow_pitch_link",
+      "right_hip_pitch_link": "waist_yaw_link",
+      "right_hip_roll_link": "right_hip_pitch_link",
+      "right_hip_yaw_link": "right_hip_roll_link",
+      "right_knee_pitch_link": "right_hip_yaw_link",
+      "right_shoulder_pitch_link": "trunk",
+      "right_shoulder_roll_link": "right_shoulder_pitch_link",
+      "waist_yaw_link": "trunk"
+    },
+    "tf_authorities": {
+      "trunk": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "head_realsense_rgb_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "lidar_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "base_footprint": [
+        "t1_sim (batch + graph ownership)"
+      ],
+      "base_link": [
+        "t1_sim (batch + graph ownership)"
+      ],
+      "laser_stabilized": [
+        "t1_sim (batch + graph ownership)"
+      ],
+      "aahead_pitch_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "aahead_yaw_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "left_ankle_pitch_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "left_ankle_roll_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "left_elbow_pitch_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "left_elbow_yaw_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "left_hip_pitch_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "left_hip_roll_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "left_hip_yaw_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "left_knee_pitch_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "left_shoulder_pitch_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "left_shoulder_roll_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "right_ankle_pitch_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "right_ankle_roll_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "right_elbow_pitch_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "right_elbow_yaw_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "right_hip_pitch_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "right_hip_roll_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "right_hip_yaw_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "right_knee_pitch_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "right_shoulder_pitch_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "right_shoulder_roll_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ],
+      "waist_yaw_link": [
+        "robot_state_publisher (URDF batch + graph ownership)"
+      ]
+    },
+    "authority_method": "Jazzy MessageInfo lacks GID: disjoint TF batches + URDF ownership + endpoint graph",
+    "common_stamps": 1554,
+    "max_odom_truth_xy_error_m": 0.0,
+    "max_integral_error_m": 0.0035520254899641538,
+    "integrated_pairs": 1554,
+    "tf_lookup_attempts": 313,
+    "tf_lookup_failures": 0,
+    "tf_lookup_failure_examples": [],
+    "tf_persistent_failures": 0,
+    "joint_names": [
+      "aahead_pitch_joint",
+      "aahead_yaw_joint",
+      "left_ankle_pitch_joint",
+      "left_ankle_roll_joint",
+      "left_elbow_pitch_joint",
+      "left_elbow_yaw_joint",
+      "left_hip_pitch_joint",
+      "left_hip_roll_joint",
+      "left_hip_yaw_joint",
+      "left_knee_pitch_joint",
+      "left_shoulder_pitch_joint",
+      "left_shoulder_roll_joint",
+      "right_ankle_pitch_joint",
+      "right_ankle_roll_joint",
+      "right_elbow_pitch_joint",
+      "right_elbow_yaw_joint",
+      "right_hip_pitch_joint",
+      "right_hip_roll_joint",
+      "right_hip_yaw_joint",
+      "right_knee_pitch_joint",
+      "right_shoulder_pitch_joint",
+      "right_shoulder_roll_joint",
+      "waist_yaw_joint"
+    ],
+    "joint_states_valid": true,
+    "checks": {
+      "clock_monotonic": true,
+      "shared_stamps": true,
+      "odom_truth_match": true,
+      "integral_within_2cm": true,
+      "joint_states_valid": true,
+      "tf_acyclic": true,
+      "single_child_authority": true,
+      "no_map_truth_tf": true,
+      "tf_queries_recover": true,
+      "rates_50hz": true,
+      "publisher_ownership": true,
+      "two_tf_publishers": true,
+      "imu_absent": true
+    }
+  },
+  "ended_utc": "2026-10-14T09:16:42.387940+00:00",
+  "server_pid": 26974,
+  "server_exit": 0,
+  "verdict": "FAIL"
+}

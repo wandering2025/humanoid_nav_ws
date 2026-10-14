@@ -93,7 +93,7 @@ try:
     run=w06.Run('w08_lidar',rviz=True,extra_args=['scene:=calibration_world',f'params_file:={params}',f'rviz_config:={rviz}'])
     run.ready();run.duration(1.,(0.,0.));standing=run.screenshot('rviz-standing.png')
     run.duration(3.,(.4,0.));run.duration(4.,(0.,0.))
-    run.until(lambda: math.degrees(w06.yaw(run.node.odom.pose.pose.orientation))>=110,(0.,.6),timeout=12)
+    run.until(lambda: math.degrees(w06.yaw(run.node.odom.pose.pose.orientation))>=100,(0.,.6),timeout=12)
     run.duration(4.,(0.,0.));heading=math.degrees(w06.yaw(run.node.odom.pose.pose.orientation))
     run.duration(4.,(.4,0.));moving=run.screenshot('rviz-moving.png');run.duration(4.,(0.,0.))
     run.service(run.node.pause_client,SetBool.Request(data=True));run.duration(.3,wall=True)
