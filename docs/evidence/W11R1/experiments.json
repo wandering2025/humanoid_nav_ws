@@ -743,5 +743,24 @@
     "contacts": 0,
     "falls": 0,
     "remaining_owned_pids": []
+  },
+  {
+    "hypothesis": "H11 timeout; H12 consume feasible path headings in MPPI PathAlign",
+    "code_sha": "cf8e49fcb0ee593a94ca6e9b17d43bdfaa5a0762",
+    "run_id": "20261015T083822Z_w11r1-repair-smoke-v8_B06_s3005_758d9d",
+    "result": "FAIL_TIMEOUT",
+    "task_s": 120.02,
+    "cm_stop": 0,
+    "cm_slowdown": 0,
+    "observed_pose_at_50s": [
+      8.3775,
+      -0.0406,
+      1.1594
+    ],
+    "reason": "Terminal approach remains sideways; MPPI PathAlign was XY-only and discarded feasible path heading. Actual critic assigns equal zero cost to matched XY with 0 vs 90deg headings.",
+    "decision": "Enable only PathAlignCritic.use_path_orientations; all thresholds, weights, shim and angle modes unchanged.",
+    "contacts": 0,
+    "falls": 0,
+    "remaining_owned_pids": []
   }
 ]

@@ -144,7 +144,9 @@ controller_server:
         trajectory_point_step: 4
         threshold_to_consider: 0.5
         offset_from_furthest: 20
-        use_path_orientations: false
+        # The lattice supplies feasible headings. XY-only alignment cannot
+        # penalize the sideways terminal approach seen in H11 B06.
+        use_path_orientations: true
       PathFollowCritic:
         enabled: true
         cost_power: 1
