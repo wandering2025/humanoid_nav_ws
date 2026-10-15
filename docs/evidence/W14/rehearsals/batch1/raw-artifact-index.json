@@ -1,0 +1,412 @@
+[
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b-costmap.csv",
+    "size": 9634,
+    "sha256": "96d0907b42faae3d1284088e1ff18d313ea18b73ce1b866fdff97e3d0d8f7cdd"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b-obstacle.csv",
+    "size": 38448,
+    "sha256": "e913dbb42a70071062780aad2c8012f82d5e6129bd87e43e3ec4258b824e32a8"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/arrived-mujoco.png",
+    "size": 98946,
+    "sha256": "12321d267be69b26f197f2eb869c5ea5e48b9376614cb023ef32c02ff3ae3ac7"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/arrived-rviz.png",
+    "size": 497780,
+    "sha256": "b16680ceca5061d7f7cf1cdc9eb8653ec6d012b92c777cbdbb8756a8c800a450"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/cpu-rviz-check.json",
+    "size": 644,
+    "sha256": "65aaae8ffefb98da889c0f2857574ab5eabaff1cd1f92773df17afcd46c011f7"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/dds.log",
+    "size": 240,
+    "sha256": "f9b5bcfab3f26c65dfe029ec899ebcab5b437238bb2a05482eb8c594b61f33e4"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/environment.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/final-result.json",
+    "size": 56599,
+    "sha256": "2b25e21dd0b0e36bbfa32b4ead0a530c20c9ca7504c9289cce80363e2a44a447"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/goal.log",
+    "size": 4443,
+    "sha256": "860b71f80d1cb0904b8bad6b071894254cce7984e12b4e30f70be0dfbef775c4"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/gpu/gpu-samples.jsonl",
+    "size": 30708,
+    "sha256": "b66a65547855b8895f9aeff031be1c855fdd9593540ebeed5549e886e62d3e0c"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/graphics.txt",
+    "size": 1776,
+    "sha256": "75ad83c72bae2c9e3382fcb1a64f3e6e6e0faa54ab3a08adbc4d5eaa29389f26"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/launch.log",
+    "size": 41886,
+    "sha256": "802f95a63e1ad08cbac22c395ef6e992c9323c64dbd659f817eeb37b56cfb469"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/owned-processes.json",
+    "size": 7968,
+    "sha256": "7db208fb13681427320e4df5bb18823b3b96eaeca761510f3bd36ffcb8077161"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/partial-result.json",
+    "size": 6562,
+    "sha256": "62b635801e2af037b20071e51eea35cbf1d455e837f42e59c8ba1a1adc81c7b8"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/preflight.json",
+    "size": 1078,
+    "sha256": "66878be02a3b81170b0809122a7006fce2ce2831947f0ba2f1fccaf71f1f287c"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/raw/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b-topic-data.json",
+    "size": 1321588,
+    "sha256": "58a17a8a42b9d91cc5c7c44a8f06a5ef32d3b0cae3d33977f759908ce00cecde"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ready-mujoco.png",
+    "size": 88998,
+    "sha256": "f4f47a32bcfb3c6a0cf86e1eff06551e486d9dd018a03fffaa5bcae0a1407d8a"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ready-rviz.png",
+    "size": 468067,
+    "sha256": "1ebc146acea16fe24917e7148d64a9700696a72216704a6e6cb4380260ac9c0c"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/result.json",
+    "size": 56496,
+    "sha256": "e9d372dbe7bf7484649ed3e2af89ebf064295d7c13d5029de51f613cf5b002a4"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/2026-10-15-15-13-14-368706-DESKTOP-MF19MEU-27381/launch.log",
+    "size": 4758,
+    "sha256": "0f9a96bb135b12a9fb1ee849e9e3db8ec085647e2f54a2c46cf471964bfddb7f"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/amcl_27395_1792069994516.log",
+    "size": 1660,
+    "sha256": "d84be633b3057636491e74093120e4430da3a5d4ec0072518605a750b6fd7701"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/behavior_server_27888_1792070005005.log",
+    "size": 1483,
+    "sha256": "77704ec3929b16d615ac30f9766c4d34e2973bd7df0f41cc0a48a2b9001ccdeb"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/bt_navigator_27889_1792070005012.log",
+    "size": 2031,
+    "sha256": "9440bd01c0f31391c1594fd7c8f796327ad7ed58a26f378e4b07db7968d6cdd4"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/collision_monitor_27399_1792069994520.log",
+    "size": 1952,
+    "sha256": "3f346fb3798d628f3f762a2047edf8caae45b467f0f9d7e6216a12c15c1167a4"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/controller_server_27886_1792070005009.log",
+    "size": 9391,
+    "sha256": "b7811e1f031fc2ce4375e896ec110d600fff6c61264a94d777c049225a262034"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/lifecycle_manager_27716_1792069997519.log",
+    "size": 1454,
+    "sha256": "6c639ebc1cd349b43920a5cdf724f57cf299156e931b275b86dd0681f0ec5f6e"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/lifecycle_manager_27717_1792069997517.log",
+    "size": 1430,
+    "sha256": "a81034e3f88dac29f262dd5da8154bda1ca89e5feab5c548d44fe6051d6f0448"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/lifecycle_manager_27890_1792070004994.log",
+    "size": 2106,
+    "sha256": "555f6e34683604fdb540708820853d614e7784c10edbc2018de7f7532ffa446c"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/map_server_27394_1792069994541.log",
+    "size": 1838,
+    "sha256": "90b387d2ba9ed68f3ff4960bc21107d76b68ebc21abd338b4bf0576647e1a4eb"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/planner_server_27887_1792070004998.log",
+    "size": 4964,
+    "sha256": "3dbff0d003b2d933edcaf4808b7bab0ab8d6129619f27b5bfb9378bc9d773f88"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/python3_27396_1792069994758.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/python3_27891_1792070005188.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/python3_27892_1792070005275.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/python3_27932_1792070005307.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/python3_28506_1792070015314.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/python_27253_1792069993884.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/python_27392_1792069994636.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/robot_state_publisher_27393_1792069994499.log",
+    "size": 144,
+    "sha256": "e96ae45b605d701a02a8c7e1b80df72156abf86aa88c27c543978e12c2c234a2"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/rviz2_28397_1792070012236.log",
+    "size": 899,
+    "sha256": "2e419b40125c20f510bb793f3f48d8215e749b98c5ab3636d46ece011a39a4eb"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/ros-log/velocity_smoother_27398_1792069994506.log",
+    "size": 1012,
+    "sha256": "ddd1424b2ec1d65e18909edd326445c571e1a1b99426330f6f33e4b10f353ce1"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/runtime.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/rviz.log",
+    "size": 899,
+    "sha256": "2e419b40125c20f510bb793f3f48d8215e749b98c5ab3636d46ece011a39a4eb"
+  },
+  {
+    "path": "run_data/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/contact_events.csv",
+    "size": 108,
+    "sha256": "e19231ca735fe6ec0b4b20ae580614cc40994470245f101736d11b7830d7319c"
+  },
+  {
+    "path": "run_data/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/events.jsonl",
+    "size": 128206,
+    "sha256": "75c9086e5b1a7c301aa7990643eaef844685992238dd06e286264342ee29212a"
+  },
+  {
+    "path": "run_data/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/geometry.jsonl",
+    "size": 792480,
+    "sha256": "608dfd187dcc38f4a549385b47f48d3c00451b15fc3a0f8c0304e8fd8891218e"
+  },
+  {
+    "path": "run_data/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/manifest.json",
+    "size": 16102,
+    "sha256": "fe8167e4bb58677651eb4220a8faef69fb781181dd727ec0e185fc932331bb51"
+  },
+  {
+    "path": "run_data/20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b/sim_trace.csv",
+    "size": 2310244,
+    "sha256": "4e5fc1b27a10b38d79f9696722e9855daf6e2563c5c4757bff5c462f1073bec0"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/dds.log",
+    "size": 240,
+    "sha256": "f9b5bcfab3f26c65dfe029ec899ebcab5b437238bb2a05482eb8c594b61f33e4"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/environment.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/failure.txt",
+    "size": 683,
+    "sha256": "a7b47c4ad608da28abb096900e2463a141d8fc81804863686b372f05137fd196"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/final-result.json",
+    "size": 14468,
+    "sha256": "91c760044c3f1dcafc32789c0461fd58b8b1b730da81987d86e859eacab31501"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/gpu/gpu-samples.jsonl",
+    "size": 7477,
+    "sha256": "b9f150a9383af8d87a719ed8a9f786da22201f32926dcada8926347b53fa00f6"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/graphics.txt",
+    "size": 1776,
+    "sha256": "75ad83c72bae2c9e3382fcb1a64f3e6e6e0faa54ab3a08adbc4d5eaa29389f26"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/launch.log",
+    "size": 34741,
+    "sha256": "4e05843673bda64057681dcb837c97ed9f3551aa154fdb2dd5bc5ac382f1b96f"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/owned-processes.json",
+    "size": 7266,
+    "sha256": "0583392b5197231fa678f8af536f909c04aad2a79bc8445cef206dde2b8f5960"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/preflight.json",
+    "size": 1078,
+    "sha256": "aca1752f018a834fa640514addc5b14caeae1264ef5da84f3935130fe8fa6657"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/result.json",
+    "size": 14353,
+    "sha256": "e3fcd4277011274f73e52fcecf5a6ed92b1d162c285119693c8fabf5bc842019"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/2026-10-15-15-16-44-160479-DESKTOP-MF19MEU-30165/launch.log",
+    "size": 4758,
+    "sha256": "70562c1e87759e93863e6e7bffd3070d22fd43740add857901fa7cd56bc1201a"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/amcl_30176_1792070204267.log",
+    "size": 1659,
+    "sha256": "158391ea3e5c524501028d0cb478724f4986cc7545210902ce7ea1aec1d3b26a"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/behavior_server_30645_1792070214623.log",
+    "size": 1205,
+    "sha256": "2312c1497e5a1a74c0e940818a0689f2315ceeab787166296b674c63f7f88d96"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/bt_navigator_30646_1792070214628.log",
+    "size": 1183,
+    "sha256": "ff30339cff2fa22870732d2e03c1909b83f7f7e4e3bb1e7ee9e009d13f8c4360"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/collision_monitor_30181_1792070204273.log",
+    "size": 1754,
+    "sha256": "86568f5181d239e7b9bfe7cf44c42ac3dbc87f7ef8e581eb840bb77d7220890d"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/controller_server_30643_1792070214611.log",
+    "size": 6398,
+    "sha256": "b3c0ce5afd9f85ab89bb838bc57acd9db612384a5f40100f711425c63d28dc14"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/lifecycle_manager_30488_1792070209603.log",
+    "size": 1454,
+    "sha256": "76f008fd7fda44099da6c746a8c28d87676ee0711f9f76be5d9ea8c79f7d5198"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/lifecycle_manager_30490_1792070209605.log",
+    "size": 1430,
+    "sha256": "35790fd2263b828d52e37253a73f86b48593253f0687eeab7c626b54efda72ed"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/lifecycle_manager_30647_1792070214614.log",
+    "size": 2106,
+    "sha256": "83f343d07b47a9748a39435637a7f748bf378ffcfac8e04779ff042961800f68"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/map_server_30175_1792070204278.log",
+    "size": 1838,
+    "sha256": "90c0aa6ce4e3b988e17e81bd327209d706534755f49ab8056159e1bc9bbcbd3e"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/planner_server_30644_1792070214619.log",
+    "size": 3416,
+    "sha256": "60fc389eb79d2e9bb3a01993d4fa60c6211aa498aa1d7ad605cefc0637bce325"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/python3_30177_1792070204459.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/python3_30648_1792070214789.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/python3_30649_1792070214863.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/python3_30691_1792070214898.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/python_30023_1792070203874.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/python_30173_1792070204390.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/robot_state_publisher_30174_1792070204262.log",
+    "size": 144,
+    "sha256": "7cffbee6cd7521f8856209cf20e52e8e34a358a798cc150dceca7bb60eba2aeb"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/ros-log/velocity_smoother_30178_1792070204264.log",
+    "size": 1012,
+    "sha256": "b9c900c784d0b71ada0cdea331b6788d59e5804dff2f34f5edc8f55b75c8309d"
+  },
+  {
+    "path": "run_data/demo/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/runtime.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/contact_events.csv",
+    "size": 108,
+    "sha256": "e19231ca735fe6ec0b4b20ae580614cc40994470245f101736d11b7830d7319c"
+  },
+  {
+    "path": "run_data/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/events.jsonl",
+    "size": 16643,
+    "sha256": "34653c3dda3f4d03ee64a5f3ac470a25e2efead6523b2cdd0958e8fc72514368"
+  },
+  {
+    "path": "run_data/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/geometry.jsonl",
+    "size": 102965,
+    "sha256": "d4b38ed77f0b9ebf36f2d4fb1af74dd2db417e3a409d85fa8da84c2eb47cae76"
+  },
+  {
+    "path": "run_data/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/manifest.json",
+    "size": 16101,
+    "sha256": "52fa00da0f2c650eb0c67b3bc999c2afac8cfff937b78ed8f91d4949530f158a"
+  },
+  {
+    "path": "run_data/20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b/sim_trace.csv",
+    "size": 288124,
+    "sha256": "f555a607171f9be676305644e641dcbeac642b2f397a1db79d89dfa742c25e7f"
+  }
+]

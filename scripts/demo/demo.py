@@ -69,6 +69,10 @@ def alive(record):
     return actual and actual['start'] == record['start'] and actual['state'] != 'Z'
 
 
+def clock_stalled(node,now,last_progress):
+    return node is not None and node.first_clock is not None and now-last_progress>3
+
+
 def project_processes():
     result = []
     for r in processes().values():
@@ -193,6 +197,7 @@ class Demo:
         self.last_status = 0
         self.last_clock_seen = None
         self.clock_changed_wall = self.started
+        self.trace_progress = None
         self.gpu_watch=getattr(args,'gpu_watch',None)
         self.gpu_error=None
         self.gpu_thread_stop=threading.Event()
@@ -259,7 +264,17 @@ class Demo:
         if self.node and self.node.sim != self.last_clock_seen:
             self.last_clock_seen=self.node.sim
             self.clock_changed_wall=now
-        if check_stop and now-self.started>15 and now-self.clock_changed_wall>3:
+        # Receiving no first sample is startup/discovery, not a stopped clock.
+        # Independently watch the simulator's flushed trace so DDS absence cannot
+        # mask a physical/viewer stall. The established-clock deadline stays 3s.
+        trace=WS/'run_data'/RUN_ID/'sim_trace.csv'
+        if check_stop and trace.exists():
+            size=trace.stat().st_size
+            if self.trace_progress is None or self.trace_progress[0]!=size:
+                self.trace_progress=(size,now)
+            if now-self.trace_progress[1]>(3 if size>4096 else 15):
+                raise RuntimeError('Simulator trace stopped advancing; stopping this run')
+        if check_stop and clock_stalled(self.node,now,self.clock_changed_wall):
             raise RuntimeError('Simulation clock stalled for 3 wall seconds; stopping this run')
         if time.monotonic()-self.last_status >= 1:
             self.track()
@@ -346,6 +361,10 @@ class Demo:
         import rclpy
         self.start_gpu_watch()
         self.spawn('dds',[str(WS/'scripts/start_local_dds.sh')])
+        # A participant created before the server listens can miss discovery on
+        # this Fast DDS/WSL setup. Create no ROS participant until real LISTEN.
+        self.until(lambda:'### Server is running ###' in (OUT/'dds.log').read_text(errors='replace')
+                   and bool(port_connections()['listeners']),10)
         from rclpy.signals import SignalHandlerOptions
         rclpy.init(signal_handler_options=SignalHandlerOptions.NO)
         self.node=Probe()

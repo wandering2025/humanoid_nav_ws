@@ -1,0 +1,528 @@
+{
+  "status": "FAILED_BATCH",
+  "runs": [
+    {
+      "run_id": "20261015T131303Z_demo_U01_3c885c0f-7907-4cfb-8a9b-a5879600cd0b",
+      "code_sha": "23217d6b79332171c2f4ccb91cdf85218559352d",
+      "status": "SUCCESS",
+      "arrived": true,
+      "error": null,
+      "settle": {
+        "settled": true,
+        "settle_start_sim": 76.44000000000325,
+        "settle_delay_s": 2.6400000000032406,
+        "pos_err_m": 0.157421786563627,
+        "yaw_err_deg": 0.09066682536892136
+      },
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "body_clearance": {
+        "min_m": 1.5234714260694566,
+        "sim_time": 33.91999999999549,
+        "geom_pair": [
+          "t1_geom_036",
+          "obstacle_approach_slot"
+        ],
+        "samples": 1046,
+        "robot_geoms": 22,
+        "environment_geoms": 8,
+        "sample_hz": 10,
+        "definition": "signed 3D MuJoCo collision geometry distance; excludes ground/self/visual; sampled minimum, not continuous bound"
+      },
+      "readiness_wall_s": 18.540407868999864,
+      "task_wall_s": 94.08620287899976,
+      "wall_total_s": 110.38387300900013,
+      "post_runner_port_wait_wall_s": 60.19628015299986,
+      "dynamic": {
+        "scenario": "approach",
+        "checks": {
+          "triggered_after_actual_walking": true,
+          "scan_hits_entity": true,
+          "local_costmap_marks_entity": true,
+          "no_planner_obstacle_truth": true,
+          "no_teleop": true,
+          "dimensions": true,
+          "vacated_costmap_clears": true,
+          "actual_stop_in_protection": true,
+          "safely_resumed": true,
+          "navigation_success": true
+        },
+        "verdict": "PASS",
+        "trigger_sim": 24.6819999999972,
+        "scan_hit_frames": 776,
+        "costmap_marked_samples": 123,
+        "costmap_cleared_samples": 106,
+        "actual_stop_sim": 28.39999999999514,
+        "resume_sim": 42.66000000000617,
+        "stopped_hold_s": 7.12,
+        "min_center_surface_gap_m": 1.7118123528982983,
+        "min_rotated_footprint_gap_m": 1.1732967687642635,
+        "max_robot_lateral_m": 0.26895137112980694,
+        "initial_plan_lateral_m": 0.0019999172985549762,
+        "replanned_lateral_m": 1.0857737371589806,
+        "scan_topic_samples": [
+          {
+            "sim": 24.8,
+            "obstacle": {
+              "episode": 0,
+              "sim_time": 24.719999999997178,
+              "slot": "approach_slot",
+              "position": [
+                6.0,
+                2.98200000000001,
+                0.75
+              ],
+              "size": [
+                0.5,
+                0.5,
+                1.5
+              ],
+              "phase": "move_0",
+              "triggered_at": 24.6819999999972
+            },
+            "hits": [
+              [
+                218,
+                3.662529230117798,
+                5.763050181831221,
+                2.6816888860061385
+              ],
+              [
+                219,
+                3.686164379119873,
+                5.737024988943038,
+                2.74488500067721
+              ],
+              [
+                220,
+                3.7472689151763916,
+                5.736517787193296,
+                2.833997825805914
+              ],
+              [
+                221,
+                3.811617374420166,
+                5.73599566970022,
+                2.9261457449495927
+              ],
+              [
+                222,
+                3.879420280456543,
+                5.735457554071292,
+                3.0215457815212434
+              ],
+              [
+                223,
+                3.950908660888672,
+                5.734902690805175,
+                3.120435138415361
+              ]
+            ],
+            "laser_pose_odom": [
+              3.0461311641923947,
+              0.2255798873947687,
+              0.8723077509828183,
+              0.0717985348048729
+            ],
+            "scan_frame": "laser_stabilized",
+            "cm": null
+          },
+          {
+            "sim": 64.4,
+            "obstacle": {
+              "episode": 0,
+              "sim_time": 64.3200000000315,
+              "slot": "approach_slot",
+              "position": [
+                6.0,
+                3.0,
+                0.75
+              ],
+              "size": [
+                0.5,
+                0.5,
+                1.5
+              ],
+              "phase": "hold_1",
+              "triggered_at": 24.6819999999972
+            },
+            "hits": [
+              [
+                46,
+                4.241133213043213,
+                6.250512408867527,
+                3.1685770026741724
+              ],
+              [
+                47,
+                4.162665843963623,
+                6.2505005548320725,
+                3.0611766523394373
+              ],
+              [
+                48,
+                4.088272571563721,
+                6.250488703171582,
+                2.957647715746689
+              ],
+              [
+                49,
+                4.017695426940918,
+                6.250476244474404,
+                2.8577253487408294
+              ],
+              [
+                50,
+                3.9506967067718506,
+                6.250464213422225,
+                2.7611654954034663
+              ],
+              [
+                51,
+                3.999937057495117,
+                6.167153057754415,
+                2.743918188009715
+              ],
+              [
+                52,
+                4.077825546264648,
+                6.062105559542878,
+                2.743541096114213
+              ],
+              [
+                53,
+                4.160094261169434,
+                5.9528561861275175,
+                2.7431451802072564
+              ],
+              [
+                54,
+                4.247066974639893,
+                5.839075761023654,
+                2.7427301820531595
+              ]
+            ],
+            "laser_pose_odom": [
+              9.118986160249353,
+              0.0446260958237267,
+              0.8834842090663979,
+              -1.6308570765867345
+            ],
+            "scan_frame": "laser_stabilized",
+            "cm": [
+              0,
+              ""
+            ]
+          },
+          {
+            "sim": 103.9,
+            "obstacle": {
+              "episode": 0,
+              "sim_time": 103.81999999993944,
+              "slot": "approach_slot",
+              "position": [
+                6.0,
+                3.0,
+                0.75
+              ],
+              "size": [
+                0.5,
+                0.5,
+                1.5
+              ],
+              "phase": "hold_1",
+              "triggered_at": 24.6819999999972
+            },
+            "hits": [
+              [
+                318,
+                4.1862921714782715,
+                6.250027459502054,
+                3.1473547347911843
+              ],
+              [
+                319,
+                4.112636566162109,
+                6.250025982114442,
+                3.0440613604476194
+              ],
+              [
+                320,
+                4.04273796081543,
+                6.250024709486125,
+                2.9443099161644013
+              ],
+              [
+                321,
+                3.9763665199279785,
+                6.250023571667111,
+                2.8478635940292776
+              ],
+              [
+                322,
+                3.9133119583129883,
+                6.250022468904586,
+                2.7545049484177055
+              ],
+              [
+                323,
+                3.9806320667266846,
+                6.153960799280759,
+                2.7474909432549905
+              ],
+              [
+                324,
+                4.062689781188965,
+                6.04598105209595,
+                2.747377852083154
+              ],
+              [
+                325,
+                4.149492263793945,
+                5.93342085708251,
+                2.7472598784447495
+              ],
+              [
+                326,
+                4.243768692016602,
+                5.814046270953934,
+                2.7485913620401026
+              ]
+            ],
+            "laser_pose_odom": [
+              9.158910699940437,
+              0.13679989581599017,
+              0.8852973877222177,
+              -0.06953394524469975
+            ],
+            "scan_frame": "laser_stabilized",
+            "cm": [
+              0,
+              ""
+            ]
+          }
+        ]
+      },
+      "safe_stop": {
+        "ack": true,
+        "physical_stationary": true,
+        "gate": {
+          "state": "STOPPED",
+          "reason": "EXPLICIT_STOP_OR_CANCEL",
+          "source": "navigation",
+          "permit": false,
+          "wall_mono": 4798.078938133,
+          "sim_time": 103.92,
+          "health_reason": ""
+        }
+      },
+      "human_intervention": false,
+      "parent_exit_codes": {
+        "dds": 0,
+        "launch": 0,
+        "rviz": 0,
+        "goal": 0
+      },
+      "launch_process_exit_codes": {
+        "t1_sim-1": {
+          "pid": 27392,
+          "exit_code": 0
+        },
+        "robot_state_publisher-2": {
+          "pid": 27393,
+          "exit_code": 0
+        },
+        "map_server-3": {
+          "pid": 27394,
+          "exit_code": 0
+        },
+        "amcl-4": {
+          "pid": 27395,
+          "exit_code": 0
+        },
+        "command_gate-5": {
+          "pid": 27396,
+          "exit_code": 0
+        },
+        "velocity_smoother-6": {
+          "pid": 27398,
+          "exit_code": 0
+        },
+        "collision_monitor-7": {
+          "pid": 27399,
+          "exit_code": 0
+        },
+        "lifecycle_manager-8": {
+          "pid": 27716,
+          "exit_code": 0
+        },
+        "lifecycle_manager-9": {
+          "pid": 27717,
+          "exit_code": 0
+        },
+        "controller_server-10": {
+          "pid": 27886,
+          "exit_code": 0
+        },
+        "planner_server-11": {
+          "pid": 27887,
+          "exit_code": 0
+        },
+        "behavior_server-12": {
+          "pid": 27888,
+          "exit_code": 0
+        },
+        "bt_navigator-13": {
+          "pid": 27889,
+          "exit_code": 0
+        },
+        "lifecycle_manager-14": {
+          "pid": 27890,
+          "exit_code": 0
+        },
+        "navigation_adapter-15": {
+          "pid": 27891,
+          "exit_code": 0
+        },
+        "navigation_starter-16": {
+          "pid": 27892,
+          "exit_code": 0
+        },
+        "t1_initial_pose_once-17": {
+          "pid": 27893,
+          "exit_code": 0
+        }
+      },
+      "post_runner_remaining_pids": [],
+      "dds_port_released": true,
+      "gpu_monitor_error": null
+    },
+    {
+      "run_id": "20261015T131632Z_demo_U01_11cf967e-10d7-49b9-bbbf-3b07fcbaac7b",
+      "code_sha": "23217d6b79332171c2f4ccb91cdf85218559352d",
+      "status": "FAILED",
+      "arrived": false,
+      "error": "RuntimeError('Simulation clock stalled for 3 wall seconds; stopping this run')",
+      "settle": {
+        "settled": false,
+        "pos_err_m": 8.995666341045636,
+        "yaw_err_deg": 2.50067096235913,
+        "final_window_speed": 0.0002304495641241073,
+        "final_window_rate": 0.0026620528415995937
+      },
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "body_clearance": {
+        "min_m": 2.437589714910703,
+        "sim_time": 0.020000000000000004,
+        "geom_pair": [
+          "t1_geom_036",
+          "env_wall_west"
+        ],
+        "samples": 135,
+        "robot_geoms": 22,
+        "environment_geoms": 8,
+        "sample_hz": 10,
+        "definition": "signed 3D MuJoCo collision geometry distance; excludes ground/self/visual; sampled minimum, not continuous bound"
+      },
+      "readiness_wall_s": null,
+      "task_wall_s": null,
+      "wall_total_s": 18.852950372000123,
+      "post_runner_port_wait_wall_s": 61.013403166999524,
+      "dynamic": null,
+      "safe_stop": {
+        "ack": false,
+        "error": "TimeoutError('WAITING_FOR_READINESS: readiness deadline (3.0s)')"
+      },
+      "human_intervention": false,
+      "parent_exit_codes": {
+        "dds": 0,
+        "launch": 0
+      },
+      "launch_process_exit_codes": {
+        "t1_sim-1": {
+          "pid": 30173,
+          "exit_code": 0
+        },
+        "robot_state_publisher-2": {
+          "pid": 30174,
+          "exit_code": 0
+        },
+        "map_server-3": {
+          "pid": 30175,
+          "exit_code": 0
+        },
+        "amcl-4": {
+          "pid": 30176,
+          "exit_code": 0
+        },
+        "command_gate-5": {
+          "pid": 30177,
+          "exit_code": 0
+        },
+        "velocity_smoother-6": {
+          "pid": 30178,
+          "exit_code": 0
+        },
+        "collision_monitor-7": {
+          "pid": 30181,
+          "exit_code": 0
+        },
+        "lifecycle_manager-8": {
+          "pid": 30488,
+          "exit_code": 0
+        },
+        "lifecycle_manager-9": {
+          "pid": 30490,
+          "exit_code": 0
+        },
+        "controller_server-10": {
+          "pid": 30643,
+          "exit_code": 0
+        },
+        "planner_server-11": {
+          "pid": 30644,
+          "exit_code": 0
+        },
+        "behavior_server-12": {
+          "pid": 30645,
+          "exit_code": 0
+        },
+        "bt_navigator-13": {
+          "pid": 30646,
+          "exit_code": 0
+        },
+        "lifecycle_manager-14": {
+          "pid": 30647,
+          "exit_code": 0
+        },
+        "navigation_adapter-15": {
+          "pid": 30648,
+          "exit_code": 0
+        },
+        "navigation_starter-16": {
+          "pid": 30649,
+          "exit_code": 0
+        },
+        "t1_initial_pose_once-17": {
+          "pid": 30650,
+          "exit_code": 0
+        }
+      },
+      "post_runner_remaining_pids": [],
+      "dds_port_released": true,
+      "gpu_monitor_error": null
+    }
+  ],
+  "command": "./scripts/run_demo.sh",
+  "packaging_failure": "Second observer received no first clock, although physical trace advanced13.42s; no navigation goal; DDS initial participant timing suspected",
+  "repair_scope": "Wait real DDS LISTEN before rclpy.init; separate first-sample absence from established clock stall; physical trace watchdog; no navigation/safety/physics changes"
+}
