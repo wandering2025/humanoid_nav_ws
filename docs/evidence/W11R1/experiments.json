@@ -1,0 +1,145 @@
+[
+  {
+    "hypothesis": "H1 readiness",
+    "run_id": "20261015T063939Z_w11r1-h1-dev-v1_C01_s2000_ca0729",
+    "sha": "9c86895a66bbb19a1f2932ff85c920612bd665b8",
+    "outcome": "SUCCESS",
+    "metrics": {
+      "nav2_status": "SUCCEEDED",
+      "nav2_error_code": 0,
+      "tool_exit": 0,
+      "time_to_goal_s": 44.2,
+      "task_duration_s": 46.980000000000004,
+      "terminal_retries": 0,
+      "attempts": [
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 14.14,
+          "goal_id": "0cdc68e6b8284974a8ebbfb2d06a60ae",
+          "status": "PASSED",
+          "end_sim": 51.68,
+          "passed_pose": [
+            7.220033582066525,
+            0.20703010502194494,
+            -0.1782009692690315
+          ]
+        },
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 51.68,
+          "goal_id": "118992888dcd4049b16e497987c70297",
+          "status": "SUCCEEDED",
+          "end_sim": 58.34,
+          "error_code": 0,
+          "verify_sim": 61.120000000000005,
+          "verified_pose": [
+            8.922343253120554,
+            0.15061639891331025,
+            -0.003319582445191055
+          ],
+          "xy_error": 0.16945757568639952,
+          "yaw_error": 0.0033195824451910556
+        }
+      ],
+      "verified": {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 51.68,
+        "goal_id": "118992888dcd4049b16e497987c70297",
+        "status": "SUCCEEDED",
+        "end_sim": 58.34,
+        "error_code": 0,
+        "verify_sim": 61.120000000000005,
+        "verified_pose": [
+          8.922343253120554,
+          0.15061639891331025,
+          -0.003319582445191055
+        ],
+        "xy_error": 0.16945757568639952,
+        "yaw_error": 0.0033195824451910556
+      },
+      "settle": {
+        "settled": true,
+        "settle_start_sim": 59.14000000002631,
+        "settle_delay_s": 0.8000000000263086,
+        "pos_err_m": 0.17656725492207567,
+        "yaw_err_deg": 1.5139973398779807
+      },
+      "arrived_truth": true,
+      "path_len_m": 9.738332445545089,
+      "straight_m": 9.0,
+      "detour": {
+        "first_plan_length_m": 7.5260767664640085,
+        "straight_m": 9.0,
+        "max_lateral_from_straight_m": 0.0019999172985549762
+      },
+      "n_plans": 8,
+      "clear_center_min_m": 2.4960582026338143,
+      "clear_footprint_min_m": 0.2586097597804544,
+      "scan_min_range_m": 0.7370752096176147,
+      "env_contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "safety": {
+        "cm_stop": 1,
+        "cm_slowdown": 2,
+        "gate_stopped": 0,
+        "bridge_timeouts": 0
+      },
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 3,
+        "progress_failure": 0,
+        "planning_failure": 0,
+        "goal_aborted": 1,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "nav_activated_in_log": true,
+      "scan_empty": 0,
+      "scan_known_min": 1.0,
+      "rtf_median": 0.9999982994029074,
+      "sim_time_s": 73.34000000001048,
+      "wall_time_s": 78.84998920700014,
+      "min_trunk_z": 0.6195557038722014,
+      "graph_checks": {
+        "final_only_collision_monitor": true,
+        "gate_only_cmd_vel_nav": true,
+        "adapter_only_navigation_source": true,
+        "nav2_into_adapter_only": true,
+        "no_teleop_source": true,
+        "one_clock": true,
+        "truth_isolated": true,
+        "debug_disabled": true,
+        "twist_only": true,
+        "amcl_map_odom": true,
+        "sim_base": true,
+        "unique_tf": true
+      },
+      "settle_complete_task_s": 47.00000000002631,
+      "n_safety_stops": 9,
+      "n_recoveries": 0
+    },
+    "evidence": "docs/evidence/W11R1/raw/w11r1-h1-dev-v1/20261015T063939Z_w11r1-h1-dev-v1_C01_s2000_ca0729/result.json",
+    "remaining_owned_pids": []
+  }
+]
