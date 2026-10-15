@@ -1,0 +1,197 @@
+{
+  "run_id": "20261015T154215Z_w15_recovery_B01_c9fd9a",
+  "outcome": "SUCCESS",
+  "validity_checks": {
+    "source_clean": true,
+    "fresh_clock": true,
+    "monotonic_clock": true,
+    "one_initialpose": true,
+    "complete_manifest": true,
+    "frozen_timing": true,
+    "processes_reaped": true,
+    "runtime_graph": true
+  },
+  "metrics": {
+    "nav2_status": "SUCCEEDED",
+    "nav2_error_code": 0,
+    "tool_exit": 0,
+    "time_to_goal_s": 55.14000000000001,
+    "task_duration_s": 56.82,
+    "terminal_retries": 0,
+    "attempts": [
+      {
+        "stage": "approach",
+        "target": [
+          7.5,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 13.600000000000001,
+        "goal_id": "8302bcb0835143b88f13dbda31588c41",
+        "status": "PASSED",
+        "end_sim": 53.96,
+        "passed_pose": [
+          7.730524390846276,
+          -0.25716384744454135,
+          1.603713484256647
+        ]
+      },
+      {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 53.96,
+        "goal_id": "fdf2de6346d841e29b56f6896812f854",
+        "status": "SUCCEEDED",
+        "end_sim": 68.74000000000001,
+        "error_code": 0,
+        "verify_sim": 70.42,
+        "verified_pose": [
+          8.985108848062676,
+          0.10770297500931297,
+          0.013129441001851157
+        ],
+        "xy_error": 0.10872753667713231,
+        "yaw_error": 0.013129441001851157
+      }
+    ],
+    "verified": {
+      "stage": "goal",
+      "target": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "accepted_sim": 53.96,
+      "goal_id": "fdf2de6346d841e29b56f6896812f854",
+      "status": "SUCCEEDED",
+      "end_sim": 68.74000000000001,
+      "error_code": 0,
+      "verify_sim": 70.42,
+      "verified_pose": [
+        8.985108848062676,
+        0.10770297500931297,
+        0.013129441001851157
+      ],
+      "xy_error": 0.10872753667713231,
+      "yaw_error": 0.013129441001851157
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 69.22000000002008,
+      "settle_delay_s": 0.4800000000200697,
+      "pos_err_m": 0.136121211930897,
+      "yaw_err_deg": 0.6391806850258394
+    },
+    "arrived_truth": true,
+    "path_len_m": 15.088863558366455,
+    "straight_m": 9.0,
+    "detour": {
+      "first_plan_length_m": 7.552714726971812,
+      "straight_m": 9.0,
+      "max_lateral_from_straight_m": 0.29997698777879833
+    },
+    "n_plans": 13,
+    "clear_center_min_m": 2.2802443372822707,
+    "clear_footprint_min_m": 1.4591239323689997,
+    "scan_min_range_m": 2.0590341091156006,
+    "env_contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "safety": {
+      "cm_stop": 0,
+      "cm_slowdown": 0,
+      "gate_stopped": 0,
+      "bridge_timeouts": 0
+    },
+    "log_counts": {
+      "tf_extrapolation": 0,
+      "tf_old_data": 0,
+      "tf_timeout": 0,
+      "no_valid_control": 1,
+      "progress_failure": 0,
+      "planning_failure": 0,
+      "goal_aborted": 0,
+      "collision_ahead": 0,
+      "scan_dropped": 0
+    },
+    "nav_activated_in_log": true,
+    "scan_empty": 0,
+    "scan_known_min": 1.0,
+    "rtf_median": 1.0000002560013088,
+    "sim_time_s": 82.5999999999889,
+    "wall_time_s": 86.57953418999932,
+    "min_trunk_z": 0.6195557038722014,
+    "graph_checks": {
+      "final_only_collision_monitor": true,
+      "gate_only_cmd_vel_nav": true,
+      "adapter_only_navigation_source": true,
+      "nav2_into_adapter_only": true,
+      "no_teleop_source": true,
+      "one_clock": true,
+      "truth_isolated": true,
+      "debug_disabled": true,
+      "twist_only": true,
+      "amcl_map_odom": true,
+      "sim_base": true,
+      "unique_tf": true
+    },
+    "settle_complete_task_s": 57.62000000002008,
+    "n_safety_stops": 8,
+    "n_recoveries": 0
+  },
+  "body_clearance": {
+    "min_m": 1.7594139569785952,
+    "sim_time": 27.81999999999546,
+    "geom_pair": [
+      "t1_geom_015",
+      "obstacle_blocking_slot"
+    ],
+    "samples": 826,
+    "robot_geoms": 22,
+    "environment_geoms": 8,
+    "sample_hz": 10,
+    "definition": "signed 3D MuJoCo collision geometry distance; excludes ground/self/visual; sampled minimum, not continuous bound"
+  },
+  "stopping": [],
+  "dynamic": {
+    "scenario": "blocking",
+    "checks": {
+      "triggered_after_actual_walking": true,
+      "scan_hits_entity": true,
+      "local_costmap_marks_entity": true,
+      "no_planner_obstacle_truth": true,
+      "no_teleop": true,
+      "dimensions": true,
+      "real_detour": true,
+      "blocker_never_removed": true,
+      "goal_reached_while_blocked": true,
+      "navigation_success": true
+    },
+    "verdict": "PASS",
+    "trigger_sim": 15.328000000001788,
+    "scan_hit_frames": 671,
+    "costmap_marked_samples": 112,
+    "costmap_cleared_samples": 0,
+    "actual_stop_sim": null,
+    "resume_sim": null,
+    "stopped_hold_s": 0.0,
+    "min_center_surface_gap_m": 2.0616241752734514,
+    "min_rotated_footprint_gap_m": 1.4591239323689997,
+    "max_robot_lateral_m": 3.2197556627177293,
+    "initial_plan_lateral_m": 0.29997698777879833,
+    "replanned_lateral_m": 3.1519999642372127
+  },
+  "source_sha": "fdd85108ed1dd19edb123388da042d9240f641b6",
+  "raw": {
+    "path": "docs/evidence/W15/raw/20261015T154215Z_w15_recovery_B01_c9fd9a/result.json",
+    "sha256": "58c17bf4d6635dd7a653ea87c437020d4454c36e02183930bb35e55fef878d8a"
+  },
+  "classification": "Prior B01 failure did not reproduce in this single unchanged-case control; no deterministic code/config regression found. Timing-sensitive outcome remains a known limitation; no statistical reliability claim."
+}

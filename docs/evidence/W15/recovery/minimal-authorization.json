@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-15T15:44:59.998600+00:00",
+  "user_authorized_recovery": true,
+  "old_halt_archive": "docs/evidence/W15/recovery/prior-gpu-halt.json",
+  "old_halt_sha256": "ca4c281e9118ae011d2353de24fab5cb33efe5fa5cb65480ae53df1d115aefd5",
+  "old_halt_removed_once": true,
+  "allowed_command": "./scripts/run_demo.sh --startup-check --no-rviz",
+  "maximum_attempts": 1,
+  "implementation_sha": "fdd85108ed1dd19edb123388da042d9240f641b6",
+  "offline": "4 packages built,186 tests PASS,preflight exit0",
+  "material_path_change": "W14 production simulation close/join; failed custom static runner, 107-geom grid/full-route camera, ctypes window management and concurrent recorder absent. Only four static user_scn annotations; no capture loop. Existing one-shot screenshot is retained.",
+  "forbidden": "No full run before minimum PASS; no new graph error retry; no driver/environment change."
+}
