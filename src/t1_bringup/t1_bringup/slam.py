@@ -20,7 +20,7 @@ def arguments(default_source='teleop'):
 def actions(context):
     from .launch_support import delayed
     mode = LaunchConfiguration('mode').perform(context)
-    if mode == 'mapping':
+    if mode in ('mapping', 'advanced_mapping'):
         params = Path(LaunchConfiguration('slam_params_file').perform(context))
         if not params.is_file():
             raise RuntimeError(f'slam_params_file does not exist: {params}')

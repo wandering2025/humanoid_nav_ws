@@ -29,19 +29,22 @@ def parameter_defaults():
 def validate_parameters(p):
     from .lidar_config import LidarConfig
     LidarConfig(noise_std=p['lidar_noise_std'], dropout=p['lidar_dropout'], seed=p['seed'])
-    if p['mode'] not in ('sim_only', 'mapping', 'localization', 'navigation'):
+    if p['mode'] not in ('sim_only', 'mapping', 'localization', 'navigation', 'advanced_mapping'):
         raise ValueError('evaluation requires W13')
     if p['mode'] != 'sim_only' and p['enable_policy_cmd_input']:
         raise ValueError('mapping/localization forbid policy debug commands')
     if p['mode'] in ('localization', 'navigation') and not p['map_file']:
         raise ValueError('localization/navigation require a saved map_file and matching metadata')
-    if p['mode'] == 'navigation' and not (p['safety_required'] and p['navigation_params_file']):
+    if p['mode'] in ('navigation', 'advanced_mapping') and not (p['safety_required'] and p['navigation_params_file']):
         raise ValueError('navigation requires the W10 safety chain and navigation_params_file')
     from .scenes import parse_start_pose
     parse_start_pose(p['start_pose'])
     if bool(p['events_file']) != bool(p['scenario']):
         raise ValueError('events_file and scenario must be supplied together')
-    if p['scenario'] and (p['mode'] not in ('sim_only', 'navigation')
+    advanced = p['mode'] == 'advanced_mapping' and p['scene'] == 'advanced_world'
+    if p['mode'] == 'advanced_mapping' and (not p['slam_params_file'] or p['map_file']):
+        raise ValueError('advanced_mapping requires live SLAM and forbids a prior map')
+    if p['scenario'] and not advanced and (p['mode'] not in ('sim_only', 'navigation')
                           or p['scene'] != 'dynamic_crossing_world'):
         raise ValueError('events only supported in dynamic_crossing_world sim_only/navigation; mapping excludes bodies')
     for key in ('map_file', 'slam_params_file', 'localization_params_file', 'navigation_params_file', 'events_file'):
@@ -175,6 +178,13 @@ def main(args=None):
         if scenario:
             from .events import SceneEvents
             runner.scene_events = SceneEvents(runner, scenario, log)
+            if p['mode'] == 'advanced_mapping':
+                def enable_event(_request, response):
+                    # Signal only; all mocap writes remain on the physics owner.
+                    runner.scene_events.enable_requested.set()
+                    response.success, response.message = True, 'event enable queued'
+                    return response
+                node.create_service(Trigger, '/t1/advanced/enable_obstacle', enable_event)
             event_pub = node.create_publisher(String, '/t1/eval/obstacle', 10)
             log.manifest['parameter_files']['events'] = event_provenance
         log.manifest['model_dimensions'] = dict(nq=runner.mj_model.nq, nv=runner.mj_model.nv,
@@ -221,6 +231,8 @@ def main(args=None):
             presentation = os.environ.get('T1_DEMO_PRESENTATION') == '1'
             if presentation:
                 from .presentation import style_model, annotate
+                if p['mode'] == 'advanced_mapping':
+                    from .advanced_presentation import annotate
                 style_model(view_model)
             def key(code):
                 if code == 32:

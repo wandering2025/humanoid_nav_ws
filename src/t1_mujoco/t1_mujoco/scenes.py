@@ -9,7 +9,7 @@ import xml.etree.ElementTree as ET
 import yaml
 
 ASSETS_SHA = '12a97516f57469078707afb587a5f84c1cb110d1'
-SCENES = ('calibration_world', 'static_world', 'dynamic_crossing_world', 'stress_test_world')
+SCENES = ('calibration_world', 'static_world', 'dynamic_crossing_world', 'stress_test_world', 'advanced_world')
 
 
 def digest(path):

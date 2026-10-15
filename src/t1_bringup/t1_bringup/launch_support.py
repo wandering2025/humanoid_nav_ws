@@ -10,7 +10,7 @@ from launch.substitutions import EnvironmentVariable, LaunchConfiguration
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
 
-MODES = ('sim_only', 'mapping', 'localization', 'navigation', 'evaluation')
+MODES = ('sim_only', 'mapping', 'localization', 'navigation', 'advanced_mapping', 'evaluation')
 
 
 def launch_arguments(default_mode='sim_only'):
@@ -116,12 +116,12 @@ def simulation_actions(context):
     values['safety_required'] = LaunchConfiguration('enable_policy_cmd_input').perform(context) != 'true'
     values['safety_params_file'] = LaunchConfiguration('safety_params_file').perform(context)
     mode = LaunchConfiguration('mode').perform(context)
-    if mode == 'mapping':
+    if mode in ('mapping', 'advanced_mapping'):
         values['slam_params_file'] = LaunchConfiguration('slam_params_file').perform(context)
     elif mode in ('localization', 'navigation'):
         values['map_file'] = LaunchConfiguration('map').perform(context)
         values['localization_params_file'] = LaunchConfiguration('localization_params_file').perform(context)
-    if mode == 'navigation':
+    if mode in ('navigation', 'advanced_mapping'):
         values['navigation_params_file'] = LaunchConfiguration('navigation_params_file').perform(context)
     values['start_pose'] = ParameterValue(LaunchConfiguration('start_pose'), value_type=str)
     for key in ('events_file', 'scenario'):
@@ -142,7 +142,7 @@ def simulation_actions(context):
                             'use_sim_time': True, 'publish_frequency': 100.0}])
     consumers = [rsp]
     # Navigation mode starts RViz with its delayed group (startup discovery race, W11).
-    if mode != 'navigation':
+    if mode not in ('navigation', 'advanced_mapping'):
         consumers += rviz_nodes(context)
 
     def finished(event, _context):

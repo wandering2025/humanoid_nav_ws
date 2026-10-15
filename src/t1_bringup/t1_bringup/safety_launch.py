@@ -18,7 +18,7 @@ def actions(context):
     source = LaunchConfiguration('command_source').perform(context)
     if LaunchConfiguration('mode').perform(context) == 'mapping' and source != 'teleop':
         raise RuntimeError('mapping requires teleop source')
-    if LaunchConfiguration('mode').perform(context) == 'navigation' and source != 'navigation':
+    if LaunchConfiguration('mode').perform(context) in ('navigation', 'advanced_mapping') and source != 'navigation':
         raise RuntimeError('navigation requires the navigation command source')
     if not Path(path).is_file():
         raise RuntimeError('missing safety_params_file')

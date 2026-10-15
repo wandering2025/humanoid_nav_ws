@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-15T16:49:57.042260+00:00",
+  "build": "4 packages PASS; system colcon with -DPython3_EXECUTABLE=/usr/bin/python3",
+  "tests": "134 passed; CPU Landlock, venv plus existing system pytest module",
+  "preflight": "PASS exit 0",
+  "failures_retained": [
+    "initial CMake selected venv lacking catkin_pkg; corrected interpreter flag without dependency installation",
+    "pytest not in venv; appended existing system pytest library as in W15"
+  ],
+  "raw": "docs/evidence/advanced/raw/setup",
+  "runtime": "NOT_RUN",
+  "stable_entry": "byte identical to demo-v0.1.0"
+}

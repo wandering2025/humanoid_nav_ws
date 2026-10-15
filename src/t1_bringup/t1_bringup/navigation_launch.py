@@ -32,7 +32,7 @@ def arguments():
 
 
 def actions(context):
-    if LaunchConfiguration('mode').perform(context) != 'navigation':
+    if LaunchConfiguration('mode').perform(context) not in ('navigation', 'advanced_mapping'):
         return []
     params = Path(LaunchConfiguration('navigation_params_file').perform(context))
     tree = Path(LaunchConfiguration('nav_to_pose_bt_xml').perform(context))

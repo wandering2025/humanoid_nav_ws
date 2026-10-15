@@ -6,6 +6,7 @@ obstacle pose is given to Nav2. Mocap bodies collide but cannot be pushed.
 import hashlib
 import json
 import math
+import threading
 from pathlib import Path
 
 import yaml
@@ -16,7 +17,7 @@ from .scenes import vector
 def load_scenario(path, name):
     source = Path(path)
     data = yaml.safe_load(source.read_text())
-    if data.get('schema') != 1 or data.get('scene') != 'dynamic_crossing_world':
+    if data.get('schema') != 1 or data.get('scene') not in ('dynamic_crossing_world', 'advanced_world'):
         raise ValueError('invalid events schema/scene')
     scenario = data['scenarios'].get(name)
     if scenario is None:
@@ -46,6 +47,7 @@ class SceneEvents:
         if self.mocap_id < 0:
             raise ValueError('obstacle must be a mocap body')
         self.size = (2*runner.mj_model.geom('obstacle_'+scenario['slot']).size).tolist()
+        self.enable_requested = threading.Event()
         self.episode = None
         self.triggered_at = None
         self.reset()
@@ -54,6 +56,9 @@ class SceneEvents:
         self.runner.assert_owner()
         self.episode = self.runner.episode
         self.triggered_at = None
+        self.enable_requested.clear()
+        if not self.scenario.get('require_enable', False):
+            self.enable_requested.set()
         self.position = list(self.scenario['start'])
         self.phase = 'staged'
         self.write()
@@ -68,7 +73,7 @@ class SceneEvents:
         if self.episode != self.runner.episode:
             self.reset()
         d = self.runner.mj_data
-        if (self.triggered_at is None and self.runner.state == 'READY'
+        if (self.enable_requested.is_set() and self.triggered_at is None and self.runner.state == 'READY'
                 and d.qpos[0] >= self.scenario['trigger_x']
                 and self.runner.incoming[0] > .1):
             self.triggered_at = float(d.time)
@@ -99,4 +104,5 @@ class SceneEvents:
     def snapshot(self):
         return dict(episode=self.episode, sim_time=float(self.runner.mj_data.time),
                     slot=self.scenario['slot'], position=[*self.position, self.size[2]/2],
-                    size=self.size, phase=self.phase, triggered_at=self.triggered_at)
+                    size=self.size, phase=self.phase, triggered_at=self.triggered_at,
+                    enabled=self.enable_requested.is_set())
