@@ -1,0 +1,95 @@
+{
+  "code_sha": "ab6439b9cf1a1ed6d499937c240fb51f3520bfef",
+  "status": "FAILED",
+  "error": null,
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 18293.725314669,
+      "sim_time": 42.84,
+      "health_reason": ""
+    }
+  },
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "parent_exit_codes": {
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "rviz": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 122667,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 122668,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 122669,
+      "exit_code": 0
+    },
+    "command_gate-4": {
+      "pid": 122670,
+      "exit_code": 1
+    },
+    "velocity_smoother-5": {
+      "pid": 122671,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 122672,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 122977,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 123096,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 123097,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 123098,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 123099,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 123100,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 123101,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 123102,
+      "exit_code": 0
+    }
+  },
+  "remaining_owned_pids": [],
+  "dds_port_released": true,
+  "gpu_monitor_error": null,
+  "run_id": "20261015T171512Z_advanced_b01751d1-66cc-46eb-8c22-ce6fb0c83cc6",
+  "raw": "run_data/advanced/20261015T171512Z_advanced_b01751d1-66cc-46eb-8c22-ce6fb0c83cc6",
+  "result_sha256": "70833569137079ece567843bdba4b4e3f4180b285763d8df26fdbc6bf21f98fa",
+  "reason": "Graphic/monotonic-heartbeat/standing gates passed; command_gate exit1 during default rclpy signal context teardown. Original failure retained; advanced-only ordered lifecycle now wraps unchanged SafetyGate."
+}
