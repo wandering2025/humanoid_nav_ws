@@ -9,11 +9,11 @@
 | 首次W13实现/40例证据 | 04d74f17a6d56d24d7da5ae8ff0c9a4398608daf |
 | 原DEMO_DECISION_SHA | ebbf062da8db33c691935a64ab327fbfccbd122f |
 | DDS_TEARDOWN_EXCEPTION决策 | f687f21922245aa6cace42a9cef204c18f50f9b2 |
-| 当前分类/入口/测试实现 | 74aae889e53ffbd8a4652bcda358ddca60d25f9d |
+| 最终实现与测试（含raw退出码） | 6fd503d46abdc0f9f3c79c1bb1d57c2a17e38384 |
 | 现有两轮GUI共同被测版本 | a963518410ad0faefad0c3b2230d367780c91212 |
 | 保留的实验分支HEAD | 7b58acd77de722c9b53f4b69271dde862d7f0ff3 |
 
-本次仅30项受影响非图形测试及脚本静态检查通过（18新分类、4finalizer、8图形监控规则纯函数）；无新GPU查询/GUI/物理运行。
+本次43项受影响非图形测试及脚本静态检查通过（18新分类、13进程/入口含1项新增、4finalizer、8图形监控规则纯函数）；无新GPU查询/GUI/物理运行。
 新的发布分类不是对当前分类代码新增GUI复验的宣称。两轮实体行为证据对应a9635...，导航/控制/安全/世界/轨迹/seed未改。
 最终交接SHA由 `git log -1 --format=%H -- docs/plans/t1_mujoco_navigation/交接记录.md` 读取（记录提交不自引用）。
 
@@ -63,7 +63,7 @@ RViz原−6的具体堆对象未知；ROS context与display销毁顺序是最可
 两轮Windows新增显示故障/LiveKernelEvent141及WSLg RemovingDevice/Pagefault匹配为空；无新增黑屏；末次审计GPU49°C/765MiB/21%。
 Linux kernel仍有dxg adapter-query ioctl−22共303项、−2共201项，未证明无害；监控不保证宿主绝对安全。
 首次黑屏、CPU0.42s判据失败、RViz−6、DDS−11及原FAILED都永久保留，原8组raw索引506项hash复核PASS。
-DDS-only halt原字节已归档，[hash及30项测试](../evidence/W14/dds-teardown-release/verification.json)可追溯；任何新的GPU halt仍拒绝启动。
+DDS-only halt原字节已归档，[hash及43项测试](../evidence/W14/dds-teardown-release/verification.json)可追溯；任何新的GPU halt仍拒绝启动。
 
 录像状态：**FINAL_VIDEO_PENDING_W15**。文件路径/大小/SHA256：N/A；run ID/录像代码SHA：未录制；播放验证：NOT_RUN。
 W15负责按[精确人工步骤](troubleshooting.md)录制未剪辑双视图原片，保存ignored目录并补齐manifest与完整播放验证；当前无可用备用录像。
