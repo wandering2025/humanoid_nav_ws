@@ -52,6 +52,7 @@ class Advanced(base.Demo):
         self.route=__import__('yaml').safe_load((WS/'src/t1_bringup/config/advanced_route.yaml').read_text())
         self.runtime_graph={}
         self.global_grid=None
+        self.map_odom_gids=set()
 
     def markers(self):
         if not hasattr(self,'viz'): return
@@ -73,6 +74,11 @@ class Advanced(base.Demo):
         m.color.r=m.color.g=m.color.b=1.;m.color.a=1.;m.text=self.summary['status']
         a.markers.append(m);self.viz.publish(a)
 
+    def tf_authority(self,msg,info):
+        for t in msg.transforms:
+            if t.header.frame_id=='map' and t.child_frame_id=='odom':
+                self.map_odom_gids.add(bytes(info.publisher_gid).hex())
+
     def on_map(self,m):
         known=sum(v>=0 for v in m.data)
         occupied=sum(v>=65 for v in m.data)
@@ -88,7 +94,16 @@ class Advanced(base.Demo):
         assert p.returncode==0, 'map_saver failed'
         self.children['map_saver'][1].close()
         (OUT/'map_saver.log').rename(OUT/f'map_saver-{label}.log')
-        return {str(p.relative_to(OUT)):base.sha(p) for p in target.parent.glob(label+'.*')}
+        files={str(p.relative_to(OUT)):base.sha(p) for p in target.parent.glob(label+'.*')}
+        tf=self.node.map_tf
+        metadata=dict(source='slam_toolbox /map, saved by nav2_map_server',code_sha=self.provenance['code_sha'],
+            run_id=RUN_ID,scene_sha256=base.sha(WS/'src/t1_mujoco/worlds/advanced_world.yaml'),
+            slam_sha256=base.sha(WS/'src/t1_navigation/config/slam.yaml'),files=files,
+            sim=self.node.sim,sensor_mode='compensated',lidar_noise_std=.01,odom_mode='ideal_truth',
+            map_to_odom_at_save=dict(x=tf.transform.translation.x,y=tf.transform.translation.y,
+                quaternion=[tf.transform.rotation.x,tf.transform.rotation.y,tf.transform.rotation.z,tf.transform.rotation.w]))
+        target.with_suffix('.meta.json').write_text(json.dumps(metadata,indent=2)+'\n')
+        return files
 
     def goal(self,pose,label,limit):
         self.summary['status']=label
@@ -126,6 +141,8 @@ class Advanced(base.Demo):
                    and bool(base.port_connections()['listeners']),10)
         rclpy.init(signal_handler_options=SignalHandlerOptions.NO)
         self.node=Probe()
+        from tf2_msgs.msg import TFMessage
+        self.node.create_subscription(TFMessage,'/tf',self.tf_authority,100)
         from grid_visuals import GridVisuals
         self.grid_visuals=GridVisuals(self.node)
         qos=QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL)
@@ -223,20 +240,26 @@ class Advanced(base.Demo):
             hits=sum(bool(x['hits']) and x['obstacle']['triggered_at'] is not None for x in n.dynamic_scans)
             s['dynamic']=dict(protective_stationary_s=best,scan_hit_frames=hits,
                 triggered=bool(active),finished=bool(n.obstacle and n.obstacle['phase']=='finished'))
-            s['dynamic']['verdict']='PASS' if best>=.5 and hits>0 and s['dynamic']['finished'] and s['arrived'] else 'FAIL'
+            from verification import replan_evidence,response_verdict
+            s['dynamic'].update(active_scan_hit_frames=sum(bool(x['hits']) and x['obstacle']['phase'] not in ('staged','finished') for x in n.dynamic_scans),
+                active_costmap_marked_frames=sum(x['max_cost']==100 and x['obstacle']['phase'] not in ('staged','finished') for x in n.cost_samples),
+                replan=replan_evidence(n.rows,n.plans,n.obstacles,start))
+            s['dynamic'].update(response_verdict(s['dynamic'],s['arrived']))
             behavior=(s['arrived'] and s['nonstraight_plan'] and s['map_growth_ratio']>1.3
                       and s['dynamic']['verdict']=='PASS' and len(s['goals'])==len(self.route['mapping_waypoints'])+1)
         s['graph_contract']=dict(final_only_collision_monitor=self.runtime_graph.get('/cmd_vel',{}).get('publishers')==['collision_monitor'],
              obstacle_truth_isolated=self.runtime_graph.get('/t1/eval/obstacle',{}).get('subscribers')==['t1_evaluator'],
              robot_truth_isolated=self.runtime_graph.get('/t1/eval/ground_truth',{}).get('subscribers')==['t1_evaluator'],
-             no_initialpose=not s.get('initializations'))
+             no_initialpose=not s.get('initializations'),
+             map_only_slam=self.runtime_graph.get('/map',{}).get('publishers')==['slam_toolbox'],
+             map_odom_only_slam=s.get('map_odom_authorities')==['slam_toolbox'])
         exits=all(v==0 for v in s.get('parent_exit_codes',{}).values()) and bool(s.get('launch_process_exit_codes')) and all(v['exit_code']==0 for v in s['launch_process_exit_codes'].values())
         s['validation_before_port_check']=bool(behavior and exits and s['simulator_exit_code']==0 and not s['fell']
             and s['contacts']==dict(static_env=0,obstacle=0,ground_nonfoot=0) and all(s['graph_contract'].values())
             and s.get('safe_stop',{}).get('physical_stationary') and not s.get('remaining_owned_pids')
             and not s.get('remaining_project_processes') and s.get('clock_regressions')==0
             and not s.get('error') and not s.get('cleanup_error') and not s.get('gpu_monitor_error'))
-        base.save('observation.json',dict(rows=n.rows,obstacles=n.obstacles,plans=n.plans,scan_stats=n.scan_stats))
+        base.save('observation.json',dict(rows=n.rows,obstacles=n.obstacles,plans=n.plans,scan_stats=n.scan_stats,cost_samples=n.cost_samples,dynamic_scans=n.dynamic_scans))
         s['status']='PENDING_PORT_CHECK' if s['validation_before_port_check'] else 'FAILED'
 
 
@@ -264,6 +287,9 @@ def main():
         base.say(f'FAILED: {exc}')
     finally:
         if run.node:
+            endpoints=run.node.get_publishers_info_by_topic('/tf')
+            names={bytes(e.endpoint_gid).hex():e.node_name for e in endpoints}
+            run.summary['map_odom_authorities']=sorted({names.get(g,'UNKNOWN:'+g) for g in run.map_odom_gids})
             run.runtime_graph=run.node.graph(('/cmd_vel','/t1/eval/obstacle','/t1/eval/ground_truth','/t1/cmd_teleop','/map','/tf'))
         try:run.cleanup()
         except Exception:run.summary['cleanup_error']=traceback.format_exc()

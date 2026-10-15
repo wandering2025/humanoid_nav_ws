@@ -198,5 +198,5 @@ Visualization Manager:
   - Class: rviz_default_plugins/Interact
   - Class: rviz_default_plugins/MoveCamera
 Window Geometry:
-  Width: 760
+  Width: 1024
   Height: 740

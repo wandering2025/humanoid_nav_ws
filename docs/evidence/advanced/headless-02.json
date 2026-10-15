@@ -1,0 +1,67 @@
+{
+  "run_id": "20261015T165228Z_advanced_5d6bb4c0-e5ff-4d64-98de-0d64480179b5",
+  "tested_sha": "f84154e8fabf46959fd4fae4862b7c2794ae8703",
+  "original_status": "FAILED",
+  "arrived": true,
+  "settle": {
+    "settled": true,
+    "settle_start_sim": 394.8400000011572,
+    "settle_delay_s": 0.5400000001571925,
+    "pos_err_m": 0.17912115595162606,
+    "yaw_err_deg": 8.167042846492208
+  },
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "dynamic_original": {
+    "protective_stationary_s": 0.0,
+    "scan_hit_frames": 654,
+    "triggered": true,
+    "finished": true,
+    "verdict": "FAIL"
+  },
+  "body_clearance": {
+    "min_m": 1.7212683009751053,
+    "sim_time": 348.92000000093793,
+    "geom_pair": [
+      "t1_geom_015",
+      "obstacle_approach_slot"
+    ],
+    "samples": 4103,
+    "robot_geoms": 22,
+    "environment_geoms": 6,
+    "sample_hz": 10,
+    "definition": "signed 3D MuJoCo collision geometry distance; excludes ground/self/visual; sampled minimum, not continuous bound"
+  },
+  "exits": {
+    "dds": 0,
+    "launch": 0,
+    "map_saver": 0,
+    "goal": 0
+  },
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 17382.895867094,
+      "sim_time": 409.860000001,
+      "health_reason": ""
+    }
+  },
+  "port_released": true,
+  "reason": "Full physical task completed; original classifier only accepted protective wait, but measured actual response is replanning. Original FAILED result preserved. Next candidate explicitly verifies either user-permitted response, with scan AND costmap evidence.",
+  "offline_replan_analysis": {
+    "max_plan_deviation_m": 0.882332542370803,
+    "max_actual_deviation_m": 0.35285034779159924,
+    "active_motion_m": 2.9429244704141944
+  },
+  "result_sha256": "019bc3e7b4129a2b324bbd32b46546d8694ad2fe0eea2e2c847f87f396e94d9a",
+  "raw": "/home/haoyang/humanoid_nav_ws_advanced/run_data/advanced/20261015T165228Z_advanced_5d6bb4c0-e5ff-4d64-98de-0d64480179b5"
+}

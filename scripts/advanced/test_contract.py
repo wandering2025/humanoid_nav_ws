@@ -40,3 +40,26 @@ def test_b_occluded_and_north_gallery_preserves_safety_margin():
     assert wall['center'][0]+wall['size'][0]/2<14
     assert wall['center'][1]-wall['size'][1]/2<0<wall['center'][1]+wall['size'][1]/2
     assert scene['bounds'][3]-(wall['center'][1]+wall['size'][1]/2)==7.5
+
+def test_response_requires_perception_progress_and_arrival():
+    import sys
+    sys.path.insert(0,str(WS/'scripts/advanced'))
+    from verification import response_verdict
+    d=dict(active_scan_hit_frames=3,active_costmap_marked_frames=2,protective_stationary_s=0.,triggered=True,finished=True,replan={'replanned_while_active':True})
+    assert response_verdict(d,True)=={'verdict':'PASS','response':'REPLAN_AND_CONTINUE'}
+    for change in ({'active_scan_hit_frames':0},{'active_costmap_marked_frames':0},{'triggered':False},{'finished':False},{'replan':{'replanned_while_active':False}}):
+        assert response_verdict(dict(d,**change),True)['verdict']=='FAIL'
+    assert response_verdict(d,False)['verdict']=='FAIL'
+    d.update(protective_stationary_s=.6,replan={'replanned_while_active':False})
+    assert response_verdict(d,True)['response']=='PROTECTIVE_WAIT_AND_CONTINUE'
+
+def test_replan_cannot_be_proved_by_a_new_plan_alone():
+    import sys
+    sys.path.insert(0,str(WS/'scripts/advanced'))
+    from verification import replan_evidence
+    obs=[{'phase':'move_0','sim_time':10.},{'phase':'hold_0','sim_time':12.}]
+    plans=[dict(sim=9.,points=[[0,0],[5,0]]),dict(sim=11.,points=[[1,0],[2,1],[5,0]])]
+    rows=[dict(sim=10.,x=1.,y=0.,mx=1.,my=0.),dict(sim=12.,x=2.,y=0.,mx=2.,my=0.)]
+    assert not replan_evidence(rows,plans,obs,0.)['replanned_while_active']
+    rows[-1].update(y=.5,my=.5)
+    assert replan_evidence(rows,plans,obs,0.)['replanned_while_active']
