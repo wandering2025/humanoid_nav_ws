@@ -1,0 +1,20 @@
+{
+  "created_utc": "2026-10-15T10:16:14.879208+00:00",
+  "project_processes": [],
+  "sockets": "Netid State  Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess                              \nudp   UNCONN 0      0          127.0.0.54:53         0.0.0.0:*                                        \nudp   UNCONN 0      0       127.0.0.53%lo:53         0.0.0.0:*                                        \nudp   UNCONN 0      0      10.255.255.254:53         0.0.0.0:*                                        \nudp   UNCONN 0      0           127.0.0.1:323        0.0.0.0:*                                        \nudp   UNCONN 0      0             0.0.0.0:5353       0.0.0.0:*                                        \nudp   UNCONN 0      0             0.0.0.0:46427      0.0.0.0:*                                        \nudp   UNCONN 0      0               [::1]:323           [::]:*                                        \nudp   UNCONN 0      0                [::]:5353          [::]:*                                        \nudp   UNCONN 0      0                [::]:46350         [::]:*                                        \ntcp   LISTEN 0      4096    127.0.0.53%lo:53         0.0.0.0:*                                        \ntcp   LISTEN 0      511         127.0.0.1:35233      0.0.0.0:*    users:((\"MainThread\",pid=583,fd=43))\ntcp   LISTEN 0      1000   10.255.255.254:53         0.0.0.0:*                                        \ntcp   LISTEN 0      4096       127.0.0.54:53         0.0.0.0:*                                        \ntcp   LISTEN 0      511         127.0.0.1:46653      0.0.0.0:*    users:((\"MainThread\",pid=589,fd=33))\ntcp   LISTEN 0      64          127.0.0.1:5345       0.0.0.0:*                                        \ntcp   LISTEN 0      511         127.0.0.1:46049      0.0.0.0:*    users:((\"MainThread\",pid=480,fd=22))\n",
+  "ports_free": {
+    "42124": true,
+    "42126": true
+  },
+  "upstreams": {
+    "booster_deploy": {
+      "sha": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+      "dirty": []
+    },
+    "booster_assets": {
+      "sha": "12a97516f57469078707afb587a5f84c1cb110d1",
+      "dirty": []
+    }
+  },
+  "pass": true
+}

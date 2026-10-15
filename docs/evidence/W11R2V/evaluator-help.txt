@@ -1,0 +1,21 @@
+usage: evaluate.py [-h] {run,export,status,worker} ...
+
+W13 serial batch entry point. Run through scripts/env.sh and the configured
+venv. Example: $T1_VENV/bin/python scripts/evaluate.py run --campaign
+formal-v1 All intermediate artifacts stay ignored; export only after execution
+completes.
+
+positional arguments:
+  {run,export,status,worker}
+
+options:
+  -h, --help            show this help message and exit
+usage: evaluate.py run [-h] --campaign CAMPAIGN [--limit LIMIT]
+                       [--cases CASES] [--gui]
+
+options:
+  -h, --help           show this help message and exit
+  --campaign CAMPAIGN
+  --limit LIMIT
+  --cases CASES
+  --gui

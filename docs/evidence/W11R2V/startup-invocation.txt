@@ -1,0 +1,89 @@
+"""W11R2 capture/audit: invoke unchanged W11 cold-start probe once per process.
+
+No readiness sleep, no modified evaluator/launch, no retry. Python's audit hook
+records actual parent signal syscalls without changing signal delivery.
+"""
+import csv
+import importlib.util
+import json
+import os
+from pathlib import Path
+import re
+import subprocess
+import sys
+import time
+
+ws = Path(os.environ['T1_WS'])
+out = Path(os.environ['T1_EVAL_OUT'])
+sys.path.insert(0, str(ws/'scripts'))
+from evaluation import harness
+sys.modules['harness'] = harness
+spec = importlib.util.spec_from_file_location('frozen_w11_startup', ws/'docs/evidence/W11/nav_run.py')
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+signals = []
+
+def audit(event, args):
+    if event in ('os.kill', 'os.killpg') and args[1] != 0:
+        signals.append(dict(event=event, target=args[0], signal=args[1], wall_monotonic=time.monotonic()))
+
+sys.addaudithook(audit)
+(out/'pre-sockets.txt').write_text(subprocess.check_output(['ss', '-lntup'], text=True))
+session = harness.Session('w11r2-independent-v1-startup')
+try:
+    result = module.startup_probe(1)
+finally:
+    for run in harness.ACTIVE_RUNS:
+        if run.closed_result is None:
+            run.close(settle=0.)
+    session.close()
+closed = [r.closed_result for r in harness.ACTIVE_RUNS]
+(out/'closed-runs.json').write_text(json.dumps(closed, indent=2, default=str)+'\n')
+(out/'signal-syscalls.json').write_text(json.dumps(signals, indent=2)+'\n')
+sockets = subprocess.check_output(['ss', '-lntup'], text=True)
+(out/'post-sockets.txt').write_text(sockets)
+run = harness.ACTIVE_RUNS[0]
+c = closed[0]
+text = run.log_path.read_text(errors='replace')
+starts = {int(pid): name for name, pid in re.findall(r'\[INFO\] \[([^\]]+)\]: process started with pid \[(\d+)\]', text)}
+exits = {int(pid): name for name, pid in re.findall(r'\[INFO\] \[([^\]]+)\]: process has finished cleanly \[pid (\d+)\]', text)}
+reports = [json.loads(line[line.index('{"starter":'):]) for line in text.splitlines() if '{"starter":' in line]
+trace = reports[-1]['readiness'] if reports else []
+starter_pids = [pid for pid, name in starts.items() if name.startswith('navigation_starter-')]
+starter_signals = re.findall(r"\[INFO\] \[navigation_starter-\d+\]: sending signal 'SIGINT'", text)
+escalations = [line for line in text.splitlines() if 'escalating' in line.lower() or
+              re.search(r"sending signal '(SIGTERM|SIGKILL)'", line)]
+contacts = list(csv.DictReader((ws/'run_data'/c['run_id']/'contact_events.csv').open()))
+rows = list(csv.DictReader((ws/'run_data'/c['run_id']/'sim_trace.csv').open()))
+checks = dict(
+    ready=result['active'] == 1 and bool(reports) and reports[-1]['starter'] == 'navigation active' and reports[-1]['exit'] == 0,
+    active_nodes={r['node'] for r in trace if r.get('state') == 3} == {'map_server', 'amcl', 'controller_server', 'planner_server', 'behavior_server', 'bt_navigator', 'local_costmap/local_costmap', 'global_costmap/global_costmap'},
+    real_follow_ack=any(r.get('ack') and r.get('expected_invalid_path') == 103 for r in trace),
+    costmap_responses=sum(bool(r.get('responded')) for r in trace) == 2,
+    clock_advanced=c['sim_end'] > c['first_clock'] + .5,
+    scan_valid=c['scan_stats']['count'] > 0 and c['scan_stats']['empty'] == 0,
+    initialpose_once=len(c['initializations']) == 1,
+    launch_exit_zero=c['exit_code'] == 0,
+    dds_exit_zero=session.server.returncode == 0,
+    starter_exit_zero=len(starter_pids) == 1 and starter_pids[0] in exits,
+    all_18_children_exit_zero=len(starts) == 18 and starts == exits,
+    single_starter_SIGINT=len(starter_signals) == 1,
+    one_SIGINT_per_owned_parent=len(signals) == 2 and all(s['event'] == 'os.kill' and s['signal'] == 2 for s in signals) and {s['target'] for s in signals} == {run.proc.pid, session.server.pid},
+    no_traceback='Traceback' not in text and 'KeyboardInterrupt' not in text,
+    no_abnormal_exit='process has died' not in text,
+    no_escalation=not escalations,
+    no_owned_remnants=not c['remaining_owned_pids'] and not any(Path(f'/proc/{pid}').exists() for pid in starts),
+    ports_free=all(f':{p} ' not in sockets for p in (42124, 42126)),
+    no_contacts=not contacts,
+    no_fall_or_fault=all(r['state'] not in ('FALLEN', 'FAULT') for r in rows),
+    no_motion_command=all(float(r[k]) == 0 for r in rows for k in ('u_pol_x', 'u_pol_y', 'u_pol_wz')),
+)
+assessment = dict(run_id=c['run_id'], head=c['manifest'].get('code_sha'), checks=checks,
+                  verdict='PASS' if all(checks.values()) else 'FAIL', starter=reports,
+                  readiness=result['runs'][0], children=[dict(pid=p, name=n, exit=0 if p in exits else None) for p,n in starts.items()],
+                  launch_pid=run.proc.pid, dds_pid=session.server.pid, signals=signals,
+                  escalations=escalations, contacts=len(contacts), remaining=c['remaining_owned_pids'],
+                  raw_path=str(out), simulator_path=str(ws/'run_data'/c['run_id']))
+(out/'assessment.json').write_text(json.dumps(assessment, indent=2)+'\n')
+print(json.dumps(assessment), flush=True)
+raise SystemExit(0 if assessment['verdict'] == 'PASS' else 1)
