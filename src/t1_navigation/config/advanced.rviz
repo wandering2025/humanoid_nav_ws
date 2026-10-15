@@ -112,6 +112,19 @@ Visualization Manager:
     Position Transformer: XYZ
     Decay Time: 0
   - Class: rviz_default_plugins/Path
+    Name: A-B NavFn overview (cyan, display only)
+    Enabled: true
+    Color: 40; 180; 180
+    Alpha: 0.45
+    Line Style: Billboards
+    Line Width: 0.04
+    Topic:
+      Value: /t1/viz/route_overview
+      Durability Policy: Transient Local
+      Reliability Policy: Reliable
+      History Policy: Keep Last
+      Depth: 1
+  - Class: rviz_default_plugins/Path
     Name: Live Nav2 plan (blue)
     Enabled: true
     Color: 25; 90; 220

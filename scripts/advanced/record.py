@@ -101,7 +101,7 @@ def encode(run,out):
         writer.write(canvas)
     card=np.full((h+112,w,3),24,np.uint8)
     lines=['POST-RUN VERIFIED EVIDENCE (not a live overlay)',
-           'Guided autonomous mapping -> return to A -> nonstraight A-to-B navigation: SUCCESS',
+           'Continuous guided mapping -> current-position planning -> B: SUCCESS',
            'Dynamic obstacle response: '+r['dynamic']['response'],
            'Static contacts 0 | Dynamic contacts 0 | Non-foot ground contacts 0 | Falls 0',
            'Safety stop + physical standstill: PASS | Registered processes cleaned | DDS port released',

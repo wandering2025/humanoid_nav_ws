@@ -76,8 +76,12 @@ class Advanced(base.Demo):
         m.color.r,m.color.g,m.color.b=.1,.2,.3;m.color.a=1.
         status=self.summary['status']
         m.text=('Guided mapping '+str(int(status.rsplit('_',1)[1]))+'/'+str(len(self.route['mapping_waypoints']))) if status.startswith('MAPPING_') and status.rsplit('_',1)[1].isdigit() else {'SLAM_INITIALIZING':'Live LiDAR SLAM','MAPPING_SUFFICIENT':'Map ready - continue from here','NAVIGATING_TO_B':'Live planning to B','ARRIVED_SAFE_STOP':'Arrived - safely stopped'}.get(status,status)
+        if status=='NAVIGATING_TO_B' and self.node.odom:
+            v=self.node.odom.twist.twist
+            if abs(v.linear.x)<.05 and abs(v.angular.z)<.05 and self.node.cmds['final']==(0.,0.):
+                m.text='Waiting / replanning - final command zero'
         a.markers.append(m)
-        # Display-only: current Nav2 endpoint, actual TF trail, and labelled guide.
+        # Display-only: current Nav2 endpoint, actual TF trail and full route overview.
         def line(mid,ns,points,color,width):
             m=Marker();m.header.frame_id='map';m.ns=ns;m.id=mid
             m.type=Marker.LINE_STRIP;m.pose.orientation.w=1.;m.scale.x=width
@@ -93,7 +97,7 @@ class Advanced(base.Demo):
         m.pose.orientation.w=1.;m.pose.position.x=7.;m.pose.position.y=12.;m.scale.z=.38
         m.color.r,m.color.g,m.color.b=.1,.2,.3;m.color.a=1.
         age=self.node.sim-self.node.plans[-1]['sim'] if self.node.plans else 0.
-        m.text=f'Blue: Nav2 plan ({age:.1f}s old) | Purple: travelled | Orange: active target'
+        m.text=f'Blue: current plan ({age:.1f}s old) | Cyan: A-B overview | Purple: travelled'
         a.markers.append(m);self.viz.publish(a)
 
     def spin(self,check_stop=True):
@@ -136,6 +140,28 @@ class Advanced(base.Demo):
         # The next goal preempts this action. No cancel/re-arm between observations.
         self.mapping_handle=handle
 
+
+    def route_overview(self):
+        """Ask the same NavFn planner for A-to-B on the acquired map, display only.
+        Motion continues from current position; this never sends a robot goal."""
+        from nav2_msgs.action import ComputePathToPose
+        from rclpy.action import ActionClient
+        client=ActionClient(self.node,ComputePathToPose,'compute_path_to_pose')
+        try:
+            self.until(client.server_is_ready,10)
+            goal=ComputePathToPose.Goal();goal.planner_id='GridBased';goal.use_start=True
+            for stamped,pose in ((goal.start,(0.,0.,0.)),(goal.goal,self.route['goal'])):
+                stamped.header.frame_id='map';stamped.pose.position.x,stamped.pose.position.y=pose[:2]
+                stamped.pose.orientation.z=math.sin(pose[2]/2);stamped.pose.orientation.w=math.cos(pose[2]/2)
+            sent=client.send_goal_async(goal);self.until(sent.done,10)
+            handle=sent.result();assert handle.accepted,'overview rejected'
+            result=handle.get_result_async();self.until(result.done,10)
+            reply=result.result();assert reply.status==4,f'A-B map route unavailable: {reply.status}'
+            path=reply.result.path;points=[(p.pose.position.x,p.pose.position.y) for p in path.poses]
+            self.summary['a_to_b_overview']=dict(sim=self.node.sim,points=points,
+                length=sum(math.dist(a,b) for a,b in zip(points,points[1:])),source='NavFn ComputePathToPose, display only')
+            self.overview_viz.publish(path)
+        finally:client.destroy()
 
     def on_map(self,m):
         known=sum(v>=0 for v in m.data)
@@ -206,6 +232,7 @@ class Advanced(base.Demo):
         qos=QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL)
         self.viz=self.node.create_publisher(MarkerArray,'/t1/viz/demo',qos)
         self.plan_viz=self.node.create_publisher(NavPath,'/t1/viz/live_plan',qos)
+        self.overview_viz=self.node.create_publisher(NavPath,'/t1/viz/route_overview',qos)
         self.node.create_subscription(NavPath,'/plan',self.live_plan,10)
         self.node.create_subscription(OccupancyGrid,'/map',self.on_map,qos)
         self.node.create_subscription(OccupancyGrid,'/global_costmap/costmap',lambda m:setattr(self,'global_grid',m),qos)
@@ -247,6 +274,7 @@ class Advanced(base.Demo):
         self.summary['status']='MAPPING_SUFFICIENT'
         self.summary['mapping_completed_sim']=n.sim
         self.summary['generated_map']=self.save_map('mapped')
+        self.route_overview()
         self.screenshot('mapped')
         # Service changes only the experiment source, never a navigation command.
         if not self.args.control_no_obstacle:
@@ -332,7 +360,8 @@ class Advanced(base.Demo):
             start=s.get('navigation_start_sim',math.inf)
             plans=[p for p in n.plans if p['sim']>=start]
             s['navigation_plans']=plans
-            s['nonstraight_plan']=bool(plans and plans[0]['length']>10 and max(p[1] for p in plans[0]['points'])>6)
+            overview=s.get('a_to_b_overview',{})
+            s['nonstraight_plan']=bool(plans and overview.get('length',0)>19 and max(p[1] for p in overview['points'])>6)
             growth=s['map_growth'];s['map_growth_ratio']=growth[-1]['known_cells']/growth[0]['known_cells'] if growth else 0
             # Measured robot stationarity during the obstacle's active interval.
             active=[o for o in n.obstacles if o['phase'] not in ('staged','finished')]
