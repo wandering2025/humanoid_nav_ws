@@ -18,5 +18,5 @@ obstacle_slots:
   - name: approach_slot
     region: approach
     shape: box
-    size: [0.5, 0.5, 1.5]
+    size: [3.0, 0.6, 1.5]
     motion_implemented: true

@@ -112,14 +112,14 @@ Visualization Manager:
     Position Transformer: XYZ
     Decay Time: 0
   - Class: rviz_default_plugins/Path
-    Name: Nav2 global path
+    Name: Live Nav2 plan (blue)
     Enabled: true
     Color: 25; 90; 220
     Line Style: Billboards
-    Line Width: 0.05
+    Line Width: 0.09
     Topic:
-      Value: /plan
-      Durability Policy: Volatile
+      Value: /t1/viz/live_plan
+      Durability Policy: Transient Local
       Reliability Policy: Reliable
       History Policy: Keep Last
       Depth: 1
@@ -175,7 +175,7 @@ Visualization Manager:
       History Policy: Keep Last
       Depth: 5
   - Class: rviz_default_plugins/MarkerArray
-    Name: A start / B goal
+    Name: Mission status, targets and actual trail
     Enabled: true
     Topic:
       Value: /t1/viz/demo

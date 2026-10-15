@@ -1,16 +1,13 @@
 schema: 1
 method: guided_autonomous_mapping
-# Each waypoint must be reachable through observed free space; no unknown-space planning.
+# Pass-through observation targets, not exact-pose arrival tests.
+# Continue from the north gallery to B; never retrace the building to A.
 mapping_waypoints:
   - [3.5, 0.0, 0.0]
   - [3.5, 3.5, 1.5707963267948966]
   - [3.5, 7.8, 1.5707963267948966]
   - [7.5, 8.0, 0.0]
-  - [11.5, 8.0, 0.0]
-  - [14.0, 4.0, -1.5707963267948966]
-  - [12.5, 8.0, 1.5707963267948966]
-  - [3.5, 8.0, 3.141592653589793]
-  - [0.0, 0.0, -1.5707963267948966]
+mapping_pass_radius_m: 0.65
 goal: [14.0, 0.0, -1.5707963267948966]
 waypoint_time_limit_s: 120.0
 navigation_time_limit_s: 200.0

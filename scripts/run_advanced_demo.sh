@@ -3,7 +3,7 @@ set -Eeuo pipefail
 ADV_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
 if [[ "${1:-}" == --help || "${1:-}" == -h ]]; then
   echo 'Usage: ./scripts/run_advanced_demo.sh [--preflight|--headless|--startup-check] [--no-rviz] [--hold]'
-  echo 'Advanced SLAM and Navigation Demo v0.2: guided autonomous mapping, return to A, live-SLAM navigation to B.'
+  echo 'Advanced SLAM and Navigation Demo v0.2: continuous guided mapping, live planning from current position to B.'
   echo 'Ctrl+C requests latched safe stop and cleanup. Recording is a separate process.'
   exit 0
 fi

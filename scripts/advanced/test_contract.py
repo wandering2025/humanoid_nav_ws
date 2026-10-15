@@ -41,17 +41,19 @@ def test_b_occluded_and_north_gallery_preserves_safety_margin():
     assert wall['center'][1]-wall['size'][1]/2<0<wall['center'][1]+wall['size'][1]/2
     assert scene['bounds'][3]-(wall['center'][1]+wall['size'][1]/2)==7.5
 
-def test_response_requires_perception_progress_and_arrival():
+def test_response_requires_visible_wait_resume_perception_and_arrival():
     import sys
     sys.path.insert(0,str(WS/'scripts/advanced'))
     from verification import response_verdict
-    d=dict(active_scan_hit_frames=3,active_costmap_marked_frames=2,protective_stationary_s=0.,triggered=True,finished=True,replan={'replanned_while_active':True})
-    assert response_verdict(d,True)=={'verdict':'PASS','response':'REPLAN_AND_CONTINUE'}
-    for change in ({'active_scan_hit_frames':2},{'active_costmap_marked_frames':1},{'triggered':False},{'finished':False},{'replan':{'replanned_while_active':False}}):
+    d=dict(active_scan_hit_frames=3,active_costmap_marked_frames=2,triggered=True,finished=True,
+           blocked_wait=dict(stationary_s=2.1,resumed_m=2.))
+    assert response_verdict(d,True)['verdict']=='PASS'
+    for change in ({'active_scan_hit_frames':2},{'active_costmap_marked_frames':1},{'triggered':False},
+                   {'finished':False},{'blocked_wait':dict(stationary_s=1.9,resumed_m=2.)},
+                   {'blocked_wait':dict(stationary_s=3.,resumed_m=.9)}):
         assert response_verdict(dict(d,**change),True)['verdict']=='FAIL'
     assert response_verdict(d,False)['verdict']=='FAIL'
-    d.update(protective_stationary_s=.6,replan={'replanned_while_active':False})
-    assert response_verdict(d,True)['response']=='PROTECTIVE_WAIT_AND_CONTINUE'
+
 
 def test_replan_cannot_be_proved_by_a_new_plan_alone():
     import sys

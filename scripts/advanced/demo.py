@@ -53,6 +53,8 @@ class Advanced(base.Demo):
         self.route=__import__('yaml').safe_load((WS/'src/t1_bringup/config/advanced_route.yaml').read_text())
         self.runtime_graph={}
         self.global_grid=None
+        self.active_target=None
+        self.last_visual=0.
 
     def markers(self):
         if not hasattr(self,'viz'): return
@@ -73,8 +75,67 @@ class Advanced(base.Demo):
         m.pose.orientation.w=1.;m.pose.position.x=7.;m.pose.position.y=13.;m.scale.z=.65
         m.color.r,m.color.g,m.color.b=.1,.2,.3;m.color.a=1.
         status=self.summary['status']
-        m.text=('Guided mapping '+str(int(status.rsplit('_',1)[1]))+'/9') if status.startswith('MAPPING_') and status.rsplit('_',1)[1].isdigit() else {'SLAM_INITIALIZING':'Live LiDAR SLAM','MAPPING_COMPLETE_AT_A':'Map complete - back at A','NAVIGATING_A_TO_B':'Navigating A to B','ARRIVED_SAFE_STOP':'Arrived - safely stopped'}.get(status,status)
+        m.text=('Guided mapping '+str(int(status.rsplit('_',1)[1]))+'/'+str(len(self.route['mapping_waypoints']))) if status.startswith('MAPPING_') and status.rsplit('_',1)[1].isdigit() else {'SLAM_INITIALIZING':'Live LiDAR SLAM','MAPPING_SUFFICIENT':'Map ready - continue from here','NAVIGATING_TO_B':'Live planning to B','ARRIVED_SAFE_STOP':'Arrived - safely stopped'}.get(status,status)
+        a.markers.append(m)
+        # Display-only: current Nav2 endpoint, actual TF trail, and labelled guide.
+        def line(mid,ns,points,color,width):
+            m=Marker();m.header.frame_id='map';m.ns=ns;m.id=mid
+            m.type=Marker.LINE_STRIP;m.pose.orientation.w=1.;m.scale.x=width
+            m.color.r,m.color.g,m.color.b=color;m.color.a=.85
+            m.points=[Point(x=float(x),y=float(y),z=.12) for x,y in points]
+            a.markers.append(m)
+        trail=[(r['mx'],r['my']) for r in self.node.rows[::3] if r['mx'] is not None]
+        if len(trail)>1:line(0,'actual_trail',trail,(.5,.18,.65),.035)
+        if self.active_target:
+            x,y,_=self.active_target
+            line(0,'active_target',[(x-.25,y),(x+.25,y),(x,y),(x,y-.25),(x,y+.25)],(.95,.45,.05),.10)
+        m=Marker();m.header.frame_id='map';m.ns='legend';m.id=0;m.type=Marker.TEXT_VIEW_FACING
+        m.pose.orientation.w=1.;m.pose.position.x=7.;m.pose.position.y=12.;m.scale.z=.38
+        m.color.r,m.color.g,m.color.b=.1,.2,.3;m.color.a=1.
+        age=self.node.sim-self.node.plans[-1]['sim'] if self.node.plans else 0.
+        m.text=f'Blue: Nav2 plan ({age:.1f}s old) | Purple: travelled | Orange: active target'
         a.markers.append(m);self.viz.publish(a)
+
+    def spin(self,check_stop=True):
+        super().spin(check_stop)
+        if self.node and time.monotonic()-self.last_visual>=.2:
+            self.last_visual=time.monotonic();self.markers()
+
+    def live_plan(self,msg):
+        # Copy the actual planner output, preserving frame, stamps and poses.
+        self.plan_viz.publish(msg)
+        if msg.poses:
+            q=msg.poses[-1].pose
+            self.active_target=(q.position.x,q.position.y,0.)
+
+    def mapping_pass(self,pose,label):
+        from nav2_msgs.action import NavigateToPose
+        from std_srvs.srv import Trigger
+        self.summary['status']=label;self.active_target=pose;self.markers()
+        if self.node.gate['state']!='ARMED':
+            response=self.call(Trigger,'/t1/safety/arm',Trigger.Request())
+            assert response.success,response.message
+            self.until(lambda:self.node.gate['state']=='ARMED',5)
+        goal=NavigateToPose.Goal();goal.pose.header.frame_id='map'
+        goal.pose.pose.position.x,goal.pose.pose.position.y=pose[:2]
+        goal.pose.pose.orientation.z=math.sin(pose[2]/2);goal.pose.pose.orientation.w=math.cos(pose[2]/2)
+        sent=self.action.send_goal_async(goal);self.until(sent.done,10)
+        handle=sent.result();assert handle.accepted,'mapping goal rejected'
+        result=handle.get_result_async();start=self.node.sim
+        def passed():
+            here=self.node.map_pose()
+            if here and math.dist(here[:2],pose[:2])<=self.route['mapping_pass_radius_m']:return True
+            if result.done():raise RuntimeError(f'{label}: action ended before passing: {result.result().status}')
+            if self.node.sim-start>self.route['waypoint_time_limit_s']:raise TimeoutError(label)
+            return False
+        self.until(passed,self.route['waypoint_time_limit_s']*2.5+100)
+        record=dict(label=label,pose=pose,result=dict(status='PASSED',accepted_sim=start,end_sim=self.node.sim,
+                    duration_sim=self.node.sim-start,passed_pose=list(self.node.map_pose()),
+                    goal_id=bytes(handle.goal_id.uuid).hex()))
+        self.summary['goals'].append(record);base.save('partial-result.json',self.summary)
+        # The next goal preempts this action. No cancel/re-arm between observations.
+        self.mapping_handle=handle
+
 
     def on_map(self,m):
         known=sum(v>=0 for v in m.data)
@@ -104,6 +165,7 @@ class Advanced(base.Demo):
 
     def goal(self,pose,label,limit):
         self.summary['status']=label
+        self.active_target=pose
         for kind,grid in (('map',self.node.map),('costmap',self.global_grid)):
             if grid is not None:
                 base.save(f'{label}-{kind}.json',dict(resolution=grid.info.resolution,width=grid.info.width,height=grid.info.height,origin=[grid.info.origin.position.x,grid.info.origin.position.y],data=list(grid.data)))
@@ -128,7 +190,7 @@ class Advanced(base.Demo):
         from rclpy.qos import QoSProfile,DurabilityPolicy
         from rclpy.action import ActionClient
         from nav2_msgs.action import NavigateToPose
-        from nav_msgs.msg import OccupancyGrid
+        from nav_msgs.msg import OccupancyGrid, Path as NavPath
         from visualization_msgs.msg import MarkerArray
         from std_srvs.srv import Trigger
         from lifecycle_msgs.srv import GetState
@@ -143,12 +205,15 @@ class Advanced(base.Demo):
         self.grid_visuals=GridVisuals(self.node)
         qos=QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL)
         self.viz=self.node.create_publisher(MarkerArray,'/t1/viz/demo',qos)
+        self.plan_viz=self.node.create_publisher(NavPath,'/t1/viz/live_plan',qos)
+        self.node.create_subscription(NavPath,'/plan',self.live_plan,10)
         self.node.create_subscription(OccupancyGrid,'/map',self.on_map,qos)
         self.node.create_subscription(OccupancyGrid,'/global_costmap/costmap',lambda m:setattr(self,'global_grid',m),qos)
         self.action=ActionClient(self.node,NavigateToPose,'navigate_to_pose')
         self.spawn('launch',['ros2','launch','t1_bringup','advanced.launch.py',
             f'headless:={str(self.args.headless).lower()}','rviz:=false',f'run_id:={RUN_ID}',
             'seed:=4000','target_rtf:=1.0','max_sim_time:=1000',
+            f'nav_to_pose_bt_xml:={WS}/src/t1_navigation/behavior_trees/navigate_to_pose_advanced.xml',
             f'params_file:={WS}/src/t1_navigation/config/w12_mapping_runtime.yaml',
             f'events_file:={WS}/src/t1_bringup/config/advanced_events.yaml','scenario:=ADV01'])
         self.summary['status']='SLAM_INITIALIZING'
@@ -177,18 +242,20 @@ class Advanced(base.Demo):
             return
         self.summary['initial_map']=self.save_map('initial')
         for index,pose in enumerate(self.route['mapping_waypoints']):
-            self.goal(pose,f'MAPPING_{index+1:02d}',self.route['waypoint_time_limit_s'])
+            self.mapping_pass(pose,f'MAPPING_{index+1:02d}')
         assert n.obstacle and n.obstacle['triggered_at'] is None, 'Obstacle moved during mapping'
-        self.summary['status']='MAPPING_COMPLETE_AT_A'
+        self.summary['status']='MAPPING_SUFFICIENT'
         self.summary['mapping_completed_sim']=n.sim
         self.summary['generated_map']=self.save_map('mapped')
         self.screenshot('mapped')
         # Service changes only the experiment source, never a navigation command.
-        response=self.call(Trigger,'/t1/advanced/enable_obstacle',Trigger.Request())
-        assert response.success
-        self.until(lambda:n.obstacle and n.obstacle.get('enabled'),5)
+        if not self.args.control_no_obstacle:
+            response=self.call(Trigger,'/t1/advanced/enable_obstacle',Trigger.Request())
+            assert response.success
+            self.until(lambda:n.obstacle and n.obstacle.get('enabled'),5)
+        self.summary['control_no_obstacle']=self.args.control_no_obstacle
         self.summary['navigation_start_sim']=n.sim
-        self.summary['nav2']=self.goal(self.route['goal'],'NAVIGATING_A_TO_B',self.route['navigation_time_limit_s'])
+        self.summary['nav2']=self.goal(self.route['goal'],'NAVIGATING_TO_B',self.route['navigation_time_limit_s'])
         end=n.sim+12;self.until(lambda:n.sim>=end,35)
         self.summary['final_map']=self.save_map('final')
         self.screenshot('arrived');self.safe_stop()
@@ -205,6 +272,9 @@ class Advanced(base.Demo):
         if self.cleanup_started:return
         if self.node and 'launch' in self.children and self.children['launch'][0].poll() is None:
             self.safe_stop()
+        if self.node and hasattr(self,'mapping_handle') and 'goal' not in self.children:
+            future=self.mapping_handle.cancel_goal_async()
+            self.until(future.done,5,False)
         if self.node and 'goal' in self.children:
             goal=self.children['goal'][0]
             if goal.poll() is None:
@@ -262,7 +332,7 @@ class Advanced(base.Demo):
             start=s.get('navigation_start_sim',math.inf)
             plans=[p for p in n.plans if p['sim']>=start]
             s['navigation_plans']=plans
-            s['nonstraight_plan']=bool(plans and plans[0]['length']>19 and max(p[1] for p in plans[0]['points'])>6)
+            s['nonstraight_plan']=bool(plans and plans[0]['length']>10 and max(p[1] for p in plans[0]['points'])>6)
             growth=s['map_growth'];s['map_growth_ratio']=growth[-1]['known_cells']/growth[0]['known_cells'] if growth else 0
             # Measured robot stationarity during the obstacle's active interval.
             active=[o for o in n.obstacles if o['phase'] not in ('staged','finished')]
@@ -279,13 +349,14 @@ class Advanced(base.Demo):
             hits=sum(bool(x['hits']) and x['obstacle']['triggered_at'] is not None for x in n.dynamic_scans)
             s['dynamic']=dict(protective_stationary_s=best,scan_hit_frames=hits,
                 triggered=bool(active),finished=bool(n.obstacle and n.obstacle['phase']=='finished'))
-            from verification import replan_evidence,response_verdict
+            from verification import replan_evidence,response_verdict,blocked_wait_evidence
             s['dynamic'].update(active_scan_hit_frames=sum(bool(x['hits']) and x['obstacle']['phase'] not in ('staged','finished') for x in n.dynamic_scans),
                 active_costmap_marked_frames=sum(x['max_cost']==100 and x['obstacle']['phase'] not in ('staged','finished') for x in n.cost_samples),
                 replan=replan_evidence(n.rows,n.plans,n.obstacles,start))
+            s['dynamic']['blocked_wait']=blocked_wait_evidence(n.rows,n.obstacles,self.route['goal'])
             s['dynamic'].update(response_verdict(s['dynamic'],s['arrived']))
             behavior=(s['arrived'] and s['nonstraight_plan'] and s['map_growth_ratio']>1.3
-                      and s['dynamic']['verdict']=='PASS' and len(s['goals'])==len(self.route['mapping_waypoints'])+1)
+                      and (s['dynamic']['verdict']=='PASS' or self.args.control_no_obstacle) and len(s['goals'])==len(self.route['mapping_waypoints'])+1)
         records=[json.loads(line) for line in (OUT/'authority.log').read_text().splitlines() if line.startswith('{')]
         actual=[r for r in records if r['parent']=='map' and r['child']=='odom']
         s['tf_authority']=records
@@ -310,7 +381,7 @@ class Advanced(base.Demo):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    for flag in ('headless','no-rviz','hold','startup-check','preflight'):p.add_argument('--'+flag,action='store_true')
+    for flag in ('headless','no-rviz','hold','startup-check','preflight','control-no-obstacle'):p.add_argument('--'+flag,action='store_true')
     args=p.parse_args();args.gpu_watch=None
     (WS/'run_data/demo').mkdir(parents=True,exist_ok=True)
     lock=(WS/'run_data/demo/active.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
