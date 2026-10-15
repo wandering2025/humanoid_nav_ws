@@ -1,0 +1,3 @@
+RUN 20261015T093701Z_w11r1-independent-v1-startup_01_s0 PID 99150
+STARTUP {'i': 0, 'run_id': '20261015T093701Z_w11r1-independent-v1-startup_01_s0', 'navigation_active': True, 'wall_to_active_s': 14.219660947999728, 'sim_at_active': 10.8, 'error': None, 'lost_responses': 0, 'bond_failures': 0}
+{"active": 1, "closed_runs": [{"run_id": "20261015T093701Z_w11r1-independent-v1-startup_01_s0", "exit": 0, "remaining": []}]}

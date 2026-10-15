@@ -1,0 +1,501 @@
+{
+  "status": "INDEPENDENT_VERIFICATION_FAIL",
+  "created_utc": "2026-10-15T09:40:52.863269+00:00",
+  "repair_sha": "47a383bdeb57f9531485a464dec22d7b2514cdb3",
+  "handoff_sha": "284aba1e39c239063b5ca92725fde951bf31cc72",
+  "start_head": "284aba1e39c239063b5ca92725fde951bf31cc72",
+  "tested_build_head": "8cd6adc0af387f2101168c278157fdc87ee8e22d",
+  "tested_physical_head": "61264cfb27d32fb831079d2f85989a8d8eedb7aa",
+  "evidence_precommit_head": "61264cfb27d32fb831079d2f85989a8d8eedb7aa",
+  "source_scripts_fingerprint": "5ea0ccb65508bd4c70030759fb0d78aa7b382c49e2e303ca7858ea706117fe58",
+  "freeze": "PASS",
+  "build": {
+    "packages": 4,
+    "exit": 0
+  },
+  "tests": {
+    "count": 151,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "colcon_test_exit": 0,
+    "colcon_result_exit": 0
+  },
+  "cold_start": {
+    "planned": 10,
+    "executed": 1,
+    "readiness_pass": 1,
+    "complete_pass": 0,
+    "fail": 1,
+    "not_run": 9
+  },
+  "targeted": {
+    "C01": {
+      "planned": 3,
+      "executed": 0,
+      "pass_count": 0,
+      "status": "NOT_RUN"
+    },
+    "C09": {
+      "planned": 3,
+      "executed": 0,
+      "pass_count": 0,
+      "status": "NOT_RUN"
+    },
+    "B04": {
+      "planned": 3,
+      "executed": 0,
+      "pass_count": 0,
+      "status": "NOT_RUN"
+    },
+    "B06": {
+      "planned": 3,
+      "executed": 0,
+      "pass_count": 0,
+      "status": "NOT_RUN"
+    }
+  },
+  "W11": {
+    "S01": "NOT_RUN",
+    "S02": "NOT_RUN",
+    "S03": "NOT_RUN",
+    "S04": "NOT_RUN",
+    "S05": "NOT_RUN"
+  },
+  "cancel_replace": "NOT_RUN",
+  "W12": {
+    "crossing": {
+      "planned": 3,
+      "executed": 0,
+      "status": "NOT_RUN"
+    },
+    "blocking": {
+      "planned": 3,
+      "executed": 0,
+      "status": "NOT_RUN"
+    },
+    "approach": {
+      "planned": 3,
+      "executed": 0,
+      "status": "NOT_RUN"
+    },
+    "S03": {
+      "planned": 1,
+      "executed": 0,
+      "status": "NOT_RUN"
+    }
+  },
+  "collisions": 0,
+  "obstacle_contacts": 0,
+  "nonfoot_ground_contacts": 0,
+  "falls": 0,
+  "safety_count_scope": "Only the one executed cold-start physics run; not evidence for unrun navigation cases.",
+  "fail_run_ids": [
+    "20261015T093701Z_w11r1-independent-v1-startup_01_s0"
+  ],
+  "invalid_run_ids": [],
+  "abnormal_exits": [
+    {
+      "node": "navigation_starter",
+      "pid": 99620,
+      "exit_code": -2,
+      "phase": "normal SIGINT cleanup",
+      "exception": "KeyboardInterrupt"
+    }
+  ],
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "remaining_ports": [],
+  "source_or_parameters_modified": false,
+  "frozen_test_entries_modified": false,
+  "verification_plan_modified": false,
+  "formal_v2_executed": false,
+  "formal_RTF_acceptance_executed": false,
+  "W13": "FAILED",
+  "W14": "TODO",
+  "W15": "TODO",
+  "eligible_for_W13_formal_v2": false,
+  "next_step": "退回第一部分修复：W11 navigation_tools.starter 成功输出至清理退出期间的SIGINT处理及冷启动关闭契约；新候选需重新冻结并独立验证。",
+  "run_results": [
+    {
+      "sequence": 1,
+      "stage": "B",
+      "case": "STARTUP-01",
+      "repeat": null,
+      "seed": 0,
+      "status": "FAIL",
+      "run_id": "20261015T093701Z_w11r1-independent-v1-startup_01_s0",
+      "reason": "candidate SIGINT cleanup exit -2"
+    },
+    {
+      "sequence": 2,
+      "stage": "B",
+      "case": "STARTUP-02",
+      "repeat": null,
+      "seed": 0,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 3,
+      "stage": "B",
+      "case": "STARTUP-03",
+      "repeat": null,
+      "seed": 0,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 4,
+      "stage": "B",
+      "case": "STARTUP-04",
+      "repeat": null,
+      "seed": 0,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 5,
+      "stage": "B",
+      "case": "STARTUP-05",
+      "repeat": null,
+      "seed": 0,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 6,
+      "stage": "B",
+      "case": "STARTUP-06",
+      "repeat": null,
+      "seed": 0,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 7,
+      "stage": "B",
+      "case": "STARTUP-07",
+      "repeat": null,
+      "seed": 0,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 8,
+      "stage": "B",
+      "case": "STARTUP-08",
+      "repeat": null,
+      "seed": 0,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 9,
+      "stage": "B",
+      "case": "STARTUP-09",
+      "repeat": null,
+      "seed": 0,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 10,
+      "stage": "B",
+      "case": "STARTUP-10",
+      "repeat": null,
+      "seed": 0,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 11,
+      "stage": "C",
+      "case": "C01",
+      "repeat": 1,
+      "seed": 2000,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 12,
+      "stage": "C",
+      "case": "C01",
+      "repeat": 2,
+      "seed": 2000,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 13,
+      "stage": "C",
+      "case": "C01",
+      "repeat": 3,
+      "seed": 2000,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 14,
+      "stage": "C",
+      "case": "C09",
+      "repeat": 1,
+      "seed": 2008,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 15,
+      "stage": "C",
+      "case": "C09",
+      "repeat": 2,
+      "seed": 2008,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 16,
+      "stage": "C",
+      "case": "C09",
+      "repeat": 3,
+      "seed": 2008,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 17,
+      "stage": "C",
+      "case": "B04",
+      "repeat": 1,
+      "seed": 3003,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 18,
+      "stage": "C",
+      "case": "B04",
+      "repeat": 2,
+      "seed": 3003,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 19,
+      "stage": "C",
+      "case": "B04",
+      "repeat": 3,
+      "seed": 3003,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 20,
+      "stage": "C",
+      "case": "B06",
+      "repeat": 1,
+      "seed": 3005,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 21,
+      "stage": "C",
+      "case": "B06",
+      "repeat": 2,
+      "seed": 3005,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 22,
+      "stage": "C",
+      "case": "B06",
+      "repeat": 3,
+      "seed": 3005,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 23,
+      "stage": "D",
+      "case": "S01",
+      "repeat": null,
+      "seed": 1000,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 24,
+      "stage": "D",
+      "case": "S02",
+      "repeat": null,
+      "seed": 1001,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 25,
+      "stage": "D",
+      "case": "S03",
+      "repeat": null,
+      "seed": 1002,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 26,
+      "stage": "D",
+      "case": "S04",
+      "repeat": null,
+      "seed": 1003,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 27,
+      "stage": "D",
+      "case": "S05",
+      "repeat": null,
+      "seed": 1004,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 28,
+      "stage": "E",
+      "case": "cancel-replace",
+      "repeat": null,
+      "seed": 0,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 29,
+      "stage": "F",
+      "case": "crossing-1",
+      "repeat": null,
+      "seed": 1201,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 30,
+      "stage": "F",
+      "case": "crossing-2",
+      "repeat": null,
+      "seed": 1201,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 31,
+      "stage": "F",
+      "case": "crossing-3",
+      "repeat": null,
+      "seed": 1201,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 32,
+      "stage": "F",
+      "case": "blocking-1",
+      "repeat": null,
+      "seed": 1202,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 33,
+      "stage": "F",
+      "case": "blocking-2",
+      "repeat": null,
+      "seed": 1202,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 34,
+      "stage": "F",
+      "case": "blocking-3",
+      "repeat": null,
+      "seed": 1202,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 35,
+      "stage": "F",
+      "case": "approach-1",
+      "repeat": null,
+      "seed": 1203,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 36,
+      "stage": "F",
+      "case": "approach-2",
+      "repeat": null,
+      "seed": 1203,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 37,
+      "stage": "F",
+      "case": "approach-3",
+      "repeat": null,
+      "seed": 1203,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    },
+    {
+      "sequence": 38,
+      "stage": "F",
+      "case": "static-S03",
+      "repeat": null,
+      "seed": 1002,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first candidate failure per preregistered stop rule"
+    }
+  ]
+}

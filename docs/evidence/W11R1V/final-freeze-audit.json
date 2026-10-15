@@ -1,0 +1,29 @@
+{
+  "time_utc": "2026-10-15T09:40:52.840384+00:00",
+  "head": "61264cfb27d32fb831079d2f85989a8d8eedb7aa",
+  "repair_sha": "47a383bdeb57f9531485a464dec22d7b2514cdb3",
+  "handoff_sha": "284aba1e39c239063b5ca92725fde951bf31cc72",
+  "source_scripts_fingerprint": "5ea0ccb65508bd4c70030759fb0d78aa7b382c49e2e303ca7858ea706117fe58",
+  "expected_fingerprint": "5ea0ccb65508bd4c70030759fb0d78aa7b382c49e2e303ca7858ea706117fe58",
+  "matches": true,
+  "unknown_untracked_src_scripts": "",
+  "source_scripts_diff_from_handoff": "",
+  "formal_v1_files": 1371,
+  "formal_v1_mismatches": [],
+  "preregistered_input_mismatches": [],
+  "verification_plan_sha256": "61c9e5d6932782b12e3568adab44e100c83998e2f9942ab8b43852238bbb6506",
+  "verification_plan_unchanged": true,
+  "user_document_sha256": "6973bb1c423297cebdf2c1a97391487023d3b4af955e3a51d4fc735b2fba7027",
+  "frozen_evidence_and_results_diff": "",
+  "worktree_status": [
+    "M docs/evidence/W11R1V/verification-log.md",
+    "?? docs/evidence/W11R1V/final-process-audit.json",
+    "?? docs/evidence/W11R1V/startup-01-assessment.json",
+    "?? docs/evidence/W11R1V/startup-01-closed.json",
+    "?? docs/evidence/W11R1V/startup-01-console.txt",
+    "?? docs/evidence/W11R1V/startup-01-excerpt.txt",
+    "?? docs/evidence/W11R1V/startup-01-initial-parser-audit.json",
+    "?? docs/evidence/W11R1V/startup-01-probe.json",
+    "?? docs/evidence/W11R1V/startup-invocation.txt"
+  ]
+}

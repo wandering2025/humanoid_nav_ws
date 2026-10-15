@@ -1,0 +1,91 @@
+155: [planner_server-11] [INFO] [1792057033.995099568] [planner_server]: Configuring GridBased of type SmacPlannerLattice
+156: [planner_server-11] [INFO] [1792057033.999956293] [planner_server]: Even sized heuristic lookup table size set 400.000000, increasing size by 1 to make odd
+157: [t1_initial_pose_once-17] Initialized AMCL once in map: 0.0, 0.0, 0.0
+158: [planner_server-11] [INFO] [1792057034.290697816] [planner_server]: Configured plugin GridBased of type SmacPlannerLattice with maximum iterations 1000000, max on approach iterations 1000, and not allowing unknown traversal. Tolerance 0.00. Using motion model: State Lattice. State lattice file: /opt/ros/jazzy/share/nav2_smac_planner/sample_primitives/5cm_resolution/1m_turning_radius/diff/output.json.
+159: [planner_server-11] [INFO] [1792057034.290765706] [planner_server]: Planner Server has GridBased  planners available.
+160: [behavior_server-12] [INFO] [1792057034.310110514] [behavior_server]: Configuring
+161: [behavior_server-12] [INFO] [1792057034.315647184] [behavior_server]: Creating behavior plugin wait of type nav2_behaviors::Wait
+162: [behavior_server-12] [INFO] [1792057034.327012845] [behavior_server]: Configuring wait
+163: [bt_navigator-13] [INFO] [1792057034.337771819] [bt_navigator]: Configuring
+164: [INFO] [t1_initial_pose_once-17]: process has finished cleanly [pid 99621]
+165: [bt_navigator-13] [INFO] [1792057034.347725980] [bt_navigator]: Creating navigator id navigate_to_pose of type nav2_bt_navigator::NavigateToPoseNavigator
+190: [bounded_lifecycle_manager-14] [INFO] [1792057036.258452451] [lifecycle_manager_navigation]: Managed nodes are active (bounded state-confirmed startup)
+191: [controller_server-10] [INFO] [1792057036.470701513] [controller_server]: Received a goal, begin computing control effort.
+192: [controller_server-10] [WARN] [1792057036.470751059] [controller_server]: No controller was specified in action call. Server will use only plugin loaded FollowPath . This warning will appear once.
+193: [controller_server-10] [WARN] [1792057036.470757796] [controller_server]: No goal checker was specified in parameter 'current_goal_checker'. Server will use only plugin loaded general_goal_checker . This warning will appear once.
+194: [controller_server-10] [WARN] [1792057036.470772771] [controller_server]: No progress checker was specified in parameter 'current_progress_checker'. Server will use only plugin loaded progress_checker . This warning will appear once.
+195: [controller_server-10] [ERROR] [1792057036.470827844] [controller_server]: Path is empty.
+196: [controller_server-10] [WARN] [1792057036.470939555] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+197: [controller_server-10] [INFO] [1792057036.555539393] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+198: [planner_server-11] [INFO] [1792057036.641768542] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+199: [navigation_starter-16] {"starter": "navigation active", "exit": 0, "readiness": [{"node": "map_server", "state": 3, "attempt": 1}, {"node": "amcl", "state": 3, "attempt": 1}, {"node": "controller_server", "state": 3, "attempt": 1}, {"node": "planner_server", "state": 3, "attempt": 1}, {"node": "behavior_server", "state": 3, "attempt": 1}, {"node": "bt_navigator", "state": 3, "attempt": 1}, {"node": "local_costmap/local_costmap", "state": 3, "attempt": 1}, {"node": "global_costmap/global_costmap", "state": 3, "attempt": 1}, {"action": "follow_path", "ack": true, "expected_invalid_path": 103}, {"service": "local_costmap/clear_entirely_local_costmap", "responded": true}, {"service": "global_costmap/clear_entirely_global_costmap", "responded": true}], "sim_time": 10.8}
+200: [WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+201: [INFO] [rviz2-18]: sending signal 'SIGINT' to process[rviz2-18]
+202: [INFO] [navigation_starter-16]: sending signal 'SIGINT' to process[navigation_starter-16]
+203: [INFO] [navigation_adapter-15]: sending signal 'SIGINT' to process[navigation_adapter-15]
+204: [INFO] [bounded_lifecycle_manager-14]: sending signal 'SIGINT' to process[bounded_lifecycle_manager-14]
+205: [INFO] [bt_navigator-13]: sending signal 'SIGINT' to process[bt_navigator-13]
+206: [INFO] [behavior_server-12]: sending signal 'SIGINT' to process[behavior_server-12]
+207: [INFO] [planner_server-11]: sending signal 'SIGINT' to process[planner_server-11]
+208: [INFO] [controller_server-10]: sending signal 'SIGINT' to process[controller_server-10]
+209: [INFO] [lifecycle_manager-9]: sending signal 'SIGINT' to process[lifecycle_manager-9]
+210: [INFO] [bounded_lifecycle_manager-8]: sending signal 'SIGINT' to process[bounded_lifecycle_manager-8]
+211: [INFO] [collision_monitor-7]: sending signal 'SIGINT' to process[collision_monitor-7]
+212: [INFO] [velocity_smoother-6]: sending signal 'SIGINT' to process[velocity_smoother-6]
+213: [INFO] [command_gate-5]: sending signal 'SIGINT' to process[command_gate-5]
+214: [INFO] [amcl-4]: sending signal 'SIGINT' to process[amcl-4]
+215: [INFO] [map_server-3]: sending signal 'SIGINT' to process[map_server-3]
+216: [INFO] [robot_state_publisher-2]: sending signal 'SIGINT' to process[robot_state_publisher-2]
+217: [INFO] [t1_sim-1]: sending signal 'SIGINT' to process[t1_sim-1]
+218: [rviz2-18] [INFO] [1792057036.653357364] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+219: [navigation_starter-16] Traceback (most recent call last):
+220: [navigation_starter-16]   File "/home/haoyang/humanoid_nav_ws/install/t1_bringup/lib/t1_bringup/navigation_starter", line 33, in <module>
+221: [navigation_starter-16]     sys.exit(load_entry_point('t1-bringup', 'console_scripts', 'navigation_starter')())
+222: [navigation_starter-16]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+223: [navigation_starter-16]   File "/home/haoyang/humanoid_nav_ws/build/t1_bringup/t1_bringup/navigation_tools.py", line 320, in starter_main
+224: [navigation_starter-16]     raise SystemExit(starter())
+225: [navigation_starter-16]                      ^^^^^^^^^
+226: [navigation_starter-16]   File "/home/haoyang/humanoid_nav_ws/build/t1_bringup/t1_bringup/navigation_tools.py", line 55, in starter
+227: [navigation_starter-16]     node.destroy_node()
+228: [navigation_starter-16]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/node.py", line 1960, in destroy_node
+229: [navigation_starter-16]     self.destroy_client(self._clients[0])
+230: [navigation_starter-16]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/node.py", line 1870, in destroy_client
+231: [navigation_starter-16]     client.destroy()
+232: [navigation_starter-16]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/client.py", line 232, in destroy
+233: [navigation_starter-16]     self.__client.destroy_when_not_in_use()
+234: [navigation_starter-16] KeyboardInterrupt
+235: [bounded_lifecycle_manager-14] [INFO] [1792057036.660077860] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+298: [map_server-3] [INFO] [1792057036.712167873] [map_server]: Destroying
+299: [amcl-4] [INFO] [1792057036.749884368] [amcl]: Destroying
+300: [ERROR] [navigation_starter-16]: process has died [pid 99620, exit code -2, cmd '/home/haoyang/humanoid_nav_ws/install/t1_bringup/lib/t1_bringup/navigation_starter --ros-args -r __node:=t1_navigation_starter --params-file /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml'].
+301: [bt_navigator-13] [INFO] [1792057036.820633046] [bt_navigator]: Completed Cleaning up
+302: [bt_navigator-13] [INFO] [1792057036.820701743] [bt_navigator]: Destroying bond (bt_navigator) to lifecycle manager.
+303: [bt_navigator-13] [INFO] [1792057036.824462755] [bt_navigator]: Destroying
+304: [INFO] [robot_state_publisher-2]: process has finished cleanly [pid 99161]
+305: [INFO] [velocity_smoother-6]: process has finished cleanly [pid 99165]
+306: [controller_server-10] [INFO] [1792057036.841121774] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+307: [controller_server-10] [INFO] [1792057036.842766367] [local_costmap.local_costmap]: Destroying
+308: [controller_server-10] [INFO] [1792057036.848537535] [controller_server]: Destroying
+309: [planner_server-11] [INFO] [1792057036.850386635] [planner_server]: Deactivating plugin GridBased of type SmacPlannerLattice
+310: [planner_server-11] [INFO] [1792057036.850523301] [planner_server]: Destroying bond (planner_server) to lifecycle manager.
+311: [INFO] [behavior_server-12]: process has finished cleanly [pid 99616]
+312: [planner_server-11] [INFO] [1792057036.860731764] [planner_server]: Cleaning up
+313: [planner_server-11] [INFO] [1792057036.865470209] [global_costmap.global_costmap]: Cleaning up
+314: [planner_server-11] [INFO] [1792057036.869227626] [planner_server]: Cleaning up plugin GridBased of type SmacPlannerLattice
+315: [planner_server-11] [INFO] [1792057036.869384484] [planner_server]: Destroying plugin GridBased of type SmacPlannerLattice
+316: [planner_server-11] [INFO] [1792057036.876575131] [planner_server]: Destroying bond (planner_server) to lifecycle manager.
+317: [planner_server-11] [INFO] [1792057036.879569550] [global_costmap.global_costmap]: Destroying
+318: [INFO] [navigation_adapter-15]: process has finished cleanly [pid 99619]
+319: [planner_server-11] [INFO] [1792057036.886729313] [planner_server]: Destroying
+320: [INFO] [bounded_lifecycle_manager-8]: process has finished cleanly [pid 99471]
+321: [INFO] [lifecycle_manager-9]: process has finished cleanly [pid 99472]
+322: [INFO] [map_server-3]: process has finished cleanly [pid 99162]
+323: [INFO] [collision_monitor-7]: process has finished cleanly [pid 99166]
+324: [INFO] [bounded_lifecycle_manager-14]: process has finished cleanly [pid 99618]
+325: [INFO] [amcl-4]: process has finished cleanly [pid 99163]
+326: [INFO] [bt_navigator-13]: process has finished cleanly [pid 99617]
+327: [INFO] [command_gate-5]: process has finished cleanly [pid 99164]
+328: [INFO] [controller_server-10]: process has finished cleanly [pid 99614]
+329: [INFO] [planner_server-11]: process has finished cleanly [pid 99615]
+330: [INFO] [rviz2-18]: process has finished cleanly [pid 99622]
+331: [INFO] [t1_sim-1]: process has finished cleanly [pid 99160]

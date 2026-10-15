@@ -1,0 +1,80 @@
+{
+  "time_utc": "2026-10-15T09:39:37.356891+00:00",
+  "project_processes": [],
+  "excluded_system_and_auditor": [
+    {
+      "pid": 256,
+      "comm": "unattended-upgr",
+      "argv": [
+        "/usr/bin/python3",
+        "/usr/share/unattended-upgrades/unattended-upgrade-shutdown",
+        "--wait-for-signal"
+      ]
+    },
+    {
+      "pid": 100696,
+      "comm": "python3",
+      "argv": [
+        "python3",
+        "-"
+      ]
+    }
+  ],
+  "observed_run_owned_pids": [
+    99150,
+    99160,
+    99161,
+    99162,
+    99163,
+    99164,
+    99165,
+    99166,
+    99471,
+    99472,
+    99614,
+    99615,
+    99616,
+    99617,
+    99618,
+    99619,
+    99620,
+    99621,
+    99622,
+    99672
+  ],
+  "still_existing_owned_pids": [],
+  "listening_sockets": "Netid State  Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess                              \nudp   UNCONN 0      0          127.0.0.54:53         0.0.0.0:*                                        \nudp   UNCONN 0      0       127.0.0.53%lo:53         0.0.0.0:*                                        \nudp   UNCONN 0      0      10.255.255.254:53         0.0.0.0:*                                        \nudp   UNCONN 0      0           127.0.0.1:323        0.0.0.0:*                                        \nudp   UNCONN 0      0             0.0.0.0:5353       0.0.0.0:*                                        \nudp   UNCONN 0      0             0.0.0.0:46427      0.0.0.0:*                                        \nudp   UNCONN 0      0               [::1]:323           [::]:*                                        \nudp   UNCONN 0      0                [::]:5353          [::]:*                                        \nudp   UNCONN 0      0                [::]:46350         [::]:*                                        \ntcp   LISTEN 0      4096    127.0.0.53%lo:53         0.0.0.0:*                                        \ntcp   LISTEN 0      511         127.0.0.1:35233      0.0.0.0:*    users:((\"MainThread\",pid=583,fd=43))\ntcp   LISTEN 0      1000   10.255.255.254:53         0.0.0.0:*                                        \ntcp   LISTEN 0      4096       127.0.0.54:53         0.0.0.0:*                                        \ntcp   LISTEN 0      511         127.0.0.1:46653      0.0.0.0:*    users:((\"MainThread\",pid=589,fd=33))\ntcp   LISTEN 0      64          127.0.0.1:5345       0.0.0.0:*                                        \ntcp   LISTEN 0      511         127.0.0.1:46049      0.0.0.0:*    users:((\"MainThread\",pid=480,fd=22))\n",
+  "dds_ports_free": {
+    "42124": true,
+    "42126": true
+  },
+  "upstreams": {
+    "booster_deploy": {
+      "sha": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+      "dirty": []
+    },
+    "booster_assets": {
+      "sha": "12a97516f57469078707afb587a5f84c1cb110d1",
+      "dirty": []
+    }
+  },
+  "owned_launch_shutdown": "SIGINT sent once to owned launch parent by frozen harness; launch forwarded once to remaining children",
+  "normal_child_exit_count": 17,
+  "abnormal_child_exits": [
+    {
+      "node": "navigation_starter",
+      "pid": 99620,
+      "code": -2,
+      "signal": "SIGINT",
+      "exception": "KeyboardInterrupt in node.destroy_node"
+    }
+  ],
+  "SIGTERM_count": 0,
+  "SIGKILL_count": 0,
+  "wrapper_exit": 0,
+  "launch_exit": 0,
+  "dds_exit": 0,
+  "no_unrelated_process_stopped": true,
+  "ros_graph_audit": "No project/ROS participants remain; no ROS CLI daemon spawned for final audit. Live startup graph preserved in startup-01-closed.json.",
+  "verdict": "NO_RESIDUAL_PROCESSES_OR_PORTS; CANDIDATE_CHILD_EXIT_FAIL"
+}

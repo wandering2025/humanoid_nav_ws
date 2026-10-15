@@ -1,0 +1,48 @@
+Frozen invocation/capture wrapper (no frozen test/source edits):
+
+"""Invocation/capture only: call the frozen W11 startup probe with modern output-safe harness."""
+import importlib.util,json,os,sys,subprocess
+from pathlib import Path
+ws=Path(os.environ['T1_WS']); out=Path(os.environ['T1_EVAL_OUT'])
+sys.path.insert(0,str(ws/'scripts'))
+from evaluation import harness
+sys.modules['harness']=harness
+spec=importlib.util.spec_from_file_location('frozen_w11_startup',ws/'docs/evidence/W11/nav_run.py')
+module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+session=harness.Session('w11r1-independent-v1-startup')
+try:
+    result=module.startup_probe(1)
+finally:
+    for run in harness.ACTIVE_RUNS:
+        if run.closed_result is None:
+            run.close(settle=0.)
+    session.close()
+closed=[r.closed_result for r in harness.ACTIVE_RUNS]
+(out/'closed-runs.json').write_text(json.dumps(closed,indent=2,default=str)+'\n')
+(out/'post-sockets.txt').write_text(subprocess.check_output(['ss','-lntup'],text=True))
+print(json.dumps(dict(active=result['active'],closed_runs=[dict(run_id=c['run_id'],exit=c['exit_code'],remaining=c['remaining_owned_pids']) for c in closed])))
+raise SystemExit(0 if result['active']==1 else 1)
+
+Original offline parser preserved, including overbroad SIGTERM match (not a physical test):
+
+import json,re,sys,hashlib
+from pathlib import Path
+out=Path(sys.argv[1]); c=json.loads((out/'closed-runs.json').read_text())[0]; text=(out/'raw'/f"{c['run_id']}.txt").read_text(errors='replace')
+starters=[]
+for line in text.splitlines():
+    if '{"starter":' in line:
+        try: starters.append(json.loads(line[line.index('{"starter":'):]))
+        except ValueError: pass
+bad=[line for line in text.splitlines() if any(s in line for s in ('process has died','escalating to','SIGKILL','SIGTERM'))]
+normal=[line for line in text.splitlines() if 'process has finished cleanly' in line]
+checks=dict(navigation_active=json.loads((out/'c3-startup-reliability.json').read_text())['active']==1,starter_ok=bool(starters) and starters[-1]['exit']==0,clock_advanced=c['sim_end']>c['first_clock']+.5,scan_received=c['scan_stats']['count']>0,scan_nonempty=c['scan_stats']['empty']==0,initialpose_once=len(c['initializations'])==1,launch_exit_zero=c['exit_code']==0,no_abnormal_exits=not bad,no_owned_remnants=not c['remaining_owned_pids'],all_launch_children_clean=len(normal)==17,port_released=':42124 ' not in (out/'post-sockets.txt').read_text())
+if starters:
+    trace=starters[-1]['readiness']; checks.update(lifecycle_active={r['node'] for r in trace if r.get('state')==3}=={'map_server','amcl','controller_server','planner_server','behavior_server','bt_navigator','local_costmap/local_costmap','global_costmap/global_costmap'},real_follow_ack=any(r.get('ack') and r.get('expected_invalid_path')==103 for r in trace),costmap_responses=sum(bool(r.get('responded')) for r in trace)==2)
+a=dict(run_id=c['run_id'],head=c['manifest'].get('code_sha'),checks=checks,verdict='PASS' if all(checks.values()) else 'FAIL',starter=starters,normal_exit_lines=normal,abnormal_exit_lines=bad,remaining=c['remaining_owned_pids'],closed_result_sha256=hashlib.sha256((out/'closed-runs.json').read_bytes()).hexdigest(),launch_log_sha256=hashlib.sha256((out/'raw'/f"{c['run_id']}.txt").read_bytes()).hexdigest(),raw_path=str(out))
+(out/'startup-audit.json').write_text(json.dumps(a,indent=2)+'\n');print(json.dumps(a))
+raise SystemExit(0 if a['verdict']=='PASS' else 1)
+
+Environment: T1_VENV=/home/haoyang/venvs/humanoid_mujoco T1_UPSTREAM=/home/haoyang/robot_sim_sources/booster_deploy T1_LOCAL_DDS=1 T1_DDS_PORT=42124 ROS_DOMAIN_ID=34; source scripts/env.sh.
+Command: "$T1_VENV/bin/python" /tmp/w11r1v_startup_once.py
+T1_EVAL_OUT=$PWD/run_data/w11r1-independent-v1/startup/01; ROS_LOG_DIR=$T1_EVAL_OUT/raw/ros-log; T1_EVAL_RUN_ID=20261015T093701Z_w11r1-independent-v1-startup_01_s0
+Orchestration exit 0; offline parser exit1. No physical rerun.

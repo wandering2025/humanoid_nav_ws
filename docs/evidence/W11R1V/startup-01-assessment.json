@@ -1,0 +1,263 @@
+{
+  "status": "INDEPENDENT_VERIFICATION_FAIL",
+  "run_id": "20261015T093701Z_w11r1-independent-v1-startup_01_s0",
+  "phase": "B",
+  "case": "STARTUP-01",
+  "tested_head": "61264cfb27d32fb831079d2f85989a8d8eedb7aa",
+  "repair_sha": "47a383bdeb57f9531485a464dec22d7b2514cdb3",
+  "handoff_sha": "284aba1e39c239063b5ca92725fde951bf31cc72",
+  "source_scripts_fingerprint": "5ea0ccb65508bd4c70030759fb0d78aa7b382c49e2e303ca7858ea706117fe58",
+  "readiness": "PASS",
+  "full_cold_start": "FAIL",
+  "readiness_wall_s": 14.219660947999728,
+  "readiness_sim_s": 10.8,
+  "reason": "Frozen startup_probe closes launch as soon as starter emits success. Normal owned-launch SIGINT interrupts navigation_starter during node.destroy_node/client.destroy_when_not_in_use; unhandled KeyboardInterrupt, exit -2. Required clean shutdown fails.",
+  "classification_rationale": "Candidate shutdown race in a frozen, correctly invoked startup entry. Not wrong command, wrong output, foreign process conflict or user interruption; not INVALID. Startup success JSON and launch exit0 do not override child exit-2. No retry/no fixed sleep/no source or test logic change.",
+  "signal_source": "Frozen modern harness Run.close sends one SIGINT to its owned launch parent; launch forwards once. Log wording user interrupted is launch-generated, not actual user interruption.",
+  "evidence_lines": {
+    "starter_ready": 199,
+    "normal_shutdown_requested": 200,
+    "starter_signal": 202,
+    "exception_start": 219,
+    "source_finally": 226,
+    "keyboard_interrupt": 234,
+    "child_exit": 300
+  },
+  "process_starts": [
+    {
+      "node": "t1_sim-1",
+      "pid": 99160,
+      "line": 3
+    },
+    {
+      "node": "robot_state_publisher-2",
+      "pid": 99161,
+      "line": 4
+    },
+    {
+      "node": "map_server-3",
+      "pid": 99162,
+      "line": 5
+    },
+    {
+      "node": "amcl-4",
+      "pid": 99163,
+      "line": 6
+    },
+    {
+      "node": "command_gate-5",
+      "pid": 99164,
+      "line": 7
+    },
+    {
+      "node": "velocity_smoother-6",
+      "pid": 99165,
+      "line": 8
+    },
+    {
+      "node": "collision_monitor-7",
+      "pid": 99166,
+      "line": 9
+    },
+    {
+      "node": "bounded_lifecycle_manager-8",
+      "pid": 99471,
+      "line": 34
+    },
+    {
+      "node": "lifecycle_manager-9",
+      "pid": 99472,
+      "line": 35
+    },
+    {
+      "node": "controller_server-10",
+      "pid": 99614,
+      "line": 82
+    },
+    {
+      "node": "planner_server-11",
+      "pid": 99615,
+      "line": 83
+    },
+    {
+      "node": "behavior_server-12",
+      "pid": 99616,
+      "line": 84
+    },
+    {
+      "node": "bt_navigator-13",
+      "pid": 99617,
+      "line": 85
+    },
+    {
+      "node": "bounded_lifecycle_manager-14",
+      "pid": 99618,
+      "line": 86
+    },
+    {
+      "node": "navigation_adapter-15",
+      "pid": 99619,
+      "line": 87
+    },
+    {
+      "node": "navigation_starter-16",
+      "pid": 99620,
+      "line": 88
+    },
+    {
+      "node": "t1_initial_pose_once-17",
+      "pid": 99621,
+      "line": 89
+    },
+    {
+      "node": "rviz2-18",
+      "pid": 99622,
+      "line": 90
+    }
+  ],
+  "process_exits": [
+    {
+      "kind": "normal",
+      "line": 164,
+      "text": "[INFO] [t1_initial_pose_once-17]: process has finished cleanly [pid 99621]",
+      "exit_code": 0
+    },
+    {
+      "kind": "abnormal_after_SIGINT",
+      "line": 300,
+      "text": "[ERROR] [navigation_starter-16]: process has died [pid 99620, exit code -2, cmd '/home/haoyang/humanoid_nav_ws/install/t1_bringup/lib/t1_bringup/navigation_starter --ros-args -r __node:=t1_navigation_starter --params-file /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml'].",
+      "exit_code": -2
+    },
+    {
+      "kind": "normal",
+      "line": 304,
+      "text": "[INFO] [robot_state_publisher-2]: process has finished cleanly [pid 99161]",
+      "exit_code": 0
+    },
+    {
+      "kind": "normal",
+      "line": 305,
+      "text": "[INFO] [velocity_smoother-6]: process has finished cleanly [pid 99165]",
+      "exit_code": 0
+    },
+    {
+      "kind": "normal",
+      "line": 311,
+      "text": "[INFO] [behavior_server-12]: process has finished cleanly [pid 99616]",
+      "exit_code": 0
+    },
+    {
+      "kind": "normal",
+      "line": 318,
+      "text": "[INFO] [navigation_adapter-15]: process has finished cleanly [pid 99619]",
+      "exit_code": 0
+    },
+    {
+      "kind": "normal",
+      "line": 320,
+      "text": "[INFO] [bounded_lifecycle_manager-8]: process has finished cleanly [pid 99471]",
+      "exit_code": 0
+    },
+    {
+      "kind": "normal",
+      "line": 321,
+      "text": "[INFO] [lifecycle_manager-9]: process has finished cleanly [pid 99472]",
+      "exit_code": 0
+    },
+    {
+      "kind": "normal",
+      "line": 322,
+      "text": "[INFO] [map_server-3]: process has finished cleanly [pid 99162]",
+      "exit_code": 0
+    },
+    {
+      "kind": "normal",
+      "line": 323,
+      "text": "[INFO] [collision_monitor-7]: process has finished cleanly [pid 99166]",
+      "exit_code": 0
+    },
+    {
+      "kind": "normal",
+      "line": 324,
+      "text": "[INFO] [bounded_lifecycle_manager-14]: process has finished cleanly [pid 99618]",
+      "exit_code": 0
+    },
+    {
+      "kind": "normal",
+      "line": 325,
+      "text": "[INFO] [amcl-4]: process has finished cleanly [pid 99163]",
+      "exit_code": 0
+    },
+    {
+      "kind": "normal",
+      "line": 326,
+      "text": "[INFO] [bt_navigator-13]: process has finished cleanly [pid 99617]",
+      "exit_code": 0
+    },
+    {
+      "kind": "normal",
+      "line": 327,
+      "text": "[INFO] [command_gate-5]: process has finished cleanly [pid 99164]",
+      "exit_code": 0
+    },
+    {
+      "kind": "normal",
+      "line": 328,
+      "text": "[INFO] [controller_server-10]: process has finished cleanly [pid 99614]",
+      "exit_code": 0
+    },
+    {
+      "kind": "normal",
+      "line": 329,
+      "text": "[INFO] [planner_server-11]: process has finished cleanly [pid 99615]",
+      "exit_code": 0
+    },
+    {
+      "kind": "normal",
+      "line": 330,
+      "text": "[INFO] [rviz2-18]: process has finished cleanly [pid 99622]",
+      "exit_code": 0
+    },
+    {
+      "kind": "normal",
+      "line": 331,
+      "text": "[INFO] [t1_sim-1]: process has finished cleanly [pid 99160]",
+      "exit_code": 0
+    }
+  ],
+  "normal_child_exits": 17,
+  "abnormal_child_exits": 1,
+  "launch_exit": 0,
+  "session_and_wrapper_exit": 0,
+  "no_SIGTERM_or_SIGKILL_escalation": true,
+  "remaining_owned_pids": [],
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "falls": false,
+  "faults": false,
+  "trace_states": [
+    "READY",
+    "STARTING"
+  ],
+  "max_abs_policy_command": {
+    "u_pol_x": 0.0,
+    "u_pol_y": 0.0,
+    "u_pol_wz": 0.0
+  },
+  "scan": {
+    "count": 108,
+    "empty": 0,
+    "known_min": 1.0,
+    "min_range": 2.592493772506714
+  },
+  "clock_regressions": 0,
+  "one_initialpose": true,
+  "raw_path": "run_data/w11r1-independent-v1/startup/01",
+  "simulator_path": "run_data/20261015T093701Z_w11r1-independent-v1-startup_01_s0",
+  "target_goal_sent": false,
+  "earlier_parser_correction": "The first offline parser also matched normal C++ signal_handler(SIGINT/SIGTERM) text as abnormal and expected 17 clean child lines. Correct process inventory is18 launched,17 clean,1 exit-2. Those informational signal-handler lines do not prove SIGTERM. Original audit preserved; actual exit-2 independently sustains FAIL.",
+  "next_step": "退回第一部分修复：W11 navigation_tools.starter 成功输出至清理退出期间的SIGINT处理及冷启动关闭契约；新候选需重新冻结并独立验证。"
+}

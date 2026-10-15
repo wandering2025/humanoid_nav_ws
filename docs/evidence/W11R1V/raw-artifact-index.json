@@ -1,0 +1,258 @@
+{
+  "run_data/w11r1-independent-v1/stage-a/ros-log/bounded_lifecycle_manager_97458_1792056920418.log": {
+    "bytes": 165,
+    "sha256": "944705432b523e4e04fa7138eb7825998ff0b696bf49cb0b782d9502c90d4cf4"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/bounded_lifecycle_manager_97552_1792056923936.log": {
+    "bytes": 396,
+    "sha256": "f98d9119a1ad34f537bf15e2a0951d650c570f05f21e67742d06a0dc17cf8ad3"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/bounded_lifecycle_manager_97708_1792056933316.log": {
+    "bytes": 177,
+    "sha256": "afd4fdf50778fb70674853cd517c9a88b355bb993d35ab40af8f8961908dab15"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/bounded_lifecycle_manager_97794_1792056934918.log": {
+    "bytes": 177,
+    "sha256": "3a459b455cb18304f8c0fa9807e5662544ed05d46d917415936c61fd97eaa8c5"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/bounded_lifecycle_manager_97913_1792056937142.log": {
+    "bytes": 177,
+    "sha256": "2059ac35035d7b56b1a4c6035e3723f53cea2aadcdf419aa54afa3e79502f198"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/bounded_lifecycle_manager_98040_1792056941684.log": {
+    "bytes": 177,
+    "sha256": "c687eb640360c1bb294414be3b5382b2d524ddd5eef6fc2db1789ba35bf79c92"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/bounded_lifecycle_manager_98250_1792056946040.log": {
+    "bytes": 177,
+    "sha256": "bafd4f453261eca7449bcfaef87d56e4d1b0a4c0c8e2bc83f2be7f20600cb106"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/bounded_lifecycle_manager_98422_1792056950362.log": {
+    "bytes": 177,
+    "sha256": "a0be2e0736d4cc9cddb53260c8827ca2ce92332a9172b1a195c17ee2db397302"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/bounded_lifecycle_manager_98605_1792056954797.log": {
+    "bytes": 177,
+    "sha256": "cd93c4ae543d62eaddb08ba4bad977538c3a0309a053345b2abc7683e5a73c84"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/controller_server_97793_1792056934933.log": {
+    "bytes": 4380,
+    "sha256": "c3b52643a4aa1d19764f70bb3d656ec8981a093657c0c9de7d79185125dea46e"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/controller_server_97915_1792056937147.log": {
+    "bytes": 4380,
+    "sha256": "dd5761b235c83f133525d98a1b76a67ad796a8b89f6f88a355e6941d67d0f7ff"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/map_server_98041_1792056941740.log": {
+    "bytes": 1808,
+    "sha256": "a0e7629cee627f37fb0564de7576dea3fa9f6214ddc1e5f65da6db88df1f1e73"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/map_server_98251_1792056946054.log": {
+    "bytes": 1808,
+    "sha256": "16e27dfc17db51518e6613143446beacde051dc5491b83dda4c5ded2e395cad5"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/map_server_98425_1792056950373.log": {
+    "bytes": 1808,
+    "sha256": "b184c4503ded69553c0f814c609cf82277e8ab88d4a53abd6bad075578927f49"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/map_server_98602_1792056954802.log": {
+    "bytes": 1808,
+    "sha256": "43ffdfb79dc6a5708cce628256ba6bfc8fcce9d9281f5fd423b8d5a35807c168"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/planner_server_98039_1792056941687.log": {
+    "bytes": 3958,
+    "sha256": "0ec0611dd1a799178e411a9904c896637edc85246fb9a50501c55b90822805a4"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/planner_server_98249_1792056946044.log": {
+    "bytes": 3958,
+    "sha256": "54c1519691b0ad71d710b466749a345bf9c06c909ef8a479e93b27265c783dbc"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/planner_server_98424_1792056950367.log": {
+    "bytes": 3958,
+    "sha256": "d90bf9162c49c66c2a8ea5e9098da00fca288446716fb027537009137a62e581"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/planner_server_98604_1792056954800.log": {
+    "bytes": 3958,
+    "sha256": "a4d14fd1d4dd5ab62e090155a8c53e18bac2e94ae11e7e61d33439fac882a521"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/python3_97412_1792056920154.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/python3_97412_1792056923744.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/python3_97412_1792056933120.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/python3_97412_1792056934713.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/python3_97412_1792056936947.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/python3_97412_1792056941474.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/python3_97412_1792056945833.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/python3_97412_1792056950175.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r1-independent-v1/stage-a/ros-log/python3_97412_1792056954592.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r1-independent-v1/startup/01/20261015T093701Z_w11r1-independent-v1-startup_01_s0-cpu.json": {
+    "bytes": 22934,
+    "sha256": "e278b6713f5d6fbbadbd00c8542667af7f3981c2c23007a997b7076267f304cc"
+  },
+  "run_data/w11r1-independent-v1/startup/01/c3-startup-reliability.json": {
+    "bytes": 381,
+    "sha256": "57e0b8a26952ca64dfb7dc77f51a5def23239f929a356e96e4dca7e0e2da9e34"
+  },
+  "run_data/w11r1-independent-v1/startup/01/closed-runs.json": {
+    "bytes": 22652,
+    "sha256": "fb935554dab899ad0ac3d62d4ade3230fc45f6d5a4012d694c08386b3e44fc0a"
+  },
+  "run_data/w11r1-independent-v1/startup/01/console.txt": {
+    "bytes": 420,
+    "sha256": "73935e2c7ea61b2624ac02d3dcb7c5d16ac4bf18df19091bfa0780af2f4cd985"
+  },
+  "run_data/w11r1-independent-v1/startup/01/exit.txt": {
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "run_data/w11r1-independent-v1/startup/01/post-sockets.txt": {
+    "bytes": 1751,
+    "sha256": "044d9d74902ba3fd1e81c4e19afc7b6e3dff5cf32c9534e1d224eb91b11fdeeb"
+  },
+  "run_data/w11r1-independent-v1/startup/01/pre-processes.txt": {
+    "bytes": 2126,
+    "sha256": "f435c653ebdb67e91f8069c31254ac091901461f1862e4489b5a03630d989169"
+  },
+  "run_data/w11r1-independent-v1/startup/01/pre-sockets.txt": {
+    "bytes": 1751,
+    "sha256": "044d9d74902ba3fd1e81c4e19afc7b6e3dff5cf32c9534e1d224eb91b11fdeeb"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/20261015T093701Z_w11r1-independent-v1-startup_01_s0.txt": {
+    "bytes": 32990,
+    "sha256": "a9784742f130cb9bec80461ca721093fa0bee59100a3c6eeb0fa23e40f0aa3c2"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/2026-10-15-11-37-02-597494-DESKTOP-MF19MEU-99150/launch.log": {
+    "bytes": 5379,
+    "sha256": "a1791288c30e6f8da15e37a9fddf596cd808e118d247228be1d07c8018321a24"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/amcl_99163_1792057022705.log": {
+    "bytes": 1660,
+    "sha256": "c5038d0110478befebe24621ab420ad3540d16214f609b2844979971cc726e30"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/behavior_server_99616_1792057030726.log": {
+    "bytes": 1205,
+    "sha256": "3787eb695027c7922dec2f9e4276d2c58b4faa6cb20a3fb1af83471b5cec5de2"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/bounded_lifecycle_manager_99471_1792057025739.log": {
+    "bytes": 194,
+    "sha256": "eb05f1f48a71b19dbfbd4d9949042aa64fca6fc45171abe49622d1ce762de3bd"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/bounded_lifecycle_manager_99618_1792057030709.log": {
+    "bytes": 192,
+    "sha256": "9fa72621a147a6bd2182be089cbb1236c26e6a4f518f9f124701a29e7c9c0273"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/bt_navigator_99617_1792057030729.log": {
+    "bytes": 1183,
+    "sha256": "48c37d6bc200e738b6cf9e1bf77a0fdb7c2f086ed77d65283b9d29699facdf89"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/collision_monitor_99166_1792057022714.log": {
+    "bytes": 1754,
+    "sha256": "64cff2c2bbdabb52f5a66a5684da9d5430095966202906a296a981d51a0f1c5e"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/controller_server_99614_1792057030720.log": {
+    "bytes": 4810,
+    "sha256": "ffd6c7cba7f8550456b8bf0db329be4486a812be622e3fb10043cb59b523260b"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/lifecycle_manager_99472_1792057025745.log": {
+    "bytes": 1430,
+    "sha256": "2b7f1db21d4310a04fcc75f8c5b7d8074661f13897dc8a3f5fccc9d72bb013b7"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/map_server_99162_1792057022710.log": {
+    "bytes": 1880,
+    "sha256": "67d313f78bf57aacf551c7e367f3c9ac809ea9510ee1365bca55753effe50e84"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/planner_server_99615_1792057030723.log": {
+    "bytes": 4075,
+    "sha256": "5e1ff8ee7b54c98909a0a54dad953ba7c37eae695f72507ef5029827c6d96033"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/python3_99164_1792057022938.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/python3_99619_1792057030876.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/python3_99620_1792057030887.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/python3_99672_1792057031004.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/python_99093_1792057022332.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/python_99160_1792057022881.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/robot_state_publisher_99161_1792057022696.log": {
+    "bytes": 144,
+    "sha256": "442f5cda53296a3f782201a1884431b551016abebc48c6e55aeaf5398a05b512"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/rviz2_99622_1792057030822.log": {
+    "bytes": 768,
+    "sha256": "be1ffe27331d5dc3d91ab9041c53015630db982337b69ef142111b9c0b0aa481"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/ros-log/velocity_smoother_99165_1792057022701.log": {
+    "bytes": 1012,
+    "sha256": "0a7bf40fe55ec53516e5e6d194f4d9eb77a24edb72c0568f6351ea57d0fb9d6f"
+  },
+  "run_data/w11r1-independent-v1/startup/01/raw/w11r1-independent-v1-startup-dds.txt": {
+    "bytes": 240,
+    "sha256": "bf97cbd06dcc54e3bb51a691306c44a1af5a66ac805c1289f165e4e9d57ea075"
+  },
+  "run_data/w11r1-independent-v1/startup/01/startup-audit.json": {
+    "bytes": 5165,
+    "sha256": "6ec42bcef97ffeabbca98082ff6663e99597cfeb57fa27c640d460ebdc0fc374"
+  },
+  "run_data/20261015T093701Z_w11r1-independent-v1-startup_01_s0/contact_events.csv": {
+    "bytes": 108,
+    "sha256": "e19231ca735fe6ec0b4b20ae580614cc40994470245f101736d11b7830d7319c"
+  },
+  "run_data/20261015T093701Z_w11r1-independent-v1-startup_01_s0/events.jsonl": {
+    "bytes": 13271,
+    "sha256": "0be5858e8b1c022b5130a9cf78c913c35d87ca77f78eee733b5db99f5de8e269"
+  },
+  "run_data/20261015T093701Z_w11r1-independent-v1-startup_01_s0/geometry.jsonl": {
+    "bytes": 79241,
+    "sha256": "5a323b3fcecdb69420c52d8a5066ac3df7d7131554d8e1d6455c6446857d684e"
+  },
+  "run_data/20261015T093701Z_w11r1-independent-v1-startup_01_s0/manifest.json": {
+    "bytes": 14710,
+    "sha256": "fdb432f70cac227f071d36088e5ba5be3a0e7e8484222ee3018bbcf11533d652"
+  },
+  "run_data/20261015T093701Z_w11r1-independent-v1-startup_01_s0/sim_trace.csv": {
+    "bytes": 233411,
+    "sha256": "3c51593fa50b61612bee084877a6245b28dce0ac969a9f4216e335e9ae486fb3"
+  }
+}
