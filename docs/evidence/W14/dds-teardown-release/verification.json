@@ -20,13 +20,18 @@
       "suite": "test_gpu_watch.py",
       "passed": 8,
       "exit_code": 0
+    },
+    {
+      "suite": "test_demo.py",
+      "passed": 13,
+      "exit_code": 0
     }
   ],
   "static_checks": {
     "bash_n": "PASS",
-    "python_compile_5_files": "PASS",
     "help": "PASS",
-    "diff_check": "PASS"
+    "diff_check": "PASS",
+    "python_compile_6_files": "PASS"
   },
   "source_hashes": {
     "scripts/run_demo.sh": "76ab986a913da3cc56457e70d265a817d4473392131392174751d68f500a3eb8",
@@ -35,11 +40,13 @@
     "scripts/demo/dds_teardown.py": "091e39753a959c79fa3a346fbc157021b2174f276a7c450264da7c3c25e972cb",
     "scripts/demo/test_dds_teardown.py": "fe33e4f02e5dc3d7eb53d0877fae32a5c231724b86413ac83a94246b9e5b210c",
     "scripts/demo/assess_release_evidence.py": "037183ff71e147f4d75b6041d96a19dee8f9c9333b2935204c95c5944ce354a8",
-    "scripts/demo/gpu-profile.json": "9e4c3966496dc60953113b11fafc786a97e6e7cc5d1ba02cf95e9d1f5ac844c1"
+    "scripts/demo/gpu-profile.json": "9e4c3966496dc60953113b11fafc786a97e6e7cc5d1ba02cf95e9d1f5ac844c1",
+    "scripts/demo/test_demo.py": "254701e73cfc635c9d5660fce097c2da5d53179e948c003752f278bbd607d185"
   },
   "diagnostics_preserved": [
     "First offline historical adapter found audit01 has no project_processes field; fixed to require original result remaining_project_processes=[] for01; no raw result changed.",
     "Sandbox denied local socket creation (EPERM); authorized read-only bind audit repeated with sandbox escalation, both ports free; no service started."
   ],
-  "raw_result_note": "Future result.json and final-result.json both retain top-level dds_returncode in addition to parent_exit_codes; original historical files unchanged."
+  "raw_result_note": "Future result.json and final-result.json both retain top-level dds_returncode in addition to parent_exit_codes; original historical files unchanged.",
+  "last_affected_check_utc": "2026-10-15T14:26:01.696746+00:00"
 }

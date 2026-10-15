@@ -28,5 +28,10 @@
     "path": "docs/evidence/W14/raw/dds-teardown-release/help.log",
     "bytes": 954,
     "sha256": "6b155633cf355ff3daa9ec68ae78f182a69872adb99e3aa9a6047741fc77b4e8"
+  },
+  {
+    "path": "docs/evidence/W14/raw/dds-teardown-release/process-regression.log",
+    "bytes": 2036,
+    "sha256": "6233cb2941dc2f54433d2b5d91c8db3f5355c6e9206de9a0d32631bdf9fd1232"
   }
 ]

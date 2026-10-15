@@ -9,7 +9,7 @@ assess_release_evidence.py 只读原始文件，按被冻结 runner 的 poll→s
 这不是当时新增的仪器测量。每轮保留结果、日志、Windows检查和清理审计的来源哈希。
 原第二轮DDS堆栈缺失，内核定位外部libfastrtps TCP线程；接受例外不代表修复DDS。
 
-verification.json：18项新增分类/证据测试、4项旧finalizer回归、8项GPU规则纯函数回归，共30项PASS。
+verification.json：18项新增分类/证据测试、4项旧finalizer回归、8项GPU规则纯函数回归、13项进程/入口回归，共43项PASS（新增19项含1项真实cleanup路径观察回归）。
 Python编译/strict shell语法/help/diff-check通过；完整日志ignored且raw-index.json记录hash。
 原8组索引506项字节核验全部通过，见original-evidence-integrity.json。
 DDS-only halt原字节保存在dds-only-halt-original.json及ignored raw归档，SHA256：

@@ -1,6 +1,7 @@
 """Meaningful process-isolation and port-error regressions; no ROS motion."""
 import errno
 import importlib.util
+import io
 import os
 from pathlib import Path
 import subprocess
@@ -66,6 +67,21 @@ class Isolation(unittest.TestCase):
         finally:
             if child.poll() is None:child.kill();child.wait()
             unrelated.terminate();unrelated.wait()
+
+    def test_cleanup_keeps_early_dds_segfault_and_does_not_claim_expected_signal(self):
+        instance=object.__new__(demo.Demo)
+        child=SimpleNamespace(pid=987654321,poll=lambda:-11,wait=lambda timeout:-11)
+        instance.children={'dds':(child,io.StringIO())};instance.owned={};instance.node=None
+        instance.cleanup_started=False;instance.summary={};instance.started=time.monotonic()
+        instance.launch_log=demo.OUT/'absent-launch.log'
+        with patch.object(instance,'track'),patch.object(demo,'project_processes',return_value=[]), \
+             patch.object(demo,'port_connections',return_value={}):
+            instance.cleanup()
+        self.assertEqual(instance.summary['dds_returncode'],-11)
+        self.assertEqual(instance.summary['parent_exit_codes']['dds'],-11)
+        self.assertFalse(instance.summary['dds_shutdown']['alive_before_signal'])
+        self.assertIsNone(instance.summary['dds_shutdown']['signal'])
+        self.assertEqual(instance.summary['shutdown_signals'],[])
 
     def test_permission_error_not_reported_as_occupied_port(self):
         with patch.object(demo.socket,'socket',side_effect=PermissionError(errno.EACCES,'restricted')):
