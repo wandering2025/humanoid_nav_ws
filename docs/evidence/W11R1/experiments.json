@@ -596,5 +596,35 @@
     "remaining_owned_pids": [],
     "fix": "pre-shutdown cleanup while context valid, cancel finite pending RPC, serialize bond/control teardown",
     "test": "test_sigint_with_formed_bond_exits_cleanly; three real ROS tests passed in 14.84s"
+  },
+  {
+    "hypothesis": "H6 forward staging instead of repeated in-place rebound correction",
+    "rejected_sha": "007b118a3154f695c5c5217f671f7232dd3f46e9",
+    "campaign": "w11r1-repair-smoke-v2",
+    "results": {
+      "C01": "SUCCESS",
+      "C09": "SUCCESS",
+      "B04": "SUCCESS",
+      "B06": "FAIL_SAFETY_STOP_UNRECOVERED"
+    },
+    "direct_failure": "TERMINAL_CORRECTIONS_EXHAUSTED",
+    "run_id": "20261015T071135Z_w11r1-repair-smoke-v2_B06_s3005_9f0a75",
+    "b06_settled_yaws": [
+      -0.4444024563,
+      0.3337844812,
+      0.3337445226,
+      0.2402397006
+    ],
+    "b06_aim_yaws": [
+      0,
+      0.4444024563,
+      0.1106179751,
+      -0.2231265475
+    ],
+    "contacts": 0,
+    "falls": 0,
+    "all_launch_children_clean": true,
+    "remaining_owned_pids": [],
+    "explanation": "A near-tolerance yaw goal had almost zero settled effect; clockwise turn stopped at -0.033rad then rebounded to +0.240rad. Three integral corrections cannot guarantee convergence at one position. Use existing 1.125/.75m staging alternatives as forward walking corrections, spending same shared budget."
   }
 ]

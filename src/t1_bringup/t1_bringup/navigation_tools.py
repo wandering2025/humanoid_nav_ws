@@ -92,7 +92,7 @@ def navigate(argv=None):
     from std_srvs.srv import Trigger
     from nav2_msgs.action import NavigateToPose
     from action_msgs.msg import GoalStatus
-    from .navigation_protocol import ProtocolFailure, await_future, StationaryWindow, TerminalCorrections, overshot
+    from .navigation_protocol import ProtocolFailure, await_future, StationaryWindow, TerminalCorrections, overshot, forward_staging
     from .navigation_readiness import Readiness, LOCALIZATION, NAVIGATION
     from rclpy.time import Time
     from tf2_ros import Buffer, TransformListener
@@ -257,7 +257,9 @@ def navigate(argv=None):
                       if d > 0 and (here is None or math.dist(here[:2], target[:2]) > d + options.xy_tolerance)]
         chosen = next((d for d in candidates if segment_free(d)), None)
         summary['approach_distance'] = chosen
+        remaining_stages = [d for d in candidates if chosen is not None and d < chosen]
         def converge(stage, nominal):
+            nonlocal remaining_stages
             aim = nominal
             while True:
                 record = execute(stage, aim)
@@ -273,6 +275,13 @@ def navigate(argv=None):
                 next_aim = corrections.next(record['status'], nominal, aim, pose)
                 if next_aim is None:
                     return record
+                if stage == 'approach':
+                    advance = forward_staging(target, pose, remaining_stages, segment_free)
+                    if advance is not None:
+                        distance, nominal = advance
+                        remaining_stages = [d for d in remaining_stages if d < distance]
+                        next_aim = nominal
+                        record.update(forward_staging_distance=distance, next_reference=list(nominal))
                 record['next_aim'] = list(next_aim)
                 print(json.dumps(dict(event='terminal_retry', **record)), flush=True)
                 aim = next_aim

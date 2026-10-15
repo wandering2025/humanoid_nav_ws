@@ -88,6 +88,23 @@ def overshot(here, goal):
     return dx*math.cos(goal[2])+dy*math.sin(goal[2]) > .30 and math.hypot(dx, dy) > .30
 
 
+def forward_staging(goal, settled, distances, segment_free):
+    """Choose an existing shorter staging segment after failed joint verification.
+
+    Advancing by at least 0.30 m avoids another position-tolerance-only action.
+    It is a Nav2 position goal, not a velocity trajectory or a reverse maneuver.
+    The caller spends the same shared correction budget before using this choice.
+    """
+    for distance in distances:
+        point = (goal[0]-distance*math.cos(goal[2]),
+                 goal[1]-distance*math.sin(goal[2]), goal[2])
+        forward = ((point[0]-settled[0])*math.cos(goal[2]) +
+                   (point[1]-settled[1])*math.sin(goal[2]))
+        if forward >= .30 and segment_free(distance):
+            return distance, point
+    return None
+
+
 class CommandEpoch:
     """Twist has no UUID: admit it only after the current Nav2 + FollowPath ACK.
 
