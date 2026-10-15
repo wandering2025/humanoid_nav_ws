@@ -340,7 +340,7 @@ class Advanced(base.Demo):
                 self.summary.setdefault('mapping_coverage_checks',[]).append(dict(sim=n.sim,known_fraction=coverage))
                 if coverage>=self.route['mapping_min_known_fraction'] and self.route_overview():
                     route_ready=True;break
-        assert route_ready,'Observed map does not yet support an A-B route'
+        assert route_ready,'Mapping coverage or observed A-B route readiness not satisfied'
         self.summary['mapping_passes']=index+1
         assert n.obstacle and n.obstacle['triggered_at'] is None, 'Obstacle moved during mapping'
         self.summary['status']='MAPPING_SUFFICIENT'
