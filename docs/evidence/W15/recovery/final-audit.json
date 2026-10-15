@@ -1,0 +1,29 @@
+{
+  "implementation_sha": "21df4b116f0e987690c6288e400c7fa0e45a65b5",
+  "project_processes": [],
+  "review_or_capture_processes": [],
+  "ports_bindable": {
+    "42127": true,
+    "42128": true,
+    "42129": true,
+    "42130": true,
+    "42131": true,
+    "42132": true,
+    "42133": true
+  },
+  "gpu_halt_exists": false,
+  "gpu_queries_performed": false,
+  "preserved_failure_branch_sha": "37a765c3677b258d04e6bb413570088b1d77a482",
+  "original_155_raw_hashes_unchanged": true,
+  "W13_W14_evidence_and_records_unchanged": true,
+  "external_repositories": {
+    "booster_deploy": {
+      "sha": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+      "dirty": ""
+    },
+    "booster_assets": {
+      "sha": "12a97516f57469078707afb587a5f84c1cb110d1",
+      "dirty": ""
+    }
+  }
+}
