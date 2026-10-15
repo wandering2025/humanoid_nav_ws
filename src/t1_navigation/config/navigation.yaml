@@ -308,7 +308,9 @@ t1_navigation_adapter:
     # Sub-gait requests curving tighter than the W05 walking minimum radius
     # vx_min/wz_walking_max = 0.70 m become in-place turns instead of lifted walking.
     min_walking_radius: 0.70
-    wz_lift_threshold: 0.20
+    # W11R1: active path correction intents 0.058..0.15 rad/s must not be
+    # discarded as idle. Output stays in the frozen W05 0.56..0.85 band.
+    wz_lift_threshold: 0.05
     wz_in_place_target: 0.60
 
 t1_navigation_starter:

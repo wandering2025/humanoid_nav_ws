@@ -141,3 +141,9 @@ pose directly; explicit legacy staging must still pass joint verification.
 The 2.05 m collision circle, unknown-cell policy, zero planner tolerance and
 MPPI/RotationShim safety chain are unchanged. Failed H6/H7/H8 experiments are
 preserved and superseded; pure Dubin could not turn away after a late blocker.
+
+ADR-024 candidate lowers only the W11 raw yaw-intent threshold from .20 to
+.05 rad/s: observed active path corrections .058–.15 were previously discarded.
+Actual in-place output remains .60 rad/s (clamped to frozen [.56,.85]); W05
+dead zones, walking limits and W10 are unchanged. The goal epoch gate still
+blocks all commands without a current active navigation/controller goal.

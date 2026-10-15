@@ -9,7 +9,7 @@ import yaml
 from t1_bringup.navigation_adapter import load_envelope, shape
 
 COMMAND_MAP = Path(__file__).resolve().parents[2]/'t1_mujoco/config/command_map.yaml'
-SHAPING = dict(vx_lift_threshold=.01, vx_lift_target=.33, wz_lift_threshold=.2, wz_in_place_target=.6,
+SHAPING = dict(vx_lift_threshold=.01, vx_lift_target=.33, wz_lift_threshold=.05, wz_in_place_target=.6,
                min_walking_radius=.70)
 
 
@@ -44,8 +44,9 @@ def test_dense_grid_output_is_feasible_and_sign_preserving(env):
 
 @pytest.mark.parametrize('vx,wz,expected', [
     (.2, .1, (.33, .1)), (.005, .0, (0., 0.)), (.04, .0, (.33, 0.)), (.1, .0, (.33, 0.)), (.05, .3, (0., .6)), (0., -.7, (0., -.7)),
-    (.09, .45, (0., .6)), (.2, -.3, (0., -.6)), (.25, .3, (.33, .3)), (.06, .1, (.33, .1)),
-    (0., .1, (0., 0.)), (.5, .8, (.5, .45)), (-.3, 0., (0., 0.)), (0., 2., (0., .85)), (.9, 0., (.75, 0.))])
+    (.09, .45, (0., .6)), (.2, -.3, (0., -.6)), (.25, .3, (.33, .3)), (.06, .1, (0., .6)),
+    (0., .1, (0., .6)), (.5, .8, (.5, .45)), (-.3, 0., (0., 0.)), (0., 2., (0., .85)), (.9, 0., (.75, 0.)),
+    (0., .049, (0., 0.)), (0., .05, (0., .6)), (0., -.0845, (0., -.6)), (.0061, -.0582, (0., -.6))])
 def test_examples(env, vx, wz, expected):
     assert shape(vx, wz, env, **SHAPING)[:2] == pytest.approx(expected)
 

@@ -91,7 +91,7 @@ def main(args=None):
             self.timeout = float(get('input_timeout_s', 0.15))
             self.shaping = dict(vx_lift_threshold=float(get('vx_lift_threshold', .16)),
                                 vx_lift_target=float(get('vx_lift_target', .33)),
-                                wz_lift_threshold=float(get('wz_lift_threshold', .2)),
+                                wz_lift_threshold=float(get('wz_lift_threshold', .05)),
                                 wz_in_place_target=float(get('wz_in_place_target', .6)),
                                 min_walking_radius=float(get('min_walking_radius', .70)))
             s = self.shaping

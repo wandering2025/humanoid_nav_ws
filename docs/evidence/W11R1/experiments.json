@@ -674,5 +674,40 @@
     "falls": 0,
     "remaining_owned_pids": [],
     "decision": "installed diff lattice 1m forward curves and in-place orientation, reverse expansion false; test additional close-obstacle start before physics"
+  },
+  {
+    "hypothesis": "H9 B04 stalls at discarded turn intent; H10 W11 intent threshold",
+    "code_sha": "ea66bdedd57c6a3fdba20f468b19c43c353169ee",
+    "campaign": "w11r1-repair-smoke-v6",
+    "results": {
+      "B06": "SUCCESS",
+      "B04": "FAIL_TIMEOUT",
+      "C01": "NOT_RUN",
+      "C09": "NOT_RUN"
+    },
+    "b06_task_s": 95.26,
+    "b06_corrections": 1,
+    "b04_task_s": 120.02,
+    "b04_cm_stop": 0,
+    "b04_cm_slowdown": 0,
+    "b04_raw_examples": [
+      [
+        0,
+        -0.0845
+      ],
+      [
+        0.0061,
+        -0.0582
+      ],
+      [
+        0,
+        -0.15
+      ]
+    ],
+    "reason": "valid active path turn intents were zeroed by W11 .20 raw threshold; brief vx pulses never reached gait onset",
+    "contacts": 0,
+    "falls": 0,
+    "remaining_owned_pids": [],
+    "decision": "W11 yaw intent threshold .05, actual turn target .60 and W05 .56..85 frozen band unchanged; no planner-radius or safety changes"
   }
 ]
