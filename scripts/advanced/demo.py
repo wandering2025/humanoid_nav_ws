@@ -76,7 +76,9 @@ class Advanced(base.Demo):
         m.color.r,m.color.g,m.color.b=.1,.2,.3;m.color.a=1.
         status=self.summary['status']
         m.text=('Guided mapping '+str(int(status.rsplit('_',1)[1]))+'/'+str(len(self.route['mapping_waypoints']))) if status.startswith('MAPPING_') and status.rsplit('_',1)[1].isdigit() else {'SLAM_INITIALIZING':'Live LiDAR SLAM','MAPPING_SUFFICIENT':'Map ready - continue from here','NAVIGATING_TO_B':'Final walking approach to B','NAVIGATING_APPROACH':'Mapped navigation: odom + live LiDAR','ARRIVED_SAFE_STOP':'Arrived - safely stopped'}.get(status,status)
-        if status.startswith('NAVIGATING_') and self.node.odom:
+        if self.summary.get('nav2',{}).get('verified') and status.startswith('NAVIGATING_'):
+            m.text='B reached - confirming safe stop'
+        elif status.startswith('NAVIGATING_') and self.node.odom:
             v=self.node.odom.twist.twist
             if abs(v.linear.x)<.05 and abs(v.angular.z)<.05 and self.node.cmds['final']==(0.,0.):
                 m.text='Waiting / replanning - last plan shown'
