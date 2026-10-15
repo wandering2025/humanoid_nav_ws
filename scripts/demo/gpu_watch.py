@@ -57,14 +57,25 @@ def threshold_failure(row, baseline_memory, high_since, now):
 
 
 class Watch:
-    def __init__(self,output):
+    def __init__(self,output,*,idle_wait_s=0.):
         if HALT.exists():raise RuntimeError(f'Previous GPU halt is latched: {HALT}; do not retry automatically')
         self.output=Path(output);self.output.mkdir(parents=True,exist_ok=True)
         self.lock=(WS/'run_data/demo-gpu.lock').open('a')
         fcntl.flock(self.lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         self.samples=[];self.baseline=None;self.high_since=None;self.next_sample=0.
         self.check([])
-        if self.samples[-1]['temperature_c']>60 or self.samples[-1]['utilization_pct']>40:
+        if idle_wait_s:
+            end=time.monotonic()+idle_wait_s;since=None
+            print('[demo] Waiting for 5s NVIDIA idle window (<=60C, <=40% load).',flush=True)
+            while time.monotonic()<end:
+                self.check([]);row=self.samples[-1]
+                cool=row['temperature_c']<=60 and row['utilization_pct']<=40
+                since=(since if since is not None else time.monotonic()) if cool else None
+                if since is not None and time.monotonic()-since>=5:break
+                time.sleep(.1)
+            else:
+                self.close();raise RuntimeError('NVIDIA idle-window deadline; no renderer started')
+        elif self.samples[-1]['temperature_c']>60 or self.samples[-1]['utilization_pct']>40:
             self.close();raise RuntimeError('GPU not idle/cool enough to start (<=60C, <=40% load required)')
 
     def check(self,logs):
@@ -89,6 +100,27 @@ class Watch:
 
     def close(self):
         if not self.lock.closed:self.lock.close()
+
+
+def verify_gl(watch,output):
+    path=Path(output)/'graphics.txt'
+    p=None;start=time.monotonic()
+    try:
+        with path.open('w') as log:
+            p=subprocess.Popen(['glxinfo','-B'],stdout=log,stderr=subprocess.STDOUT)
+            while p.poll() is None:
+                watch.check([path])
+                if time.monotonic()-start>10:raise TimeoutError('Minimal GL context deadline')
+                time.sleep(.1)
+        watch.check([path])
+        if p.returncode or not renderer_verified(path.read_text(errors='replace')):
+            raise RuntimeError(f'NVIDIA4050 renderer verification failed; exit={p.returncode}')
+        return path.read_text()
+    finally:
+        if p and p.poll() is None:
+            p.terminate()
+            try:p.wait(timeout=3)
+            except subprocess.TimeoutExpired:p.kill();p.wait(timeout=2)
 
 
 def run_stage(name,command,limit):

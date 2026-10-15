@@ -6,6 +6,7 @@ from pathlib import Path
 import subprocess
 import tempfile
 import time
+import shutil
 import unittest
 from unittest.mock import patch
 
@@ -83,14 +84,17 @@ class Isolation(unittest.TestCase):
         self.assertIn('--preflight',result.stdout)
 
     def test_all_public_runtime_modes_stop_before_environment(self):
+        isolated=Path(tempfile.mkdtemp())/'scripts'
+        isolated.mkdir();entry=isolated/'run_demo.sh'
+        shutil.copyfile(demo.WS/'scripts/run_demo.sh',entry);entry.chmod(0o755)
         for arguments in ([],['--no-rviz'],['--scenario','U01']):
-            result=subprocess.run([str(demo.WS/'scripts/run_demo.sh'),*arguments],
+            result=subprocess.run([str(entry),*arguments],
                                   env={'PATH':'/usr/bin:/bin'},cwd='/tmp',capture_output=True,text=True)
             self.assertEqual(result.returncode,3,arguments)
             self.assertIn('W14_BLOCKED',result.stderr)
 
     def test_direct_runner_cannot_probe_gpu_while_locked(self):
-        with patch.object(demo.sys,'argv',['demo.py']), patch.object(demo,'preflight',side_effect=AssertionError('must not execute')):
+        with patch.object(demo,'GPU_PROFILE',Path('/tmp/t1-test-missing-profile.json')), patch.object(demo.sys,'argv',['demo.py']), patch.object(demo,'preflight',side_effect=AssertionError('must not execute')):
             self.assertEqual(demo.main(),3)
 
 

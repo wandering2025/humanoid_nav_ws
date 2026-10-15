@@ -16,13 +16,15 @@ import subprocess
 import sys
 import time
 import traceback
+import threading
 
 WS = Path(__file__).resolve().parents[2]
 OUT = Path(os.environ['T1_DEMO_DIR'])
 RUN_ID = os.environ['T1_DEMO_RUN_ID']
 BASELINE = 'b23a92465b317ca781d3eb210051126c5786908e'
 STOP = False
-SAFETY_BLOCK_REASON = 'W14_BLOCKED: host black-screen incident; GUI remains disabled.'
+GPU_PROFILE=WS/'scripts/demo/gpu-profile.json'
+SAFETY_BLOCK_REASON = 'W14_BLOCKED: staged NVIDIA validation has not authorized this GUI mode.'
 
 
 def say(message):
@@ -161,8 +163,13 @@ def preflight(args):
     leftovers = project_processes()
     assert not leftovers, f'Existing project processes: {[r["pid"] for r in leftovers]}; stop their owning terminal, never pkill.'
     assert port_free(), f'DDS TCP42127 not bindable: {port_connections()}; if only TIME_WAIT, wait for kernel expiry. Otherwise inspect the known owner; never pkill.'
-    graphics = dict(requested=False, status='BLOCKED', cuda_probe=False,
-                    cpu_guard=args.cpu_guard)
+    graphics = dict(requested=not (args.headless or args.preflight), cuda_probe=False, cpu_guard=args.cpu_guard)
+    if not (args.headless or args.preflight):
+        from gpu_watch import verify_gl
+        verify_gl(args.gpu_watch,OUT)
+        graphics.update(status='NVIDIA4050_VERIFIED',rviz='CPU llvmpipe')
+    else:
+        graphics['status']='CPU_ONLY'
     data = dict(run_id=RUN_ID, code_sha=git('rev-parse', 'HEAD'), dirty=git('status', '--porcelain'),
                 baseline=BASELINE, scenario='U01', seed=4000, start=[0,0,0], goal=[9,0,0],
                 interpreter=sys.executable, python=sys.version, mujoco=mujoco.__version__, torch=torch.__version__,
@@ -186,11 +193,41 @@ class Demo:
         self.last_status = 0
         self.last_clock_seen = None
         self.clock_changed_wall = self.started
+        self.gpu_watch=getattr(args,'gpu_watch',None)
+        self.gpu_error=None
+        self.gpu_thread_stop=threading.Event()
+        self.gpu_thread=None
         self.log = (OUT/'runtime.log').open('a')
         # ROS diagnostics go to a file, progress stays on stdout.
         os.dup2(self.log.fileno(), 2)
         self.launch_log = OUT/'launch.log'
         self.goal_log = OUT/'goal.log'
+
+    def start_gpu_watch(self):
+        if self.gpu_watch is None:return
+        def monitor():
+            while not self.gpu_thread_stop.wait(.1):
+                try:
+                    self.gpu_watch.check([self.launch_log,OUT/'rviz.log',OUT/'runtime.log'])
+                except Exception as exc:
+                    self.gpu_error=repr(exc);self.gpu_watch.halt(exc)
+                    # On a GPU fault, stop only this run's registered simulator immediately.
+                    for item in list(self.owned.values()):
+                        if 't1_mujoco.simulation' in item['command'] and alive(item):
+                            try:os.kill(item['pid'],signal.SIGTERM)
+                            except ProcessLookupError:pass
+                    break
+        self.gpu_thread=threading.Thread(target=monitor,name='demo_gpu_watch',daemon=True)
+        self.gpu_thread.start()
+
+    def stop_gpu_watch(self):
+        if not hasattr(self,'gpu_thread_stop'):return
+        self.gpu_thread_stop.set()
+        if self.gpu_thread:self.gpu_thread.join(timeout=5)
+        if self.gpu_watch:
+            self.summary['gpu_monitor_error']=self.gpu_error
+            self.summary['gpu_samples']=self.gpu_watch.samples
+            self.gpu_watch.close()
 
     def spawn(self, name, args):
         log = (OUT/f'{name}.log').open('w')
@@ -212,6 +249,8 @@ class Demo:
 
     def spin(self, check_stop=True):
         import rclpy
+        if check_stop and self.gpu_error:
+            raise RuntimeError(f'GPU monitoring stopped this run: {self.gpu_error}')
         if check_stop and STOP:
             raise InterruptedError('User requested stop')
         if self.node:
@@ -225,7 +264,7 @@ class Demo:
         if time.monotonic()-self.last_status >= 1:
             self.track()
             self.last_status = time.monotonic()
-            for name in ('dds','launch'):
+            for name in ('dds','launch','rviz'):
                 if name in self.children and self.children[name][0].poll() is not None:
                     raise RuntimeError(f'{name} exited unexpectedly: {self.children[name][0].returncode}')
             if self.node and self.node.state and self.node.state['state'] in ('FALLEN','FAULT'):
@@ -309,6 +348,7 @@ class Demo:
         from rclpy.time import Time
         from visualization_msgs.msg import MarkerArray
         import rclpy
+        self.start_gpu_watch()
         self.spawn('dds',[str(WS/'scripts/start_local_dds.sh')])
         from rclpy.signals import SignalHandlerOptions
         rclpy.init(signal_handler_options=SignalHandlerOptions.NO)
@@ -320,7 +360,7 @@ class Demo:
         self.action=ActionClient(self.node,NavigateToPose,'navigate_to_pose')
         self.spawn('launch',['ros2','launch','t1_bringup','navigation.launch.py',
             'scene:=dynamic_crossing_world','start_pose:=0 0 0','initial_pose:=0 0 0',
-            f'headless:={str(self.args.headless).lower()}',f'rviz:={str(not self.args.headless and not self.args.no_rviz).lower()}',
+            f'headless:={str(self.args.headless).lower()}','rviz:=false',
             f'rviz_config:={WS}/src/t1_navigation/config/demo.rviz',f'run_id:={RUN_ID}',
             'seed:=4000','target_rtf:=1.0','max_sim_time:=0',
             f'map:={WS}/src/t1_navigation/maps/dynamic_crossing_world.yaml',
@@ -346,7 +386,21 @@ class Demo:
         params, checks=check_parameters(self)
         self.summary.update(parameters=params, parameter_checks=checks)
         assert all(checks.values()), f'Parameter contract failed: {checks}'
+        if not self.args.headless and not self.args.no_rviz:
+            probe=subprocess.run([sys.executable,str(WS/'scripts/demo/cpu_view.py'),'--check'],capture_output=True,text=True,timeout=15)
+            (OUT/'cpu-rviz-check.json').write_text(probe.stdout)
+            if probe.returncode:raise RuntimeError(f'CPU RViz renderer check failed: {probe.stderr}')
+            self.spawn('rviz',[sys.executable,str(WS/'scripts/demo/cpu_view.py'),'-d',str(WS/'src/t1_navigation/config/demo.rviz'),
+                              '--ros-args','-p','use_sim_time:=true'])
+            self.until(lambda:(OUT/'rviz.log').exists() and 'OpenGl version:' in (OUT/'rviz.log').read_text(errors='replace'),25)
+            drawing_until=n.sim+2.;self.until(lambda:n.sim>=drawing_until,10)
+        self.summary['readiness_wall_s']=time.monotonic()-self.started
         self.screenshot('ready')
+        if self.args.startup_check:
+            self.summary['status']='STANDING_GPU_CHECK'
+            end=n.sim+30.;self.until(lambda:n.sim>=end,50)
+            self.safe_stop();self.summary['startup_check_completed']=True
+            return
         say('Ready. Sending A -> B automatically. Explain scan, costmaps and W10 stop/resume.')
         self.summary['status']='NAVIGATING'
         goal=self.spawn('goal',['ros2','run','t1_bringup','navigate_to_pose','9','0','0','--time-limit','120'])
@@ -408,7 +462,7 @@ class Demo:
             self.safe_stop()
         self.track()
         # One SIGINT to launch parent; launch forwards once to its children.
-        for name in ('goal','launch','dds'):
+        for name in ('goal','rviz','launch','dds'):
             if name not in self.children:
                 continue
             p,log=self.children[name]
@@ -440,6 +494,7 @@ class Demo:
             deadline=time.monotonic()+3
             while any(alive(r) for r in remaining) and time.monotonic()<deadline:
                 time.sleep(.05)
+        self.stop_gpu_watch()
         self.summary['parent_exit_codes']={name:p.poll() for name,(p,_) in self.children.items()}
         text=self.launch_log.read_text(errors='replace') if self.launch_log.exists() else ''
         starts=dict(re.findall(r'\[INFO\] \[([^]]+)\]: process started with pid \[(\d+)\]',text))
@@ -504,26 +559,38 @@ class Demo:
             exit_ok and all(self.summary['graph_contract'].values()) and self.summary.get('safe_stop',{}).get('physical_stationary') and
             not self.summary['remaining_owned_pids'] and not self.summary['remaining_project_processes'] and
             self.summary['dds_port_released'] and self.summary.get('clock_regressions')==0 and
-            len(self.summary['initializations'])==1 and not self.summary.get('error')) else 'FAILED'
+            len(self.summary['initializations'])==1 and not self.summary.get('error') and not self.summary.get('gpu_monitor_error')) else 'FAILED'
 
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--startup-check',action='store_true',help='pre-registered 30s standing check; no navigation goal')
     parser.add_argument('--preflight',action='store_true')
     parser.add_argument('--headless',action='store_true')
     parser.add_argument('--no-rviz',action='store_true')
     parser.add_argument('--scenario',choices=('U01','sudden-approach'),default='U01')
     args=parser.parse_args()
-    if SAFETY_BLOCK_REASON and not (args.headless or args.preflight):
-        say(SAFETY_BLOCK_REASON)
-        return 3
-    try:
-        from cpu_guard import enter
-        args.cpu_guard=enter()
-        save('cpu-guard.json',args.cpu_guard)
-    except Exception as exc:
-        say(f'CPU isolation FAILED: {exc}; refusing all ROS/MuJoCo/Torch imports')
-        return 3
+    args.gpu_watch=None
+    args.cpu_guard=None
+    if args.headless or args.preflight:
+        try:
+            from cpu_guard import enter
+            args.cpu_guard=enter()
+            save('cpu-guard.json',args.cpu_guard)
+        except Exception as exc:
+            say(f'CPU isolation FAILED: {exc}; refusing all runtime imports')
+            return 3
+    else:
+        try:
+            profile=json.loads(GPU_PROFILE.read_text())
+            if profile['status']!='GUI_VALIDATED' and not (args.startup_check and profile['status']=='STATIC_STAGES_PASSED'):
+                raise RuntimeError(SAFETY_BLOCK_REASON)
+            from gpu_watch import Watch,GPU_ENV
+            os.environ.update(GPU_ENV)
+            args.gpu_watch=Watch(OUT/'gpu',idle_wait_s=60)
+        except Exception as exc:
+            say(f'GPU preflight refused: {exc}')
+            return 3
     def stop(signum,frame):
         global STOP
         STOP=True
@@ -534,6 +601,8 @@ def main():
         provenance=preflight(args)
     except Exception as exc:
         say(f'Preflight FAILED: {exc}'); save('preflight-error.json',dict(error=repr(exc),traceback=traceback.format_exc()))
+        if args.gpu_watch:
+            args.gpu_watch.halt(exc);args.gpu_watch.close()
         return 2
     if args.preflight:
         return 0
@@ -559,8 +628,19 @@ def main():
             demo.cleanup()
         except Exception:
             demo.summary['cleanup_error']=traceback.format_exc()
+        demo.stop_gpu_watch()
         try:
-            demo.metrics()
+            if args.startup_check:
+                manifest=json.loads((WS/'run_data'/RUN_ID/'manifest.json').read_text())
+                import csv
+                rows=list(csv.DictReader((WS/'run_data'/RUN_ID/'sim_trace.csv').open()))
+                demo.summary.update(contacts=manifest.get('contact_counts'),simulator_exit_code=manifest.get('exit_code'),
+                    zero_policy=all(float(row['u_pol_x'])==0 and float(row['u_pol_wz'])==0 for row in rows),
+                    fell=any(row['state'] in ('FALLEN','FAULT') for row in rows))
+                ok=demo.summary.get('startup_check_completed') and demo.summary.get('safe_stop',{}).get('physical_stationary') and all(v==0 for v in demo.summary.get('parent_exit_codes',{}).values()) and all(r['exit_code']==0 for r in demo.summary.get('launch_process_exit_codes',{}).values()) and demo.summary.get('dds_port_released') and not demo.summary.get('remaining_owned_pids') and not demo.summary.get('error') and not demo.summary.get('gpu_monitor_error') and manifest.get('exit_code')==0 and demo.summary['contacts']==dict(static_env=0,obstacle=0,ground_nonfoot=0) and demo.summary['zero_policy'] and not demo.summary['fell']
+                demo.summary['status']='SUCCESS_STARTUP_CHECK' if ok else 'FAILED'
+            else:
+                demo.metrics()
         except Exception:
             demo.summary['metric_error']=traceback.format_exc()
             demo.summary['status']='FAILED'
@@ -568,7 +648,7 @@ def main():
         s=demo.summary
         say(f'{s["status"]} | arrived={s["arrived"]} | error={s.get("settle")} | contacts={s.get("contacts")} | fall={s.get("fell")} | sampled body gap={s.get("body_clearance",{}).get("min_m")}m')
         say(f'Exit codes {s.get("parent_exit_codes")} | remaining={s.get("remaining_owned_pids")} | port released={s.get("dds_port_released")} | result: {OUT}/result.json')
-    return 0 if demo.summary['status']=='SUCCESS' else 1
+    return 0 if demo.summary['status'] in ('SUCCESS','SUCCESS_STARTUP_CHECK') else 1
 
 
 if __name__=='__main__':

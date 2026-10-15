@@ -16,4 +16,4 @@ if len(sys.argv)>1 and sys.argv[1]=='--check':
     print(json.dumps(dict(guard=report,renderer=lines[0])),flush=True)
 else:
     # Only the fixed RViz executable; no general unguarded command launcher.
-    os.execvp('rviz2',['rviz2',*sys.argv[1:]])
+    os.execv('/opt/ros/jazzy/lib/rviz2/rviz2',['rviz2',*sys.argv[1:]])

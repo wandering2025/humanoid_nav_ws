@@ -23,7 +23,7 @@ cpu_mode=false
 for argument in "$@"; do
   if [[ "$argument" == --headless || "$argument" == --preflight ]]; then cpu_mode=true; fi
 done
-if ! $cpu_mode; then
+if ! $cpu_mode && [[ ! -f "$DEMO_ROOT/scripts/demo/gpu-profile.json" ]]; then
   echo '[demo] W14_BLOCKED: GUI remains locked after the host black-screen incident.' >&2
   echo '[demo] Only --preflight or --headless may run, with inherited CPU-only device isolation.' >&2
   echo "[demo] Read $DEMO_ROOT/docs/demo/cpu-recovery-plan.md" >&2
