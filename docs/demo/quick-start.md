@@ -22,3 +22,6 @@ CPU预检命令为 `./scripts/run_demo.sh --preflight`；它不启动ROS/DDS节�
 日志 `run_data/demo/<run_id>/`；trace/manifest `run_data/<run_id>/`，均 ignored。
 本机依赖绑定见[环境定位](../plans/t1_mujoco_navigation/环境定位.md)，版本见[发布清单](release-manifest.md)。
 W13 保持 FAILED（36/40）；W15 未启动。解除事故阻塞必须另行审查和授权。
+
+
+后续NVIDIA恢复按用户授权执行，最小及静态阶段通过，但站立检查出现CPU RViz GLSL链接错误。当前GPU halt/profile硬锁保留，--startup-check也被拒绝；不手动清除锁来重跑。详见nvidia-recovery-plan.md及发布清单。

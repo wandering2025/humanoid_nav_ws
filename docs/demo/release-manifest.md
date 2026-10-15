@@ -63,3 +63,18 @@ W15开始前首先读 `docs/plans/t1_mujoco_navigation/交接记录.md`、`recor
 - 视频仍MISSING，路径/大小/hash/播放验证仍N/A/NOT_RUN。
 
 完整[CPU证据](../evidence/W14/cpu-recovery/README.md)和[机器可读裁定](../evidence/W14/cpu-recovery/assessment.json)。
+
+
+## 用户授权NVIDIA阶段（当前仍BLOCKED）
+
+用户允许新GUI正式两次排练并保留CPU失败；实际只完成最小GL、320×240、静态T1渲染和两次无目标站立检查。
+NVIDIA渲染实测最高61°C、787MiB，未触发温度/显存/驱动超时停止线；Windows事后查询无匹配新Display/141/41事件。
+但CPU软件RViz报告GLSL链接错误，监控先前漏检，离线审查发现后立即锁住GPU，不再启动窗口。
+当前profile为GPU_HALTED_GRAPHICS_ERROR；原资源停止线未放宽，未改驱动/BIOS/注册表/系统显示。
+最后实现 `8aa6ab77cfc56bbf708a6c456feed83f734740c8`：补shader错误检测、独立进程退出后核验端口；25项非图形测试通过，未动态复验。
+
+站立01 `20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937`：就绪18.7455s，记录50.4997s。
+站立02 `20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1`：就绪18.2261s，记录49.9732s。
+均未发导航目标，三类接触0/跌倒False，全部登记进程exit0；原FIN_WAIT端口失败保留。事后无残留且端口可绑定。
+新GUI正式01/02均NOT_RUN，无run ID；不能冒充已完成两次默认排练。录像仍MISSING。
+见[完整证据](../evidence/W14/nvidia-recovery/README.md)。

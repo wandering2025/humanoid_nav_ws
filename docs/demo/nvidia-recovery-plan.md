@@ -1,7 +1,9 @@
 # W14 NVIDIA分阶段恢复预登记
 
 2026-10-15。用户明确授权使用RTX4050并自行分阶段选择较低风险参数；禁止安装/卸载/升级/回滚/重启驱动，
-禁止修改BIOS、注册表、显卡切换模式和系统显示设置。一次只运行一个GPU密集型进程，异常立即停止并保留结果。
+禁止修改BIOS、注册表、显卡切换模式和系统显示设置。
+用户后续更新边界：允许逐个增加已验证GPU任务的并发，按显存、温度、响应和日志自主调整；
+异常时停止扩载、终止最近GPU任务、保存结果，不自动重试同一路径。监控不构成故障隔离保证。
 用户另行明确授权：完整保留CPU辅助FAIL，另行预登记两次同seed、同导航参数的默认GUI正式排练。
 本记录不改W13 FAILED、不改CPU结果、不放宽动态停车0.5s或任何安全/导航/物理判据。
 
@@ -28,3 +30,19 @@ D3D12 Removing Device、GPU/Xid/device lost错误、渲染心跳或真实clock�
 图形窗口大小/帧率只在canary中逐级增加；正式仿真viewer_rate_hz沿原冻结30Hz，不偷偷改物理/导航参数。
 默认RViz采用软件渲染并保留设备拒绝规则，启动串行；双视图必须如实披露渲染方式。
 录像仍缺失，工具不具备可靠完整双视图录制时按原规则保留W15前人工动作。
+
+
+实际执行结果：阶段1检查器标题解析误报已离线修正、原FAIL保留；阶段2/3通过。阶段4两次站立检查出现CPU RViz GLSL链接错误且退出端口FIN_WAIT检查失败；发现shader错误后停止GPU，profile锁定。阶段5两次默认GUI正式排练均未开始。最后shader检测和进程退出后端口核验只做非图形单元检查，不继续GPU重试。详见docs/evidence/W14/nvidia-recovery/README.md。
+
+## 更新边界后的替代显示路径预登记
+
+起始HEAD `8aa6ab77cfc56bbf708a6c456feed83f734740c8`；已有未提交W14文档/证据和RGB显示修复保留。
+禁止再次加载原MapDisplay indexed_8bit shader。只订阅原OccupancyGrid，生成RGB PointCloud2供显示；
+不发布map/costmap/TF/cmd，不改变导航输入、物理或阈值。移除RViz文字marker，保留安全圆和目标。
+受Landlock保护CPU回放 `20261015T130147Z_cpu-rgb-cells`：20s显示无GLSL错误、RViz0；
+DDS退出−6（Bad file descriptor），整体退出未通过，原result标PASS的脚本缺陷由独立assessment纠正，不覆盖原结果。
+原GPU halt完整归档；只为这个已改变且CPU验证过的显示组合开放一次无导航站立检查。
+任一图形错误立即停止，不重试。仅该检查全通过才开放默认GUI正式01/02，固定U01/4000，
+两次命令都为 `./scripts/run_demo.sh`，同一干净源码SHA。任何导航失败保留并判W14_BLOCKED，不换seed。
+正式01/02不使用 --startup-check/--headless/--no-rviz；每次独立新PTY，不继承ROS/venv，仍保留原PYTHONPATH。
+记录图形/安全/动态/退出/端口指标。允许并发不要求并发；当前继续单GPU MuJoCo+CPU RViz以减少负载。

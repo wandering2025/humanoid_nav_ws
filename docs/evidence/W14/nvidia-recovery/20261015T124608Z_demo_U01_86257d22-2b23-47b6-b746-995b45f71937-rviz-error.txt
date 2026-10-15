@@ -1,0 +1,6 @@
+[INFO] [1792068403.434407845] [rviz2]: Trying to create a map of size 200 x 200 using 1 swatches
+[ERROR] [1792068403.440017209] [rviz2]: rviz/glsl120/indexed_8bit_image.vert
+rviz/glsl120/indexed_8bit_image.frag
+ GLSL link result : 
+active samplers with a different type refer to the same texture image unit
+[INFO] [1792068415.407671283] [rviz]: Message Filter dropping message: frame 'laser_stabilized' at time 12.800 for reason 'the timestamp on the message is earlier than all the data in the transform cache'

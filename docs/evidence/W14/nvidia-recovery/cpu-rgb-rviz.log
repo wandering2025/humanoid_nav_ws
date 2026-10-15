@@ -1,0 +1,10 @@
+[INFO] [1792069311.432601180] [rviz2]: Stereo is NOT SUPPORTED
+[INFO] [1792069311.432698791] [rviz2]: OpenGl version: 4.5 (GLSL 4.5)
+[INFO] [1792069311.472945630] [rviz2]: Stereo is NOT SUPPORTED
+[INFO] [1792069311.544427236] [rviz]: Subscribing to: /t1/viz/local_cells
+
+[INFO] [1792069311.544852271] [rviz]: Subscribing to: /t1/viz/map_cells
+
+[INFO] [1792069311.545401581] [rviz]: Subscribing to: /t1/viz/global_cells
+
+[INFO] [1792069331.383024338] [rclcpp]: signal_handler(SIGINT/SIGTERM)

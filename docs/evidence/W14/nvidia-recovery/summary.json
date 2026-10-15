@@ -1,0 +1,285 @@
+{
+  "status": "W14_BLOCKED",
+  "user_gpu_authorization": true,
+  "new_two_gui_rehearsals_authorized": true,
+  "plan_sha": "8f59de1",
+  "stages": [
+    {
+      "path": "docs/evidence/W14/raw/nvidia-stages/20261015T123824Z_01-minimal-gl_094db4",
+      "stage": "01-minimal-gl",
+      "command": [
+        "glxinfo",
+        "-B"
+      ],
+      "started_utc": "2026-10-15T12:38:24.254755+00:00",
+      "status": "FAIL",
+      "error": "RuntimeError('GPU not idle/cool enough to start (<=60C, <=40% load required)')",
+      "exit_code": null,
+      "wall_s": 0.06174873899999511
+    },
+    {
+      "path": "docs/evidence/W14/raw/nvidia-stages/20261015T124013Z_01-minimal-gl_203309",
+      "stage": "01-minimal-gl",
+      "command": [
+        "glxinfo",
+        "-B"
+      ],
+      "started_utc": "2026-10-15T12:40:13.008656+00:00",
+      "pid": 14183,
+      "status": "FAIL",
+      "error": "RuntimeError('Actual OpenGL renderer is not verified NVIDIA RTX4050')",
+      "exit_code": 0,
+      "wall_s": 1.3748556000000463,
+      "gpu_summary": {
+        "temperature_c": {
+          "min": 47.0,
+          "max": 47.0
+        },
+        "memory_mib": {
+          "min": 570.0,
+          "max": 591.0
+        },
+        "utilization_pct": {
+          "min": 9.0,
+          "max": 27.0
+        },
+        "power_w": {
+          "min": 7.13,
+          "max": 9.85
+        }
+      }
+    },
+    {
+      "path": "docs/evidence/W14/raw/nvidia-stages/20261015T124135Z_02-small-window_ba98e0",
+      "stage": "02-small-window",
+      "command": [
+        "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+        "scripts/demo/render_canary.py",
+        "--width",
+        "320",
+        "--height",
+        "240",
+        "--fps",
+        "10",
+        "--seconds",
+        "15"
+      ],
+      "started_utc": "2026-10-15T12:41:35.756707+00:00",
+      "pid": 14516,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_s": 15.837284938999801,
+      "gpu_summary": {
+        "temperature_c": {
+          "min": 47.0,
+          "max": 49.0
+        },
+        "memory_mib": {
+          "min": 572.0,
+          "max": 600.0
+        },
+        "utilization_pct": {
+          "min": 5.0,
+          "max": 44.0
+        },
+        "power_w": {
+          "min": 6.47,
+          "max": 11.29
+        }
+      }
+    },
+    {
+      "path": "docs/evidence/W14/raw/nvidia-stages/20261015T124206Z_03-static-t1_0354ff",
+      "stage": "03-static-t1",
+      "command": [
+        "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+        "scripts/demo/render_canary.py",
+        "--model",
+        "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/T1_23dof.xml",
+        "--width",
+        "800",
+        "--height",
+        "600",
+        "--fps",
+        "15",
+        "--seconds",
+        "30"
+      ],
+      "started_utc": "2026-10-15T12:42:06.015570+00:00",
+      "pid": 14678,
+      "status": "PASS",
+      "exit_code": 0,
+      "wall_s": 31.619299128999955,
+      "gpu_summary": {
+        "temperature_c": {
+          "min": 49.0,
+          "max": 53.0
+        },
+        "memory_mib": {
+          "min": 573.0,
+          "max": 708.0
+        },
+        "utilization_pct": {
+          "min": 8.0,
+          "max": 58.0
+        },
+        "power_w": {
+          "min": 8.33,
+          "max": 12.71
+        }
+      }
+    },
+    {
+      "stage": "04-standing-check",
+      "run_id": "20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937",
+      "code_sha": "88ebd97d5b282b891d9d4808485d3a31cdc928f3",
+      "status": "FAILED",
+      "navigation_goal_sent": false,
+      "readiness_wall_s": 18.745496405999802,
+      "wall_total_s": 50.49969892399986,
+      "gpu_max": {
+        "temperature_c": 61.0,
+        "memory_mib": 764.0,
+        "utilization_pct": 49.0
+      },
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "zero_policy": true,
+      "safe_stop": {
+        "ack": true,
+        "physical_stationary": true,
+        "gate": {
+          "state": "STOPPED",
+          "reason": "EXPLICIT_STOP_OR_CANCEL",
+          "source": "navigation",
+          "permit": false,
+          "wall_mono": 3232.440009906,
+          "sim_time": 43.660000000000004,
+          "health_reason": ""
+        }
+      },
+      "parent_exit_codes": {
+        "dds": 0,
+        "launch": 0,
+        "rviz": 0
+      },
+      "port_state": {
+        "listeners": [],
+        "time_wait": [],
+        "other_connections": [
+          {
+            "family": "tcp",
+            "local": "0100007F:A48F",
+            "state": "05"
+          }
+        ]
+      },
+      "known_failures": [
+        "RViz software GLSL sampler link error",
+        "Port check ran before runner process fully exited; false cleanup-negative retained"
+      ],
+      "monitor_gap": "Shader error was not matched by previous GPU fault regex; discovered after the second standing check. Detection is fixed but no GPU retest performed."
+    },
+    {
+      "stage": "04-standing-check",
+      "run_id": "20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1",
+      "code_sha": "7074997f741e39081920f69dcef340ef87123bfb",
+      "status": "FAILED",
+      "navigation_goal_sent": false,
+      "readiness_wall_s": 18.226132176000192,
+      "wall_total_s": 49.973190669999894,
+      "gpu_max": {
+        "temperature_c": 60.0,
+        "memory_mib": 787.0,
+        "utilization_pct": 49.0
+      },
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "zero_policy": true,
+      "safe_stop": {
+        "ack": true,
+        "physical_stationary": true,
+        "gate": {
+          "state": "STOPPED",
+          "reason": "EXPLICIT_STOP_OR_CANCEL",
+          "source": "navigation",
+          "permit": false,
+          "wall_mono": 3374.842819425,
+          "sim_time": 43.68,
+          "health_reason": ""
+        }
+      },
+      "parent_exit_codes": {
+        "dds": 0,
+        "launch": 0,
+        "rviz": 0
+      },
+      "port_state": {
+        "listeners": [],
+        "time_wait": [],
+        "other_connections": [
+          {
+            "family": "tcp",
+            "local": "0100007F:A48F",
+            "state": "05"
+          }
+        ]
+      },
+      "known_failures": [
+        "RViz software GLSL sampler link error",
+        "Port check ran before runner process fully exited; false cleanup-negative retained"
+      ],
+      "monitor_gap": "Shader error was not matched by previous GPU fault regex; discovered after the second standing check. Detection is fixed but no GPU retest performed."
+    }
+  ],
+  "halt": {
+    "reason": "RViz CPU renderer GLSL link error: active samplers with a different type refer to same texture image unit",
+    "source": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/rviz.log",
+    "utc": "2026-10-15T12:51:36.291777+00:00",
+    "policy": "No further GPU work; preserve results and investigate offline"
+  },
+  "no_further_gpu_work_after_halt": true,
+  "new_gui_rehearsals": [
+    {
+      "number": 1,
+      "status": "NOT_RUN",
+      "run_id": null
+    },
+    {
+      "number": 2,
+      "status": "NOT_RUN",
+      "run_id": null
+    }
+  ],
+  "windows_event_query": {
+    "QueryStartUtc": "2026-10-15T12:38:00Z",
+    "Errors": [],
+    "Events": []
+  },
+  "post_halt_audit": {
+    "runs": [
+      {
+        "run_id": "20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937",
+        "remaining_owned_pids": []
+      },
+      {
+        "run_id": "20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1",
+        "remaining_owned_pids": []
+      }
+    ],
+    "dds_listeners": [],
+    "port_bindable": true,
+    "gpu_probe_performed": false
+  },
+  "original_cpu_failure_preserved": true,
+  "original_w13_failed": true,
+  "video": "MISSING"
+}

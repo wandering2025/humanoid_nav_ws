@@ -1,15 +1,17 @@
 {
-  "status": "GPU_HALTED_GRAPHICS_ERROR",
+  "status": "STATIC_STAGES_PASSED",
   "adapter": "NVIDIA GeForce RTX 4050",
   "rviz": "CPU llvmpipe",
   "stages": {
     "docs/evidence/W14/raw/nvidia-stages/20261015T124013Z_01-minimal-gl_203309/offline-parser-assessment.json": "2d162a53d5e9348ed1c5e3a4ef402f1b3fd217cc6e9c6969f3f8948bc899fae0",
     "docs/evidence/W14/raw/nvidia-stages/20261015T124135Z_02-small-window_ba98e0/result.json": "68a25a534d44992107e3f713f64466797107834d1e5cbe97e129757a7d8cbd5e",
-    "docs/evidence/W14/raw/nvidia-stages/20261015T124206Z_03-static-t1_0354ff/result.json": "01348129bb2854b53f32dc4aef50d9406c2e25d90697f334baa046166c935c42"
+    "docs/evidence/W14/raw/nvidia-stages/20261015T124206Z_03-static-t1_0354ff/result.json": "01348129bb2854b53f32dc4aef50d9406c2e25d90697f334baa046166c935c42",
+    "docs/evidence/W14/nvidia-recovery/cpu-rgb-assessment.json": "5cf59a644babe683b2220f5acfc291dee9a9bf94d14d4125593adcac687b30e1"
   },
-  "halt_reason": "CPU RViz MapDisplay GLSL link error discovered after standing checks; no GPU retries",
+  "halt_reason": "Original MapDisplay route remains prohibited; alternate display route pre-registered after CPU verification",
   "halt_evidence": {
     "path": "run_data/demo-gpu-halt.json",
     "sha256": "81ae1841748e398f2349078b98cec69e3f24dfc2f7894d42a4b16d98abbe1217"
-  }
+  },
+  "display_path": "RGB PointCloud2; CPU llvmpipe; no RViz MapDisplay or text markers"
 }

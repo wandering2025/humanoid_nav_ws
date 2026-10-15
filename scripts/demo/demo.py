@@ -306,10 +306,6 @@ class Demo:
         from geometry_msgs.msg import Point
         n = self.node
         a = MarkerArray()
-        text = Marker(); text.header.frame_id='base_footprint'; text.ns='status'; text.id=0
-        text.type=Marker.TEXT_VIEW_FACING; text.action=Marker.ADD; text.pose.orientation.w=1.
-        text.pose.position.z=2.; text.scale.z=.22; text.color.r=.1; text.color.b=.8; text.color.a=1.
-        text.text=f'CM {n.cm} | {(n.gate or {}).get("state", "WAIT")}'; a.markers.append(text)
         for i, (r, color) in enumerate(((1.65,(1.,.1,.1)),(1.95,(1.,.6,.1))),1):
             m=Marker(); m.header.frame_id='base_footprint'; m.ns='W10'; m.id=i
             m.type=Marker.LINE_STRIP; m.action=Marker.ADD; m.pose.orientation.w=1.; m.scale.x=.025
@@ -353,6 +349,8 @@ class Demo:
         from rclpy.signals import SignalHandlerOptions
         rclpy.init(signal_handler_options=SignalHandlerOptions.NO)
         self.node=Probe()
+        from grid_visuals import GridVisuals
+        self.grid_visuals=GridVisuals(self.node)
         self.viz=self.node.create_publisher(MarkerArray,'/t1/viz/demo',QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL))
         self.global_map=None
         self.node.create_subscription(OccupancyGrid,'/global_costmap/costmap',lambda m:setattr(self,'global_map',m),

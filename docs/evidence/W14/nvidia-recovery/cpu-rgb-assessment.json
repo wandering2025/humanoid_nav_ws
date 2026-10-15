@@ -1,0 +1,17 @@
+{
+  "status": "FAILED_CLEANUP",
+  "display_verified": true,
+  "renderer": "llvmpipe; Landlock device restrictions",
+  "graphics_errors": false,
+  "rviz_exit": 0,
+  "dds_exit": -6,
+  "reason": "Fast DDS shutdown std::system_error local_endpoint Bad file descriptor; original harness incorrectly classified before cleanup",
+  "raw_result_sha256": "4ba68079570ecb261f12c3ff4d276686443ab36e36a92ffb5deadb8c0ed253fc",
+  "source": "docs/evidence/W14/raw/nvidia-stages/20261015T130147Z_cpu-rgb-cells",
+  "remaining_processes": [],
+  "ports": {
+    "42127": "bindable",
+    "42128": "bindable"
+  },
+  "next_path": "RGB PointCloud2; original MapDisplay shader excluded"
+}

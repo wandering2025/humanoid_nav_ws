@@ -1,6 +1,8 @@
-# W14 当前状态：BLOCKED
+# W14 当前状态：BLOCKED（NVIDIA分阶段测试已按条件停止）
 
-首次默认演示启动后出现宿主黑屏和强制重启。**一行入口已封锁，当前不能用于现场演示。**
+首次默认演示启动后出现宿主黑屏和强制重启。后续经用户授权的NVIDIA最小/单窗口/静态T1测试通过，
+完整站立检查发现CPU RViz的GLSL错误，已停止GPU；两次新GUI正式排练未开始。
+[本轮证据](docs/evidence/W14/nvidia-recovery/README.md)。**一行入口已封锁，当前不能用于现场演示。**
 `./scripts/run_demo.sh` 默认图形模式仍返回3；`--preflight`已恢复为内核隔离下的CPU预检。
 `--headless`是CPU辅助路径，唯一完整运行已到达但动态停车判据FAIL，不能替代现场演示。
 见[CPU恢复证据](docs/evidence/W14/cpu-recovery/README.md)；`--help`可查看接口。

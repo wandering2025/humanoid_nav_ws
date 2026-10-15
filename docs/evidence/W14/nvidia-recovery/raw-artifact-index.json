@@ -1,0 +1,502 @@
+[
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/20261015T123824Z_01-minimal-gl_094db4/gpu-samples.jsonl",
+    "bytes": 267,
+    "sha256": "739676a7309b6d7f35b5bba3caf06f7ff00a140759d64704d8204ac15126af70"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/20261015T123824Z_01-minimal-gl_094db4/result.json",
+    "bytes": 295,
+    "sha256": "fbebb34e8d429359fea24c514bcfe3357dd2ba82ede2d90b4c4974cd8031f0a2"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/20261015T124013Z_01-minimal-gl_203309/gpu-samples.jsonl",
+    "bytes": 798,
+    "sha256": "4e9fcfd438d664418afbbc944d785dbb7efa8470f70058f32650c1691cad8fef"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/20261015T124013Z_01-minimal-gl_203309/halt.json",
+    "bytes": 236,
+    "sha256": "8a4db7c8b6ca4f87a7d3c1faaca0ca4b6c302d01f3189641fd867dc97dd85556"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/20261015T124013Z_01-minimal-gl_203309/offline-parser-assessment.json",
+    "bytes": 404,
+    "sha256": "2d162a53d5e9348ed1c5e3a4ef402f1b3fd217cc6e9c6969f3f8948bc899fae0"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/20261015T124013Z_01-minimal-gl_203309/original-parser-halt.json",
+    "bytes": 236,
+    "sha256": "8a4db7c8b6ca4f87a7d3c1faaca0ca4b6c302d01f3189641fd867dc97dd85556"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/20261015T124013Z_01-minimal-gl_203309/renderer.log",
+    "bytes": 1776,
+    "sha256": "75ad83c72bae2c9e3382fcb1a64f3e6e6e0faa54ab3a08adbc4d5eaa29389f26"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/20261015T124013Z_01-minimal-gl_203309/result.json",
+    "bytes": 583,
+    "sha256": "f22b6dca4cd7faec06ff65d85662e39ead1edfae71630c316f5af9225d0c6304"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/20261015T124135Z_02-small-window_ba98e0/gpu-samples.jsonl",
+    "bytes": 4269,
+    "sha256": "782b91b7289ba6a114bcda112d61b525464e5e34ea9ccb7651df1d4750bdb7dd"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/20261015T124135Z_02-small-window_ba98e0/heartbeat",
+    "bytes": 3,
+    "sha256": "9ae2bdd7beedc2e766c6b76585530e16925115707dc7a06ab5ee4aa2776b2c7b"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/20261015T124135Z_02-small-window_ba98e0/renderer.log",
+    "bytes": 127,
+    "sha256": "f0451d33d8b28aa589c271a761e39d4d3ceeeabfcf57f4efc43c35fed4e7a9df"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/20261015T124135Z_02-small-window_ba98e0/result.json",
+    "bytes": 671,
+    "sha256": "68a25a534d44992107e3f713f64466797107834d1e5cbe97e129757a7d8cbd5e"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/20261015T124206Z_03-static-t1_0354ff/gpu-samples.jsonl",
+    "bytes": 8279,
+    "sha256": "11cd827b6b480b40217e3be06f447ac2cda66e791417a1aa9ffc5a7df3704f3f"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/20261015T124206Z_03-static-t1_0354ff/heartbeat",
+    "bytes": 3,
+    "sha256": "a3af7b3808c4cf72478d05c9bab9c0d47e31c1d2cb3a29e7481669f7ea278c4e"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/20261015T124206Z_03-static-t1_0354ff/renderer.log",
+    "bytes": 135,
+    "sha256": "56df80731fc0a00955bc7f0f1eafacbe2a5d56e7fcdcd3b4f15fa3bbedb372cc"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/20261015T124206Z_03-static-t1_0354ff/result.json",
+    "bytes": 760,
+    "sha256": "01348129bb2854b53f32dc4aef50d9406c2e25d90697f334baa046166c935c42"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/idle-observation-02.json",
+    "bytes": 2067,
+    "sha256": "b7d2ee94c1dfc3db725129efb567b4e1551b7f7ccd61d48f681b5daf7a80d8b1"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/idle-observation.json",
+    "bytes": 9835,
+    "sha256": "a67e775d6a6ea0850928573e376413242f907f15489738bd1967534fda6c55ef"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/initial-status.csv",
+    "bytes": 113,
+    "sha256": "1270621d413b24cc127dd99d5158416ce7fb79881941daabdccc893c7ea8614c"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/initial-status.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/post-halt-audit.json",
+    "bytes": 355,
+    "sha256": "370d89c8388b850a35f6eb135545dad2614861827d5bff6e0100ede8aef3f5b4"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/post-stage-windows-events.json",
+    "bytes": 130,
+    "sha256": "dcfa0651af751be7a9dcdbf8963c64a3399272f714c33b388685becee768c725"
+  },
+  {
+    "path": "docs/evidence/W14/raw/nvidia-stages/post-stage-windows-events.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/contact_events.csv",
+    "bytes": 108,
+    "sha256": "e19231ca735fe6ec0b4b20ae580614cc40994470245f101736d11b7830d7319c"
+  },
+  {
+    "path": "run_data/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/events.jsonl",
+    "bytes": 48334,
+    "sha256": "eaad0862d327751e7cb790d1c64e214808be1debe6ee46feaeda891670ab8f28"
+  },
+  {
+    "path": "run_data/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/geometry.jsonl",
+    "bytes": 335087,
+    "sha256": "0d4dacfcc2f53cf360f38c41858ad1afa1e49690a29da5327cb1d6c45618a254"
+  },
+  {
+    "path": "run_data/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/manifest.json",
+    "bytes": 16102,
+    "sha256": "816bb12f50772eb6e4f01f7e8b26ebc38bf4a16b55b3f20ec50f799e89823248"
+  },
+  {
+    "path": "run_data/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/sim_trace.csv",
+    "bytes": 942740,
+    "sha256": "32c75a65a50c700625d046eab57a017ed7af2306552ce322ef7d761d33d246d8"
+  },
+  {
+    "path": "run_data/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/contact_events.csv",
+    "bytes": 108,
+    "sha256": "e19231ca735fe6ec0b4b20ae580614cc40994470245f101736d11b7830d7319c"
+  },
+  {
+    "path": "run_data/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/events.jsonl",
+    "bytes": 47253,
+    "sha256": "23aa89d6367df5a2e7311ce4d3aa653861fdcc3f582269e06fcf5f5b3b3408d8"
+  },
+  {
+    "path": "run_data/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/geometry.jsonl",
+    "bytes": 335851,
+    "sha256": "6f5aedebe6cb5810947fc85389807ebfe3d2c4c472672a76a7aedf9b721cc748"
+  },
+  {
+    "path": "run_data/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/manifest.json",
+    "bytes": 16101,
+    "sha256": "3f14235b4a59ac67852edfef4667d04a4284fce834e5892a75d7c73c6c60630f"
+  },
+  {
+    "path": "run_data/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/sim_trace.csv",
+    "bytes": 944253,
+    "sha256": "11d5249a71943395ca57cdb503c4405aa80aefb4aed19ac51123ad5dbed1b530"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/cpu-rviz-check.json",
+    "bytes": 644,
+    "sha256": "65aaae8ffefb98da889c0f2857574ab5eabaff1cd1f92773df17afcd46c011f7"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/dds.log",
+    "bytes": 240,
+    "sha256": "f9b5bcfab3f26c65dfe029ec899ebcab5b437238bb2a05482eb8c594b61f33e4"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/environment.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/gpu/gpu-samples.jsonl",
+    "bytes": 15751,
+    "sha256": "0e9c880978a596ae6ab347d3a6259ff33953b98248347ff8f30d81a4a2819f3f"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/graphics.txt",
+    "bytes": 1776,
+    "sha256": "75ad83c72bae2c9e3382fcb1a64f3e6e6e0faa54ab3a08adbc4d5eaa29389f26"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/launch.log",
+    "bytes": 34761,
+    "sha256": "c356dfa5ef34f810722e03d8847eeb70c16d169e737ecadd435cc78a35c4854a"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/owned-processes.json",
+    "bytes": 7499,
+    "sha256": "13ef3feea1d8d901fb3cf26ffca404371c38e32046568c629e641d77d419373e"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/preflight.json",
+    "bytes": 1078,
+    "sha256": "23240e022b416e21fa822d9401689ed3bdba8df2b4b43fe4cae53ab70f3f819b"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ready-mujoco.png",
+    "bytes": 88933,
+    "sha256": "b8bcff5aaf85929e5c8c1632d2fe3b56825859fdfe71fa31f7187aa704291e33"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ready-rviz.png",
+    "bytes": 114054,
+    "sha256": "037e05d9fe7dcaf0ae149c4cea2ea519e38ad6bc34febde3e4edbaab95c3c8c3"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/result.json",
+    "bytes": 26443,
+    "sha256": "9480095fec54ddfb4084bd5bd2f40b3436ce96b4f990bae3102f1d7e32d0f209"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/2026-10-15-14-46-25-949512-DESKTOP-MF19MEU-15829/launch.log",
+    "bytes": 4758,
+    "sha256": "b57fd05471177c3658d9c5dff18de5a231f925b25305c80aa557fbfc929b5d44"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/amcl_15841_1792068386091.log",
+    "bytes": 1539,
+    "sha256": "176eac2cfb2beef5eafec80c2af9bb77fba0647b2470eb3147d34a0dc575d08b"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/behavior_server_16301_1792068394103.log",
+    "bytes": 1205,
+    "sha256": "8de673659569405b595e6b4cfc01e9a98c932a5a9e52c6bd9926eececc83bca7"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/bt_navigator_16302_1792068394116.log",
+    "bytes": 1183,
+    "sha256": "3041acae4e3ea9b78eda3a3a71be95af0a24cac2e6bdd19f4d791c562b77083f"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/collision_monitor_15844_1792068386097.log",
+    "bytes": 1754,
+    "sha256": "9a960e7722bfbd7318a343582875763edb743242ebcd360cb5308952052c5cc4"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/controller_server_16299_1792068394106.log",
+    "bytes": 6398,
+    "sha256": "a76bf0cb5e9d587ffda9394c66cedb3eb45e50b2bb2c760148117a0e54143abb"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/lifecycle_manager_16152_1792068389100.log",
+    "bytes": 1454,
+    "sha256": "5bdaee5e98c856dadfab2731ae013b0a8c2308515258d9f780d3d00d476fb546"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/lifecycle_manager_16153_1792068389102.log",
+    "bytes": 1430,
+    "sha256": "ab6c8e57e40d242940ec8f7996a7abc9c445956776a4039b309703c68db2f706"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/lifecycle_manager_16303_1792068394094.log",
+    "bytes": 2219,
+    "sha256": "b11e8bd69c28e88bf37ba90376a5219240325f309e876789a434edf93d472a6a"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/map_server_15840_1792068386114.log",
+    "bytes": 1838,
+    "sha256": "64218ab0f102f6c28e763c2db71c557ad2b16ebe4901e8a193d2036dc743267e"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/planner_server_16300_1792068394099.log",
+    "bytes": 3416,
+    "sha256": "07800a46d5ef2690f2e8b7243ca0094d7d275f57a47f925999f69853fe00797e"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/python3_15842_1792068386331.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/python3_16304_1792068394273.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/python3_16305_1792068394362.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/python3_16351_1792068394392.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/python_15686_1792068385471.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/python_15838_1792068386215.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/robot_state_publisher_15839_1792068386079.log",
+    "bytes": 144,
+    "sha256": "7e7a50e9f8eb01b5863ca5490b7740eb47e15625518804bbc7aa7f06aeb0346f"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/rviz2_16821_1792068401513.log",
+    "bytes": 973,
+    "sha256": "6652ecad12591feeab8151fc265c8419569545f77d4df69af8559bf6e6b17180"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/ros-log/velocity_smoother_15843_1792068386084.log",
+    "bytes": 1012,
+    "sha256": "b89432198f3a90c698ea49dd11e95b78d3a9c477be3acf7269251c0345143860"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/runtime.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T124608Z_demo_U01_86257d22-2b23-47b6-b746-995b45f71937/rviz.log",
+    "bytes": 973,
+    "sha256": "6652ecad12591feeab8151fc265c8419569545f77d4df69af8559bf6e6b17180"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/cpu-rviz-check.json",
+    "bytes": 644,
+    "sha256": "65aaae8ffefb98da889c0f2857574ab5eabaff1cd1f92773df17afcd46c011f7"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/dds.log",
+    "bytes": 240,
+    "sha256": "f9b5bcfab3f26c65dfe029ec899ebcab5b437238bb2a05482eb8c594b61f33e4"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/environment.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/gpu/gpu-samples.jsonl",
+    "bytes": 15486,
+    "sha256": "e824e8a1d2b85e0e8fefa6cf648e040b51191b04bcd7c780866594b6b3c2355f"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/graphics.txt",
+    "bytes": 1776,
+    "sha256": "75ad83c72bae2c9e3382fcb1a64f3e6e6e0faa54ab3a08adbc4d5eaa29389f26"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/launch.log",
+    "bytes": 34611,
+    "sha256": "3473c7fce34c3e4933a1c52951284065b156fd1f772c398e070e425c6a191477"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/owned-processes.json",
+    "bytes": 7499,
+    "sha256": "a67de66cb12c1fa5571e67bfa87ab8c422bccceeb63f6d6f1cc8e8a7aa7981e0"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/preflight.json",
+    "bytes": 1078,
+    "sha256": "d866f42b07daeb8b702b2366522f97aeb5f7017a800e7cdb32b31ca9ab44d08b"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ready-mujoco.png",
+    "bytes": 88934,
+    "sha256": "e4f17240dab6452bc2b507eef7686e9f88f12e31e81ed4d1c82caa269a70d611"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ready-rviz.png",
+    "bytes": 109350,
+    "sha256": "ee46855da34e46c897bcde5cb6d526da9ffbc27720a961a6ba1df8328550d865"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/result.json",
+    "bytes": 26079,
+    "sha256": "78c4cfb106f84befb16b39b164ee618bd33ccb07bbd17133756d61bc8d12f1ce"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/2026-10-15-14-48-57-654430-DESKTOP-MF19MEU-17897/launch.log",
+    "bytes": 4758,
+    "sha256": "2ea47c88454b43949d3cffbe2cad1408eb53eba4299cddae1f9bc1cb55c3c772"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/amcl_17908_1792068537760.log",
+    "bytes": 1538,
+    "sha256": "6e8f866e3c46c16dd7576d99e351203e4c1c4be7e56636d116c75fc55505296d"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/behavior_server_18386_1792068545775.log",
+    "bytes": 1205,
+    "sha256": "46d9c8a5687927908169b37172e0f50592ccf02b5d04ab4210f2824e2f620047"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/bt_navigator_18387_1792068545773.log",
+    "bytes": 1183,
+    "sha256": "bb182d1c17a74b389802c171d4c96cfa26c2b05d264c984d06e51e0b2df03790"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/collision_monitor_17911_1792068537761.log",
+    "bytes": 1754,
+    "sha256": "1707ffecb4f12bfcd6e34dae9ef4b02d26cf49a0a460e86b27c3142c04100d29"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/controller_server_18384_1792068545789.log",
+    "bytes": 6398,
+    "sha256": "e1d0e1235c26efde69d1c5c25e41e3e224d87694b9260d484d163b646b471a04"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/lifecycle_manager_18242_1792068540760.log",
+    "bytes": 1454,
+    "sha256": "a159f6c001f840dbb7d0e5695ebf20a8a83f805e7ece1f05ffa572952b934440"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/lifecycle_manager_18243_1792068540762.log",
+    "bytes": 1430,
+    "sha256": "6ccdde93f588e8ddf8a4ba311c740e8a43f40cb51a8a08f02e90fa4e8ce9bb2a"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/lifecycle_manager_18388_1792068545770.log",
+    "bytes": 2106,
+    "sha256": "9076dc0f2fbbb8c8b5ab74c6b66862df9ccda670ab909e089f46e393398534e4"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/map_server_17907_1792068537767.log",
+    "bytes": 1838,
+    "sha256": "5e01dc597a2b62fc19e9185457a3687961f4f4716d08a6970f260e730729cbbd"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/planner_server_18385_1792068545783.log",
+    "bytes": 3416,
+    "sha256": "d2c60880f75e5b69a8c4245946a973cb5c8b990c9113193f75e063909703e938"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/python3_17909_1792068537955.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/python3_18389_1792068545939.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/python3_18390_1792068546043.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/python3_18430_1792068546066.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/python_17759_1792068537377.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/python_17905_1792068537886.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/robot_state_publisher_17906_1792068537751.log",
+    "bytes": 144,
+    "sha256": "7ae62199cb875503a254dd8c8fe245f876a6d5d064aa96b464ea54981d936b53"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/rviz2_18905_1792068555179.log",
+    "bytes": 1359,
+    "sha256": "7d2ccffc756dd44ee2873c4fab15417e91ab2aa4e6921376b7e8e9d2e853874c"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/ros-log/velocity_smoother_17910_1792068537755.log",
+    "bytes": 1012,
+    "sha256": "4a298512402e6378ae0b1b6d580398dbab0d2c4509689e6f203abe0f827aab3a"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/runtime.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T124845Z_demo_U01_264e5d1e-0094-4a1e-ab91-602788592bd1/rviz.log",
+    "bytes": 1359,
+    "sha256": "7d2ccffc756dd44ee2873c4fab15417e91ab2aa4e6921376b7e8e9d2e853874c"
+  },
+  {
+    "path": "run_data/demo-gpu-halt.json",
+    "bytes": 347,
+    "sha256": "81ae1841748e398f2349078b98cec69e3f24dfc2f7894d42a4b16d98abbe1217"
+  }
+]

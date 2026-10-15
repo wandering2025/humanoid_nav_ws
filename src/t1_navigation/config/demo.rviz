@@ -66,41 +66,51 @@ Visualization Manager:
     Color Transformer: FlatColor
     Color: 220; 30; 30
     Decay Time: 0
-  - Class: rviz_default_plugins/Map
+  - Class: rviz_default_plugins/PointCloud2
     Name: Saved LiDAR SLAM map
     Enabled: true
     Alpha: 0.7
-    Draw Behind: true
     Topic:
-      Value: /map
+      Value: /t1/viz/map_cells
       Durability Policy: Transient Local
       Reliability Policy: Reliable
       History Policy: Keep Last
       Depth: 1
-  - Class: rviz_default_plugins/Map
+    Style: Squares
+    Size (m): 0.05
+    Color Transformer: RGB8
+    Position Transformer: XYZ
+    Decay Time: 0
+  - Class: rviz_default_plugins/PointCloud2
     Name: Global costmap
     Enabled: true
     Alpha: 0.2
-    Color Scheme: costmap
-    Draw Behind: false
     Topic:
-      Value: /global_costmap/costmap
+      Value: /t1/viz/global_cells
       Durability Policy: Transient Local
       Reliability Policy: Reliable
       History Policy: Keep Last
       Depth: 1
-  - Class: rviz_default_plugins/Map
+    Style: Squares
+    Size (m): 0.05
+    Color Transformer: RGB8
+    Position Transformer: XYZ
+    Decay Time: 0
+  - Class: rviz_default_plugins/PointCloud2
     Name: Local costmap
     Enabled: true
     Alpha: 0.3
-    Color Scheme: costmap
-    Draw Behind: false
     Topic:
-      Value: /local_costmap/costmap
+      Value: /t1/viz/local_cells
       Durability Policy: Transient Local
       Reliability Policy: Reliable
       History Policy: Keep Last
       Depth: 1
+    Style: Squares
+    Size (m): 0.05
+    Color Transformer: RGB8
+    Position Transformer: XYZ
+    Decay Time: 0
   - Class: rviz_default_plugins/Path
     Name: Global plan
     Enabled: true
