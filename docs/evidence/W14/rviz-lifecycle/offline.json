@@ -1,0 +1,58 @@
+{
+  "start_head": "f5f401165270750b777630ad80c3010dd816462b",
+  "start_dirty": [],
+  "branch": "release/w13-formal-v1-demo",
+  "analysis": "docs/demo/rviz-lifecycle-recovery.md",
+  "root_cause": "Most credible hypothesis: context/display teardown ordering race. Exact corrupting allocation unknown; no available RViz core.",
+  "demo_tests": 34,
+  "package_and_eval_tests": 131,
+  "exits": {
+    "build": 0,
+    "demo_tests": 0,
+    "package_and_eval_tests": 0,
+    "bash_syntax": 0,
+    "python_compile": 0,
+    "diff_check": 0,
+    "frozen_source_check": 0
+  },
+  "binary_sha256": "baea1ec65c8e151c2e34d43596a639777d9f7015bb13fb9ff84114922eb142b9",
+  "source_hash": "a5d7cdebdba000913e776e04fbf1f50d8e43ef8f5d4553f291a8631c4524adc2",
+  "graphics_runs_this_authorization": 0,
+  "raw": [
+    {
+      "path": "docs/evidence/W14/raw/rviz-lifecycle/offline/build.log",
+      "bytes": 2432,
+      "sha256": "885017dc127c69ce006bc3841a752707765661cf4e631967b0ddad948aa97b1e"
+    },
+    {
+      "path": "docs/evidence/W14/raw/rviz-lifecycle/offline/demo-tests.log",
+      "bytes": 2409,
+      "sha256": "c4c88fc93226cf7b1c4ce6681b83a905e986d4609e58b0a1ccc34301816c5d80"
+    },
+    {
+      "path": "docs/evidence/W14/raw/rviz-lifecycle/offline/final-all-tests.log",
+      "bytes": 180,
+      "sha256": "f23c6dc095cfd5cdfb65dc8913ad7062c5d87dab30e091a1f08b166becc5e219"
+    },
+    {
+      "path": "docs/evidence/W14/raw/rviz-lifecycle/offline/final-demo-tests.log",
+      "bytes": 823,
+      "sha256": "57ba0444d269b29ccea7ecd1e89769bbca0bf72518073656ef73b231ccd68a57"
+    },
+    {
+      "path": "docs/evidence/W14/raw/rviz-lifecycle/offline/package-and-evaluation-tests.log",
+      "bytes": 2174,
+      "sha256": "db55de9540f91b4b4828b1a545e3d642c0d146df34e098cc6d949ce5877d3c37"
+    },
+    {
+      "path": "docs/evidence/W14/raw/rviz-lifecycle/offline/package-tests.log",
+      "bytes": 180,
+      "sha256": "23f186b4dbf3d5d70e84fe772ab18f533722806129b013a1dcff6c0b01c27df9"
+    }
+  ],
+  "diagnostic_failures_preserved": [
+    "initial empty environment missing transitive RViz library; local executable RPATH fix",
+    "cleanup unit object missing GPU member; getattr guard added",
+    "system Python evaluation test lacks MuJoCo; configured venv used with existing system pytest library, no installs"
+  ]
+}

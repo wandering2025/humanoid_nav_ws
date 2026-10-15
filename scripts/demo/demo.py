@@ -83,7 +83,7 @@ def project_processes():
         if not parts:
             continue
         executable = Path(parts[0]).name
-        if (executable in ('t1_sim', 'navigation_starter', 'navigate_to_pose', 'command_gate', 'navigation_adapter')
+        if (executable in ('t1_sim', 'navigation_starter', 'navigate_to_pose', 'command_gate', 'navigation_adapter','t1_demo_rviz')
             or ('ros2' in executable and 'launch t1_bringup' in r['command'])
             or (executable == 'rviz2' and str(WS) in r['command'])):
             result.append(r)
@@ -174,7 +174,7 @@ def preflight(args):
     if not (args.headless or args.preflight):
         from gpu_watch import verify_gl
         verify_gl(args.gpu_watch,OUT)
-        graphics.update(status='NVIDIA4050_VERIFIED',rviz='CPU llvmpipe')
+        graphics.update(status='NVIDIA4050_VERIFIED',rviz='NVIDIA lifecycle wrapper')
     else:
         graphics['status']='CPU_ONLY'
     data = dict(run_id=RUN_ID, code_sha=git('rev-parse', 'HEAD'), dirty=git('status', '--porcelain'),
@@ -219,7 +219,11 @@ class Demo:
                     self.gpu_watch.check([self.launch_log,OUT/'rviz.log',OUT/'runtime.log'])
                 except Exception as exc:
                     self.gpu_error=repr(exc);self.gpu_watch.halt(exc)
-                    # On a GPU fault, stop only this run's registered simulator immediately.
+                    # Newest renderer first; only PID/starttime-registered children.
+                    for item in list(self.owned.values()):
+                        if item['owner']=='rviz' and alive(item):
+                            try:os.kill(item['pid'],signal.SIGTERM)
+                            except ProcessLookupError:pass
                     for item in list(self.owned.values()):
                         if 't1_mujoco.simulation' in item['command'] and alive(item):
                             try:os.kill(item['pid'],signal.SIGTERM)
@@ -233,6 +237,10 @@ class Demo:
         self.gpu_thread_stop.set()
         if self.gpu_thread:self.gpu_thread.join(timeout=5)
         if self.gpu_watch:
+            if not self.gpu_watch.lock.closed:
+                try:self.gpu_watch.host.check(__import__('gpu_watch').ERROR,windows=True)
+                except Exception as exc:
+                    self.gpu_error=repr(exc);self.gpu_watch.halt(exc)
             self.summary['gpu_monitor_error']=self.gpu_error
             self.summary['gpu_samples']=self.gpu_watch.samples
             self.gpu_watch.close()
@@ -264,6 +272,10 @@ class Demo:
         if self.node:
             rclpy.spin_once(self.node, timeout_sec=.01)
         now=time.monotonic()
+        if check_stop and 'rviz' in self.children:
+            heartbeat=OUT/'rviz-heartbeat'
+            if heartbeat.exists() and time.time()-heartbeat.stat().st_mtime>3:
+                raise RuntimeError('RViz Qt event loop unresponsive for3s; no retry')
         if self.node and self.node.sim != self.last_clock_seen:
             self.last_clock_seen=self.node.sim
             self.clock_changed_wall=now
@@ -407,12 +419,12 @@ class Demo:
         self.summary.update(parameters=params, parameter_checks=checks)
         assert all(checks.values()), f'Parameter contract failed: {checks}'
         if not self.args.headless and not self.args.no_rviz:
-            probe=subprocess.run([sys.executable,str(WS/'scripts/demo/cpu_view.py'),'--check'],capture_output=True,text=True,timeout=15)
-            (OUT/'cpu-rviz-check.json').write_text(probe.stdout)
-            if probe.returncode:raise RuntimeError(f'CPU RViz renderer check failed: {probe.stderr}')
-            self.spawn('rviz',[sys.executable,str(WS/'scripts/demo/cpu_view.py'),'-d',str(WS/'src/t1_navigation/config/demo.rviz'),
+            os.environ['T1_RVIZ_HEARTBEAT']=str(OUT/'rviz-heartbeat')
+            self.spawn('rviz',[str(WS/'build/demo-rviz/t1_demo_rviz'),'-d',str(WS/'src/t1_navigation/config/demo.rviz'),
                               '--ros-args','-p','use_sim_time:=true'])
-            self.until(lambda:(OUT/'rviz.log').exists() and 'OpenGl version:' in (OUT/'rviz.log').read_text(errors='replace'),25)
+            self.until(lambda:(OUT/'rviz-heartbeat').exists() and 'RVIZ_LIFECYCLE ready' in (OUT/'rviz.log').read_text(errors='replace'),25)
+            from gpu_watch import renderer_verified
+            assert renderer_verified((OUT/'rviz.log').read_text()),'RViz actual renderer is not NVIDIA4050'
             drawing_until=n.sim+2.;self.until(lambda:n.sim>=drawing_until,10)
         self.summary['readiness_wall_s']=time.monotonic()-self.started
         self.screenshot('ready')
@@ -515,7 +527,11 @@ class Demo:
             while any(alive(r) for r in remaining) and time.monotonic()<deadline:
                 time.sleep(.05)
         self.stop_gpu_watch()
+        if any(row[-1]=='SIGKILL' for row in self.summary['shutdown_signals']):
+            self.summary['error']='SIGKILL was needed; mandatory stop, no further tests'
         self.summary['parent_exit_codes']={name:p.poll() for name,(p,_) in self.children.items()}
+        if getattr(self,'gpu_watch',None) and (self.summary['parent_exit_codes'].get('rviz',0)!=0 or any(row[-1]=='SIGKILL' for row in self.summary['shutdown_signals'])):
+            self.gpu_watch.halt('Abnormal RViz exit or forced kill; strict authorization requires stop, no retry')
         text=self.launch_log.read_text(errors='replace') if self.launch_log.exists() else ''
         starts=dict(re.findall(r'\[INFO\] \[([^]]+)\]: process started with pid \[(\d+)\]',text))
         exits={name:0 for name in re.findall(r'\[INFO\] \[([^]]+)\]: process has finished cleanly',text)}

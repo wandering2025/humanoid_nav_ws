@@ -24,5 +24,7 @@ class Limits(unittest.TestCase):
         for text in ('GLSL link result :','active samplers with a different type refer to the same texture image unit','GL_INVALID_OPERATION','D3D12: Removing Device.','corrupted double-linked list','double free or corruption'):
             self.assertIsNotNone(ERROR.search(text))
         self.assertIsNone(ERROR.search('OpenGl version: 4.5 (GLSL 4.5)'))
+        self.assertIsNone(ERROR.search('X11 window xid=0x123'))
+        self.assertIsNotNone(ERROR.search('NVRM: Xid (PCI:0000:01:00): 31'))
 
 if __name__=='__main__':unittest.main()

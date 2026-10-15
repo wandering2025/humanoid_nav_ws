@@ -17,7 +17,7 @@ SMI='/usr/lib/wsl/lib/nvidia-smi'
 HALT=WS/'run_data/demo-gpu-halt.json'
 GPU_ENV=dict(GALLIUM_DRIVER='d3d12',MESA_D3D12_DEFAULT_ADAPTER_NAME='NVIDIA GeForce RTX 4050',
              LIBGL_ALWAYS_SOFTWARE='false',OMP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1')
-ERROR=re.compile(r'Removing Device|device lost|device removed|GPU hang|GPU fault|Xid|DXGI_ERROR|segmentation fault|GLSL link result|active samplers with a different type|GL_INVALID_|EGL_BAD_|shader.*(?:error|failed)|corrupted double-linked list|double free or corruption|free\(\): invalid pointer|malloc\(\):',re.I)
+ERROR=re.compile(r'Removing Device|DX12_PAGEFAULT|device lost|device removed|GPU hang|GPU fault|NVRM[^\n]*Xid|\bXid\s*\(|DXGI_ERROR|segmentation fault|GLSL link result|active samplers with a different type|GL_INVALID_|EGL_BAD_|shader.*(?:error|failed)|corrupted double-linked list|double free or corruption|free\(\): invalid pointer|malloc\(\):',re.I)
 
 
 def renderer_verified(text):
@@ -63,6 +63,8 @@ class Watch:
         self.lock=(WS/'run_data/demo-gpu.lock').open('a')
         fcntl.flock(self.lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         self.samples=[];self.baseline=None;self.high_since=None;self.next_sample=0.
+        from host_graphics import HostGraphics
+        self.host=HostGraphics(self.output/'host');self.next_host=0.
         self.check([])
         if idle_wait_s:
             end=time.monotonic()+idle_wait_s;since=None
@@ -80,6 +82,8 @@ class Watch:
 
     def check(self,logs):
         now=time.monotonic()
+        self.host.check(ERROR,windows=now>=self.next_host)
+        if now>=self.next_host:self.next_host=now+10.
         if now>=self.next_sample:
             row=sample();self.samples.append(row)
             self.next_sample=now+1.
@@ -95,8 +99,9 @@ class Watch:
 
     def halt(self,reason):
         data=dict(reason=str(reason),utc=datetime.now(timezone.utc).isoformat(),output=str(self.output))
-        HALT.write_text(json.dumps(data,indent=2)+'\n')
-        (self.output/'halt.json').write_text(json.dumps(data,indent=2)+'\n')
+        if not HALT.exists():HALT.write_text(json.dumps(data,indent=2)+'\n')
+        if not (self.output/'halt.json').exists():(self.output/'halt.json').write_text(json.dumps(data,indent=2)+'\n')
+        with (self.output/'halt-events.jsonl').open('a') as f:f.write(json.dumps(data)+'\n')
 
     def close(self):
         if not self.lock.closed:self.lock.close()

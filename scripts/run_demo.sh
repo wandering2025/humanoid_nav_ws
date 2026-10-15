@@ -67,6 +67,10 @@ fi
   echo '[demo] Missing overlay. Run: source scripts/env.sh; /usr/bin/colcon build --symlink-install --base-paths src' >&2
   exit 2
 }
+if ! "$DEMO_ROOT/scripts/demo/build_rviz.sh" >"$T1_DEMO_DIR/rviz-build.log" 2>&1; then
+  cat "$T1_DEMO_DIR/rviz-build.log" >&2
+  exit 2
+fi
 # Explicit venv interpreter; launch's own simulation wrapper does the same.
 "$T1_VENV/bin/python" "$DEMO_ROOT/scripts/demo/demo.py" "$@" &
 runner_pid=$!
