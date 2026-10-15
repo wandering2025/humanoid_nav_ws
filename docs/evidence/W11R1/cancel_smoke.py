@@ -21,8 +21,14 @@ spec = importlib.util.spec_from_file_location('w11_cancel_assertions', WS/'docs/
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 cases = yaml.safe_load(module.CASES.read_text())
-with harness.Session():
+session = harness.Session(out.name)
+try:
     result = module.cancel_replace(cases)
+finally:
+    for run in harness.ACTIVE_RUNS:
+        if run.closed_result is None:
+            run.close(settle=0.)
+    session.close()
 remaining = result['run']['remaining_owned_pids']
 contacts = result['run']['manifest'].get('contact_counts', {})
 assert not remaining, remaining

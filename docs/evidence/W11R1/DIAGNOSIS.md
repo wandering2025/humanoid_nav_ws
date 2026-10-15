@@ -41,3 +41,7 @@ H5严格关闭审计发现旧候选996f36a的C01/C09虽实际到达，但新的m
 被测007b118a3154f695c5c5217f671f7232dd3f46e9，smoke-v2前三例成功，B06 run 20261015T071135Z_w11r1-repair-smoke-v2_B06_s3005_9f0a75 在74.4s以TERMINAL_CORRECTIONS_EXHAUSTED明确失败、stop锁存。候选拒绝，不把有界停车当成功。三修正的目标yaw为+.4444、+.1106、−.2231rad，settled yaw为+.3338、+.3337、+.2402rad；第二次几乎无净效果，第三次action成功时真值−.03347rad，稳定后+.24366rad。首次名义预目标稳定yaw−.4444rad。证据表明GoalChecker .20rad死带和方向相关回弹使同点积分修正振荡。
 
 新单假设：先使用原有1.125/.75m可行预目标向前行走纠偏，候选必须位于定位位置沿终点朝向至少.30m前方且costmap段仍可行；同样消耗一次共享修正预算，之后再次静止2s并按.20m/.20rad联合核验。至多两次前移，剩余预算仍可用于原积分yaw修正；绝不放宽容差或增加次数。见ADR-020。
+
+H6物理结论：失败，前移到8.25m后仍执行末端原地转向，三次预算耗尽。该逻辑撤除。H7检查[官方GoalAngleCritic](https://github.com/ros-navigation/navigation2/blob/1.3.13/nav2_mppi_controller/src/critics/goal_angle_critic.cpp)：只有距目标≤0.5m才考虑目标yaw，这比W05最小行走转弯半径0.70m更晚；[RotationShim](https://github.com/ros-navigation/navigation2/blob/1.3.13/nav2_rotation_shim_controller/src/nav2_rotation_shim_controller.cpp)在位置容差内转入原地旋转。尝试将激活距离提前到既有1.5m进近长度，不改权重/GoalChecker/速度/次数，单例验证。
+
+取消回归入口只读检查发现Session需显式label且不支持context manager，已在首次运行前修正为明确构造/try-finally关闭，尚无物理回归结果。

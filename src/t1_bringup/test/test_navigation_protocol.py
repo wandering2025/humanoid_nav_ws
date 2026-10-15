@@ -154,34 +154,6 @@ def test_no_reverse_overshoot_has_bounded_failure_boundary():
     assert not overshot((8.5, .5, 0.), (9., 0., 0.))
 
 
-def test_b06_rebound_advances_to_existing_clear_staging_point():
-    from t1_bringup.navigation_protocol import forward_staging
-    # Measured B06 at the first settled pre-goal: yaw-only retries oscillated.
-    pose = (7.367599, .019047, -.444402)
-    assert forward_staging((9., 0., 0.), pose, [1.125, .75], lambda d: True) == (1.125, (7.875, 0., 0.))
-
-
-def test_staging_does_not_send_sub_tolerance_or_obstructed_forward_goal():
-    from t1_bringup.navigation_protocol import forward_staging
-    goal, pose = (9., 0., 0.), (7.66, .07, .43)
-    assert forward_staging(goal, pose, [1.125, .75], lambda d: True) == (.75, (8.25, 0., 0.))
-    assert forward_staging(goal, pose, [1.125, .75], lambda d: False) is None
-    assert forward_staging(goal, (8.3, 0., .4), [.75], lambda d: True) is None
-
-
-def test_forward_staging_and_terminal_yaw_share_three_corrections():
-    from t1_bringup.navigation_protocol import forward_staging
-    budget = TerminalCorrections()
-    nominal, pose = (7.5, 0., 0.), (7.37, 0., -.44)
-    assert budget.next('SUCCEEDED', nominal, nominal, pose) is not None
-    _, nominal = forward_staging((9., 0., 0.), pose, [1.125, .75], lambda d: True)
-    assert budget.next('SUCCEEDED', nominal, nominal, (7.875, 0., 0.)) is None
-    budget.next('SUCCEEDED', (9., 0., 0.), (9., 0., 0.), (9., 0., .4))
-    budget.next('SUCCEEDED', (9., 0., 0.), (9., 0., -.4), (9., 0., -.3))
-    with pytest.raises(ProtocolFailure, match='CORRECTIONS_EXHAUSTED'):
-        budget.next('SUCCEEDED', (9., 0., 0.), (9., 0., .3), (9., 0., .3))
-
-
 def test_discovered_followpath_that_rejects_probe_blocks_startup(monkeypatch):
     from t1_bringup.navigation_readiness import Readiness
     import rclpy.action

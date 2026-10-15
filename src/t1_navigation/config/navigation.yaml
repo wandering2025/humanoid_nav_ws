@@ -120,7 +120,10 @@ controller_server:
         enabled: true
         cost_power: 1
         cost_weight: 3.0
-        threshold_to_consider: 0.5
+        # W11R1: begin heading correction before the 0.70 m minimum walking
+        # radius and the last 0.20 m positional band force an in-place turn.
+        # This is a scoring activation distance, not a relaxed goal tolerance.
+        threshold_to_consider: 1.5
       PreferForwardCritic:
         enabled: true
         cost_power: 1

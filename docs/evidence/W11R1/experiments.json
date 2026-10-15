@@ -626,5 +626,23 @@
     "all_launch_children_clean": true,
     "remaining_owned_pids": [],
     "explanation": "A near-tolerance yaw goal had almost zero settled effect; clockwise turn stopped at -0.033rad then rebounded to +0.240rad. Three integral corrections cannot guarantee convergence at one position. Use existing 1.125/.75m staging alternatives as forward walking corrections, spending same shared budget."
+  },
+  {
+    "hypothesis": "H6 result and H7 earlier goal-angle scoring",
+    "code_sha": "3b987c9ef2735ead34e125096b8ceaf3a644a01c",
+    "run_id": "20261015T071948Z_w11r1-repair-smoke-v3_B06_s3005_1de8e2",
+    "result": "FAIL_SAFETY_STOP_UNRECOVERED",
+    "reason": "TERMINAL_CORRECTIONS_EXHAUSTED",
+    "forward_staging": 0.75,
+    "settled_yaws": [
+      0.2576607,
+      0.4273708,
+      -0.2908214,
+      -0.2829893
+    ],
+    "contacts": 0,
+    "falls": 0,
+    "remaining_owned_pids": [],
+    "decision": "reject/remove forward staging; test GoalAngleCritic activation 1.5m vs .5m to include heading before .70m walking radius/position band"
   }
 ]

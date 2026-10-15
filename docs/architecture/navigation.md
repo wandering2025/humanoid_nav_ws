@@ -133,10 +133,8 @@ stop and cancellation. Overshoot is not recovered by an unvalidated reverse move
 This candidate still requires the independent verification matrix; the former
 W11/W12 samples and W13 formal-v1 failures retain their historical meanings.
 
-W11R1 ADR-020: after a failed settled staging verification, spend the existing
-shared correction budget on a shorter registered staging distance (1.125 or
-0.75 m) before another in-place yaw correction. The position must be at least
-0.30 m forward of the localized robot along the goal heading and its terminal
-segment must remain free in the costmap. Each new staging pose still requires
-0.20 m / 0.20 rad and 2 s stationary verification. No new velocity source,
-reverse motion, extra correction budget, or relaxed goal tolerance is added.
+W11R1 H7: GoalAngleCritic starts scoring the terminal orientation at 1.5 m
+instead of 0.5 m, before the 0.70 m minimum walking radius makes heading
+correction require an in-place turn. Weights, goal tolerances, the stopped
+checker, velocity envelope, and safety chain are unchanged. The H6 forward
+staging experiment was rejected; its failure remains in ADR-020 and evidence.
