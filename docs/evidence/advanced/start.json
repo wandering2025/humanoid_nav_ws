@@ -1,0 +1,19 @@
+{
+  "started_utc": "2026-10-15T16:43:26.184106+00:00",
+  "branch": "feature/advanced-slam-demo-v0.2",
+  "starting_head": "0f51d54b1dbfdde0664966118b5546109a3f6ff2",
+  "dirty_files": "",
+  "stable_tag_object": "844036e69644272dce6178552dd10778e80d4d35",
+  "stable_commit": "0f51d54b1dbfdde0664966118b5546109a3f6ff2",
+  "worktree": "/home/haoyang/humanoid_nav_ws_advanced",
+  "scope": "User-authorized independent Advanced SLAM and Navigation Demo v0.2; serial, no delegation",
+  "review": "W15 authoritative handoff/release/recovery evidence, W14, current entrypoints, SLAM/Nav2/safety/LiDAR contracts and implementation",
+  "gpu_readonly": {
+    "name": "RTX4050",
+    "total_mib": 6141,
+    "used_mib": 1070,
+    "temperature_c": 47,
+    "utilization_pct": 21
+  },
+  "stable_entry_sha256": "58ffe34829a5b6daa112a8e691842066627e73deee7106717082cb9b45e44d6f"
+}
