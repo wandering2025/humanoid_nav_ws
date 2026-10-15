@@ -1,0 +1,8 @@
+[
+  {
+    "original": "run_data/demo-gpu-halt.json",
+    "archived": "docs/evidence/W14/raw/nvidia-stages/original-mapdisplay-halt.json",
+    "sha256": "81ae1841748e398f2349078b98cec69e3f24dfc2f7894d42a4b16d98abbe1217",
+    "reason": "User-updated boundary; distinct RGB display route CPU-verified before resumed standing check. Original bytes preserved."
+  }
+]

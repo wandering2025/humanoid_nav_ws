@@ -1,0 +1,10 @@
+{
+  "utc": "2026-10-15T13:25:33.150551+00:00",
+  "run_id": "20261015T132133Z_demo_U01_89a56cbe-0723-4ca9-b438-1021c94912e9",
+  "remaining_owned_pids": [],
+  "project_processes": [],
+  "ports": {
+    "42127": "bindable",
+    "42128": "bindable"
+  }
+}

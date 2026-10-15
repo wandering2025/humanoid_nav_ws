@@ -1,5 +1,5 @@
 {
-  "status": "GUI_VALIDATED",
+  "status": "GPU_HALTED_RVIZ_HEAP_CORRUPTION",
   "adapter": "NVIDIA GeForce RTX 4050",
   "rviz": "CPU llvmpipe",
   "stages": {
@@ -9,10 +9,9 @@
     "docs/evidence/W14/nvidia-recovery/cpu-rgb-assessment.json": "5cf59a644babe683b2220f5acfc291dee9a9bf94d14d4125593adcac687b30e1",
     "docs/evidence/W14/nvidia-recovery/rgb-standing-final-result.json": "06727a0cf5d813c23b03a2e8ee046d6994b14f4dc1c1f5b02d155e2278e782e9"
   },
-  "halt_reason": "Original RViz MapDisplay route prohibited. RGB standing/stop/process/port check passed; formal rehearsals pending.",
+  "halt_reason": "CPU RViz native heap corruption at shutdown; no automatic retry, original FAIL preserved",
   "halt_evidence": {
-    "path": "run_data/demo-gpu-halt.json",
-    "sha256": "81ae1841748e398f2349078b98cec69e3f24dfc2f7894d42a4b16d98abbe1217"
+    "path": "run_data/demo-gpu-halt.json"
   },
   "display_path": "RGB PointCloud2; CPU llvmpipe; no RViz MapDisplay or text markers"
 }

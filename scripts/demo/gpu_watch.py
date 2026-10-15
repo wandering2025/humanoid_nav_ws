@@ -17,7 +17,7 @@ SMI='/usr/lib/wsl/lib/nvidia-smi'
 HALT=WS/'run_data/demo-gpu-halt.json'
 GPU_ENV=dict(GALLIUM_DRIVER='d3d12',MESA_D3D12_DEFAULT_ADAPTER_NAME='NVIDIA GeForce RTX 4050',
              LIBGL_ALWAYS_SOFTWARE='false',OMP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1')
-ERROR=re.compile(r'Removing Device|device lost|device removed|GPU hang|GPU fault|Xid|DXGI_ERROR|segmentation fault|GLSL link result|active samplers with a different type|GL_INVALID_|EGL_BAD_|shader.*(?:error|failed)',re.I)
+ERROR=re.compile(r'Removing Device|device lost|device removed|GPU hang|GPU fault|Xid|DXGI_ERROR|segmentation fault|GLSL link result|active samplers with a different type|GL_INVALID_|EGL_BAD_|shader.*(?:error|failed)|corrupted double-linked list|double free or corruption|free\(\): invalid pointer|malloc\(\):',re.I)
 
 
 def renderer_verified(text):

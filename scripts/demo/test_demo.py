@@ -120,6 +120,14 @@ class Isolation(unittest.TestCase):
         with patch.object(demo,'GPU_PROFILE',Path('/tmp/t1-test-missing-profile.json')), patch.object(demo.sys,'argv',['demo.py']), patch.object(demo,'preflight',side_effect=AssertionError('must not execute')):
             self.assertEqual(demo.main(),3)
 
+    def test_heap_halt_rejects_before_creating_gpu_watch(self):
+        import json
+        with tempfile.TemporaryDirectory() as directory:
+            profile=Path(directory)/'profile.json'
+            profile.write_text(json.dumps(dict(status='GPU_HALTED_RVIZ_HEAP_CORRUPTION',stages={})))
+            with patch.object(demo,'GPU_PROFILE',profile), patch.object(demo.sys,'argv',['demo.py']), patch('gpu_watch.Watch',side_effect=AssertionError('must not touch GPU')):
+                self.assertEqual(demo.main(),3)
+
 
 if __name__=='__main__':
     unittest.main()

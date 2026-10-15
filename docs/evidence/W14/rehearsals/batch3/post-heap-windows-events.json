@@ -1,0 +1,5 @@
+{
+  "exit_code": 0,
+  "stdout": "{\r\n    \"StartUtc\":  \"2026-10-15T13:00:00Z\",\r\n    \"Events\":  [\r\n\r\n               ],\r\n    \"Errors\":  [\r\n\r\n               ]\r\n}\r\n",
+  "stderr": ""
+}

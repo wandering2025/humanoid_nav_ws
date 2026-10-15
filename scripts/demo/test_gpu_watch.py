@@ -21,7 +21,7 @@ class Limits(unittest.TestCase):
         self.assertTrue(renderer_verified('{"renderer":"D3D12 (NVIDIA GeForce RTX 4050 Laptop GPU)"}'))
 
     def test_graphics_shader_fault_stops_gpu_work(self):
-        for text in ('GLSL link result :','active samplers with a different type refer to the same texture image unit','GL_INVALID_OPERATION','D3D12: Removing Device.'):
+        for text in ('GLSL link result :','active samplers with a different type refer to the same texture image unit','GL_INVALID_OPERATION','D3D12: Removing Device.','corrupted double-linked list','double free or corruption'):
             self.assertIsNotNone(ERROR.search(text))
         self.assertIsNone(ERROR.search('OpenGl version: 4.5 (GLSL 4.5)'))
 

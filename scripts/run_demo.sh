@@ -6,7 +6,7 @@ case "${1:-}" in
   --help|-h)
     cat <<'HELP'
 Usage: ./scripts/run_demo.sh [--preflight] [--headless] [--no-rviz] [--scenario U01]
-STATUS: staged NVIDIA/CPU RGB display validated; W14 formal rehearsals pending.
+STATUS: W14_BLOCKED after RViz heap corruption on shutdown; GUI locked.
 MuJoCo: NVIDIA RTX 4050. RViz: CPU llvmpipe RGB cells (no MapDisplay shader).
 Default: MuJoCo + RViz, frozen formal-v1 U01 seed 4000, A(0,0,0) -> B(9,0,0).
 --preflight  CPU resource/environment checks only; no graphics/ROS/DDS processes.

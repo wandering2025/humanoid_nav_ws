@@ -607,7 +607,7 @@ def main():
             for path,expected in profile['stages'].items():
                 if sha(WS/path)!=expected:raise RuntimeError(f'GPU validation evidence changed: {path}')
             if profile['status']!='GUI_VALIDATED' and not (args.startup_check and profile['status']=='STATIC_STAGES_PASSED'):
-                raise RuntimeError(SAFETY_BLOCK_REASON)
+                raise RuntimeError(f'{SAFETY_BLOCK_REASON} {profile.get("halt_reason", "")} Read docs/demo/release-manifest.md')
             from gpu_watch import Watch,GPU_ENV
             os.environ.update(GPU_ENV)
             args.gpu_watch=Watch(OUT/'gpu',idle_wait_s=60)
