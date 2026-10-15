@@ -1,5 +1,5 @@
 {
-  "status": "GPU_HALTED_DDS_SHUTDOWN_FAILURE",
+  "status": "GUI_VALIDATED",
   "adapter": "NVIDIA GeForce RTX 4050",
   "rviz": "NVIDIA lifecycle wrapper",
   "stages": {
@@ -8,12 +8,15 @@
     "docs/evidence/W14/raw/nvidia-stages/20261015T124206Z_03-static-t1_0354ff/result.json": "01348129bb2854b53f32dc4aef50d9406c2e25d90697f334baa046166c935c42",
     "docs/evidence/W14/nvidia-recovery/cpu-rgb-assessment.json": "5cf59a644babe683b2220f5acfc291dee9a9bf94d14d4125593adcac687b30e1",
     "docs/evidence/W14/nvidia-recovery/rgb-standing-final-result.json": "06727a0cf5d813c23b03a2e8ee046d6994b14f4dc1c1f5b02d155e2278e782e9",
-    "docs/evidence/W14/rviz-lifecycle/minimal-result.json": "5a1e1a231ea72656df6de1652f50f8accce112718cb5f7d54119fab793781ad9"
+    "docs/evidence/W14/rviz-lifecycle/minimal-result.json": "5a1e1a231ea72656df6de1652f50f8accce112718cb5f7d54119fab793781ad9",
+    "docs/evidence/W14/dds-teardown-release/publication-assessment.json": "76bf7aacbcc98f772548cde6e3cd1d2300e412053333a855958867fa7d4cfd95"
   },
-  "halt_reason": "Two authorized full rehearsals exhausted; run02 DDS SIGSEGV -11 on shutdown, overallFAILED. No further graphical retry authorized.",
+  "halt_reason": "Prior DDS-only halt archived under explicit release exception; any new GPU halt remains blocking.",
   "halt_evidence": {
-    "path": "run_data/demo-gpu-halt.json",
+    "path": "docs/evidence/W14/raw/dds-teardown-release/dds-only-halt-original.json",
     "sha256": "51ff001974ea062a8c1821644869ead973e4246586335653ca9259f42199494f"
   },
-  "display_path": "NVIDIA RGB PointCloud2; local Qt-thread lifecycle wrapper; no MapDisplay shader"
+  "display_path": "NVIDIA RGB PointCloud2; local Qt-thread lifecycle wrapper; no MapDisplay shader",
+  "release_status": "W14_DEMO_READY_WITH_DDS_TEARDOWN_WARNING",
+  "dds_teardown_exception_decision_sha": "f687f21922245aa6cace42a9cef204c18f50f9b2"
 }

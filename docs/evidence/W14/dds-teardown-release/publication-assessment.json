@@ -1,0 +1,160 @@
+{
+  "status": "W14_DEMO_READY_WITH_DDS_TEARDOWN_WARNING",
+  "decision_sha": "f687f21922245aa6cace42a9cef204c18f50f9b2",
+  "video_status": "FINAL_VIDEO_PENDING_W15",
+  "new_gpu_or_gui_runs": 0,
+  "rehearsals": [
+    {
+      "run_id": "20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89",
+      "code_sha": "a963518410ad0faefad0c3b2230d367780c91212",
+      "original_status": "SUCCESS",
+      "publication_status": "SUCCESS",
+      "navigation": "NAVIGATION_SUCCESS",
+      "safety": "SAFETY_PASS",
+      "warning": null,
+      "dds_returncode": 0,
+      "classification": {
+        "status": "SUCCESS",
+        "exception": null,
+        "dds_returncode": 0,
+        "checks": {
+          "navigation_success": true,
+          "zero_contacts_and_falls": true,
+          "safe_stop_completed": true,
+          "other_components_zero": true,
+          "dds_alive_until_shutdown": true,
+          "ros_communication_continuous": true,
+          "expected_shutdown_after_navigation_and_stop": true,
+          "dds_log_saved": true,
+          "no_signal_escalation": true,
+          "dds_pid_gone": true,
+          "dds_port_released": true,
+          "no_project_residuals": true,
+          "host_graphics_checked_without_fault": true,
+          "no_other_error": true
+        },
+        "failed_checks": []
+      },
+      "proof": {
+        "dds_log_saved": true,
+        "dds_log_sha256": "f9b5bcfab3f26c65dfe029ec899ebcab5b437238bb2a05482eb8c594b61f33e4",
+        "dds_returncode": 0,
+        "dds_pid_gone": true,
+        "dds_port_released": true,
+        "remaining_owned_pids": [],
+        "remaining_project_processes": [],
+        "host_graphics_checked_without_fault": true,
+        "runner_exit_code": 4
+      },
+      "lifecycle_proof_method": "Retrospective inference from frozen runner poll/send/log order and saved result; no new run",
+      "sources": [
+        {
+          "path": "docs/evidence/W14/rviz-lifecycle/full-01-final-result.json",
+          "bytes": 46635,
+          "sha256": "6e873cee55201a6fcf50c1ad75646613b19cf90663547753acee6975829a386d"
+        },
+        {
+          "path": "run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/result.json",
+          "bytes": 46531,
+          "sha256": "267cbea54c96bc72e7434211d68ff0175224fe3179050db1e73cc01f9a085fdf"
+        },
+        {
+          "path": "run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/dds.log",
+          "bytes": 240,
+          "sha256": "f9b5bcfab3f26c65dfe029ec899ebcab5b437238bb2a05482eb8c594b61f33e4"
+        },
+        {
+          "path": "docs/evidence/W14/rviz-lifecycle/full-01-between-round-audit.json",
+          "bytes": 1975,
+          "sha256": "331ae29feb45dbe78fca89d106a0f1d44e579f40e6ee811eb3482b2b4cdf14f7"
+        },
+        {
+          "path": "run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/gpu/host/windows-checks.json",
+          "bytes": 1070,
+          "sha256": "08312eba3fdb890384bd483c15cfb9f154a9a0922c7e8bdbf5e355564b74b09c"
+        }
+      ]
+    },
+    {
+      "run_id": "20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217",
+      "code_sha": "a963518410ad0faefad0c3b2230d367780c91212",
+      "original_status": "FAILED",
+      "publication_status": "SUCCESS_WITH_WARNING",
+      "navigation": "NAVIGATION_SUCCESS",
+      "safety": "SAFETY_PASS",
+      "warning": "DDS_TEARDOWN_WARNING",
+      "dds_returncode": -11,
+      "classification": {
+        "status": "SUCCESS_WITH_WARNING",
+        "exception": "DDS_TEARDOWN_EXCEPTION",
+        "dds_returncode": -11,
+        "checks": {
+          "navigation_success": true,
+          "zero_contacts_and_falls": true,
+          "safe_stop_completed": true,
+          "other_components_zero": true,
+          "dds_alive_until_shutdown": true,
+          "ros_communication_continuous": true,
+          "expected_shutdown_after_navigation_and_stop": true,
+          "dds_log_saved": true,
+          "exact_nonzero_dds_code_saved": true,
+          "no_signal_escalation": true,
+          "dds_pid_gone": true,
+          "dds_port_released": true,
+          "no_project_residuals": true,
+          "host_graphics_checked_without_fault": true,
+          "no_other_error": true,
+          "runner_finished_normally": true
+        },
+        "failed_checks": []
+      },
+      "proof": {
+        "dds_log_saved": true,
+        "dds_log_sha256": "f9b5bcfab3f26c65dfe029ec899ebcab5b437238bb2a05482eb8c594b61f33e4",
+        "dds_returncode": -11,
+        "dds_pid_gone": true,
+        "dds_port_released": true,
+        "remaining_owned_pids": [],
+        "remaining_project_processes": [],
+        "host_graphics_checked_without_fault": true,
+        "runner_exit_code": 1
+      },
+      "lifecycle_proof_method": "Retrospective inference from frozen runner poll/send/log order and saved result; no new run",
+      "sources": [
+        {
+          "path": "docs/evidence/W14/rviz-lifecycle/full-02-final-result.json",
+          "bytes": 50458,
+          "sha256": "624549872a2182f66488712efc37138a5c47704e4cfda43466b71b04b34151bb"
+        },
+        {
+          "path": "run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/result.json",
+          "bytes": 50343,
+          "sha256": "a583df06fcd0b22e09421091b877d4bbfcd5b186f3d96737de34d5b764ceb970"
+        },
+        {
+          "path": "run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/dds.log",
+          "bytes": 240,
+          "sha256": "f9b5bcfab3f26c65dfe029ec899ebcab5b437238bb2a05482eb8c594b61f33e4"
+        },
+        {
+          "path": "docs/evidence/W14/rviz-lifecycle/full-02-final-host-audit.json",
+          "bytes": 621,
+          "sha256": "b9609efd7e9e1d3bdf903715db4e92aab7b14bf644ab12dcbac7472773b99cd4"
+        },
+        {
+          "path": "run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/gpu/host/windows-checks.json",
+          "bytes": 1264,
+          "sha256": "22d23b97957805638e8c21d0b59a7c010d0519ece484a8e0003630375ef0f42c"
+        }
+      ]
+    }
+  ],
+  "preserved_limitations": [
+    "W13 FAILED",
+    "original black-screen",
+    "CPU dynamic-stop failure",
+    "RViz -6",
+    "original second GUI FAILED / DDS -11",
+    "dxg adapter-query ioctl errors not proven harmless"
+  ]
+}

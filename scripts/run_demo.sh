@@ -6,7 +6,8 @@ case "${1:-}" in
   --help|-h)
     cat <<'HELP'
 Usage: ./scripts/run_demo.sh [--preflight] [--headless] [--no-rviz] [--scenario U01]
-STATUS: W14_BLOCKED. RViz exits passed, but rehearsal02 DDS shutdown exited -11; GUI locked.
+STATUS: W14_DEMO_READY_WITH_DDS_TEARDOWN_WARNING. GUI enabled.
+DDS_TEARDOWN_EXCEPTION: only verified post-success/post-stop DDS teardown may warn; exact exit/log retained.
 MuJoCo/RViz: NVIDIA RTX 4050; RViz Qt-thread cleanup and RGB cells.
 Default: MuJoCo + RViz, frozen formal-v1 U01 seed 4000, A(0,0,0) -> B(9,0,0).
 --preflight  CPU resource/environment checks only; no graphics/ROS/DDS processes.
@@ -81,6 +82,8 @@ if kill -0 "$runner_pid" 2>/dev/null; then
   wait "$runner_pid" || result=$?
 fi
 runner_pid=''
+# Finalizer applies all DDS_TEARDOWN_EXCEPTION gates, prints the exact warning,
+# and preserves the DDS child return code separately from this wrapper exit.
 if [[ -f "$T1_DEMO_DIR/result.json" ]]; then
   if /usr/bin/python3 "$DEMO_ROOT/scripts/demo/finalize.py" "$T1_DEMO_DIR" "$result"; then
     result=0

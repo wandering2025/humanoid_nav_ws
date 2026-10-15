@@ -498,9 +498,18 @@ class Demo:
             if name not in self.children:
                 continue
             p,log=self.children[name]
+            if name=='dds':
+                # Observation only: do not change frozen navigation or signal order.
+                self.summary['dds_shutdown']=dict(pid=p.pid,alive_before_signal=p.poll() is None,
+                    ros_communication_healthy=not self.summary.get('error') and bool(self.summary.get('nav2',{}).get('verified')),
+                    navigation_and_stop_complete=bool(self.summary.get('nav2',{}).get('verified')) and
+                        self.summary.get('safe_stop',{}).get('ack') is True and
+                        self.summary.get('safe_stop',{}).get('physical_stationary') is True,
+                    signal=None)
             if p.poll() is None:
                 p.send_signal(signal.SIGINT)
                 self.summary['shutdown_signals'].append([name,p.pid,'SIGINT'])
+                if name=='dds':self.summary['dds_shutdown']['signal']='SIGINT'
             try:
                 p.wait(timeout=35 if name=='launch' else 10)
             except subprocess.TimeoutExpired:

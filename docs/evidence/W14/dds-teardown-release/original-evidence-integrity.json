@@ -1,0 +1,42 @@
+[
+  {
+    "index": "docs/evidence/W14/raw-artifact-index.json",
+    "entries": 56,
+    "mismatches": []
+  },
+  {
+    "index": "docs/evidence/W14/cpu-recovery/raw-artifact-index.json",
+    "entries": 48,
+    "mismatches": []
+  },
+  {
+    "index": "docs/evidence/W14/nvidia-recovery/raw-artifact-index.json",
+    "entries": 100,
+    "mismatches": []
+  },
+  {
+    "index": "docs/evidence/W14/rehearsals/batch2/raw-artifact-index.json",
+    "entries": 30,
+    "mismatches": []
+  },
+  {
+    "index": "docs/evidence/W14/rehearsals/batch1/raw-artifact-index.json",
+    "entries": 82,
+    "mismatches": []
+  },
+  {
+    "index": "docs/evidence/W14/rehearsals/batch3/raw-artifact-index.json",
+    "entries": 47,
+    "mismatches": []
+  },
+  {
+    "index": "docs/evidence/W14/rviz-lifecycle/minimal-raw-index.json",
+    "entries": 13,
+    "mismatches": []
+  },
+  {
+    "index": "docs/evidence/W14/rviz-lifecycle/strict-raw-index.json",
+    "entries": 130,
+    "mismatches": []
+  }
+]

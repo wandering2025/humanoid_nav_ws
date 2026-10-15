@@ -1,0 +1,44 @@
+{
+  "utc": "2026-10-15T14:18:38.522317+00:00",
+  "starting_head": "61644012094a251b41e66256d4bb4f1e848f67c5",
+  "decision_sha": "f687f21922245aa6cace42a9cef204c18f50f9b2",
+  "dirty_at_start": [],
+  "gpu_queries": 0,
+  "new_graphics_runs": 0,
+  "tests": [
+    {
+      "suite": "test_dds_teardown.py",
+      "passed": 18,
+      "exit_code": 0
+    },
+    {
+      "suite": "test_finalize.py",
+      "passed": 4,
+      "exit_code": 0
+    },
+    {
+      "suite": "test_gpu_watch.py",
+      "passed": 8,
+      "exit_code": 0
+    }
+  ],
+  "static_checks": {
+    "bash_n": "PASS",
+    "python_compile_5_files": "PASS",
+    "help": "PASS",
+    "diff_check": "PASS"
+  },
+  "source_hashes": {
+    "scripts/run_demo.sh": "76ab986a913da3cc56457e70d265a817d4473392131392174751d68f500a3eb8",
+    "scripts/demo/demo.py": "0ac5ecc25d344adbc63dbcf497ce19fc2eee1c7a1791a91a576c64f9a05c7549",
+    "scripts/demo/finalize.py": "35da7a89c72f9933144a4852865ccd697e8502103102d29f7393c0fc8d2b10d2",
+    "scripts/demo/dds_teardown.py": "091e39753a959c79fa3a346fbc157021b2174f276a7c450264da7c3c25e972cb",
+    "scripts/demo/test_dds_teardown.py": "fe33e4f02e5dc3d7eb53d0877fae32a5c231724b86413ac83a94246b9e5b210c",
+    "scripts/demo/assess_release_evidence.py": "037183ff71e147f4d75b6041d96a19dee8f9c9333b2935204c95c5944ce354a8",
+    "scripts/demo/gpu-profile.json": "9e4c3966496dc60953113b11fafc786a97e6e7cc5d1ba02cf95e9d1f5ac844c1"
+  },
+  "diagnostics_preserved": [
+    "First offline historical adapter found audit01 has no project_processes field; fixed to require original result remaining_project_processes=[] for01; no raw result changed.",
+    "Sandbox denied local socket creation (EPERM); authorized read-only bind audit repeated with sandbox escalation, both ports free; no service started."
+  ]
+}

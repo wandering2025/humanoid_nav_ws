@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-15T13:58:57.302817+00:00",
+  "reason": "Two authorized full rehearsals exhausted; run02 DDS SIGSEGV -11 on shutdown, overallFAILED. No further graphical retry authorized.",
+  "run_id": "20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217",
+  "rviz_exit": 0,
+  "dds_exit": -11,
+  "graphics_error_observed": false
+}
