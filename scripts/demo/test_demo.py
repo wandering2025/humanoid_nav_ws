@@ -47,6 +47,17 @@ class Isolation(unittest.TestCase):
         self.assertEqual(result.returncode,0)
         self.assertIn('--preflight',result.stdout)
 
+    def test_all_public_runtime_modes_stop_before_environment(self):
+        for arguments in ([],['--preflight'],['--headless'],['--no-rviz'],['--scenario','U01']):
+            result=subprocess.run([str(demo.WS/'scripts/run_demo.sh'),*arguments],
+                                  env={'PATH':'/usr/bin:/bin'},cwd='/tmp',capture_output=True,text=True)
+            self.assertEqual(result.returncode,3,arguments)
+            self.assertIn('W14_BLOCKED',result.stderr)
+
+    def test_direct_runner_cannot_probe_gpu_while_locked(self):
+        with patch.object(demo,'preflight',side_effect=AssertionError('must not execute')):
+            self.assertEqual(demo.main(),3)
+
 
 if __name__=='__main__':
     unittest.main()

@@ -22,6 +22,7 @@ OUT = Path(os.environ['T1_DEMO_DIR'])
 RUN_ID = os.environ['T1_DEMO_RUN_ID']
 BASELINE = 'b23a92465b317ca781d3eb210051126c5786908e'
 STOP = False
+SAFETY_BLOCK_REASON = 'W14_BLOCKED: host black-screen incident; runtime/GPU probes disabled pending reviewed recovery.'
 
 
 def say(message):
@@ -280,7 +281,8 @@ class Demo:
         from visualization_msgs.msg import MarkerArray
         import rclpy
         self.spawn('dds',[str(WS/'scripts/start_local_dds.sh')])
-        rclpy.init()
+        from rclpy.signals import SignalHandlerOptions
+        rclpy.init(signal_handler_options=SignalHandlerOptions.NO)
         self.node=Probe()
         self.viz=self.node.create_publisher(MarkerArray,'/t1/viz/demo',QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL))
         self.global_map=None
@@ -460,6 +462,9 @@ class Demo:
 
 
 def main():
+    if SAFETY_BLOCK_REASON:
+        say(SAFETY_BLOCK_REASON)
+        return 3
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--preflight',action='store_true')
     parser.add_argument('--headless',action='store_true')
@@ -491,8 +496,12 @@ def main():
         (OUT/'failure.txt').write_text(traceback.format_exc())
         say(f'FAILED: {exc}; no automatic retry')
     finally:
+        demo.runtime_graph={}
         if demo.node:
-            demo.runtime_graph=demo.node.graph(('/cmd_vel','/t1/eval/obstacle','/t1/eval/ground_truth','/t1/cmd_teleop'))
+            try:
+                demo.runtime_graph=demo.node.graph(('/cmd_vel','/t1/eval/obstacle','/t1/eval/ground_truth','/t1/cmd_teleop'))
+            except Exception:
+                demo.summary['graph_error']=traceback.format_exc()
         try:
             demo.cleanup()
         except Exception:
