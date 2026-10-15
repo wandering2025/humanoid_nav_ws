@@ -1,0 +1,64 @@
+{
+  "utc": "2026-10-15T18:11:40.689229+00:00",
+  "source_sha": "f9286749d8f6c78122df6e9e25a50cff21977d5b",
+  "advanced_branch": "feature/advanced-slam-demo-v0.2",
+  "advanced_dirty": "",
+  "stable_head": "0f51d54b1dbfdde0664966118b5546109a3f6ff2",
+  "stable_branch": "release/w15-controlled-recovery",
+  "stable_tag_object": "844036e69644272dce6178552dd10778e80d4d35",
+  "stable_tag_commit": "0f51d54b1dbfdde0664966118b5546109a3f6ff2",
+  "stable_dirty": "",
+  "files": [
+    {
+      "path": "scripts/run_demo.sh",
+      "sha256": "58ffe34829a5b6daa112a8e691842066627e73deee7106717082cb9b45e44d6f",
+      "advanced_stable_tag_identical": true
+    },
+    {
+      "path": "src/t1_navigation/config/safety.yaml",
+      "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf",
+      "advanced_stable_tag_identical": true
+    },
+    {
+      "path": "src/t1_navigation/config/navigation.yaml",
+      "sha256": "94ab4486b10599f6516954e45609d3db01ffef3cfee0a72b11058f55fcc2be13",
+      "advanced_stable_tag_identical": true
+    },
+    {
+      "path": "src/t1_mujoco/config/command_map.yaml",
+      "sha256": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+      "advanced_stable_tag_identical": true
+    },
+    {
+      "path": "src/t1_bringup/t1_bringup/navigation_adapter.py",
+      "sha256": "15199a5ea3d80c6f2f8ff51cc0a8fc11be4697b8f08f752c2e14510d1d1d8edb",
+      "advanced_stable_tag_identical": true
+    },
+    {
+      "path": "src/t1_bringup/t1_bringup/navigation_tools.py",
+      "sha256": "011c83be8e8bf564c20cdbac20cee7564bc16b90a148e5d4f9a46aa9d0883fb1",
+      "advanced_stable_tag_identical": true
+    },
+    {
+      "path": "src/t1_bringup/t1_bringup/safety.py",
+      "sha256": "310f9bdd4960ce33ff82c78fc3d818c93972ec30cd3e4f7f066395bd813debdd",
+      "advanced_stable_tag_identical": true
+    },
+    {
+      "path": "src/t1_mujoco/t1_mujoco/runner.py",
+      "sha256": "ebf0863116884e35aa2643da47112dcb2b00b37b30e3217200e2ae00b64a105b",
+      "advanced_stable_tag_identical": true
+    }
+  ],
+  "upstreams": {
+    "booster_deploy": {
+      "head": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+      "dirty": ""
+    },
+    "booster_assets": {
+      "head": "12a97516f57469078707afb587a5f84c1cb110d1",
+      "dirty": ""
+    }
+  },
+  "diff_check": "PASS"
+}

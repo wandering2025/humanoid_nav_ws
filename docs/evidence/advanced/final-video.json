@@ -1,0 +1,174 @@
+{
+  "verification": {
+    "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced/raw/final-recording-02/advanced-demo.mp4",
+    "bytes": 14703489,
+    "sha256": "3f9547f14e7ecadd4d0f115c4a562291dc4530e4de7a95d7633041d0f7a3716a",
+    "source_sha": "f9286749d8f6c78122df6e9e25a50cff21977d5b",
+    "run_id": "20261015T180213Z_advanced_c20b40f2-12f5-4b5c-8c96-0d5a68461b8f",
+    "width": 2048,
+    "height": 852,
+    "fps": 4.0,
+    "live_seconds": 360.25,
+    "evidence_card_seconds": 8,
+    "total_seconds": 368.25,
+    "decoded_frames": 1473,
+    "expected_frames": 1473,
+    "capture_pairs": 1139,
+    "max_pair_gap_s": 0.7251611049978237,
+    "max_view_skew_s": 0.3388268029993924,
+    "full_decode_verified": true,
+    "visual_review_pending": false,
+    "visual_review": "review/index.json",
+    "codec_fourcc": "avc1",
+    "decoder_backend": "FFMPEG",
+    "observed_fps": 4.0,
+    "observed_width": 2048,
+    "observed_height": 852
+  },
+  "visual_review": {
+    "status": "VISUAL_REVIEW_PASS",
+    "video_sha256": "3f9547f14e7ecadd4d0f115c4a562291dc4530e4de7a95d7633041d0f7a3716a",
+    "keyframes": [
+      {
+        "label": "A initial",
+        "sim": null,
+        "video_frame": 0,
+        "video_seconds": 0.0,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced/raw/final-recording-02/review/00.png",
+        "sha256": "17c4cf47a771bfa3c01e358468f888791a0246bbecfd20361c866faf6b9de2b5"
+      },
+      {
+        "label": "West map growing",
+        "sim": 39.31,
+        "video_frame": 105,
+        "video_seconds": 26.25,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced/raw/final-recording-02/review/01.png",
+        "sha256": "08361b2d0a20fe2990a890fc0c6909bbe104eed894e54d74e7be3fe14dd68ded"
+      },
+      {
+        "label": "West turn",
+        "sim": 57.25000000000001,
+        "video_frame": 177,
+        "video_seconds": 44.25,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced/raw/final-recording-02/review/02.png",
+        "sha256": "c9cc26ad65493a8de63e54ef3c30408853c2517923fcd55b67687cec9fdca364"
+      },
+      {
+        "label": "North gallery",
+        "sim": 78.28,
+        "video_frame": 265,
+        "video_seconds": 66.25,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced/raw/final-recording-02/review/03.png",
+        "sha256": "ddb5cee98fec5d12fba56dc08815e728f1c8fbe06a794d08c15eb6be3ef3a26b"
+      },
+      {
+        "label": "East map growing",
+        "sim": 127.65,
+        "video_frame": 462,
+        "video_seconds": 115.5,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced/raw/final-recording-02/review/04.png",
+        "sha256": "aff3cb2443284cd59224c17f2d2cfa98e9e8f91cdce717a261d063b2336f750d"
+      },
+      {
+        "label": "Return to A",
+        "sim": 265.100000001,
+        "video_frame": 1017,
+        "video_seconds": 254.25,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced/raw/final-recording-02/review/05.png",
+        "sha256": "678c37788802da1f75f2da2b7cd0168b201ad9c58e9169eb8f461e09efdf10f4"
+      },
+      {
+        "label": "A-to-B phase announced; first selected frame precedes path display",
+        "sim": 275.920000001,
+        "video_frame": 1061,
+        "video_seconds": 265.25,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced/raw/final-recording-02/review/06.png",
+        "sha256": "e8aaa9d5a65c3b6e728c402d2eabdab390814a42802ab4ba41e830a62fb84d48"
+      },
+      {
+        "label": "Obstacle approaches",
+        "sim": 320.0200000007856,
+        "video_frame": 1238,
+        "video_seconds": 309.5,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced/raw/final-recording-02/review/07.png",
+        "sha256": "51245f1d64f19e3729099fcd00a601dbb09682a5768c09871d77f6c37e8bfdb1"
+      },
+      {
+        "label": "Obstacle holds",
+        "sim": 325.32000000082525,
+        "video_frame": 1260,
+        "video_seconds": 315.0,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced/raw/final-recording-02/review/08.png",
+        "sha256": "cda4a39c988d0985063be00160857ab7522f6c09e004e3b6cb34020ec23da7c0"
+      },
+      {
+        "label": "Obstacle clears",
+        "sim": 336.5200000008644,
+        "video_frame": 1304,
+        "video_seconds": 326.0,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced/raw/final-recording-02/review/09.png",
+        "sha256": "de00621bdd003526ada544679558335ed9baa3b1a7649d6850378902aeb7f572"
+      },
+      {
+        "label": "B arrival and safe stop",
+        "sim": 369.360000001,
+        "video_frame": 1437,
+        "video_seconds": 359.25,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced/raw/final-recording-02/review/10.png",
+        "sha256": "b250ea3c86873f25da35cdaa356786d0c4ea66187aad28ae2a63e2d62132d5f2"
+      },
+      {
+        "label": "Post-run evidence card",
+        "sim": "card",
+        "video_frame": 1453,
+        "video_seconds": 363.25,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced/raw/final-recording-02/review/11.png",
+        "sha256": "0b0dea7ca092e6a0679700175012a2503fcab7aca00772847a72f4ba39eda199"
+      },
+      {
+        "label": "Visible nonstraight path around partition to B approach point",
+        "video_frame": 1092,
+        "video_seconds": 273.0,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced/raw/final-recording-02/review/route-273s.png",
+        "sha256": "9ac1c86931f344334cbd5f711dbdcb99fc8e2af4b0510c687c96121cd6ae4e34"
+      }
+    ],
+    "reviewer": "single primary Codex agent",
+    "utc": "2026-10-15T18:15:07.769956+00:00",
+    "reviewed_keyframes": 13,
+    "method": "Three decoded-video contact sheets plus full-resolution route, obstacle and result-card frames. Entire video software decoded by encoder verification; not a claim of watching every frame.",
+    "checks": {
+      "a_marker": true,
+      "physical_walking": true,
+      "map_growth": true,
+      "lidar_visible": true,
+      "west_north_east_structure": true,
+      "nonstraight_route": true,
+      "dynamic_box_and_costmap": true,
+      "continued_progress": true,
+      "b_arrival": true,
+      "post_run_card_explicit": true,
+      "truth_limit_disclosed": true
+    },
+    "notes": [
+      "Frame273s clearly displays full north-around-partition path; initial frame06 was only the phase announcement.",
+      "First global path ends at the unchanged goal tool approach point(14,1.5); final separate approach reaches B(14,0).",
+      "No speed-up; video repeats the latest acquired frame as needed to preserve actual monotonic elapsed time.",
+      "Two windows are sequentially sampled; maximum skew is disclosed in video metadata."
+    ]
+  },
+  "capture": {
+    "source_sha": "f9286749d8f6c78122df6e9e25a50cff21977d5b",
+    "run_id": "20261015T180213Z_advanced_c20b40f2-12f5-4b5c-8c96-0d5a68461b8f",
+    "run_dir": "/home/haoyang/humanoid_nav_ws_advanced/run_data/advanced/20261015T180213Z_advanced_c20b40f2-12f5-4b5c-8c96-0d5a68461b8f",
+    "start_mono": 20892.116349193,
+    "end_mono": 21280.826492917,
+    "frame_pairs": 1139,
+    "window_ids": {
+      "MuJoCo": 6291463,
+      "RViz": 8388861
+    },
+    "error": null,
+    "method": "Independent ImageMagick serial reads of MuJoCo and RViz, <=4 paired frames/s. No encoding during simulation."
+  }
+}
