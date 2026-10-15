@@ -147,3 +147,5 @@ ADR-024 candidate lowers only the W11 raw yaw-intent threshold from .20 to
 Actual in-place output remains .60 rad/s (clamped to frozen [.56,.85]); W05
 dead zones, walking limits and W10 are unchanged. The goal epoch gate still
 blocks all commands without a current active navigation/controller goal.
+
+W11R1 ADR-025：`t1_navigation::ExactGoalLattice`复用已安装SmacPlannerLattice并恢复最后path pose的精确请求orientation。搜索内部角度离散不应改变对外连续终点语义，尤其是±0.2rad附近的回弹纠偏。所有平移样本与圆形2.05m碰撞检查原样保留；真实规划服务测试覆盖+.238034/−.216578请求。

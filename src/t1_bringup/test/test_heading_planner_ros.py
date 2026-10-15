@@ -1,7 +1,7 @@
 """Exercise the installed planner's returned path on the frozen static map.
 
-No simulator or velocity publisher. A nominal start is supplied to the planning
-action; assertions examine translation geometry, not the copied endpoint yaw.
+No simulator or velocity publisher. Check detour translation geometry and exact
+requested terminal yaw, including the original B06 correction requests.
 """
 import math
 import os
@@ -20,8 +20,8 @@ from tf2_ros import StaticTransformBroadcaster
 from test_bounded_manager_ros import manager, response  # shared isolated DDS fixture
 
 
-@pytest.mark.parametrize('start_x', [0., 1.85])
-def test_detour_path_arrives_forward_along_goal_heading(manager, tmp_path, start_x):
+@pytest.mark.parametrize('start_x,goal_yaw', [(0., 0.), (1.85, 0.), (0., .238034), (0., -.216578)])
+def test_detour_path_arrives_forward_along_goal_heading(manager, tmp_path, start_x, goal_yaw):
     node, start = manager
     ws = Path(__file__).resolve().parents[3]
     params = yaml.safe_load((ws/'src/t1_navigation/config/navigation.yaml').read_text())
@@ -73,6 +73,8 @@ def test_detour_path_arrives_forward_along_goal_heading(manager, tmp_path, start
     request.planner_id = 'GridBased'
     request.start.header.frame_id = request.goal.header.frame_id = 'map'
     request.start.pose.orientation.w = request.goal.pose.orientation.w = 1.
+    request.goal.pose.orientation.z = math.sin(goal_yaw/2)
+    request.goal.pose.orientation.w = math.cos(goal_yaw/2)
     request.start.pose.position.x = start_x
     request.goal.pose.position.x = 9.
     handle = response(action.send_goal_async(request), 5.)
@@ -82,11 +84,15 @@ def test_detour_path_arrives_forward_along_goal_heading(manager, tmp_path, start
     poses = [p.pose for p in result.result.path.poses]
     assert len(poses) > 10
     assert max(abs(p.position.y) for p in poses) > 2.5  # actual island detour
+    q = poses[-1].orientation
+    end_yaw = math.atan2(2*q.w*q.z, 1-2*q.z*q.z)
+    assert abs(math.atan2(math.sin(end_yaw-goal_yaw), math.cos(end_yaw-goal_yaw))) < 1e-6
     end = poses[-1].position
     # Inspect the incoming geometry at the frozen positional goal band. A
     # 0.5 m chord of a 1 m turn need not already be parallel to the endpoint.
     before = next(p.position for p in reversed(poses) if math.hypot(p.position.x-end.x, p.position.y-end.y) >= .2)
-    assert abs(math.atan2(end.y-before.y, end.x-before.x)) < .20
+    if goal_yaw == 0.:
+        assert abs(math.atan2(end.y-before.y, end.x-before.x)) < .20
     for a, b in zip(poses, poses[1:]):
         q = a.orientation
         yaw = math.atan2(2*q.w*q.z, 1-2*q.z*q.z)

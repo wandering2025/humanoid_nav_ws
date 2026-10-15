@@ -256,7 +256,7 @@ planner_server:
     # turning radius fits vx<=0.45 / |wz|<=0.45 without in-place terminal turns.
     # The frozen 2.05 m radius and inscribed/lethal cost cells remain obstacles.
     GridBased:
-      plugin: "nav2_smac_planner::SmacPlannerLattice"
+      plugin: "t1_navigation::ExactGoalLattice"
       tolerance: 0.0
       allow_unknown: false
       # Installed Jazzy diff primitives: 0.05 m grid, 1.0 m walking radius,

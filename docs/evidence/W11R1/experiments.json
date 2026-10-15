@@ -709,5 +709,39 @@
     "falls": 0,
     "remaining_owned_pids": [],
     "decision": "W11 yaw intent threshold .05, actual turn target .60 and W05 .56..85 frozen band unchanged; no planner-radius or safety changes"
+  },
+  {
+    "hypothesis": "H10 rejected on B06; H11 exact terminal heading",
+    "code_sha": "2a98358aa6fc2baf0c0984682e7722972d2b6f46",
+    "campaign": "w11r1-repair-smoke-v7",
+    "results": {
+      "B04": "SUCCESS",
+      "B06": "FAIL_SAFETY_STOP_UNRECOVERED",
+      "C01": "NOT_RUN",
+      "C09": "NOT_RUN"
+    },
+    "b06_run_id": "20261015T083117Z_w11r1-repair-smoke-v7_B06_s3005_19a4b5",
+    "b06_error": "TERMINAL_CORRECTIONS_EXHAUSTED",
+    "b06_stable_yaws": [
+      -0.238034,
+      0.454612,
+      0.335612,
+      -0.433967
+    ],
+    "planning_service_regression": {
+      "requested_yaw": [
+        0.238034,
+        -0.216578
+      ],
+      "actual_lattice_yaw": [
+        0.463647609,
+        0.0
+      ],
+      "tests": "2 failures and 2 nominal passes before repair"
+    },
+    "decision": "Keep lattice geometry; restore exact requested quaternion at final path pose; orientation does not change circular planning footprint.",
+    "contacts": 0,
+    "falls": 0,
+    "remaining_owned_pids": []
   }
 ]

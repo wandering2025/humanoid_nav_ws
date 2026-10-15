@@ -57,3 +57,5 @@ H8纯DUBIN在B06障碍进入后于x≈1.6无法向前做1m圆弧绕行，15.76s 
 H9 B06单次成功，一修正；B04在障碍前死锁120s。该run CM stop/slowdown均0（不能归因安全圈），raw转向.0582/.0845/.15被adapter .20阈值清零，持续停在yaw−.9rad；偶发vx抬升的smoother只到.08，仍低于物理步态起步。H10仅修W11 raw意图阈值.05，保持实际原地.60目标与W05完整[.56,.85]带，详见ADR-024。没有改规划半径，也没有改W05/W10。
 
 H10 B04 SUCCESS：.158458m/5.789103°，98.64s，0修正。取消接口回归实际全部行为通过；旧W11 graph_checks排除w11_evaluator，现代harness观察者为t1_evaluator，导致三项纯命名不兼容。仅W11R1验证入口适配实际记录器名称，原始FAIL文件不改，离线重算+非法发布/订阅负控，见cancel结果。额外到达稳定检查False保留：F09替换目标不是正式到达案例，原6s观察尾端虽.288584m/19.612078°，尚未形成2s联合到达窗。
+
+H10 B06失败：位置已收敛但三次修正稳定yaw为+.454612、+.335612、−.433967rad。H11发现新格点集成缺陷（不是原formal-v1的根因）：installed diff原语16角度在0附近为0/±.463647609；SmacPlannerLattice返回量化末点，未恢复请求姿态。实际ComputePathToPose测试请求+.238034/−.216578返回+.463647609/0，两条精确终点断言失败，0yaw的两条绕障测试仍通过。源码核对：https://github.com/ros-navigation/navigation2/blob/1.3.13/nav2_smac_planner/src/smac_planner_lattice.cpp（313–315量化，380–398输出，无末点恢复）。修复仅本仓库薄插件继承已安装搜索，恢复末点orientation，请求位置/搜索路径所有平移样本/2.05m圆碰撞检查不变；无需改变修正次数、goal tolerance或W05/W10。

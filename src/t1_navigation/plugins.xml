@@ -1,0 +1,5 @@
+<library path="exact_goal_lattice">
+  <class type="t1_navigation::ExactGoalLattice" base_class_type="nav2_core::GlobalPlanner">
+    <description>Forward Smac lattice with the exact requested terminal yaw.</description>
+  </class>
+</library>
