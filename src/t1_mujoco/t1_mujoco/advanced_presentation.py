@@ -14,6 +14,6 @@ def annotate(viewer):
             mujoco.mjv_initGeom(geom,kind,size,pos,np.eye(3).ravel(),color)
             geom.label=text
             scene.ngeom+=1
-    viewer.cam.distance=11.
-    viewer.cam.elevation=-55.
+    viewer.cam.distance=8.
+    viewer.cam.elevation=-40.
     viewer.cam.azimuth=90.

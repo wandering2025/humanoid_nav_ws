@@ -191,6 +191,7 @@ def preflight(args):
 
 
 class Demo:
+    managed_shutdown_order = ('goal', 'rviz', 'launch', 'dds')
     def __init__(self, args, provenance):
         self.args, self.provenance = args, provenance
         self.started = time.monotonic()
@@ -502,7 +503,7 @@ class Demo:
             self.safe_stop()
         self.track()
         # One SIGINT to launch parent; launch forwards once to its children.
-        for name in ('goal','rviz','launch','dds'):
+        for name in self.managed_shutdown_order:
             if name not in self.children:
                 continue
             p,log=self.children[name]

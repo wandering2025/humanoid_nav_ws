@@ -1,0 +1,106 @@
+{
+  "code_sha": "048e9fde05975ee8875e9c9bd693d0f9a05256a1",
+  "status": "FAILED",
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 17740.057329991,
+      "sim_time": 44.800000000000004,
+      "health_reason": ""
+    }
+  },
+  "zero_policy": true,
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "parent_exit_codes": {
+    "dds": 0,
+    "launch": 0,
+    "rviz": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 116619,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 116620,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 116621,
+      "exit_code": 0
+    },
+    "command_gate-4": {
+      "pid": 116622,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 116623,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 116624,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 116932,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 117037,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 117038,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 117039,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 117040,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 117041,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 117042,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 117043,
+      "exit_code": 0
+    }
+  },
+  "remaining_owned_pids": [],
+  "dds_port_released": true,
+  "gpu_monitor_error": null,
+  "graph_contract": {
+    "final_only_collision_monitor": true,
+    "obstacle_truth_isolated": true,
+    "robot_truth_isolated": true,
+    "no_initialpose": true,
+    "map_only_slam": true,
+    "map_odom_only_slam": false
+  },
+  "map_odom_authorities": [
+    "UNKNOWN:UNAVAILABLE"
+  ],
+  "run_id": "20261015T170517Z_advanced_0c8fe097-3b4f-4c6a-9d86-b4d39f940381",
+  "raw": "run_data/advanced/20261015T170517Z_advanced_0c8fe097-3b4f-4c6a-9d86-b4d39f940381",
+  "result_sha256": "90d7317ce6d842bfae6be77b3810cce50910ffb757b0ccd34320a0e5ed0165d8",
+  "graphics": "PASS: actual MuJoCo and NVIDIA RViz screenshots; zero commands, all exits0, no GPU/host error",
+  "reason": "Overall FAILED: rclpy Jazzy omits publisher_gid entirely. Existing W09 C++ probe documents and solves this; reuse it."
+}

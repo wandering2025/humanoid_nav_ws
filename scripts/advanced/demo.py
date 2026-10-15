@@ -46,20 +46,20 @@ def preflight():
 
 
 class Advanced(base.Demo):
+    managed_shutdown_order = ('goal','rviz','authority','launch','dds')
     def __init__(self,args,provenance):
         super().__init__(args,provenance)
         self.summary.update(scenario='ADV01',method='guided_autonomous_mapping',goals=[],map_growth=[])
         self.route=__import__('yaml').safe_load((WS/'src/t1_bringup/config/advanced_route.yaml').read_text())
         self.runtime_graph={}
         self.global_grid=None
-        self.map_odom_gids=set()
 
     def markers(self):
         if not hasattr(self,'viz'): return
         from visualization_msgs.msg import Marker, MarkerArray
         from geometry_msgs.msg import Point
         a=MarkerArray()
-        for i,(x,label,color) in enumerate(((0.,'A START',(.1,.75,.95)),(14.,'B GOAL',(.2,.95,.45)))):
+        for i,(x,label,color) in enumerate(((0.,'A START',(.05,.45,.65)),(14.,'B GOAL',(.05,.5,.22)))):
             m=Marker();m.header.frame_id='map';m.ns='route';m.id=2*i
             m.type=Marker.LINE_STRIP;m.pose.orientation.w=1.;m.scale.x=.06
             m.color.r,m.color.g,m.color.b=color;m.color.a=1.
@@ -67,18 +67,14 @@ class Advanced(base.Demo):
             a.markers.append(m)
             m=Marker();m.header.frame_id='map';m.ns='route';m.id=2*i+1
             m.type=Marker.TEXT_VIEW_FACING;m.pose.orientation.w=1.;m.pose.position.x=x
-            m.pose.position.y=-1.;m.scale.z=.5;m.color.r,m.color.g,m.color.b=color;m.color.a=1.;m.text=label
+            m.pose.position.y=-1.;m.scale.z=.65;m.color.r,m.color.g,m.color.b=color;m.color.a=1.;m.text=label
             a.markers.append(m)
         m=Marker();m.header.frame_id='map';m.ns='phase';m.id=0;m.type=Marker.TEXT_VIEW_FACING
-        m.pose.orientation.w=1.;m.pose.position.x=7.;m.pose.position.y=13.;m.scale.z=.5
-        m.color.r=m.color.g=m.color.b=1.;m.color.a=1.;m.text=self.summary['status']
+        m.pose.orientation.w=1.;m.pose.position.x=7.;m.pose.position.y=13.;m.scale.z=.65
+        m.color.r,m.color.g,m.color.b=.1,.2,.3;m.color.a=1.
+        status=self.summary['status']
+        m.text=('Guided mapping '+str(int(status.rsplit('_',1)[1]))+'/9') if status.startswith('MAPPING_') and status.rsplit('_',1)[1].isdigit() else {'SLAM_INITIALIZING':'Live LiDAR SLAM','MAPPING_COMPLETE_AT_A':'Map complete - back at A','NAVIGATING_A_TO_B':'Navigating A to B','ARRIVED_SAFE_STOP':'Arrived - safely stopped'}.get(status,status)
         a.markers.append(m);self.viz.publish(a)
-
-    def tf_authority(self,msg,info):
-        for t in msg.transforms:
-            if t.header.frame_id=='map' and t.child_frame_id=='odom':
-                from verification import publisher_gid
-                self.map_odom_gids.add(publisher_gid(info) or 'UNAVAILABLE')
 
     def on_map(self,m):
         known=sum(v>=0 for v in m.data)
@@ -142,8 +138,7 @@ class Advanced(base.Demo):
                    and bool(base.port_connections()['listeners']),10)
         rclpy.init(signal_handler_options=SignalHandlerOptions.NO)
         self.node=Probe()
-        from tf2_msgs.msg import TFMessage
-        self.node.create_subscription(TFMessage,'/tf',self.tf_authority,100)
+        self.spawn('authority',[str(WS/'build/advanced-authority/tf_authority')])
         from grid_visuals import GridVisuals
         self.grid_visuals=GridVisuals(self.node)
         qos=QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL)
@@ -248,12 +243,17 @@ class Advanced(base.Demo):
             s['dynamic'].update(response_verdict(s['dynamic'],s['arrived']))
             behavior=(s['arrived'] and s['nonstraight_plan'] and s['map_growth_ratio']>1.3
                       and s['dynamic']['verdict']=='PASS' and len(s['goals'])==len(self.route['mapping_waypoints'])+1)
+        records=[json.loads(line) for line in (OUT/'authority.log').read_text().splitlines() if line.startswith('{')]
+        actual=[r for r in records if r['parent']=='map' and r['child']=='odom']
+        s['tf_authority']=records
+        s['map_odom_authorities']=sorted({r['node'] for r in actual if r['node']!='unresolved'})
+        s['map_odom_gids']=sorted({r['gid'] for r in actual})
         s['graph_contract']=dict(final_only_collision_monitor=self.runtime_graph.get('/cmd_vel',{}).get('publishers')==['collision_monitor'],
              obstacle_truth_isolated=self.runtime_graph.get('/t1/eval/obstacle',{}).get('subscribers')==['t1_evaluator'],
              robot_truth_isolated=self.runtime_graph.get('/t1/eval/ground_truth',{}).get('subscribers')==['t1_evaluator'],
              no_initialpose=not s.get('initializations'),
              map_only_slam=self.runtime_graph.get('/map',{}).get('publishers')==['slam_toolbox'],
-             map_odom_only_slam=s.get('map_odom_authorities')==['slam_toolbox'])
+             map_odom_only_slam=s.get('map_odom_authorities')==['slam_toolbox'] and len(s['map_odom_gids'])==1)
         exits=all(v==0 for v in s.get('parent_exit_codes',{}).values()) and bool(s.get('launch_process_exit_codes')) and all(v['exit_code']==0 for v in s['launch_process_exit_codes'].values())
         s['validation_before_port_check']=bool(behavior and exits and s['simulator_exit_code']==0 and not s['fell']
             and s['contacts']==dict(static_env=0,obstacle=0,ground_nonfoot=0) and all(s['graph_contract'].values())
@@ -289,9 +289,6 @@ def main():
     finally:
         try:
             if run.node:
-                endpoints=run.node.get_publishers_info_by_topic('/tf')
-                names={bytes(e.endpoint_gid).hex():e.node_name for e in endpoints}
-                run.summary['map_odom_authorities']=sorted({names.get(g,'UNKNOWN:'+g) for g in run.map_odom_gids})
                 run.runtime_graph=run.node.graph(('/cmd_vel','/t1/eval/obstacle','/t1/eval/ground_truth','/t1/cmd_teleop','/map','/tf'))
         except Exception:
             run.summary['error']='Final graph evidence unavailable'

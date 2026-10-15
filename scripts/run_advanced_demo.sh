@@ -3,7 +3,7 @@ set -Eeuo pipefail
 ADV_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
 if [[ "${1:-}" == --help || "${1:-}" == -h ]]; then
   echo 'Usage: ./scripts/run_advanced_demo.sh [--preflight|--headless|--startup-check] [--no-rviz] [--hold]'
-  echo 'v0.2 candidate: guided autonomous mapping, return to A, live-SLAM navigation to B.'
+  echo 'Advanced SLAM and Navigation Demo v0.2: guided autonomous mapping, return to A, live-SLAM navigation to B.'
   echo 'Ctrl+C requests latched safe stop and cleanup. Recording is a separate process.'
   exit 0
 fi
@@ -18,6 +18,10 @@ export ROS_LOG_DIR="$T1_DEMO_DIR/ros-log"
 source "$ADV_ROOT/scripts/env.sh" >"$T1_DEMO_DIR/environment.log" 2>&1
 [[ -f "$ADV_ROOT/install/setup.bash" ]] || { echo 'Build the independent overlay with system colcon first.' >&2; exit 2; }
 "$ADV_ROOT/scripts/demo/build_rviz.sh" >"$T1_DEMO_DIR/rviz-build.log" 2>&1
+if [[ ! -x "$ADV_ROOT/build/advanced-authority/tf_authority" ]]; then
+  cmake -S "$ADV_ROOT/docs/evidence/W09" -B "$ADV_ROOT/build/advanced-authority" -DPython3_EXECUTABLE=/usr/bin/python3 >"$T1_DEMO_DIR/authority-build.log" 2>&1
+  cmake --build "$ADV_ROOT/build/advanced-authority" --parallel 2 >>"$T1_DEMO_DIR/authority-build.log" 2>&1
+fi
 runner=''
 stop() { if [[ -n "$runner" ]] && kill -0 "$runner" 2>/dev/null; then kill -TERM "$runner"; fi; }
 trap stop INT TERM
