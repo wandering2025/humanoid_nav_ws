@@ -1,0 +1,7 @@
+{
+  "source_sha": "ef61e722f0466d36556807e36ddf458e6fe75c6d",
+  "result": "192 passed, 1 historical v0.1-only assertion deselected",
+  "log": "docs/evidence/advanced/raw/setup/advanced-tests-final-03.log",
+  "sha256": "dcd35f70fd250d710cd29be8698380c598e2b2c512782761ed35a98cc4a82e8f",
+  "deselection_explanation": "See final-cpu-validation.json; that assertion passes in unchanged original stable full suite."
+}

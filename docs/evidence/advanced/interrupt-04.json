@@ -1,0 +1,179 @@
+{
+  "code_sha": "ef61e722f0466d36556807e36ddf458e6fe75c6d",
+  "status": "FAILED",
+  "error": "InterruptedError('User requested stop')",
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 20754.372971911,
+      "sim_time": 26.840000000000003,
+      "health_reason": ""
+    }
+  },
+  "goal_cancel": {
+    "replies": [
+      {
+        "return_code": 0,
+        "canceling": 1
+      }
+    ],
+    "exit_code": 2
+  },
+  "slam_shutdown": {
+    "complete": true,
+    "transitions": [
+      {
+        "transition": 4,
+        "success": true,
+        "state": 2
+      },
+      {
+        "transition": 2,
+        "success": true,
+        "state": 1
+      }
+    ]
+  },
+  "parent_exit_codes": {
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "map_saver": 0,
+    "goal": 2
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 155524,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 155525,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 155526,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 155527,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 155528,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 155529,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 155817,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 155912,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 155913,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 155914,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 155915,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 155916,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 155917,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 155918,
+      "exit_code": 0
+    }
+  },
+  "shutdown_signals": [
+    [
+      "authority",
+      155470,
+      "SIGINT"
+    ],
+    [
+      "launch",
+      155473,
+      "SIGINT"
+    ],
+    [
+      "dds",
+      155444,
+      "SIGINT"
+    ]
+  ],
+  "remaining_owned_pids": [],
+  "dds_port_released": true,
+  "run_id": "20261015T175907Z_advanced_46fa71fa-d8e6-44b8-80b3-674113065015",
+  "raw": "run_data/advanced/20261015T175907Z_advanced_46fa71fa-d8e6-44b8-80b3-674113065015",
+  "result_sha256": "e4b175d92c25f6e4f761bf03675791572cfa68a6f5565b33ac11e430ff48ec14",
+  "request": {
+    "request": {
+      "utc": "2026-10-15T17:59:39.248696+00:00",
+      "runner_pid": 155350,
+      "signal": "SIGINT",
+      "observed_motion": {
+        "sim_time": "22.239999999998552",
+        "wall_mono": "20749.760128696",
+        "episode": "0",
+        "state": "READY",
+        "cmd_status": "ACTIVE",
+        "cmd_source": "cmd_vel",
+        "v_cmd_in_x": "0.45012468099594116",
+        "v_cmd_in_y": "0.0",
+        "v_cmd_in_wz": "-0.1698797345161438",
+        "v_guard_x": "0.4501246809959411",
+        "v_guard_y": "0.0",
+        "v_guard_wz": "-0.1698797345161438",
+        "u_pol_x": "0.5051246809959411",
+        "u_pol_y": "0.0",
+        "u_pol_wz": "-0.158981576832858",
+        "v_meas_x": "0.3905605848605877",
+        "v_meas_y": "-0.0865396433365838",
+        "v_meas_wz": "-0.23454981939159741",
+        "x_w": "2.3975535769663296",
+        "y_w": "0.16484005497943008",
+        "z_w": "0.6697994207661758",
+        "yaw_w": "0.024481395180160796",
+        "roll": "0.02532439196345269",
+        "pitch": "-0.01175837232787624",
+        "proj_grav_z": "-0.9996102480252961",
+        "action_norm": "3.0787806510925293",
+        "step_compute_ms": "2.1595079997496214",
+        "policy_compute_ms": "0.6126990010670852",
+        "physics_compute_ms": "1.2557370027934667",
+        "scan_due": "False",
+        "scan_compute_ms": "0.0",
+        "rtf_10s": "0.9994700889704559",
+        "nonfinite": "False"
+      }
+    },
+    "wrapper_exit": 1
+  },
+  "scope": "PASS negative interrupt + SLAM lifecycle contract; mission intentionally FAILED/CANCELED. All infrastructure0, no escalation/residual; map producer inactive then unconfigured before SIGINT."
+}
