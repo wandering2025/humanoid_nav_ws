@@ -33,3 +33,12 @@ def response_verdict(dynamic,arrived):
     ok=bool(sensor and dynamic['triggered'] and dynamic['finished'] and arrived and (wait or replan))
     return dict(verdict='PASS' if ok else 'FAIL',
                 response=('PROTECTIVE_WAIT_AND_CONTINUE' if wait else 'REPLAN_AND_CONTINUE') if ok else 'UNVERIFIED')
+
+
+def publisher_gid(info):
+    """Jazzy supplies a dict; tolerate typed metadata without raising in callbacks."""
+    try:
+        value=info.get('publisher_gid') if isinstance(info,dict) else getattr(info,'publisher_gid',None)
+        return bytes(value).hex() if value is not None else None
+    except (ValueError,TypeError):
+        return None

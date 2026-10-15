@@ -63,3 +63,12 @@ def test_replan_cannot_be_proved_by_a_new_plan_alone():
     assert not replan_evidence(rows,plans,obs,0.)['replanned_while_active']
     rows[-1].update(y=.5,my=.5)
     assert replan_evidence(rows,plans,obs,0.)['replanned_while_active']
+
+
+def test_gid_metadata_callback_is_fail_closed_and_cannot_break_cleanup():
+    import sys
+    sys.path.insert(0,str(WS/'scripts/advanced'))
+    from verification import publisher_gid
+    assert publisher_gid({'publisher_gid':[1,2,3]})=='010203'
+    assert publisher_gid(SimpleNamespace(publisher_gid=bytes([1,2,3])))=='010203'
+    for malformed in ({},{'publisher_gid':object()},None):assert publisher_gid(malformed) is None

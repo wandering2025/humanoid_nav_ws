@@ -77,7 +77,8 @@ class Advanced(base.Demo):
     def tf_authority(self,msg,info):
         for t in msg.transforms:
             if t.header.frame_id=='map' and t.child_frame_id=='odom':
-                self.map_odom_gids.add(bytes(info.publisher_gid).hex())
+                from verification import publisher_gid
+                self.map_odom_gids.add(publisher_gid(info) or 'UNAVAILABLE')
 
     def on_map(self,m):
         known=sum(v>=0 for v in m.data)
@@ -286,11 +287,15 @@ def main():
         run.summary['error']=repr(exc);(OUT/'failure.txt').write_text(traceback.format_exc())
         base.say(f'FAILED: {exc}')
     finally:
-        if run.node:
-            endpoints=run.node.get_publishers_info_by_topic('/tf')
-            names={bytes(e.endpoint_gid).hex():e.node_name for e in endpoints}
-            run.summary['map_odom_authorities']=sorted({names.get(g,'UNKNOWN:'+g) for g in run.map_odom_gids})
-            run.runtime_graph=run.node.graph(('/cmd_vel','/t1/eval/obstacle','/t1/eval/ground_truth','/t1/cmd_teleop','/map','/tf'))
+        try:
+            if run.node:
+                endpoints=run.node.get_publishers_info_by_topic('/tf')
+                names={bytes(e.endpoint_gid).hex():e.node_name for e in endpoints}
+                run.summary['map_odom_authorities']=sorted({names.get(g,'UNKNOWN:'+g) for g in run.map_odom_gids})
+                run.runtime_graph=run.node.graph(('/cmd_vel','/t1/eval/obstacle','/t1/eval/ground_truth','/t1/cmd_teleop','/map','/tf'))
+        except Exception:
+            run.summary['error']='Final graph evidence unavailable'
+            run.summary['graph_error']=traceback.format_exc()
         try:run.cleanup()
         except Exception:run.summary['cleanup_error']=traceback.format_exc()
         try:run.metrics()
