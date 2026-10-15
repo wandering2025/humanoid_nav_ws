@@ -1,0 +1,53 @@
+{
+  "code_sha": "cdc4b5f453a38f012b4072630b9455e216481933",
+  "status": "FAILED",
+  "error": "RuntimeError('RViz Qt event loop unresponsive for3s; no retry')",
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 18077.760506752,
+      "sim_time": 12.280000000000001,
+      "health_reason": ""
+    }
+  },
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "parent_exit_codes": {
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "rviz": 0
+  },
+  "remaining_owned_pids": [],
+  "dds_port_released": true,
+  "gpu_monitor_error": null,
+  "run_id": "20261015T171136Z_advanced_60a91ec6-82eb-4a8a-a889-cc6e9159d366",
+  "raw": "run_data/advanced/20261015T171136Z_advanced_60a91ec6-82eb-4a8a-a889-cc6e9159d366",
+  "clock_steps": [
+    {
+      "start": "2026-10-15T17:11:46.162704+00:00",
+      "end": "2026-10-15T17:11:49.655546+00:00",
+      "wall_elapsed_s": 3.492841958999634,
+      "monotonic_elapsed_s": 1.070820486998855,
+      "wall_step_s": 2.422021472000779
+    },
+    {
+      "start": "2026-10-15T17:12:19.622448+00:00",
+      "end": "2026-10-15T17:12:24.212584+00:00",
+      "wall_elapsed_s": 4.5901360511779785,
+      "monotonic_elapsed_s": 1.8151163030015596,
+      "wall_step_s": 2.775019748176419
+    }
+  ],
+  "result_sha256": "a8da441d2401dde2248b2dd8fb09a63868bfada166febf23d349143f3d081cac",
+  "analysis": "Heartbeat compared time.time() with filesystem mtime; observed wall-clock steps can cause a false 3s timeout. This is a demonstrated software defect, not proof of a unique GPU root cause. All renderer exits0, no new host graphics event, no GPU halt. Keep original failure, replace only watchdog elapsed-time measurement with monotonic time; threshold unchanged."
+}

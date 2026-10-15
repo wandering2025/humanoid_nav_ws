@@ -147,3 +147,19 @@ class Isolation(unittest.TestCase):
 
 if __name__=='__main__':
     unittest.main()
+
+
+def test_heartbeat_uses_monotonic_progress_despite_wall_clock_steps():
+    from demo import heartbeat_progress
+    state,stalled=heartbeat_progress(None,1000000000,10.)
+    assert not stalled
+    # Same timestamp during a +2.78s wall jump: only .3 monotonic seconds elapsed.
+    state,stalled=heartbeat_progress(state,1000000000,10.3)
+    assert not stalled
+    state,stalled=heartbeat_progress(state,4000000000,10.4)
+    assert not stalled
+    _,stalled=heartbeat_progress(state,4000000000,13.41)
+    assert stalled
+    # A backwards wall step still counts as a fresh write.
+    _,stalled=heartbeat_progress(state,2000000000,13.41)
+    assert not stalled

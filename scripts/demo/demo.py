@@ -69,6 +69,13 @@ def alive(record):
     return actual and actual['start'] == record['start'] and actual['state'] != 'Z'
 
 
+def heartbeat_progress(previous, token, now):
+    """Watch file changes with monotonic elapsed time; wall-clock steps are irrelevant."""
+    if previous is None or previous[0] != token:
+        return (token, now), False
+    return previous, now-previous[1] > 3.
+
+
 def clock_stalled(node,now,last_progress):
     # The simulator publishes its initial timestamp before taking its first
     # physics step. That single sample does not establish a running clock.
@@ -278,8 +285,11 @@ class Demo:
         now=time.monotonic()
         if check_stop and 'rviz' in self.children:
             heartbeat=OUT/'rviz-heartbeat'
-            if heartbeat.exists() and time.time()-heartbeat.stat().st_mtime>3:
-                raise RuntimeError('RViz Qt event loop unresponsive for3s; no retry')
+            if heartbeat.exists():
+                self.rviz_heartbeat_progress, stalled = heartbeat_progress(
+                    getattr(self, 'rviz_heartbeat_progress', None), heartbeat.stat().st_mtime_ns, now)
+                if stalled:
+                    raise RuntimeError('RViz Qt event loop unresponsive for3s; no retry')
         if self.node and self.node.sim != self.last_clock_seen:
             self.last_clock_seen=self.node.sim
             self.clock_changed_wall=now

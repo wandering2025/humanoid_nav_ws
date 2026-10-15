@@ -31,7 +31,7 @@ def capture(run,out):
     out.mkdir(parents=True,exist_ok=False)
     sha=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
     assert not subprocess.check_output(['git','status','--porcelain'],text=True).strip(),'Record clean source only'
-    started=time.monotonic();frames=[];error=None;ids=None
+    started=time.monotonic();frames=[];error=None;ids=None;arrived_seen=None
     try:
         while time.monotonic()-started<1000:
             if ids is None:
@@ -56,7 +56,9 @@ def capture(run,out):
             partial=run/'partial-result.json'
             if partial.exists():
                 status=json.loads(partial.read_text()).get('status')
-                if status=='ARRIVED_SAFE_STOP' and time.time()-partial.stat().st_mtime>5:break
+                if status=='ARRIVED_SAFE_STOP':
+                    if arrived_seen is None:arrived_seen=time.monotonic()
+                    if time.monotonic()-arrived_seen>5:break
             time.sleep(max(0,.25-(time.monotonic()-now)))
         else:raise RuntimeError('Capture deadline')
     except Exception as exc:error=repr(exc)
