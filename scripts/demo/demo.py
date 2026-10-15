@@ -92,6 +92,33 @@ def port_free():
         raise RuntimeError(f'Cannot inspect DDS port: {exc}; run in a normal Ubuntu terminal with local sockets available.') from exc
 
 
+def port_connections():
+    records=[]
+    for family in ('tcp','tcp6'):
+        for line in (Path('/proc/net')/family).read_text().splitlines()[1:]:
+            fields=line.split()
+            if int(fields[1].split(':')[1],16)==42127:
+                records.append(dict(family=family,local=fields[1],state=fields[3]))
+    return dict(listeners=[r for r in records if r['state']=='0A'],
+                time_wait=[r for r in records if r['state']=='06'],
+                other_connections=[r for r in records if r['state'] not in ('0A','06')])
+
+
+def wait_port_reusable(timeout=65.):
+    """TCP TIME_WAIT is kernel state, never a reason to kill another process."""
+    end=time.monotonic()+timeout
+    announced=False
+    while not port_free():
+        state=port_connections()
+        if state['listeners'] or state['other_connections'] or time.monotonic()>=end:
+            return False
+        if not announced:
+            say('DDS exited; waiting up to 65s for kernel TCP TIME_WAIT to expire.')
+            announced=True
+        time.sleep(.1)
+    return True
+
+
 def preflight(args):
     import yaml
     import mujoco
@@ -133,7 +160,7 @@ def preflight(args):
     assert (map_path.parent/map_spec['image']).is_file(), 'Map image missing; restore frozen map, do not regenerate.'
     leftovers = project_processes()
     assert not leftovers, f'Existing project processes: {[r["pid"] for r in leftovers]}; stop their owning terminal, never pkill.'
-    assert port_free(), 'DDS TCP42127 occupied; inspect ss -ltnp, stop only its known owner.'
+    assert port_free(), f'DDS TCP42127 not bindable: {port_connections()}; if only TIME_WAIT, wait for kernel expiry. Otherwise inspect the known owner; never pkill.'
     graphics = dict(requested=False, status='BLOCKED', cuda_probe=False,
                     cpu_guard=args.cpu_guard)
     data = dict(run_id=RUN_ID, code_sha=git('rev-parse', 'HEAD'), dirty=git('status', '--porcelain'),
@@ -422,7 +449,9 @@ class Demo:
         self.summary['launch_process_exit_codes']={name:dict(pid=int(pid),exit_code=exits.get(name)) for name,pid in starts.items()}
         self.summary['remaining_owned_pids']=[r['pid'] for r in self.owned.values() if alive(r)]
         self.summary['remaining_project_processes']=project_processes()
-        self.summary['dds_port_released']=port_free()
+        self.summary['dds_port_immediately_bindable']=port_free()
+        self.summary['dds_port_state_after_exit']=port_connections()
+        self.summary['dds_port_released']=wait_port_reusable()
         if self.node:
             self.summary['events']=self.node.events
             self.summary['graph']=self.runtime_graph

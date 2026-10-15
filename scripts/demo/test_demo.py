@@ -50,7 +50,7 @@ class Isolation(unittest.TestCase):
             while 'READY' not in (demo.OUT/'goal.log').read_text():
                 self.assertLess(time.monotonic(),deadline)
                 time.sleep(.01)
-            with patch.object(demo,'port_free',return_value=True):
+            with patch.object(demo,'port_free',return_value=True), patch.object(demo,'port_connections',return_value={}):
                 instance.cleanup()
             self.assertEqual(child.returncode,0)
             self.assertEqual(instance.summary['remaining_owned_pids'],[])
@@ -63,6 +63,18 @@ class Isolation(unittest.TestCase):
         with patch.object(demo.socket,'socket',side_effect=PermissionError(errno.EACCES,'restricted')):
             with self.assertRaisesRegex(RuntimeError,'Cannot inspect DDS port'):
                 demo.port_free()
+
+    def test_time_wait_waits_without_signalling_any_process(self):
+        with patch.object(demo,'port_free',side_effect=[False,True]), \
+             patch.object(demo,'port_connections',return_value={'listeners':[],'time_wait':[{}],'other_connections':[]}), \
+             patch.object(demo.time,'sleep'), patch.object(demo.os,'kill',side_effect=AssertionError('must not kill')):
+            self.assertTrue(demo.wait_port_reusable(.5))
+
+    def test_foreign_listener_is_never_cleaned_up(self):
+        with patch.object(demo,'port_free',return_value=False), \
+             patch.object(demo,'port_connections',return_value={'listeners':[{}],'time_wait':[],'other_connections':[]}), \
+             patch.object(demo.os,'kill',side_effect=AssertionError('must not kill')):
+            self.assertFalse(demo.wait_port_reusable(.5))
 
     def test_help_needs_no_environment(self):
         result=subprocess.run([str(demo.WS/'scripts/run_demo.sh'),'--help'],env={'PATH':'/usr/bin:/bin'},
