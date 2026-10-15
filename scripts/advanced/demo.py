@@ -345,10 +345,13 @@ class Advanced(base.Demo):
         self.summary['control_no_obstacle']=self.args.control_no_obstacle
         self.summary['navigation_start_sim']=n.sim
         self.mapping_pass(self.route['navigation_approach'],'NAVIGATING_APPROACH')
-        self.summary['nav2']=self.goal(self.route['goal'],'NAVIGATING_TO_B',self.route['navigation_time_limit_s'])
         self.summary['navigation_static_map_unchanged']=self.map_fingerprint()==self.summary['navigation_map_sha256']
-        assert self.summary['navigation_static_map_unchanged'],'Static SLAM map changed during dynamic navigation'
+        assert self.summary['navigation_static_map_unchanged'],'Static SLAM map changed during obstacle approach'
+        # Resume after physical passage to the observed-clear approach point.
+        # No obstacle truth or predicted event timing drives this transition.
+        self.summary['mapping_resume_at_approach_sim']=n.sim
         self.pause_mapping(False)
+        self.summary['nav2']=self.goal(self.route['goal'],'NAVIGATING_TO_B',self.route['navigation_time_limit_s'])
         end=n.sim+12;self.until(lambda:n.sim>=end,35)
         self.summary['final_map']=self.save_map('final')
         self.screenshot('arrived');self.safe_stop()
