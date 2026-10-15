@@ -1,12 +1,13 @@
 # 现场排障（当前W14_BLOCKED）
 
-当前GUI因RViz退出堆损坏−6封锁，不清除halt自动重跑。`--preflight`为隔离CPU资源检查；不是GPU恢复证明。
-已验证替代组合可完成导航，但两次同源码默认完整验收未满足。版本与run ID见[清单](release-manifest.md)。
+当前GUI因第二轮DDS退出−11及授权次数耗尽封锁，不清除halt自动重跑。`--preflight`为隔离CPU资源检查；不是GPU恢复证明。
+本轮两次同源码都已到达，RViz都正常退出0；第二轮DDS关闭段错误导致整体FAILED。版本与run ID见[清单](release-manifest.md)。
 禁止驱动/BIOS/注册表/显卡模式/系统显示改动。图形错误停止扩载、终止最近任务、保存结果，不自动重试同一路径。
 
 | 问题 | 拟检查 |
 |---|---|
 | 端口占用 | 先区分LISTEN与TIME_WAIT。只有TIME_WAIT时等待内核自然到期，不杀进程；清理现在有界等待65s。`ss -ltnp 'sport = :42127'`识别owner；只停止确认属于自己的原演示。 |
+| DDS退出−11 | 内核已记录fast-discovery-server的dds.tcp.42127线程在libfastrtps内段错误；不改写0，不清锁追加第三轮。保存dds.log/内核/result并离线调查关闭顺序。 |
 | 遗留进程 | 比对PID/ppid/command与owned-processes.json；优先原终端Ctrl+C，不pkill ROS/Python。 |
 | RViz无图/退出−6 | 查rviz.log；本次corrupted double-linked list为SIGABRT，不改写0。不要切回原MapDisplay shader或直接重跑。 |
 | MuJoCo未出现 | launch.log中模型/策略/GL错误；本事故D3D12 Removing Device必须停，不自动切卡重试。 |

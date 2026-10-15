@@ -4,9 +4,9 @@
 ./scripts/run_demo.sh
 ```
 
-**W14_BLOCKED**：最新完整运行已到达，但RViz退出堆损坏（−6）；GUI入口已封锁，返回3且不访问GPU。
-没有完成同一版本两次完整默认验收。不要删除halt文件自动重试相同路径。
-入口/文档已实现，原W13仍FAILED（36/40）；安全停车和无残留证据不掩盖异常退出。
+**W14_BLOCKED**：本轮两次均到达、RViz均正常退出0，但第二轮DDS关闭时段错误（−11）；GUI入口再次封锁，返回3且不访问GPU。
+同一版本两次排练已执行，但未全部正常退出。一次最小和两次完整的授权次数已用完，不删除halt追加重跑。
+入口/文档已实现，原W13仍FAILED（36/40）；安全停车和无残留证据不掩盖DDS异常退出。
 [快速开始](docs/demo/quick-start.md) · [发布清单与全部结果](docs/demo/release-manifest.md) · [现场流程](docs/demo/live-demo-runbook.md) ·
 [排障](docs/demo/troubleshooting.md) · [架构限制](docs/demo/architecture-and-limitations.md) · [讲解提纲](docs/demo/presentation-outline.md)
 

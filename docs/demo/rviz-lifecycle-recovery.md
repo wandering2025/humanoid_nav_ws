@@ -38,3 +38,8 @@ NVIDIA实际renderer；GPU最高51°C/851MiB/45%；RViz/publisher/DDS均0，sign
 Windows新增事件为空，WSLg无匹配新驱动/渲染错误；资源图标的debug查找fallback日志完整保留，不冒充为shader/驱动错误。
 该结果支持修复组合可正常退出，不证明原始破坏堆对象的精确根因；GPU路径与生命周期均有改变，不能作单因素因果结论。
 接下来只允许两次同源码、同U01/4000、同默认命令；任何停止条件后不再换路径或重试。
+
+最终：严格两轮同SHA a963518410ad0faefad0c3b2230d367780c91212、同U01/4000、同默认命令均到达，RViz均0；
+01 SUCCESS，02 DDS−11导致FAILED。内核确认libfastrtps TCP线程SIGSEGV，根因待离线调查。次数耗尽，未追加第三轮/新最小测试或切路径。
+最终profile GPU_HALTED_DDS_SHUTDOWN_FAILURE，W14_BLOCKED；有dxg查询−22/−2，不能宣称图形层完全无错误。
+所有结果见release-manifest及本轮full-summary；W15不启动。

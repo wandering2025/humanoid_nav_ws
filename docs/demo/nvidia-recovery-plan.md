@@ -57,3 +57,6 @@ profile晋级GUI_VALIDATED只表示分阶段入口条件满足，不表示两次
 profile GPU_HALTED_RVIZ_HEAP_CORRUPTION，halt保留，批3/02 NOT_RUN，不自动重试相同显示路径。
 原各批失败不覆盖，完整结果见release-manifest及docs/evidence/W14/rehearsals。
 事后无PID残留、42127/42128可bind；新Windows事件查询无匹配项，不是整机安全保证。W15未启动。
+
+最新严格授权另见rviz-lifecycle-recovery.md：唯一NVIDIA RViz最小PASS；两次同源码默认均到达且RViz0，
+第二轮DDS−11，整体FAILED；没有追加或换路径。当前锁是DDS退出失败/本轮次数耗尽，不再指称RViz仍−6。

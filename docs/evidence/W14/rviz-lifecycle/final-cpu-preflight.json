@@ -1,0 +1,70 @@
+{
+  "run_id": "20261015T140307Z_demo_U01_3e82d800-2cbb-4503-835a-25a4e091731d",
+  "code_sha": "175752b6e14fafbbdd2f21395f466ea5f099b734",
+  "dirty": "M README.md\n M docs/demo/architecture-and-limitations.md\n M docs/demo/live-demo-runbook.md\n M docs/demo/nvidia-recovery-plan.md\n M docs/demo/presentation-outline.md\n M docs/demo/quick-start.md\n M docs/demo/release-manifest.md\n M docs/demo/rviz-lifecycle-recovery.md\n M docs/demo/troubleshooting.md\n?? docs/evidence/W14/rviz-lifecycle/README.md\n?? docs/evidence/W14/rviz-lifecycle/final-integrity-audit.json",
+  "baseline": "b23a92465b317ca781d3eb210051126c5786908e",
+  "scenario": "U01",
+  "seed": 4000,
+  "start": [
+    0,
+    0,
+    0
+  ],
+  "goal": [
+    9,
+    0,
+    0
+  ],
+  "interpreter": "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "mujoco": "3.15.0",
+  "torch": "2.14.1+cu130",
+  "ros": "jazzy",
+  "domain": 37,
+  "dds_port": 42127,
+  "graphics": {
+    "requested": false,
+    "cuda_probe": false,
+    "cpu_guard": {
+      "landlock_abi": 7,
+      "handled_access_fs": 32774,
+      "allowed_paths": [
+        "/bin",
+        "/dev/mqueue",
+        "/dev/null",
+        "/dev/pts",
+        "/dev/random",
+        "/dev/shm",
+        "/dev/tty",
+        "/dev/urandom",
+        "/dev/zero",
+        "/etc",
+        "/home",
+        "/lib",
+        "/lib64",
+        "/opt",
+        "/proc",
+        "/run",
+        "/sbin",
+        "/sys",
+        "/tmp",
+        "/usr",
+        "/var"
+      ],
+      "forbidden_probe": "/dev/full",
+      "forbidden_probe_errno": 13,
+      "no_gpu_device_opened_for_testing": true,
+      "no_new_privs": 1,
+      "renderer": "disabled",
+      "cuda_probe": false,
+      "nice": 10,
+      "implementation_sha256": "07760b8edc637671568c237ec37c7e0269a1fb35d8eb07ca8ef0b817e4ac388b"
+    },
+    "status": "CPU_ONLY"
+  },
+  "locked_files": 100,
+  "resource_hashes": {
+    "/home/haoyang/robot_sim_sources/booster_deploy/tasks/locomotion/robots/t1/models/t1_walk.pt": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7",
+    "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/T1_23dof.xml": "f00e3410362b1e2267e6db05d25c33d6240bbf2436d62a409f07042bad4f7fb2"
+  }
+}

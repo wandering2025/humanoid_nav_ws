@@ -36,3 +36,7 @@ CPU续作：在任何runtime导入前用Landlock禁止GPU设备read/write/ioctl�
 
 本轮最新阻塞：CPU RViz退出原生堆损坏（−6），具体库/线程根因未定位。当前GUI再次锁定，停止扩载且未自动重试。
 本轮Windows查询无匹配新驱动/异常断电事件，不足以排除底层驱动因素。30项非图形回归检查不证明再次渲染安全。
+
+最新严格授权结果：仓库本地RViz薄宿主在ROS context有效时逐个销毁显示，再shutdown ROS和frame，明确NVIDIA，15Hz显示。
+唯一最小+两轮RViz均0；两轮导航/dynamic均PASS，但第二轮DDS TCP线程关闭SIGSEGV−11。当前blocker为DDS生命周期；
+精确RViz破坏堆对象仍未知，不把三次退出0当作根因单因素证明。内核dxg ioctl−22/−2也如实披露，未证明无害。

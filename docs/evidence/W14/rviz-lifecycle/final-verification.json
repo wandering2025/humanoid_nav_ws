@@ -1,0 +1,37 @@
+{
+  "implementation_sha": "175752b6e14fafbbdd2f21395f466ea5f099b734",
+  "tested_full_sha": "a963518410ad0faefad0c3b2230d367780c91212",
+  "final_demo_tests": 34,
+  "pre_graphics_package_and_eval_tests": 131,
+  "checks": {
+    "help_exit": 0,
+    "cpu_preflight_exit": 0,
+    "demo_tests_exit": 0,
+    "package_and_eval_tests_exit": 0,
+    "build_exit": 0,
+    "python_compile_exit": 0,
+    "bash_syntax_exit": 0,
+    "diff_check_exit": 0,
+    "frozen_source_diff": ""
+  },
+  "preflight_source": "run_data/demo/20261015T140307Z_demo_U01_3e82d800-2cbb-4503-835a-25a4e091731d/preflight.json",
+  "raw_log": "docs/evidence/W14/raw/rviz-lifecycle/final-review-demo-tests.log",
+  "raw_log_sha256": "f8043226d0e5cc5dd140fe24108bd37466027eac92969c155a76804fade2fc29",
+  "minimal_graphics_count": 1,
+  "full_graphics_count": 2,
+  "extra_graphics_runs": 0,
+  "rviz_exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "full_02_dds_exit": -11,
+  "authorization_exhausted": true,
+  "video": {
+    "status": "MISSING",
+    "path": null,
+    "sha256": null,
+    "playback_verified": false
+  },
+  "experiment_head": "7b58acd77de722c9b53f4b69271dde862d7f0ff3"
+}
