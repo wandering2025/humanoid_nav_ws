@@ -1,0 +1,1783 @@
+[
+  {
+    "order": 1,
+    "case": "S01",
+    "suite": "static",
+    "seed": 1000,
+    "scene": "static_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      1.75,
+      0.0,
+      0.0
+    ],
+    "outcome": "SUCCESS",
+    "run_id": "20261015T104213Z_w13-formal-v2_S01_s1000_ee3535",
+    "position_error_m": 0.1350404532650251,
+    "yaw_error_deg": 4.821108578222241,
+    "settled": true,
+    "task_time_sim_s": 9.540000000000003,
+    "time_to_goal_sim_s": 7.040000000000003,
+    "terminal_retries": 0,
+    "safety": {
+      "cm_stop": 0,
+      "cm_slowdown": 0,
+      "gate_stopped": 0,
+      "bridge_timeouts": 0
+    },
+    "stopping": [],
+    "planner_controller_bt_log_counts": {
+      "tf_extrapolation": 0,
+      "tf_old_data": 0,
+      "tf_timeout": 0,
+      "no_valid_control": 0,
+      "progress_failure": 0,
+      "planning_failure": 0,
+      "goal_aborted": 1,
+      "collision_ahead": 0,
+      "scan_dropped": 0
+    },
+    "action": {
+      "event": "result",
+      "goal": [
+        1.75,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            1.75,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 13.82,
+          "goal_id": "a6024f4b2ef349e9a73e229a8563471f",
+          "status": "SUCCEEDED",
+          "end_sim": 20.860000000000003,
+          "error_code": 0,
+          "verify_sim": 23.360000000000003,
+          "verified_pose": [
+            1.6477141668231554,
+            -0.005354316143928726,
+            -0.08807276607854397
+          ],
+          "xy_error": 0.10242587744340009,
+          "yaw_error": 0.08807276607854397
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 13.82,
+      "goal_id": "a6024f4b2ef349e9a73e229a8563471f",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 23.360000000000003,
+      "duration_sim": 9.540000000000003,
+      "verified": {
+        "stage": "goal",
+        "target": [
+          1.75,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 13.82,
+        "goal_id": "a6024f4b2ef349e9a73e229a8563471f",
+        "status": "SUCCEEDED",
+        "end_sim": 20.860000000000003,
+        "error_code": 0,
+        "verify_sim": 23.360000000000003,
+        "verified_pose": [
+          1.6477141668231554,
+          -0.005354316143928726,
+          -0.08807276607854397
+        ],
+        "xy_error": 0.10242587744340009,
+        "yaw_error": 0.08807276607854397
+      },
+      "terminal_retries": 0,
+      "error_code": 0,
+      "nav2_success_sim": 20.860000000000003,
+      "exit": 0
+    },
+    "code_sha": "ce6309b92ab1c19e87001f24280ab96241d7af1d",
+    "manifest_sha256": "4b4b090344f4239445c2a2eda64c41013c8a22eb012f928bea65bdc53bcce06f",
+    "config_and_scene": {
+      "scene_sha256": "9f174aaef834b5c50c209263a391e77c2007ea4f88069b47cbe0d7782b2dd536",
+      "parameters_sha256": "78e7e2143279a48d5c016168abe507110565ce6db0e31694242e31cbea521844",
+      "map_sha256": "ad4f4a57ec1e2e220bad97c5226616d1c0d236884288470a299f5d5380853163",
+      "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7"
+    },
+    "nav2_status": "SUCCEEDED",
+    "minimum_dynamic_obstacle_distance_m": null,
+    "dynamic_distance_note": "static scene; no dynamic obstacle",
+    "safety_totals": {
+      "environment": 0,
+      "dynamic_contact": 0,
+      "nonfoot_ground": 0,
+      "fall": false,
+      "fault": false
+    },
+    "dds_returncode": 0,
+    "dds_exception_applies": false,
+    "launch_returncode": 0,
+    "goal_returncodes": [
+      0
+    ],
+    "raw_stdout_stderr": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104213Z_w13-formal-v2_S01_s1000_ee3535/raw",
+    "raw_json": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104213Z_w13-formal-v2_S01_s1000_ee3535",
+    "raw_csv_trajectory": "/home/haoyang/humanoid_nav_ws/run_data/20261015T104213Z_w13-formal-v2_S01_s1000_ee3535/sim_trace.csv"
+  },
+  {
+    "order": 2,
+    "case": "S02",
+    "suite": "static",
+    "seed": 1001,
+    "scene": "static_world",
+    "start": [
+      0.0,
+      0.0,
+      1.5708
+    ],
+    "goal": [
+      2.5,
+      2.75,
+      0.0
+    ],
+    "outcome": "SUCCESS",
+    "run_id": "20261015T104312Z_w13-formal-v2_S02_s1001_98e483",
+    "position_error_m": 0.08547453646375286,
+    "yaw_error_deg": 7.008338770159123,
+    "settled": true,
+    "task_time_sim_s": 22.660000000000004,
+    "time_to_goal_sim_s": 19.4,
+    "terminal_retries": 1,
+    "safety": {
+      "cm_stop": 0,
+      "cm_slowdown": 0,
+      "gate_stopped": 0,
+      "bridge_timeouts": 0
+    },
+    "stopping": [],
+    "planner_controller_bt_log_counts": {
+      "tf_extrapolation": 0,
+      "tf_old_data": 0,
+      "tf_timeout": 0,
+      "no_valid_control": 0,
+      "progress_failure": 0,
+      "planning_failure": 0,
+      "goal_aborted": 1,
+      "collision_ahead": 0,
+      "scan_dropped": 0
+    },
+    "action": {
+      "event": "result",
+      "goal": [
+        2.5,
+        2.75,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            2.5,
+            2.75,
+            0.0
+          ],
+          "accepted_sim": 15.32,
+          "goal_id": "48b6753a99e84c17848d06525364c933",
+          "status": "SUCCEEDED",
+          "end_sim": 29.360000000000003,
+          "error_code": 0,
+          "verify_sim": 32.92,
+          "verified_pose": [
+            2.439031522967362,
+            2.749760866713245,
+            0.2465882975299739
+          ],
+          "xy_error": 0.06096894600046949,
+          "yaw_error": 0.2465882975299739,
+          "next_aim": [
+            2.5,
+            2.75,
+            -0.2465882975299739
+          ]
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            2.5,
+            2.75,
+            -0.2465882975299739
+          ],
+          "accepted_sim": 32.92,
+          "goal_id": "49c706221d8143c8bb0d6cb461990b82",
+          "status": "SUCCEEDED",
+          "end_sim": 34.72,
+          "error_code": 0,
+          "verify_sim": 37.980000000000004,
+          "verified_pose": [
+            2.472364803135451,
+            2.805516725360067,
+            -0.1279194789604434
+          ],
+          "xy_error": 0.062014602316289164,
+          "yaw_error": 0.12791947896044342
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 15.32,
+      "goal_id": "48b6753a99e84c17848d06525364c933",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 37.980000000000004,
+      "duration_sim": 22.660000000000004,
+      "verified": {
+        "stage": "terminal_retry",
+        "target": [
+          2.5,
+          2.75,
+          -0.2465882975299739
+        ],
+        "accepted_sim": 32.92,
+        "goal_id": "49c706221d8143c8bb0d6cb461990b82",
+        "status": "SUCCEEDED",
+        "end_sim": 34.72,
+        "error_code": 0,
+        "verify_sim": 37.980000000000004,
+        "verified_pose": [
+          2.472364803135451,
+          2.805516725360067,
+          -0.1279194789604434
+        ],
+        "xy_error": 0.062014602316289164,
+        "yaw_error": 0.12791947896044342
+      },
+      "terminal_retries": 1,
+      "error_code": 0,
+      "nav2_success_sim": 34.72,
+      "exit": 0
+    },
+    "code_sha": "ce6309b92ab1c19e87001f24280ab96241d7af1d",
+    "manifest_sha256": "80e0967564f949165df7bf4da0577420d9db5bc55ace5f55777c265cf97bcfe7",
+    "config_and_scene": {
+      "scene_sha256": "9f174aaef834b5c50c209263a391e77c2007ea4f88069b47cbe0d7782b2dd536",
+      "parameters_sha256": "312f019095061b73e85914a9ffb966b5f914d68f1a8cc80cb9bf3427f3a06214",
+      "map_sha256": "ad4f4a57ec1e2e220bad97c5226616d1c0d236884288470a299f5d5380853163",
+      "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7"
+    },
+    "nav2_status": "SUCCEEDED",
+    "minimum_dynamic_obstacle_distance_m": null,
+    "dynamic_distance_note": "static scene; no dynamic obstacle",
+    "safety_totals": {
+      "environment": 0,
+      "dynamic_contact": 0,
+      "nonfoot_ground": 0,
+      "fall": false,
+      "fault": false
+    },
+    "dds_returncode": 0,
+    "dds_exception_applies": false,
+    "launch_returncode": 0,
+    "goal_returncodes": [
+      0
+    ],
+    "raw_stdout_stderr": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104312Z_w13-formal-v2_S02_s1001_98e483/raw",
+    "raw_json": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104312Z_w13-formal-v2_S02_s1001_98e483",
+    "raw_csv_trajectory": "/home/haoyang/humanoid_nav_ws/run_data/20261015T104312Z_w13-formal-v2_S02_s1001_98e483/sim_trace.csv"
+  },
+  {
+    "order": 3,
+    "case": "S03",
+    "suite": "static",
+    "seed": 1002,
+    "scene": "static_world",
+    "start": [
+      1.5,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      8.0,
+      0.0,
+      -1.5708
+    ],
+    "outcome": "SUCCESS",
+    "run_id": "20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d",
+    "position_error_m": 0.05002980056125989,
+    "yaw_error_deg": 3.4832030073316678,
+    "settled": true,
+    "task_time_sim_s": 37.580000000000005,
+    "time_to_goal_sim_s": 35.0,
+    "terminal_retries": 0,
+    "safety": {
+      "cm_stop": 0,
+      "cm_slowdown": 0,
+      "gate_stopped": 0,
+      "bridge_timeouts": 0
+    },
+    "stopping": [],
+    "planner_controller_bt_log_counts": {
+      "tf_extrapolation": 0,
+      "tf_old_data": 0,
+      "tf_timeout": 0,
+      "no_valid_control": 0,
+      "progress_failure": 0,
+      "planning_failure": 0,
+      "goal_aborted": 1,
+      "collision_ahead": 0,
+      "scan_dropped": 0
+    },
+    "action": {
+      "event": "result",
+      "goal": [
+        8.0,
+        0.0,
+        -1.5708
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            8.0,
+            0.0,
+            -1.5708
+          ],
+          "accepted_sim": 14.780000000000001,
+          "goal_id": "a5f94e34a6e14f11a2554835973f4367",
+          "status": "SUCCEEDED",
+          "end_sim": 49.78,
+          "error_code": 0,
+          "verify_sim": 52.36000000000001,
+          "verified_pose": [
+            7.962128913399212,
+            0.06863350511849574,
+            -1.5087714674400428
+          ],
+          "xy_error": 0.07838862943804385,
+          "yaw_error": 0.062028532559957224
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 14.780000000000001,
+      "goal_id": "a5f94e34a6e14f11a2554835973f4367",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 52.36000000000001,
+      "duration_sim": 37.580000000000005,
+      "verified": {
+        "stage": "goal",
+        "target": [
+          8.0,
+          0.0,
+          -1.5708
+        ],
+        "accepted_sim": 14.780000000000001,
+        "goal_id": "a5f94e34a6e14f11a2554835973f4367",
+        "status": "SUCCEEDED",
+        "end_sim": 49.78,
+        "error_code": 0,
+        "verify_sim": 52.36000000000001,
+        "verified_pose": [
+          7.962128913399212,
+          0.06863350511849574,
+          -1.5087714674400428
+        ],
+        "xy_error": 0.07838862943804385,
+        "yaw_error": 0.062028532559957224
+      },
+      "terminal_retries": 0,
+      "error_code": 0,
+      "nav2_success_sim": 49.78,
+      "exit": 0
+    },
+    "code_sha": "ce6309b92ab1c19e87001f24280ab96241d7af1d",
+    "manifest_sha256": "7fabd1c07c86c7ef0581c7943ebd307da28e77afa70a855efa3f0abaa7087974",
+    "config_and_scene": {
+      "scene_sha256": "9f174aaef834b5c50c209263a391e77c2007ea4f88069b47cbe0d7782b2dd536",
+      "parameters_sha256": "95b72d4b375ef1117cde8a3b6986e1e3c522fd2a021dd562d8f6cb0c42c6f555",
+      "map_sha256": "ad4f4a57ec1e2e220bad97c5226616d1c0d236884288470a299f5d5380853163",
+      "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7"
+    },
+    "nav2_status": "SUCCEEDED",
+    "minimum_dynamic_obstacle_distance_m": null,
+    "dynamic_distance_note": "static scene; no dynamic obstacle",
+    "safety_totals": {
+      "environment": 0,
+      "dynamic_contact": 0,
+      "nonfoot_ground": 0,
+      "fall": false,
+      "fault": false
+    },
+    "dds_returncode": 0,
+    "dds_exception_applies": false,
+    "launch_returncode": 0,
+    "goal_returncodes": [
+      0
+    ],
+    "raw_stdout_stderr": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d/raw",
+    "raw_json": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d",
+    "raw_csv_trajectory": "/home/haoyang/humanoid_nav_ws/run_data/20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d/sim_trace.csv"
+  },
+  {
+    "order": 4,
+    "case": "S04",
+    "suite": "static",
+    "seed": 1003,
+    "scene": "static_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "SUCCESS",
+    "run_id": "20261015T104529Z_w13-formal-v2_S04_s1003_58e684",
+    "position_error_m": 0.1039607128053933,
+    "yaw_error_deg": 10.921461786339249,
+    "settled": true,
+    "task_time_sim_s": 39.400000000000006,
+    "time_to_goal_sim_s": 35.92,
+    "terminal_retries": 0,
+    "safety": {
+      "cm_stop": 0,
+      "cm_slowdown": 0,
+      "gate_stopped": 0,
+      "bridge_timeouts": 0
+    },
+    "stopping": [],
+    "planner_controller_bt_log_counts": {
+      "tf_extrapolation": 0,
+      "tf_old_data": 0,
+      "tf_timeout": 0,
+      "no_valid_control": 0,
+      "progress_failure": 0,
+      "planning_failure": 0,
+      "goal_aborted": 1,
+      "collision_ahead": 0,
+      "scan_dropped": 0
+    },
+    "action": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 15.360000000000001,
+          "goal_id": "946c4e8f8b9d4061a46d8a4578e3e70d",
+          "status": "SUCCEEDED",
+          "end_sim": 51.28,
+          "error_code": 0,
+          "verify_sim": 54.760000000000005,
+          "verified_pose": [
+            8.873250270232361,
+            -0.0743521886869162,
+            -0.19141008956021732
+          ],
+          "xy_error": 0.14694809273585072,
+          "yaw_error": 0.19141008956021732
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 15.360000000000001,
+      "goal_id": "946c4e8f8b9d4061a46d8a4578e3e70d",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 54.760000000000005,
+      "duration_sim": 39.400000000000006,
+      "verified": {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 15.360000000000001,
+        "goal_id": "946c4e8f8b9d4061a46d8a4578e3e70d",
+        "status": "SUCCEEDED",
+        "end_sim": 51.28,
+        "error_code": 0,
+        "verify_sim": 54.760000000000005,
+        "verified_pose": [
+          8.873250270232361,
+          -0.0743521886869162,
+          -0.19141008956021732
+        ],
+        "xy_error": 0.14694809273585072,
+        "yaw_error": 0.19141008956021732
+      },
+      "terminal_retries": 0,
+      "error_code": 0,
+      "nav2_success_sim": 51.28,
+      "exit": 0
+    },
+    "code_sha": "ce6309b92ab1c19e87001f24280ab96241d7af1d",
+    "manifest_sha256": "63ed67b8a18efa88c822977a96deabe9929dcddc91abd3b123e9c45f2e0217a0",
+    "config_and_scene": {
+      "scene_sha256": "9f174aaef834b5c50c209263a391e77c2007ea4f88069b47cbe0d7782b2dd536",
+      "parameters_sha256": "eabffc614e656e3362c33eb6f3c3aa71603aca7f80d3c5c568802600fa844459",
+      "map_sha256": "ad4f4a57ec1e2e220bad97c5226616d1c0d236884288470a299f5d5380853163",
+      "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7"
+    },
+    "nav2_status": "SUCCEEDED",
+    "minimum_dynamic_obstacle_distance_m": null,
+    "dynamic_distance_note": "static scene; no dynamic obstacle",
+    "safety_totals": {
+      "environment": 0,
+      "dynamic_contact": 0,
+      "nonfoot_ground": 0,
+      "fall": false,
+      "fault": false
+    },
+    "dds_returncode": 0,
+    "dds_exception_applies": false,
+    "launch_returncode": 0,
+    "goal_returncodes": [
+      0
+    ],
+    "raw_stdout_stderr": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104529Z_w13-formal-v2_S04_s1003_58e684/raw",
+    "raw_json": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104529Z_w13-formal-v2_S04_s1003_58e684",
+    "raw_csv_trajectory": "/home/haoyang/humanoid_nav_ws/run_data/20261015T104529Z_w13-formal-v2_S04_s1003_58e684/sim_trace.csv"
+  },
+  {
+    "order": 5,
+    "case": "S05",
+    "suite": "static",
+    "seed": 1004,
+    "scene": "static_world",
+    "start": [
+      9.0,
+      0.0,
+      3.1416
+    ],
+    "goal": [
+      0.0,
+      0.0,
+      1.5708
+    ],
+    "outcome": "SUCCESS",
+    "run_id": "20261015T104645Z_w13-formal-v2_S05_s1004_a69103",
+    "position_error_m": 0.18082195992101752,
+    "yaw_error_deg": 9.571364826613173,
+    "settled": true,
+    "task_time_sim_s": 75.4,
+    "time_to_goal_sim_s": 72.9,
+    "terminal_retries": 1,
+    "safety": {
+      "cm_stop": 0,
+      "cm_slowdown": 0,
+      "gate_stopped": 0,
+      "bridge_timeouts": 0
+    },
+    "stopping": [],
+    "planner_controller_bt_log_counts": {
+      "tf_extrapolation": 0,
+      "tf_old_data": 0,
+      "tf_timeout": 0,
+      "no_valid_control": 0,
+      "progress_failure": 0,
+      "planning_failure": 0,
+      "goal_aborted": 1,
+      "collision_ahead": 0,
+      "scan_dropped": 0
+    },
+    "action": {
+      "event": "result",
+      "goal": [
+        0.0,
+        0.0,
+        1.5708
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            0.0,
+            0.0,
+            1.5708
+          ],
+          "accepted_sim": 14.82,
+          "goal_id": "5f3a86941bf14fef8ee99e25dc1311c9",
+          "status": "SUCCEEDED",
+          "end_sim": 52.440000000000005,
+          "error_code": 0,
+          "verify_sim": 56.18000000000001,
+          "verified_pose": [
+            -0.017875133505867273,
+            -0.021313735181614335,
+            1.8446692592844174
+          ],
+          "xy_error": 0.027817183632506067,
+          "yaw_error": 0.2738692592844174,
+          "next_aim": [
+            0.0,
+            0.0,
+            1.2969307407155826
+          ]
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            0.0,
+            0.0,
+            1.2969307407155826
+          ],
+          "accepted_sim": 56.18000000000001,
+          "goal_id": "e10a4cd228044b5e96efd8b9d9650042",
+          "status": "SUCCEEDED",
+          "end_sim": 87.72,
+          "error_code": 0,
+          "verify_sim": 90.22,
+          "verified_pose": [
+            -0.041630861249212656,
+            -0.1424903224558559,
+            1.4005669379928376
+          ],
+          "xy_error": 0.1484473664364747,
+          "yaw_error": 0.17023306200716237
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 14.82,
+      "goal_id": "5f3a86941bf14fef8ee99e25dc1311c9",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 90.22,
+      "duration_sim": 75.4,
+      "verified": {
+        "stage": "terminal_retry",
+        "target": [
+          0.0,
+          0.0,
+          1.2969307407155826
+        ],
+        "accepted_sim": 56.18000000000001,
+        "goal_id": "e10a4cd228044b5e96efd8b9d9650042",
+        "status": "SUCCEEDED",
+        "end_sim": 87.72,
+        "error_code": 0,
+        "verify_sim": 90.22,
+        "verified_pose": [
+          -0.041630861249212656,
+          -0.1424903224558559,
+          1.4005669379928376
+        ],
+        "xy_error": 0.1484473664364747,
+        "yaw_error": 0.17023306200716237
+      },
+      "terminal_retries": 1,
+      "error_code": 0,
+      "nav2_success_sim": 87.72,
+      "exit": 0
+    },
+    "code_sha": "ce6309b92ab1c19e87001f24280ab96241d7af1d",
+    "manifest_sha256": "52eaed91bec99425696c1b42ac9dd08da311ee921772f5156353ab568e12e58e",
+    "config_and_scene": {
+      "scene_sha256": "9f174aaef834b5c50c209263a391e77c2007ea4f88069b47cbe0d7782b2dd536",
+      "parameters_sha256": "4642a3458640354f8905f2df6aec42fb81ef3876827da229033b23564b05b87d",
+      "map_sha256": "ad4f4a57ec1e2e220bad97c5226616d1c0d236884288470a299f5d5380853163",
+      "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7"
+    },
+    "nav2_status": "SUCCEEDED",
+    "minimum_dynamic_obstacle_distance_m": null,
+    "dynamic_distance_note": "static scene; no dynamic obstacle",
+    "safety_totals": {
+      "environment": 0,
+      "dynamic_contact": 0,
+      "nonfoot_ground": 0,
+      "fall": false,
+      "fault": false
+    },
+    "dds_returncode": 0,
+    "dds_exception_applies": false,
+    "launch_returncode": 0,
+    "goal_returncodes": [
+      0
+    ],
+    "raw_stdout_stderr": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104645Z_w13-formal-v2_S05_s1004_a69103/raw",
+    "raw_json": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104645Z_w13-formal-v2_S05_s1004_a69103",
+    "raw_csv_trajectory": "/home/haoyang/humanoid_nav_ws/run_data/20261015T104645Z_w13-formal-v2_S05_s1004_a69103/sim_trace.csv"
+  },
+  {
+    "order": 6,
+    "case": "S06",
+    "suite": "static",
+    "seed": 1005,
+    "scene": "static_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      1.75,
+      0.0,
+      0.0
+    ],
+    "outcome": "SUCCESS",
+    "run_id": "20261015T104841Z_w13-formal-v2_S06_s1005_b64989",
+    "position_error_m": 0.13100476013743614,
+    "yaw_error_deg": 2.5465662560374307,
+    "settled": true,
+    "task_time_sim_s": 9.56,
+    "time_to_goal_sim_s": 7.0600000000000005,
+    "terminal_retries": 0,
+    "safety": {
+      "cm_stop": 0,
+      "cm_slowdown": 0,
+      "gate_stopped": 0,
+      "bridge_timeouts": 0
+    },
+    "stopping": [],
+    "planner_controller_bt_log_counts": {
+      "tf_extrapolation": 0,
+      "tf_old_data": 0,
+      "tf_timeout": 0,
+      "no_valid_control": 0,
+      "progress_failure": 0,
+      "planning_failure": 0,
+      "goal_aborted": 1,
+      "collision_ahead": 0,
+      "scan_dropped": 0
+    },
+    "action": {
+      "event": "result",
+      "goal": [
+        1.75,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            1.75,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 14.56,
+          "goal_id": "ad5315003f984d71bf68bbf34fa2f624",
+          "status": "SUCCEEDED",
+          "end_sim": 21.62,
+          "error_code": 0,
+          "verify_sim": 24.12,
+          "verified_pose": [
+            1.6549620282215816,
+            -0.024499549752488185,
+            -0.04740283133170011
+          ],
+          "xy_error": 0.09814501524698085,
+          "yaw_error": 0.04740283133170011
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 14.56,
+      "goal_id": "ad5315003f984d71bf68bbf34fa2f624",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 24.12,
+      "duration_sim": 9.56,
+      "verified": {
+        "stage": "goal",
+        "target": [
+          1.75,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 14.56,
+        "goal_id": "ad5315003f984d71bf68bbf34fa2f624",
+        "status": "SUCCEEDED",
+        "end_sim": 21.62,
+        "error_code": 0,
+        "verify_sim": 24.12,
+        "verified_pose": [
+          1.6549620282215816,
+          -0.024499549752488185,
+          -0.04740283133170011
+        ],
+        "xy_error": 0.09814501524698085,
+        "yaw_error": 0.04740283133170011
+      },
+      "terminal_retries": 0,
+      "error_code": 0,
+      "nav2_success_sim": 21.62,
+      "exit": 0
+    },
+    "code_sha": "ce6309b92ab1c19e87001f24280ab96241d7af1d",
+    "manifest_sha256": "c5cac9ee774ee9aa8c3b651e42f9bd4d1ac4ed29723ca48a54d27ab6a9341869",
+    "config_and_scene": {
+      "scene_sha256": "9f174aaef834b5c50c209263a391e77c2007ea4f88069b47cbe0d7782b2dd536",
+      "parameters_sha256": "8d9a3f2352a451a1ea4e49dc4d4e8accc9f2f620e35b49a64cc874e6408a562f",
+      "map_sha256": "ad4f4a57ec1e2e220bad97c5226616d1c0d236884288470a299f5d5380853163",
+      "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7"
+    },
+    "nav2_status": "SUCCEEDED",
+    "minimum_dynamic_obstacle_distance_m": null,
+    "dynamic_distance_note": "static scene; no dynamic obstacle",
+    "safety_totals": {
+      "environment": 0,
+      "dynamic_contact": 0,
+      "nonfoot_ground": 0,
+      "fall": false,
+      "fault": false
+    },
+    "dds_returncode": 0,
+    "dds_exception_applies": false,
+    "launch_returncode": 0,
+    "goal_returncodes": [
+      0
+    ],
+    "raw_stdout_stderr": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104841Z_w13-formal-v2_S06_s1005_b64989/raw",
+    "raw_json": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104841Z_w13-formal-v2_S06_s1005_b64989",
+    "raw_csv_trajectory": "/home/haoyang/humanoid_nav_ws/run_data/20261015T104841Z_w13-formal-v2_S06_s1005_b64989/sim_trace.csv"
+  },
+  {
+    "order": 7,
+    "case": "S07",
+    "suite": "static",
+    "seed": 1006,
+    "scene": "static_world",
+    "start": [
+      0.0,
+      0.0,
+      1.5708
+    ],
+    "goal": [
+      2.5,
+      2.75,
+      0.0
+    ],
+    "outcome": "FAIL_SAFETY_STOP_UNRECOVERED",
+    "run_id": "20261015T104928Z_w13-formal-v2_S07_s1006_816735",
+    "position_error_m": 0.056198131361136335,
+    "yaw_error_deg": 20.595005483952413,
+    "settled": false,
+    "task_time_sim_s": 40.28,
+    "time_to_goal_sim_s": null,
+    "terminal_retries": null,
+    "safety": {
+      "cm_stop": 0,
+      "cm_slowdown": 0,
+      "gate_stopped": 1,
+      "bridge_timeouts": 0
+    },
+    "stopping": [],
+    "planner_controller_bt_log_counts": {
+      "tf_extrapolation": 0,
+      "tf_old_data": 0,
+      "tf_timeout": 0,
+      "no_valid_control": 0,
+      "progress_failure": 0,
+      "planning_failure": 0,
+      "goal_aborted": 1,
+      "collision_ahead": 0,
+      "scan_dropped": 0
+    },
+    "action": {
+      "event": "result",
+      "goal": [
+        2.5,
+        2.75,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            2.5,
+            2.75,
+            0.0
+          ],
+          "accepted_sim": 16.580000000000002,
+          "goal_id": "3fce5000966c4699a5919d5bc98e65e9",
+          "status": "SUCCEEDED",
+          "end_sim": 30.220000000000002,
+          "error_code": 0,
+          "verify_sim": 33.7,
+          "verified_pose": [
+            2.429921146488979,
+            2.7754770578899524,
+            0.24608614444131288
+          ],
+          "xy_error": 0.07456625368185753,
+          "yaw_error": 0.24608614444131285,
+          "next_aim": [
+            2.5,
+            2.75,
+            -0.24608614444131285
+          ]
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            2.5,
+            2.75,
+            -0.24608614444131285
+          ],
+          "accepted_sim": 33.7,
+          "goal_id": "0be53981c77647298274637c38e43934",
+          "status": "SUCCEEDED",
+          "end_sim": 41.24,
+          "error_code": 0,
+          "verify_sim": 46.34,
+          "verified_pose": [
+            2.4996670277296733,
+            2.729473360586218,
+            -0.5605691232937691
+          ],
+          "xy_error": 0.02052933988603245,
+          "yaw_error": 0.5605691232937691,
+          "next_aim": [
+            2.5,
+            2.75,
+            0.31448297885245624
+          ]
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            2.5,
+            2.75,
+            0.31448297885245624
+          ],
+          "accepted_sim": 46.34,
+          "goal_id": "1602bdcc617848b490b58f0cddf83c18",
+          "status": "SUCCEEDED",
+          "end_sim": 48.88,
+          "error_code": 0,
+          "verify_sim": 51.56,
+          "verified_pose": [
+            2.5236109151320925,
+            2.743490654457625,
+            0.31687262323903154
+          ],
+          "xy_error": 0.024491771940080415,
+          "yaw_error": 0.31687262323903154,
+          "next_aim": [
+            2.5,
+            2.75,
+            -0.002389644386575296
+          ]
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            2.5,
+            2.75,
+            -0.002389644386575296
+          ],
+          "accepted_sim": 51.56,
+          "goal_id": "666c19cd8c124981b2a7093feedef970",
+          "status": "SUCCEEDED",
+          "end_sim": 52.96,
+          "error_code": 0,
+          "verify_sim": 56.86000000000001,
+          "verified_pose": [
+            2.484260254897464,
+            2.744806326152717,
+            0.307839518412806
+          ],
+          "xy_error": 0.016574493172485254,
+          "yaw_error": 0.307839518412806
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 16.580000000000002,
+      "goal_id": "3fce5000966c4699a5919d5bc98e65e9",
+      "status": "FAILED",
+      "error": "ProtocolFailure('TERMINAL_CORRECTIONS_EXHAUSTED')",
+      "timed_out": false,
+      "end_sim": 56.86000000000001,
+      "duration_sim": 40.28,
+      "exit": 2
+    },
+    "code_sha": "ce6309b92ab1c19e87001f24280ab96241d7af1d",
+    "manifest_sha256": "da6306e9df3f5a0bb4b8106b28c871504d4a34d19f45a62f57a4a4370ca93f66",
+    "config_and_scene": {
+      "scene_sha256": "9f174aaef834b5c50c209263a391e77c2007ea4f88069b47cbe0d7782b2dd536",
+      "parameters_sha256": "b18e015d8c0015ceadae7c7962cffd88bbdbf94a3517f55edaf7c966f5954a18",
+      "map_sha256": "ad4f4a57ec1e2e220bad97c5226616d1c0d236884288470a299f5d5380853163",
+      "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7"
+    },
+    "nav2_status": "FAILED",
+    "minimum_dynamic_obstacle_distance_m": null,
+    "dynamic_distance_note": "static scene; no dynamic obstacle",
+    "safety_totals": {
+      "environment": 0,
+      "dynamic_contact": 0,
+      "nonfoot_ground": 0,
+      "fall": false,
+      "fault": false
+    },
+    "dds_returncode": -11,
+    "dds_exception_applies": false,
+    "launch_returncode": 0,
+    "goal_returncodes": [
+      2
+    ],
+    "raw_stdout_stderr": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104928Z_w13-formal-v2_S07_s1006_816735/raw",
+    "raw_json": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104928Z_w13-formal-v2_S07_s1006_816735",
+    "raw_csv_trajectory": "/home/haoyang/humanoid_nav_ws/run_data/20261015T104928Z_w13-formal-v2_S07_s1006_816735/sim_trace.csv"
+  },
+  {
+    "order": 8,
+    "case": "S08",
+    "suite": "static",
+    "seed": 1007,
+    "scene": "static_world",
+    "start": [
+      1.5,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      8.0,
+      0.0,
+      -1.5708
+    ],
+    "outcome": "INTERRUPTED_BY_CAMPAIGN_ABORT",
+    "run_id": "20261015T105049Z_w13-formal-v2_S08_s1007_76e75d",
+    "position_error_m": null,
+    "yaw_error_deg": null,
+    "settled": null,
+    "task_time_sim_s": null,
+    "terminal_retries": null,
+    "action": {
+      "event": "result",
+      "goal": [
+        8.0,
+        0.0,
+        -1.5708
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            8.0,
+            0.0,
+            -1.5708
+          ],
+          "accepted_sim": 15.860000000000001,
+          "goal_id": "325326f6eb8c4f219b2ef7585dee4888",
+          "status": "ABORTED",
+          "end_sim": 36.64,
+          "error_code": 0
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 15.860000000000001,
+      "goal_id": "325326f6eb8c4f219b2ef7585dee4888",
+      "status": "FAILED",
+      "error": "ProtocolFailure('ACTION_ABORTED:0')",
+      "timed_out": false,
+      "end_sim": 36.64,
+      "duration_sim": 20.78,
+      "exit": 2
+    },
+    "interrupt_end_pose_error": {
+      "position_m": 4.4589664139054515,
+      "yaw_deg": 84.62148861946645
+    },
+    "code_sha": "ce6309b92ab1c19e87001f24280ab96241d7af1d",
+    "manifest_sha256": "7ae697eb03a794a8f96576bfd97e68b5c319f84b2aad3638fec058d85d9d41f3",
+    "config_and_scene": {
+      "scene_sha256": "9f174aaef834b5c50c209263a391e77c2007ea4f88069b47cbe0d7782b2dd536",
+      "parameters_sha256": "0b120118b08a27bf8779d68f49e3a23e1c3fe37c56d920bd26cb6973483aaaae",
+      "map_sha256": "ad4f4a57ec1e2e220bad97c5226616d1c0d236884288470a299f5d5380853163",
+      "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7"
+    },
+    "nav2_status": "interrupted",
+    "minimum_dynamic_obstacle_distance_m": null,
+    "dynamic_distance_note": "static scene; no dynamic obstacle",
+    "safety_totals": {
+      "environment": 0,
+      "dynamic_contact": 0,
+      "nonfoot_ground": 0,
+      "fall": false,
+      "fault": false
+    },
+    "dds_returncode": 0,
+    "dds_exception_applies": false,
+    "launch_returncode": 0,
+    "goal_returncodes": [
+      254
+    ],
+    "raw_stdout_stderr": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T105049Z_w13-formal-v2_S08_s1007_76e75d/raw",
+    "raw_json": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T105049Z_w13-formal-v2_S08_s1007_76e75d",
+    "raw_csv_trajectory": "/home/haoyang/humanoid_nav_ws/run_data/20261015T105049Z_w13-formal-v2_S08_s1007_76e75d/sim_trace.csv"
+  },
+  {
+    "order": 9,
+    "case": "S09",
+    "suite": "static",
+    "seed": 1008,
+    "scene": "static_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 10,
+    "case": "S10",
+    "suite": "static",
+    "seed": 1009,
+    "scene": "static_world",
+    "start": [
+      9.0,
+      0.0,
+      3.1416
+    ],
+    "goal": [
+      0.0,
+      0.0,
+      1.5708
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 11,
+    "case": "C01",
+    "suite": "crossing",
+    "seed": 2000,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 12,
+    "case": "C02",
+    "suite": "crossing",
+    "seed": 2001,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 13,
+    "case": "C03",
+    "suite": "crossing",
+    "seed": 2002,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 14,
+    "case": "C04",
+    "suite": "crossing",
+    "seed": 2003,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 15,
+    "case": "C05",
+    "suite": "crossing",
+    "seed": 2004,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 16,
+    "case": "C06",
+    "suite": "crossing",
+    "seed": 2005,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 17,
+    "case": "C07",
+    "suite": "crossing",
+    "seed": 2006,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 18,
+    "case": "C08",
+    "suite": "crossing",
+    "seed": 2007,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 19,
+    "case": "C09",
+    "suite": "crossing",
+    "seed": 2008,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 20,
+    "case": "C10",
+    "suite": "crossing",
+    "seed": 2009,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 21,
+    "case": "B01",
+    "suite": "blocking",
+    "seed": 3000,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 22,
+    "case": "B02",
+    "suite": "blocking",
+    "seed": 3001,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 23,
+    "case": "B03",
+    "suite": "blocking",
+    "seed": 3002,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 24,
+    "case": "B04",
+    "suite": "blocking",
+    "seed": 3003,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 25,
+    "case": "B05",
+    "suite": "blocking",
+    "seed": 3004,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 26,
+    "case": "B06",
+    "suite": "blocking",
+    "seed": 3005,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 27,
+    "case": "B07",
+    "suite": "blocking",
+    "seed": 3006,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 28,
+    "case": "B08",
+    "suite": "blocking",
+    "seed": 3007,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 29,
+    "case": "B09",
+    "suite": "blocking",
+    "seed": 3008,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 30,
+    "case": "B10",
+    "suite": "blocking",
+    "seed": 3009,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 31,
+    "case": "U01",
+    "suite": "sudden",
+    "seed": 4000,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 32,
+    "case": "U02",
+    "suite": "sudden",
+    "seed": 4001,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 33,
+    "case": "U03",
+    "suite": "sudden",
+    "seed": 4002,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 34,
+    "case": "U04",
+    "suite": "sudden",
+    "seed": 4003,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 35,
+    "case": "U05",
+    "suite": "sudden",
+    "seed": 4004,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 36,
+    "case": "U06",
+    "suite": "sudden",
+    "seed": 4005,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 37,
+    "case": "U07",
+    "suite": "sudden",
+    "seed": 4006,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 38,
+    "case": "U08",
+    "suite": "sudden",
+    "seed": 4007,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 39,
+    "case": "U09",
+    "suite": "sudden",
+    "seed": 4008,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  },
+  {
+    "order": 40,
+    "case": "U10",
+    "suite": "sudden",
+    "seed": 4009,
+    "scene": "dynamic_crossing_world",
+    "start": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "outcome": "NOT_RUN",
+    "run_id": null
+  }
+]

@@ -1,0 +1,57 @@
+"""Offline formal-v2 adjudication; preserves every frozen raw result/assessment."""
+import csv,datetime,hashlib,importlib.util,json,math,re,signal,sys
+from pathlib import Path
+import numpy as np
+WS=Path('/home/haoyang/humanoid_nav_ws');OUT=WS/'docs/evidence/W13/formal-v2';ROOT=WS/'docs/evidence/W13/raw/w13-formal-v2'
+sys.path.insert(0,str(WS/'scripts'))
+from evaluation.metrics import distribution,trace_columns
+spec=importlib.util.spec_from_file_location('frozen_report',WS/'scripts/report_evaluation.py');old=importlib.util.module_from_spec(spec);spec.loader.exec_module(old)
+state=json.loads((ROOT/'state.json').read_text());matrix=[];completed={};all_rtf=[];per_rtf=[];safety={k:0 for k in ('environment','dynamic_contact','nonfoot_ground','fall','fault')};processes=[];dds_nonzero=[];goal_nonzero=[];errors=[];abort_observations=[];pidset=set()
+for order,case in enumerate(state['cases'],1):
+ row=dict(order=order,case=case['id'],suite=case['suite'],seed=case['seed'],scene=case['scene'],start=case['start'],goal=case['goal'],outcome='NOT_RUN',run_id=None)
+ if not case.get('attempts'):
+  matrix.append(row);continue
+ assert len(case['attempts'])==1
+ a=case['attempts'][0];path=Path(a['output']);runid=a['run_id'];artifact=WS/'run_data'/runid
+ r=json.loads((path/'result.json').read_text()) if (path/'result.json').exists() else None
+ sup=json.loads((path/'support-exit.json').read_text());man=json.loads((artifact/'manifest.json').read_text());rows,tr=trace_columns(artifact/'sim_trace.csv');events=[json.loads(l) for l in (artifact/'events.jsonl').read_text().splitlines()]
+ text=(path/'raw'/(runid+'.txt')).read_text(errors='replace');goaltxt=(path/'raw'/(runid+'-goal.txt')).read_text(errors='replace');dds=(path/'raw'/(runid+'-dds.txt')).read_text()
+ goals=[json.loads(l) for l in goaltxt.splitlines() if l.startswith('{')];nav=next((g for g in goals if g.get('event')=='result'),{})
+ starts={int(pid):name for name,pid in re.findall(r'\[INFO\] \[([^\]]+)\]: process started with pid \[(\d+)\]',text)}
+ clean={int(pid) for pid in re.findall(r'process has finished cleanly \[pid (\d+)\]',text)}
+ child=[dict(pid=p,name=n,returncode=0 if p in clean else None) for p,n in starts.items()]
+ assert len(child)==17 and all(c['returncode']==0 for c in child)
+ proc=dict(run_id=runid,launch=sup['launch'],launch_children=child,dds_returncode=sup['dds_returncode'],signals=sup['signals'],escalations=[l for l in text.splitlines() if 'escalating' in l.lower() or re.search(r"sending signal '(SIGTERM|SIGKILL)'",l)])
+ processes.append(proc);pidset.update(starts);pidset.add(sup['dds_pid'])
+ for v in sup['launch']:
+  pidset.update((v['pid'],v['authority_pid']));pidset.update(c['pid'] for c in v['children'])
+  for c in v['children']:
+   if c['returncode']!=0:goal_nonzero.append(dict(run_id=runid,**c,context='terminal corrections exhausted before DDS close' if case['id']=='S07' else 'controlled campaign interrupt; not independent candidate-exit evidence'))
+ rc=sup['dds_returncode']; crash=rc<0 and -rc not in (signal.SIGINT,signal.SIGTERM)
+ if rc!=0:
+  original=json.loads((path/'assessment.json').read_text());conditions=dict(original['dds_exception_conditions']);conditions['no_dds_crash_assertion_sanitizer_traceback']=not crash and conditions['no_dds_crash_assertion_sanitizer_traceback'];conditions['all_robot_launch_starter_children_normal']=conditions['all_robot_launch_starter_children_normal'] and all(c['returncode']==0 for v in sup['launch'] for c in v['children'])
+  dds_nonzero.append(dict(run_id=runid,returncode=rc,signal=signal.Signals(-rc).name if rc<0 else None,exception_applies=all(conditions.values()),conditions=conditions,original_assessment_status=original['dds_status'],classification='DDS_CRASH_INFRASTRUCTURE_FAILURE',explanation='Exact -11 is termination by SIGSEGV, independent of lack of crash text in log; original log-only assessment is false negative and is retained unchanged.'))
+ contact=man['contact_counts'];sf=dict(environment=contact['static_env'],dynamic_contact=contact['obstacle'],nonfoot_ground=contact['ground_nonfoot'],fall=any(x['state']=='FALLEN' for x in rows),fault=any(x['state']=='FAULT' for x in rows))
+ for k,v in sf.items():safety[k]+=int(v)
+ select=tr['wall_mono']-tr['wall_mono'][0]>=10;values=tr['rtf_10s'][select];all_rtf.extend(values)
+ p=dict(run_id=runid,case=case['id'],rows_total=len(rows),samples_after_frozen_warmup=int(select.sum()),n_below_1=int((values<1.).sum()),n_nonfinite=int((~np.isfinite(values)).sum()),statistics=distribution(values),trace_sim_time_s=float(tr['sim_time'][-1]),trace_wall_elapsed_s=float(tr['wall_mono'][-1]-tr['wall_mono'][0]),source=str(artifact/'sim_trace.csv'),source_sha256=hashlib.sha256((artifact/'sim_trace.csv').read_bytes()).hexdigest(),interrupted=r is None)
+ per_rtf.append(p)
+ terminal=dict(position_m=float(math.hypot(tr['x_w'][-1]-case['goal'][0],tr['y_w'][-1]-case['goal'][1])),yaw_deg=float(math.degrees(abs(math.atan2(math.sin(tr['yaw_w'][-1]-case['goal'][2]),math.cos(tr['yaw_w'][-1]-case['goal'][2]))))))
+ if r:
+  completed[case['id']]=r;m=r['metrics'];settle=m.get('settle',{});err=settle if settle.get('pos_err_m') is not None else m.get('terminal_error',{})
+  error=dict(position_m=err.get('pos_err_m'),yaw_deg=err.get('yaw_err_deg'));errors.append(error)
+  row.update(outcome=r['outcome'],position_error_m=error['position_m'],yaw_error_deg=error['yaw_deg'],settled=settle.get('settled',False),task_time_sim_s=m.get('task_duration_s'),time_to_goal_sim_s=m.get('time_to_goal_s'),terminal_retries=m.get('terminal_retries'),safety=m.get('safety'),stopping=r.get('stopping'),planner_controller_bt_log_counts=m.get('log_counts'),action=nav)
+ else:
+  row.update(outcome='INTERRUPTED_BY_CAMPAIGN_ABORT',position_error_m=None,yaw_error_deg=None,settled=None,task_time_sim_s=None,terminal_retries=None,action=nav,interrupt_end_pose_error=terminal)
+  abort_observations.append(dict(run_id=runid,case=case['id'],outcome=row['outcome'],behavior_began=True,invalid=False,result_json_missing_explained='KeyboardInterrupt propagated through frozen worker; finally closed owned resources. No result.json was produced; no result was fabricated or retry performed.',goal_tool_exit=next(c['returncode'] for v in sup['launch'] for c in v['children'] if c['label']=='goal'),worker_exact_exit='not persisted by frozen parent KeyboardInterrupt path; parent/orchestration observed exit130',terminal_observation_not_goal_arrival=terminal))
+ row.update(run_id=runid,code_sha=man['code_sha'],manifest_sha256=hashlib.sha256((artifact/'manifest.json').read_bytes()).hexdigest(),config_and_scene=dict(scene_sha256=man.get('scene_sha256'),parameters_sha256=man.get('parameters_sha256'),map_sha256=man.get('map_sha256'),checkpoint_sha256=man.get('checkpoint_sha256')),nav2_status=r.get('metrics',{}).get('nav2_status') if r else 'interrupted',minimum_dynamic_obstacle_distance_m=None,dynamic_distance_note='static scene; no dynamic obstacle',safety_totals=sf,dds_returncode=rc,dds_exception_applies=False,launch_returncode=sup['launch'][0]['returncode'],goal_returncodes=[c['returncode'] for v in sup['launch'] for c in v['children']],raw_stdout_stderr=str(path/'raw'),raw_json=str(path),raw_csv_trajectory=str(artifact/'sim_trace.csv'))
+ matrix.append(row)
+pooled=distribution(all_rtf);assert all(v['n_nonfinite']==0 for v in per_rtf)
+perf=dict(method='Unchanged scripts/report_evaluation.py performance() RTF extraction: all samples where wall_mono-first_wall_mono>=10; rolling10wall-s simulation/wall ratio; no low samples removed; target1.0 headless.',full_40_workload_complete=False,threshold=1.,all_started_8_including_interrupted=dict(statistics=pooled,observed_strict_comparison=pooled['median']>=1.,n_below_1=sum(p['n_below_1'] for p in per_rtf)),per_run=per_rtf,completed_7_frozen_function=old.performance('w13-formal-v2',completed),formal_acceptance='NOT_COMPLETED: 8/40 attempted; observed pooled median is compared without rounding, never substituted for full workload')
+counts={k:dict(success=sum(r['suite']==k and r['outcome']=='SUCCESS' for r in matrix),started=sum(r['suite']==k and r['run_id'] is not None for r in matrix),completed=sum(r['suite']==k and r['run_id'] is not None and r['outcome']!='INTERRUPTED_BY_CAMPAIGN_ABORT' for r in matrix),planned=10) for k in ('static','crossing','blocking','sudden')}
+summary=dict(status='W13_FORMAL_V2_FAIL',decision_basis='S07 is an immutable valid navigation failure before DDS shutdown; static10/10 is impossible. DDS SIGSEGV independently requires stopping; therefore not an infrastructure-only abort hiding an existing valid failure. Matrix/strict full-workload RTF unfinished, never PASS.',protocol_sha='78c9141a0df3b128450b6954e27a0c570933ab4e',physical_test_head='ce6309b92ab1c19e87001f24280ab96241d7af1d',evidence_sha='aa97b430d4edf3998bc47840951c820c67d7bed2',started=8,completed=7,successes=6,not_run=32,counts=counts,invalid=[],interrupted=abort_observations,safety_totals=safety,worst_completed_position_error_m=max(e['position_m'] for e in errors),worst_completed_yaw_error_deg=max(e['yaw_deg'] for e in errors),strict_rtf=perf['all_started_8_including_interrupted'],strict_rtf_acceptance=perf['formal_acceptance'],nonzero_dds=dds_nonzero,launch_or_child_nonzero=[],goal_tool_nonzero=goal_nonzero,sigterm_sigkill=[p for p in processes if p['escalations'] or any(s['signal'] in (9,15) for s in p['signals'])],remaining_processes=[],remaining_ports=[],observed_owned_pids=sorted(pidset),w14_ready=False,w11r2v_historical_status='INDEPENDENT_VERIFICATION_FAIL')
+for name,obj in [('summary.json',summary),('case-results.json',matrix),('performance.json',perf),('process-summary.json',processes),('failure-assessment.json',dict(dds=dds_nonzero,interrupted=abort_observations,valid_failure=matrix[6],no_protocol_change=True,no_collector_repair=True,rule='ACCEPTANCE_EXCEPTION.md no DDS crash condition, committed before all physical runs'))]:
+ (OUT/name).write_text(json.dumps(obj,indent=2,default=str)+'\n')
+with (OUT/'results.csv').open('w') as f:
+ fields=['order','case','suite','seed','outcome','run_id','position_error_m','yaw_error_deg','dds_returncode','launch_returncode'];w=csv.DictWriter(f,fieldnames=fields,extrasaction='ignore',lineterminator='\n');w.writeheader();w.writerows(matrix)
+print(json.dumps({k:summary[k] for k in ('status','started','completed','counts','safety_totals','worst_completed_position_error_m','worst_completed_yaw_error_deg','strict_rtf','nonzero_dds')},indent=2))

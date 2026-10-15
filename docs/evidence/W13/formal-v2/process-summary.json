@@ -1,0 +1,1024 @@
+[
+  {
+    "run_id": "20261015T104213Z_w13-formal-v2_S01_s1000_ee3535",
+    "launch": [
+      {
+        "pid": 132135,
+        "returncode": 0,
+        "authority_pid": 132136,
+        "authority_returncode": 0,
+        "children": [
+          {
+            "label": "goal",
+            "pid": 133145,
+            "returncode": 0
+          }
+        ]
+      }
+    ],
+    "launch_children": [
+      {
+        "pid": 132162,
+        "name": "t1_sim-1",
+        "returncode": 0
+      },
+      {
+        "pid": 132163,
+        "name": "robot_state_publisher-2",
+        "returncode": 0
+      },
+      {
+        "pid": 132164,
+        "name": "map_server-3",
+        "returncode": 0
+      },
+      {
+        "pid": 132165,
+        "name": "amcl-4",
+        "returncode": 0
+      },
+      {
+        "pid": 132166,
+        "name": "command_gate-5",
+        "returncode": 0
+      },
+      {
+        "pid": 132167,
+        "name": "velocity_smoother-6",
+        "returncode": 0
+      },
+      {
+        "pid": 132168,
+        "name": "collision_monitor-7",
+        "returncode": 0
+      },
+      {
+        "pid": 132491,
+        "name": "bounded_lifecycle_manager-8",
+        "returncode": 0
+      },
+      {
+        "pid": 132492,
+        "name": "lifecycle_manager-9",
+        "returncode": 0
+      },
+      {
+        "pid": 132643,
+        "name": "controller_server-10",
+        "returncode": 0
+      },
+      {
+        "pid": 132644,
+        "name": "planner_server-11",
+        "returncode": 0
+      },
+      {
+        "pid": 132645,
+        "name": "behavior_server-12",
+        "returncode": 0
+      },
+      {
+        "pid": 132646,
+        "name": "bt_navigator-13",
+        "returncode": 0
+      },
+      {
+        "pid": 132647,
+        "name": "bounded_lifecycle_manager-14",
+        "returncode": 0
+      },
+      {
+        "pid": 132648,
+        "name": "navigation_adapter-15",
+        "returncode": 0
+      },
+      {
+        "pid": 132649,
+        "name": "navigation_starter-16",
+        "returncode": 0
+      },
+      {
+        "pid": 132650,
+        "name": "t1_initial_pose_once-17",
+        "returncode": 0
+      }
+    ],
+    "dds_returncode": 0,
+    "signals": [
+      {
+        "event": "os.kill",
+        "target": 132135,
+        "signal": 2,
+        "wall": 14782.010042197
+      },
+      {
+        "event": "os.kill",
+        "target": 132136,
+        "signal": 2,
+        "wall": 14783.226523973
+      },
+      {
+        "event": "os.kill",
+        "target": 132098,
+        "signal": 2,
+        "wall": 14783.550160731
+      }
+    ],
+    "escalations": []
+  },
+  {
+    "run_id": "20261015T104312Z_w13-formal-v2_S02_s1001_98e483",
+    "launch": [
+      {
+        "pid": 133635,
+        "returncode": 0,
+        "authority_pid": 133636,
+        "authority_returncode": 0,
+        "children": [
+          {
+            "label": "goal",
+            "pid": 134614,
+            "returncode": 0
+          }
+        ]
+      }
+    ],
+    "launch_children": [
+      {
+        "pid": 133662,
+        "name": "t1_sim-1",
+        "returncode": 0
+      },
+      {
+        "pid": 133663,
+        "name": "robot_state_publisher-2",
+        "returncode": 0
+      },
+      {
+        "pid": 133664,
+        "name": "map_server-3",
+        "returncode": 0
+      },
+      {
+        "pid": 133665,
+        "name": "amcl-4",
+        "returncode": 0
+      },
+      {
+        "pid": 133666,
+        "name": "command_gate-5",
+        "returncode": 0
+      },
+      {
+        "pid": 133667,
+        "name": "velocity_smoother-6",
+        "returncode": 0
+      },
+      {
+        "pid": 133668,
+        "name": "collision_monitor-7",
+        "returncode": 0
+      },
+      {
+        "pid": 133979,
+        "name": "bounded_lifecycle_manager-8",
+        "returncode": 0
+      },
+      {
+        "pid": 133980,
+        "name": "lifecycle_manager-9",
+        "returncode": 0
+      },
+      {
+        "pid": 134124,
+        "name": "controller_server-10",
+        "returncode": 0
+      },
+      {
+        "pid": 134125,
+        "name": "planner_server-11",
+        "returncode": 0
+      },
+      {
+        "pid": 134126,
+        "name": "behavior_server-12",
+        "returncode": 0
+      },
+      {
+        "pid": 134127,
+        "name": "bt_navigator-13",
+        "returncode": 0
+      },
+      {
+        "pid": 134128,
+        "name": "bounded_lifecycle_manager-14",
+        "returncode": 0
+      },
+      {
+        "pid": 134129,
+        "name": "navigation_adapter-15",
+        "returncode": 0
+      },
+      {
+        "pid": 134130,
+        "name": "navigation_starter-16",
+        "returncode": 0
+      },
+      {
+        "pid": 134131,
+        "name": "t1_initial_pose_once-17",
+        "returncode": 0
+      }
+    ],
+    "dds_returncode": 0,
+    "signals": [
+      {
+        "event": "os.kill",
+        "target": 133635,
+        "signal": 2,
+        "wall": 14849.696730513
+      },
+      {
+        "event": "os.kill",
+        "target": 133636,
+        "signal": 2,
+        "wall": 14850.863610838
+      },
+      {
+        "event": "os.kill",
+        "target": 133597,
+        "signal": 2,
+        "wall": 14851.241772591
+      }
+    ],
+    "escalations": []
+  },
+  {
+    "run_id": "20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d",
+    "launch": [
+      {
+        "pid": 135158,
+        "returncode": 0,
+        "authority_pid": 135159,
+        "authority_returncode": 0,
+        "children": [
+          {
+            "label": "goal",
+            "pid": 136162,
+            "returncode": 0
+          }
+        ]
+      }
+    ],
+    "launch_children": [
+      {
+        "pid": 135185,
+        "name": "t1_sim-1",
+        "returncode": 0
+      },
+      {
+        "pid": 135186,
+        "name": "robot_state_publisher-2",
+        "returncode": 0
+      },
+      {
+        "pid": 135187,
+        "name": "map_server-3",
+        "returncode": 0
+      },
+      {
+        "pid": 135188,
+        "name": "amcl-4",
+        "returncode": 0
+      },
+      {
+        "pid": 135189,
+        "name": "command_gate-5",
+        "returncode": 0
+      },
+      {
+        "pid": 135190,
+        "name": "velocity_smoother-6",
+        "returncode": 0
+      },
+      {
+        "pid": 135191,
+        "name": "collision_monitor-7",
+        "returncode": 0
+      },
+      {
+        "pid": 135522,
+        "name": "bounded_lifecycle_manager-8",
+        "returncode": 0
+      },
+      {
+        "pid": 135523,
+        "name": "lifecycle_manager-9",
+        "returncode": 0
+      },
+      {
+        "pid": 135668,
+        "name": "controller_server-10",
+        "returncode": 0
+      },
+      {
+        "pid": 135669,
+        "name": "planner_server-11",
+        "returncode": 0
+      },
+      {
+        "pid": 135670,
+        "name": "behavior_server-12",
+        "returncode": 0
+      },
+      {
+        "pid": 135671,
+        "name": "bt_navigator-13",
+        "returncode": 0
+      },
+      {
+        "pid": 135672,
+        "name": "bounded_lifecycle_manager-14",
+        "returncode": 0
+      },
+      {
+        "pid": 135673,
+        "name": "navigation_adapter-15",
+        "returncode": 0
+      },
+      {
+        "pid": 135674,
+        "name": "navigation_starter-16",
+        "returncode": 0
+      },
+      {
+        "pid": 135675,
+        "name": "t1_initial_pose_once-17",
+        "returncode": 0
+      }
+    ],
+    "dds_returncode": 0,
+    "signals": [
+      {
+        "event": "os.kill",
+        "target": 135158,
+        "signal": 2,
+        "wall": 14920.636850039
+      },
+      {
+        "event": "os.kill",
+        "target": 135159,
+        "signal": 2,
+        "wall": 14921.602637262
+      },
+      {
+        "event": "os.kill",
+        "target": 135126,
+        "signal": 2,
+        "wall": 14922.056637389
+      }
+    ],
+    "escalations": []
+  },
+  {
+    "run_id": "20261015T104529Z_w13-formal-v2_S04_s1003_58e684",
+    "launch": [
+      {
+        "pid": 136850,
+        "returncode": 0,
+        "authority_pid": 136851,
+        "authority_returncode": 0,
+        "children": [
+          {
+            "label": "goal",
+            "pid": 137857,
+            "returncode": 0
+          }
+        ]
+      }
+    ],
+    "launch_children": [
+      {
+        "pid": 136877,
+        "name": "t1_sim-1",
+        "returncode": 0
+      },
+      {
+        "pid": 136878,
+        "name": "robot_state_publisher-2",
+        "returncode": 0
+      },
+      {
+        "pid": 136879,
+        "name": "map_server-3",
+        "returncode": 0
+      },
+      {
+        "pid": 136880,
+        "name": "amcl-4",
+        "returncode": 0
+      },
+      {
+        "pid": 136881,
+        "name": "command_gate-5",
+        "returncode": 0
+      },
+      {
+        "pid": 136882,
+        "name": "velocity_smoother-6",
+        "returncode": 0
+      },
+      {
+        "pid": 136883,
+        "name": "collision_monitor-7",
+        "returncode": 0
+      },
+      {
+        "pid": 137208,
+        "name": "bounded_lifecycle_manager-8",
+        "returncode": 0
+      },
+      {
+        "pid": 137209,
+        "name": "lifecycle_manager-9",
+        "returncode": 0
+      },
+      {
+        "pid": 137346,
+        "name": "controller_server-10",
+        "returncode": 0
+      },
+      {
+        "pid": 137347,
+        "name": "planner_server-11",
+        "returncode": 0
+      },
+      {
+        "pid": 137348,
+        "name": "behavior_server-12",
+        "returncode": 0
+      },
+      {
+        "pid": 137349,
+        "name": "bt_navigator-13",
+        "returncode": 0
+      },
+      {
+        "pid": 137350,
+        "name": "bounded_lifecycle_manager-14",
+        "returncode": 0
+      },
+      {
+        "pid": 137351,
+        "name": "navigation_adapter-15",
+        "returncode": 0
+      },
+      {
+        "pid": 137352,
+        "name": "navigation_starter-16",
+        "returncode": 0
+      },
+      {
+        "pid": 137353,
+        "name": "t1_initial_pose_once-17",
+        "returncode": 0
+      }
+    ],
+    "dds_returncode": 0,
+    "signals": [
+      {
+        "event": "os.kill",
+        "target": 136850,
+        "signal": 2,
+        "wall": 14993.673837083
+      },
+      {
+        "event": "os.kill",
+        "target": 136851,
+        "signal": 2,
+        "wall": 14994.338791984
+      },
+      {
+        "event": "os.kill",
+        "target": 136818,
+        "signal": 2,
+        "wall": 14994.808246586
+      }
+    ],
+    "escalations": []
+  },
+  {
+    "run_id": "20261015T104645Z_w13-formal-v2_S05_s1004_a69103",
+    "launch": [
+      {
+        "pid": 138542,
+        "returncode": 0,
+        "authority_pid": 138543,
+        "authority_returncode": 0,
+        "children": [
+          {
+            "label": "goal",
+            "pid": 139542,
+            "returncode": 0
+          }
+        ]
+      }
+    ],
+    "launch_children": [
+      {
+        "pid": 138569,
+        "name": "t1_sim-1",
+        "returncode": 0
+      },
+      {
+        "pid": 138570,
+        "name": "robot_state_publisher-2",
+        "returncode": 0
+      },
+      {
+        "pid": 138571,
+        "name": "map_server-3",
+        "returncode": 0
+      },
+      {
+        "pid": 138572,
+        "name": "amcl-4",
+        "returncode": 0
+      },
+      {
+        "pid": 138573,
+        "name": "command_gate-5",
+        "returncode": 0
+      },
+      {
+        "pid": 138574,
+        "name": "velocity_smoother-6",
+        "returncode": 0
+      },
+      {
+        "pid": 138575,
+        "name": "collision_monitor-7",
+        "returncode": 0
+      },
+      {
+        "pid": 138894,
+        "name": "bounded_lifecycle_manager-8",
+        "returncode": 0
+      },
+      {
+        "pid": 138895,
+        "name": "lifecycle_manager-9",
+        "returncode": 0
+      },
+      {
+        "pid": 139044,
+        "name": "controller_server-10",
+        "returncode": 0
+      },
+      {
+        "pid": 139045,
+        "name": "planner_server-11",
+        "returncode": 0
+      },
+      {
+        "pid": 139046,
+        "name": "behavior_server-12",
+        "returncode": 0
+      },
+      {
+        "pid": 139047,
+        "name": "bt_navigator-13",
+        "returncode": 0
+      },
+      {
+        "pid": 139048,
+        "name": "bounded_lifecycle_manager-14",
+        "returncode": 0
+      },
+      {
+        "pid": 139049,
+        "name": "navigation_adapter-15",
+        "returncode": 0
+      },
+      {
+        "pid": 139050,
+        "name": "navigation_starter-16",
+        "returncode": 0
+      },
+      {
+        "pid": 139051,
+        "name": "t1_initial_pose_once-17",
+        "returncode": 0
+      }
+    ],
+    "dds_returncode": 0,
+    "signals": [
+      {
+        "event": "os.kill",
+        "target": 138542,
+        "signal": 2,
+        "wall": 15101.950747595
+      },
+      {
+        "event": "os.kill",
+        "target": 138543,
+        "signal": 2,
+        "wall": 15102.767194771
+      },
+      {
+        "event": "os.kill",
+        "target": 138502,
+        "signal": 2,
+        "wall": 15103.545355895
+      }
+    ],
+    "escalations": []
+  },
+  {
+    "run_id": "20261015T104841Z_w13-formal-v2_S06_s1005_b64989",
+    "launch": [
+      {
+        "pid": 140576,
+        "returncode": 0,
+        "authority_pid": 140577,
+        "authority_returncode": 0,
+        "children": [
+          {
+            "label": "goal",
+            "pid": 141581,
+            "returncode": 0
+          }
+        ]
+      }
+    ],
+    "launch_children": [
+      {
+        "pid": 140609,
+        "name": "t1_sim-1",
+        "returncode": 0
+      },
+      {
+        "pid": 140610,
+        "name": "robot_state_publisher-2",
+        "returncode": 0
+      },
+      {
+        "pid": 140611,
+        "name": "map_server-3",
+        "returncode": 0
+      },
+      {
+        "pid": 140612,
+        "name": "amcl-4",
+        "returncode": 0
+      },
+      {
+        "pid": 140613,
+        "name": "command_gate-5",
+        "returncode": 0
+      },
+      {
+        "pid": 140614,
+        "name": "velocity_smoother-6",
+        "returncode": 0
+      },
+      {
+        "pid": 140615,
+        "name": "collision_monitor-7",
+        "returncode": 0
+      },
+      {
+        "pid": 140930,
+        "name": "bounded_lifecycle_manager-8",
+        "returncode": 0
+      },
+      {
+        "pid": 140931,
+        "name": "lifecycle_manager-9",
+        "returncode": 0
+      },
+      {
+        "pid": 141070,
+        "name": "controller_server-10",
+        "returncode": 0
+      },
+      {
+        "pid": 141071,
+        "name": "planner_server-11",
+        "returncode": 0
+      },
+      {
+        "pid": 141072,
+        "name": "behavior_server-12",
+        "returncode": 0
+      },
+      {
+        "pid": 141073,
+        "name": "bt_navigator-13",
+        "returncode": 0
+      },
+      {
+        "pid": 141074,
+        "name": "bounded_lifecycle_manager-14",
+        "returncode": 0
+      },
+      {
+        "pid": 141075,
+        "name": "navigation_adapter-15",
+        "returncode": 0
+      },
+      {
+        "pid": 141076,
+        "name": "navigation_starter-16",
+        "returncode": 0
+      },
+      {
+        "pid": 141077,
+        "name": "t1_initial_pose_once-17",
+        "returncode": 0
+      }
+    ],
+    "dds_returncode": 0,
+    "signals": [
+      {
+        "event": "os.kill",
+        "target": 140576,
+        "signal": 2,
+        "wall": 15145.101121992
+      },
+      {
+        "event": "os.kill",
+        "target": 140577,
+        "signal": 2,
+        "wall": 15146.267587532
+      },
+      {
+        "event": "os.kill",
+        "target": 140544,
+        "signal": 2,
+        "wall": 15146.60340594
+      }
+    ],
+    "escalations": []
+  },
+  {
+    "run_id": "20261015T104928Z_w13-formal-v2_S07_s1006_816735",
+    "launch": [
+      {
+        "pid": 142008,
+        "returncode": 0,
+        "authority_pid": 142009,
+        "authority_returncode": 0,
+        "children": [
+          {
+            "label": "goal",
+            "pid": 143025,
+            "returncode": 2
+          }
+        ]
+      }
+    ],
+    "launch_children": [
+      {
+        "pid": 142035,
+        "name": "t1_sim-1",
+        "returncode": 0
+      },
+      {
+        "pid": 142036,
+        "name": "robot_state_publisher-2",
+        "returncode": 0
+      },
+      {
+        "pid": 142037,
+        "name": "map_server-3",
+        "returncode": 0
+      },
+      {
+        "pid": 142038,
+        "name": "amcl-4",
+        "returncode": 0
+      },
+      {
+        "pid": 142039,
+        "name": "command_gate-5",
+        "returncode": 0
+      },
+      {
+        "pid": 142040,
+        "name": "velocity_smoother-6",
+        "returncode": 0
+      },
+      {
+        "pid": 142041,
+        "name": "collision_monitor-7",
+        "returncode": 0
+      },
+      {
+        "pid": 142371,
+        "name": "bounded_lifecycle_manager-8",
+        "returncode": 0
+      },
+      {
+        "pid": 142372,
+        "name": "lifecycle_manager-9",
+        "returncode": 0
+      },
+      {
+        "pid": 142509,
+        "name": "controller_server-10",
+        "returncode": 0
+      },
+      {
+        "pid": 142510,
+        "name": "planner_server-11",
+        "returncode": 0
+      },
+      {
+        "pid": 142511,
+        "name": "behavior_server-12",
+        "returncode": 0
+      },
+      {
+        "pid": 142512,
+        "name": "bt_navigator-13",
+        "returncode": 0
+      },
+      {
+        "pid": 142513,
+        "name": "bounded_lifecycle_manager-14",
+        "returncode": 0
+      },
+      {
+        "pid": 142514,
+        "name": "navigation_adapter-15",
+        "returncode": 0
+      },
+      {
+        "pid": 142515,
+        "name": "navigation_starter-16",
+        "returncode": 0
+      },
+      {
+        "pid": 142516,
+        "name": "t1_initial_pose_once-17",
+        "returncode": 0
+      }
+    ],
+    "dds_returncode": -11,
+    "signals": [
+      {
+        "event": "os.kill",
+        "target": 142008,
+        "signal": 2,
+        "wall": 15221.486490511
+      },
+      {
+        "event": "os.kill",
+        "target": 142009,
+        "signal": 2,
+        "wall": 15222.653067191
+      },
+      {
+        "event": "os.kill",
+        "target": 141976,
+        "signal": 2,
+        "wall": 15223.131322738
+      }
+    ],
+    "escalations": []
+  },
+  {
+    "run_id": "20261015T105049Z_w13-formal-v2_S08_s1007_76e75d",
+    "launch": [
+      {
+        "pid": 143743,
+        "returncode": 0,
+        "authority_pid": 143744,
+        "authority_returncode": 0,
+        "children": [
+          {
+            "label": "goal",
+            "pid": 144767,
+            "returncode": 254
+          }
+        ]
+      }
+    ],
+    "launch_children": [
+      {
+        "pid": 143770,
+        "name": "t1_sim-1",
+        "returncode": 0
+      },
+      {
+        "pid": 143771,
+        "name": "robot_state_publisher-2",
+        "returncode": 0
+      },
+      {
+        "pid": 143772,
+        "name": "map_server-3",
+        "returncode": 0
+      },
+      {
+        "pid": 143773,
+        "name": "amcl-4",
+        "returncode": 0
+      },
+      {
+        "pid": 143774,
+        "name": "command_gate-5",
+        "returncode": 0
+      },
+      {
+        "pid": 143775,
+        "name": "velocity_smoother-6",
+        "returncode": 0
+      },
+      {
+        "pid": 143776,
+        "name": "collision_monitor-7",
+        "returncode": 0
+      },
+      {
+        "pid": 144111,
+        "name": "bounded_lifecycle_manager-8",
+        "returncode": 0
+      },
+      {
+        "pid": 144112,
+        "name": "lifecycle_manager-9",
+        "returncode": 0
+      },
+      {
+        "pid": 144253,
+        "name": "controller_server-10",
+        "returncode": 0
+      },
+      {
+        "pid": 144254,
+        "name": "planner_server-11",
+        "returncode": 0
+      },
+      {
+        "pid": 144255,
+        "name": "behavior_server-12",
+        "returncode": 0
+      },
+      {
+        "pid": 144256,
+        "name": "bt_navigator-13",
+        "returncode": 0
+      },
+      {
+        "pid": 144257,
+        "name": "bounded_lifecycle_manager-14",
+        "returncode": 0
+      },
+      {
+        "pid": 144258,
+        "name": "navigation_adapter-15",
+        "returncode": 0
+      },
+      {
+        "pid": 144259,
+        "name": "navigation_starter-16",
+        "returncode": 0
+      },
+      {
+        "pid": 144260,
+        "name": "t1_initial_pose_once-17",
+        "returncode": 0
+      }
+    ],
+    "dds_returncode": 0,
+    "signals": [
+      {
+        "event": "os.kill",
+        "target": 143743,
+        "signal": 2,
+        "wall": 15263.961157735
+      },
+      {
+        "event": "os.killpg",
+        "target": 144767,
+        "signal": 2,
+        "wall": 15264.777248809
+      },
+      {
+        "event": "os.kill",
+        "target": 143744,
+        "signal": 2,
+        "wall": 15264.941176241
+      },
+      {
+        "event": "os.kill",
+        "target": 143711,
+        "signal": 2,
+        "wall": 15265.063961337
+      }
+    ],
+    "escalations": []
+  }
+]

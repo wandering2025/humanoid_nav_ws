@@ -1,0 +1,25 @@
+import datetime,hashlib,json,shutil
+from pathlib import Path
+ws=Path('/home/haoyang/humanoid_nav_ws');out=ws/'docs/evidence/W13/formal-v2';root=ws/'docs/evidence/W13/raw/w13-formal-v2'
+state=json.loads((root/'state.json').read_text());index={};inventory=[]
+for case in state['cases']:
+ if not case.get('attempts'):continue
+ a=case['attempts'][0];source=Path(a['output']);dest=out/'runs'/a['run_id'];dest.mkdir(parents=True,exist_ok=True)
+ for p in source.iterdir():
+  if p.is_file() and p.stat().st_size<1000000 and p.suffix in ('.json','.csv','.txt'):shutil.copyfile(p,dest/p.name)
+ logdir=dest/'raw-logs';logdir.mkdir(exist_ok=True)
+ for p in (source/'raw').glob('*.txt'):
+  if p.stat().st_size<1000000:shutil.copyfile(p,logdir/p.name)
+ artifact=ws/'run_data'/a['run_id']
+ for p in artifact.iterdir():
+  if p.is_file() and p.name in ('manifest.json','contact_events.csv'):shutil.copyfile(p,dest/p.name)
+ for base in (source,artifact):
+  for p in base.rglob('*'):
+   if p.is_file():index[str(p.relative_to(ws))]=dict(bytes=p.stat().st_size,sha256=hashlib.sha256(p.read_bytes()).hexdigest())
+ inventory.append(dict(case=case['id'],run_id=a['run_id'],state=a['state'],result_json_exists=(source/'result.json').exists(),support_exit_json_exists=(source/'support-exit.json').exists(),raw=str(source),simulation=str(artifact)))
+for name in ('state.json','summary.json','infrastructure-abort-signal.json'):
+ p=root/name
+ if p.exists():shutil.copyfile(p,out/('frozen-campaign-'+name if name!='infrastructure-abort-signal.json' else name))
+(out/'raw-artifact-index.json').write_text(json.dumps(index,indent=2)+'\n')
+(out/'run-inventory.json').write_text(json.dumps(dict(time_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),attempted=len(inventory),completed=sum(r['result_json_exists'] for r in inventory),runs=inventory),indent=2)+'\n')
+print('attempted',len(inventory),'completed',sum(r['result_json_exists'] for r in inventory),'raw files',len(index))

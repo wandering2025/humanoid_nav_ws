@@ -1,0 +1,236 @@
+{
+  "dds": [
+    {
+      "run_id": "20261015T104928Z_w13-formal-v2_S07_s1006_816735",
+      "returncode": -11,
+      "signal": "SIGSEGV",
+      "exception_applies": false,
+      "conditions": {
+        "expected_single_SIGINT": true,
+        "ended_within_10s": true,
+        "no_SIGTERM_SIGKILL": true,
+        "no_dds_crash_assertion_sanitizer_traceback": false,
+        "port_released": true,
+        "no_dds_process": true,
+        "all_robot_launch_starter_children_normal": false,
+        "exact_integer_saved": true
+      },
+      "original_assessment_status": "INFRASTRUCTURE_WARNING",
+      "classification": "DDS_CRASH_INFRASTRUCTURE_FAILURE",
+      "explanation": "Exact -11 is termination by SIGSEGV, independent of lack of crash text in log; original log-only assessment is false negative and is retained unchanged."
+    }
+  ],
+  "interrupted": [
+    {
+      "run_id": "20261015T105049Z_w13-formal-v2_S08_s1007_76e75d",
+      "case": "S08",
+      "outcome": "INTERRUPTED_BY_CAMPAIGN_ABORT",
+      "behavior_began": true,
+      "invalid": false,
+      "result_json_missing_explained": "KeyboardInterrupt propagated through frozen worker; finally closed owned resources. No result.json was produced; no result was fabricated or retry performed.",
+      "goal_tool_exit": 254,
+      "worker_exact_exit": "not persisted by frozen parent KeyboardInterrupt path; parent/orchestration observed exit130",
+      "terminal_observation_not_goal_arrival": {
+        "position_m": 4.4589664139054515,
+        "yaw_deg": 84.62148861946645
+      }
+    }
+  ],
+  "valid_failure": {
+    "order": 7,
+    "case": "S07",
+    "suite": "static",
+    "seed": 1006,
+    "scene": "static_world",
+    "start": [
+      0.0,
+      0.0,
+      1.5708
+    ],
+    "goal": [
+      2.5,
+      2.75,
+      0.0
+    ],
+    "outcome": "FAIL_SAFETY_STOP_UNRECOVERED",
+    "run_id": "20261015T104928Z_w13-formal-v2_S07_s1006_816735",
+    "position_error_m": 0.056198131361136335,
+    "yaw_error_deg": 20.595005483952413,
+    "settled": false,
+    "task_time_sim_s": 40.28,
+    "time_to_goal_sim_s": null,
+    "terminal_retries": null,
+    "safety": {
+      "cm_stop": 0,
+      "cm_slowdown": 0,
+      "gate_stopped": 1,
+      "bridge_timeouts": 0
+    },
+    "stopping": [],
+    "planner_controller_bt_log_counts": {
+      "tf_extrapolation": 0,
+      "tf_old_data": 0,
+      "tf_timeout": 0,
+      "no_valid_control": 0,
+      "progress_failure": 0,
+      "planning_failure": 0,
+      "goal_aborted": 1,
+      "collision_ahead": 0,
+      "scan_dropped": 0
+    },
+    "action": {
+      "event": "result",
+      "goal": [
+        2.5,
+        2.75,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            2.5,
+            2.75,
+            0.0
+          ],
+          "accepted_sim": 16.580000000000002,
+          "goal_id": "3fce5000966c4699a5919d5bc98e65e9",
+          "status": "SUCCEEDED",
+          "end_sim": 30.220000000000002,
+          "error_code": 0,
+          "verify_sim": 33.7,
+          "verified_pose": [
+            2.429921146488979,
+            2.7754770578899524,
+            0.24608614444131288
+          ],
+          "xy_error": 0.07456625368185753,
+          "yaw_error": 0.24608614444131285,
+          "next_aim": [
+            2.5,
+            2.75,
+            -0.24608614444131285
+          ]
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            2.5,
+            2.75,
+            -0.24608614444131285
+          ],
+          "accepted_sim": 33.7,
+          "goal_id": "0be53981c77647298274637c38e43934",
+          "status": "SUCCEEDED",
+          "end_sim": 41.24,
+          "error_code": 0,
+          "verify_sim": 46.34,
+          "verified_pose": [
+            2.4996670277296733,
+            2.729473360586218,
+            -0.5605691232937691
+          ],
+          "xy_error": 0.02052933988603245,
+          "yaw_error": 0.5605691232937691,
+          "next_aim": [
+            2.5,
+            2.75,
+            0.31448297885245624
+          ]
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            2.5,
+            2.75,
+            0.31448297885245624
+          ],
+          "accepted_sim": 46.34,
+          "goal_id": "1602bdcc617848b490b58f0cddf83c18",
+          "status": "SUCCEEDED",
+          "end_sim": 48.88,
+          "error_code": 0,
+          "verify_sim": 51.56,
+          "verified_pose": [
+            2.5236109151320925,
+            2.743490654457625,
+            0.31687262323903154
+          ],
+          "xy_error": 0.024491771940080415,
+          "yaw_error": 0.31687262323903154,
+          "next_aim": [
+            2.5,
+            2.75,
+            -0.002389644386575296
+          ]
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            2.5,
+            2.75,
+            -0.002389644386575296
+          ],
+          "accepted_sim": 51.56,
+          "goal_id": "666c19cd8c124981b2a7093feedef970",
+          "status": "SUCCEEDED",
+          "end_sim": 52.96,
+          "error_code": 0,
+          "verify_sim": 56.86000000000001,
+          "verified_pose": [
+            2.484260254897464,
+            2.744806326152717,
+            0.307839518412806
+          ],
+          "xy_error": 0.016574493172485254,
+          "yaw_error": 0.307839518412806
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 16.580000000000002,
+      "goal_id": "3fce5000966c4699a5919d5bc98e65e9",
+      "status": "FAILED",
+      "error": "ProtocolFailure('TERMINAL_CORRECTIONS_EXHAUSTED')",
+      "timed_out": false,
+      "end_sim": 56.86000000000001,
+      "duration_sim": 40.28,
+      "exit": 2
+    },
+    "code_sha": "ce6309b92ab1c19e87001f24280ab96241d7af1d",
+    "manifest_sha256": "da6306e9df3f5a0bb4b8106b28c871504d4a34d19f45a62f57a4a4370ca93f66",
+    "config_and_scene": {
+      "scene_sha256": "9f174aaef834b5c50c209263a391e77c2007ea4f88069b47cbe0d7782b2dd536",
+      "parameters_sha256": "b18e015d8c0015ceadae7c7962cffd88bbdbf94a3517f55edaf7c966f5954a18",
+      "map_sha256": "ad4f4a57ec1e2e220bad97c5226616d1c0d236884288470a299f5d5380853163",
+      "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7"
+    },
+    "nav2_status": "FAILED",
+    "minimum_dynamic_obstacle_distance_m": null,
+    "dynamic_distance_note": "static scene; no dynamic obstacle",
+    "safety_totals": {
+      "environment": 0,
+      "dynamic_contact": 0,
+      "nonfoot_ground": 0,
+      "fall": false,
+      "fault": false
+    },
+    "dds_returncode": -11,
+    "dds_exception_applies": false,
+    "launch_returncode": 0,
+    "goal_returncodes": [
+      2
+    ],
+    "raw_stdout_stderr": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104928Z_w13-formal-v2_S07_s1006_816735/raw",
+    "raw_json": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104928Z_w13-formal-v2_S07_s1006_816735",
+    "raw_csv_trajectory": "/home/haoyang/humanoid_nav_ws/run_data/20261015T104928Z_w13-formal-v2_S07_s1006_816735/sim_trace.csv"
+  },
+  "no_protocol_change": true,
+  "no_collector_repair": true,
+  "rule": "ACCEPTANCE_EXCEPTION.md no DDS crash condition, committed before all physical runs"
+}

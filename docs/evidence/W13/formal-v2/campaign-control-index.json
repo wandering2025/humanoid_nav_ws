@@ -1,0 +1,18 @@
+{
+  "docs/evidence/W13/raw/w13-formal-v2/lock": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "docs/evidence/W13/raw/w13-formal-v2/infrastructure-abort-signal.json": {
+    "bytes": 553,
+    "sha256": "ff669c193ffc45d5ce0cb2f6ebf1eeaa5e99c45f18c85c82af82ea3f1456fa4b"
+  },
+  "docs/evidence/W13/raw/w13-formal-v2/summary.json": {
+    "bytes": 12281,
+    "sha256": "69c47725ac6f14f7dd704dd79521ad16f6665e6d47054f38d57440baf4d88345"
+  },
+  "docs/evidence/W13/raw/w13-formal-v2/state.json": {
+    "bytes": 14415,
+    "sha256": "7800debc76a96629e34377196c3c1ccacca08bcc1150f957a3970774323da653"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "raw_files_checked": 307,
+  "raw_hash_mismatches": [],
+  "protocol_bytes_unchanged": true,
+  "preregistration_bytes_unchanged": true,
+  "original_results_and_assessments_byte_identical": true,
+  "candidate_unchanged": true,
+  "matrix_rows": 40,
+  "started": 8,
+  "completed": 7,
+  "success": 6,
+  "interrupted": 1,
+  "not_run": 32,
+  "all_run_same_physical_head": true,
+  "invalid": 0,
+  "correct_dds_minus11_is_crash": true,
+  "no_physical_rerun": true
+}
