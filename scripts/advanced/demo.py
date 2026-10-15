@@ -31,10 +31,12 @@ def preflight():
     for name in ('scripts/run_demo.sh','src/t1_navigation/config/safety.yaml',
                  'src/t1_navigation/config/navigation.yaml','src/t1_mujoco/config/command_map.yaml',
                  'src/t1_bringup/t1_bringup/navigation_adapter.py',
-                 'src/t1_bringup/t1_bringup/navigation_tools.py',
                  'src/t1_bringup/t1_bringup/safety.py','src/t1_mujoco/t1_mujoco/runner.py'):
         original=subprocess.check_output(['git','show','demo-v0.1.0:'+name],cwd=WS)
         assert (WS/name).read_bytes()==original, name
+    goal_tool=WS/'src/t1_bringup/t1_bringup/navigation_tools.py'
+    compatible=goal_tool.read_text().replace("    parser.add_argument('--require-clock', action='store_true', help='advanced opt-in: wait for the first positive simulation timestamp')\n",'').replace("        if options.require_clock and not spin_until(lambda: sim() > 0., 10.):\n            raise RuntimeError('positive simulation clock unavailable before goal setup')\n",'')
+    assert compatible.encode()==subprocess.check_output(['git','show','demo-v0.1.0:src/t1_bringup/t1_bringup/navigation_tools.py'],cwd=WS)
     for path, expected in ((os.environ['T1_UPSTREAM'],'7bb1462e2ac742eba5c01659b815e2e99fbe617f'),
                            (os.environ['T1_ASSETS'],'12a97516f57469078707afb587a5f84c1cb110d1')):
         assert base.command(['git','-C',path,'rev-parse','HEAD'])==expected
@@ -156,6 +158,14 @@ class Advanced(base.Demo):
         self.mapping_handle=handle
 
 
+    def map_coverage(self):
+        m=self.node.map;res=m.info.resolution;ox=m.info.origin.position.x;oy=m.info.origin.position.y
+        a,b,c,d=self.route['mapping_coverage_region'];known=0
+        for j in range(max(0,math.ceil((c-oy)/res-.5)),min(m.info.height,math.ceil((d-oy)/res-.5))):
+            for i in range(max(0,math.ceil((a-ox)/res-.5)),min(m.info.width,math.ceil((b-ox)/res-.5))):
+                known+=m.data[j*m.info.width+i]>=0
+        return known/round((b-a)*(d-c)/res**2)
+
     def route_overview(self):
         """Ask the same NavFn planner for A-to-B on the acquired map, display only.
         Motion continues from current position; this never sends a robot goal."""
@@ -244,7 +254,7 @@ class Advanced(base.Demo):
                 base.save(f'{label}-{kind}.json',dict(resolution=grid.info.resolution,width=grid.info.width,height=grid.info.height,origin=[grid.info.origin.position.x,grid.info.origin.position.y],data=list(grid.data)))
         self.markers()
         p=self.spawn('goal',['ros2','run','t1_bringup','navigate_to_pose',*map(str,pose),
-                            '--time-limit',str(limit)])
+                            '--time-limit',str(limit),'--require-clock'])
         self.until(lambda:p.poll() is not None,limit*2.5+100)
         lines=[json.loads(l) for l in self.goal_log.read_text().splitlines() if l.startswith('{')]
         nav=next((l for l in reversed(lines) if l.get('event')=='result'),{})
@@ -326,7 +336,9 @@ class Advanced(base.Demo):
             if index>=4:
                 # Await the existing 1 Hz global costmap/SLAM publication after motion.
                 refreshed=n.sim+2.;self.until(lambda:n.sim>=refreshed,8)
-                if self.route_overview():
+                coverage=self.map_coverage()
+                self.summary.setdefault('mapping_coverage_checks',[]).append(dict(sim=n.sim,known_fraction=coverage))
+                if coverage>=self.route['mapping_min_known_fraction'] and self.route_overview():
                     route_ready=True;break
         assert route_ready,'Observed map does not yet support an A-B route'
         self.summary['mapping_passes']=index+1
@@ -345,13 +357,10 @@ class Advanced(base.Demo):
         self.summary['control_no_obstacle']=self.args.control_no_obstacle
         self.summary['navigation_start_sim']=n.sim
         self.mapping_pass(self.route['navigation_approach'],'NAVIGATING_APPROACH')
-        self.summary['navigation_static_map_unchanged']=self.map_fingerprint()==self.summary['navigation_map_sha256']
-        assert self.summary['navigation_static_map_unchanged'],'Static SLAM map changed during obstacle approach'
-        # Resume after physical passage to the observed-clear approach point.
-        # No obstacle truth or predicted event timing drives this transition.
-        self.summary['mapping_resume_at_approach_sim']=n.sim
-        self.pause_mapping(False)
         self.summary['nav2']=self.goal(self.route['goal'],'NAVIGATING_TO_B',self.route['navigation_time_limit_s'])
+        self.summary['navigation_static_map_unchanged']=self.map_fingerprint()==self.summary['navigation_map_sha256']
+        assert self.summary['navigation_static_map_unchanged'],'Static SLAM map changed during dynamic navigation'
+        self.pause_mapping(False)
         end=n.sim+12;self.until(lambda:n.sim>=end,35)
         self.summary['final_map']=self.save_map('final')
         self.screenshot('arrived');self.safe_stop()

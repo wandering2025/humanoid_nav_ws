@@ -99,6 +99,7 @@ def navigate(argv=None):
     parser.add_argument('--settle-window', type=float, default=0.5, help='sim s; W05 stationary window')
     parser.add_argument('--settle-hold', type=float, default=1.0, help='sim s stationary before verifying')
     parser.add_argument('--settle-timeout', type=float, default=10.0, help='sim s to become stationary')
+    parser.add_argument('--require-clock', action='store_true', help='advanced opt-in: wait for the first positive simulation timestamp')
     options = parser.parse_args(argv)
     if not all(math.isfinite(v) for v in (options.x, options.y, options.yaw, options.time_limit)):
         parser.error('goal and limit must be finite')
@@ -148,6 +149,8 @@ def navigate(argv=None):
         return node.get_clock().now().nanoseconds*1e-9
 
     try:
+        if options.require_clock and not spin_until(lambda: sim() > 0., 10.):
+            raise RuntimeError('positive simulation clock unavailable before goal setup')
         setup_end = time.monotonic() + options.setup_timeout
         active = False
         while not active and time.monotonic() < setup_end:

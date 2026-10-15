@@ -8,9 +8,11 @@ mapping_waypoints:
   - [3.5, 7.8, 1.5707963267948966]
   - [7.5, 8.0, 0.0]
   - [11.5, 6.5, -0.36]
-  - [11.5, 4.0, -1.5707963267948966]
+  - [13.4, 6.5, 0.0]
 mapping_pass_radius_m: 0.65
-goal: [12.0, -1.5, -1.5707963267948966]
+goal: [12.0, 0.0, -1.5707963267948966]
 navigation_approach: [12.0, 1.0, -1.5707963267948966]
 waypoint_time_limit_s: 120.0
 navigation_time_limit_s: 200.0
+mapping_coverage_region: [9.0, 16.0, -2.0, 10.0]
+mapping_min_known_fraction: 0.95
