@@ -29,6 +29,16 @@ def capture(run,output):
     while time.monotonic()-start<210:
         partial=run/'partial-result.json'
         if partial.exists() and time.time()-partial.stat().st_mtime>=7:break
+        if wid is None:
+            # X11 announces a window before its drawable is readable. The
+            # unchanged demo captures MuJoCo then RViz before sending the goal.
+            # Wait for both complete PNGs instead of probing the new window.
+            ready = all((run/name).is_file() and
+                        (run/name).read_bytes().endswith(b'IEND\xaeB`\x82')
+                        for name in ('ready-mujoco.png','ready-rviz.png'))
+            if not ready:
+                if time.monotonic()-start>60:raise RuntimeError('Demo ready screenshots not complete')
+                time.sleep(.05);continue
         ids=windows()
         if wid is None and ids:
             if len(ids)!=1:raise RuntimeError('Ambiguous MuJoCo window ownership')

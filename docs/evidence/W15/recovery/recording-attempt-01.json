@@ -1,0 +1,123 @@
+{
+  "run_id": "20261015T155453Z_demo_U01_a8b154bb-ac95-4cff-b0a2-15a18addbdc8",
+  "code_sha": "7063d10b2914b6c1e272bdca983e01a781adedf5",
+  "status": "SUCCESS_WITH_WARNING",
+  "arrived": true,
+  "human_intervention": false,
+  "settle": {
+    "settled": true,
+    "settle_start_sim": 62.2400000000301,
+    "settle_delay_s": 0.7400000000300935,
+    "pos_err_m": 0.1609430260010319,
+    "yaw_err_deg": 4.488657025463369
+  },
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 13844.29449626,
+      "sim_time": 83.98,
+      "health_reason": ""
+    }
+  },
+  "parent_exit_codes": {
+    "dds": -11,
+    "launch": 0,
+    "rviz": 0,
+    "goal": 0
+  },
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "dds_port_released": true,
+  "gpu_monitor_error": null,
+  "dds_teardown_assessment": {
+    "status": "SUCCESS_WITH_WARNING",
+    "exception": "DDS_TEARDOWN_EXCEPTION",
+    "dds_returncode": -11,
+    "checks": {
+      "navigation_success": true,
+      "zero_contacts_and_falls": true,
+      "safe_stop_completed": true,
+      "other_components_zero": true,
+      "dds_alive_until_shutdown": true,
+      "ros_communication_continuous": true,
+      "expected_shutdown_after_navigation_and_stop": true,
+      "dds_log_saved": true,
+      "exact_nonzero_dds_code_saved": true,
+      "no_signal_escalation": true,
+      "dds_pid_gone": true,
+      "dds_port_released": true,
+      "no_project_residuals": true,
+      "host_graphics_checked_without_fault": true,
+      "no_other_error": true,
+      "runner_finished_normally": true
+    },
+    "failed_checks": []
+  },
+  "dds_teardown_evidence": {
+    "dds_log_saved": true,
+    "dds_log_sha256": "f9b5bcfab3f26c65dfe029ec899ebcab5b437238bb2a05482eb8c594b61f33e4",
+    "dds_returncode": -11,
+    "dds_pid_gone": true,
+    "dds_port_released": true,
+    "remaining_owned_pids": [],
+    "remaining_project_processes": [],
+    "host_graphics_checked_without_fault": true,
+    "runner_exit_code": 1
+  },
+  "dynamic": {
+    "scenario": "approach",
+    "checks": {
+      "triggered_after_actual_walking": true,
+      "scan_hits_entity": true,
+      "local_costmap_marks_entity": true,
+      "no_planner_obstacle_truth": true,
+      "no_teleop": true,
+      "dimensions": true,
+      "vacated_costmap_clears": true,
+      "actual_stop_in_protection": true,
+      "safely_resumed": true,
+      "navigation_success": true
+    },
+    "verdict": "PASS",
+    "trigger_sim": 26.063999999996433,
+    "scan_hit_frames": 528,
+    "costmap_marked_samples": 87,
+    "costmap_cleared_samples": 74,
+    "actual_stop_sim": 29.759999999994385,
+    "resume_sim": 45.020000000009055,
+    "stopped_hold_s": 6.36,
+    "min_center_surface_gap_m": 1.7493561720174562,
+    "min_rotated_footprint_gap_m": 1.1646180044588414,
+    "max_robot_lateral_m": 0.32553541018824744,
+    "initial_plan_lateral_m": 0.0019999172985549762,
+    "replanned_lateral_m": 0.7727743886228566
+  },
+  "capture": {
+    "source_sha": "7063d10b2914b6c1e272bdca983e01a781adedf5",
+    "run_dir": "run_data/demo/20261015T155453Z_demo_U01_a8b154bb-ac95-4cff-b0a2-15a18addbdc8",
+    "window_id": 6291463,
+    "frames": 0,
+    "start_mono": 13753.615824852,
+    "end_mono": 13758.29124641,
+    "capture_error": {
+      "returncode": 1,
+      "stderr": "import-im6.q16: unable to read X window image `6291463': Resource temporarily unavailable @ error/xwindow.c/XImportImage/5004.\nimport-im6.q16:  `docs/evidence/W15/raw/recovery/final-recording/00000.png' @ error/import.c/ImportImageCommand/1276.\n"
+    },
+    "method": "Existing ImageMagick import, one MuJoCo window, up to 8fps. No encoder or second capture stream during simulation.",
+    "release_verified": false
+  },
+  "assessment": "Demonstration SUCCESS_WITH_WARNING under all original DDS gates; raw FAILED retained. Recording failed before readiness, zero frames, no usable movie. ImageMagick read failure is a pre-ready window capture failure, not a renderer crash; later original ready screenshots succeeded. No new NVIDIA fault, all graphics components exit0, host monitor clear. No GPU halt exists.",
+  "recovery": "Capture now waits for both complete screenshots from the unmodified demo before reading a window. No automatic capture retry; any subsequent capture error stops. A separate replacement recording is necessary; keep this failed attempt. RViz zoom 26 replaces ineffective dock setting to fit A/B without changing render/window size.",
+  "raw_sha256": "cd6acad9ec865e56864f9eae03aca5f0768f3b995520c300e7836b0b22091edd"
+}

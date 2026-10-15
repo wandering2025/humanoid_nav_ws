@@ -186,7 +186,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 18.0
+      Distance: 26.0
       Pitch: 1.5707
       Yaw: -1.5708
       Focal Point:
@@ -198,7 +198,5 @@ Visualization Manager:
   - Class: rviz_default_plugins/Interact
   - Class: rviz_default_plugins/MoveCamera
 Window Geometry:
-  Hide Left Dock: true
-  Hide Right Dock: true
   Width: 760
   Height: 740
