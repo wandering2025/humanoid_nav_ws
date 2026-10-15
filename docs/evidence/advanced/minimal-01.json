@@ -1,0 +1,57 @@
+{
+  "code_sha": "820c70a5dfe78d8d4d07d370b56238ff0ee69c5f",
+  "status": "FAILED",
+  "error": "AttributeError(\"'dict' object has no attribute 'publisher_gid'\")",
+  "safe_stop": {
+    "ack": false,
+    "error": "AttributeError(\"'dict' object has no attribute 'publisher_gid'\")"
+  },
+  "zero_policy": true,
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "parent_exit_codes": {
+    "dds": 0,
+    "launch": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 115637,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 115638,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 115639,
+      "exit_code": 0
+    },
+    "command_gate-4": {
+      "pid": 115640,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 115641,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 115642,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 115927,
+      "exit_code": 0
+    }
+  },
+  "remaining_owned_pids": [],
+  "dds_port_released": true,
+  "gpu_monitor_error": null,
+  "run_id": "20261015T170327Z_advanced_1d379a8f-92a7-472f-83b2-4e566587f99f",
+  "raw": "run_data/advanced/20261015T170327Z_advanced_1d379a8f-92a7-472f-83b2-4e566587f99f",
+  "result_sha256": "62922647d3de5652456d651d9d6467054fb66b4bad7fbf4a1ba33d90a8205085",
+  "reason": "Evidence callback metadata API mismatch; no navigation, no graphics fault. Explicit stop ACK unavailable due callback exception; not a passing minimal check."
+}
