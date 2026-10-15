@@ -1,0 +1,3 @@
+RUN 20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d PID 135158
+EPISODE S03 SUCCESS {"nav2_status": "SUCCEEDED", "time_to_goal_s": 35.0, "arrived_truth": true, "path_len_m": 11.939820676216822, "clear_center_min_m": 2.40387707373388, "clear_footprint_min_m": 1.8115140130843588, "env_contacts": {"static_env": 0, "obstacle": 0, "ground_nonfoot": 0}, "fell": false, "rtf_median": 0.9999994547094356} {"settled": true, "settle_start_sim": 50.380000000015606, "settle_delay_s": 0.6000000000156049, "pos_err_m": 0.05002980056125989, "yaw_err_deg": 3.4832030073316678}
+W13_RESULT 20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d SUCCESS

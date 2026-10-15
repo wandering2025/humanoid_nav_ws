@@ -1,0 +1,79 @@
+{
+  "time_utc": "2026-10-15T10:53:14.304930+00:00",
+  "attempted": 8,
+  "completed": 7,
+  "runs": [
+    {
+      "case": "S01",
+      "run_id": "20261015T104213Z_w13-formal-v2_S01_s1000_ee3535",
+      "state": "FINISHED",
+      "result_json_exists": true,
+      "support_exit_json_exists": true,
+      "raw": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104213Z_w13-formal-v2_S01_s1000_ee3535",
+      "simulation": "/home/haoyang/humanoid_nav_ws/run_data/20261015T104213Z_w13-formal-v2_S01_s1000_ee3535"
+    },
+    {
+      "case": "S02",
+      "run_id": "20261015T104312Z_w13-formal-v2_S02_s1001_98e483",
+      "state": "FINISHED",
+      "result_json_exists": true,
+      "support_exit_json_exists": true,
+      "raw": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104312Z_w13-formal-v2_S02_s1001_98e483",
+      "simulation": "/home/haoyang/humanoid_nav_ws/run_data/20261015T104312Z_w13-formal-v2_S02_s1001_98e483"
+    },
+    {
+      "case": "S03",
+      "run_id": "20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d",
+      "state": "FINISHED",
+      "result_json_exists": true,
+      "support_exit_json_exists": true,
+      "raw": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d",
+      "simulation": "/home/haoyang/humanoid_nav_ws/run_data/20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d"
+    },
+    {
+      "case": "S04",
+      "run_id": "20261015T104529Z_w13-formal-v2_S04_s1003_58e684",
+      "state": "FINISHED",
+      "result_json_exists": true,
+      "support_exit_json_exists": true,
+      "raw": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104529Z_w13-formal-v2_S04_s1003_58e684",
+      "simulation": "/home/haoyang/humanoid_nav_ws/run_data/20261015T104529Z_w13-formal-v2_S04_s1003_58e684"
+    },
+    {
+      "case": "S05",
+      "run_id": "20261015T104645Z_w13-formal-v2_S05_s1004_a69103",
+      "state": "FINISHED",
+      "result_json_exists": true,
+      "support_exit_json_exists": true,
+      "raw": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104645Z_w13-formal-v2_S05_s1004_a69103",
+      "simulation": "/home/haoyang/humanoid_nav_ws/run_data/20261015T104645Z_w13-formal-v2_S05_s1004_a69103"
+    },
+    {
+      "case": "S06",
+      "run_id": "20261015T104841Z_w13-formal-v2_S06_s1005_b64989",
+      "state": "FINISHED",
+      "result_json_exists": true,
+      "support_exit_json_exists": true,
+      "raw": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104841Z_w13-formal-v2_S06_s1005_b64989",
+      "simulation": "/home/haoyang/humanoid_nav_ws/run_data/20261015T104841Z_w13-formal-v2_S06_s1005_b64989"
+    },
+    {
+      "case": "S07",
+      "run_id": "20261015T104928Z_w13-formal-v2_S07_s1006_816735",
+      "state": "FINISHED",
+      "result_json_exists": true,
+      "support_exit_json_exists": true,
+      "raw": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104928Z_w13-formal-v2_S07_s1006_816735",
+      "simulation": "/home/haoyang/humanoid_nav_ws/run_data/20261015T104928Z_w13-formal-v2_S07_s1006_816735"
+    },
+    {
+      "case": "S08",
+      "run_id": "20261015T105049Z_w13-formal-v2_S08_s1007_76e75d",
+      "state": "INTERRUPTED",
+      "result_json_exists": false,
+      "support_exit_json_exists": true,
+      "raw": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T105049Z_w13-formal-v2_S08_s1007_76e75d",
+      "simulation": "/home/haoyang/humanoid_nav_ws/run_data/20261015T105049Z_w13-formal-v2_S08_s1007_76e75d"
+    }
+  ]
+}

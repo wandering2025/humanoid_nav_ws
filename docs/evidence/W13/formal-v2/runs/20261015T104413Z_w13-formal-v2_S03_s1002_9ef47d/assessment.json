@@ -1,0 +1,163 @@
+{
+  "run_id": "20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d",
+  "case": "S03",
+  "outcome": "SUCCESS",
+  "head": "ce6309b92ab1c19e87001f24280ab96241d7af1d",
+  "checks": {
+    "robot_children_exit0": true,
+    "auxiliary_exit0": true,
+    "support_lifecycle": true,
+    "no_forced_signals": true,
+    "no_traceback": true,
+    "no_owned_remnants": true,
+    "host_clean": true,
+    "safety_zero": true,
+    "evidence_complete": true,
+    "not_INVALID": true
+  },
+  "continue_safe": true,
+  "dds_returncode": 0,
+  "dds_exception_conditions": {
+    "expected_single_SIGINT": true,
+    "ended_within_10s": true,
+    "no_SIGTERM_SIGKILL": true,
+    "no_dds_crash_assertion_sanitizer_traceback": true,
+    "port_released": true,
+    "no_dds_process": true,
+    "all_robot_launch_starter_children_normal": true,
+    "exact_integer_saved": true
+  },
+  "dds_exception_applies": false,
+  "dds_status": "NORMAL",
+  "safety": {
+    "environment": 0,
+    "dynamic_contact": 0,
+    "nonfoot_ground": 0,
+    "fall": false,
+    "fault": false
+  },
+  "launch_children": [
+    {
+      "pid": 135185,
+      "name": "t1_sim-1",
+      "returncode": 0
+    },
+    {
+      "pid": 135186,
+      "name": "robot_state_publisher-2",
+      "returncode": 0
+    },
+    {
+      "pid": 135187,
+      "name": "map_server-3",
+      "returncode": 0
+    },
+    {
+      "pid": 135188,
+      "name": "amcl-4",
+      "returncode": 0
+    },
+    {
+      "pid": 135189,
+      "name": "command_gate-5",
+      "returncode": 0
+    },
+    {
+      "pid": 135190,
+      "name": "velocity_smoother-6",
+      "returncode": 0
+    },
+    {
+      "pid": 135191,
+      "name": "collision_monitor-7",
+      "returncode": 0
+    },
+    {
+      "pid": 135522,
+      "name": "bounded_lifecycle_manager-8",
+      "returncode": 0
+    },
+    {
+      "pid": 135523,
+      "name": "lifecycle_manager-9",
+      "returncode": 0
+    },
+    {
+      "pid": 135668,
+      "name": "controller_server-10",
+      "returncode": 0
+    },
+    {
+      "pid": 135669,
+      "name": "planner_server-11",
+      "returncode": 0
+    },
+    {
+      "pid": 135670,
+      "name": "behavior_server-12",
+      "returncode": 0
+    },
+    {
+      "pid": 135671,
+      "name": "bt_navigator-13",
+      "returncode": 0
+    },
+    {
+      "pid": 135672,
+      "name": "bounded_lifecycle_manager-14",
+      "returncode": 0
+    },
+    {
+      "pid": 135673,
+      "name": "navigation_adapter-15",
+      "returncode": 0
+    },
+    {
+      "pid": 135674,
+      "name": "navigation_starter-16",
+      "returncode": 0
+    },
+    {
+      "pid": 135675,
+      "name": "t1_initial_pose_once-17",
+      "returncode": 0
+    }
+  ],
+  "goal_tool_nonzero": [],
+  "signals": [
+    {
+      "event": "os.kill",
+      "target": 135158,
+      "signal": 2,
+      "wall": 14920.636850039
+    },
+    {
+      "event": "os.kill",
+      "target": 135159,
+      "signal": 2,
+      "wall": 14921.602637262
+    },
+    {
+      "event": "os.kill",
+      "target": 135126,
+      "signal": 2,
+      "wall": 14922.056637389
+    }
+  ],
+  "escalations": [],
+  "remaining_owned_pids": [],
+  "host": {
+    "processes": [],
+    "sockets": "Netid State  Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess                              \nudp   UNCONN 0      0          127.0.0.54:53         0.0.0.0:*                                        \nudp   UNCONN 0      0       127.0.0.53%lo:53         0.0.0.0:*                                        \nudp   UNCONN 0      0      10.255.255.254:53         0.0.0.0:*                                        \nudp   UNCONN 0      0           127.0.0.1:323        0.0.0.0:*                                        \nudp   UNCONN 0      0             0.0.0.0:5353       0.0.0.0:*                                        \nudp   UNCONN 0      0             0.0.0.0:46427      0.0.0.0:*                                        \nudp   UNCONN 0      0               [::1]:323           [::]:*                                        \nudp   UNCONN 0      0                [::]:5353          [::]:*                                        \nudp   UNCONN 0      0                [::]:46350         [::]:*                                        \ntcp   LISTEN 0      4096    127.0.0.53%lo:53         0.0.0.0:*                                        \ntcp   LISTEN 0      511         127.0.0.1:35233      0.0.0.0:*    users:((\"MainThread\",pid=583,fd=43))\ntcp   LISTEN 0      1000   10.255.255.254:53         0.0.0.0:*                                        \ntcp   LISTEN 0      4096       127.0.0.54:53         0.0.0.0:*                                        \ntcp   LISTEN 0      511         127.0.0.1:46653      0.0.0.0:*    users:((\"MainThread\",pid=589,fd=33))\ntcp   LISTEN 0      64          127.0.0.1:5345       0.0.0.0:*                                        \ntcp   LISTEN 0      511         127.0.0.1:46049      0.0.0.0:*    users:((\"MainThread\",pid=480,fd=22))\n",
+    "socket_errors": "",
+    "ports_free": {
+      "42123": true,
+      "42124": true,
+      "42126": true
+    },
+    "passed": true
+  },
+  "raw_output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d",
+  "simulator_output": "/home/haoyang/humanoid_nav_ws/run_data/20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d",
+  "streams": "frozen harness combines stderr into stdout for launch/DDS/goal; console likewise combined"
+}

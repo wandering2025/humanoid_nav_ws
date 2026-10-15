@@ -1,0 +1,3 @@
+RUN 20261015T104529Z_w13-formal-v2_S04_s1003_58e684 PID 136850
+EPISODE S04 SUCCESS {"nav2_status": "SUCCEEDED", "time_to_goal_s": 35.92, "arrived_truth": true, "path_len_m": 12.978750089491786, "clear_center_min_m": 2.407453225758636, "clear_footprint_min_m": 1.7384262326809008, "env_contacts": {"static_env": 0, "obstacle": 0, "ground_nonfoot": 0}, "fell": false, "rtf_median": 0.99999832314949} {"settled": true, "settle_start_sim": 52.84000000001861, "settle_delay_s": 1.5600000000186114, "pos_err_m": 0.1039607128053933, "yaw_err_deg": 10.921461786339249}
+W13_RESULT 20261015T104529Z_w13-formal-v2_S04_s1003_58e684 SUCCESS

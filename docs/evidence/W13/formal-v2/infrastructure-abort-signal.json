@@ -1,0 +1,20 @@
+{
+  "reason": "S07 DDS exact returncode -11 is SIGSEGV and violates precommitted no-crash condition; controlled interrupt current run; no next case",
+  "latest_run": "20261015T105049Z_w13-formal-v2_S08_s1007_76e75d",
+  "signals": [
+    {
+      "pid": 143685,
+      "signal": "SIGINT",
+      "argv": [
+        "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+        "docs/evidence/W13/formal-v2/capture.py",
+        "run",
+        "--campaign",
+        "w13-formal-v2",
+        "--limit",
+        "1"
+      ],
+      "wall": 15263.710641573
+    }
+  ]
+}

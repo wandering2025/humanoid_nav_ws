@@ -1,0 +1,44 @@
+{
+  "run_id": "20261015T104841Z_w13-formal-v2_S06_s1005_b64989",
+  "dds_pid": 140544,
+  "dds_returncode": 0,
+  "dds_returncode_before_close": null,
+  "close_start_wall": 15146.602980237,
+  "close_end_wall": 15146.717132722,
+  "close_error": null,
+  "signals": [
+    {
+      "event": "os.kill",
+      "target": 140576,
+      "signal": 2,
+      "wall": 15145.101121992
+    },
+    {
+      "event": "os.kill",
+      "target": 140577,
+      "signal": 2,
+      "wall": 15146.267587532
+    },
+    {
+      "event": "os.kill",
+      "target": 140544,
+      "signal": 2,
+      "wall": 15146.60340594
+    }
+  ],
+  "launch": [
+    {
+      "pid": 140576,
+      "returncode": 0,
+      "authority_pid": 140577,
+      "authority_returncode": 0,
+      "children": [
+        {
+          "label": "goal",
+          "pid": 141581,
+          "returncode": 0
+        }
+      ]
+    }
+  ]
+}

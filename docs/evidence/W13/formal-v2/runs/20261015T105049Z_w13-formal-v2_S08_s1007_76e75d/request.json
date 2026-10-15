@@ -1,0 +1,752 @@
+{
+  "case": {
+    "id": "S08",
+    "suite": "static",
+    "seed": 1007,
+    "scene": "static_world",
+    "start": [
+      1.5,
+      0.0,
+      0.0
+    ],
+    "goal": [
+      8.0,
+      0.0,
+      -1.5708
+    ],
+    "source_case": "S03",
+    "attempts": [
+      {
+        "run_id": "20261015T105049Z_w13-formal-v2_S08_s1007_76e75d",
+        "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T105049Z_w13-formal-v2_S08_s1007_76e75d",
+        "state": "RUNNING"
+      }
+    ]
+  },
+  "suite": {
+    "schema": 1,
+    "name": "w13_v1",
+    "criteria": {
+      "position_m": 0.3,
+      "yaw_deg": 20.0,
+      "settle_s": 2.0,
+      "time_limit_s": 120.0
+    },
+    "events_file": "src/t1_bringup/config/w13_events_v1.yaml",
+    "cases": [
+      {
+        "id": "S01",
+        "suite": "static",
+        "seed": 1000,
+        "scene": "static_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          1.75,
+          0.0,
+          0.0
+        ],
+        "source_case": "S01"
+      },
+      {
+        "id": "S02",
+        "suite": "static",
+        "seed": 1001,
+        "scene": "static_world",
+        "start": [
+          0.0,
+          0.0,
+          1.5708
+        ],
+        "goal": [
+          2.5,
+          2.75,
+          0.0
+        ],
+        "source_case": "S02"
+      },
+      {
+        "id": "S03",
+        "suite": "static",
+        "seed": 1002,
+        "scene": "static_world",
+        "start": [
+          1.5,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          8.0,
+          0.0,
+          -1.5708
+        ],
+        "source_case": "S03"
+      },
+      {
+        "id": "S04",
+        "suite": "static",
+        "seed": 1003,
+        "scene": "static_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "source_case": "S04"
+      },
+      {
+        "id": "S05",
+        "suite": "static",
+        "seed": 1004,
+        "scene": "static_world",
+        "start": [
+          9.0,
+          0.0,
+          3.1416
+        ],
+        "goal": [
+          0.0,
+          0.0,
+          1.5708
+        ],
+        "source_case": "S05"
+      },
+      {
+        "id": "S06",
+        "suite": "static",
+        "seed": 1005,
+        "scene": "static_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          1.75,
+          0.0,
+          0.0
+        ],
+        "source_case": "S01"
+      },
+      {
+        "id": "S07",
+        "suite": "static",
+        "seed": 1006,
+        "scene": "static_world",
+        "start": [
+          0.0,
+          0.0,
+          1.5708
+        ],
+        "goal": [
+          2.5,
+          2.75,
+          0.0
+        ],
+        "source_case": "S02"
+      },
+      {
+        "id": "S08",
+        "suite": "static",
+        "seed": 1007,
+        "scene": "static_world",
+        "start": [
+          1.5,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          8.0,
+          0.0,
+          -1.5708
+        ],
+        "source_case": "S03"
+      },
+      {
+        "id": "S09",
+        "suite": "static",
+        "seed": 1008,
+        "scene": "static_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "source_case": "S04"
+      },
+      {
+        "id": "S10",
+        "suite": "static",
+        "seed": 1009,
+        "scene": "static_world",
+        "start": [
+          9.0,
+          0.0,
+          3.1416
+        ],
+        "goal": [
+          0.0,
+          0.0,
+          1.5708
+        ],
+        "source_case": "S05"
+      },
+      {
+        "id": "C01",
+        "suite": "crossing",
+        "seed": 2000,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "C01",
+        "kind": "crossing"
+      },
+      {
+        "id": "C02",
+        "suite": "crossing",
+        "seed": 2001,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "C02",
+        "kind": "crossing"
+      },
+      {
+        "id": "C03",
+        "suite": "crossing",
+        "seed": 2002,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "C03",
+        "kind": "crossing"
+      },
+      {
+        "id": "C04",
+        "suite": "crossing",
+        "seed": 2003,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "C04",
+        "kind": "crossing"
+      },
+      {
+        "id": "C05",
+        "suite": "crossing",
+        "seed": 2004,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "C05",
+        "kind": "crossing"
+      },
+      {
+        "id": "C06",
+        "suite": "crossing",
+        "seed": 2005,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "C06",
+        "kind": "crossing"
+      },
+      {
+        "id": "C07",
+        "suite": "crossing",
+        "seed": 2006,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "C07",
+        "kind": "crossing"
+      },
+      {
+        "id": "C08",
+        "suite": "crossing",
+        "seed": 2007,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "C08",
+        "kind": "crossing"
+      },
+      {
+        "id": "C09",
+        "suite": "crossing",
+        "seed": 2008,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "C09",
+        "kind": "crossing"
+      },
+      {
+        "id": "C10",
+        "suite": "crossing",
+        "seed": 2009,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "C10",
+        "kind": "crossing"
+      },
+      {
+        "id": "B01",
+        "suite": "blocking",
+        "seed": 3000,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "B01",
+        "kind": "blocking"
+      },
+      {
+        "id": "B02",
+        "suite": "blocking",
+        "seed": 3001,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "B02",
+        "kind": "blocking"
+      },
+      {
+        "id": "B03",
+        "suite": "blocking",
+        "seed": 3002,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "B03",
+        "kind": "blocking"
+      },
+      {
+        "id": "B04",
+        "suite": "blocking",
+        "seed": 3003,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "B04",
+        "kind": "blocking"
+      },
+      {
+        "id": "B05",
+        "suite": "blocking",
+        "seed": 3004,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "B05",
+        "kind": "blocking"
+      },
+      {
+        "id": "B06",
+        "suite": "blocking",
+        "seed": 3005,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "B06",
+        "kind": "blocking"
+      },
+      {
+        "id": "B07",
+        "suite": "blocking",
+        "seed": 3006,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "B07",
+        "kind": "blocking"
+      },
+      {
+        "id": "B08",
+        "suite": "blocking",
+        "seed": 3007,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "B08",
+        "kind": "blocking"
+      },
+      {
+        "id": "B09",
+        "suite": "blocking",
+        "seed": 3008,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "B09",
+        "kind": "blocking"
+      },
+      {
+        "id": "B10",
+        "suite": "blocking",
+        "seed": 3009,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "B10",
+        "kind": "blocking"
+      },
+      {
+        "id": "U01",
+        "suite": "sudden",
+        "seed": 4000,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "U01",
+        "kind": "approach"
+      },
+      {
+        "id": "U02",
+        "suite": "sudden",
+        "seed": 4001,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "U02",
+        "kind": "approach"
+      },
+      {
+        "id": "U03",
+        "suite": "sudden",
+        "seed": 4002,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "U03",
+        "kind": "approach"
+      },
+      {
+        "id": "U04",
+        "suite": "sudden",
+        "seed": 4003,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "U04",
+        "kind": "approach"
+      },
+      {
+        "id": "U05",
+        "suite": "sudden",
+        "seed": 4004,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "U05",
+        "kind": "approach"
+      },
+      {
+        "id": "U06",
+        "suite": "sudden",
+        "seed": 4005,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "U06",
+        "kind": "approach"
+      },
+      {
+        "id": "U07",
+        "suite": "sudden",
+        "seed": 4006,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "U07",
+        "kind": "approach"
+      },
+      {
+        "id": "U08",
+        "suite": "sudden",
+        "seed": 4007,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "U08",
+        "kind": "approach"
+      },
+      {
+        "id": "U09",
+        "suite": "sudden",
+        "seed": 4008,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "U09",
+        "kind": "approach"
+      },
+      {
+        "id": "U10",
+        "suite": "sudden",
+        "seed": 4009,
+        "scene": "dynamic_crossing_world",
+        "start": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "scenario": "U10",
+        "kind": "approach"
+      }
+    ]
+  },
+  "output": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T105049Z_w13-formal-v2_S08_s1007_76e75d",
+  "run_id": "20261015T105049Z_w13-formal-v2_S08_s1007_76e75d",
+  "gui": false
+}

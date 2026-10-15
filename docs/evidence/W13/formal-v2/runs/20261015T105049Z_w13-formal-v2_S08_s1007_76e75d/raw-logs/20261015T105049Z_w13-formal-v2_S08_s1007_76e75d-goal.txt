@@ -1,0 +1,38 @@
+{"event": "accepted", "goal": [8.0, 0.0, -1.5708], "time_limit_s": 120.0, "tolerances": {"xy": 0.2, "yaw": 0.2}, "attempts": [], "arm_attempts": 1, "approach_distance": null, "accepted_sim": 15.860000000000001, "goal_id": "325326f6eb8c4f219b2ef7585dee4888"}
+{"event": "stage", "stage": "goal", "target": [8.0, 0.0, -1.5708], "accepted_sim": 15.860000000000001, "goal_id": "325326f6eb8c4f219b2ef7585dee4888", "status": "ABORTED", "end_sim": 36.64, "error_code": 0}
+{"event": "result", "goal": [8.0, 0.0, -1.5708], "time_limit_s": 120.0, "tolerances": {"xy": 0.2, "yaw": 0.2}, "attempts": [{"stage": "goal", "target": [8.0, 0.0, -1.5708], "accepted_sim": 15.860000000000001, "goal_id": "325326f6eb8c4f219b2ef7585dee4888", "status": "ABORTED", "end_sim": 36.64, "error_code": 0}], "arm_attempts": 1, "approach_distance": null, "accepted_sim": 15.860000000000001, "goal_id": "325326f6eb8c4f219b2ef7585dee4888", "status": "FAILED", "error": "ProtocolFailure('ACTION_ABORTED:0')", "timed_out": false, "end_sim": 36.64, "duration_sim": 20.78, "exit": 2}
+Traceback (most recent call last):
+  File "/home/haoyang/humanoid_nav_ws/build/t1_bringup/t1_bringup/navigation_tools.py", line 295, in navigate
+    verified = converge('goal', target)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/haoyang/humanoid_nav_ws/build/t1_bringup/t1_bringup/navigation_tools.py", line 274, in converge
+    raise ProtocolFailure('ACTION_' + record['status'] + ':' + str(record.get('error_code')))
+t1_bringup.navigation_protocol.ProtocolFailure: ACTION_ABORTED:0
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/haoyang/humanoid_nav_ws/install/t1_bringup/lib/t1_bringup/navigate_to_pose", line 33, in <module>
+    sys.exit(load_entry_point('t1-bringup', 'console_scripts', 'navigate_to_pose')())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/haoyang/humanoid_nav_ws/build/t1_bringup/t1_bringup/navigation_tools.py", line 330, in navigate_main
+    raise SystemExit(navigate())
+                     ^^^^^^^^^^
+  File "/home/haoyang/humanoid_nav_ws/build/t1_bringup/t1_bringup/navigation_tools.py", line 311, in navigate
+    spin_until(pending.done, 2.)
+  File "/home/haoyang/humanoid_nav_ws/build/t1_bringup/t1_bringup/navigation_tools.py", line 134, in spin_until
+    rclpy.spin_once(node, timeout_sec=.05)
+  File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 226, in spin_once
+    executor.spin_once(timeout_sec=timeout_sec)
+  File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 926, in spin_once
+    self._spin_once_impl(timeout_sec)
+  File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 907, in _spin_once_impl
+    handler, entity, node = self.wait_for_ready_callbacks(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 877, in wait_for_ready_callbacks
+    return next(self._cb_iter)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 781, in _wait_for_ready_callbacks
+    wait_set.wait(timeout_nsec)
+KeyboardInterrupt
+[ros2run]: Interrupt

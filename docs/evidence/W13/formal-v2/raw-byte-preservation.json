@@ -1,0 +1,31 @@
+{
+  "diff_check_exit": 2,
+  "issues": 4427,
+  "files": [
+    "docs/evidence/W13/formal-v2/runs/20261015T104213Z_w13-formal-v2_S01_s1000_ee3535/S01-layers.csv",
+    "docs/evidence/W13/formal-v2/runs/20261015T104213Z_w13-formal-v2_S01_s1000_ee3535/contact_events.csv",
+    "docs/evidence/W13/formal-v2/runs/20261015T104213Z_w13-formal-v2_S01_s1000_ee3535/raw-logs/20261015T104213Z_w13-formal-v2_S01_s1000_ee3535.txt",
+    "docs/evidence/W13/formal-v2/runs/20261015T104312Z_w13-formal-v2_S02_s1001_98e483/S02-layers.csv",
+    "docs/evidence/W13/formal-v2/runs/20261015T104312Z_w13-formal-v2_S02_s1001_98e483/contact_events.csv",
+    "docs/evidence/W13/formal-v2/runs/20261015T104312Z_w13-formal-v2_S02_s1001_98e483/raw-logs/20261015T104312Z_w13-formal-v2_S02_s1001_98e483.txt",
+    "docs/evidence/W13/formal-v2/runs/20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d/S03-layers.csv",
+    "docs/evidence/W13/formal-v2/runs/20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d/contact_events.csv",
+    "docs/evidence/W13/formal-v2/runs/20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d/raw-logs/20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d.txt",
+    "docs/evidence/W13/formal-v2/runs/20261015T104529Z_w13-formal-v2_S04_s1003_58e684/S04-layers.csv",
+    "docs/evidence/W13/formal-v2/runs/20261015T104529Z_w13-formal-v2_S04_s1003_58e684/contact_events.csv",
+    "docs/evidence/W13/formal-v2/runs/20261015T104529Z_w13-formal-v2_S04_s1003_58e684/raw-logs/20261015T104529Z_w13-formal-v2_S04_s1003_58e684.txt",
+    "docs/evidence/W13/formal-v2/runs/20261015T104645Z_w13-formal-v2_S05_s1004_a69103/S05-layers.csv",
+    "docs/evidence/W13/formal-v2/runs/20261015T104645Z_w13-formal-v2_S05_s1004_a69103/contact_events.csv",
+    "docs/evidence/W13/formal-v2/runs/20261015T104645Z_w13-formal-v2_S05_s1004_a69103/raw-logs/20261015T104645Z_w13-formal-v2_S05_s1004_a69103.txt",
+    "docs/evidence/W13/formal-v2/runs/20261015T104841Z_w13-formal-v2_S06_s1005_b64989/S06-layers.csv",
+    "docs/evidence/W13/formal-v2/runs/20261015T104841Z_w13-formal-v2_S06_s1005_b64989/contact_events.csv",
+    "docs/evidence/W13/formal-v2/runs/20261015T104841Z_w13-formal-v2_S06_s1005_b64989/raw-logs/20261015T104841Z_w13-formal-v2_S06_s1005_b64989.txt",
+    "docs/evidence/W13/formal-v2/runs/20261015T104928Z_w13-formal-v2_S07_s1006_816735/S07-layers.csv",
+    "docs/evidence/W13/formal-v2/runs/20261015T104928Z_w13-formal-v2_S07_s1006_816735/contact_events.csv",
+    "docs/evidence/W13/formal-v2/runs/20261015T104928Z_w13-formal-v2_S07_s1006_816735/raw-logs/20261015T104928Z_w13-formal-v2_S07_s1006_816735.txt",
+    "docs/evidence/W13/formal-v2/runs/20261015T105049Z_w13-formal-v2_S08_s1007_76e75d/contact_events.csv",
+    "docs/evidence/W13/formal-v2/runs/20261015T105049Z_w13-formal-v2_S08_s1007_76e75d/raw-logs/20261015T105049Z_w13-formal-v2_S08_s1007_76e75d.txt"
+  ],
+  "explanation": "Original CSV has CRLF and ROS logs contain trailing spaces. Exact new evidence copies intentionally retain original bytes. No source/parameter/protocol whitespace issue; raw bytes must not be rewritten.",
+  "full_check_output": "/tmp/w13-raw-diff-check.txt"
+}

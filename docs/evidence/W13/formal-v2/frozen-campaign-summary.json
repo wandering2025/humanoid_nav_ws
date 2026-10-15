@@ -1,0 +1,470 @@
+{
+  "campaign": "w13-formal-v2",
+  "suite_sha256": "a2c9e5d9e81abe5d9afe817b3f5ee2152b9ec7d2252100e7407ad291ed65ea34",
+  "fingerprint": "8b260c2b963517a2fc7662de25905c1b257752b565d38c3ac35fe5abe1ca646f",
+  "complete": false,
+  "verdict": "PARTIAL",
+  "counts": {
+    "static": {
+      "n": 10,
+      "success": 6
+    },
+    "crossing": {
+      "n": 10,
+      "success": 0
+    },
+    "blocking": {
+      "n": 10,
+      "success": 0
+    },
+    "sudden": {
+      "n": 10,
+      "success": 0
+    }
+  },
+  "rows": [
+    {
+      "case": "S01",
+      "suite": "static",
+      "seed": 1000,
+      "outcome": "SUCCESS",
+      "attempts": 1,
+      "run_id": "20261015T104213Z_w13-formal-v2_S01_s1000_ee3535",
+      "code_sha": "ce6309b92ab1c19e87001f24280ab96241d7af1d",
+      "dirty": false,
+      "nav2_result": "SUCCEEDED",
+      "arrived_truth": true,
+      "pos_err_m": 0.1350404532650251,
+      "yaw_err_deg": 4.821108578222241,
+      "settle_s": 2.0,
+      "time_to_goal_s": 7.040000000000003,
+      "path_len_m": 1.8828234737354361,
+      "clear_body_env_min_m": 2.1329698784363527,
+      "clear_footprint_min_m": 1.8141661512811895,
+      "scan_min_range_m": 2.2740345001220703,
+      "n_env_collisions": 0,
+      "fell": false,
+      "n_safety_stops": 3,
+      "n_replans": 1,
+      "n_recoveries": 0,
+      "rtf_median": 1.0000005181498182,
+      "sim_time_s": 35.57999999999752,
+      "wall_time_s": 40.80685284299943,
+      "notes": "",
+      "evidence": "docs/evidence/W13/raw/w13-formal-v2/20261015T104213Z_w13-formal-v2_S01_s1000_ee3535/result.json"
+    },
+    {
+      "case": "S02",
+      "suite": "static",
+      "seed": 1001,
+      "outcome": "SUCCESS",
+      "attempts": 1,
+      "run_id": "20261015T104312Z_w13-formal-v2_S02_s1001_98e483",
+      "code_sha": "ce6309b92ab1c19e87001f24280ab96241d7af1d",
+      "dirty": false,
+      "nav2_result": "SUCCEEDED",
+      "arrived_truth": true,
+      "pos_err_m": 0.08547453646375286,
+      "yaw_err_deg": 7.008338770159123,
+      "settle_s": 2.0,
+      "time_to_goal_s": 19.4,
+      "path_len_m": 4.4617804004754635,
+      "clear_body_env_min_m": 2.1853330978089693,
+      "clear_footprint_min_m": 1.9695398578025523,
+      "scan_min_range_m": 2.4991061687469482,
+      "n_env_collisions": 0,
+      "fell": false,
+      "n_safety_stops": 7,
+      "n_replans": 3,
+      "n_recoveries": 0,
+      "rtf_median": 1.0000005815007718,
+      "sim_time_s": 50.200000000015386,
+      "wall_time_s": 54.169903487998454,
+      "notes": "",
+      "evidence": "docs/evidence/W13/raw/w13-formal-v2/20261015T104312Z_w13-formal-v2_S02_s1001_98e483/result.json"
+    },
+    {
+      "case": "S03",
+      "suite": "static",
+      "seed": 1002,
+      "outcome": "SUCCESS",
+      "attempts": 1,
+      "run_id": "20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d",
+      "code_sha": "ce6309b92ab1c19e87001f24280ab96241d7af1d",
+      "dirty": false,
+      "nav2_result": "SUCCEEDED",
+      "arrived_truth": true,
+      "pos_err_m": 0.05002980056125989,
+      "yaw_err_deg": 3.4832030073316678,
+      "settle_s": 2.0,
+      "time_to_goal_s": 35.0,
+      "path_len_m": 11.939820676216822,
+      "clear_body_env_min_m": 2.0826482761542047,
+      "clear_footprint_min_m": 1.8115140130843588,
+      "scan_min_range_m": 2.368056058883667,
+      "n_env_collisions": 0,
+      "fell": false,
+      "n_safety_stops": 6,
+      "n_replans": 5,
+      "n_recoveries": 0,
+      "rtf_median": 1.0000006167337843,
+      "sim_time_s": 64.56000000003094,
+      "wall_time_s": 68.76975067100102,
+      "notes": "",
+      "evidence": "docs/evidence/W13/raw/w13-formal-v2/20261015T104413Z_w13-formal-v2_S03_s1002_9ef47d/result.json"
+    },
+    {
+      "case": "S04",
+      "suite": "static",
+      "seed": 1003,
+      "outcome": "SUCCESS",
+      "attempts": 1,
+      "run_id": "20261015T104529Z_w13-formal-v2_S04_s1003_58e684",
+      "code_sha": "ce6309b92ab1c19e87001f24280ab96241d7af1d",
+      "dirty": false,
+      "nav2_result": "SUCCEEDED",
+      "arrived_truth": true,
+      "pos_err_m": 0.1039607128053933,
+      "yaw_err_deg": 10.921461786339249,
+      "settle_s": 2.0,
+      "time_to_goal_s": 35.92,
+      "path_len_m": 12.978750089491786,
+      "clear_body_env_min_m": 2.070591340548583,
+      "clear_footprint_min_m": 1.7384262326809008,
+      "scan_min_range_m": 2.335698127746582,
+      "n_env_collisions": 0,
+      "fell": false,
+      "n_safety_stops": 7,
+      "n_replans": 5,
+      "n_recoveries": 0,
+      "rtf_median": 1.0000001531012181,
+      "sim_time_s": 67.00000000002525,
+      "wall_time_s": 70.58902612599923,
+      "notes": "",
+      "evidence": "docs/evidence/W13/raw/w13-formal-v2/20261015T104529Z_w13-formal-v2_S04_s1003_58e684/result.json"
+    },
+    {
+      "case": "S05",
+      "suite": "static",
+      "seed": 1004,
+      "outcome": "SUCCESS",
+      "attempts": 1,
+      "run_id": "20261015T104645Z_w13-formal-v2_S05_s1004_a69103",
+      "code_sha": "ce6309b92ab1c19e87001f24280ab96241d7af1d",
+      "dirty": false,
+      "nav2_result": "SUCCEEDED",
+      "arrived_truth": true,
+      "pos_err_m": 0.18082195992101752,
+      "yaw_err_deg": 9.571364826613173,
+      "settle_s": 2.0,
+      "time_to_goal_s": 72.9,
+      "path_len_m": 18.90594967716097,
+      "clear_body_env_min_m": 2.0265973588961272,
+      "clear_footprint_min_m": 1.8409954743874584,
+      "scan_min_range_m": 2.337041139602661,
+      "n_env_collisions": 0,
+      "fell": false,
+      "n_safety_stops": 19,
+      "n_replans": 11,
+      "n_recoveries": 0,
+      "rtf_median": 1.0000002718977328,
+      "sim_time_s": 102.47999999994256,
+      "wall_time_s": 106.27066714399916,
+      "notes": "",
+      "evidence": "docs/evidence/W13/raw/w13-formal-v2/20261015T104645Z_w13-formal-v2_S05_s1004_a69103/result.json"
+    },
+    {
+      "case": "S06",
+      "suite": "static",
+      "seed": 1005,
+      "outcome": "SUCCESS",
+      "attempts": 1,
+      "run_id": "20261015T104841Z_w13-formal-v2_S06_s1005_b64989",
+      "code_sha": "ce6309b92ab1c19e87001f24280ab96241d7af1d",
+      "dirty": false,
+      "nav2_result": "SUCCEEDED",
+      "arrived_truth": true,
+      "pos_err_m": 0.13100476013743614,
+      "yaw_err_deg": 2.5465662560374307,
+      "settle_s": 2.0,
+      "time_to_goal_s": 7.0600000000000005,
+      "path_len_m": 1.8971747683864997,
+      "clear_body_env_min_m": 2.1367943637515068,
+      "clear_footprint_min_m": 1.8241577816078949,
+      "scan_min_range_m": 2.267186164855957,
+      "n_env_collisions": 0,
+      "fell": false,
+      "n_safety_stops": 3,
+      "n_replans": 1,
+      "n_recoveries": 0,
+      "rtf_median": 0.9997571957450648,
+      "sim_time_s": 36.33999999999845,
+      "wall_time_s": 40.61232245700012,
+      "notes": "",
+      "evidence": "docs/evidence/W13/raw/w13-formal-v2/20261015T104841Z_w13-formal-v2_S06_s1005_b64989/result.json"
+    },
+    {
+      "case": "S07",
+      "suite": "static",
+      "seed": 1006,
+      "outcome": "FAIL_SAFETY_STOP_UNRECOVERED",
+      "attempts": 1,
+      "run_id": "20261015T104928Z_w13-formal-v2_S07_s1006_816735",
+      "code_sha": "ce6309b92ab1c19e87001f24280ab96241d7af1d",
+      "dirty": false,
+      "nav2_result": "FAILED",
+      "arrived_truth": false,
+      "pos_err_m": 0.056198131361136335,
+      "yaw_err_deg": 20.595005483952413,
+      "settle_s": 0.0,
+      "time_to_goal_s": null,
+      "path_len_m": 5.225963256054408,
+      "clear_body_env_min_m": 2.188699649115442,
+      "clear_footprint_min_m": 1.974490929691266,
+      "scan_min_range_m": 2.4991061687469482,
+      "n_env_collisions": 0,
+      "fell": false,
+      "n_safety_stops": 11,
+      "n_replans": 6,
+      "n_recoveries": 0,
+      "rtf_median": 1.0000002693012207,
+      "sim_time_s": 69.12000000002031,
+      "wall_time_s": 74.35817197300094,
+      "notes": "",
+      "evidence": "docs/evidence/W13/raw/w13-formal-v2/20261015T104928Z_w13-formal-v2_S07_s1006_816735/result.json"
+    },
+    {
+      "case": "S08",
+      "suite": "static",
+      "seed": 1007,
+      "outcome": "INTERRUPTED",
+      "attempts": 1,
+      "run_id": "20261015T105049Z_w13-formal-v2_S08_s1007_76e75d",
+      "evidence": "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/raw/w13-formal-v2/20261015T105049Z_w13-formal-v2_S08_s1007_76e75d"
+    },
+    {
+      "case": "S09",
+      "suite": "static",
+      "seed": 1008,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "S10",
+      "suite": "static",
+      "seed": 1009,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C01",
+      "suite": "crossing",
+      "seed": 2000,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C02",
+      "suite": "crossing",
+      "seed": 2001,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C03",
+      "suite": "crossing",
+      "seed": 2002,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C04",
+      "suite": "crossing",
+      "seed": 2003,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C05",
+      "suite": "crossing",
+      "seed": 2004,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C06",
+      "suite": "crossing",
+      "seed": 2005,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C07",
+      "suite": "crossing",
+      "seed": 2006,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C08",
+      "suite": "crossing",
+      "seed": 2007,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C09",
+      "suite": "crossing",
+      "seed": 2008,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "C10",
+      "suite": "crossing",
+      "seed": 2009,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B01",
+      "suite": "blocking",
+      "seed": 3000,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B02",
+      "suite": "blocking",
+      "seed": 3001,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B03",
+      "suite": "blocking",
+      "seed": 3002,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B04",
+      "suite": "blocking",
+      "seed": 3003,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B05",
+      "suite": "blocking",
+      "seed": 3004,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B06",
+      "suite": "blocking",
+      "seed": 3005,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B07",
+      "suite": "blocking",
+      "seed": 3006,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B08",
+      "suite": "blocking",
+      "seed": 3007,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B09",
+      "suite": "blocking",
+      "seed": 3008,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "B10",
+      "suite": "blocking",
+      "seed": 3009,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U01",
+      "suite": "sudden",
+      "seed": 4000,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U02",
+      "suite": "sudden",
+      "seed": 4001,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U03",
+      "suite": "sudden",
+      "seed": 4002,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U04",
+      "suite": "sudden",
+      "seed": 4003,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U05",
+      "suite": "sudden",
+      "seed": 4004,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U06",
+      "suite": "sudden",
+      "seed": 4005,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U07",
+      "suite": "sudden",
+      "seed": 4006,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U08",
+      "suite": "sudden",
+      "seed": 4007,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U09",
+      "suite": "sudden",
+      "seed": 4008,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    },
+    {
+      "case": "U10",
+      "suite": "sudden",
+      "seed": 4009,
+      "outcome": "NOT_RUN",
+      "attempts": 0
+    }
+  ]
+}

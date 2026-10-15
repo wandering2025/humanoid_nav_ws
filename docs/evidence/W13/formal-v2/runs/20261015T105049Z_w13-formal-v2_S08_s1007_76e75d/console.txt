@@ -1,0 +1,33 @@
+RUN 20261015T105049Z_w13-formal-v2_S08_s1007_76e75d PID 143743
+Traceback (most recent call last):
+  File "/home/haoyang/humanoid_nav_ws/docs/evidence/W13/formal-v2/capture.py", line 63, in <module>
+    runpy.run_path(str(ENTRY), run_name='__main__')
+  File "<frozen runpy>", line 286, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/haoyang/humanoid_nav_ws/scripts/evaluate.py", line 198, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/haoyang/humanoid_nav_ws/scripts/evaluate.py", line 194, in main
+    return run_worker(**request)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/haoyang/humanoid_nav_ws/scripts/evaluation/worker.py", line 18, in run
+    result = episode(case['id'], case['start'], case['goal'], suite['criteria'],
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/haoyang/humanoid_nav_ws/scripts/evaluation/episode.py", line 325, in episode
+    run.spin()
+  File "/home/haoyang/humanoid_nav_ws/scripts/evaluation/harness.py", line 331, in spin
+    rclpy.spin_once(self.node, timeout_sec=.004)
+  File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py", line 226, in spin_once
+    executor.spin_once(timeout_sec=timeout_sec)
+  File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 926, in spin_once
+    self._spin_once_impl(timeout_sec)
+  File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 907, in _spin_once_impl
+    handler, entity, node = self.wait_for_ready_callbacks(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 877, in wait_for_ready_callbacks
+    return next(self._cb_iter)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py", line 781, in _wait_for_ready_callbacks
+    wait_set.wait(timeout_nsec)
+KeyboardInterrupt
