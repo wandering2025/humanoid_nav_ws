@@ -1,0 +1,32 @@
+[
+  {
+    "index": "docs/evidence/W14/raw-artifact-index.json",
+    "count": 56,
+    "mismatches": []
+  },
+  {
+    "index": "docs/evidence/W14/cpu-recovery/raw-artifact-index.json",
+    "count": 48,
+    "mismatches": []
+  },
+  {
+    "index": "docs/evidence/W14/nvidia-recovery/raw-artifact-index.json",
+    "count": 100,
+    "mismatches": []
+  },
+  {
+    "index": "docs/evidence/W14/rehearsals/batch1/raw-artifact-index.json",
+    "count": 82,
+    "mismatches": []
+  },
+  {
+    "index": "docs/evidence/W14/rehearsals/batch2/raw-artifact-index.json",
+    "count": 30,
+    "mismatches": []
+  },
+  {
+    "index": "docs/evidence/W14/rehearsals/batch3/raw-artifact-index.json",
+    "count": 47,
+    "mismatches": []
+  }
+]

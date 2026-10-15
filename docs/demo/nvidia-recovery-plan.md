@@ -50,3 +50,10 @@ DDS退出−6（Bad file descriptor），整体退出未通过，原result标PAS
 替代组合站立check已通过：run 20261015T130850Z_demo_U01_8243f83a-c28e-47af-a8af-963adebac875，
 被测a99a29752545982fd9c42813a2cc8d54f752db9e；final SUCCESS_STARTUP_CHECK，全部进程0、端口可绑定、无shader错误。
 profile晋级GUI_VALIDATED只表示分阶段入口条件满足，不表示两次正式排练或W14已通过。
+
+## 最终停止检查点
+
+最新批3/01 `20261015T132133Z_demo_U01_89a56cbe-0723-4ca9-b438-1021c94912e9`：到达与冻结dynamic PASS，RViz SIGINT退出堆损坏−6；
+profile GPU_HALTED_RVIZ_HEAP_CORRUPTION，halt保留，批3/02 NOT_RUN，不自动重试相同显示路径。
+原各批失败不覆盖，完整结果见release-manifest及docs/evidence/W14/rehearsals。
+事后无PID残留、42127/42128可bind；新Windows事件查询无匹配项，不是整机安全保证。W15未启动。

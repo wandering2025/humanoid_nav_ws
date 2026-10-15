@@ -4,20 +4,22 @@
 ./scripts/run_demo.sh
 ```
 
-当前W14正式排练中，尚未宣布DEMO_READY。NVIDIA MuJoCo与CPU RGB网格RViz的站立、停车、退出和端口核验已通过。
-入口自动加载环境并启动全部组件；到达后保留画面，Ctrl+C安全停车并退出。无需多终端或手工source。
-[快速开始](docs/demo/quick-start.md) · [发布状态/证据](docs/demo/release-manifest.md) · [现场流程](docs/demo/live-demo-runbook.md) ·
+**W14_BLOCKED**：最新完整运行已到达，但RViz退出堆损坏（−6）；GUI入口已封锁，返回3且不访问GPU。
+没有完成同一版本两次完整默认验收。不要删除halt文件自动重试相同路径。
+入口/文档已实现，原W13仍FAILED（36/40）；安全停车和无残留证据不掩盖异常退出。
+[快速开始](docs/demo/quick-start.md) · [发布清单与全部结果](docs/demo/release-manifest.md) · [现场流程](docs/demo/live-demo-runbook.md) ·
 [排障](docs/demo/troubleshooting.md) · [架构限制](docs/demo/architecture-and-limitations.md) · [讲解提纲](docs/demo/presentation-outline.md)
 
-首次W13仍FAILED（36/40）；[用户决策](docs/demo/baseline-decision.md)接受其作为演示基线。
-历史宿主黑屏、CPU动态FAIL及后续检查失败全部保留，见[事故审查](docs/demo/graphics-incident-20261015.md)。
-未改导航/控制/安全/世界参数，不启动W15。以下是历史开发说明，现场启动使用上方唯一入口。
+用户接受[首次W13演示基线](docs/demo/baseline-decision.md)，未改导航/控制/安全/物理。原实验分支、全部失败和
+[宿主图形事故](docs/demo/graphics-incident-20261015.md)证据保留。不启动W15，录像尚缺。
+`--help`、内核隔离的CPU `--preflight`可用；headless辅助不能替代GUI验收。
+以下历史开发入口不是当前现场推荐命令。
 
 ---
 
 # Booster T1 MuJoCo navigation
 
-This workspace implements the project one explicitly assigned step at a time. W01–W10 provide the physical strategy runner, calibrated command guard, consistent ROS state/TF, static scenes, compensated LiDAR, SLAM mapping and saved-map AMCL localization. W10 adds the single-source velocity safety chain and latched fault stops. W11 autonomous Nav2 navigation is not yet implemented.
+This workspace implements the project one explicitly assigned step at a time. W01–W10 provide the physical strategy runner, calibrated command guard, consistent ROS state/TF, static scenes, compensated LiDAR, SLAM mapping and saved-map AMCL localization. W10 adds the single-source velocity safety chain and latched fault stops. W11–W13 implement Nav2 navigation, dynamic scenarios and the failed formal-v1 evaluation; W14 packaging is blocked by an RViz shutdown failure.
 
 The frozen external repositories and existing venv are documented in [environment baseline](docs/baseline/environment.md) and [dependencies.repos](dependencies.repos). Design contracts: [system](docs/architecture/system.md), [interfaces](docs/architecture/interfaces.md), [acceptance](docs/architecture/acceptance.md). Progress and handoff: [execution board](docs/plans/t1_mujoco_navigation/执行看板.md), [W09 record](docs/plans/t1_mujoco_navigation/records/W09.md).
 
@@ -25,8 +27,8 @@ The frozen external repositories and existing venv are documented in [environmen
 | --- | --- | --- |
 | t1_mujoco | ament_python | Physical strategy runner, calibrated command guard, state/TF, scenes and compensated LiDAR |
 | t1_description | ament_cmake | Frozen external description wrapper, validated FK/mesh, footprint and RViz |
-| t1_navigation | ament_cmake | SLAM/AMCL configuration, LiDAR-built map and provenance; velocity safety configuration; W11 follows |
-| t1_bringup | ament_python | Simulation/mapping/localization launch, one-shot AMCL initialization; W13 evaluation follows |
+| t1_navigation | ament_cmake | SLAM/AMCL configuration, LiDAR-built map and provenance; velocity safety and Nav2 configuration |
+| t1_bringup | ament_python | Simulation/mapping/localization launch, one-shot AMCL initialization, autonomous navigation and evaluation |
 
 ## Enter the environment and build
 

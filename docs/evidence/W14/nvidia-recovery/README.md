@@ -1,3 +1,12 @@
+# W14 NVIDIA分阶段历史与最终阻塞
+
+以下阶段记录保持为当时事实。后来用户更新并发/停止边界，原MapDisplay shader停用，CPU RGB网格验证后恢复不同显示组合。
+该组合站立/停车/退出/端口通过，完整GUI也实际到达；最终在RViz退出时发生堆损坏−6，再次停止并封锁，不自动重试。
+完整时间线和版本见[排练记录](../rehearsals/README.md)及[发布清单](../../../demo/release-manifest.md)。
+原halt文件按artifact-relocations.json归档，字节哈希不变；当前run_data halt记录新堆损坏，不覆盖原证据。
+
+---
+
 # W14 用户授权NVIDIA恢复：按停止条件收尾，仍BLOCKED
 
 用户明确允许RTX4050分阶段工作、一次一个GPU密集型进程，图形错误立即停止；不准改驱动/BIOS/注册表/显示设置。
