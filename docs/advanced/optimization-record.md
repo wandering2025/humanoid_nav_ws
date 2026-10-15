@@ -16,3 +16,8 @@ Second control c648e13, run20261015T221656Z_advanced_f9e4ca8e-e1c8-4b64-9ac3-a1c
 
 
 Third control d7a1ef7, run20261015T222035Z_advanced_ba98c44b-1131-48ab-b333-dd5ba4cdb4ac: FAILED safely. On target3→4 preemption, BT reported SUCCEEDED at(3.27,7.54) for requested(7.5,8), before the1Hz pipeline consumed the new FollowPath. The map-frame pass check rejected it correctly; no false arrival. Add at most2 redispatches for this specific premature-SUCCEEDED case, retaining actual-pose passage and original total timeout. Abort/cancel still fails immediately; no cancellation/rearm or controller changes.
+
+
+Fourth control 5b87b14: six passes succeeded without retries; the A-B route still unavailable at the early southern pass(11.5,~6.1). Saved pre-handover grid diagnostics added. Extend the final observation leg straight to(11.5,4), without a return or extra loop. To keep the moving cart well ahead of that observation point, shift its crossing line south to y1.5 and move B to(13,-1.5); B stays2.5m from the south wall, above the existing2.25m registered goal-clearance minimum and the2.05m planning radius. The cart starts at(15.9,1.5), crosses to(12.5,1.5), holds8s, returns; all motion/stop/footprint thresholds unchanged. Display-only A/B annotations updated consistently.
+
+Read-only discovery: pre-existing user run20261015T220015Z_advanced_c171be81-40f2-4a13-a537-2aa174bce3f5 at published b191ef6 stopped on GPU memory growth1126→1895MiB (threshold768MiB), peak61C, no host driver error recorded. Its run_data/demo-gpu-halt.json remains intact; no new graphical renderer has been started in this task. Async permission requested for one controlled recovery with unchanged GPU thresholds and archived original latch. Headless work continues independently.

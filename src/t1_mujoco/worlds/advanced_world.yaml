@@ -4,7 +4,7 @@ name: advanced_world
 purpose: Wide west/east rooms joined by a north gallery; B occluded from A.
 bounds: [-4, 18, -4, 12]
 initial_pose: [0, 0, 0]
-goal: [14, 0, -1.5707963267948966]
+goal: [13, -1.5, -1.5707963267948966]
 minimum_passage_m: 7.5
 obstacle_height_m: 1.5
 boxes:

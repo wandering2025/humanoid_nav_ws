@@ -61,15 +61,15 @@ class Advanced(base.Demo):
         from visualization_msgs.msg import Marker, MarkerArray
         from geometry_msgs.msg import Point
         a=MarkerArray()
-        for i,(x,label,color) in enumerate(((0.,'A START',(.05,.45,.65)),(14.,'B GOAL',(.05,.5,.22)))):
+        for i,(x,y,label,color) in enumerate(((0.,0.,'A START',(.05,.45,.65)),(*self.route['goal'][:2],'B GOAL',(.05,.5,.22)))):
             m=Marker();m.header.frame_id='map';m.ns='route';m.id=2*i
             m.type=Marker.LINE_STRIP;m.pose.orientation.w=1.;m.scale.x=.06
             m.color.r,m.color.g,m.color.b=color;m.color.a=1.
-            m.points=[Point(x=x+.65*math.cos(j*math.pi/40),y=.65*math.sin(j*math.pi/40),z=.06) for j in range(81)]
+            m.points=[Point(x=x+.65*math.cos(j*math.pi/40),y=y+.65*math.sin(j*math.pi/40),z=.06) for j in range(81)]
             a.markers.append(m)
             m=Marker();m.header.frame_id='map';m.ns='route';m.id=2*i+1
             m.type=Marker.TEXT_VIEW_FACING;m.pose.orientation.w=1.;m.pose.position.x=x
-            m.pose.position.y=-1.;m.scale.z=.65;m.color.r,m.color.g,m.color.b=color;m.color.a=1.;m.text=label
+            m.pose.position.y=y-1.;m.scale.z=.65;m.color.r,m.color.g,m.color.b=color;m.color.a=1.;m.text=label
             a.markers.append(m)
         m=Marker();m.header.frame_id='map';m.ns='phase';m.id=0;m.type=Marker.TEXT_VIEW_FACING
         m.pose.orientation.w=1.;m.pose.position.x=7.;m.pose.position.y=13.;m.scale.z=.65
@@ -172,6 +172,8 @@ class Advanced(base.Demo):
             result=handle.get_result_async();self.until(result.done,10)
             reply=result.result()
             self.summary.setdefault('map_route_checks',[]).append(dict(sim=self.node.sim,status=reply.status,error_code=reply.result.error_code))
+            for kind,grid in (('map',self.node.map),('costmap',self.global_grid)):
+                if grid is not None:base.save(f'route-check-{len(self.summary["map_route_checks"]):02d}-{kind}.json',dict(resolution=grid.info.resolution,width=grid.info.width,height=grid.info.height,origin=[grid.info.origin.position.x,grid.info.origin.position.y],data=list(grid.data)))
             if reply.status!=4:return False
             path=reply.result.path;points=[(p.pose.position.x,p.pose.position.y) for p in path.poses]
             self.summary['a_to_b_overview']=dict(sim=self.node.sim,points=points,

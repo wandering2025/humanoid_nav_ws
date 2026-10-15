@@ -6,7 +6,7 @@ def annotate(viewer):
     scene = viewer.user_scn
     scene.ngeom = 0
     for x, y, label, color in ((0., 0., 'A  START', [.10,.75,.95,1.]),
-                               (14., 0., 'B  GOAL', [.20,.95,.45,1.])):
+                               (13., -1.5, 'B  GOAL', [.20,.95,.45,1.])):
         for kind, size, pos, text in (
             (mujoco.mjtGeom.mjGEOM_CYLINDER,[.65,.008,0.],[x,y,.012],''),
             (mujoco.mjtGeom.mjGEOM_LABEL,[.1,.1,.1],[x,y-.85,.12],label)):
