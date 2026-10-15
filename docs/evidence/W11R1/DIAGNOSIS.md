@@ -51,3 +51,5 @@ H7结论：C01三修正仍.2363rad失败，参数恢复.5m。B04/B06单次成功
 另记H7 B04关闭风险：command_gate收到SIGINT后在rclpy._take_subscription抛Unable to convert call argument，exit1；无遗留。原formal-v1 S06日志同一栈/同一关闭阶段（原日志248行SIGINT、333–366行异常/exit1），属于既有问题，W10源码保持不变。它不是本次新manager的H5异常；所有新manager已正常退出。
 
 H8默认不再强制1.5m二维预目标：其costmap点/直线可行不代表从绕障侧以冻结步态曲率进入可行。使用DUBIN对完整终点位置/朝向求解；旧显式分段选项仅保留兼容。真实规划测试在原静态SLAM地图上检验绕岛、前进方向和进入.20m位置带时的路径切向，测试用合成空scan维持实际costmap新鲜度，不驱动物理机器人。
+
+H8纯DUBIN在B06障碍进入后于x≈1.6无法向前做1m圆弧绕行，15.76s ABORTED208，候选拒绝。这不说明W05需要倒退：原地转向本来允许，但DUBIN模型遗漏了它。H9改用已安装diff格点原语（前进+原地，reverse expansion明确false），新增靠近障碍起点的规划服务断言，再进行物理验证。

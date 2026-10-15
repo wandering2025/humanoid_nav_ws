@@ -256,13 +256,14 @@ planner_server:
     # turning radius fits vx<=0.45 / |wz|<=0.45 without in-place terminal turns.
     # The frozen 2.05 m radius and inscribed/lethal cost cells remain obstacles.
     GridBased:
-      plugin: "nav2_smac_planner::SmacPlannerHybrid"
+      plugin: "nav2_smac_planner::SmacPlannerLattice"
       tolerance: 0.0
       allow_unknown: false
-      motion_model_for_search: "DUBIN"
-      minimum_turning_radius: 1.0
-      angle_quantization_bins: 72
-      downsample_costmap: false
+      # Installed Jazzy diff primitives: 0.05 m grid, 1.0 m walking radius,
+      # forward curves plus in-place heading changes. Never expand in reverse.
+      lattice_filepath: "/opt/ros/jazzy/share/nav2_smac_planner/sample_primitives/5cm_resolution/1m_turning_radius/diff/output.json"
+      allow_reverse_expansion: false
+      rotation_penalty: 5.0
       smooth_path: true
       max_planning_time: 2.0
       max_iterations: 1000000

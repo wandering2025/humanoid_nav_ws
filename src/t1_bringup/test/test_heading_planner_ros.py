@@ -9,6 +9,7 @@ from pathlib import Path
 import subprocess
 
 import yaml
+import pytest
 from geometry_msgs.msg import TransformStamped
 from nav2_msgs.action import ComputePathToPose
 from nav2_msgs.srv import ManageLifecycleNodes
@@ -19,7 +20,8 @@ from tf2_ros import StaticTransformBroadcaster
 from test_bounded_manager_ros import manager, response  # shared isolated DDS fixture
 
 
-def test_detour_path_arrives_forward_along_goal_heading(manager, tmp_path):
+@pytest.mark.parametrize('start_x', [0., 1.85])
+def test_detour_path_arrives_forward_along_goal_heading(manager, tmp_path, start_x):
     node, start = manager
     ws = Path(__file__).resolve().parents[3]
     params = yaml.safe_load((ws/'src/t1_navigation/config/navigation.yaml').read_text())
@@ -71,6 +73,7 @@ def test_detour_path_arrives_forward_along_goal_heading(manager, tmp_path):
     request.planner_id = 'GridBased'
     request.start.header.frame_id = request.goal.header.frame_id = 'map'
     request.start.pose.orientation.w = request.goal.pose.orientation.w = 1.
+    request.start.pose.position.x = start_x
     request.goal.pose.position.x = 9.
     handle = response(action.send_goal_async(request), 5.)
     assert handle.accepted

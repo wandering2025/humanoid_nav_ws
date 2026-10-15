@@ -661,5 +661,18 @@
     "remaining_owned_pids": [],
     "shutdown_note": "B04 command_gate exit1 after SIGINT: same pre-existing rclpy _take_subscription RuntimeError as formal-v1 S06; source unchanged, process reaped",
     "decision": "restore .5m angle scoring; test installed Smac Hybrid DUBIN forward-only goal heading and 1.0m radius"
+  },
+  {
+    "hypothesis": "H8 pure Dubin rejected; H9 differential lattice",
+    "code_sha": "4279293a78d1804c0b5b6a5aa544e582eb116915",
+    "run_id": "20261015T075143Z_w11r1-repair-smoke-v5_B06_s3005_7fdfc1",
+    "result": "FAIL_SAFETY_STOP_UNRECOVERED",
+    "action": "ABORTED:208",
+    "task_s": 15.76,
+    "reason": "after moving obstacle enters, x1.59..1.65 cannot turn away with a forward 1m arc; pure Dubin excludes the already legal in-place turn",
+    "contacts": 0,
+    "falls": 0,
+    "remaining_owned_pids": [],
+    "decision": "installed diff lattice 1m forward curves and in-place orientation, reverse expansion false; test additional close-obstacle start before physics"
   }
 ]

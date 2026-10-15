@@ -18,7 +18,7 @@ t1_navigation_adapter ─/t1/cmd_navigation─► t1_command_gate ─/cmd_vel_na
 ## Frozen parameters
 
 - `src/t1_navigation/config/navigation.yaml`:
-  - W11R1 ADR-022: Smac Hybrid, DUBIN forward-only, 1.0 m minimum turning radius, no unknown space; replaces the original NavFn position search.
+  - W11R1 ADR-023: Smac differential lattice, forward curves (1.0 m radius) and in-place orientation, reverse expansion disabled, no unknown space; replaces NavFn position search.
   - Costmaps: robot circle of radius 2.05 m with inflation to 2.6 m. Local costmap 10×10 m on `/scan` (`inf_is_valid`, raytrace 6.5 m).
   - RotationShim: in-place 0.65 rad/s, threshold 0.6 rad, `rotate_to_goal_heading`.
   - MPPI DiffDrive: vx [0, 0.45], \|wz\| ≤ 0.45, 56×0.05 s horizon.
@@ -133,11 +133,11 @@ stop and cancellation. Overshoot is not recovered by an unvalidated reverse move
 This candidate still requires the independent verification matrix; the former
 W11/W12 samples and W13 formal-v1 failures retain their historical meanings.
 
-W11R1 H8 candidate uses the installed Smac Hybrid planner with the DUBIN
-forward-only model and 1.0 m minimum turning radius. Goal heading is part of the
-search state, so the incoming path can be aligned before entering the goal
-position band. Default navigation now sends the final pose directly; its incoming heading is
-constrained by the planner. Explicit legacy staging remains optional and must
-pass the same joint verification. The 2.05 m collision circle, unknown-cell policy, zero planner
-tolerance and MPPI/RotationShim safety chain are unchanged (ADR-022). Failed
-H6 forward-staging and H7 early-angle-scoring experiments are removed.
+W11R1 H9 candidate uses the installed Smac differential lattice planner with
+1.0 m forward curves and the already supported in-place orientation change.
+Reverse expansion is disabled. The primitive file hash is frozen in ADR-023.
+Goal heading is part of the search state. Default navigation sends the final
+pose directly; explicit legacy staging must still pass joint verification.
+The 2.05 m collision circle, unknown-cell policy, zero planner tolerance and
+MPPI/RotationShim safety chain are unchanged. Failed H6/H7/H8 experiments are
+preserved and superseded; pure Dubin could not turn away after a late blocker.
