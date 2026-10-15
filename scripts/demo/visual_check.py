@@ -6,6 +6,7 @@ from pathlib import Path
 import signal
 import subprocess
 import sys
+import threading
 import time
 
 WS=Path(__file__).resolve().parents[2]
@@ -20,13 +21,21 @@ def render(model_path, heartbeat):
     d.qpos[:3]=[0,0,.72];d.qpos[3]=1
     if m.nmocap:d.mocap_pos[0]=[6,-2,.75]
     mujoco.mj_forward(m,d);style_model(m)
-    with mujoco.viewer.launch_passive(m,d,show_left_ui=False,show_right_ui=False) as v:
+    before=set(threading.enumerate())
+    v=mujoco.viewer.launch_passive(m,d,show_left_ui=False,show_right_ui=False)
+    threads=[t for t in threading.enumerate() if t not in before]
+    try:
         with v.lock():decorate(v)
         start=time.monotonic()
         while time.monotonic()-start<15:
             if not v.is_running():raise RuntimeError('Visual check closed early')
             v.sync(state_only=True);heartbeat.write_text(str(time.monotonic()))
             time.sleep(1/15)
+    finally:
+        v.close()
+        for thread in threads:
+            thread.join(timeout=5)
+            if thread.is_alive():raise RuntimeError('Viewer thread did not exit before interpreter shutdown')
 
 
 def check(output, model):

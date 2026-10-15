@@ -21,7 +21,7 @@ def find_windows():
         match = re.match(r'\s*(0x[0-9a-f]+) "([^"]*)"', line)
         if match:
             wid, title = int(match[1], 16), match[2]
-            if title == 'MuJoCo': found['MuJoCo'] = wid
+            if title.startswith('MuJoCo'): found['MuJoCo'] = wid
             if title == 'T1 Demo - RViz': found['RViz'] = wid
             if title.startswith('W15 display check'): found['MuJoCo'] = wid
     return found

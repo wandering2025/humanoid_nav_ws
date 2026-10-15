@@ -1,0 +1,18 @@
+{
+  "status": "FINAL_RELEASE_BLOCKED",
+  "failed_stage": "minimal-display-02",
+  "source_sha": "833f35d7400139dd00cd23750fcdf1fb010ee382",
+  "renderer_exit": -11,
+  "kernel": "python:gdrv0 general protection fault in libnvwgf2umx.so; captured renderer PID68872",
+  "windows_events": [],
+  "graphics_retry": "NOT_RUN; halt retained; no further GPU load",
+  "hypothesis": "New static checker omitted render-thread join before Python teardown, unlike existing production simulation; exact driver failure mechanism unproven",
+  "offline_fix": "Explicit close and bounded join matching production; no graphical revalidation claimed",
+  "video": "Neither minimal clip is a successful demo; full navigation/valid release video NOT_RUN",
+  "raw_paths": [
+    "docs/evidence/W15/raw/minimal-display",
+    "docs/evidence/W15/raw/minimal-display-02",
+    "docs/evidence/W15/raw/minimal-capture",
+    "docs/evidence/W15/raw/minimal-capture-02"
+  ]
+}
