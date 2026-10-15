@@ -43,16 +43,18 @@ def check(output, model):
                 if time.monotonic()-start>30:raise TimeoutError('Static viewer deadline')
                 hb=output/'heartbeat'
                 if hb.exists() and time.time()-hb.stat().st_mtime>3:raise RuntimeError('Static viewer stalled')
-                if time.monotonic()-start>5 and not captured:
+                if hb.exists() and not captured:
                     from windows import XWindows,find_windows
-                    window=XWindows()
-                    try:
-                        ids=find_windows();window.layout(ids)
-                    finally:window.close()
-                    subprocess.run(['import','-window',str(ids['MuJoCo']),str(output/'view.png')],check=True,timeout=5)
-                    captured=True
+                    ids=find_windows()
+                    if 'MuJoCo' in ids:
+                        window=XWindows()
+                        try:window.layout(ids)
+                        finally:window.close()
+                        subprocess.run(['import','-window',str(ids['MuJoCo']),str(output/'view.png')],check=True,timeout=5)
+                        captured=True
                 time.sleep(.1)
             if child.returncode:raise RuntimeError(f'Viewer exit {child.returncode}')
+            if not captured:raise RuntimeError('No configured viewer screenshot captured')
             watch.host.check(__import__('gpu_watch').ERROR,windows=True)
             result.update(status='PASS',exit_code=child.returncode)
     except BaseException as exc:
