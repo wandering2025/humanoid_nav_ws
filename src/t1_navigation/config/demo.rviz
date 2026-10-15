@@ -198,5 +198,7 @@ Visualization Manager:
   - Class: rviz_default_plugins/Interact
   - Class: rviz_default_plugins/MoveCamera
 Window Geometry:
+  Hide Left Dock: true
+  Hide Right Dock: true
   Width: 760
   Height: 740

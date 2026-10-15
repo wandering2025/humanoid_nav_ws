@@ -1,0 +1,183 @@
+{
+  "run_id": "20261015T154938Z_demo_U01_0fd7462e-1531-4919-8331-345d97ac0f06",
+  "code_sha": "7555a679ffc82f43188d82c50ec38ce66a4a6065",
+  "status": "SUCCESS",
+  "arrived": true,
+  "human_intervention": false,
+  "readiness_wall_s": 20.10364714700154,
+  "task_wall_s": 84.8462923390016,
+  "wall_total_s": 97.33975771500081,
+  "settle": {
+    "settled": true,
+    "settle_start_sim": 66.10000000002735,
+    "settle_delay_s": 0.5000000000273417,
+    "pos_err_m": 0.09567657317405291,
+    "yaw_err_deg": 0.7264736414217474
+  },
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "body_clearance": {
+    "min_m": 1.4155491631744919,
+    "sim_time": 34.119999999995734,
+    "geom_pair": [
+      "t1_geom_036",
+      "obstacle_approach_slot"
+    ],
+    "samples": 887,
+    "robot_geoms": 22,
+    "environment_geoms": 8,
+    "sample_hz": 10,
+    "definition": "signed 3D MuJoCo collision geometry distance; excludes ground/self/visual; sampled minimum, not continuous bound"
+  },
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 13559.773302276,
+      "sim_time": 88.10000000000001,
+      "health_reason": ""
+    }
+  },
+  "parent_exit_codes": {
+    "dds": 0,
+    "launch": 0,
+    "rviz": 0,
+    "goal": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 86543,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 86544,
+      "exit_code": 0
+    },
+    "map_server-3": {
+      "pid": 86545,
+      "exit_code": 0
+    },
+    "amcl-4": {
+      "pid": 86546,
+      "exit_code": 0
+    },
+    "command_gate-5": {
+      "pid": 86547,
+      "exit_code": 0
+    },
+    "velocity_smoother-6": {
+      "pid": 86548,
+      "exit_code": 0
+    },
+    "collision_monitor-7": {
+      "pid": 86549,
+      "exit_code": 0
+    },
+    "lifecycle_manager-8": {
+      "pid": 86877,
+      "exit_code": 0
+    },
+    "lifecycle_manager-9": {
+      "pid": 86878,
+      "exit_code": 0
+    },
+    "controller_server-10": {
+      "pid": 87037,
+      "exit_code": 0
+    },
+    "planner_server-11": {
+      "pid": 87038,
+      "exit_code": 0
+    },
+    "behavior_server-12": {
+      "pid": 87039,
+      "exit_code": 0
+    },
+    "bt_navigator-13": {
+      "pid": 87040,
+      "exit_code": 0
+    },
+    "lifecycle_manager-14": {
+      "pid": 87041,
+      "exit_code": 0
+    },
+    "navigation_adapter-15": {
+      "pid": 87042,
+      "exit_code": 0
+    },
+    "navigation_starter-16": {
+      "pid": 87043,
+      "exit_code": 0
+    },
+    "t1_initial_pose_once-17": {
+      "pid": 87044,
+      "exit_code": 0
+    }
+  },
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "post_runner_remaining_pids": [],
+  "dds_port_released": true,
+  "gpu_monitor_error": null,
+  "graph_contract": {
+    "final_only_collision_monitor": true,
+    "obstacle_truth_isolated": true,
+    "robot_truth_isolated": true
+  },
+  "dynamic": {
+    "scenario": "approach",
+    "checks": {
+      "triggered_after_actual_walking": true,
+      "scan_hits_entity": true,
+      "local_costmap_marks_entity": true,
+      "no_planner_obstacle_truth": true,
+      "no_teleop": true,
+      "dimensions": true,
+      "vacated_costmap_clears": true,
+      "actual_stop_in_protection": true,
+      "safely_resumed": true,
+      "navigation_success": true
+    },
+    "verdict": "PASS",
+    "trigger_sim": 25.921999999996512,
+    "scan_hit_frames": 560,
+    "costmap_marked_samples": 93,
+    "costmap_cleared_samples": 79,
+    "actual_stop_sim": 29.339999999994617,
+    "resume_sim": 53.04000000001886,
+    "stopped_hold_s": 7.12,
+    "min_center_surface_gap_m": 1.6678781729108665,
+    "min_rotated_footprint_gap_m": 1.0903626204927583,
+    "max_robot_lateral_m": 0.29441871182786705,
+    "initial_plan_lateral_m": 0.0019999172985549762,
+    "replanned_lateral_m": 1.0593806093242861
+  },
+  "gpu_range": {
+    "temperature_c": [
+      48.0,
+      63.0
+    ],
+    "memory_mib": [
+      784.0,
+      1044.0
+    ],
+    "utilization_pct": [
+      5.0,
+      54.0
+    ]
+  },
+  "kernel_novel_messages": [],
+  "raw": {
+    "path": "run_data/demo/20261015T154938Z_demo_U01_0fd7462e-1531-4919-8331-345d97ac0f06/final-result.json",
+    "sha256": "8ad1fb79005503cd761e015c066972c998b974d6e50e4734254e038030964c8b"
+  },
+  "visual_review": "MuJoCo A marker flat and robot fully visible, B arrived screenshot retained. RViz markers cropped by left dock in 760px window; hide existing dock before final recording, no shader/window/physics changes."
+}
