@@ -218,6 +218,10 @@ def main(args=None):
             view_model = mujoco.MjModel.from_xml_path(runtime['mjcf_path'])
             view_model.opt.timestep = cfg.mujoco.physics_dt
             view_data = mujoco.MjData(view_model)
+            presentation = os.environ.get('T1_DEMO_PRESENTATION') == '1'
+            if presentation:
+                from .presentation import style_model, annotate
+                style_model(view_model)
             def key(code):
                 if code == 32:
                     from .control import Request
@@ -229,6 +233,9 @@ def main(args=None):
                                                   show_left_ui=False, show_right_ui=False)
             viewer_threads = [t for t in threading.enumerate() if t not in before_viewer_threads]
             viewer.cam.elevation = -20
+            if presentation:
+                with viewer.lock():
+                    annotate(viewer)
 
         samples = deque()
         rtf = 0.0

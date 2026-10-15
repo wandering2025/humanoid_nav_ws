@@ -136,8 +136,9 @@ class ExceptionClassification(unittest.TestCase):
     def test_gui_unlocked_only_with_preserved_dds_halt_and_unchanged_canaries(self):
         import hashlib
         profile=json.loads((ROOT/'scripts/demo/gpu-profile.json').read_text())
-        self.assertEqual(profile['status'],'GUI_VALIDATED')
-        self.assertFalse((ROOT/'run_data/demo-gpu-halt.json').exists())
+        self.assertIn(profile['status'],('RECOVERY_MINIMAL_ONLY','GUI_VALIDATED'))
+        prior=profile['w15_prior_halt']
+        self.assertEqual(hashlib.sha256((ROOT/prior['path']).read_bytes()).hexdigest(),prior['sha256'])
         halt=profile['halt_evidence']
         self.assertEqual(hashlib.sha256((ROOT/halt['path']).read_bytes()).hexdigest(),halt['sha256'])
         for name,expected in profile['stages'].items():

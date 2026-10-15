@@ -1,0 +1,51 @@
+{
+  "physical_inputs": {
+    "checkpoint_sha256": {
+      "same": true,
+      "value": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7"
+    },
+    "mjcf_sha256": {
+      "same": true,
+      "value": "3942636b79ae4ba47ecbdf5574f38f411e29801985bef934109aaedd038fedeb"
+    },
+    "scene_sha256": {
+      "same": true,
+      "value": "3942636b79ae4ba47ecbdf5574f38f411e29801985bef934109aaedd038fedeb"
+    },
+    "map_sha256": {
+      "same": true,
+      "value": "fad1a0cdc1a7b386857d79e8c5be842deb54da05ca9f180131e08caa1693563b"
+    },
+    "seed": {
+      "same": true,
+      "value": 3000
+    },
+    "tolerances": {
+      "same": true,
+      "value": {
+        "position_m": 0.3,
+        "yaw_deg": 20.0,
+        "settle_s": 2.0,
+        "time_limit_s": 120.0
+      }
+    },
+    "parameter_files_identical": {
+      "nav2": true,
+      "slam": true,
+      "amcl": true,
+      "velocity_smoother": true,
+      "collision_monitor": true,
+      "command_map": true,
+      "events": true,
+      "command_gate": true
+    }
+  },
+  "old_outcome": "SUCCESS",
+  "w15_outcome": "FAIL_TIMEOUT",
+  "old_trigger_sim": 16.730000000001606,
+  "new_trigger_sim": 15.75000000000193,
+  "old_max_lateral_m": 3.179184501674525,
+  "new_max_lateral_m": 0.1455284738283697,
+  "new_replanned_lateral_m": 3.01839247933615,
+  "interpretation": "No changed motion/nav/map/safety inputs and presentation not executed in headless. Single failed run shows planner detour but robot remained near corridor; timing/deadband hypothesis, not proven unique root cause. One preregistered B01 control will test reproducibility, no seed change/reliability sweep."
+}

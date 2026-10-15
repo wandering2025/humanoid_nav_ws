@@ -1,0 +1,22 @@
+{
+  "base": "e916d0db2a10b1728c1421264336564884e3d7ea",
+  "build": "4 packages PASS 2.57s",
+  "tests": "186 passed in 0.90s, Landlock CPU guard, configured venv with existing system pytest library",
+  "static": "bash -n / py_compile / git diff --check PASS",
+  "initial_setup_errors": [
+    "missing explicitly exported T1_VENV/T1_UPSTREAM; corrected without environment changes",
+    "pytest absent in venv; reused existing system pytest package as previous checks"
+  ],
+  "unchanged_locked_files": 99,
+  "changed_nonvisual_locked_files": [],
+  "failed_path_absent": true,
+  "render_geoms": 4,
+  "production_close_join_unchanged": true,
+  "files": {
+    "scripts/demo/demo.py": "9cc3073d4f657b313648f7c77716c4b1d0466ecab17ae5b6ce375c347f414316",
+    "scripts/run_demo.sh": "6075d90fe3028554ad7fa68ca7ee0185fa8021dd565154d55b3a5595471fe8b9",
+    "src/t1_mujoco/t1_mujoco/presentation.py": "3d1f8b083dbaf5152b6b110025e2e12c647fd88eba9449493226247f17d1e4f8",
+    "src/t1_mujoco/t1_mujoco/simulation.py": "092e358a65c6d3b6cab78929a4c83cb94422e116379272f5758294ed13029e52",
+    "src/t1_navigation/config/demo.rviz": "e20be3ab027bea8a9718cb60cd3167f80c683333a20c229a64be47ca57b1708c"
+  }
+}

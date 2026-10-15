@@ -142,9 +142,12 @@ def preflight(args):
     for name in ('ros2', 'fast-discovery-server'):
         assert shutil.which(name), f'Missing {name}; source ROS Jazzy and check docs/baseline/apt-packages.txt.'
     lock = json.loads((WS/'scripts/demo/baseline-lock.json').read_text())
+    presentation_lock = json.loads((WS/'scripts/demo/presentation-lock.json').read_text())
+    lock.update(presentation_lock)
     changed = [p for p, h in lock.items() if not (WS/p).is_file() or sha(WS/p) != h]
     assert not changed, f'Frozen baseline changed: {changed}; inspect git diff, do not overwrite edits.'
-    assert not git('diff', BASELINE, '--', 'src', ':(exclude)src/t1_navigation/config/demo.rviz'), 'Unexpected source change relative to formal-v1.'
+    exclusions = [f':(exclude){p}' for p in presentation_lock]
+    assert not git('diff', BASELINE, '--', 'src', *exclusions), 'Unexpected source change relative to formal-v1.'
     up, assets = Path(os.environ['T1_UPSTREAM']), Path(os.environ['T1_ASSETS'])
     for root, expected in ((up, '7bb1462e2ac742eba5c01659b815e2e99fbe617f'),
                            (assets, '12a97516f57469078707afb587a5f84c1cb110d1')):
@@ -336,16 +339,18 @@ class Demo:
         from geometry_msgs.msg import Point
         n = self.node
         a = MarkerArray()
-        for i, (r, color) in enumerate(((1.65,(1.,.1,.1)),(1.95,(1.,.6,.1))),1):
-            m=Marker(); m.header.frame_id='base_footprint'; m.ns='W10'; m.id=i
-            m.type=Marker.LINE_STRIP; m.action=Marker.ADD; m.pose.orientation.w=1.; m.scale.x=.025
-            m.color.r,m.color.g,m.color.b=color; m.color.a=.6
-            m.points=[Point(x=r*math.cos(t*math.pi/90),y=r*math.sin(t*math.pi/90),z=.05) for t in range(181)]
+        for i, (x, text, color) in enumerate(((0.,'A  START',(.05,.55,.8)),(9.,'B  GOAL',(.05,.6,.25)))):
+            m=Marker(); m.header.frame_id='map'; m.ns='route'; m.id=2*i
+            m.type=Marker.LINE_STRIP; m.action=Marker.ADD; m.pose.orientation.w=1.; m.scale.x=.045
+            m.color.r,m.color.g,m.color.b=color; m.color.a=1.
+            m.points=[Point(x=x+.65*math.cos(t*math.pi/40),y=.65*math.sin(t*math.pi/40),z=.06) for t in range(81)]
             a.markers.append(m)
-        goal=Marker(); goal.header.frame_id='map'; goal.ns='goal'; goal.id=3; goal.type=Marker.ARROW
-        goal.action=Marker.ADD; goal.pose.position.x=9.; goal.pose.orientation.w=1.
-        goal.scale.x=.65; goal.scale.y=.12; goal.scale.z=.15; goal.color.g=.7; goal.color.a=1.
-        a.markers.append(goal); self.viz.publish(a)
+            label=Marker(); label.header.frame_id='map'; label.ns='route'; label.id=2*i+1
+            label.type=Marker.TEXT_VIEW_FACING; label.action=Marker.ADD; label.pose.orientation.w=1.
+            label.pose.position.x=x; label.pose.position.y=-1.05; label.pose.position.z=.15
+            label.scale.z=.42; label.color.r,label.color.g,label.color.b=color; label.color.a=1.;label.text=text
+            a.markers.append(label)
+        self.viz.publish(a)
 
     def screenshot(self, stage):
         if self.args.headless:
@@ -364,6 +369,7 @@ class Demo:
 
     def execute(self):
         os.environ['T1_EVAL_OUT']=str(OUT)
+        os.environ['T1_DEMO_PRESENTATION']='1'
         sys.path.insert(0,str(WS/'scripts'))
         from evaluation.harness import Probe
         from rclpy.action import ActionClient
@@ -450,10 +456,12 @@ class Demo:
         self.safe_stop()
         self.summary['status']='ARRIVAL_PENDING_OFFLINE_CHECK'
         save('partial-result.json',self.summary)
-        say('Nav2 verified arrival. Writing independent final metrics after safe shutdown.' if self.args.headless else 'Nav2 verified arrival. Final views retained; Ctrl+C ends safely and writes independent final metrics.')
+        say('Nav2 verified arrival; safety stop complete. Independent metrics follow cleanup.')
         if not self.args.headless:
             self.summary['status']='FINAL_VIEW'
-            while not STOP:
+            end=time.monotonic()+8.
+            say('Final view held; Ctrl+C to finish.' if self.args.hold else 'Final view for 8s, then automatic cleanup.')
+            while not STOP and (self.args.hold or time.monotonic()<end):
                 self.spin(False)
 
     def safe_stop(self):
@@ -615,6 +623,7 @@ def main():
     parser.add_argument('--preflight',action='store_true')
     parser.add_argument('--headless',action='store_true')
     parser.add_argument('--no-rviz',action='store_true')
+    parser.add_argument('--hold',action='store_true',help='hold the final view until Ctrl+C')
     parser.add_argument('--scenario',choices=('U01','sudden-approach'),default='U01')
     args=parser.parse_args()
     args.gpu_watch=None
@@ -632,7 +641,8 @@ def main():
             profile=json.loads(GPU_PROFILE.read_text())
             for path,expected in profile['stages'].items():
                 if sha(WS/path)!=expected:raise RuntimeError(f'GPU validation evidence changed: {path}')
-            if profile['status']!='GUI_VALIDATED' and not (args.startup_check and profile['status']=='STATIC_STAGES_PASSED'):
+            minimal = args.startup_check and args.no_rviz and profile['status']=='RECOVERY_MINIMAL_ONLY'
+            if profile['status']!='GUI_VALIDATED' and not minimal:
                 raise RuntimeError(f'{SAFETY_BLOCK_REASON} {profile.get("halt_reason", "")} Read docs/demo/release-manifest.md')
             from gpu_watch import Watch,GPU_ENV
             os.environ.update(GPU_ENV)
