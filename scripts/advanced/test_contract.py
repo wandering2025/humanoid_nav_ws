@@ -47,7 +47,7 @@ def test_response_requires_perception_progress_and_arrival():
     from verification import response_verdict
     d=dict(active_scan_hit_frames=3,active_costmap_marked_frames=2,protective_stationary_s=0.,triggered=True,finished=True,replan={'replanned_while_active':True})
     assert response_verdict(d,True)=={'verdict':'PASS','response':'REPLAN_AND_CONTINUE'}
-    for change in ({'active_scan_hit_frames':0},{'active_costmap_marked_frames':0},{'triggered':False},{'finished':False},{'replan':{'replanned_while_active':False}}):
+    for change in ({'active_scan_hit_frames':2},{'active_costmap_marked_frames':1},{'triggered':False},{'finished':False},{'replan':{'replanned_while_active':False}}):
         assert response_verdict(dict(d,**change),True)['verdict']=='FAIL'
     assert response_verdict(d,False)['verdict']=='FAIL'
     d.update(protective_stationary_s=.6,replan={'replanned_while_active':False})
@@ -65,10 +65,19 @@ def test_replan_cannot_be_proved_by_a_new_plan_alone():
     assert replan_evidence(rows,plans,obs,0.)['replanned_while_active']
 
 
-def test_gid_metadata_callback_is_fail_closed_and_cannot_break_cleanup():
-    import sys
-    sys.path.insert(0,str(WS/'scripts/advanced'))
-    from verification import publisher_gid
-    assert publisher_gid({'publisher_gid':[1,2,3]})=='010203'
-    assert publisher_gid(SimpleNamespace(publisher_gid=bytes([1,2,3])))=='010203'
-    for malformed in ({},{'publisher_gid':object()},None):assert publisher_gid(malformed) is None
+def test_ab_annotations_are_viewer_only_and_do_not_change_physics_or_rays():
+    import mujoco
+    from t1_mujoco.advanced_presentation import annotate
+    model=mujoco.MjModel.from_xml_string('<mujoco><worldbody><geom type="box" pos="3 0 1" size=".5 .5 1"/></worldbody></mujoco>')
+    data=mujoco.MjData(model);mujoco.mj_forward(model,data)
+    positions=model.geom_pos.copy();sizes=model.geom_size.copy();qpos=data.qpos.copy()
+    def ray():
+        hit=np.array([-1],dtype=np.int32)
+        return mujoco.mj_ray(model,data,np.array([0.,0.,1.]),np.array([1.,0.,0.]),None,1,-1,hit),hit[0]
+    before=ray();scene=mujoco.MjvScene(model,maxgeom=8)
+    viewer=SimpleNamespace(user_scn=scene,cam=SimpleNamespace())
+    annotate(viewer)
+    assert scene.ngeom==4 and model.ngeom==1 and ray()==before
+    np.testing.assert_array_equal(model.geom_pos,positions)
+    np.testing.assert_array_equal(model.geom_size,sizes)
+    np.testing.assert_array_equal(data.qpos,qpos)

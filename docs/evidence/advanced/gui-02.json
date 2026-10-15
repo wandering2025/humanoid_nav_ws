@@ -1,0 +1,1182 @@
+{
+  "code_sha": "2d4c3757f27f8961fddb77139addb7c2a5c8bf70",
+  "status": "SUCCESS",
+  "arrived": true,
+  "goals": [
+    {
+      "label": "MAPPING_01",
+      "pose": [
+        3.5,
+        0.0,
+        0.0
+      ],
+      "exit_code": 0,
+      "result": {
+        "event": "result",
+        "goal": [
+          3.5,
+          0.0,
+          0.0
+        ],
+        "time_limit_s": 120.0,
+        "tolerances": {
+          "xy": 0.2,
+          "yaw": 0.2
+        },
+        "attempts": [
+          {
+            "stage": "approach",
+            "target": [
+              2.0,
+              0.0,
+              0.0
+            ],
+            "accepted_sim": 17.040000000000003,
+            "goal_id": "39404a694c2f4e3882c50d0cfc3c9926",
+            "status": "PASSED",
+            "end_sim": 22.540000000000003,
+            "passed_pose": [
+              1.6685819336332863,
+              0.08984889027017871,
+              -0.030127923767513397
+            ]
+          },
+          {
+            "stage": "goal",
+            "target": [
+              3.5,
+              0.0,
+              0.0
+            ],
+            "accepted_sim": 22.540000000000003,
+            "goal_id": "f9c49347f7b5409e8deee7462fdba16b",
+            "status": "SUCCEEDED",
+            "end_sim": 28.360000000000003,
+            "error_code": 0,
+            "verify_sim": 30.1,
+            "verified_pose": [
+              3.468714339527131,
+              0.12964931128317295,
+              -0.08893308790232658
+            ],
+            "xy_error": 0.13337067319101567,
+            "yaw_error": 0.08893308790232658
+          }
+        ],
+        "arm_attempts": 1,
+        "approach_distance": 1.5,
+        "accepted_sim": 17.040000000000003,
+        "goal_id": "39404a694c2f4e3882c50d0cfc3c9926",
+        "status": "SUCCEEDED",
+        "timed_out": false,
+        "end_sim": 30.1,
+        "duration_sim": 13.059999999999999,
+        "verified": {
+          "stage": "goal",
+          "target": [
+            3.5,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 22.540000000000003,
+          "goal_id": "f9c49347f7b5409e8deee7462fdba16b",
+          "status": "SUCCEEDED",
+          "end_sim": 28.360000000000003,
+          "error_code": 0,
+          "verify_sim": 30.1,
+          "verified_pose": [
+            3.468714339527131,
+            0.12964931128317295,
+            -0.08893308790232658
+          ],
+          "xy_error": 0.13337067319101567,
+          "yaw_error": 0.08893308790232658
+        },
+        "terminal_retries": 0,
+        "error_code": 0,
+        "nav2_success_sim": 28.360000000000003,
+        "exit": 0
+      }
+    },
+    {
+      "label": "MAPPING_02",
+      "pose": [
+        3.5,
+        3.5,
+        1.5707963267948966
+      ],
+      "exit_code": 0,
+      "result": {
+        "event": "result",
+        "goal": [
+          3.5,
+          3.5,
+          1.5707963267948966
+        ],
+        "time_limit_s": 120.0,
+        "tolerances": {
+          "xy": 0.2,
+          "yaw": 0.2
+        },
+        "attempts": [
+          {
+            "stage": "approach",
+            "target": [
+              3.5,
+              2.0,
+              1.5707963267948966
+            ],
+            "accepted_sim": 32.56,
+            "goal_id": "acbcc45618344bcba0ab8abdcf0dbad5",
+            "status": "PASSED",
+            "end_sim": 51.0,
+            "passed_pose": [
+              3.2245445072930004,
+              1.7893264743477308,
+              1.5925321378506336
+            ]
+          },
+          {
+            "stage": "goal",
+            "target": [
+              3.5,
+              3.5,
+              1.5707963267948966
+            ],
+            "accepted_sim": 51.0,
+            "goal_id": "0c07a40e587b41d2bcb234178749e072",
+            "status": "SUCCEEDED",
+            "end_sim": 71.48,
+            "error_code": 0,
+            "verify_sim": 74.06,
+            "verified_pose": [
+              3.6711050314879006,
+              3.499697027079843,
+              1.369119369890503
+            ],
+            "xy_error": 0.17110529972232244,
+            "yaw_error": 0.20167695690439347,
+            "next_aim_yaw": 1.77247328369929
+          },
+          {
+            "stage": "terminal_retry",
+            "target": [
+              3.5,
+              3.5,
+              1.77247328369929
+            ],
+            "accepted_sim": 74.06,
+            "goal_id": "1a4e0c6c3d1b43a6a09f880b59550fe6",
+            "status": "SUCCEEDED",
+            "end_sim": 76.26,
+            "error_code": 0,
+            "verify_sim": 79.68,
+            "verified_pose": [
+              3.6682751343363016,
+              3.4911936387598046,
+              1.3877793597196988
+            ],
+            "xy_error": 0.16850540891672636,
+            "yaw_error": 0.18301696707519774
+          }
+        ],
+        "arm_attempts": 0,
+        "approach_distance": 1.5,
+        "accepted_sim": 32.56,
+        "goal_id": "acbcc45618344bcba0ab8abdcf0dbad5",
+        "status": "SUCCEEDED",
+        "timed_out": false,
+        "end_sim": 79.68,
+        "duration_sim": 47.120000000000005,
+        "verified": {
+          "stage": "terminal_retry",
+          "target": [
+            3.5,
+            3.5,
+            1.77247328369929
+          ],
+          "accepted_sim": 74.06,
+          "goal_id": "1a4e0c6c3d1b43a6a09f880b59550fe6",
+          "status": "SUCCEEDED",
+          "end_sim": 76.26,
+          "error_code": 0,
+          "verify_sim": 79.68,
+          "verified_pose": [
+            3.6682751343363016,
+            3.4911936387598046,
+            1.3877793597196988
+          ],
+          "xy_error": 0.16850540891672636,
+          "yaw_error": 0.18301696707519774
+        },
+        "terminal_retries": 1,
+        "error_code": 0,
+        "nav2_success_sim": 76.26,
+        "exit": 0
+      }
+    },
+    {
+      "label": "MAPPING_03",
+      "pose": [
+        3.5,
+        7.8,
+        1.5707963267948966
+      ],
+      "exit_code": 0,
+      "result": {
+        "event": "result",
+        "goal": [
+          3.5,
+          7.8,
+          1.5707963267948966
+        ],
+        "time_limit_s": 120.0,
+        "tolerances": {
+          "xy": 0.2,
+          "yaw": 0.2
+        },
+        "attempts": [
+          {
+            "stage": "approach",
+            "target": [
+              3.5,
+              6.3,
+              1.5707963267948966
+            ],
+            "accepted_sim": 83.18,
+            "goal_id": "57cbc5196feb4428acd4316de8e9d725",
+            "status": "PASSED",
+            "end_sim": 91.18,
+            "passed_pose": [
+              3.5346046732384915,
+              5.953026308259569,
+              1.6793109626217633
+            ]
+          },
+          {
+            "stage": "goal",
+            "target": [
+              3.5,
+              7.8,
+              1.5707963267948966
+            ],
+            "accepted_sim": 91.18,
+            "goal_id": "b0a9a518a09a42bcada027ca2b4ea40d",
+            "status": "SUCCEEDED",
+            "end_sim": 96.44000000000001,
+            "error_code": 0,
+            "verify_sim": 98.0,
+            "verified_pose": [
+              3.4236449434289127,
+              7.796854646327988,
+              1.5860979589411082
+            ],
+            "xy_error": 0.07641981361987206,
+            "yaw_error": 0.015301632146211606
+          }
+        ],
+        "arm_attempts": 0,
+        "approach_distance": 1.5,
+        "accepted_sim": 83.18,
+        "goal_id": "57cbc5196feb4428acd4316de8e9d725",
+        "status": "SUCCEEDED",
+        "timed_out": false,
+        "end_sim": 98.0,
+        "duration_sim": 14.819999999999993,
+        "verified": {
+          "stage": "goal",
+          "target": [
+            3.5,
+            7.8,
+            1.5707963267948966
+          ],
+          "accepted_sim": 91.18,
+          "goal_id": "b0a9a518a09a42bcada027ca2b4ea40d",
+          "status": "SUCCEEDED",
+          "end_sim": 96.44000000000001,
+          "error_code": 0,
+          "verify_sim": 98.0,
+          "verified_pose": [
+            3.4236449434289127,
+            7.796854646327988,
+            1.5860979589411082
+          ],
+          "xy_error": 0.07641981361987206,
+          "yaw_error": 0.015301632146211606
+        },
+        "terminal_retries": 0,
+        "error_code": 0,
+        "nav2_success_sim": 96.44000000000001,
+        "exit": 0
+      }
+    },
+    {
+      "label": "MAPPING_04",
+      "pose": [
+        7.5,
+        8.0,
+        0.0
+      ],
+      "exit_code": 0,
+      "result": {
+        "event": "result",
+        "goal": [
+          7.5,
+          8.0,
+          0.0
+        ],
+        "time_limit_s": 120.0,
+        "tolerances": {
+          "xy": 0.2,
+          "yaw": 0.2
+        },
+        "attempts": [
+          {
+            "stage": "approach",
+            "target": [
+              6.0,
+              8.0,
+              0.0
+            ],
+            "accepted_sim": 100.64,
+            "goal_id": "a252f7d4200b4d1bb37b73560a0f3a79",
+            "status": "PASSED",
+            "end_sim": 113.86000000000001,
+            "passed_pose": [
+              5.8484515739919685,
+              8.312984443075566,
+              -0.14079131389571845
+            ]
+          },
+          {
+            "stage": "goal",
+            "target": [
+              7.5,
+              8.0,
+              0.0
+            ],
+            "accepted_sim": 113.86000000000001,
+            "goal_id": "e7d7846af07643f09b2ebd6dbbf8980f",
+            "status": "SUCCEEDED",
+            "end_sim": 118.54,
+            "error_code": 0,
+            "verify_sim": 120.28,
+            "verified_pose": [
+              7.454848716505445,
+              8.097444978813709,
+              -0.012285194210424597
+            ],
+            "xy_error": 0.10739721736250789,
+            "yaw_error": 0.012285194210424597
+          }
+        ],
+        "arm_attempts": 0,
+        "approach_distance": 1.5,
+        "accepted_sim": 100.64,
+        "goal_id": "a252f7d4200b4d1bb37b73560a0f3a79",
+        "status": "SUCCEEDED",
+        "timed_out": false,
+        "end_sim": 120.28,
+        "duration_sim": 19.64,
+        "verified": {
+          "stage": "goal",
+          "target": [
+            7.5,
+            8.0,
+            0.0
+          ],
+          "accepted_sim": 113.86000000000001,
+          "goal_id": "e7d7846af07643f09b2ebd6dbbf8980f",
+          "status": "SUCCEEDED",
+          "end_sim": 118.54,
+          "error_code": 0,
+          "verify_sim": 120.28,
+          "verified_pose": [
+            7.454848716505445,
+            8.097444978813709,
+            -0.012285194210424597
+          ],
+          "xy_error": 0.10739721736250789,
+          "yaw_error": 0.012285194210424597
+        },
+        "terminal_retries": 0,
+        "error_code": 0,
+        "nav2_success_sim": 118.54,
+        "exit": 0
+      }
+    },
+    {
+      "label": "MAPPING_05",
+      "pose": [
+        11.5,
+        8.0,
+        0.0
+      ],
+      "exit_code": 0,
+      "result": {
+        "event": "result",
+        "goal": [
+          11.5,
+          8.0,
+          0.0
+        ],
+        "time_limit_s": 120.0,
+        "tolerances": {
+          "xy": 0.2,
+          "yaw": 0.2
+        },
+        "attempts": [
+          {
+            "stage": "approach",
+            "target": [
+              10.0,
+              8.0,
+              0.0
+            ],
+            "accepted_sim": 122.62,
+            "goal_id": "e594a5583a2c4f2e83c031fbd3dbde85",
+            "status": "PASSED",
+            "end_sim": 129.98000000000002,
+            "passed_pose": [
+              9.716143536061159,
+              8.204266133290046,
+              -0.047602231555331304
+            ]
+          },
+          {
+            "stage": "goal",
+            "target": [
+              11.5,
+              8.0,
+              0.0
+            ],
+            "accepted_sim": 129.98000000000002,
+            "goal_id": "b9ff4a2aaea24da09bd4024223dab37e",
+            "status": "SUCCEEDED",
+            "end_sim": 135.02,
+            "error_code": 0,
+            "verify_sim": 136.88,
+            "verified_pose": [
+              11.477515484682693,
+              8.147168381767209,
+              -0.10222428689816113
+            ],
+            "xy_error": 0.14887607605331732,
+            "yaw_error": 0.10222428689816113
+          }
+        ],
+        "arm_attempts": 0,
+        "approach_distance": 1.5,
+        "accepted_sim": 122.62,
+        "goal_id": "e594a5583a2c4f2e83c031fbd3dbde85",
+        "status": "SUCCEEDED",
+        "timed_out": false,
+        "end_sim": 136.88,
+        "duration_sim": 14.259999999999991,
+        "verified": {
+          "stage": "goal",
+          "target": [
+            11.5,
+            8.0,
+            0.0
+          ],
+          "accepted_sim": 129.98000000000002,
+          "goal_id": "b9ff4a2aaea24da09bd4024223dab37e",
+          "status": "SUCCEEDED",
+          "end_sim": 135.02,
+          "error_code": 0,
+          "verify_sim": 136.88,
+          "verified_pose": [
+            11.477515484682693,
+            8.147168381767209,
+            -0.10222428689816113
+          ],
+          "xy_error": 0.14887607605331732,
+          "yaw_error": 0.10222428689816113
+        },
+        "terminal_retries": 0,
+        "error_code": 0,
+        "nav2_success_sim": 135.02,
+        "exit": 0
+      }
+    },
+    {
+      "label": "MAPPING_06",
+      "pose": [
+        14.0,
+        4.0,
+        -1.5707963267948966
+      ],
+      "exit_code": 0,
+      "result": {
+        "event": "result",
+        "goal": [
+          14.0,
+          4.0,
+          -1.5707963267948966
+        ],
+        "time_limit_s": 120.0,
+        "tolerances": {
+          "xy": 0.2,
+          "yaw": 0.2
+        },
+        "attempts": [
+          {
+            "stage": "approach",
+            "target": [
+              14.0,
+              5.5,
+              -1.5707963267948966
+            ],
+            "accepted_sim": 140.44,
+            "goal_id": "b85f32275d004dc996d9a21bb1ea2890",
+            "status": "PASSED",
+            "end_sim": 154.54000000000002,
+            "passed_pose": [
+              13.990450012446487,
+              5.845416625409204,
+              -1.0738360201807893
+            ]
+          },
+          {
+            "stage": "goal",
+            "target": [
+              14.0,
+              4.0,
+              -1.5707963267948966
+            ],
+            "accepted_sim": 154.54000000000002,
+            "goal_id": "1b83ddfd0d374bdb9167b9b96deaf092",
+            "status": "SUCCEEDED",
+            "end_sim": 177.0,
+            "error_code": 0,
+            "verify_sim": 179.52,
+            "verified_pose": [
+              13.972634828149497,
+              3.9997077114216295,
+              -1.8517712133202753
+            ],
+            "xy_error": 0.027366732779428037,
+            "yaw_error": 0.2809748865253787,
+            "next_aim_yaw": -1.2898214402695178
+          },
+          {
+            "stage": "terminal_retry",
+            "target": [
+              14.0,
+              4.0,
+              -1.2898214402695178
+            ],
+            "accepted_sim": 179.52,
+            "goal_id": "08101f9953ed43ef84faaa85514053eb",
+            "status": "SUCCEEDED",
+            "end_sim": 182.16000000000003,
+            "error_code": 0,
+            "verify_sim": 185.58,
+            "verified_pose": [
+              13.967944723081246,
+              4.002488704510266,
+              -1.6320531849389457
+            ],
+            "xy_error": 0.03215174067569966,
+            "yaw_error": 0.06125685814404913
+          }
+        ],
+        "arm_attempts": 0,
+        "approach_distance": 1.5,
+        "accepted_sim": 140.44,
+        "goal_id": "b85f32275d004dc996d9a21bb1ea2890",
+        "status": "SUCCEEDED",
+        "timed_out": false,
+        "end_sim": 185.58,
+        "duration_sim": 45.140000000000015,
+        "verified": {
+          "stage": "terminal_retry",
+          "target": [
+            14.0,
+            4.0,
+            -1.2898214402695178
+          ],
+          "accepted_sim": 179.52,
+          "goal_id": "08101f9953ed43ef84faaa85514053eb",
+          "status": "SUCCEEDED",
+          "end_sim": 182.16000000000003,
+          "error_code": 0,
+          "verify_sim": 185.58,
+          "verified_pose": [
+            13.967944723081246,
+            4.002488704510266,
+            -1.6320531849389457
+          ],
+          "xy_error": 0.03215174067569966,
+          "yaw_error": 0.06125685814404913
+        },
+        "terminal_retries": 1,
+        "error_code": 0,
+        "nav2_success_sim": 182.16000000000003,
+        "exit": 0
+      }
+    },
+    {
+      "label": "MAPPING_07",
+      "pose": [
+        12.5,
+        8.0,
+        1.5707963267948966
+      ],
+      "exit_code": 0,
+      "result": {
+        "event": "result",
+        "goal": [
+          12.5,
+          8.0,
+          1.5707963267948966
+        ],
+        "time_limit_s": 120.0,
+        "tolerances": {
+          "xy": 0.2,
+          "yaw": 0.2
+        },
+        "attempts": [
+          {
+            "stage": "approach",
+            "target": [
+              12.5,
+              6.5,
+              1.5707963267948966
+            ],
+            "accepted_sim": 188.04000000000002,
+            "goal_id": "87442f111f1d4a419def16d07f86f115",
+            "status": "PASSED",
+            "end_sim": 203.26000000000002,
+            "passed_pose": [
+              12.598985052000065,
+              6.168499167588815,
+              2.1579546057820678
+            ]
+          },
+          {
+            "stage": "goal",
+            "target": [
+              12.5,
+              8.0,
+              1.5707963267948966
+            ],
+            "accepted_sim": 203.26000000000002,
+            "goal_id": "d2ff55f0f41b4665a97a8017fdac2387",
+            "status": "SUCCEEDED",
+            "end_sim": 211.38000000000002,
+            "error_code": 0,
+            "verify_sim": 213.12,
+            "verified_pose": [
+              12.390411064747513,
+              7.966317777446608,
+              1.5825234380546929
+            ],
+            "xy_error": 0.11464827450036108,
+            "yaw_error": 0.011727111259796308
+          }
+        ],
+        "arm_attempts": 0,
+        "approach_distance": 1.5,
+        "accepted_sim": 188.04000000000002,
+        "goal_id": "87442f111f1d4a419def16d07f86f115",
+        "status": "SUCCEEDED",
+        "timed_out": false,
+        "end_sim": 213.12,
+        "duration_sim": 25.079999999999984,
+        "verified": {
+          "stage": "goal",
+          "target": [
+            12.5,
+            8.0,
+            1.5707963267948966
+          ],
+          "accepted_sim": 203.26000000000002,
+          "goal_id": "d2ff55f0f41b4665a97a8017fdac2387",
+          "status": "SUCCEEDED",
+          "end_sim": 211.38000000000002,
+          "error_code": 0,
+          "verify_sim": 213.12,
+          "verified_pose": [
+            12.390411064747513,
+            7.966317777446608,
+            1.5825234380546929
+          ],
+          "xy_error": 0.11464827450036108,
+          "yaw_error": 0.011727111259796308
+        },
+        "terminal_retries": 0,
+        "error_code": 0,
+        "nav2_success_sim": 211.38000000000002,
+        "exit": 0
+      }
+    },
+    {
+      "label": "MAPPING_08",
+      "pose": [
+        3.5,
+        8.0,
+        3.141592653589793
+      ],
+      "exit_code": 0,
+      "result": {
+        "event": "result",
+        "goal": [
+          3.5,
+          8.0,
+          3.141592653589793
+        ],
+        "time_limit_s": 120.0,
+        "tolerances": {
+          "xy": 0.2,
+          "yaw": 0.2
+        },
+        "attempts": [
+          {
+            "stage": "approach",
+            "target": [
+              5.0,
+              8.0,
+              3.141592653589793
+            ],
+            "accepted_sim": 216.96,
+            "goal_id": "2c3f3d4e27d54ae48192d88cf6be4e4c",
+            "status": "PASSED",
+            "end_sim": 247.14000000000001,
+            "passed_pose": [
+              5.295624161696417,
+              7.8206511418330935,
+              3.1401529780602386
+            ]
+          },
+          {
+            "stage": "goal",
+            "target": [
+              3.5,
+              8.0,
+              3.141592653589793
+            ],
+            "accepted_sim": 247.14000000000001,
+            "goal_id": "ab98404f455e4c57819b86e542455473",
+            "status": "SUCCEEDED",
+            "end_sim": 252.34,
+            "error_code": 0,
+            "verify_sim": 253.9,
+            "verified_pose": [
+              3.4693242223347664,
+              7.8721661866467345,
+              3.1164623415922295
+            ],
+            "xy_error": 0.1314628737393351,
+            "yaw_error": 0.02513031199756366
+          }
+        ],
+        "arm_attempts": 0,
+        "approach_distance": 1.5,
+        "accepted_sim": 216.96,
+        "goal_id": "2c3f3d4e27d54ae48192d88cf6be4e4c",
+        "status": "SUCCEEDED",
+        "timed_out": false,
+        "end_sim": 253.9,
+        "duration_sim": 36.94,
+        "verified": {
+          "stage": "goal",
+          "target": [
+            3.5,
+            8.0,
+            3.141592653589793
+          ],
+          "accepted_sim": 247.14000000000001,
+          "goal_id": "ab98404f455e4c57819b86e542455473",
+          "status": "SUCCEEDED",
+          "end_sim": 252.34,
+          "error_code": 0,
+          "verify_sim": 253.9,
+          "verified_pose": [
+            3.4693242223347664,
+            7.8721661866467345,
+            3.1164623415922295
+          ],
+          "xy_error": 0.1314628737393351,
+          "yaw_error": 0.02513031199756366
+        },
+        "terminal_retries": 0,
+        "error_code": 0,
+        "nav2_success_sim": 252.34,
+        "exit": 0
+      }
+    },
+    {
+      "label": "MAPPING_09",
+      "pose": [
+        0.0,
+        0.0,
+        -1.5707963267948966
+      ],
+      "exit_code": 0,
+      "result": {
+        "event": "result",
+        "goal": [
+          0.0,
+          0.0,
+          -1.5707963267948966
+        ],
+        "time_limit_s": 120.0,
+        "tolerances": {
+          "xy": 0.2,
+          "yaw": 0.2
+        },
+        "attempts": [
+          {
+            "stage": "approach",
+            "target": [
+              -9.184850993605148e-17,
+              1.5,
+              -1.5707963267948966
+            ],
+            "accepted_sim": 256.22,
+            "goal_id": "e9d0251430774eb89c2464e2c3fbeaef",
+            "status": "PASSED",
+            "end_sim": 278.860000001,
+            "passed_pose": [
+              0.3008730469241022,
+              1.6660582449471726,
+              -2.1708644506275103
+            ]
+          },
+          {
+            "stage": "goal",
+            "target": [
+              0.0,
+              0.0,
+              -1.5707963267948966
+            ],
+            "accepted_sim": 278.860000001,
+            "goal_id": "64230cdced6848399ed9b4b4981441e6",
+            "status": "SUCCEEDED",
+            "end_sim": 286.58000000100003,
+            "error_code": 0,
+            "verify_sim": 288.44000000100004,
+            "verified_pose": [
+              0.12712466577807532,
+              0.02047049678200364,
+              -1.474963662568348
+            ],
+            "xy_error": 0.12876226888218992,
+            "yaw_error": 0.09583266422654857
+          }
+        ],
+        "arm_attempts": 0,
+        "approach_distance": 1.5,
+        "accepted_sim": 256.22,
+        "goal_id": "e9d0251430774eb89c2464e2c3fbeaef",
+        "status": "SUCCEEDED",
+        "timed_out": false,
+        "end_sim": 288.44000000100004,
+        "duration_sim": 32.22000000100002,
+        "verified": {
+          "stage": "goal",
+          "target": [
+            0.0,
+            0.0,
+            -1.5707963267948966
+          ],
+          "accepted_sim": 278.860000001,
+          "goal_id": "64230cdced6848399ed9b4b4981441e6",
+          "status": "SUCCEEDED",
+          "end_sim": 286.58000000100003,
+          "error_code": 0,
+          "verify_sim": 288.44000000100004,
+          "verified_pose": [
+            0.12712466577807532,
+            0.02047049678200364,
+            -1.474963662568348
+          ],
+          "xy_error": 0.12876226888218992,
+          "yaw_error": 0.09583266422654857
+        },
+        "terminal_retries": 0,
+        "error_code": 0,
+        "nav2_success_sim": 286.58000000100003,
+        "exit": 0
+      }
+    },
+    {
+      "label": "NAVIGATING_A_TO_B",
+      "pose": [
+        14.0,
+        0.0,
+        -1.5707963267948966
+      ],
+      "exit_code": 0,
+      "result": {
+        "event": "result",
+        "goal": [
+          14.0,
+          0.0,
+          -1.5707963267948966
+        ],
+        "time_limit_s": 200.0,
+        "tolerances": {
+          "xy": 0.2,
+          "yaw": 0.2
+        },
+        "attempts": [
+          {
+            "stage": "approach",
+            "target": [
+              14.0,
+              1.5,
+              -1.5707963267948966
+            ],
+            "accepted_sim": 293.76000000100004,
+            "goal_id": "0fe2531d5ce44e23b921c9300a60c6c0",
+            "status": "PASSED",
+            "end_sim": 360.64000000100003,
+            "passed_pose": [
+              13.786012743751986,
+              1.7742716467364108,
+              -0.5971349011844461
+            ]
+          },
+          {
+            "stage": "goal",
+            "target": [
+              14.0,
+              0.0,
+              -1.5707963267948966
+            ],
+            "accepted_sim": 360.64000000100003,
+            "goal_id": "20247ccb926d40e2bbebd666c609ac75",
+            "status": "SUCCEEDED",
+            "end_sim": 390.860000001,
+            "error_code": 0,
+            "verify_sim": 393.980000001,
+            "verified_pose": [
+              14.028479781057301,
+              -0.017228169548151498,
+              -1.8998486316850949
+            ],
+            "xy_error": 0.03328524830989968,
+            "yaw_error": 0.3290523048901983,
+            "next_aim_yaw": -1.2417440219046982
+          },
+          {
+            "stage": "terminal_retry",
+            "target": [
+              14.0,
+              0.0,
+              -1.2417440219046982
+            ],
+            "accepted_sim": 393.980000001,
+            "goal_id": "b3435bd958964a6184fdf7f61441e5bc",
+            "status": "SUCCEEDED",
+            "end_sim": 396.58000000100003,
+            "error_code": 0,
+            "verify_sim": 399.220000001,
+            "verified_pose": [
+              14.022934458923736,
+              -0.0361465641042952,
+              -1.4599801730668984
+            ],
+            "xy_error": 0.04280845129960253,
+            "yaw_error": 0.11081615372799813
+          }
+        ],
+        "arm_attempts": 0,
+        "approach_distance": 1.5,
+        "accepted_sim": 293.76000000100004,
+        "goal_id": "0fe2531d5ce44e23b921c9300a60c6c0",
+        "status": "SUCCEEDED",
+        "timed_out": false,
+        "end_sim": 399.220000001,
+        "duration_sim": 105.45999999999998,
+        "verified": {
+          "stage": "terminal_retry",
+          "target": [
+            14.0,
+            0.0,
+            -1.2417440219046982
+          ],
+          "accepted_sim": 393.980000001,
+          "goal_id": "b3435bd958964a6184fdf7f61441e5bc",
+          "status": "SUCCEEDED",
+          "end_sim": 396.58000000100003,
+          "error_code": 0,
+          "verify_sim": 399.220000001,
+          "verified_pose": [
+            14.022934458923736,
+            -0.0361465641042952,
+            -1.4599801730668984
+          ],
+          "xy_error": 0.04280845129960253,
+          "yaw_error": 0.11081615372799813
+        },
+        "terminal_retries": 1,
+        "error_code": 0,
+        "nav2_success_sim": 396.58000000100003,
+        "exit": 0
+      }
+    }
+  ],
+  "settle": {
+    "settled": true,
+    "settle_start_sim": 397.9800000011722,
+    "settle_delay_s": 1.400000000172156,
+    "pos_err_m": 0.027827189712741635,
+    "yaw_err_deg": 5.650130140670752
+  },
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "body_clearance": {
+    "min_m": 1.693903026503748,
+    "sim_time": 340.7200000008988,
+    "geom_pair": [
+      "t1_geom_015",
+      "obstacle_approach_slot"
+    ],
+    "samples": 4231,
+    "robot_geoms": 22,
+    "environment_geoms": 6,
+    "sample_hz": 10,
+    "definition": "signed 3D MuJoCo collision geometry distance; excludes ground/self/visual; sampled minimum, not continuous bound"
+  },
+  "dynamic": {
+    "protective_stationary_s": 0.0,
+    "scan_hit_frames": 664,
+    "triggered": true,
+    "finished": true,
+    "active_scan_hit_frames": 115,
+    "active_costmap_marked_frames": 20,
+    "replan": {
+      "active_motion_m": 3.0459612091586976,
+      "plan_deviation_m": 0.8273155343428711,
+      "robot_deviation_m": 0.36337928830194094,
+      "replanned_while_active": true,
+      "active_interval": [
+        334.4200000008687,
+        351.02000000094796
+      ],
+      "baseline_plan_sim": 329.400000001
+    },
+    "verdict": "PASS",
+    "response": "REPLAN_AND_CONTINUE"
+  },
+  "nonstraight_plan": true,
+  "map_growth_ratio": 121.49868536371604,
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 19147.948126715,
+      "sim_time": 421.14000000100003,
+      "health_reason": ""
+    }
+  },
+  "parent_exit_codes": {
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "rviz": 0,
+    "map_saver": 0,
+    "goal": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 127325,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 127326,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 127327,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 127328,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 127329,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 127330,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 127641,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 127751,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 127752,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 127753,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 127754,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 127755,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 127756,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 127757,
+      "exit_code": 0
+    }
+  },
+  "graph_contract": {
+    "final_only_collision_monitor": true,
+    "obstacle_truth_isolated": true,
+    "robot_truth_isolated": true,
+    "no_initialpose": true,
+    "map_only_slam": true,
+    "map_odom_only_slam": true
+  },
+  "dds_port_released": true,
+  "remaining_owned_pids": [],
+  "gpu_monitor_error": null,
+  "run_id": "20261015T172337Z_advanced_3bae8f8c-2783-4ae3-b67f-d2aaa3145c15",
+  "raw": "run_data/advanced/20261015T172337Z_advanced_3bae8f8c-2783-4ae3-b67f-d2aaa3145c15",
+  "result_sha256": "1580321cacfd7f72743368b5567b1d0ed5d4eb55bcd4619bb3dc1d45190ee8a4",
+  "gpu_max": {
+    "temperature_c": 63.0,
+    "memory_mib": 1359.0,
+    "utilization_pct": 58.0
+  },
+  "window_read": [
+    {
+      "file": "run_data/advanced/20261015T172337Z_advanced_3bae8f8c-2783-4ae3-b67f-d2aaa3145c15/mid-mapping-mujoco.png",
+      "read_s": 0.11420180099958088,
+      "sha256": "e409ad82959566595e093a00f7c662938014019c8ae0bdb4abe34fa9978ebc70"
+    },
+    {
+      "file": "run_data/advanced/20261015T172337Z_advanced_3bae8f8c-2783-4ae3-b67f-d2aaa3145c15/mid-mapping-rviz.png",
+      "read_s": 0.11411771400162252,
+      "sha256": "ecad2e8cece0165a1cf7fd24434c6245d8bc8220d55b6eea2650626657cdca81"
+    }
+  ]
+}

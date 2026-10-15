@@ -27,18 +27,9 @@ def replan_evidence(rows,plans,obstacles,navigation_start):
     return result
 
 def response_verdict(dynamic,arrived):
-    sensor=dynamic['active_scan_hit_frames']>0 and dynamic['active_costmap_marked_frames']>0
+    sensor=dynamic['active_scan_hit_frames']>=3 and dynamic['active_costmap_marked_frames']>=2
     wait=dynamic['protective_stationary_s']>=.5
     replan=dynamic['replan']['replanned_while_active']
     ok=bool(sensor and dynamic['triggered'] and dynamic['finished'] and arrived and (wait or replan))
     return dict(verdict='PASS' if ok else 'FAIL',
                 response=('PROTECTIVE_WAIT_AND_CONTINUE' if wait else 'REPLAN_AND_CONTINUE') if ok else 'UNVERIFIED')
-
-
-def publisher_gid(info):
-    """Jazzy supplies a dict; tolerate typed metadata without raising in callbacks."""
-    try:
-        value=info.get('publisher_gid') if isinstance(info,dict) else getattr(info,'publisher_gid',None)
-        return bytes(value).hex() if value is not None else None
-    except (ValueError,TypeError):
-        return None
