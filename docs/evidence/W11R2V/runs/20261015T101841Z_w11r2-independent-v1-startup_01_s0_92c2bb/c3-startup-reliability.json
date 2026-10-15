@@ -1,0 +1,17 @@
+{
+  "code_sha": "53d8f0542c3891a1bfbc95b5eb7805dda1697be6",
+  "runs": [
+    {
+      "i": 0,
+      "run_id": "20261015T101841Z_w11r2-independent-v1-startup_01_s0_92c2bb",
+      "navigation_active": true,
+      "wall_to_active_s": 13.828967358998852,
+      "sim_at_active": 10.24,
+      "error": null,
+      "lost_responses": 0,
+      "bond_failures": 0
+    }
+  ],
+  "active": 1,
+  "n": 1
+}

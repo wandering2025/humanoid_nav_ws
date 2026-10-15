@@ -1,0 +1,47 @@
+"""Invoke frozen evaluator worker once per preregistered case. No control/test edits."""
+from pathlib import Path
+from datetime import datetime,timezone
+import os,subprocess,json,uuid,sys,re
+import yaml
+ws=Path(os.environ['T1_WS']);root=ws/'run_data/w11r2-independent-v1';phase=sys.argv[1]
+plan=yaml.safe_load((ws/'docs/evidence/W11R2V/verification-plan.yaml').read_text());selected=[r for r in plan['run_order'] if r['stage']==phase];results=[]
+formal=yaml.safe_load((ws/'src/t1_bringup/config/test_suite_v1.yaml').read_text())
+for spec in selected:
+    case_id=spec['case'];repeat=spec.get('repeat',1);label=f'{case_id}-r{repeat}';output=root/('targeted' if phase=='B' else 'w11' if phase=='C' else 'w12')/label
+    output.mkdir(parents=True,exist_ok=False)
+    run_id=f'{datetime.now(timezone.utc):%Y%m%dT%H%M%SZ}_w11r2-independent-v1-{phase.lower()}_{case_id}_r{repeat}_s{spec["seed"]}_{uuid.uuid4().hex[:6]}'
+    case={k:spec[k] for k in ('seed','scene','start','goal')};case.update(id=case_id,suite=spec.get('suite','static' if spec['scene']=='static_world' else spec.get('scenario')),kind=spec.get('kind',spec.get('scenario','static')))
+    if spec.get('scenario'):case['scenario']=spec['scenario']
+    events=spec.get('event_file','src/t1_bringup/config/w13_events_v1.yaml')
+    suite=dict(formal,events_file=events)
+    env=os.environ.copy();env.update(T1_EVAL_OUT=str(output),T1_EVAL_RUN_ID=run_id,T1_EVAL_SCENE=case['scene'],T1_EVAL_EVENTS=str(ws/events),T1_EVAL_KIND=case['kind'],T1_EVAL_HEADLESS='true',ROS_LOG_DIR=str(output/'raw/ros-log'))
+    if case.get('scenario'):env['T1_EVAL_SCENARIO']=case['scenario']
+    else:env.pop('T1_EVAL_SCENARIO',None)
+    request=dict(case=case,suite=suite,output=str(output),run_id=run_id,gui=bool(spec.get('rviz',False)))
+    (output/'request.json').write_text(json.dumps(request,indent=2)+'\n')
+    (output/'pre-sockets.txt').write_text(subprocess.check_output(['ss','-lntup'],text=True))
+    print('START',phase,label,run_id,flush=True)
+    with (output/'console.txt').open('w') as log:
+        code=subprocess.call([env['T1_VENV']+'/bin/python',str(ws/'scripts/evaluate.py'),'worker',str(output/'request.json')],cwd=ws,env=env,stdout=log,stderr=subprocess.STDOUT)
+    (output/'invocation-exit.txt').write_text(str(code)+'\n')
+    sockets=subprocess.check_output(['ss','-lntup'],text=True);(output/'post-sockets.txt').write_text(sockets)
+    r=json.loads((output/'result.json').read_text()) if (output/'result.json').exists() else dict(outcome='FAIL_STARTUP',error='worker produced no result')
+    closed=r.get('run',{});text=(output/'raw'/f'{run_id}.txt').read_text(errors='replace') if (output/'raw'/f'{run_id}.txt').exists() else ''
+    starts={int(pid):name for name,pid in re.findall(r'\[INFO\] \[([^\]]+)\]: process started with pid \[(\d+)\]',text)}
+    exits={int(pid):name for name,pid in re.findall(r'\[INFO\] \[([^\]]+)\]: process has finished cleanly \[pid (\d+)\]',text)}
+    abnormal=[line for line in text.splitlines() if 'process has died' in line or 'Traceback' in line or 'KeyboardInterrupt' in line or 'escalating' in line.lower() or re.search(r"sending signal '(SIGTERM|SIGKILL)'",line)]
+    count=18 if request['gui'] else 17
+    process_checks=dict(wrapper_exit0=code==0,launch_exit0=closed.get('exit_code')==0,all_children_exit0=len(starts)==count and starts==exits,no_traceback_or_abnormal_exit=not abnormal,no_owned_remnants=not closed.get('remaining_owned_pids') and not any(Path(f'/proc/{pid}').exists() for pid in starts),ports_released=all(f':{p} ' not in sockets for p in (42124,42126)))
+    m=r.get('metrics',{});contact=closed.get('manifest',{}).get('contact_counts',{});safe=set(contact)=={'static_env','obstacle','ground_nonfoot'} and not any(contact.values()) and m.get('fell') is False
+    err=m.get('settle',{}) if m.get('settle',{}).get('settled') else m.get('terminal_error',m.get('settle',{}))
+    status='SUCCESS' if r.get('outcome')=='SUCCESS' and all(process_checks.values()) and safe else 'FAIL'
+    # Candidate defects are never reclassified as INVALID based on missing runtime graph/TF.
+    row=dict(sequence=spec['sequence'],phase=phase,case=case_id,repeat=repeat,run_id=run_id,tested_head=closed.get('manifest',{}).get('code_sha'),status=status,original_outcome=r.get('outcome'),position_error_m=err.get('pos_err_m'),yaw_error_deg=err.get('yaw_err_deg'),task_time_s=m.get('task_duration_s'),time_to_goal_s=m.get('time_to_goal_s'),terminal_retries=m.get('terminal_retries'),action_status=m.get('nav2_status'),action_error_code=m.get('nav2_error_code'),contacts=contact,fall=m.get('fell'),safety=m.get('safety'),dynamic=r.get('dynamic'),process_checks=process_checks,children=[dict(pid=p,name=n,exit=0 if p in exits else None) for p,n in starts.items()],abnormal_exit_lines=abnormal,output=str(output),validity_checks=r.get('validity_checks'),error=r.get('error'))
+    (output/'independent-assessment.json').write_text(json.dumps(row,indent=2)+'\n');results.append(row);(root/f'phase-{phase}-partial.json').write_text(json.dumps(results,indent=2)+'\n')
+    print('FINISH',phase,label,status,row['original_outcome'],row['position_error_m'],row['yaw_error_deg'],flush=True)
+    if not all(process_checks.values()) or not safe or (phase in ('B','C') and status!='SUCCESS'):raise SystemExit(1)
+    if phase=='E':
+        category=[r for r in results if r['case'].rsplit('-',1)[0]==case_id.rsplit('-',1)[0]]
+        if len(category)==3 and not any(r['status']=='SUCCESS' for r in category):raise SystemExit(1)
+        if case_id=='static-S03' and status!='SUCCESS':raise SystemExit(1)
+print('PHASE_COMPLETE',phase,len(results),flush=True)

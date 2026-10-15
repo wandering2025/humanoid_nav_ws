@@ -1,0 +1,40 @@
+{
+  "created_utc": "2026-10-15T10:24:03.681900+00:00",
+  "head": "53d8f0542c3891a1bfbc95b5eb7805dda1697be6",
+  "source_fingerprint": "4ffaee2ab9b6e31fdf2eb5920ce7ab27c5e78a8b4cbc616949f6ce616d71c28c",
+  "source_equals_repair": true,
+  "source_hashes_match": true,
+  "historical_indexes": [
+    {
+      "index": "docs/evidence/W11R1/formal-v1-baseline-hashes.json",
+      "files": 1371,
+      "mismatches": []
+    },
+    {
+      "index": "docs/evidence/W11R1V/raw-artifact-index.json",
+      "files": 64,
+      "mismatches": []
+    },
+    {
+      "index": "docs/evidence/W11R2/raw-artifact-index.json",
+      "files": 151,
+      "mismatches": []
+    }
+  ],
+  "prohibited_diff": "",
+  "W05_W10_diff_from_formal_baseline": "",
+  "test_entry_mismatches": [],
+  "plan_unchanged": true,
+  "plan_sha256": "a098dc8684ce6350d2a392d1b0186978097038def216981567fa4bb6dcdaf09b",
+  "upstreams": {
+    "booster_deploy": {
+      "sha": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+      "dirty": []
+    },
+    "booster_assets": {
+      "sha": "12a97516f57469078707afb587a5f84c1cb110d1",
+      "dirty": []
+    }
+  },
+  "user_document_sha256": "6973bb1c423297cebdf2c1a97391487023d3b4af955e3a51d4fc735b2fba7027"
+}

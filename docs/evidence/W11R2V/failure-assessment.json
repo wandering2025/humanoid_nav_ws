@@ -1,0 +1,37 @@
+{
+  "run_id": "20261015T102107Z_w11r2-independent-v1-startup_09_s0_13f20b",
+  "status": "INDEPENDENT_VERIFICATION_FAIL",
+  "scope": "DDS support-process nonzero-exit check failure; no observed starter/robot launch-process defect in this run",
+  "failed_check": "dds_exit_zero == false",
+  "known_exit_codes": {
+    "starter": 0,
+    "all_18_launch_children": 0,
+    "launch_parent": 0,
+    "capture_wrapper": 1
+  },
+  "dds_exact_returncode": null,
+  "dds_exact_returncode_note": "Frozen capture saved only session.server.returncode==0 boolean, not the integer. Session.close waits for DDS termination, so false proves nonzero; integer cannot be recovered from reaped PID. No value is invented.",
+  "dds_pid": 124464,
+  "dds_log": "Server running then Server shut down; no logged error or traceback",
+  "signal_evidence": [
+    {
+      "event": "os.kill",
+      "target": 124499,
+      "signal": 2,
+      "wall_monotonic": 13576.230845363
+    },
+    {
+      "event": "os.kill",
+      "target": 124464,
+      "signal": 2,
+      "wall_monotonic": 13576.905477488
+    }
+  ],
+  "SIGTERM_count": 0,
+  "SIGKILL_count": 0,
+  "root_cause": "Unproven. The support DDS process is an unchanged frozen installed dependency; no evidence attributes its nonzero status to the starter repair.",
+  "classification": "Effective run retained FAIL under preregistered DDS-zero-exit gate. Not INVALID: no pre-behavior proven tester error/port conflict. No rerun/replacement, no assertion relaxation.",
+  "safety": "No contact/fall/nonzero policy command; all 18 candidate launch child exits0; no remnant",
+  "stop": "After startup09; startup10 and navigation phases B\u2013E NOT_RUN",
+  "responsibility": "Return to repair agent to investigate DDS/session shutdown boundary and missing exact DDS exit-code evidence; verifier makes no source/config/test changes."
+}

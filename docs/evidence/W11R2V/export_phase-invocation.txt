@@ -1,0 +1,17 @@
+"""Copy lightweight immutable results to independent evidence; raw logs stay ignored."""
+from pathlib import Path
+from datetime import datetime,timezone
+import json,shutil,sys
+ws=Path('/home/haoyang/humanoid_nav_ws');root=ws/'run_data/w11r2-independent-v1';out=ws/'docs/evidence/W11R2V';phase=sys.argv[1]
+rows=json.loads((root/('startup-partial.json' if phase=='A' else f'phase-{phase}-partial.json')).read_text())
+for row in rows:
+    source=Path(row['output']);dest=out/'runs'/row['run_id'];dest.mkdir(parents=True,exist_ok=True)
+    for name in ('assessment.json','independent-assessment.json','closed-runs.json','signal-syscalls.json','c3-startup-reliability.json','result.json','invocation-exit.txt'):
+        if (source/name).is_file():shutil.copyfile(source/name,dest/name)
+    log=source/'raw'/f"{row['run_id']}.txt"
+    if log.exists():
+        lines=log.read_text(errors='replace').splitlines(); selected=[f'{i}: {s}' for i,s in enumerate(lines,1) if any(x in s for x in ('process started','process has finished','process has died','Traceback','KeyboardInterrupt','sending signal','escalating','{"starter":','Error','ERROR'))]
+        (dest/'process-and-error-excerpt.txt').write_text('\n'.join(selected)+'\n')
+(out/f'phase-{phase}-summary.json').write_text(json.dumps(rows,indent=2)+'\n')
+with (out/'verification-log.md').open('a') as f:f.write('\n'+datetime.now(timezone.utc).isoformat()+f'：阶段{phase}保存首次全部结果，执行{len(rows)}次；'+', '.join(str(r.get('index',r.get('case')))+':'+r.get('verdict',r.get('status','?')) for r in rows)+'。逐run ID、manifest、退出及安全事件已旁路导出；原始stdout/stderr/轨迹保留ignored目录。\n')
+print('EXPORTED',phase,len(rows))

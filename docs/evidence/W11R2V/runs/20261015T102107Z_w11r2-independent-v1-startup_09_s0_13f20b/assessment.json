@@ -1,0 +1,213 @@
+{
+  "run_id": "20261015T102107Z_w11r2-independent-v1-startup_09_s0_13f20b",
+  "head": "53d8f0542c3891a1bfbc95b5eb7805dda1697be6",
+  "checks": {
+    "ready": true,
+    "active_nodes": true,
+    "real_follow_ack": true,
+    "costmap_responses": true,
+    "clock_advanced": true,
+    "scan_valid": true,
+    "initialpose_once": true,
+    "launch_exit_zero": true,
+    "dds_exit_zero": false,
+    "starter_exit_zero": true,
+    "all_18_children_exit_zero": true,
+    "single_starter_SIGINT": true,
+    "one_SIGINT_per_owned_parent": true,
+    "no_traceback": true,
+    "no_abnormal_exit": true,
+    "no_escalation": true,
+    "no_owned_remnants": true,
+    "ports_free": true,
+    "no_contacts": true,
+    "no_fall_or_fault": true,
+    "no_motion_command": true
+  },
+  "verdict": "FAIL",
+  "starter": [
+    {
+      "starter": "navigation active",
+      "exit": 0,
+      "readiness": [
+        {
+          "node": "map_server",
+          "state": 3,
+          "attempt": 1
+        },
+        {
+          "node": "amcl",
+          "state": 3,
+          "attempt": 1
+        },
+        {
+          "node": "controller_server",
+          "state": 3,
+          "attempt": 1
+        },
+        {
+          "node": "planner_server",
+          "state": 3,
+          "attempt": 1
+        },
+        {
+          "node": "behavior_server",
+          "state": 3,
+          "attempt": 1
+        },
+        {
+          "node": "bt_navigator",
+          "state": 3,
+          "attempt": 1
+        },
+        {
+          "node": "local_costmap/local_costmap",
+          "state": 3,
+          "attempt": 1
+        },
+        {
+          "node": "global_costmap/global_costmap",
+          "state": 3,
+          "attempt": 1
+        },
+        {
+          "action": "follow_path",
+          "ack": true,
+          "expected_invalid_path": 103
+        },
+        {
+          "service": "local_costmap/clear_entirely_local_costmap",
+          "responded": true
+        },
+        {
+          "service": "global_costmap/clear_entirely_global_costmap",
+          "responded": true
+        }
+      ],
+      "sim_time": 11.48
+    }
+  ],
+  "readiness": {
+    "i": 0,
+    "run_id": "20261015T102107Z_w11r2-independent-v1-startup_09_s0_13f20b",
+    "navigation_active": true,
+    "wall_to_active_s": 14.58468114399875,
+    "sim_at_active": 11.5,
+    "error": null,
+    "lost_responses": 0,
+    "bond_failures": 0
+  },
+  "children": [
+    {
+      "pid": 124506,
+      "name": "t1_sim-1",
+      "exit": 0
+    },
+    {
+      "pid": 124507,
+      "name": "robot_state_publisher-2",
+      "exit": 0
+    },
+    {
+      "pid": 124508,
+      "name": "map_server-3",
+      "exit": 0
+    },
+    {
+      "pid": 124509,
+      "name": "amcl-4",
+      "exit": 0
+    },
+    {
+      "pid": 124510,
+      "name": "command_gate-5",
+      "exit": 0
+    },
+    {
+      "pid": 124511,
+      "name": "velocity_smoother-6",
+      "exit": 0
+    },
+    {
+      "pid": 124512,
+      "name": "collision_monitor-7",
+      "exit": 0
+    },
+    {
+      "pid": 124805,
+      "name": "bounded_lifecycle_manager-8",
+      "exit": 0
+    },
+    {
+      "pid": 124806,
+      "name": "lifecycle_manager-9",
+      "exit": 0
+    },
+    {
+      "pid": 124965,
+      "name": "controller_server-10",
+      "exit": 0
+    },
+    {
+      "pid": 124966,
+      "name": "planner_server-11",
+      "exit": 0
+    },
+    {
+      "pid": 124967,
+      "name": "behavior_server-12",
+      "exit": 0
+    },
+    {
+      "pid": 124968,
+      "name": "bt_navigator-13",
+      "exit": 0
+    },
+    {
+      "pid": 124969,
+      "name": "bounded_lifecycle_manager-14",
+      "exit": 0
+    },
+    {
+      "pid": 124970,
+      "name": "navigation_adapter-15",
+      "exit": 0
+    },
+    {
+      "pid": 124971,
+      "name": "navigation_starter-16",
+      "exit": 0
+    },
+    {
+      "pid": 124972,
+      "name": "t1_initial_pose_once-17",
+      "exit": 0
+    },
+    {
+      "pid": 124973,
+      "name": "rviz2-18",
+      "exit": 0
+    }
+  ],
+  "launch_pid": 124499,
+  "dds_pid": 124464,
+  "signals": [
+    {
+      "event": "os.kill",
+      "target": 124499,
+      "signal": 2,
+      "wall_monotonic": 13576.230845363
+    },
+    {
+      "event": "os.kill",
+      "target": 124464,
+      "signal": 2,
+      "wall_monotonic": 13576.905477488
+    }
+  ],
+  "escalations": [],
+  "contacts": 0,
+  "remaining": [],
+  "raw_path": "/home/haoyang/humanoid_nav_ws/run_data/w11r2-independent-v1/startup/09",
+  "simulator_path": "/home/haoyang/humanoid_nav_ws/run_data/20261015T102107Z_w11r2-independent-v1-startup_09_s0_13f20b"
+}

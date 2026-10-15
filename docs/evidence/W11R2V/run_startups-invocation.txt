@@ -1,0 +1,23 @@
+"""Serial invocation/recording only; frozen startup entry and assertions remain unchanged."""
+from pathlib import Path
+from datetime import datetime,timezone
+import os,subprocess,json,uuid,re
+ws=Path(os.environ['T1_WS']);root=ws/'run_data/w11r2-independent-v1';rows=[]
+for index in range(1,11):
+    output=root/'startup'/f'{index:02d}';output.mkdir(parents=True,exist_ok=False)
+    run_id=f'{datetime.now(timezone.utc):%Y%m%dT%H%M%SZ}_w11r2-independent-v1-startup_{index:02d}_s0_{uuid.uuid4().hex[:6]}'
+    env=os.environ.copy();env.update(T1_EVAL_OUT=str(output),T1_EVAL_RUN_ID=run_id,ROS_LOG_DIR=str(output/'raw/ros-log'))
+    print('START',index,run_id,flush=True)
+    with (output/'console.txt').open('w') as console:
+        code=subprocess.call([env['T1_VENV']+'/bin/python',str(root/'tools/startup_once.py')],env=env,cwd=ws,stdout=console,stderr=subprocess.STDOUT)
+    (output/'invocation-exit.txt').write_text(str(code)+'\n')
+    a=json.loads((output/'assessment.json').read_text()) if (output/'assessment.json').exists() else dict(verdict='FAIL',error='capture failed',checks={})
+    closed=json.loads((output/'closed-runs.json').read_text())[0] if (output/'closed-runs.json').exists() else {}
+    log=(output/'raw'/f'{run_id}.txt').read_text(errors='replace') if (output/'raw'/f'{run_id}.txt').exists() else ''
+    # Observation only, additional user-required checks, no altered launch/test behavior.
+    early_goal=bool(re.search(r'Begin navigating|Navigating to goal|Received NavigateToPose',log)) or bool(closed.get('recovery_counts_by_goal'))
+    row=dict(index=index,run_id=run_id,head=a.get('head'),verdict='PASS' if code==0 and a.get('verdict')=='PASS' and not early_goal else 'FAIL',wrapper_exit=code,early_navigation_target=early_goal,readiness_wall_s=a.get('readiness',{}).get('wall_to_active_s'),readiness_sim_s=a.get('readiness',{}).get('sim_at_active'),checks=a.get('checks'),output=str(output))
+    rows.append(row);(root/'startup-partial.json').write_text(json.dumps(rows,indent=2)+'\n')
+    print('FINISH',index,row['verdict'],row['readiness_wall_s'],flush=True)
+    if row['verdict']!='PASS':raise SystemExit(1)
+print('STARTUP_SUITE_PASS',len(rows),flush=True)

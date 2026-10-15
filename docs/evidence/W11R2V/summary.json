@@ -1,0 +1,496 @@
+{
+  "status": "INDEPENDENT_VERIFICATION_FAIL",
+  "repair_sha": "166b4a15835a68eb6fd7d1e685f0cc68421f7d77",
+  "handoff_sha": "a4589cbdd65e826d2b9092278e68e21f2322189b",
+  "START_HEAD": "a4589cbdd65e826d2b9092278e68e21f2322189b",
+  "PHYSICAL_TEST_HEAD": "53d8f0542c3891a1bfbc95b5eb7805dda1697be6",
+  "EVIDENCE_SHA": "assigned by next evidence commit; final handoff record references full SHA",
+  "FINAL_HANDOFF_HEAD": "assigned by final record commit; see git log/final reply",
+  "source_fingerprint": "4ffaee2ab9b6e31fdf2eb5920ce7ab27c5e78a8b4cbc616949f6ce616d71c28c",
+  "static": {
+    "build_packages": 4,
+    "package_tests": 164,
+    "evaluator_tests": 15,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "physical_executed": 9,
+  "physical_planned": 38,
+  "cold_start": {
+    "executed": 9,
+    "passed": 8,
+    "failed": 1,
+    "not_run": 1,
+    "readiness_pass": 9,
+    "starter_exit0": 9,
+    "children_exit0": 162,
+    "expected_children": 162,
+    "DDS_exit0": 8,
+    "DDS_nonzero": 1
+  },
+  "targeted": {
+    "C01": [
+      "NOT_RUN",
+      "NOT_RUN",
+      "NOT_RUN"
+    ],
+    "C09": [
+      "NOT_RUN",
+      "NOT_RUN",
+      "NOT_RUN"
+    ],
+    "B04": [
+      "NOT_RUN",
+      "NOT_RUN",
+      "NOT_RUN"
+    ],
+    "B06": [
+      "NOT_RUN",
+      "NOT_RUN",
+      "NOT_RUN"
+    ]
+  },
+  "W11": {
+    "S01": "NOT_RUN",
+    "S02": "NOT_RUN",
+    "S03": "NOT_RUN",
+    "S04": "NOT_RUN",
+    "S05": "NOT_RUN"
+  },
+  "cancel_replace": "NOT_RUN",
+  "W12": {
+    "crossing": [
+      "NOT_RUN",
+      "NOT_RUN",
+      "NOT_RUN"
+    ],
+    "blocking": [
+      "NOT_RUN",
+      "NOT_RUN",
+      "NOT_RUN"
+    ],
+    "approach": [
+      "NOT_RUN",
+      "NOT_RUN",
+      "NOT_RUN"
+    ],
+    "static_S03": [
+      "NOT_RUN"
+    ]
+  },
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "falls": 0,
+  "faults": 0,
+  "fail_run_ids": [
+    "20261015T102107Z_w11r2-independent-v1-startup_09_s0_13f20b"
+  ],
+  "invalid_run_ids": [],
+  "abnormal_exits": [
+    {
+      "process": "DDS discovery server",
+      "pid": 124464,
+      "returncode": null,
+      "exact_code_saved": false,
+      "evidence": "dds_exit_zero false after wait; integer not retained by frozen capture"
+    }
+  ],
+  "forced_terminations": 0,
+  "remaining_processes": [],
+  "remaining_ports": [],
+  "candidate_launch_defects_observed": "None in9 startups; all starter and18 children/run exit0. DDS support-process exit check failed; source attribution unproven.",
+  "eligible_for_W13_formal_v2": false,
+  "no_source_config_parameter_or_test_behavior_edits": true,
+  "formal_v2_executed": false,
+  "W14_started": false,
+  "W15_started": false,
+  "W13": "FAILED",
+  "W14": "TODO",
+  "W15": "TODO",
+  "run_results": [
+    {
+      "sequence": 1,
+      "stage": "A",
+      "case": "STARTUP-01",
+      "repeat": null,
+      "seed": 0,
+      "status": "PASS",
+      "run_id": "20261015T101841Z_w11r2-independent-v1-startup_01_s0_92c2bb",
+      "reason": null
+    },
+    {
+      "sequence": 2,
+      "stage": "A",
+      "case": "STARTUP-02",
+      "repeat": null,
+      "seed": 0,
+      "status": "PASS",
+      "run_id": "20261015T101900Z_w11r2-independent-v1-startup_02_s0_371992",
+      "reason": null
+    },
+    {
+      "sequence": 3,
+      "stage": "A",
+      "case": "STARTUP-03",
+      "repeat": null,
+      "seed": 0,
+      "status": "PASS",
+      "run_id": "20261015T101916Z_w11r2-independent-v1-startup_03_s0_ca353a",
+      "reason": null
+    },
+    {
+      "sequence": 4,
+      "stage": "A",
+      "case": "STARTUP-04",
+      "repeat": null,
+      "seed": 0,
+      "status": "PASS",
+      "run_id": "20261015T101935Z_w11r2-independent-v1-startup_04_s0_e1f72a",
+      "reason": null
+    },
+    {
+      "sequence": 5,
+      "stage": "A",
+      "case": "STARTUP-05",
+      "repeat": null,
+      "seed": 0,
+      "status": "PASS",
+      "run_id": "20261015T101951Z_w11r2-independent-v1-startup_05_s0_c8e234",
+      "reason": null
+    },
+    {
+      "sequence": 6,
+      "stage": "A",
+      "case": "STARTUP-06",
+      "repeat": null,
+      "seed": 0,
+      "status": "PASS",
+      "run_id": "20261015T102010Z_w11r2-independent-v1-startup_06_s0_906359",
+      "reason": null
+    },
+    {
+      "sequence": 7,
+      "stage": "A",
+      "case": "STARTUP-07",
+      "repeat": null,
+      "seed": 0,
+      "status": "PASS",
+      "run_id": "20261015T102028Z_w11r2-independent-v1-startup_07_s0_69b60f",
+      "reason": null
+    },
+    {
+      "sequence": 8,
+      "stage": "A",
+      "case": "STARTUP-08",
+      "repeat": null,
+      "seed": 0,
+      "status": "PASS",
+      "run_id": "20261015T102050Z_w11r2-independent-v1-startup_08_s0_6319ce",
+      "reason": null
+    },
+    {
+      "sequence": 9,
+      "stage": "A",
+      "case": "STARTUP-09",
+      "repeat": null,
+      "seed": 0,
+      "status": "FAIL",
+      "run_id": "20261015T102107Z_w11r2-independent-v1-startup_09_s0_13f20b",
+      "reason": "DDS exit-zero check false; all candidate launch children exit0"
+    },
+    {
+      "sequence": 10,
+      "stage": "A",
+      "case": "STARTUP-10",
+      "repeat": null,
+      "seed": 0,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 11,
+      "stage": "B",
+      "case": "C01",
+      "repeat": 1,
+      "seed": 2000,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 12,
+      "stage": "B",
+      "case": "C01",
+      "repeat": 2,
+      "seed": 2000,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 13,
+      "stage": "B",
+      "case": "C01",
+      "repeat": 3,
+      "seed": 2000,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 14,
+      "stage": "B",
+      "case": "C09",
+      "repeat": 1,
+      "seed": 2008,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 15,
+      "stage": "B",
+      "case": "C09",
+      "repeat": 2,
+      "seed": 2008,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 16,
+      "stage": "B",
+      "case": "C09",
+      "repeat": 3,
+      "seed": 2008,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 17,
+      "stage": "B",
+      "case": "B04",
+      "repeat": 1,
+      "seed": 3003,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 18,
+      "stage": "B",
+      "case": "B04",
+      "repeat": 2,
+      "seed": 3003,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 19,
+      "stage": "B",
+      "case": "B04",
+      "repeat": 3,
+      "seed": 3003,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 20,
+      "stage": "B",
+      "case": "B06",
+      "repeat": 1,
+      "seed": 3005,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 21,
+      "stage": "B",
+      "case": "B06",
+      "repeat": 2,
+      "seed": 3005,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 22,
+      "stage": "B",
+      "case": "B06",
+      "repeat": 3,
+      "seed": 3005,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 23,
+      "stage": "C",
+      "case": "S01",
+      "repeat": null,
+      "seed": 1000,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 24,
+      "stage": "C",
+      "case": "S02",
+      "repeat": null,
+      "seed": 1001,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 25,
+      "stage": "C",
+      "case": "S03",
+      "repeat": null,
+      "seed": 1002,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 26,
+      "stage": "C",
+      "case": "S04",
+      "repeat": null,
+      "seed": 1003,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 27,
+      "stage": "C",
+      "case": "S05",
+      "repeat": null,
+      "seed": 1004,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 28,
+      "stage": "D",
+      "case": "cancel-replace",
+      "repeat": null,
+      "seed": 0,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 29,
+      "stage": "E",
+      "case": "crossing-1",
+      "repeat": null,
+      "seed": 1201,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 30,
+      "stage": "E",
+      "case": "crossing-2",
+      "repeat": null,
+      "seed": 1201,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 31,
+      "stage": "E",
+      "case": "crossing-3",
+      "repeat": null,
+      "seed": 1201,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 32,
+      "stage": "E",
+      "case": "blocking-1",
+      "repeat": null,
+      "seed": 1202,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 33,
+      "stage": "E",
+      "case": "blocking-2",
+      "repeat": null,
+      "seed": 1202,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 34,
+      "stage": "E",
+      "case": "blocking-3",
+      "repeat": null,
+      "seed": 1202,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 35,
+      "stage": "E",
+      "case": "approach-1",
+      "repeat": null,
+      "seed": 1203,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 36,
+      "stage": "E",
+      "case": "approach-2",
+      "repeat": null,
+      "seed": 1203,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 37,
+      "stage": "E",
+      "case": "approach-3",
+      "repeat": null,
+      "seed": 1203,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    },
+    {
+      "sequence": 38,
+      "stage": "E",
+      "case": "static-S03",
+      "repeat": null,
+      "seed": 1002,
+      "status": "NOT_RUN",
+      "run_id": null,
+      "reason": "stopped after first effective cold-start failure"
+    }
+  ]
+}
