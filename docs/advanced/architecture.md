@@ -62,3 +62,7 @@ CPU 构建/契约→自主无界面运行→最小图形负载→完整双窗口
 - 录像4fps、无音频，左右窗口顺序读取存在记录在案的时间差；不加速仿真片段，末尾证据卡为明确标记的后处理内容。
 - 外部 Fast DDS 关闭 SIGSEGV 的历史风险没有被宣称修复。中断负测曾观察到−11，失败及精确退出码均保留；最终完整运行要求所有组件0，不使用 v0.1 的 DDS_TEARDOWN_EXCEPTION 放行。主动取消的任务结果应为 FAILED/CANCELED，不能算到达成功。
 - 历史 W13 正式结果仍为 **FAILED/36/40**；v0.2 验证针对本次演示目标，不是新的可靠性研究或安全认证。
+
+## SLAM 退出时序
+
+完整录像01的实际任务通过，但 SLAM Toolbox 在 SIGINT 后抛出 context 已失效的等待异常并退出−6，故整轮 FAILED，原帧保留且未放行编码。安装版本2.8.5的[上游实现](https://github.com/SteveMacenski/slam_toolbox/blob/2.8.5/src/slam_toolbox_common.cpp#L163-L213)在 deactivate 中中断并 join 后台线程，cleanup 释放地图与 TF 对象。高级入口在物理停稳后、ROS context 仍有效时请求这两个生命周期转换并确认状态，再按原有登记进程顺序退出；转换不成功仍判失败。没有修改已安装 SLAM、ROS 或 DDS 库。

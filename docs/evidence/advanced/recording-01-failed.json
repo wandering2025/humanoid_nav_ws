@@ -1,0 +1,141 @@
+{
+  "code_sha": "3afae4430621192dc006e08bc711a20a2546db69",
+  "status": "FAILED",
+  "arrived": true,
+  "dynamic": {
+    "protective_stationary_s": 0.0,
+    "scan_hit_frames": 584,
+    "triggered": true,
+    "finished": true,
+    "active_scan_hit_frames": 116,
+    "active_costmap_marked_frames": 22,
+    "replan": {
+      "active_motion_m": 3.1075090172299094,
+      "plan_deviation_m": 0.7916274714441592,
+      "robot_deviation_m": 0.34550279313248305,
+      "replanned_while_active": true,
+      "active_interval": [
+        353.32000000095894,
+        369.9200000010382
+      ],
+      "baseline_plan_sim": 349.300000001
+    },
+    "verdict": "PASS",
+    "response": "REPLAN_AND_CONTINUE"
+  },
+  "settle": {
+    "settled": true,
+    "settle_start_sim": 419.84000000127656,
+    "settle_delay_s": 0.940000000276541,
+    "pos_err_m": 0.11613921321620967,
+    "yaw_err_deg": 7.4629667898269325
+  },
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 20534.132656125,
+      "sim_time": 443.100000001,
+      "health_reason": ""
+    }
+  },
+  "parent_exit_codes": {
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "rviz": 0,
+    "map_saver": 0,
+    "goal": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 143482,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 143483,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 143484,
+      "exit_code": -6
+    },
+    "advanced_command_gate-4": {
+      "pid": 143485,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 143486,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 143487,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 143826,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 143961,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 143962,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 143963,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 143964,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 143965,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 143966,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 143967,
+      "exit_code": 0
+    }
+  },
+  "remaining_owned_pids": [],
+  "dds_port_released": true,
+  "gpu_monitor_error": null,
+  "run_id": "20261015T174735Z_advanced_a661ecfe-2237-4b31-b9cf-c78f6cc1e46c",
+  "raw": "run_data/advanced/20261015T174735Z_advanced_a661ecfe-2237-4b31-b9cf-c78f6cc1e46c",
+  "result_sha256": "9863070949c1a8d2f03a801df9e3401424a7074d8c87fd5fcdc916f0bc81d907",
+  "capture": {
+    "source_sha": "3afae4430621192dc006e08bc711a20a2546db69",
+    "run_id": "20261015T174735Z_advanced_a661ecfe-2237-4b31-b9cf-c78f6cc1e46c",
+    "run_dir": "/home/haoyang/humanoid_nav_ws_advanced/run_data/advanced/20261015T174735Z_advanced_a661ecfe-2237-4b31-b9cf-c78f6cc1e46c",
+    "start_mono": 20071.030533886,
+    "end_mono": 20531.151976564,
+    "frame_pairs": 1354,
+    "window_ids": {
+      "MuJoCo": 6291463,
+      "RViz": 8388861
+    },
+    "error": null,
+    "method": "Independent ImageMagick serial reads of MuJoCo and RViz, <=4 paired frames/s. No encoding during simulation."
+  },
+  "capture_sha256": "3d0ac125ece66bfc4ca3d83e4c280037855bf098c534187833c8ba9a6d5648a0",
+  "failure": "SLAM Toolbox exited -6 on SIGINT: context cannot be slept with because it is invalid. Full motion/perception/stop and other exits passed; no release encoding and no tag.",
+  "primary_source": "https://github.com/SteveMacenski/slam_toolbox/blob/2.8.5/src/slam_toolbox_common.cpp#L163-L193"
+}

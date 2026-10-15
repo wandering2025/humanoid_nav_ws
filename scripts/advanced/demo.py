@@ -202,10 +202,12 @@ class Advanced(base.Demo):
         # Cancel through the action protocol while ROS is alive. A signal into
         # the unchanged goal tool can tear down its context before its finally.
         # The safety latch is acknowledged first and is never re-armed here.
-        if not self.cleanup_started and self.node and 'goal' in self.children:
+        if self.cleanup_started:return
+        if self.node and 'launch' in self.children and self.children['launch'][0].poll() is None:
+            self.safe_stop()
+        if self.node and 'goal' in self.children:
             goal=self.children['goal'][0]
             if goal.poll() is None:
-                self.safe_stop()
                 try:
                     from action_msgs.srv import CancelGoal
                     replies=[];deadline=time.monotonic()+8
@@ -218,6 +220,24 @@ class Advanced(base.Demo):
                     self.summary['goal_cancel']=dict(replies=replies,exit_code=goal.poll())
                 except Exception as exc:
                     self.summary['goal_cancel']=dict(error=repr(exc))
+        if self.node and self.summary.get('safe_stop',{}).get('physical_stationary'):
+            try:
+                from lifecycle_msgs.srv import GetState,ChangeState
+                from lifecycle_msgs.msg import State,Transition
+                records=[]
+                state=self.call(GetState,'/slam_toolbox/get_state',GetState.Request(),3.,False).current_state.id
+                for source,transition,target in (
+                    (State.PRIMARY_STATE_ACTIVE,Transition.TRANSITION_DEACTIVATE,State.PRIMARY_STATE_INACTIVE),
+                    (State.PRIMARY_STATE_INACTIVE,Transition.TRANSITION_CLEANUP,State.PRIMARY_STATE_UNCONFIGURED)):
+                    if state==source:
+                        request=ChangeState.Request();request.transition.id=transition
+                        reply=self.call(ChangeState,'/slam_toolbox/change_state',request,8.,False)
+                        state=self.call(GetState,'/slam_toolbox/get_state',GetState.Request(),3.,False).current_state.id
+                        records.append(dict(transition=transition,success=reply.success,state=state))
+                        assert reply.success and state==target,records
+                self.summary['slam_shutdown']=dict(complete=state==State.PRIMARY_STATE_UNCONFIGURED,transitions=records)
+            except Exception as exc:
+                self.summary['slam_shutdown']=dict(complete=False,error=repr(exc))
         # Original bounded cleanup remains the fallback, preserving actual codes.
         super().cleanup()
 
@@ -282,6 +302,7 @@ class Advanced(base.Demo):
             and s['contacts']==dict(static_env=0,obstacle=0,ground_nonfoot=0) and all(s['graph_contract'].values())
             and s.get('safe_stop',{}).get('physical_stationary') and not s.get('remaining_owned_pids')
             and not s.get('remaining_project_processes') and s.get('clock_regressions')==0
+            and s.get('slam_shutdown',{}).get('complete')
             and not s.get('error') and not s.get('cleanup_error') and not s.get('gpu_monitor_error'))
         base.save('observation.json',dict(rows=n.rows,obstacles=n.obstacles,plans=n.plans,scan_stats=n.scan_stats,cost_samples=n.cost_samples,dynamic_scans=n.dynamic_scans))
         s['status']='PENDING_PORT_CHECK' if s['validation_before_port_check'] else 'FAILED'
