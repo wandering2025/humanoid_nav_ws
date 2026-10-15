@@ -1,0 +1,102 @@
+{
+  "code_sha": "82fb836f6ddfcb24b609cb56632b44a140cba9c6",
+  "status": "SUCCESS",
+  "startup_check_completed": true,
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 18607.051663831,
+      "sim_time": 40.78,
+      "health_reason": ""
+    }
+  },
+  "zero_policy": true,
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "parent_exit_codes": {
+    "dds": 0,
+    "authority": 0,
+    "launch": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 125511,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 125512,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 125513,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 125514,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 125515,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 125516,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 125802,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 125897,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 125898,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 125899,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 125900,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 125901,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 125902,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 125903,
+      "exit_code": 0
+    }
+  },
+  "remaining_owned_pids": [],
+  "dds_port_released": true,
+  "graph_contract": {
+    "final_only_collision_monitor": true,
+    "obstacle_truth_isolated": true,
+    "robot_truth_isolated": true,
+    "no_initialpose": true,
+    "map_only_slam": true,
+    "map_odom_only_slam": true
+  },
+  "run_id": "20261015T172106Z_advanced_4e9aebe3-e217-40b0-87ae-5555c74685f9",
+  "raw": "run_data/advanced/20261015T172106Z_advanced_4e9aebe3-e217-40b0-87ae-5555c74685f9",
+  "result_sha256": "d92f8625539785456fce91b2b0c30a842c5fdedf51229eb9c704394ed4c4f1f5",
+  "scope": "CPU standing and ordered gate lifecycle validation only"
+}
