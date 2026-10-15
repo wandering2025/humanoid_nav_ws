@@ -138,7 +138,7 @@ class Advanced(base.Demo):
                    and bool(base.port_connections()['listeners']),10)
         rclpy.init(signal_handler_options=SignalHandlerOptions.NO)
         self.node=Probe()
-        self.spawn('authority',[str(WS/'build/advanced-authority/tf_authority')])
+        self.spawn('authority',[str(WS/'build/advanced-tools/tf_authority')])
         from grid_visuals import GridVisuals
         self.grid_visuals=GridVisuals(self.node)
         qos=QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL)

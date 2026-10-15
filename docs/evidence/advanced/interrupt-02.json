@@ -1,0 +1,164 @@
+{
+  "code_sha": "4f0f1bbf24c0ae1e6cdc8b07fbe7c1b07f794264",
+  "status": "FAILED",
+  "error": "InterruptedError('User requested stop')",
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 19548.289041534,
+      "sim_time": 25.580000000000002,
+      "health_reason": ""
+    }
+  },
+  "goal_cancel": {
+    "replies": [
+      {
+        "return_code": 0,
+        "canceling": 1
+      }
+    ],
+    "exit_code": 2
+  },
+  "parent_exit_codes": {
+    "dds": -11,
+    "authority": -6,
+    "launch": 0,
+    "map_saver": 0,
+    "goal": 2
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 137044,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 137045,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 137046,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 137047,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 137048,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 137049,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 137323,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 137423,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 137424,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 137425,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 137426,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 137427,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 137428,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 137429,
+      "exit_code": 0
+    }
+  },
+  "shutdown_signals": [
+    [
+      "authority",
+      136983,
+      "SIGINT"
+    ],
+    [
+      "launch",
+      136986,
+      "SIGINT"
+    ],
+    [
+      "dds",
+      136957,
+      "SIGINT"
+    ]
+  ],
+  "remaining_owned_pids": [],
+  "dds_port_released": true,
+  "run_id": "20261015T173746Z_advanced_b1cc455d-9923-402a-b07a-fe8d81ee629d",
+  "raw": "run_data/advanced/20261015T173746Z_advanced_b1cc455d-9923-402a-b07a-fe8d81ee629d",
+  "result_sha256": "4f67c2a8a00d7b5ce26125cbb30fdffd50ce4fcfed4e4a20bdb6fc1d7db7e8dd",
+  "request": {
+    "request": {
+      "utc": "2026-10-15T17:38:15.786899+00:00",
+      "runner_pid": 136902,
+      "signal": "SIGINT",
+      "observed_motion": {
+        "sim_time": "22.159999999998597",
+        "wall_mono": "19544.865185423",
+        "episode": "0",
+        "state": "READY",
+        "cmd_status": "ACTIVE",
+        "cmd_source": "cmd_vel",
+        "v_cmd_in_x": "0.41991689801216125",
+        "v_cmd_in_y": "0.0",
+        "v_cmd_in_wz": "0.20388186186552046",
+        "v_guard_x": "0.4199168980121613",
+        "v_guard_y": "0.0",
+        "v_guard_wz": "0.20388186186552046",
+        "u_pol_x": "0.4771971800110557",
+        "u_pol_y": "0.0",
+        "u_pol_wz": "0.19875762429502275",
+        "v_meas_x": "0.5166142793408544",
+        "v_meas_y": "0.2064585642168316",
+        "v_meas_wz": "0.21744266857952343",
+        "x_w": "2.530531482804797",
+        "y_w": "0.14033820051851736",
+        "z_w": "0.6680558341929348",
+        "yaw_w": "0.03647865790268913",
+        "roll": "-0.06517281936554625",
+        "pitch": "-0.030837521049053424",
+        "proj_grav_z": "-0.9974025741001669",
+        "action_norm": "3.7250783443450928",
+        "step_compute_ms": "1.8446399990352802",
+        "policy_compute_ms": "0.7180180000432301",
+        "physics_compute_ms": "0.8052030025282875",
+        "scan_due": "False",
+        "scan_compute_ms": "0.0",
+        "rtf_10s": "0.9957379322098064",
+        "nonfinite": "False"
+      }
+    },
+    "wrapper_exit": 1
+  },
+  "scope": "Negative interruption. Goal CANCELED exit2 without escalation; physical stop/cleanup/port pass. Observer -6 and DDS -11 remain actual failures, no exception."
+}
