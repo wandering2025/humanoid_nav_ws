@@ -220,3 +220,51 @@ git commit -m "docs: record verified development environment"
 ```
 
 中创建最小的 `t1_mujoco` ROS 包。当前保持 `src` 为空完全正常。
+
+
+
+请执行项目规划中的 W13，只完成这一步，不要自动开始后续步骤。
+
+工作目录：
+/home/haoyang/humanoid_nav_ws
+
+首先读取：
+docs/plans/t1_mujoco_navigation/总规划.md
+docs/plans/t1_mujoco_navigation/执行规则.md
+docs/plans/t1_mujoco_navigation/环境定位.md
+docs/plans/t1_mujoco_navigation/执行看板.md
+docs/plans/t1_mujoco_navigation/交接记录.md
+docs/plans/t1_mujoco_navigation/records/W13.md
+以及 W13 对应的单步规划文件。
+
+从实际 Git 状态和已有记录继续工作。
+全程使用 Git version control。
+开始时记录当前分支、HEAD 和未提交文件。
+每完成一个检查点都更新 records/W13.md。
+实现并验证后先提交代码和测试证据，再更新执行看板、交接记录和 W13 执行记录并提交。
+不要覆盖用户已有修改。
+如果上下文或 token 即将耗尽，先保存 checkpoint、Git 提交和交接记录，写清下一条命令、工作目录、失败原因和仍在运行的进程。
+完成本步后停止，向我报告验收结果和提交 SHA。
+
+
+这是 Wxx 的续接任务。不要从头开始；以交接记录、records/Wxx.md 和实际 Git 状态为准，先检查上一个 agent 留下的提交和未提交差异。
+
+
+
+| 步骤 | 模型 | 建议 effort |
+|---|---|---|
+| W01 | DeepSeek Flash High | `high`，如果平台提供该选项 |
+| W02 | GPT-6 Astra | `xhigh` |
+| W03 | GPT-6.1 Sol | `high` |
+| W04 | GPT-6 Astra | `xhigh` |
+| W05 | GPT-6 Astra | `xhigh` |
+| W06 | GPT-6.1 Sol | `high` |
+| W07 | GPT-6.1 Sol | `medium` |
+| W08 | GPT-6 Astra | `xhigh` |
+| W09 | GPT-6.1 Sol | `high` |
+| W10 | GPT-6 Astra | `xhigh` |
+| W11 | GPT-6 Astra | `xhigh` |
+| W12 | GPT-6.1 Sol | `high` |
+| W13 | GPT-6.1 Sol | `high` |
+| W14 | DeepSeek Flash High | `high`，如果平台提供该选项 |
+| W15 | GPT-6 Astra | `xhigh` |
