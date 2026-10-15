@@ -1,0 +1,24 @@
+{
+  "source_sha": "07ab3b24955fc01c2ddfbceeb7c14398d0fe5b10",
+  "advanced": "192 passed; 1 historical v0.1-only source identity assertion deselected",
+  "stable": "186 passed, full existing CPU suite in untouched original worktree",
+  "deselected": "test_simulation_changes_are_only_view_copy_hooks asserts v0.1 simulation has no new modes; original stable suite still runs and passes it. Advanced physical display/ray isolation tests run.",
+  "logs": [
+    {
+      "path": "docs/evidence/advanced/raw/setup/advanced-tests-final-02.log",
+      "sha256": "b2f8cb1d4a325b4510ec7f7da8edb00adeaa9ab406a5188ae78fada9396c9bfe"
+    },
+    {
+      "path": "docs/evidence/advanced/raw/setup/stable-v01-regression-tests.log",
+      "sha256": "c7727dfa4f5895754e0d94cf41f15b91a66c3c5356ac1c7bbea5f7efdf0be34c"
+    },
+    {
+      "path": "docs/evidence/advanced/raw/setup/advanced-authority-build.log",
+      "sha256": "3298b4295e4644878d213ae3e841fbec667985d39539633faebb54cf12940c5d"
+    },
+    {
+      "path": "docs/evidence/advanced/raw/setup/advanced-encoder-canary.json",
+      "sha256": "a4440f78906b047dad4c2414c646e5b2884f039bfba45becfe95c790adee28e2"
+    }
+  ]
+}

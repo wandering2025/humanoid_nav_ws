@@ -1,0 +1,164 @@
+{
+  "code_sha": "07ab3b24955fc01c2ddfbceeb7c14398d0fe5b10",
+  "status": "FAILED",
+  "error": "InterruptedError('User requested stop')",
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 19691.200596484,
+      "sim_time": 25.98,
+      "health_reason": ""
+    }
+  },
+  "goal_cancel": {
+    "replies": [
+      {
+        "return_code": 0,
+        "canceling": 1
+      }
+    ],
+    "exit_code": 2
+  },
+  "parent_exit_codes": {
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "map_saver": 0,
+    "goal": 2
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 139052,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 139053,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 139054,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 139055,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 139056,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 139057,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 139341,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 139439,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 139440,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 139441,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 139442,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 139443,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 139444,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 139445,
+      "exit_code": 0
+    }
+  },
+  "shutdown_signals": [
+    [
+      "authority",
+      139006,
+      "SIGINT"
+    ],
+    [
+      "launch",
+      139009,
+      "SIGINT"
+    ],
+    [
+      "dds",
+      138980,
+      "SIGINT"
+    ]
+  ],
+  "remaining_owned_pids": [],
+  "dds_port_released": true,
+  "run_id": "20261015T174019Z_advanced_096e234c-4684-4ace-a862-aa5047b97234",
+  "raw": "run_data/advanced/20261015T174019Z_advanced_096e234c-4684-4ace-a862-aa5047b97234",
+  "result_sha256": "9dfaa81b8be053f942a3a075af10f9e36bef04d341b06cf692d57f80cabf2a7e",
+  "request": {
+    "request": {
+      "utc": "2026-10-15T17:40:46.195947+00:00",
+      "runner_pid": 138892,
+      "signal": "SIGINT",
+      "observed_motion": {
+        "sim_time": "22.29999999999852",
+        "wall_mono": "19687.516323923",
+        "episode": "0",
+        "state": "READY",
+        "cmd_status": "ACTIVE",
+        "cmd_source": "cmd_vel",
+        "v_cmd_in_x": "0.44938844442367554",
+        "v_cmd_in_y": "0.0",
+        "v_cmd_in_wz": "-0.005523023195564747",
+        "v_guard_x": "0.4493884444236755",
+        "v_guard_y": "0.0",
+        "v_guard_wz": "-0.005523023195564746",
+        "u_pol_x": "0.5043884444236755",
+        "u_pol_y": "0.0",
+        "u_pol_wz": "-0.003945016568260533",
+        "v_meas_x": "0.4919863237831224",
+        "v_meas_y": "0.23821951996340313",
+        "v_meas_wz": "-0.2121515702306199",
+        "x_w": "2.125510869916255",
+        "y_w": "0.11638307291979111",
+        "z_w": "0.6526908944133611",
+        "yaw_w": "0.09873478779969384",
+        "roll": "-0.012274281040191716",
+        "pitch": "0.04499994786549175",
+        "proj_grav_z": "-0.9989124214079094",
+        "action_norm": "4.653999328613281",
+        "step_compute_ms": "1.747870999679435",
+        "policy_compute_ms": "0.6117430020822212",
+        "physics_compute_ms": "0.8235919995058794",
+        "scan_due": "True",
+        "scan_compute_ms": "1.0973309981636703",
+        "rtf_10s": "0.9969584370591688",
+        "nonfinite": "False"
+      }
+    },
+    "wrapper_exit": 1
+  },
+  "scope": "PASS for negative interrupt contract only. Mission deliberately FAILED; action CANCELED exit2, all infrastructure0, safe stop, no contact/fall, no signal escalation, no residual, port free. Does not prove native DDS defect fixed."
+}
