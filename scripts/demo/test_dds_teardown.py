@@ -133,11 +133,13 @@ class ExceptionClassification(unittest.TestCase):
         self.assertEqual(result['rehearsals'][1]['original_status'],'FAILED')
         self.assertEqual(path.read_bytes(),original)
 
-    def test_gui_unlocked_only_with_preserved_dds_halt_and_unchanged_canaries(self):
+    def test_new_graphics_halt_preserves_dds_exception_and_original_canaries(self):
         import hashlib
         profile=json.loads((ROOT/'scripts/demo/gpu-profile.json').read_text())
-        self.assertEqual(profile['status'],'GUI_VALIDATED')
-        self.assertFalse((ROOT/'run_data/demo-gpu-halt.json').exists())
+        self.assertEqual(profile['status'],'GPU_HALTED_W15_NVIDIA_VIEWER_EXIT')
+        self.assertEqual(profile['release_status'],'FINAL_RELEASE_BLOCKED')
+        blocker=profile['w15_blocker']
+        self.assertEqual(hashlib.sha256((ROOT/blocker['path']).read_bytes()).hexdigest(),blocker['sha256'])
         halt=profile['halt_evidence']
         self.assertEqual(hashlib.sha256((ROOT/halt['path']).read_bytes()).hexdigest(),halt['sha256'])
         for name,expected in profile['stages'].items():
