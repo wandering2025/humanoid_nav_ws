@@ -51,6 +51,7 @@ class Advanced(base.Demo):
         self.summary.update(scenario='ADV01',method='guided_autonomous_mapping',goals=[],map_growth=[])
         self.route=__import__('yaml').safe_load((WS/'src/t1_bringup/config/advanced_route.yaml').read_text())
         self.runtime_graph={}
+        self.global_grid=None
 
     def markers(self):
         if not hasattr(self,'viz'): return
@@ -91,6 +92,9 @@ class Advanced(base.Demo):
 
     def goal(self,pose,label,limit):
         self.summary['status']=label
+        for kind,grid in (('map',self.node.map),('costmap',self.global_grid)):
+            if grid is not None:
+                base.save(f'{label}-{kind}.json',dict(resolution=grid.info.resolution,width=grid.info.width,height=grid.info.height,origin=[grid.info.origin.position.x,grid.info.origin.position.y],data=list(grid.data)))
         self.markers()
         p=self.spawn('goal',['ros2','run','t1_bringup','navigate_to_pose',*map(str,pose),
                             '--time-limit',str(limit)])
@@ -127,6 +131,7 @@ class Advanced(base.Demo):
         qos=QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL)
         self.viz=self.node.create_publisher(MarkerArray,'/t1/viz/demo',qos)
         self.node.create_subscription(OccupancyGrid,'/map',self.on_map,qos)
+        self.node.create_subscription(OccupancyGrid,'/global_costmap/costmap',lambda m:setattr(self,'global_grid',m),qos)
         self.action=ActionClient(self.node,NavigateToPose,'navigate_to_pose')
         self.spawn('launch',['ros2','launch','t1_bringup','advanced.launch.py',
             f'headless:={str(self.args.headless).lower()}','rviz:=false',f'run_id:={RUN_ID}',

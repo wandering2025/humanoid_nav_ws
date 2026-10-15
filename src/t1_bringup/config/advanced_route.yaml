@@ -3,7 +3,9 @@ method: guided_autonomous_mapping
 # Each waypoint must be reachable through observed free space; no unknown-space planning.
 mapping_waypoints:
   - [3.5, 0.0, 0.0]
+  - [3.5, 3.5, 1.5707963267948966]
   - [3.5, 7.8, 1.5707963267948966]
+  - [7.5, 8.0, 0.0]
   - [11.5, 8.0, 0.0]
   - [14.0, 4.0, -1.5707963267948966]
   - [12.5, 8.0, 1.5707963267948966]

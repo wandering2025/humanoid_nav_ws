@@ -1,0 +1,35 @@
+{
+  "run_id": "20261015T164957Z_advanced_d0f500c3-6ed1-4bc1-a941-4e35c45c0b6e",
+  "tested_sha": "fa9fa36ee7e7207c6ea61633254335aaa9e890da",
+  "status": "FAILED",
+  "reason": "MAPPING_02 target [3.5,7.8] has no path through observed map; NavFn error208; no unknown planning enabled",
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 16869.808046016,
+      "sim_time": 39.18,
+      "health_reason": ""
+    }
+  },
+  "exits": {
+    "dds": 0,
+    "launch": 0,
+    "map_saver": 0,
+    "goal": 2
+  },
+  "dds_port_released": true,
+  "remaining": [],
+  "result_sha256": "12b5118805471344a684c47cd45cf0089aab2ad984f12992c990f2fa656312f6",
+  "raw": "/home/haoyang/humanoid_nav_ws_advanced/run_data/advanced/20261015T164957Z_advanced_d0f500c3-6ed1-4bc1-a941-4e35c45c0b6e"
+}
