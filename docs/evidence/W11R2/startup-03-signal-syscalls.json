@@ -1,0 +1,14 @@
+[
+  {
+    "event": "os.kill",
+    "target": 109312,
+    "signal": 2,
+    "wall_monotonic": 12495.618958252
+  },
+  {
+    "event": "os.kill",
+    "target": 109279,
+    "signal": 2,
+    "wall_monotonic": 12496.348037004
+  }
+]

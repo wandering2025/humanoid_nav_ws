@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "<string>", line 13, in <module>
+  File "/home/haoyang/humanoid_nav_ws/src/t1_bringup/t1_bringup/navigation_tools.py", line 326, in starter_main
+    raise SystemExit(starter())
+                     ^^^^^^^^^
+  File "/home/haoyang/humanoid_nav_ws/src/t1_bringup/t1_bringup/navigation_tools.py", line 30, in starter
+    with StarterRuntime() as runtime:
+  File "/home/haoyang/humanoid_nav_ws/src/t1_bringup/t1_bringup/starter_runtime.py", line 72, in __exit__
+    self.cleanup()
+  File "/home/haoyang/humanoid_nav_ws/src/t1_bringup/t1_bringup/starter_runtime.py", line 62, in cleanup
+    self.node.destroy_node()  # owns subscriptions, clients, timers
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/node.py", line 1960, in destroy_node
+    self.destroy_client(self._clients[0])
+  File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/node.py", line 1870, in destroy_client
+    client.destroy()
+  File "<string>", line 10, in destroy
+RuntimeError: INJECTED_UNEXPECTED_DESTRUCTOR_ERROR

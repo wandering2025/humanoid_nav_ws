@@ -1,0 +1,75 @@
+{
+  "unchanged_navigation_functions": [
+    "navigate",
+    "navigate_main",
+    "starter_main",
+    "_yaw_quaternion"
+  ],
+  "tests": {
+    "t1_bringup": {
+      "baseline": 67,
+      "current": 80,
+      "added": [
+        [
+          "t1_bringup.test.test_starter_shutdown",
+          "test_cleanup_is_ordered_and_idempotent"
+        ],
+        [
+          "t1_bringup.test.test_starter_shutdown",
+          "test_closed_context_does_not_spin"
+        ],
+        [
+          "t1_bringup.test.test_starter_shutdown",
+          "test_destructor_error_propagates_but_context_is_released"
+        ],
+        [
+          "t1_bringup.test.test_starter_shutdown",
+          "test_executor_timeout_is_not_reported_as_clean_shutdown"
+        ],
+        [
+          "t1_bringup.test.test_starter_shutdown",
+          "test_sigint_during_client_destruction_does_not_unwind_cleanup"
+        ],
+        [
+          "t1_bringup.test.test_starter_shutdown",
+          "test_sigint_is_observed_at_spin_boundary"
+        ],
+        [
+          "t1_bringup.test.test_starter_shutdown",
+          "test_starter_only_classifies_expected_interrupts_as_normal[ExternalShutdownException-False-0]"
+        ],
+        [
+          "t1_bringup.test.test_starter_shutdown",
+          "test_starter_only_classifies_expected_interrupts_as_normal[ExternalShutdownException-True-ExternalShutdownException]"
+        ],
+        [
+          "t1_bringup.test.test_starter_shutdown",
+          "test_starter_only_classifies_expected_interrupts_as_normal[KeyboardInterrupt-True-0]"
+        ],
+        [
+          "t1_bringup.test.test_starter_shutdown",
+          "test_starter_only_classifies_expected_interrupts_as_normal[ValueError-True-ValueError]"
+        ],
+        [
+          "t1_bringup.test.test_starter_shutdown_ros",
+          "test_cleanup_after_real_context_shutdown_is_idempotent"
+        ],
+        [
+          "t1_bringup.test.test_starter_shutdown_ros",
+          "test_ready_starter_subprocess_single_sigint_during_client_cleanup[False]"
+        ],
+        [
+          "t1_bringup.test.test_starter_shutdown_ros",
+          "test_ready_starter_subprocess_single_sigint_during_client_cleanup[True]"
+        ]
+      ],
+      "removed": []
+    },
+    "t1_mujoco": {
+      "baseline": 84,
+      "current": 84,
+      "added": [],
+      "removed": []
+    }
+  }
+}

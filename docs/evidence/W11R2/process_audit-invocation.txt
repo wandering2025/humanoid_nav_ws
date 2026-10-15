@@ -1,0 +1,40 @@
+"""Read-only host/process/port audit; exclude the auditor and unrelated shells."""
+import datetime
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+
+ws = Path('/home/haoyang/humanoid_nav_ws')
+processes = []
+for p in Path('/proc').iterdir():
+    if not p.name.isdigit() or int(p.name) == os.getpid():
+        continue
+    try:
+        argv = (p/'cmdline').read_bytes().decode(errors='replace').split('\0')
+        comm = (p/'comm').read_text().strip()
+    except OSError:
+        continue
+    if not argv[0] or Path(argv[0]).name in ('bash', 'sh', 'ps', 'timeout'):
+        continue
+    if (argv[0].startswith(('/opt/ros/', str(ws/'install'))) or
+        comm.startswith('fast-discovery') or
+        (Path(argv[0]).name.startswith('python') and any(
+            a.startswith((str(ws), '/opt/ros/')) for a in argv[1:3]))):
+        processes.append(dict(pid=int(p.name), comm=comm, argv=argv))
+sockets = subprocess.check_output(['ss', '-lntup'], text=True)
+owned = set()
+for assessment in (ws/'run_data/w11r2-shutdown-v1/startup').glob('*/assessment.json'):
+    a = json.loads(assessment.read_text())
+    owned.update(c['pid'] for c in a['children'])
+    owned.update((a['launch_pid'], a['dds_pid']))
+remaining = [pid for pid in sorted(owned) if Path(f'/proc/{pid}').exists()]
+result = dict(time_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
+              project_processes=processes, observed_owned_pids=sorted(owned),
+              remaining_owned_pids=remaining, sockets=sockets,
+              dds_ports_free={str(p): f':{p} ' not in sockets for p in (42124, 42126)})
+result['pass'] = not processes and not remaining and all(result['dds_ports_free'].values())
+Path(sys.argv[1]).write_text(json.dumps(result, indent=2)+'\n')
+print(json.dumps({k:v for k,v in result.items() if k not in ('sockets', 'observed_owned_pids')}))
+raise SystemExit(0 if result['pass'] else 1)

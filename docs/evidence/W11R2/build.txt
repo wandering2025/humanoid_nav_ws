@@ -1,0 +1,4 @@
+Starting >>> t1_bringup
+Finished <<< t1_bringup [1.84s]
+
+Summary: 1 package finished [2.03s]

@@ -1,0 +1,25 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0 -- /home/haoyang/venvs/humanoid_mujoco/bin/python
+cachedir: .pytest_cache
+rootdir: /home/haoyang/humanoid_nav_ws
+plugins: ament-pep257-0.17.5, ament-copyright-0.17.5, launch-testing-3.4.12, ament-xmllint-0.17.5, ament-flake8-0.17.5, launch-testing-ros-0.26.13, ament-lint-0.17.5, colcon-core-0.21.3, cov-4.1.0, typeguard-4.1.5
+collecting ... collected 15 items
+
+scripts/evaluation/tests/test_metrics.py::test_signed_geometry_and_moving_obstacle PASSED [  6%]
+scripts/evaluation/tests/test_metrics.py::test_failure_precedence[result0-True-SUCCESS] PASSED [ 13%]
+scripts/evaluation/tests/test_metrics.py::test_failure_precedence[result1-False-INVALID] PASSED [ 20%]
+scripts/evaluation/tests/test_metrics.py::test_failure_precedence[result2-True-FAIL_COLLISION] PASSED [ 26%]
+scripts/evaluation/tests/test_metrics.py::test_failure_precedence[result3-True-FAIL_FALL] PASSED [ 33%]
+scripts/evaluation/tests/test_metrics.py::test_failure_precedence[result4-True-FAIL_STARTUP] PASSED [ 40%]
+scripts/evaluation/tests/test_metrics.py::test_failure_precedence[result5-True-FAIL_TIMEOUT] PASSED [ 46%]
+scripts/evaluation/tests/test_metrics.py::test_failure_precedence[result6-True-FAIL_PLANNING] PASSED [ 53%]
+scripts/evaluation/tests/test_metrics.py::test_stop_displacement_includes_rebound PASSED [ 60%]
+scripts/evaluation/tests/test_metrics.py::test_frozen_suite_coverage_and_safe_approach PASSED [ 66%]
+scripts/evaluation/tests/test_metrics.py::test_trace_boolean_columns PASSED [ 73%]
+scripts/evaluation/tests/test_metrics.py::test_tf_resolution_by_gid_preserves_duplicate_publishers PASSED [ 80%]
+scripts/evaluation/tests/test_metrics.py::test_timeout_cancel_is_not_mislabelled_safety_failure PASSED [ 86%]
+scripts/evaluation/tests/test_metrics.py::test_startup_missing_expected_tf_is_failed_startup_not_invalid PASSED [ 93%]
+scripts/evaluation/tests/test_metrics.py::test_fall_terminal_manifest_even_without_terminal_trace_row PASSED [100%]
+
+- generated xml file: /home/haoyang/humanoid_nav_ws/docs/evidence/W11R2/evaluator-tests.xml -
+============================== 15 passed in 0.30s ==============================

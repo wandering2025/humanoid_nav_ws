@@ -1,0 +1,606 @@
+{
+  "run_data/20261015T095929Z_w11r2-shutdown-v1-startup_01_s0/contact_events.csv": {
+    "bytes": 108,
+    "sha256": "e19231ca735fe6ec0b4b20ae580614cc40994470245f101736d11b7830d7319c"
+  },
+  "run_data/20261015T095929Z_w11r2-shutdown-v1-startup_01_s0/events.jsonl": {
+    "bytes": 13260,
+    "sha256": "61fe90803b2565d1489920bd561f36126ae401d89d62e09c821bf4e27d82fad0"
+  },
+  "run_data/20261015T095929Z_w11r2-shutdown-v1-startup_01_s0/geometry.jsonl": {
+    "bytes": 73446,
+    "sha256": "7e837201c7432e1c3feb816bffa1063a1a733984d221bd00f838b3f3f56ad63f"
+  },
+  "run_data/20261015T095929Z_w11r2-shutdown-v1-startup_01_s0/manifest.json": {
+    "bytes": 15013,
+    "sha256": "40654d062c8014fb39896822835a92420a66d9ae639e62aa22ec3136278485c1"
+  },
+  "run_data/20261015T095929Z_w11r2-shutdown-v1-startup_01_s0/sim_trace.csv": {
+    "bytes": 216593,
+    "sha256": "3f32aeb73f3e866da2e3bdc2eabf7028a2a91aa6c77dda1af7a80c4f3fa96881"
+  },
+  "run_data/20261015T100053Z_w11r2-shutdown-v1-startup_02_s0/contact_events.csv": {
+    "bytes": 108,
+    "sha256": "e19231ca735fe6ec0b4b20ae580614cc40994470245f101736d11b7830d7319c"
+  },
+  "run_data/20261015T100053Z_w11r2-shutdown-v1-startup_02_s0/events.jsonl": {
+    "bytes": 15194,
+    "sha256": "532840a951326bc979149f6ce06caf9af0c447d6747ad8eb73abfc244d8c5525"
+  },
+  "run_data/20261015T100053Z_w11r2-shutdown-v1-startup_02_s0/geometry.jsonl": {
+    "bytes": 85769,
+    "sha256": "b0782301ffa69beed64ec5f24b0d7805cbaf29a9f1d4e177e420d9d5f193cd58"
+  },
+  "run_data/20261015T100053Z_w11r2-shutdown-v1-startup_02_s0/manifest.json": {
+    "bytes": 15012,
+    "sha256": "0980de94ba4a39fc0abd8ce3d54835a35a5981513007c5f29a49a2f8e62c1754"
+  },
+  "run_data/20261015T100053Z_w11r2-shutdown-v1-startup_02_s0/sim_trace.csv": {
+    "bytes": 252523,
+    "sha256": "880a276a58821c6984fd8d283a2e77f2ca283d5f4aac099f04561959f92a1ec9"
+  },
+  "run_data/20261015T100150Z_w11r2-shutdown-v1-startup_03_s0/contact_events.csv": {
+    "bytes": 108,
+    "sha256": "e19231ca735fe6ec0b4b20ae580614cc40994470245f101736d11b7830d7319c"
+  },
+  "run_data/20261015T100150Z_w11r2-shutdown-v1-startup_03_s0/events.jsonl": {
+    "bytes": 15230,
+    "sha256": "8f68f37053093e1728edaf16178b388c113e719c66cb7fc7d75d58f6853f5476"
+  },
+  "run_data/20261015T100150Z_w11r2-shutdown-v1-startup_03_s0/geometry.jsonl": {
+    "bytes": 85048,
+    "sha256": "2214ded04b038b26e7ed22764e4cda82d06290825d4f4f4a4176e60e10213405"
+  },
+  "run_data/20261015T100150Z_w11r2-shutdown-v1-startup_03_s0/manifest.json": {
+    "bytes": 15013,
+    "sha256": "f2141d6948bb761e42838f098a2c9487c7da457f00b3fe2bb8db9f3ff3a7b4c0"
+  },
+  "run_data/20261015T100150Z_w11r2-shutdown-v1-startup_03_s0/sim_trace.csv": {
+    "bytes": 250498,
+    "sha256": "864f6a064b59f2ba8e384606f0787d746a183c6facf1a603af3a1ed3b30c537d"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/bounded_lifecycle_manager_104619_1792058192002.log": {
+    "bytes": 165,
+    "sha256": "573ae94da68a90100474da8a07ea771be910222b8e4b84c5e1c45c56d99b78d0"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/bounded_lifecycle_manager_104710_1792058195484.log": {
+    "bytes": 396,
+    "sha256": "274a4963cc7692486d9c2aca6461c88a0b80e0d17bc680e1f9d6ccceea40482b"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/bounded_lifecycle_manager_104868_1792058204878.log": {
+    "bytes": 177,
+    "sha256": "ff84614e696b39445442ac4c431826a92e5b72d45983747eb6c69f0ec00c8471"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/bounded_lifecycle_manager_104951_1792058206396.log": {
+    "bytes": 177,
+    "sha256": "a3854e42add658b07d12c867c6a5cc01df5ab92a5d48c156ca7565d014dda6ca"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/bounded_lifecycle_manager_105075_1792058208612.log": {
+    "bytes": 177,
+    "sha256": "b4e9c4e00abfb9c09600a4bf4eeae517bc2a84a8e353ee56ba03f0895c17f6cb"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/bounded_lifecycle_manager_105203_1792058210823.log": {
+    "bytes": 177,
+    "sha256": "319c2e231a45d18f75f0f0f640f788c865a25e711e36000719184278e11a4f01"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/bounded_lifecycle_manager_105384_1792058215163.log": {
+    "bytes": 177,
+    "sha256": "f6da035cb6a3f9bfdaac9db939af441a95c2067e77ac17c7fe679e7d09981f5e"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/bounded_lifecycle_manager_105588_1792058221981.log": {
+    "bytes": 177,
+    "sha256": "11f8fa265171b2508f50895c777a22ce9c63671497c1ccd46fd8905c53615e6c"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/bounded_lifecycle_manager_105772_1792058226477.log": {
+    "bytes": 177,
+    "sha256": "9bf1de95e36235ab772ef70c1454be3cbf5c659e1d9b10e31c1ae4aaa55b9648"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/controller_server_104952_1792058206412.log": {
+    "bytes": 4380,
+    "sha256": "288ed1f36c15ff7eee868186f3317e7d8d57d7d08ae3c2f7b1d6b3b3f528d62b"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/controller_server_105074_1792058208615.log": {
+    "bytes": 4380,
+    "sha256": "135e5ef08f2fc8357d76c6591cb3cf72ea21898bbf0fd53902212c105da05485"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/map_server_105202_1792058210886.log": {
+    "bytes": 1808,
+    "sha256": "8e5ef40d896d1b0b72625d58601154ccd9b84bbe7089b3a85a8d92490a3bf32e"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/map_server_105383_1792058215170.log": {
+    "bytes": 1808,
+    "sha256": "2ef2de39d3e3fc94cf5456bc9f2132252ee89c2df84f5327873bd376a4535f18"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/map_server_105587_1792058221985.log": {
+    "bytes": 1808,
+    "sha256": "b8db7e42952f080f2cbe4ac61a2a2d3219809ccd29be9abd8f544d6ed51924cd"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/map_server_105771_1792058226483.log": {
+    "bytes": 1808,
+    "sha256": "55e9b4d201329cd7825878e3607f970009f8967e2b5d217d36f0e55d16b3793a"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/planner_server_105204_1792058210830.log": {
+    "bytes": 3958,
+    "sha256": "ae2b935a42bfe16a514a35cfd64187156873e54f7440780129faca23c5c86ce4"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/planner_server_105382_1792058215165.log": {
+    "bytes": 3958,
+    "sha256": "95d27d411cca82634cb7d0b87859f0f6ff4e48669085acc1e62cf167b97c934e"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/planner_server_105586_1792058221977.log": {
+    "bytes": 3958,
+    "sha256": "aff4bbf3aaa4eabe81ab179844c74bff48e1f0c1a0cf73d8459f178569211940"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/planner_server_105773_1792058226479.log": {
+    "bytes": 3958,
+    "sha256": "8971c5bf65e15df168b29ce33c0592c22fb2ddeaf35519c4c23746b3952fa40f"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/python3_104575_1792058191747.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/python3_104575_1792058195288.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/python3_104575_1792058204663.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/python3_104575_1792058206188.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/python3_104575_1792058208411.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/python3_104575_1792058210610.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/python3_104575_1792058214952.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/python3_104575_1792058221760.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/python3_104575_1792058226260.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/python3_104575_1792058230727.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/python3_104575_1792058232840.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/python3_104575_1792058234999.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/python3_105939_1792058230962.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/all-tests-ros-log/python3_106016_1792058233070.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/20261015T095929Z_w11r2-shutdown-v1-startup_01_s0-cpu.json": {
+    "bytes": 22341,
+    "sha256": "dde38c3cb2046bd8117912eee1ee80cea196128b9e69ab57c8c1eca7d707033a"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/assessment.json": {
+    "bytes": 4489,
+    "sha256": "f523b62e006190cbcdf037b27bed4fa7e43b5891ecd2b753bc90e5ea1f469f5b"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/c3-startup-reliability.json": {
+    "bytes": 378,
+    "sha256": "f413b2f515831c4872a28047dd265112e4dbe23e8956519e0bd15c344bedcccf"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/closed-runs.json": {
+    "bytes": 22984,
+    "sha256": "ca74ee097ce64ada28464ef9fb11fdfbb07f761ccf19b3eb0f9cfff999a1fb9c"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/console.txt": {
+    "bytes": 3488,
+    "sha256": "1bcf90e3cce9b130e61215d2fea923cd34b3b2ac98e6523bb65a07664d5f9937"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/exit.txt": {
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/post-sockets.txt": {
+    "bytes": 1751,
+    "sha256": "044d9d74902ba3fd1e81c4e19afc7b6e3dff5cf32c9534e1d224eb91b11fdeeb"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/pre-sockets.txt": {
+    "bytes": 1751,
+    "sha256": "044d9d74902ba3fd1e81c4e19afc7b6e3dff5cf32c9534e1d224eb91b11fdeeb"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/process-audit.json": {
+    "bytes": 2252,
+    "sha256": "c24b6257aa1d7cd84ef4f77b9879738904ca77bff6b668b38255c7b7b8984301"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/20261015T095929Z_w11r2-shutdown-v1-startup_01_s0.txt": {
+    "bytes": 31348,
+    "sha256": "262fd0aecb8b1fdce7593f821f269def46653c51063e2f4da015484718e118db"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/2026-10-15-11-59-31-383122-DESKTOP-MF19MEU-106653/launch.log": {
+    "bytes": 5166,
+    "sha256": "0c540a2fdd3de9e8342632f21b08f44c05f8fca3fead19a18b6930e89590bf19"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/amcl_106665_1792058371538.log": {
+    "bytes": 1659,
+    "sha256": "b6994a3819e65f05bcd585d443a04b4837293b636b03b8d13bc77ce4a94ce840"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/behavior_server_107121_1792058379556.log": {
+    "bytes": 1205,
+    "sha256": "3bdbe706bdc747e6ce80d6761aed1403a3cf82ed4b63ce1ec6734e085efe68df"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/bounded_lifecycle_manager_106945_1792058374536.log": {
+    "bytes": 194,
+    "sha256": "4925d761e43fff82a967358849e4d8b04d4c4f3339921c6101969685837e3674"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/bounded_lifecycle_manager_107123_1792058379546.log": {
+    "bytes": 192,
+    "sha256": "e6b8b205b09e849152c5e70212527858c1fe262c316560c0349002e00130c2b5"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/bt_navigator_107122_1792058379566.log": {
+    "bytes": 1183,
+    "sha256": "32f39d1cf095f82ff7d93b0a990a8c17b59d71ee1f57f43292f5c935d1e56a38"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/collision_monitor_106668_1792058371540.log": {
+    "bytes": 1754,
+    "sha256": "b9276af0318f4f5938bad1139a15566b61aa5c934f60a11436fa8dd631e818f2"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/controller_server_107119_1792058379563.log": {
+    "bytes": 4810,
+    "sha256": "e36a2f9e46eea6bf07f32dfd7c8d7d80665743443179f8c4876e9a005c84bc7b"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/lifecycle_manager_106946_1792058374541.log": {
+    "bytes": 1430,
+    "sha256": "f7cb7475c1d212c59019e8d0e08c3b827ea842860f49f4753b17d8f983f0198d"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/map_server_106664_1792058371571.log": {
+    "bytes": 1880,
+    "sha256": "b20cb3e23ed7ce2b8274d8286ce779f6455eaf702bc880410fbf55aa83109fc6"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/planner_server_107120_1792058379550.log": {
+    "bytes": 4075,
+    "sha256": "bfb90bcedffb1d344ac7e532583ef6f7590081b665f9e7d5b95c78831fc31c8e"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/python3_106666_1792058371835.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/python3_107124_1792058379728.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/python3_107125_1792058379737.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/python3_107169_1792058379840.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/python_106587_1792058370822.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/python_106662_1792058371715.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/robot_state_publisher_106663_1792058371526.log": {
+    "bytes": 144,
+    "sha256": "f05bdb362deac2f782694b7c86372fe265d3e15faffae91faa328a73a62ab345"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/rviz2_107127_1792058379665.log": {
+    "bytes": 768,
+    "sha256": "7e4677b80e75a862bca4eae07bf7a6aaa675400a586b468a20a5abce0be4f74c"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/ros-log/velocity_smoother_106667_1792058371531.log": {
+    "bytes": 1012,
+    "sha256": "a6222d3b7631592bc7cf5e861bb4527cf1d39f92dd13f8223598f68f96372f5e"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/raw/w11r2-shutdown-v1-dds.txt": {
+    "bytes": 240,
+    "sha256": "bf97cbd06dcc54e3bb51a691306c44a1af5a66ac805c1289f165e4e9d57ea075"
+  },
+  "run_data/w11r2-shutdown-v1/startup/01/signal-syscalls.json": {
+    "bytes": 223,
+    "sha256": "53387c6ae72498893ab9b7b07c851b3a5f18f7db9c7f29836f7b424536f09b68"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/20261015T100053Z_w11r2-shutdown-v1-startup_02_s0-cpu.json": {
+    "bytes": 22463,
+    "sha256": "fae2643a9f5bd0bc7d1e85b2f9fb863ce0903ab03639b84fd35169333a3e3cd4"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/assessment.json": {
+    "bytes": 4516,
+    "sha256": "ee9f1824a2302ad645984f57121a92600a91fd08d55084e6ddb5b2e77860b436"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/c3-startup-reliability.json": {
+    "bytes": 392,
+    "sha256": "13cfc0f0a1c3473bf27a749911807466c81db47acf9d05dcfed07408b195b673"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/closed-runs.json": {
+    "bytes": 23001,
+    "sha256": "27b8171ac2c26f3da62cffd9ea71fefd24e2fe1aaf72462cfcd23c9e7c33a612"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/console.txt": {
+    "bytes": 3529,
+    "sha256": "f04796776438ee3411287efea8b2fc8d0274b97cd7d7c2a16fc93eef46d1b998"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/exit.txt": {
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/post-sockets.txt": {
+    "bytes": 1751,
+    "sha256": "044d9d74902ba3fd1e81c4e19afc7b6e3dff5cf32c9534e1d224eb91b11fdeeb"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/pre-sockets.txt": {
+    "bytes": 1751,
+    "sha256": "044d9d74902ba3fd1e81c4e19afc7b6e3dff5cf32c9534e1d224eb91b11fdeeb"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/process-audit.json": {
+    "bytes": 2492,
+    "sha256": "5391bb8e0de4f8d4065671a952ebe76457d209626e1fe8b9b8f5b9e92bdbf1f3"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/20261015T100053Z_w11r2-shutdown-v1-startup_02_s0.txt": {
+    "bytes": 31363,
+    "sha256": "a0b9f0323ce9d90a6175f6c3505055d6cf38b9a3910223950ba88dadcfdd24c2"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/2026-10-15-12-00-54-460556-DESKTOP-MF19MEU-108049/launch.log": {
+    "bytes": 5166,
+    "sha256": "a74226a596f38464ca877aafe9f8cb9b96e04d234ad3c4297f3011aa95f07030"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/amcl_108059_1792058454566.log": {
+    "bytes": 1660,
+    "sha256": "b90deb8139dd60e9032b5ab8ed8204a26681836fb1791f2c0b57654b0221fbf8"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/behavior_server_108502_1792058464793.log": {
+    "bytes": 1205,
+    "sha256": "4f7a9ebd4a4b0c1c8d80a77d94d227e7e33b6ac02744608d1fe553c0254b4811"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/bounded_lifecycle_manager_108362_1792058457585.log": {
+    "bytes": 194,
+    "sha256": "28ca22f4840c9a2f356231ac06d794189bd4fbcfd138077e1a9c0807c887f8e1"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/bounded_lifecycle_manager_108504_1792058464775.log": {
+    "bytes": 192,
+    "sha256": "2ac0acaa95bbf06ec9a58ffed04efa5f3d1b5ec4a46b5cd26ff3217570299a89"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/bt_navigator_108503_1792058464788.log": {
+    "bytes": 1183,
+    "sha256": "49fb67af315e1adbd8120b9ff6432233b2cf89ef38cd782d82d5577164e904d6"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/collision_monitor_108062_1792058454572.log": {
+    "bytes": 1754,
+    "sha256": "81bed3d76c85a293e9f9245dc6ad85ed755f4a3b85f3603bb148476edc7cfdc8"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/controller_server_108500_1792058464783.log": {
+    "bytes": 4810,
+    "sha256": "61397b012cd50dbb728e30a1fcee0abe26a6242e23c68ad6364f504c01d8f1c1"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/lifecycle_manager_108363_1792058457588.log": {
+    "bytes": 1430,
+    "sha256": "4f98860fc37e93e1a4912dc388d26802a329f5d2599cae0db70d1db6ca964e55"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/map_server_108058_1792058454576.log": {
+    "bytes": 1880,
+    "sha256": "3d83f5c5236597c983c1cb6fb53ffa3b51542fb447aad8b196a126c6d45a91c0"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/planner_server_108501_1792058464777.log": {
+    "bytes": 4075,
+    "sha256": "e59e632320165c8250a5c224730258c94c91649b5b6c28bf2c816edffc231a41"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/python3_108060_1792058454784.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/python3_108505_1792058464949.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/python3_108506_1792058464944.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/python3_108550_1792058465056.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/python_107985_1792058454188.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/python_108056_1792058454739.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/robot_state_publisher_108057_1792058454559.log": {
+    "bytes": 144,
+    "sha256": "a49dd2b9d352219d5a0d6ca992645a138ba36dbd8dfdc07bca08423182e94987"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/rviz2_108508_1792058464810.log": {
+    "bytes": 768,
+    "sha256": "995403a99babe52a57b9d1d51d1070e5cd38b20b6058cc93bdbd8bbbab20b9f9"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/ros-log/velocity_smoother_108061_1792058454564.log": {
+    "bytes": 1012,
+    "sha256": "58469eeaffdb4b24d7e9f550ef8e0545e1be03ed835f92c227e00025733288cb"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/raw/w11r2-shutdown-v1-dds.txt": {
+    "bytes": 240,
+    "sha256": "bf97cbd06dcc54e3bb51a691306c44a1af5a66ac805c1289f165e4e9d57ea075"
+  },
+  "run_data/w11r2-shutdown-v1/startup/02/signal-syscalls.json": {
+    "bytes": 222,
+    "sha256": "e8dbb5163c5acf66b42c615f9d3e3fe4290e9289cbf2081e1661d0dfb8aa6ad2"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/20261015T100150Z_w11r2-shutdown-v1-startup_03_s0-cpu.json": {
+    "bytes": 22585,
+    "sha256": "df9dd9e30175949f4f66716e818b746d25b38e9356e1a7275477fdc639a685ad"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/assessment.json": {
+    "bytes": 4491,
+    "sha256": "d6665c4b24ddc24d8d3cfe1950aa3c09fe2c5897410bdc4ac0cebd3e2855903c"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/c3-startup-reliability.json": {
+    "bytes": 379,
+    "sha256": "aa7236c1689aa7cc93cac43231e99cb44527a7ed3c065b18b8d33a158287bc04"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/closed-runs.json": {
+    "bytes": 22986,
+    "sha256": "374d59a70d0d7c5a130c278a7834f5fff48ed4661afa6d8b1fb204056018bfbc"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/console.txt": {
+    "bytes": 3491,
+    "sha256": "cf0cb9452e8aff80802accfe922d33f582f795979a1800d85fb2999197025f15"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/exit.txt": {
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/post-sockets.txt": {
+    "bytes": 1751,
+    "sha256": "044d9d74902ba3fd1e81c4e19afc7b6e3dff5cf32c9534e1d224eb91b11fdeeb"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/pre-sockets.txt": {
+    "bytes": 1751,
+    "sha256": "044d9d74902ba3fd1e81c4e19afc7b6e3dff5cf32c9534e1d224eb91b11fdeeb"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/process-audit.json": {
+    "bytes": 2732,
+    "sha256": "870b585612550c8437c68ea93ad16ee72e280416c0628faeea080e7cb382bc55"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/20261015T100150Z_w11r2-shutdown-v1-startup_03_s0.txt": {
+    "bytes": 31219,
+    "sha256": "3f5037c282f6e58d6ff34bc7f848430ef73f54a838005c31e4c5efedc01eda7c"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/2026-10-15-12-01-51-518717-DESKTOP-MF19MEU-109312/launch.log": {
+    "bytes": 5166,
+    "sha256": "66d5eff89aa6334bfa2a81853e40c02e06da6281c97bd338eb9dde0459551e7d"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/amcl_109322_1792058511629.log": {
+    "bytes": 1538,
+    "sha256": "7ab2efd75e6c68ca457ecfb43d6655730157b30f21f9c3efd0170b05f4e5132f"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/behavior_server_109761_1792058519649.log": {
+    "bytes": 1205,
+    "sha256": "275718aa9557ba07696b4468b90519c48e48aa91c606317a9044a1999e163c01"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/bounded_lifecycle_manager_109630_1792058514650.log": {
+    "bytes": 194,
+    "sha256": "5c8b878844a77de5df4476ba34654634f713e4985dfa118c51c100b072389068"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/bounded_lifecycle_manager_109763_1792058519639.log": {
+    "bytes": 192,
+    "sha256": "5fc75a12478d2d31459f3bdc6d8244b5dd95dc1970f8e08bcbba4bc888cedbb4"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/bt_navigator_109762_1792058519643.log": {
+    "bytes": 1183,
+    "sha256": "1888876af22375983eb2f413f4614a6a72f5b9bc274eaf32dcbca6bc69f65a9f"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/collision_monitor_109325_1792058511636.log": {
+    "bytes": 1754,
+    "sha256": "10a776d6017e683664126d9f0222018eda833bf6acdcd14a437c73af429e544c"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/controller_server_109759_1792058519656.log": {
+    "bytes": 4810,
+    "sha256": "8fe3af3d3e2fb8d125e30afb8cc48c5e2cf8d097df7b36950ad3bcf9bc36344b"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/lifecycle_manager_109631_1792058514651.log": {
+    "bytes": 1430,
+    "sha256": "1c59d71542a0a052e75d275bb698eae286ea398edb9a2242433e929a1d309c62"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/map_server_109321_1792058511638.log": {
+    "bytes": 1880,
+    "sha256": "7726c5215a1f51c48dfd58592a5b2d7510dce71d533a792305805d77e023862b"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/planner_server_109760_1792058519653.log": {
+    "bytes": 4075,
+    "sha256": "902c26a264988d7185655bab18bd74bdfc1efb6cede6641aa718210e44b85f57"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/python3_109323_1792058511868.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/python3_109764_1792058519812.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/python3_109765_1792058519818.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/python3_109813_1792058519928.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/python_109254_1792058511240.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/python_109319_1792058511782.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/robot_state_publisher_109320_1792058511621.log": {
+    "bytes": 144,
+    "sha256": "68c5b45520f3a24f1361e08a87d7f9a3b2c1645500e73b991c57875156812464"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/rviz2_109767_1792058519672.log": {
+    "bytes": 768,
+    "sha256": "0cf6aaba62bbc5c7e037f219c58f1d40481708bd7cd7c4c4d58b7e7ecc64835a"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/ros-log/velocity_smoother_109324_1792058511626.log": {
+    "bytes": 1012,
+    "sha256": "689d1bc82852ed512e8bc5bba7aafb09bb6f113847e4a7a44877db5b04fa6126"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/raw/w11r2-shutdown-v1-dds.txt": {
+    "bytes": 240,
+    "sha256": "bf97cbd06dcc54e3bb51a691306c44a1af5a66ac805c1289f165e4e9d57ea075"
+  },
+  "run_data/w11r2-shutdown-v1/startup/03/signal-syscalls.json": {
+    "bytes": 223,
+    "sha256": "4c82062862ef1c4b9e4a135d9ea9c2a31558fc40625702f3c1bcf5ee4a16f280"
+  },
+  "run_data/w11r2-shutdown-v1/tools/process_audit.py": {
+    "bytes": 1910,
+    "sha256": "5aa3b5a9067c5729ab5daefd972d89ccc9515b5cffd02395322bd4b40b3e5595"
+  },
+  "run_data/w11r2-shutdown-v1/tools/startup_once.py": {
+    "bytes": 5163,
+    "sha256": "87c4f6817ac1d351401e5b200d477657e10940aa3c4fa07630f114144561e535"
+  },
+  "run_data/w11r2-shutdown-v1/unit-ros-log/python3_104063_1792058121228.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/unit-ros-log/python3_104063_1792058123835.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/unit-ros-log/python3_104063_1792058126438.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/unit-ros-log/python3_104098_1792058121616.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run_data/w11r2-shutdown-v1/unit-ros-log/python3_104185_1792058124055.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,24 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/haoyang/humanoid_nav_ws/src/t1_bringup
+configfile: setup.cfg
+plugins: ament-pep257-0.17.5, ament-copyright-0.17.5, launch-testing-3.4.12, ament-xmllint-0.17.5, ament-flake8-0.17.5, launch-testing-ros-0.26.13, ament-lint-0.17.5, colcon-core-0.21.3, cov-4.1.0, typeguard-4.1.5
+collecting ... collected 13 items
+
+src/t1_bringup/test/test_starter_shutdown.py::test_cleanup_is_ordered_and_idempotent PASSED [  7%]
+src/t1_bringup/test/test_starter_shutdown.py::test_sigint_during_client_destruction_does_not_unwind_cleanup PASSED [ 15%]
+src/t1_bringup/test/test_starter_shutdown.py::test_sigint_is_observed_at_spin_boundary PASSED [ 23%]
+src/t1_bringup/test/test_starter_shutdown.py::test_closed_context_does_not_spin PASSED [ 30%]
+src/t1_bringup/test/test_starter_shutdown.py::test_destructor_error_propagates_but_context_is_released PASSED [ 38%]
+src/t1_bringup/test/test_starter_shutdown.py::test_executor_timeout_is_not_reported_as_clean_shutdown PASSED [ 46%]
+src/t1_bringup/test/test_starter_shutdown.py::test_starter_only_classifies_expected_interrupts_as_normal[KeyboardInterrupt-True-0] PASSED [ 53%]
+src/t1_bringup/test/test_starter_shutdown.py::test_starter_only_classifies_expected_interrupts_as_normal[ExternalShutdownException-False-0] PASSED [ 61%]
+src/t1_bringup/test/test_starter_shutdown.py::test_starter_only_classifies_expected_interrupts_as_normal[ExternalShutdownException-True-ExternalShutdownException] PASSED [ 69%]
+src/t1_bringup/test/test_starter_shutdown.py::test_starter_only_classifies_expected_interrupts_as_normal[ValueError-True-ValueError] PASSED [ 76%]
+src/t1_bringup/test/test_starter_shutdown_ros.py::test_ready_starter_subprocess_single_sigint_during_client_cleanup[False] PASSED [ 84%]
+src/t1_bringup/test/test_starter_shutdown_ros.py::test_ready_starter_subprocess_single_sigint_during_client_cleanup[True] PASSED [ 92%]
+src/t1_bringup/test/test_starter_shutdown_ros.py::test_cleanup_after_real_context_shutdown_is_idempotent PASSED [100%]
+
+- generated xml file: /home/haoyang/humanoid_nav_ws/docs/evidence/W11R2/shutdown-tests.xml -
+============================== 13 passed in 6.29s ==============================

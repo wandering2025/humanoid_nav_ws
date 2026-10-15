@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="15" time="0.193" timestamp="2026-10-15T12:07:43.138915" hostname="DESKTOP-MF19MEU"><testcase classname="scripts.evaluation.tests.test_metrics" name="test_signed_geometry_and_moving_obstacle" time="0.002"><failure message="ModuleNotFoundError: No module named 'mujoco'">tmp_path = PosixPath('/tmp/pytest-of-haoyang/pytest-41/test_signed_geometry_and_movin0')
+
+    def test_signed_geometry_and_moving_obstacle(tmp_path):
+        xml=tmp_path/'fixture.xml'
+        xml.write_text('''&lt;mujoco&gt;&lt;worldbody&gt;&lt;geom name="ground" type="plane" size="5 5 .1"/&gt;
+          &lt;body name="trunk" pos="0 0 1"&gt;&lt;freejoint/&gt;&lt;geom name="robot" type="sphere" size=".2"/&gt;
+          &lt;geom name="visual_only" type="sphere" size="10" contype="0" conaffinity="0"/&gt;&lt;/body&gt;
+          &lt;body name="blocker" mocap="true" pos="2 0 1"&gt;&lt;geom name="obstacle" type="box" size=".5 .5 .5"/&gt;&lt;/body&gt;
+          &lt;/worldbody&gt;&lt;/mujoco&gt;''')
+        states=tmp_path/'states.jsonl'
+        states.write_text('\n'.join(json.dumps(dict(sim_time=t,qpos=[0,0,1,1,0,0,0],mocap_pos=[[x,0,1]],mocap_quat=[[1,0,0,0]])) for t,x in [(0,2),(.1,.6)]))
+&gt;       result=body_clearance({'scene_file':str(xml)},states)
+
+scripts/evaluation/tests/test_metrics.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+manifest = {'scene_file': '/tmp/pytest-of-haoyang/pytest-41/test_signed_geometry_and_movin0/fixture.xml'}
+geometry = PosixPath('/tmp/pytest-of-haoyang/pytest-41/test_signed_geometry_and_movin0/states.jsonl')
+
+    def body_clearance(manifest, geometry):
+        """10 Hz signed 3D distance of collision geoms, all environment except ground.
+    
+        Reads a separate MjData after the live process has exited. Sphere bounds only
+        prune pairs whose lower bound already exceeds the best exact distance.
+        """
+&gt;       import mujoco
+E       ModuleNotFoundError: No module named 'mujoco'
+
+scripts/evaluation/metrics.py:38: ModuleNotFoundError</failure></testcase><testcase classname="scripts.evaluation.tests.test_metrics" name="test_failure_precedence[result0-True-SUCCESS]" time="0.000" /><testcase classname="scripts.evaluation.tests.test_metrics" name="test_failure_precedence[result1-False-INVALID]" time="0.000" /><testcase classname="scripts.evaluation.tests.test_metrics" name="test_failure_precedence[result2-True-FAIL_COLLISION]" time="0.000" /><testcase classname="scripts.evaluation.tests.test_metrics" name="test_failure_precedence[result3-True-FAIL_FALL]" time="0.000" /><testcase classname="scripts.evaluation.tests.test_metrics" name="test_failure_precedence[result4-True-FAIL_STARTUP]" time="0.000" /><testcase classname="scripts.evaluation.tests.test_metrics" name="test_failure_precedence[result5-True-FAIL_TIMEOUT]" time="0.000" /><testcase classname="scripts.evaluation.tests.test_metrics" name="test_failure_precedence[result6-True-FAIL_PLANNING]" time="0.000" /><testcase classname="scripts.evaluation.tests.test_metrics" name="test_stop_displacement_includes_rebound" time="0.001" /><testcase classname="scripts.evaluation.tests.test_metrics" name="test_frozen_suite_coverage_and_safe_approach" time="0.028" /><testcase classname="scripts.evaluation.tests.test_metrics" name="test_trace_boolean_columns" time="0.001" /><testcase classname="scripts.evaluation.tests.test_metrics" name="test_tf_resolution_by_gid_preserves_duplicate_publishers" time="0.000" /><testcase classname="scripts.evaluation.tests.test_metrics" name="test_timeout_cancel_is_not_mislabelled_safety_failure" time="0.000" /><testcase classname="scripts.evaluation.tests.test_metrics" name="test_startup_missing_expected_tf_is_failed_startup_not_invalid" time="0.000" /><testcase classname="scripts.evaluation.tests.test_metrics" name="test_fall_terminal_manifest_even_without_terminal_trace_row" time="0.000" /></testsuite></testsuites>
