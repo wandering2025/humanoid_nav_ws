@@ -1,3 +1,5 @@
+> 后续发布决策（2026-10-15）：W14_DEMO_READY_WITH_DDS_TEARDOWN_WARNING；见[严格DDS关闭例外](dds-teardown-exception.md)和[当前清单](release-manifest.md)。下文保留本次决策之前的离线修复与阻塞历史，不追溯改写原FAILED。本次不再执行GPU/GUI复验，录像FINAL_VIDEO_PENDING_W15。
+
 # W14 RViz退出修复：离线假设与严格复验预登记
 
 本轮起始2026-10-15，HEAD `f5f401165270750b777630ad80c3010dd816462b`，release/w13-formal-v1-demo，clean。

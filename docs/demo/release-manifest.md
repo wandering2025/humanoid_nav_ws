@@ -1,3 +1,79 @@
+# W14 发布清单：W14_DEMO_READY_WITH_DDS_TEARDOWN_WARNING
+
+当前权威发布状态；下方旧清单是历史快照，原始FAILED文件与所有日志/索引未覆盖。W13继续FAILED，W15未启动。
+发布分支 **release/w13-formal-v1-demo**；唯一推荐命令 `./scripts/run_demo.sh`，默认GUI已解除DDS-only封锁。
+
+| 版本 | 完整SHA |
+|---|---|
+| 发布基线 / 首次W13交接 | b23a92465b317ca781d3eb210051126c5786908e |
+| 首次W13实现/40例证据 | 04d74f17a6d56d24d7da5ae8ff0c9a4398608daf |
+| 原DEMO_DECISION_SHA | ebbf062da8db33c691935a64ab327fbfccbd122f |
+| DDS_TEARDOWN_EXCEPTION决策 | f687f21922245aa6cace42a9cef204c18f50f9b2 |
+| 当前分类/入口/测试实现 | 74aae889e53ffbd8a4652bcda358ddca60d25f9d |
+| 现有两轮GUI共同被测版本 | a963518410ad0faefad0c3b2230d367780c91212 |
+| 保留的实验分支HEAD | 7b58acd77de722c9b53f4b69271dde862d7f0ff3 |
+
+本次仅30项受影响非图形测试及脚本静态检查通过（18新分类、4finalizer、8图形监控规则纯函数）；无新GPU查询/GUI/物理运行。
+新的发布分类不是对当前分类代码新增GUI复验的宣称。两轮实体行为证据对应a9635...，导航/控制/安全/世界/轨迹/seed未改。
+最终交接SHA由 `git log -1 --format=%H -- docs/plans/t1_mujoco_navigation/交接记录.md` 读取（记录提交不自引用）。
+
+## 严格 DDS_TEARDOWN_EXCEPTION
+
+[独立决策](dds-teardown-exception.md)列明全部14项。仅在导航已经SUCCESS、动态PASS、零接触/跌倒、安全ACK和物理停车完成，
+目标工具/launch/MuJoCo/RViz/navigation_starter及所有机器人组件退出0，DDS运行未早死、ROS未中断，DDS仅在预期SIGINT后退出，
+DDS日志与哈希/真实码已保存，不需SIGTERM/SIGKILL、DDS PID消失、端口释放、无项目残留、无宿主图形故障/黑屏时，
+终端明确显示 **DDS_TEARDOWN_WARNING** 与精确码，整体为SUCCESS_WITH_WARNING（shell返回0）。JSON仍保存 `dds_returncode=-11`。
+任一门槛未满足/证据缺失仍为FAILED；不隐藏stderr、不伪造子进程退出、不屏蔽其他异常、不自动重试。
+第二轮原始FAILED不追溯修改；新增汇总在[publication-assessment.json](../evidence/W14/dds-teardown-release/publication-assessment.json)。
+
+## 已有两轮分类与指标
+
+01 run ID：`20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89`。
+02 run ID：`20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217`。
+两轮均独立env-i新Ubuntu PTY、命令相同 `./scripts/run_demo.sh`；未亲手关闭重开Windows Terminal UI。
+
+| 指标 | 01 | 02 |
+|---|---|---|
+| 原始结果 → 发布分类 | SUCCESS → SUCCESS | FAILED → SUCCESS_WITH_WARNING |
+| 导航 / 安全 / DDS | NAVIGATION_SUCCESS / SAFETY_PASS / 正常 | NAVIGATION_SUCCESS / SAFETY_PASS / DDS_TEARDOWN_WARNING |
+| 固定场景/seed/起终点 | U01/4000/(0,0,0)→(9,0,0) | 相同 |
+| 位置误差m / 偏航误差° | 0.132094067 / 5.188000704 | 0.140319837 / 1.884883843 |
+| 全身10Hz采样最小净距m | 1.437201227 | 1.545333749 |
+| static/obstacle/nonfoot接触 / 跌倒 | 0/0/0 / 0 | 0/0/0 / 0 |
+| 动态判据 / 保护区静止s | PASS / 7.10 | PASS / 7.00 |
+| 停车ACK / 物理静止 | True / True | True / True |
+| DDS / RViz / launch / goal退出码 | 0 / 0 / 0 / 0 | −11 / 0 / 0 / 0 |
+| MuJoCo及全部17个launch组件 | 全部0 | 全部0 |
+| 组件ready / 任务wall s | 20.6857 / 81.8091 | 20.2357 / 82.9267 |
+| 任务sim / runner结束wall s | 46.66 / 92.0977 | 47.30 / 99.4975 |
+| TCP冷却wall s | 58.9830 | 59.2216 |
+| 命令至ready / 最终文件约s | 30.03 / 172.76 | 42.08 / 193.11 |
+| 额外导航干预 / SIGTERM / SIGKILL | 无 / 无 / 无 | 无 / 无 / 无 |
+| PID残留 / 42127与42128 | 无 / 均释放 | 无 / 均释放 |
+| GPU峰值°C / MiB / 利用率% | 61 / 1024 / 60 | 61 / 1039 / 74 |
+
+命令墙钟估算基于秒精度run ID与落盘时间；其他wall为monotonic，含用户最终视图保留时间，不是5–8分钟讲解时长。
+采样最小净距不保证连续时间最小值；接触以500Hz另检。首次W13仍36/40 FAILED，不把精选两轮当随机可靠率。
+唯一最小RViz `20261015T134828Z_rviz_minimal_6d4beca0` PASS：RViz/publisher/DDS均0，37.7332s，无残留，51°C/851MiB/45%。
+
+## 故障、宿主审查与录像
+
+DDS最可信证据：内核记录关闭阶段dds.tcp.42127线程在外部libfastrtps.so.2.14.7段错误，模块偏移0x3c4181；没有精确库内栈，不声称修复。
+RViz原−6的具体堆对象未知；ROS context与display销毁顺序是最可信机制假设，修复组合后最小及两次完整均0。
+两轮Windows新增显示故障/LiveKernelEvent141及WSLg RemovingDevice/Pagefault匹配为空；无新增黑屏；末次审计GPU49°C/765MiB/21%。
+Linux kernel仍有dxg adapter-query ioctl−22共303项、−2共201项，未证明无害；监控不保证宿主绝对安全。
+首次黑屏、CPU0.42s判据失败、RViz−6、DDS−11及原FAILED都永久保留，原8组raw索引506项hash复核PASS。
+DDS-only halt原字节已归档，[hash及30项测试](../evidence/W14/dds-teardown-release/verification.json)可追溯；任何新的GPU halt仍拒绝启动。
+
+录像状态：**FINAL_VIDEO_PENDING_W15**。文件路径/大小/SHA256：N/A；run ID/录像代码SHA：未录制；播放验证：NOT_RUN。
+W15负责按[精确人工步骤](troubleshooting.md)录制未剪辑双视图原片，保存ignored目录并补齐manifest与完整播放验证；当前无可用备用录像。
+W15必读：当前交接、records/W14.md、本清单、dds-teardown-exception.md、rviz-lifecycle-recovery.md、
+../evidence/W14/dds-teardown-release/README.md 及原rviz-lifecycle/README.md。本次不启动W15。
+
+---
+
+以下均为本次决策之前的历史清单，保留其当时的BLOCKED/FAILED结论；当前发布分类以上文为准。
+
 # W14 严格授权复验最终清单：W14_BLOCKED
 
 本段为当前状态，以下旧清单保留历史。W15未启动。

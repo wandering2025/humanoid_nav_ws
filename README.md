@@ -4,22 +4,23 @@
 ./scripts/run_demo.sh
 ```
 
-**W14_BLOCKED**：本轮两次均到达、RViz均正常退出0，但第二轮DDS关闭时段错误（−11）；GUI入口再次封锁，返回3且不访问GPU。
-同一版本两次排练已执行，但未全部正常退出。一次最小和两次完整的授权次数已用完，不删除halt追加重跑。
-入口/文档已实现，原W13仍FAILED（36/40）；安全停车和无残留证据不掩盖DDS异常退出。
-[快速开始](docs/demo/quick-start.md) · [发布清单与全部结果](docs/demo/release-manifest.md) · [现场流程](docs/demo/live-demo-runbook.md) ·
+**W14_DEMO_READY_WITH_DDS_TEARDOWN_WARNING**。默认GUI已解除本次DDS-only封锁；自动加载环境并启动完整双窗口导航。
+到达后保留画面，Ctrl+C安全停车并回收本次进程。两次固定U01/4000演示均到达、零碰撞/跌倒、RViz/MuJoCo/launch均退出0。
+第二轮DDS在停车之后退出−11：原始FAILED保留，依据[严格DDS关闭例外](docs/demo/dds-teardown-exception.md)在发布层归类为SUCCESS_WITH_WARNING。
+仅在导航成功、停车完成、其他组件全0、DDS运行通信正常、预期关闭、日志和退出码完整、无强杀/残留/宿主故障时允许；终端明确警告，JSON保留−11。
+
+[快速开始](docs/demo/quick-start.md) · [发布清单](docs/demo/release-manifest.md) · [现场流程](docs/demo/live-demo-runbook.md) ·
 [排障](docs/demo/troubleshooting.md) · [架构限制](docs/demo/architecture-and-limitations.md) · [讲解提纲](docs/demo/presentation-outline.md)
 
-用户接受[首次W13演示基线](docs/demo/baseline-decision.md)，未改导航/控制/安全/物理。原实验分支、全部失败和
-[宿主图形事故](docs/demo/graphics-incident-20261015.md)证据保留。不启动W15，录像尚缺。
-`--help`、内核隔离的CPU `--preflight`可用；headless辅助不能替代GUI验收。
+首次W13仍FAILED（36/40），不宣称可靠性或安全认证；导航/控制/安全/物理参数不变。原实验分支、首次黑屏、CPU失败、RViz−6与DDS−11证据保留。
+录像 **FINAL_VIDEO_PENDING_W15**，尚未录制或验证播放；W15未启动。本次仅非图形分类测试，没有新增GPU/GUI运行。
 以下历史开发入口不是当前现场推荐命令。
 
 ---
 
 # Booster T1 MuJoCo navigation
 
-This workspace implements the project one explicitly assigned step at a time. W01–W10 provide the physical strategy runner, calibrated command guard, consistent ROS state/TF, static scenes, compensated LiDAR, SLAM mapping and saved-map AMCL localization. W10 adds the single-source velocity safety chain and latched fault stops. W11–W13 implement Nav2 navigation, dynamic scenarios and the failed formal-v1 evaluation; W14 packaging is blocked by an RViz shutdown failure.
+This workspace implements the project one explicitly assigned step at a time. W01–W10 provide the physical strategy runner, calibrated command guard, consistent ROS state/TF, static scenes, compensated LiDAR, SLAM mapping and saved-map AMCL localization. W10 adds the single-source velocity safety chain and latched fault stops. W11–W13 implement Nav2 navigation, dynamic scenarios and the failed formal-v1 evaluation; W14 packaging is released with a narrowly scoped DDS teardown warning; W13 remains FAILED.
 
 The frozen external repositories and existing venv are documented in [environment baseline](docs/baseline/environment.md) and [dependencies.repos](dependencies.repos). Design contracts: [system](docs/architecture/system.md), [interfaces](docs/architecture/interfaces.md), [acceptance](docs/architecture/acceptance.md). Progress and handoff: [execution board](docs/plans/t1_mujoco_navigation/执行看板.md), [W09 record](docs/plans/t1_mujoco_navigation/records/W09.md).
 

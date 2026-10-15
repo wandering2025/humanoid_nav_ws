@@ -1,6 +1,6 @@
 # 架构与已知限制
 
-当前 **W14_BLOCKED**，见[宿主图形事故](graphics-incident-20261015.md)。
+当前 **W14_DEMO_READY_WITH_DDS_TEARDOWN_WARNING**；严格[DDS关闭例外](dds-teardown-exception.md)不代表修复DDS或认证安全。历史[宿主图形事故](graphics-incident-20261015.md)仍保留。
 
 MuJoCo唯一物理owner以2ms推进接触动力学，20ms执行官方t1_walk策略；不编辑基座伪造行走。
 真实9×360射线生成scan；AMCL在已有SLAM图上定位且独占map→odom。NavFn全局规划，
@@ -19,9 +19,13 @@ headless RTF 0.9999998608211204严格低于1，工程差异小仍记FAIL。
 ROS/MPPI调度非确定性；同机小样本不能外推真机可靠率。W10停止/减速圆1.65/1.95m保持。
 10Hz采样三维全身净距不是连续下界，500Hz接触另计。无硬件安全认证。
 
-当前图形限制：历史双GUI触发/暴露宿主双显卡TDR。已改为明确NVIDIA MuJoCo+CPU llvmpipe RGB点格RViz；
-替代组合站立/停车/退出/端口已通过，已有完整到达GUI，但最新RViz退出堆损坏−6；同源码两次默认验收未完成。正常进程回收和监控不能阻止宿主驱动挂起。
-RViz只读原地图/costmap，转换单元格中心与颜色供显示；不改变planner输入。原MapDisplay shader禁用。
+当前图形限制：历史双GUI触发/暴露宿主驱动TDR与黑屏；现在MuJoCo和RViz明确绑定NVIDIA RTX4050，WSLg仍是Mesa/D3D12。
+RViz RGB点格薄宿主按Qt线程顺序销毁显示和ROS context；最小和两次完整退出均0，但原−6的精确堆破坏对象未证明。
+第二轮DDS关闭后外部libfastrtps.so.2.14.7 TCP线程SIGSEGV−11未修复，严格门槛满足时仅列关闭警告，原FAILED不改。
+无新增Windows显示事件/LiveKernelEvent141或WSLg RemovingDevice/Pagefault；kernel仍有dxg adapter-query ioctl−22/−2，未证明无害。
+正常进程回收和监控不构成宿主故障隔离保证，不能承诺绝对安全；新图形故障仍锁存并停止，不自动重试。
+RViz只读原地图/costmap，转换单元格中心与颜色供显示；不改变planner输入，原MapDisplay shader禁用。
+录像FINAL_VIDEO_PENDING_W15，无已验证备用片。本次不执行W15。
 
 不打包外部权重/mesh。冻结Deploy 7bb1462，LICENSE标Apache-2.0并提及IsaacLab BSD-3-Clause；
 Assets 12a9751，BSD-3-Clause。本地文件清单未发现更局部许可证；不是对所有第三方/权重分发权的法律结论。
