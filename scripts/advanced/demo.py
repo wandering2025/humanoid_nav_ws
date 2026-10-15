@@ -313,7 +313,11 @@ class Advanced(base.Demo):
         request=GetParameters.Request();request.names=['general_goal_checker.xy_goal_tolerance','general_goal_checker.yaw_goal_tolerance']
         tolerance=self.call(GetParameters,'/controller_server/get_parameters',request)
         self.summary['controller_goal_tolerances']=[v.double_value for v in tolerance.values]
-        assert self.summary['controller_goal_tolerances']==[.12,.2]
+        assert self.summary['controller_goal_tolerances']==[.2,.2]
+        request.names=['FollowPath.primary_controller']
+        plugin=self.call(GetParameters,'/controller_server/get_parameters',request).values[0].string_value
+        self.summary['controller_plugin']=plugin
+        assert plugin=='nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController'
         assert not n.initializations, 'Live SLAM must not use AMCL initialpose'
         self.summary.update(lifecycle=lifecycle,readiness_wall_s=time.monotonic()-self.started)
         if not self.args.headless and not self.args.no_rviz:
