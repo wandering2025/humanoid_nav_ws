@@ -20,6 +20,18 @@ GPU_ENV=dict(GALLIUM_DRIVER='d3d12',MESA_D3D12_DEFAULT_ADAPTER_NAME='NVIDIA GeFo
 ERROR=re.compile(r'Removing Device|device lost|device removed|GPU hang|GPU fault|Xid|DXGI_ERROR|segmentation fault',re.I)
 
 
+def renderer_verified(text):
+    values=re.findall(r'^OpenGL renderer string:\s*(.+)$',text,re.M)
+    for line in text.splitlines():
+        if line.startswith('{'):
+            try:
+                row=json.loads(line)
+                if 'renderer' in row:values.append(row['renderer'])
+            except (ValueError,TypeError):
+                pass
+    return bool(values) and all('NVIDIA' in value and '4050' in value and 'Intel' not in value for value in values)
+
+
 def sample():
     p=subprocess.run([SMI,'--query-gpu=index,name,driver_version,temperature.gpu,memory.used,memory.total,utilization.gpu,power.draw',
                       '--format=csv,noheader,nounits'],capture_output=True,text=True,timeout=3)
@@ -101,8 +113,7 @@ def run_stage(name,command,limit):
             watch.check([output/'renderer.log'])
             if p.returncode!=0:raise RuntimeError(f'Renderer exit {p.returncode}')
             text=(output/'renderer.log').read_text(errors='replace')
-            render_lines=[line for line in text.splitlines() if 'renderer' in line.lower()]
-            if not render_lines or not all('NVIDIA' in line and '4050' in line and 'Intel' not in line for line in render_lines):
+            if not renderer_verified(text):
                 raise RuntimeError('Actual OpenGL renderer is not verified NVIDIA RTX4050')
         result['status']='PASS'
     except BaseException as exc:

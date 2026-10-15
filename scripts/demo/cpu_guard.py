@@ -27,7 +27,7 @@ class PathRule(ctypes.Structure):
     _fields_ = [('allowed_access', ctypes.c_uint64), ('parent_fd', ctypes.c_int32)]
 
 
-def enter():
+def enter(*, software_display=False):
     if os.uname().machine != 'x86_64':
         raise RuntimeError('CPU guard supports only verified x86_64 syscall numbers; refusing.')
     libc = ctypes.CDLL(None, use_errno=True)
@@ -83,17 +83,19 @@ def enter():
         raise RuntimeError('Device denial not enforced; refusing all runtime imports.')
     with open('/dev/null', 'rb') as allowed:
         allowed.read(0)
+    display=os.environ.get('DISPLAY','') if software_display else ''
+    wayland=os.environ.get('WAYLAND_DISPLAY','') if software_display else ''
     os.environ.update(CUDA_VISIBLE_DEVICES='', NVIDIA_VISIBLE_DEVICES='none',
                       LIBGL_ALWAYS_SOFTWARE='true', GALLIUM_DRIVER='llvmpipe',
                       LP_NUM_THREADS='2', OMP_NUM_THREADS='1', OPENBLAS_NUM_THREADS='1',
-                      DISPLAY='', WAYLAND_DISPLAY='', WSL_INTEROP='')
+                      DISPLAY=display, WAYLAND_DISPLAY=wayland, WSL_INTEROP='', QT_OPENGL='software')
     # Scheduler niceness affects only this process and its descendants.
     if os.getpriority(os.PRIO_PROCESS, 0) < 10:
         os.nice(10 - os.getpriority(os.PRIO_PROCESS, 0))
     return dict(landlock_abi=abi, handled_access_fs=HANDLED, allowed_paths=sorted(paths),
                 forbidden_probe='/dev/full', forbidden_probe_errno=errno.EACCES,
                 no_gpu_device_opened_for_testing=True, no_new_privs=libc.prctl(39, 0, 0, 0, 0),
-                renderer='disabled', cuda_probe=False, nice=os.getpriority(os.PRIO_PROCESS, 0),
+                renderer='software-only' if software_display else 'disabled', cuda_probe=False, nice=os.getpriority(os.PRIO_PROCESS, 0),
                 implementation_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest())
 
 
