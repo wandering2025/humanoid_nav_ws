@@ -7,6 +7,7 @@ import subprocess
 import tempfile
 import time
 import shutil
+from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
@@ -64,6 +65,21 @@ class Isolation(unittest.TestCase):
         with patch.object(demo.socket,'socket',side_effect=PermissionError(errno.EACCES,'restricted')):
             with self.assertRaisesRegex(RuntimeError,'Cannot inspect DDS port'):
                 demo.port_free()
+
+    def test_ros_context_closes_before_port_reuse_check(self):
+        state={'node_closed':False,'context_closed':False}
+        instance=object.__new__(demo.Demo)
+        instance.children={};instance.owned={};instance.cleanup_started=False
+        instance.summary={};instance.started=time.monotonic();instance.runtime_graph={}
+        instance.launch_log=demo.OUT/'absent-launch.log'
+        instance.node=SimpleNamespace(events=[],initializations=[],clock_regressions=0,
+            destroy_node=lambda:state.update(node_closed=True))
+        fake=SimpleNamespace(ok=lambda:True,shutdown=lambda:state.update(context_closed=True))
+        def bind_check():
+            self.assertTrue(state['node_closed']);self.assertTrue(state['context_closed'])
+            return True
+        with patch.dict(demo.sys.modules,{'rclpy':fake}),patch.object(demo,'port_free',side_effect=bind_check),patch.object(demo,'port_connections',return_value={}):
+            instance.cleanup()
 
     def test_time_wait_waits_without_signalling_any_process(self):
         with patch.object(demo,'port_free',side_effect=[False,True]), \

@@ -504,9 +504,6 @@ class Demo:
         self.summary['launch_process_exit_codes']={name:dict(pid=int(pid),exit_code=exits.get(name)) for name,pid in starts.items()}
         self.summary['remaining_owned_pids']=[r['pid'] for r in self.owned.values() if alive(r)]
         self.summary['remaining_project_processes']=project_processes()
-        self.summary['dds_port_immediately_bindable']=port_free()
-        self.summary['dds_port_state_after_exit']=port_connections()
-        self.summary['dds_port_released']=wait_port_reusable()
         if self.node:
             self.summary['events']=self.node.events
             self.summary['graph']=self.runtime_graph
@@ -517,6 +514,9 @@ class Demo:
             import rclpy
             if rclpy.ok():
                 rclpy.shutdown()
+        self.summary['dds_port_immediately_bindable']=port_free()
+        self.summary['dds_port_state_after_exit']=port_connections()
+        self.summary['dds_port_released']=wait_port_reusable()
         self.summary['wall_total_s']=time.monotonic()-self.started
 
     def metrics(self):
@@ -583,6 +583,8 @@ def main():
     else:
         try:
             profile=json.loads(GPU_PROFILE.read_text())
+            for path,expected in profile['stages'].items():
+                if sha(WS/path)!=expected:raise RuntimeError(f'GPU validation evidence changed: {path}')
             if profile['status']!='GUI_VALIDATED' and not (args.startup_check and profile['status']=='STATIC_STAGES_PASSED'):
                 raise RuntimeError(SAFETY_BLOCK_REASON)
             from gpu_watch import Watch,GPU_ENV

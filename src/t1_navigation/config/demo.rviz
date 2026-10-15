@@ -154,14 +154,12 @@ Visualization Manager:
       History Policy: Keep Last
       Depth: 1
     Shape: Arrow
-  - Class: rviz_default_plugins/Path
-    Name: Local MPPI plan
+  - Class: rviz_default_plugins/Polygon
+    Name: Local footprint
     Enabled: true
     Color: 20; 180; 110
-    Line Style: Billboards
-    Line Width: 0.035
     Topic:
-      Value: /local_plan
+      Value: /local_costmap/published_footprint
       Durability Policy: Volatile
       Reliability Policy: Reliable
       History Policy: Keep Last
@@ -169,7 +167,7 @@ Visualization Manager:
   - Class: rviz_default_plugins/MarkerArray
     Name: Demo safety and goal
     Enabled: true
-    Marker Topic:
+    Topic:
       Value: /t1/viz/demo
       Durability Policy: Transient Local
       Reliability Policy: Reliable
