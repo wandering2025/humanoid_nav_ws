@@ -6,8 +6,8 @@ case "${1:-}" in
   --help|-h)
     cat <<'HELP'
 Usage: ./scripts/run_demo.sh [--preflight] [--headless] [--no-rviz] [--scenario U01]
-STATUS: W14_BLOCKED. Host black-screen incident: every runtime mode is locked.
-Only --help is available until a separately reviewed recovery is authorized.
+STATUS: W14_BLOCKED for GUI. CPU-isolated --preflight and --headless are available.
+Default GUI remains locked after the host black-screen incident.
 Default: MuJoCo + RViz, frozen formal-v1 U01 seed 4000, A(0,0,0) -> B(9,0,0).
 --preflight  Check only; start no ROS/DDS/simulation processes.
 --headless   Disable both GUI windows; automatically exit after result.
@@ -19,12 +19,16 @@ W13 remains FAILED (36/40). This fixed demonstration is not a reliability test.
 HELP
     exit 0 ;;
 esac
-echo '[demo] W14_BLOCKED: the previous GUI launch was followed by a host black screen and forced reboot.' >&2
-echo '[demo] Runtime and GPU preflight are disabled, including --headless; no ROS/DDS/graphics process will start.' >&2
-echo "[demo] Read $DEMO_ROOT/docs/demo/graphics-incident-20261015.md" >&2
-exit 3
-
-# Retained implementation below is deliberately unreachable during incident review.
+cpu_mode=false
+for argument in "$@"; do
+  if [[ "$argument" == --headless || "$argument" == --preflight ]]; then cpu_mode=true; fi
+done
+if ! $cpu_mode; then
+  echo '[demo] W14_BLOCKED: GUI remains locked after the host black-screen incident.' >&2
+  echo '[demo] Only --preflight or --headless may run, with inherited CPU-only device isolation.' >&2
+  echo "[demo] Read $DEMO_ROOT/docs/demo/cpu-recovery-plan.md" >&2
+  exit 3
+fi
 export T1_VENV="${T1_VENV:-/home/haoyang/venvs/humanoid_mujoco}"
 export T1_UPSTREAM="${T1_UPSTREAM:-/home/haoyang/robot_sim_sources/booster_deploy}"
 export T1_ASSETS="${T1_ASSETS:-/home/haoyang/robot_sim_sources/booster_assets}"

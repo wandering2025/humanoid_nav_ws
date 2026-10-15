@@ -22,7 +22,7 @@ OUT = Path(os.environ['T1_DEMO_DIR'])
 RUN_ID = os.environ['T1_DEMO_RUN_ID']
 BASELINE = 'b23a92465b317ca781d3eb210051126c5786908e'
 STOP = False
-SAFETY_BLOCK_REASON = 'W14_BLOCKED: host black-screen incident; runtime/GPU probes disabled pending reviewed recovery.'
+SAFETY_BLOCK_REASON = 'W14_BLOCKED: host black-screen incident; GUI remains disabled.'
 
 
 def say(message):
@@ -122,6 +122,8 @@ def preflight(args):
     assert (m.nq, m.nv, m.nu) == (30, 29, 23), 'Incompatible model dimensions.'
     for package in ('t1_mujoco', 't1_bringup', 't1_description', 't1_navigation'):
         assert Path(get_package_prefix(package)).is_relative_to(WS/'install'), f'{package} overlay is not this workspace; rebuild via /usr/bin/colcon.'
+    obsolete=WS/'install/t1_navigation/share/ament_index/resource_index/nav2_core__pluginlib__plugin/t1_navigation'
+    assert not obsolete.exists(), f'Stale experimental plugin index: {obsolete}; archive generated artifacts and rebuild the formal-v1 overlay, do not alter source.'
     import t1_bringup.navigation_tools as tools
     assert Path(tools.__file__).resolve() == WS/'src/t1_bringup/t1_bringup/navigation_tools.py', 'Stale overlay; use colcon build --symlink-install.'
     wrapper = WS/'install/t1_mujoco/lib/t1_mujoco/t1_sim'
@@ -132,16 +134,8 @@ def preflight(args):
     leftovers = project_processes()
     assert not leftovers, f'Existing project processes: {[r["pid"] for r in leftovers]}; stop their owning terminal, never pkill.'
     assert port_free(), 'DDS TCP42127 occupied; inspect ss -ltnp, stop only its known owner.'
-    graphics = {'requested': not args.headless, 'cuda_available': torch.cuda.is_available()}
-    if not args.headless:
-        assert os.environ.get('DISPLAY'), 'DISPLAY missing; open Ubuntu-24.04 graphical/WSLg terminal or use --headless.'
-        for name in ('glxinfo', 'xwininfo', 'import'):
-            assert shutil.which(name), f'Missing {name}; graphics tools in docs/baseline are required for GUI validation.'
-        gl = command(['glxinfo', '-B'], stderr=subprocess.STDOUT)
-        (OUT/'graphics.txt').write_text(gl+'\n')
-        assert 'OpenGL renderer string:' in gl, 'OpenGL renderer unavailable; check WSLg/driver.'
-        graphics['renderer'] = next(x for x in gl.splitlines() if 'OpenGL renderer string:' in x)
-        assert 'llvmpipe' not in gl.lower(), 'Software GL renderer; restore GPU/WSLg before formal GUI rehearsal.'
+    graphics = dict(requested=False, status='BLOCKED', cuda_probe=False,
+                    cpu_guard=args.cpu_guard)
     data = dict(run_id=RUN_ID, code_sha=git('rev-parse', 'HEAD'), dirty=git('status', '--porcelain'),
                 baseline=BASELINE, scenario='U01', seed=4000, start=[0,0,0], goal=[9,0,0],
                 interpreter=sys.executable, python=sys.version, mujoco=mujoco.__version__, torch=torch.__version__,
@@ -163,6 +157,8 @@ class Demo:
                             started_utc=datetime.now(timezone.utc).isoformat(), arrived=False,
                             human_intervention=False, status='STARTING')
         self.last_status = 0
+        self.last_clock_seen = None
+        self.clock_changed_wall = self.started
         self.log = (OUT/'runtime.log').open('a')
         # ROS diagnostics go to a file, progress stays on stdout.
         os.dup2(self.log.fileno(), 2)
@@ -193,6 +189,12 @@ class Demo:
             raise InterruptedError('User requested stop')
         if self.node:
             rclpy.spin_once(self.node, timeout_sec=.01)
+        now=time.monotonic()
+        if self.node and self.node.sim != self.last_clock_seen:
+            self.last_clock_seen=self.node.sim
+            self.clock_changed_wall=now
+        if check_stop and now-self.started>15 and now-self.clock_changed_wall>3:
+            raise RuntimeError('Simulation clock stalled for 3 wall seconds; stopping this run')
         if time.monotonic()-self.last_status >= 1:
             self.track()
             self.last_status = time.monotonic()
@@ -335,7 +337,7 @@ class Demo:
         self.safe_stop()
         self.summary['status']='ARRIVAL_PENDING_OFFLINE_CHECK'
         save('partial-result.json',self.summary)
-        say('Nav2 verified arrival. Final views retained; Ctrl+C ends safely and writes independent final metrics.')
+        say('Nav2 verified arrival. Writing independent final metrics after safe shutdown.' if self.args.headless else 'Nav2 verified arrival. Final views retained; Ctrl+C ends safely and writes independent final metrics.')
         if not self.args.headless:
             self.summary['status']='FINAL_VIEW'
             while not STOP:
@@ -349,10 +351,21 @@ class Demo:
             assert response.success,response.message
             n=self.node
             def stopped():
-                if not n.gate or n.gate['state']!='STOPPED' or len(n.rows)<22:
+                if not n.gate or n.gate['state']!='STOPPED' or len(n.rows)<27:
                     return False
-                rows=n.rows[-22:]; first,last=rows[0],rows[-1]; dt=last['sim']-first['sim']
-                return dt>=2 and all(r['u_pol'] and all(abs(v)<1e-9 for v in r['u_pol']) for r in rows) and math.hypot(last['x']-first['x'],last['y']-first['y'])/dt<.05 and abs(angle(last['yaw']-first['yaw']))/dt<.05
+                rows=n.rows[-27:]; held=rows[-21:]
+                if held[-1]['sim']-held[0]['sim']<2.0-1e-6:
+                    return False
+                for row in held:
+                    if not row['u_pol'] or any(abs(v)>1e-9 for v in row['u_pol']):
+                        return False
+                    prior=[r for r in rows if r['sim']<=row['sim']-.5+1e-6]
+                    if not prior:
+                        return False
+                    old=prior[-1];dt=row['sim']-old['sim']
+                    if not .49<=dt<=.7 or math.hypot(row['x']-old['x'],row['y']-old['y'])/dt>=.05 or abs(angle(row['yaw']-old['yaw']))/dt>=.05:
+                        return False
+                return True
             self.until(stopped,10.,False)
             self.summary['safe_stop']=dict(ack=True,physical_stationary=True,gate=n.gate)
         except Exception as exc:
@@ -363,10 +376,10 @@ class Demo:
         if self.cleanup_started:
             return
         self.cleanup_started=True
+        self.summary['shutdown_signals']=[]
         if self.node and 'launch' in self.children and self.children['launch'][0].poll() is None:
             self.safe_stop()
         self.track()
-        self.summary['shutdown_signals']=[]
         # One SIGINT to launch parent; launch forwards once to its children.
         for name in ('goal','launch','dds'):
             if name not in self.children:
@@ -452,25 +465,36 @@ class Demo:
         contacts=self.summary['contacts']
         self.summary['arrived']=bool(success_sim and settle['settled'] and nav.get('verified') and
             settle['settle_start_sim']+2-nav['accepted_sim']<=120)
+        graph=self.runtime_graph
+        self.summary['graph_contract']=dict(final_only_collision_monitor=graph.get('/cmd_vel',{}).get('publishers')==['collision_monitor'],
+            obstacle_truth_isolated=set(graph.get('/t1/eval/obstacle',{}).get('subscribers',[]))=={'t1_evaluator'},
+            robot_truth_isolated=set(graph.get('/t1/eval/ground_truth',{}).get('subscribers',[]))=={'t1_evaluator'})
         exit_ok=all(v==0 for v in self.summary['parent_exit_codes'].values()) and bool(self.summary['launch_process_exit_codes']) and all(r['exit_code']==0 for r in self.summary['launch_process_exit_codes'].values()) and manifest.get('exit_code')==0
         self.summary['status']='SUCCESS' if (self.summary['arrived'] and not self.summary['fell'] and
             contacts==dict(static_env=0,obstacle=0,ground_nonfoot=0) and result['dynamic']['verdict']=='PASS' and
-            exit_ok and self.summary.get('safe_stop',{}).get('physical_stationary') and
+            exit_ok and all(self.summary['graph_contract'].values()) and self.summary.get('safe_stop',{}).get('physical_stationary') and
             not self.summary['remaining_owned_pids'] and not self.summary['remaining_project_processes'] and
             self.summary['dds_port_released'] and self.summary.get('clock_regressions')==0 and
             len(self.summary['initializations'])==1 and not self.summary.get('error')) else 'FAILED'
 
 
 def main():
-    if SAFETY_BLOCK_REASON:
-        say(SAFETY_BLOCK_REASON)
-        return 3
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--preflight',action='store_true')
     parser.add_argument('--headless',action='store_true')
     parser.add_argument('--no-rviz',action='store_true')
     parser.add_argument('--scenario',choices=('U01','sudden-approach'),default='U01')
     args=parser.parse_args()
+    if SAFETY_BLOCK_REASON and not (args.headless or args.preflight):
+        say(SAFETY_BLOCK_REASON)
+        return 3
+    try:
+        from cpu_guard import enter
+        args.cpu_guard=enter()
+        save('cpu-guard.json',args.cpu_guard)
+    except Exception as exc:
+        say(f'CPU isolation FAILED: {exc}; refusing all ROS/MuJoCo/Torch imports')
+        return 3
     def stop(signum,frame):
         global STOP
         STOP=True

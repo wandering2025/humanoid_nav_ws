@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import subprocess
 import tempfile
+import time
 import unittest
 from unittest.mock import patch
 
@@ -36,6 +37,28 @@ class Isolation(unittest.TestCase):
             child.terminate();child.wait()
             unrelated.terminate();unrelated.wait()
 
+    def test_cleanup_reaps_cooperative_child_and_preserves_unrelated(self):
+        instance=object.__new__(demo.Demo)
+        instance.children={}; instance.owned={}; instance.node=None
+        instance.cleanup_started=False; instance.summary={}; instance.started=time.monotonic()
+        instance.launch_log=demo.OUT/'absent-launch.log'
+        unrelated=subprocess.Popen(['sleep','30'])
+        script="import signal,time,sys; signal.signal(signal.SIGINT,lambda *_:sys.exit(0)); print('READY',flush=True); time.sleep(30)"
+        child=instance.spawn('goal',[demo.sys.executable,'-c',script])
+        try:
+            deadline=time.monotonic()+5
+            while 'READY' not in (demo.OUT/'goal.log').read_text():
+                self.assertLess(time.monotonic(),deadline)
+                time.sleep(.01)
+            with patch.object(demo,'port_free',return_value=True):
+                instance.cleanup()
+            self.assertEqual(child.returncode,0)
+            self.assertEqual(instance.summary['remaining_owned_pids'],[])
+            self.assertIsNone(unrelated.poll())
+        finally:
+            if child.poll() is None:child.kill();child.wait()
+            unrelated.terminate();unrelated.wait()
+
     def test_permission_error_not_reported_as_occupied_port(self):
         with patch.object(demo.socket,'socket',side_effect=PermissionError(errno.EACCES,'restricted')):
             with self.assertRaisesRegex(RuntimeError,'Cannot inspect DDS port'):
@@ -48,14 +71,14 @@ class Isolation(unittest.TestCase):
         self.assertIn('--preflight',result.stdout)
 
     def test_all_public_runtime_modes_stop_before_environment(self):
-        for arguments in ([],['--preflight'],['--headless'],['--no-rviz'],['--scenario','U01']):
+        for arguments in ([],['--no-rviz'],['--scenario','U01']):
             result=subprocess.run([str(demo.WS/'scripts/run_demo.sh'),*arguments],
                                   env={'PATH':'/usr/bin:/bin'},cwd='/tmp',capture_output=True,text=True)
             self.assertEqual(result.returncode,3,arguments)
             self.assertIn('W14_BLOCKED',result.stderr)
 
     def test_direct_runner_cannot_probe_gpu_while_locked(self):
-        with patch.object(demo,'preflight',side_effect=AssertionError('must not execute')):
+        with patch.object(demo.sys,'argv',['demo.py']), patch.object(demo,'preflight',side_effect=AssertionError('must not execute')):
             self.assertEqual(demo.main(),3)
 
 
