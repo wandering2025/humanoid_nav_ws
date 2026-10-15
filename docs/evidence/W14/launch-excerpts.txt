@@ -1,0 +1,17 @@
+106: [planner_server-11] [ERROR] [1792064695.268538013] [pluginlib.ClassLoader]: Skipped loading plugin with error: XML Document '/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/plugins.xml' has no Root Element. This likely means the XML is malformed or missing..
+119: [behavior_server-12] [ERROR] [1792064695.392623008] [pluginlib.ClassLoader]: Skipped loading plugin with error: XML Document '/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/plugins.xml' has no Root Element. This likely means the XML is malformed or missing..
+124: [controller_server-10] [ERROR] [1792064695.418886600] [pluginlib.ClassLoader]: Skipped loading plugin with error: XML Document '/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/plugins.xml' has no Root Element. This likely means the XML is malformed or missing..
+125: [controller_server-10] [ERROR] [1792064695.419465827] [pluginlib.ClassLoader]: Skipped loading plugin with error: XML Document '/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/plugins.xml' has no Root Element. This likely means the XML is malformed or missing..
+126: [controller_server-10] [ERROR] [1792064695.420039011] [pluginlib.ClassLoader]: Skipped loading plugin with error: XML Document '/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/plugins.xml' has no Root Element. This likely means the XML is malformed or missing..
+137: [bt_navigator-13] [ERROR] [1792064695.492917196] [pluginlib.ClassLoader]: Skipped loading plugin with error: XML Document '/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/plugins.xml' has no Root Element. This likely means the XML is malformed or missing..
+139: [t1_sim-1] D3D12: Removing Device.
+143: [rviz2-18] D3D12: Removing Device.
+168: [ERROR] [t1_initial_pose_once-17]: process has died [pid 156648, exit code 1, cmd 'ros2 run t1_bringup initial_pose 0 0 0'].
+170: [ERROR] [navigation_starter-16]: process has died [pid 156647, exit code 1, cmd '/home/haoyang/humanoid_nav_ws/install/t1_bringup/lib/t1_bringup/navigation_starter --ros-args -r __node:=t1_navigation_starter --params-file /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml'].
+263: [ERROR] [rviz2-18]: process[rviz2-18] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+264: [ERROR] [lifecycle_manager-8]: process[lifecycle_manager-8] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+265: [ERROR] [t1_sim-1]: process[t1_sim-1] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+270: [ERROR] [rviz2-18]: process[rviz2-18] failed to terminate '10.0' seconds after receiving 'SIGTERM', escalating to 'SIGKILL'
+271: [ERROR] [lifecycle_manager-8]: process[lifecycle_manager-8] failed to terminate '10.0' seconds after receiving 'SIGTERM', escalating to 'SIGKILL'
+272: [ERROR] [t1_sim-1]: process[t1_sim-1] failed to terminate '10.0' seconds after receiving 'SIGTERM', escalating to 'SIGKILL'
+276: [ERROR] [lifecycle_manager-8]: process has died [pid 156481, exit code -9, cmd '/opt/ros/jazzy/lib/nav2_lifecycle_manager/lifecycle_manager --ros-args -r __node:=lifecycle_manager_localization --params-file /tmp/launch_params_k30iripw'].

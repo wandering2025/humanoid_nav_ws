@@ -1,3 +1,18 @@
+# W14 当前状态：BLOCKED
+
+首次默认演示启动后出现宿主黑屏和强制重启。**一行入口已封锁，当前不能用于现场演示。**
+`./scripts/run_demo.sh` 返回3，不启动GPU/ROS/仿真；`--help`可查看接口。
+
+[事故与安全审查](docs/demo/graphics-incident-20261015.md) · [发布清单](docs/demo/release-manifest.md) ·
+[快速开始](docs/demo/quick-start.md) · [现场流程草案](docs/demo/live-demo-runbook.md) ·
+[排障](docs/demo/troubleshooting.md) · [架构与限制](docs/demo/architecture-and-limitations.md) ·
+[讲解提纲](docs/demo/presentation-outline.md)
+
+首次W13 **仍FAILED（36/40）**，仅由[用户决策](docs/demo/baseline-decision.md)接受为演示基线。
+两次完整排练、正常安全清理和录像未完成；W15未启动。以下历史开发说明不构成当前启动许可。
+
+---
+
 # Booster T1 MuJoCo navigation
 
 This workspace implements the project one explicitly assigned step at a time. W01–W10 provide the physical strategy runner, calibrated command guard, consistent ROS state/TF, static scenes, compensated LiDAR, SLAM mapping and saved-map AMCL localization. W10 adds the single-source velocity safety chain and latched fault stops. W11 autonomous Nav2 navigation is not yet implemented.

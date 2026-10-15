@@ -1,0 +1,42 @@
+Oct 15 11:44:55 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_is_feature_enabled: Ioctl failed: -22
+Oct 15 11:44:55 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_wait_sync_object_cpu: Ioctl failed: -19
+Oct 15 11:44:55 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Oct 15 11:44:55 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Oct 15 11:44:55 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Oct 15 11:44:55 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+Oct 15 11:44:55 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Oct 15 11:44:55 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_wait_sync_object_cpu: Ioctl failed: -19
+Oct 15 11:44:55 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Oct 15 11:44:55 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Oct 15 11:44:55 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Oct 15 11:44:55 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Oct 15 11:44:55 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+Oct 15 11:44:55 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Oct 15 11:44:55 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Oct 15 11:44:55 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+Oct 15 11:44:55 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -2
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_wait_sync_object_cpu: Ioctl failed: -19
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_wait_sync_object_cpu: Ioctl failed: -19
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_wait_sync_object_cpu: Ioctl failed: -19
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_wait_sync_object_cpu: Ioctl failed: -19
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_wait_sync_object_cpu: Ioctl failed: -19
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_wait_sync_object_cpu: Ioctl failed: -19
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgvmb_send_create_allocation: send_create_allocation failed ffffffb5
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_create_allocation: Ioctl failed: -75
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_wait_sync_object_cpu: Ioctl failed: -19
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgvmb_send_create_allocation: send_create_allocation failed ffffffb5
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: misc dxg: dxgk: dxgkio_create_allocation: Ioctl failed: -75
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: python:gdrv0[28715]: segfault at 4 ip 00007602b0d088e0 sp 000076029a409478 error 4 in libgallium-25.2.8-0ubuntu0.24.04.4.so[7088e0,7602b06cf000+1813000] likely on CPU 10 (core 5, socket 0)
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: Code: eb ff ff 0f 1f 80 00 00 00 00 f3 0f 1e fa 48 89 fa 89 f0 41 89 c8 85 c9 74 54 31 c9 66 0f 1f 44 00 00 8d 78 01 89 ce 83 c1 06 <66> 0f 6e 14 ba 8d 78 03 66 0f 6e 0c ba 89 c7 66 0f 6e 04 ba 8d 78
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: python3.12: python:gdrv0: potentially unexpected fatal signal 11.
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: CPU: 10 UID: 1000 PID: 28715 Comm: python:gdrv0 Not tainted 6.18.54.1-microsoft-standard-WSL2 #1 PREEMPT(none) 
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: RIP: 0033:0x7602b0d088e0
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: Code: eb ff ff 0f 1f 80 00 00 00 00 f3 0f 1e fa 48 89 fa 89 f0 41 89 c8 85 c9 74 54 31 c9 66 0f 1f 44 00 00 8d 78 01 89 ce 83 c1 06 <66> 0f 6e 14 ba 8d 78 03 66 0f 6e 0c ba 89 c7 66 0f 6e 04 ba 8d 78
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: RSP: 002b:000076029a409478 EFLAGS: 00010206
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: RAX: 0000000000000000 RBX: 000076029a409570 RCX: 0000000000000006
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000001
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: RBP: 000076029a409550 R08: 000000000000c000 R09: 0000760298611000
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: R10: 000076029a409500 R11: 0000000000100000 R12: 00007602dbd0bbf8
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: R13: 000076029a4094c8 R14: 00007602dbb83ef0 R15: 000076029a409564
+Oct 15 11:44:56 DESKTOP-MF19MEU kernel: FS:  000076029a40b6c0 GS:  0000000000000000
+Oct 15 11:44:56 DESKTOP-MF19MEU unknown: WSL (29231 - CaptureCrash): Capturing crash for pid: 156147, executable: !usr!bin!python3.12, signal: 11, port: 50005

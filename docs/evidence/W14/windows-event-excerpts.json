@@ -1,0 +1,74 @@
+[
+  {
+    "Utc": "2026-10-15T11:48:36.0783436Z",
+    "Log": "System",
+    "Provider": "Microsoft-Windows-Kernel-Power",
+    "Id": 41,
+    "Level": "Critical",
+    "message_excerpt": "The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly."
+  },
+  {
+    "Utc": "2026-10-15T11:48:47.8437846Z",
+    "Log": "System",
+    "Provider": "EventLog",
+    "Id": 6008,
+    "Level": "Error",
+    "message_excerpt": "The previous system shutdown at 13:46:07 on ‎2026/‎10/‎15 was unexpected."
+  },
+  {
+    "Utc": "2026-10-15T11:47:23.0549667Z",
+    "Log": "Application",
+    "Provider": "Windows Error Reporting",
+    "Id": 1001,
+    "Level": "Information",
+    "message_excerpt": "Fault bucket LKD_0x141_TdrFlag:UNKNOWN_ERROR_Tdr:6_IMAGE_nvlddmkm.sys_Ada, type 0\r\nEvent Name: LiveKernelEvent\r\nResponse: 不可用\r\nCab Id: 83544acb-8621-44fe-9db2-f42cac825ea3\r\n\r\nProblem signature:\r\nP1: 141\r\nP2: aaaaaaaaaaaaaaaa\r\nP3: aaaaaaaaaaaaaaaa\r\nP4: aaaaaaaaaaaaaaaa\r\nP5: aaaaaaaaaaaaaaaa\r\nP6: 10_0_26200\r\nP7: 0_0\r\nP8: 768_1\r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\\\\?\\C:\\WINDOWS\\LiveKernelReports\\WATCHDOG\\WATCHDOG-20261015-1346.dmp\r\n\\\\?\\C:\\WINDOWS\\SystemTemp\\WER-63652671-0.sysdata.xml\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WER.c44ead9a-a029-4a0d-9ee5-37898ec0d96a.tmp.xml\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WER."
+  },
+  {
+    "Utc": "2026-10-15T11:46:59.3105904Z",
+    "Log": "Application",
+    "Provider": "Windows Error Reporting",
+    "Id": 1001,
+    "Level": "Information",
+    "message_excerpt": "Fault bucket LKD_0x141_TdrFlag:UNKNOWN_ERROR_Tdr:6_IMAGE_nvlddmkm.sys_Ada, type 0\r\nEvent Name: LiveKernelEvent\r\nResponse: 不可用\r\nCab Id: b1442f6e-ee4d-4d09-ad6b-cd4ff601f30a\r\n\r\nProblem signature:\r\nP1: 141\r\nP2: aaaaaaaaaaaaaaaa\r\nP3: aaaaaaaaaaaaaaaa\r\nP4: aaaaaaaaaaaaaaaa\r\nP5: aaaaaaaaaaaaaaaa\r\nP6: 10_0_26200\r\nP7: 0_0\r\nP8: 768_1\r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\\\\?\\C:\\WINDOWS\\LiveKernelReports\\WATCHDOG\\WATCHDOG-20261015-1345.dmp\r\n\\\\?\\C:\\WINDOWS\\SystemTemp\\WER-63638359-0.sysdata.xml\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WER.76bee88c-8571-48c0-9772-1d52e7b8fae5.tmp.xml\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WER."
+  },
+  {
+    "Utc": "2026-10-15T11:46:40.3821264Z",
+    "Log": "Application",
+    "Provider": "Windows Error Reporting",
+    "Id": 1001,
+    "Level": "Information",
+    "message_excerpt": "Fault bucket , type 0\r\nEvent Name: LiveKernelEvent\r\nResponse: 不可用\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: 141\r\nP2: aaaaaaaaaaaaaaaa\r\nP3: aaaaaaaaaaaaaaaa\r\nP4: aaaaaaaaaaaaaaaa\r\nP5: aaaaaaaaaaaaaaaa\r\nP6: 10_0_26200\r\nP7: 0_0\r\nP8: 768_1\r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\\\\?\\C:\\WINDOWS\\LiveKernelReports\\WATCHDOG\\WATCHDOG-20261015-1346.dmp\r\n\\\\?\\C:\\WINDOWS\\SystemTemp\\WER-63676484-0.sysdata.xml\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WER.b3d5a126-ecf4-4370-bf50-bcba2061785b.tmp.xml\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WER.1d13189e-da7b-4860-93c3-398a1eb394ec.tmp.WERInternalMetadata.xml\r\n\r\nThese files may be availabl"
+  },
+  {
+    "Utc": "2026-10-15T11:46:16.7746819Z",
+    "Log": "Application",
+    "Provider": "Windows Error Reporting",
+    "Id": 1001,
+    "Level": "Information",
+    "message_excerpt": "Fault bucket , type 0\r\nEvent Name: LiveKernelEvent\r\nResponse: 不可用\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: 141\r\nP2: aaaaaaaaaaaaaaaa\r\nP3: aaaaaaaaaaaaaaaa\r\nP4: aaaaaaaaaaaaaaaa\r\nP5: aaaaaaaaaaaaaaaa\r\nP6: 10_0_26200\r\nP7: 0_0\r\nP8: 768_1\r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\\\\?\\C:\\WINDOWS\\LiveKernelReports\\WATCHDOG\\WATCHDOG-20261015-1346.dmp\r\n\\\\?\\C:\\WINDOWS\\SystemTemp\\WER-63652671-0.sysdata.xml\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WER.c44ead9a-a029-4a0d-9ee5-37898ec0d96a.tmp.xml\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WER.1b71f03f-6a1f-4c50-9976-394478e4f66f.tmp.WERInternalMetadata.xml\r\n\r\nThese files may be availabl"
+  },
+  {
+    "Utc": "2026-10-15T11:46:02.3428439Z",
+    "Log": "Application",
+    "Provider": "Windows Error Reporting",
+    "Id": 1001,
+    "Level": "Information",
+    "message_excerpt": "Fault bucket , type 0\r\nEvent Name: LiveKernelEvent\r\nResponse: 不可用\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: 141\r\nP2: aaaaaaaaaaaaaaaa\r\nP3: aaaaaaaaaaaaaaaa\r\nP4: aaaaaaaaaaaaaaaa\r\nP5: aaaaaaaaaaaaaaaa\r\nP6: 10_0_26200\r\nP7: 0_0\r\nP8: 768_1\r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\\\\?\\C:\\WINDOWS\\LiveKernelReports\\WATCHDOG\\WATCHDOG-20261015-1345.dmp\r\n\\\\?\\C:\\WINDOWS\\SystemTemp\\WER-63638359-0.sysdata.xml\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WER.76bee88c-8571-48c0-9772-1d52e7b8fae5.tmp.xml\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WER.bbe35685-626f-4049-aa1d-e9ba7a47b961.tmp.WERInternalMetadata.xml\r\n\r\nThese files may be availabl"
+  },
+  {
+    "Utc": "2026-10-15T11:45:24.6376713Z",
+    "Log": "Application",
+    "Provider": "Windows Error Reporting",
+    "Id": 1001,
+    "Level": "Information",
+    "message_excerpt": "Fault bucket LKD_0x141_Tdr:C_IMAGE_igdkmdn64.sys_MTL_DX12_PAGEFAULT, type 0\r\nEvent Name: LiveKernelEvent\r\nResponse: 不可用\r\nCab Id: 6a9b0175-5adf-4543-ac97-36b48fa6c476\r\n\r\nProblem signature:\r\nP1: 141\r\nP2: aaaaaaaaaaaaaaaa\r\nP3: aaaaaaaaaaaaaaaa\r\nP4: aaaaaaaaaaaaaaaa\r\nP5: aaaaaaaaaaaaaaaa\r\nP6: 10_0_26200\r\nP7: 0_0\r\nP8: 768_1\r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\\\\?\\C:\\WINDOWS\\LiveKernelReports\\WATCHDOG\\WATCHDOG-20261015-1344.dmp\r\n\\\\?\\C:\\WINDOWS\\SystemTemp\\WER-63580593-0.sysdata.xml\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WER.824f512c-61f8-47b2-a017-7200a91f3458.tmp.xml\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WER.1ed946"
+  },
+  {
+    "Utc": "2026-10-15T11:45:06.5045824Z",
+    "Log": "Application",
+    "Provider": "Windows Error Reporting",
+    "Id": 1001,
+    "Level": "Information",
+    "message_excerpt": "Fault bucket , type 0\r\nEvent Name: LiveKernelEvent\r\nResponse: 不可用\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: 141\r\nP2: aaaaaaaaaaaaaaaa\r\nP3: aaaaaaaaaaaaaaaa\r\nP4: aaaaaaaaaaaaaaaa\r\nP5: aaaaaaaaaaaaaaaa\r\nP6: 10_0_26200\r\nP7: 0_0\r\nP8: 768_1\r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\\\\?\\C:\\WINDOWS\\LiveKernelReports\\WATCHDOG\\WATCHDOG-20261015-1344.dmp\r\n\\\\?\\C:\\WINDOWS\\SystemTemp\\WER-63580593-0.sysdata.xml\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WER.824f512c-61f8-47b2-a017-7200a91f3458.tmp.xml\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WER.1ed94646-1f61-4ad7-b2cc-97aeff2ac3f5.tmp.WERInternalMetadata.xml\r\n\r\nThese files may be availabl"
+  }
+]
