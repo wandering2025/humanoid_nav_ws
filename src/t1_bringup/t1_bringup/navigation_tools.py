@@ -1,8 +1,9 @@
 """W11R1 bounded navigation protocol; no truth access or velocity publisher.
 
 Readiness requires initialized AMCL/TF/sensors, active lifecycle nodes, a real
-FollowPath ACK/result probe and responding costmap services. A staging action
-must finish and settle before the terminal goal is sent. The whole task shares
+FollowPath ACK/result probe and responding costmap services. The default uses
+one forward, heading-constrained global path; an explicitly requested legacy
+staging action must finish and settle before the terminal goal. The task shares
 120 simulation seconds and at most three position/yaw corrections. Arrival uses
 localized pose over a 0.5 s velocity window held for 2 s; truth stays evaluator-only.
 Failures stop the W10 gate and cancel the active handle. Exit 0: verified; 2:
@@ -68,8 +69,8 @@ def navigate(argv=None):
     parser.add_argument('--xy-tolerance', type=float, default=0.20, help='verified map position tolerance (m)')
     parser.add_argument('--yaw-tolerance', type=float, default=0.20, help='verified map yaw tolerance (rad)')
     parser.add_argument('--terminal-retries', type=int, default=3)
-    parser.add_argument('--approach-distance', type=float, default=1.5,
-                        help='m; walk the last segment along the goal heading (0 disables)')
+    parser.add_argument('--approach-distance', type=float, default=0.0,
+                        help='optional legacy staging distance; default 0 uses the heading-constrained path')
     parser.add_argument('--retry-gain', type=float, default=1.0,
                         help='terminal retry aims past the goal yaw by gain*residual (clamped 0.5 rad)')
     parser.add_argument('--settle-window', type=float, default=0.5, help='sim s; W05 stationary window')

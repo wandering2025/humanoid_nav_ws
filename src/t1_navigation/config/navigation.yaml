@@ -120,10 +120,7 @@ controller_server:
         enabled: true
         cost_power: 1
         cost_weight: 3.0
-        # W11R1: begin heading correction before the 0.70 m minimum walking
-        # radius and the last 0.20 m positional band force an in-place turn.
-        # This is a scoring activation distance, not a relaxed goal tolerance.
-        threshold_to_consider: 1.5
+        threshold_to_consider: 0.5
       PreferForwardCritic:
         enabled: true
         cost_power: 1
@@ -255,14 +252,21 @@ planner_server:
     expected_planner_frequency: 1.0
     costmap_update_timeout: 1.0
     planner_plugins: ["GridBased"]
-    # One global planner (W11 C1): NavFn Dijkstra treats inscribed (>=253) cells
-    # as obstacles, i.e. keeps the robot centre >=2.05 m from mapped/scanned surfaces.
+    # W11R1: include terminal heading in a forward-only path. The 1.0 m
+    # turning radius fits vx<=0.45 / |wz|<=0.45 without in-place terminal turns.
+    # The frozen 2.05 m radius and inscribed/lethal cost cells remain obstacles.
     GridBased:
-      plugin: "nav2_navfn_planner::NavfnPlanner"
+      plugin: "nav2_smac_planner::SmacPlannerHybrid"
       tolerance: 0.0
-      use_astar: false
       allow_unknown: false
-      use_final_approach_orientation: false
+      motion_model_for_search: "DUBIN"
+      minimum_turning_radius: 1.0
+      angle_quantization_bins: 72
+      downsample_costmap: false
+      smooth_path: true
+      max_planning_time: 2.0
+      max_iterations: 1000000
+      max_on_approach_iterations: 1000
 
 # Only Wait is loaded. Spin/backup/drive_on_heading are disabled: W05 forbids
 # reverse; an unconditional spin would ignore W10 slowdown and the in-place band.

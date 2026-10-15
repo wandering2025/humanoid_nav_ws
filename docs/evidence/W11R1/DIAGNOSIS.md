@@ -45,3 +45,9 @@ H5严格关闭审计发现旧候选996f36a的C01/C09虽实际到达，但新的m
 H6物理结论：失败，前移到8.25m后仍执行末端原地转向，三次预算耗尽。该逻辑撤除。H7检查[官方GoalAngleCritic](https://github.com/ros-navigation/navigation2/blob/1.3.13/nav2_mppi_controller/src/critics/goal_angle_critic.cpp)：只有距目标≤0.5m才考虑目标yaw，这比W05最小行走转弯半径0.70m更晚；[RotationShim](https://github.com/ros-navigation/navigation2/blob/1.3.13/nav2_rotation_shim_controller/src/nav2_rotation_shim_controller.cpp)在位置容差内转入原地旋转。尝试将激活距离提前到既有1.5m进近长度，不改权重/GoalChecker/速度/次数，单例验证。
 
 取消回归入口只读检查发现Session需显式label且不支持context manager，已在首次运行前修正为明确构造/try-finally关闭，尚无物理回归结果。
+
+H7结论：C01三修正仍.2363rad失败，参数恢复.5m。B04/B06单次成功不能替代该回归失败。H8改查全局路径几何：NavFn仅末点姿态为目标yaw，末段切线仍可垂直；配置已安装Smac Hybrid DUBIN，只前进、半径1m，实际ROS规划测试检查末段几何，见ADR-022。
+
+另记H7 B04关闭风险：command_gate收到SIGINT后在rclpy._take_subscription抛Unable to convert call argument，exit1；无遗留。原formal-v1 S06日志同一栈/同一关闭阶段（原日志248行SIGINT、333–366行异常/exit1），属于既有问题，W10源码保持不变。它不是本次新manager的H5异常；所有新manager已正常退出。
+
+H8默认不再强制1.5m二维预目标：其costmap点/直线可行不代表从绕障侧以冻结步态曲率进入可行。使用DUBIN对完整终点位置/朝向求解；旧显式分段选项仅保留兼容。真实规划测试在原静态SLAM地图上检验绕岛、前进方向和进入.20m位置带时的路径切向，测试用合成空scan维持实际costmap新鲜度，不驱动物理机器人。

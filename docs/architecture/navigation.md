@@ -18,7 +18,7 @@ t1_navigation_adapter ─/t1/cmd_navigation─► t1_command_gate ─/cmd_vel_na
 ## Frozen parameters
 
 - `src/t1_navigation/config/navigation.yaml`:
-  - NavFn: Dijkstra, no unknown space.
+  - W11R1 ADR-022: Smac Hybrid, DUBIN forward-only, 1.0 m minimum turning radius, no unknown space; replaces the original NavFn position search.
   - Costmaps: robot circle of radius 2.05 m with inflation to 2.6 m. Local costmap 10×10 m on `/scan` (`inf_is_valid`, raytrace 6.5 m).
   - RotationShim: in-place 0.65 rad/s, threshold 0.6 rad, `rotate_to_goal_heading`.
   - MPPI DiffDrive: vx [0, 0.45], \|wz\| ≤ 0.45, 56×0.05 s horizon.
@@ -32,8 +32,8 @@ t1_navigation_adapter ─/t1/cmd_navigation─► t1_command_gate ─/cmd_vel_na
   - It sits before the smoother and monitor, so the bridge's only-reduce rule and the Collision Monitor zones still apply.
 - Goal tool `ros2 run t1_bringup navigate_to_pose X Y YAW`:
   - Explicitly arms the gate, then enforces one 120 s simulation-time limit for the whole task.
-  - Staged 1.5 m walking approach along the goal heading, with a feasible distance chosen from the global costmap.
-  - Complete and settle the staging action before sending the terminal goal; both must pass localized position/yaw verification. At most 3 corrections are shared by both stages.
+  - By default send the final position and heading directly to the constrained planner. Explicit legacy staging remains available through `--approach-distance`.
+  - Complete and settle any requested staging action before the terminal goal; both require localized position/yaw verification. At most 3 corrections are shared across the whole task.
 - Cancel calls `/t1/safety/stop` through the adapter; a later goal needs a new arm. Preemptive replacement does not stop.
 
 ## Why the bipedal-specific parts exist
@@ -42,16 +42,16 @@ The T1 policy cannot creep: below 0.315 m/s it stands. In-place turns only work 
 
 - Walking speeds are lifted.
 - In-place turns are only commanded inside the calibrated band.
-- The last 1.5 m is walked along the goal heading.
+- The W11R1 global path includes forward curvature and the final heading.
 - Arrival is verified on the localized pose over a stationary window.
 
-Goals must therefore admit that approach corridor; every predefined case is checked for it in `c2-cases-feasibility.json`.
+The original corridor checks in `c2-cases-feasibility.json` remain historical evidence; forward-curvature reachability and physical tracking require the W11R1 independent matrix.
 
 ## Limits
 
 - **Safety zones**: the 2.05 m planning circle and W10's omnidirectional 1.65/1.95 m zones restrict where the robot can go. Passages need ≥4.1 m of width and goals ≥2.05 m (2.25 m registered) of clearance. Inside the slowdown circle, requests ≤0.63 m/s stop the robot (W10 design).
 - **Scan coverage**: the scan is a planar projection of 9 instantaneous beams. Objects outside 0.15–1.20 m height or between beams can be missed (W08).
-- **Yaw rebound**: a terminal yaw rebound can still exceed the tolerance after 3 retries, which reports UNVERIFIED and counts as failure. Measured in-place-only arrivals ranged 7–28°.
+- **Yaw rebound**: a terminal yaw rebound can still exceed tolerance after 3 corrections, which reports FAILED with an explicit exhaustion reason. Measured in-place-only arrivals ranged 7–28°.
 - **Localization assumptions**: localization and stationarity use AMCL on ideal odometry. Truth is read only by the W11 evaluator (`docs/evidence/W11/nav_run.py`).
 
 ## W12 sensor-driven dynamic obstacles
@@ -120,7 +120,7 @@ also blocks a late orphan FollowPath after its parent BT aborts. No publisher is
 added to the command chain. External preemption still works; staged approach no
 longer preempts at the old action's completion boundary.
 
-The 1.5/1.125/0.75 m costmap-selected staging positions are unchanged. Each staging
+The optional legacy 1.5/1.125/0.75 m costmap-selected staging positions remain. Each staging
 action must complete and settle: 0.5 s velocity window below .05 linear/angular,
 continuously for 2 s, position/yaw within the existing .20 m/.20 rad internal
 bounds. Only then may the final goal be sent. Both stages share three corrections:
@@ -133,8 +133,11 @@ stop and cancellation. Overshoot is not recovered by an unvalidated reverse move
 This candidate still requires the independent verification matrix; the former
 W11/W12 samples and W13 formal-v1 failures retain their historical meanings.
 
-W11R1 H7: GoalAngleCritic starts scoring the terminal orientation at 1.5 m
-instead of 0.5 m, before the 0.70 m minimum walking radius makes heading
-correction require an in-place turn. Weights, goal tolerances, the stopped
-checker, velocity envelope, and safety chain are unchanged. The H6 forward
-staging experiment was rejected; its failure remains in ADR-020 and evidence.
+W11R1 H8 candidate uses the installed Smac Hybrid planner with the DUBIN
+forward-only model and 1.0 m minimum turning radius. Goal heading is part of the
+search state, so the incoming path can be aligned before entering the goal
+position band. Default navigation now sends the final pose directly; its incoming heading is
+constrained by the planner. Explicit legacy staging remains optional and must
+pass the same joint verification. The 2.05 m collision circle, unknown-cell policy, zero planner
+tolerance and MPPI/RotationShim safety chain are unchanged (ADR-022). Failed
+H6 forward-staging and H7 early-angle-scoring experiments are removed.

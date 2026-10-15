@@ -644,5 +644,22 @@
     "falls": 0,
     "remaining_owned_pids": [],
     "decision": "reject/remove forward staging; test GoalAngleCritic activation 1.5m vs .5m to include heading before .70m walking radius/position band"
+  },
+  {
+    "hypothesis": "H7 earlier angle score rejected; H8 heading-constrained forward path",
+    "code_sha": "95335f11a1f958f578b3647a7692117005285910",
+    "campaign": "w11r1-repair-smoke-v4",
+    "results": {
+      "B06": "SUCCESS",
+      "B04": "SUCCESS",
+      "C01": "FAIL_SAFETY_STOP_UNRECOVERED",
+      "C09": "NOT_RUN"
+    },
+    "reason": "C01 exhausted three corrections at settled yaw .2362868rad; earlier angle scoring did not remove perpendicular final path geometry",
+    "contacts": 0,
+    "falls": 0,
+    "remaining_owned_pids": [],
+    "shutdown_note": "B04 command_gate exit1 after SIGINT: same pre-existing rclpy _take_subscription RuntimeError as formal-v1 S06; source unchanged, process reaped",
+    "decision": "restore .5m angle scoring; test installed Smac Hybrid DUBIN forward-only goal heading and 1.0m radius"
   }
 ]

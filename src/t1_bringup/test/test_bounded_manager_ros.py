@@ -49,7 +49,7 @@ def manager(tmp_path):
 
     start.processes = processes
     yield node, start
-    for proc, output in processes:
+    for proc, output in reversed(processes):
         if proc.poll() is None:
             os.killpg(proc.pid, signal.SIGINT)
             proc.wait(timeout=10.)
