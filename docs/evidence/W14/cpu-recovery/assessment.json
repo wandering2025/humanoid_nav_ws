@@ -1,0 +1,157 @@
+{
+  "status": "W14_BLOCKED",
+  "run_id": "20261015T122606Z_demo_U01_1ddbd7a9-bd24-4742-a38f-a9513561e809",
+  "tested_sha": "e4be3477e78015f57ce01c847f204bb2caac3546",
+  "command": "./scripts/run_demo.sh --headless",
+  "role": "auxiliary CPU-only run; not a default GUI rehearsal",
+  "original_result": "FAILED",
+  "arrived": true,
+  "settle": {
+    "settled": true,
+    "settle_start_sim": 76.64000000000279,
+    "settle_delay_s": 0.6800000000027779,
+    "pos_err_m": 0.16107017440441393,
+    "yaw_err_deg": 6.1948880779794795
+  },
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "body_clearance": {
+    "min_m": 1.764366958966983,
+    "sim_time": 27.41999999999568,
+    "geom_pair": [
+      "t1_geom_015",
+      "obstacle_approach_slot"
+    ],
+    "samples": 902,
+    "robot_geoms": 22,
+    "environment_geoms": 8,
+    "sample_hz": 10,
+    "definition": "signed 3D MuJoCo collision geometry distance; excludes ground/self/visual; sampled minimum, not continuous bound"
+  },
+  "readiness_wall_s": 15.244811113999958,
+  "task_wall_s": 92.90599160999977,
+  "wall_total_s": 94.29226639700005,
+  "dynamic_failure": {
+    "check": "actual_stop_in_protection",
+    "observed_hold_s": 0.42,
+    "frozen_minimum_hold_s": 0.5,
+    "all_checks": {
+      "triggered_after_actual_walking": true,
+      "scan_hits_entity": true,
+      "local_costmap_marks_entity": true,
+      "no_planner_obstacle_truth": true,
+      "no_teleop": true,
+      "dimensions": true,
+      "vacated_costmap_clears": true,
+      "actual_stop_in_protection": false,
+      "safely_resumed": true,
+      "navigation_success": true
+    },
+    "note": "No threshold change, seed substitution or physical retry after this failure."
+  },
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 2139.321951418,
+      "sim_time": 90.08000000000001,
+      "health_reason": ""
+    }
+  },
+  "parent_exit_codes": {
+    "dds": 0,
+    "launch": 0,
+    "goal": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 9495,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 9496,
+      "exit_code": 0
+    },
+    "map_server-3": {
+      "pid": 9497,
+      "exit_code": 0
+    },
+    "amcl-4": {
+      "pid": 9498,
+      "exit_code": 0
+    },
+    "command_gate-5": {
+      "pid": 9499,
+      "exit_code": 0
+    },
+    "velocity_smoother-6": {
+      "pid": 9500,
+      "exit_code": 0
+    },
+    "collision_monitor-7": {
+      "pid": 9501,
+      "exit_code": 0
+    },
+    "lifecycle_manager-8": {
+      "pid": 9776,
+      "exit_code": 0
+    },
+    "lifecycle_manager-9": {
+      "pid": 9777,
+      "exit_code": 0
+    },
+    "controller_server-10": {
+      "pid": 9917,
+      "exit_code": 0
+    },
+    "planner_server-11": {
+      "pid": 9918,
+      "exit_code": 0
+    },
+    "behavior_server-12": {
+      "pid": 9919,
+      "exit_code": 0
+    },
+    "bt_navigator-13": {
+      "pid": 9920,
+      "exit_code": 0
+    },
+    "lifecycle_manager-14": {
+      "pid": 9921,
+      "exit_code": 0
+    },
+    "navigation_adapter-15": {
+      "pid": 9922,
+      "exit_code": 0
+    },
+    "navigation_starter-16": {
+      "pid": 9923,
+      "exit_code": 0
+    },
+    "t1_initial_pose_once-17": {
+      "pid": 9924,
+      "exit_code": 0
+    }
+  },
+  "immediate_port_bindable": false,
+  "post_run_audit": {
+    "remaining_owned_pids": [],
+    "dds_listeners": [],
+    "dds_time_wait_count": 0,
+    "port_bindable_after_cooldown": true,
+    "note": "Post-run audit; original result.json is preserved with its immediate bind failure and dynamic failure."
+  },
+  "guard_scope": "Kernel device access denied before runtime imports; no windows, GPU device opens or CUDA availability probes.",
+  "final_packaging_sha": "7d29b700689a870bdc8c57bac7aee74144a55082",
+  "final_packaging_validation": "port-cooldown changes have unit coverage only; no post-failure physical rerun",
+  "remaining_default_rehearsals": "Original first GUI incident preserved; second default run NOT_RUN",
+  "video": "MISSING"
+}

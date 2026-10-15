@@ -26,3 +26,9 @@ ROS/MPPI调度非确定性；同机小样本不能外推真机可靠率。W10停
 Assets 12a9751，BSD-3-Clause。本地文件清单未发现更局部许可证；不是对所有第三方/权重分发权的法律结论。
 按[固定来源](../../dependencies.repos)获取，分享时保留版权/许可说明；本次不重新分发这些资产。
 [资产清单](../baseline/assets-manifest.md)。
+
+
+CPU续作：在任何runtime导入前用Landlock禁止GPU设备read/write/ioctl，子进程exec继承；
+不探测CUDA、不创建窗口。原官方策略本就在CPU，Nav2/物理/安全参数不变。
+唯一辅助run已到达、零接触/跌倒、stop和正常退出通过；保护区连续静止0.42s不足冻结0.5s，
+整轮仍FAIL。默认GUI、两次默认排练及录像仍未通过；不能用headless成功到达掩盖动态判据失败。

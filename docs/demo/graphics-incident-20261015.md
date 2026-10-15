@@ -1,3 +1,9 @@
+> 后续状态更新：用户再次要求在电脑安全前提下继续W14。默认GUI仍封锁；
+> 已增加Landlock GPU设备拒绝规则，仅开放CPU预检/--headless。
+> 唯一CPU辅助run到达且正常停车/回收，但动态保护区静止持续0.42s<冻结0.5s，仍FAIL；不重跑物理。
+> 见[cpu-recovery-plan.md](cpu-recovery-plan.md)及[独立证据](../evidence/W14/cpu-recovery/README.md)。
+> 以下为原事故调查记录，事故结果和缺失退出码保持不变。
+
 # W14 宿主黑屏事故与安全审查
 
 状态：**W14_BLOCKED**。2026-10-15；事故约 13:44–13:48 Europe/Berlin（11:44–11:48 UTC）。

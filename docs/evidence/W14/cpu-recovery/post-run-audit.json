@@ -1,0 +1,7 @@
+{
+  "remaining_owned_pids": [],
+  "dds_listeners": [],
+  "dds_time_wait_count": 0,
+  "port_bindable_after_cooldown": true,
+  "note": "Post-run audit; original result.json is preserved with its immediate bind failure and dynamic failure."
+}

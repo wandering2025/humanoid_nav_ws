@@ -1,7 +1,9 @@
 # W14 当前状态：BLOCKED
 
 首次默认演示启动后出现宿主黑屏和强制重启。**一行入口已封锁，当前不能用于现场演示。**
-`./scripts/run_demo.sh` 返回3，不启动GPU/ROS/仿真；`--help`可查看接口。
+`./scripts/run_demo.sh` 默认图形模式仍返回3；`--preflight`已恢复为内核隔离下的CPU预检。
+`--headless`是CPU辅助路径，唯一完整运行已到达但动态停车判据FAIL，不能替代现场演示。
+见[CPU恢复证据](docs/evidence/W14/cpu-recovery/README.md)；`--help`可查看接口。
 
 [事故与安全审查](docs/demo/graphics-incident-20261015.md) · [发布清单](docs/demo/release-manifest.md) ·
 [快速开始](docs/demo/quick-start.md) · [现场流程草案](docs/demo/live-demo-runbook.md) ·

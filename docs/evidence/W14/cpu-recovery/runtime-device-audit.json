@@ -1,0 +1,121 @@
+{
+  "scope": "read-only runtime host /proc",
+  "records": [
+    {
+      "pid": 9452,
+      "owner": "dds",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    },
+    {
+      "pid": 9484,
+      "owner": "launch",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    },
+    {
+      "pid": 9501,
+      "owner": "launch",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    },
+    {
+      "pid": 9500,
+      "owner": "launch",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    },
+    {
+      "pid": 9499,
+      "owner": "launch",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    },
+    {
+      "pid": 9498,
+      "owner": "launch",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    },
+    {
+      "pid": 9497,
+      "owner": "launch",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    },
+    {
+      "pid": 9496,
+      "owner": "launch",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    },
+    {
+      "pid": 9495,
+      "owner": "launch",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    },
+    {
+      "pid": 9777,
+      "owner": "launch",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    },
+    {
+      "pid": 9776,
+      "owner": "launch",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    },
+    {
+      "pid": 9922,
+      "owner": "launch",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    },
+    {
+      "pid": 9921,
+      "owner": "launch",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    },
+    {
+      "pid": 9920,
+      "owner": "launch",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    },
+    {
+      "pid": 9919,
+      "owner": "launch",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    },
+    {
+      "pid": 9918,
+      "owner": "launch",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    },
+    {
+      "pid": 9917,
+      "owner": "launch",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    },
+    {
+      "pid": 10410,
+      "owner": "goal",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    },
+    {
+      "pid": 10413,
+      "owner": "goal",
+      "no_new_privs": "1",
+      "gpu_fds": []
+    }
+  ],
+  "all_no_new_privs": true,
+  "no_gpu_fds": true
+}
