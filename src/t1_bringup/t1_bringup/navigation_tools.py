@@ -1,21 +1,12 @@
-"""W11 navigation readiness starter and NavigateToPose goal tool. No truth access.
+"""W11R1 bounded navigation protocol; no truth access or velocity publisher.
 
-navigation_starter: waits until the simulator is READY, /clock advances, a fresh
-/scan arrives and map->base_footprint resolves (AMCL initialized), then asks the
-navigation lifecycle manager to STARTUP the Nav2 servers. Nothing is activated
-before localization exists.
-
-navigate_to_pose X Y YAW: waits for bt_navigator active, explicitly arms the W10
-gate (zero must already be flowing), sends a NavigateToPose goal in the map
-frame and enforces one simulation-time limit for the whole task (cancel on expiry).
-
-Terminal settle-and-verify (W11 C2): Nav2's goal checkers test instantaneous
-velocity, and the T1 gait yaw oscillation crosses zero while the body is still
-rebounding (measured 17-19 deg after a 170 deg in-place turn). After SUCCEEDED the
-tool therefore waits until the localized pose (map->base_footprint, i.e. AMCL +
-odom; never truth) is stationary over a window, and re-sends the same goal for a
-short correction if position/yaw are outside tolerance (bounded retries). Exit
-codes: 0 verified SUCCEEDED, 2 ABORTED/CANCELED/unverified, 3 time limit, 1 setup.
+Readiness requires initialized AMCL/TF/sensors, active lifecycle nodes, a real
+FollowPath ACK/result probe and responding costmap services. A staging action
+must finish and settle before the terminal goal is sent. The whole task shares
+120 simulation seconds and at most three position/yaw corrections. Arrival uses
+localized pose over a 0.5 s velocity window held for 2 s; truth stays evaluator-only.
+Failures stop the W10 gate and cancel the active handle. Exit 0: verified; 2:
+action/convergence failure; 3: task time limit; 1: setup failure.
 """
 import argparse
 import json
@@ -47,7 +38,7 @@ def starter(args=None):
         ready.lifecycle(LOCALIZATION, deadline)
         if not client.wait_for_service(timeout_sec=2.):
             raise ProtocolFailure('NAVIGATION_MANAGER_NOT_DISCOVERED')
-        response = require_response(client, ManageLifecycleNodes.Request(command=0), ready.spin,
+        response = require_response(client, ManageLifecycleNodes.Request(command=ManageLifecycleNodes.Request.STARTUP), ready.spin,
                                     min(60., max(0., deadline-time.monotonic())), 'NAVIGATION_STARTUP')
         if not response.success:
             raise ProtocolFailure('NAVIGATION_STARTUP_FAILED')
@@ -99,7 +90,6 @@ def navigate(argv=None):
     from rclpy.qos import QoSProfile, DurabilityPolicy
     from std_msgs.msg import String
     from std_srvs.srv import Trigger
-    from lifecycle_msgs.srv import GetState
     from nav2_msgs.action import NavigateToPose
     from action_msgs.msg import GoalStatus
     from .navigation_protocol import ProtocolFailure, await_future, StationaryWindow, TerminalCorrections, overshot
@@ -119,7 +109,6 @@ def navigate(argv=None):
     # choose a feasible staging distance. OccupancyGrid 99/100 = inscribed/lethal.
     node.create_subscription(OccupancyGrid, '/global_costmap/costmap', lambda m: costmap.update(grid=m),
                              QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL))
-    lifecycle = node.create_client(GetState, '/bt_navigator/get_state')
     arm = node.create_client(Trigger, '/t1/safety/arm')
     stop = node.create_client(Trigger, '/t1/safety/stop')
     action = ActionClient(node, NavigateToPose, 'navigate_to_pose')

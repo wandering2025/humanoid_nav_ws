@@ -152,3 +152,43 @@ def test_no_reverse_overshoot_has_bounded_failure_boundary():
     from t1_bringup.navigation_protocol import overshot
     assert overshot((9.4, .5, 0.), (9., 0., 0.))
     assert not overshot((8.5, .5, 0.), (9., 0., 0.))
+
+
+def test_discovered_followpath_that_rejects_probe_blocks_startup(monkeypatch):
+    from t1_bringup.navigation_readiness import Readiness
+    import rclpy.action
+    calls = []
+
+    class Action:
+        def __init__(self, node, kind, name):
+            self.name = name
+
+        def wait_for_server(self, **kwargs):
+            return True
+
+        def send_goal_async(self, goal):
+            calls.append(self.name)
+            future = Future()
+            future.set_result(SimpleNamespace(accepted=False))
+            return future
+
+        def destroy(self):
+            pass
+
+    monkeypatch.setattr(rclpy.action, 'ActionClient', Action)
+    ready = object.__new__(Readiness)
+    ready.node, ready.trace, ready.spin = object(), [], lambda: None
+    with pytest.raises(ProtocolFailure, match='FOLLOW_PATH_REJECTED'):
+        ready.endpoints()
+    assert calls == ['follow_path']
+    assert not ready.trace
+
+
+@pytest.mark.parametrize('option,value', [('--time-limit', '121'), ('--xy-tolerance', '.21'),
+                                         ('--yaw-tolerance', '.21'), ('--terminal-retries', '4'),
+                                         ('--settle-hold', '1'), ('--settle-window', '.4')])
+def test_cli_cannot_relax_frozen_bounds(option, value):
+    from t1_bringup.navigation_tools import navigate
+    with pytest.raises(SystemExit) as exc:
+        navigate(['9', '0', '0', option, value])
+    assert exc.value.code == 2

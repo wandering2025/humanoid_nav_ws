@@ -13,7 +13,7 @@ t1_navigation_adapter ─/t1/cmd_navigation─► t1_command_gate ─/cmd_vel_na
   ─/cmd_vel_smoothed─► collision_monitor ─/cmd_vel─► t1_sim bridge (only reduces) ─► W05 map ─► policy
 ```
 
-`navigation.launch.py` (mode `navigation`) starts the W09 localization pair and the W10 chain with `command_source:=navigation`; their lifecycle managers start `lifecycle_start_delay` (3 s) after the managed nodes. After `nav_start_delay` (8 s wall) it creates the Nav2 group, the adapter, the readiness starter, RViz (if requested) and the optional one-shot `initial_pose`. The starter calls lifecycle STARTUP only after the simulator is READY, `/clock` advances, a fresh `/scan` arrives and `map→base_footprint` resolves. All consumers use sim time, and every command message is a `geometry_msgs/Twist`.
+`navigation.launch.py` (mode `navigation`) starts the W09 localization pair and the W10 chain with `command_source:=navigation`; their lifecycle managers start `lifecycle_start_delay` (3 s) after the managed nodes. After `nav_start_delay` (8 s wall) it creates the Nav2 group, the adapter, the readiness starter, RViz (if requested) and the optional one-shot `initial_pose`. Under W11R1 (ADR-019), localization/navigation use the bounded lifecycle manager; the W10 safety manager is unchanged. The starter checks actual lifecycle responses, AMCL initialization acknowledgement, READY, advancing clock, fresh scan and map→odom→base_footprint, then confirms real action/service RPCs. The creation delays only pace discovery load. All consumers use sim time, and every command message is a `geometry_msgs/Twist`.
 
 ## Frozen parameters
 
@@ -33,7 +33,7 @@ t1_navigation_adapter ─/t1/cmd_navigation─► t1_command_gate ─/cmd_vel_na
 - Goal tool `ros2 run t1_bringup navigate_to_pose X Y YAW`:
   - Explicitly arms the gate, then enforces one 120 s simulation-time limit for the whole task.
   - Staged 1.5 m walking approach along the goal heading, with a feasible distance chosen from the global costmap.
-  - Settle-and-verify on the localized pose, with up to 3 integral terminal retries.
+  - Complete and settle the staging action before sending the terminal goal; both must pass localized position/yaw verification. At most 3 corrections are shared by both stages.
 - Cancel calls `/t1/safety/stop` through the adapter; a later goal needs a new arm. Preemptive replacement does not stop.
 
 ## Why the bipedal-specific parts exist
@@ -93,3 +93,42 @@ Dynamic-world localization uses `w12_localization.yaml` (sigma_hit 0.05 m, all
 other parameters as W11). The W11 map, scene, safety and navigation configuration
 are preserved. Mapping and three independent AMCL initializations precede dynamic
 experiments. See [W12 evidence](../evidence/W12/README.md).
+
+## W11R1 readiness and terminal contract (ADR-019)
+
+The navigation-mode `bounded_lifecycle_manager` owns only localization/navigation
+transitions and bonds. Each service discovery/response is bounded to 2 wall seconds,
+with at most three state-reconciled attempts. A lost change-state response is
+followed by GetState; an already applied transition is not replayed. Bonds retain
+4 s timeout / 0.1 s heartbeat. Failure requests W10 stop, deactivates reachable
+managed nodes and requires a fresh launch; no automatic re-arm/restart. The W10
+manager and safety files remain unchanged. Starter failure shuts down its launch.
+
+Graph visibility and active state are insufficient. Before arming, starter and
+navigate_to_pose test FollowPath with an empty path: accepted ACK followed by the
+expected ABORTED/INVALID_PATH=103 proves the actual response channel without any
+motion. The adapter admits no commands without a current NavigateToPose epoch.
+Both clear-costmap services must actually respond. The expected probe aborts are
+startup diagnostics, not task failures. NavigateToPose acceptance is checked on
+the actual goal with a bounded ACK wait. The BT request budget is 500 ms (C09
+measured about 270 ms); motion watchdogs and 120 s task budget are unchanged.
+
+The adapter clears cached Twist at every NavigateToPose/FollowPath epoch change,
+requires a current FollowPath accepted no earlier than the current navigation goal,
+and blocks canceled/aborted epochs while requesting the latched W10 stop. This
+also blocks a late orphan FollowPath after its parent BT aborts. No publisher is
+added to the command chain. External preemption still works; staged approach no
+longer preempts at the old action's completion boundary.
+
+The 1.5/1.125/0.75 m costmap-selected staging positions are unchanged. Each staging
+action must complete and settle: 0.5 s velocity window below .05 linear/angular,
+continuously for 2 s, position/yaw within the existing .20 m/.20 rad internal
+bounds. Only then may the final goal be sent. Both stages share three corrections:
+position errors re-send the nominal pose; yaw-only errors integrate localized
+residual with aim offset capped at .5 rad. No nominal tolerance is relaxed. Action
+ABORTED (including error code 0), nonstationarity, exhausted corrections, clock
+stall, timeout or terminal forward overshoot >.30 m cause explicit failure,
+stop and cancellation. Overshoot is not recovered by an unvalidated reverse move.
+
+This candidate still requires the independent verification matrix; the former
+W11/W12 samples and W13 formal-v1 failures retain their historical meanings.
