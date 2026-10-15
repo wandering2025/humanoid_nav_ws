@@ -1,0 +1,964 @@
+schema: 1
+campaign: w11r1-independent-v1
+created_utc: '2026-10-15T09:33:37.813121+00:00'
+repair_sha: 47a383bdeb57f9531485a464dec22d7b2514cdb3
+handoff_sha: 284aba1e39c239063b5ca92725fde951bf31cc72
+preregistration_head: 284aba1e39c239063b5ca92725fde951bf31cc72
+source_scripts_fingerprint: 5ea0ccb65508bd4c70030759fb0d78aa7b382c49e2e303ca7858ea706117fe58
+environment:
+  distro: Ubuntu-24.04
+  ros: Jazzy
+  venv: /home/haoyang/venvs/humanoid_mujoco
+  upstream: /home/haoyang/robot_sim_sources/booster_deploy
+  booster_deploy_sha: 7bb1462e2ac742eba5c01659b815e2e99fbe617f
+  booster_assets_sha: 12a97516f57469078707afb587a5f84c1cb110d1
+  loader: source scripts/env.sh
+  colcon: /usr/bin/colcon
+  python: $T1_VENV/bin/python
+  T1_LOCAL_DDS: 1
+  T1_DDS_PORT: 42124
+  ROS_DOMAIN_ID: 34
+  test_fixture_ports_domains:
+    manager_planner_controller_shared_isolated_fixture:
+    - 42126
+    - 134
+outputs:
+  light: docs/evidence/W11R1V/
+  raw: run_data/w11r1-independent-v1/
+  simulator: run_data/<unique run ID with w11r1-independent-v1 prefix>/
+  campaigns:
+  - w11r1-independent-v1-startup
+  - w11r1-independent-v1-targeted
+  - w11r1-independent-v1-w11
+  - w11r1-independent-v1-cancel
+  - w11r1-independent-v1-w12
+stage_order:
+- A build and full automated tests
+- B 10 cold starts
+- C C01x3 C09x3 B04x3 B06x3
+- D W11 S01-S05
+- E cancellation/rearm/replacement
+- F W12 crossingx3 blockingx3 approachx3 S03
+- G final audit
+stage_A_commands:
+- /usr/bin/colcon build --symlink-install --base-paths src
+- /usr/bin/colcon test --base-paths src
+- /usr/bin/colcon test-result --all --verbose
+expected_tests:
+  packages: 4
+  tests: 151
+  errors: 0
+  failures: 0
+  skipped: 0
+navigation_acceptance:
+  position_max_m: 0.3
+  yaw_max_deg: 20.0
+  velocity_window_s: 0.5
+  linear_speed_strict_max: 0.05
+  angular_speed_strict_max: 0.05
+  continuous_stability_s: 2.0
+  task_limit_sim_s: 120
+  requires:
+  - Nav2 SUCCEEDED
+  - localized tool verification
+  - independent truth verification
+  - zero static/obstacle/nonfoot contacts
+  - zero falls
+  - valid safety chain
+  - no manual control
+  - no truth feedback
+  - no base-pose edits
+stage_acceptance:
+  B: 10/10 startup, actual bounded ACK and costmap responses, normal exits, no stale
+    graph or remnants
+  C: 3/3 each; stop subsequent costly runs on first candidate failure
+  D: 5/5; detour, TF, scan, localization and unique command chain
+  E: cancel correct, clear old commands, policy zero, stop <=.453m, latched until
+    arm, new goal reaches full stable arrival, no contacts/falls/remnants
+  F: each class >=1/3 full success, blocking real detour with entity present, approach
+    physical stop and resume, crossing scan/costmap detection, S03 succeeds, zero
+    contacts/falls in all ten; preserve first failures; no W13 9/10 criterion
+classification:
+  FAIL: Any candidate startup/lifecycle/action/service/TF/process fault, timeout,
+    missed goal, failed automated test, unsafe behavior, unexplained abnormal exit
+    or unreclaimed process; ABORTED0 never success
+  INVALID:
+  - tester wrong command
+  - wrong output directory
+  - unrelated external port occupation
+  - user interruption/power loss/reboot
+  - source or frozen dependency mismatch
+  - recorder failure before candidate executed with proof
+  INCOMPLETE: External environment or evidence missing, need to change frozen test
+    logic, or interruption/budget prevents complete verdict
+  invalid_retry: At most one after proven verifier error, preserve both; never retry
+    candidate failure
+  stop_rule: 'Freeze failure: INVALID no physical tests. Candidate failure: preserve
+    scene/logs and stop subsequent meaningless costly tests, FAIL. No repairs.'
+fault_injection:
+- missing lifecycle endpoint
+- missing map->odom
+- unconfirmed initialpose
+- late action ACK
+- nonresponsive costmap
+- FollowPath ABORTED0
+- terminal overshoot
+- parking yaw rebound
+- three corrections exhausted
+- late old-goal command
+- cancel command clearing
+- manager shutdown
+- illegal second command publisher
+fault_method: Existing frozen automated tests in stage A; compare real ROS manager/planner/controller
+  outputs, startup traces and later physical observations; no new injection/test logic.
+  Any unproven external behavior stays unproven.
+input_hashes:
+  src/t1_bringup/config/test_suite_v1.yaml: a2c9e5d9e81abe5d9afe817b3f5ee2152b9ec7d2252100e7407ad291ed65ea34
+  src/t1_bringup/config/w12_events.yaml: 9fd809efc6e54a4ad6154434bd2e832d07f743d7157200a5547cbca0f9113856
+  src/t1_bringup/config/w13_events_v1.yaml: 23794bd05b3fe820c7c9dfcecf40cf8e683732b0d40c2cc99161fa587bae5853
+  src/t1_description/config/README.md: ea99cfbf9f67f28c841198d219432dd73975eb9a4e3ff01066d7e16275431c64
+  src/t1_description/config/footprint.yaml: dfab0bfecceaf27eab8270faacf04ddb0b260f7b4da67b63bda023b1c2da8b8d
+  src/t1_description/config/scene.rviz: b8846615c0b515bf12abd493587b778b2f2c4a09522eb5f783ec46fa9b545946
+  src/t1_description/config/state.rviz: abdd270041f50cf8ea0bfbaf452601a67c91c42a742019fbd66dcaa5fdb6c309
+  src/t1_mujoco/config/README.md: 9a679b2bb420b626450555e780d76668603e23eaca073256f099c4be106d1b89
+  src/t1_mujoco/config/command_map.yaml: 54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d
+  src/t1_mujoco/config/runtime.yaml: 8c93993083e2e84d866b5eb4128880569e5af5479b41fb94c7c42e977d7a1dbb
+  src/t1_mujoco/worlds/README.md: a1c3eb248fc404b30373e35b74cf13c8b51cfe5d5764b9a3da1ad87fc7e17d52
+  src/t1_mujoco/worlds/calibration_world.yaml: 6f45a05d1b38bc9ad61d081f59bba3b8c4d20a2083d2b30d34e15f6cbecd0422
+  src/t1_mujoco/worlds/dynamic_crossing_world.yaml: 55d926a636ae5c69f5685f5a746159596639d8a4ab95722b209e17f7af2fec11
+  src/t1_mujoco/worlds/static_world.yaml: 84df038755888130fbe110e4d7a6a143b6adb8eadbeaf64e1c23cb7e3414b091
+  src/t1_mujoco/worlds/stress_test_world.yaml: 9984e4ce04993e36579b980a63826b78b5e3aeb4115ca3b6827311d4c550330d
+  src/t1_navigation/behavior_trees/navigate_to_pose_w11.xml: ec9e48a6f859adee0292eae7a66a3967074670bf02a982440e9aad246712cb29
+  src/t1_navigation/config/README.md: 82e980d38d2efc90c9e8a18bb17c188e695673ca899c1304fc9f254782f79720
+  src/t1_navigation/config/localization.yaml: 08567e33b2ff6a113a75791c9bddb7a546cf812e2437a32faac2da53e62994c7
+  src/t1_navigation/config/mapping.rviz: 16f5f97628007f2cb9b69428f6cb659964f2cfdf1587c42f2e4bfdff26091f6c
+  src/t1_navigation/config/navigation.rviz: 38efb91f3b44568d37e57660f4e1e733135a61c39aa6b7cacd3ce4b552b51b68
+  src/t1_navigation/config/navigation.yaml: 14f45a71cccb3e93886f6c9bf484bdccdfbed2b98f3940ad16ab24f157bb5fcf
+  src/t1_navigation/config/safety.yaml: d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf
+  src/t1_navigation/config/slam.yaml: 45ae81fab86f6d3755c9c03212a1f13f80209914ac6e46cce9bffbb9e5f3d357
+  src/t1_navigation/config/w11_static_cases.yaml: f4a0e5b5473814a6e96a1a12a259a6262538f2e347c98126cecbcdeeec2c1981
+  src/t1_navigation/config/w12_localization.yaml: 598d6c224834de4766018d9ab07e592f599668dceb9864f6dcdb358789f8c548
+  src/t1_navigation/config/w12_mapping_runtime.yaml: bb35a38b12ae9d5645caf1699bd5170ac9a45e6d3bb6c3dc5262fd3a900d1dec
+  src/t1_navigation/maps/README.md: 3a962a4f4ad1911ff7749ca2c8e926a6898ccf0609f2e65bc299b9bf15c28c2c
+  src/t1_navigation/maps/dynamic_crossing_world.meta.yaml: bad8d568ae149f4bea2315fe43646e0d98c8c9b9f03eac3e1f5f76778e2fe220
+  src/t1_navigation/maps/dynamic_crossing_world.pgm: 8652777ba15a030f1c57c7c4728644b22a5c182ce62ebb814c0e825edc0ecdf0
+  src/t1_navigation/maps/dynamic_crossing_world.yaml: fad1a0cdc1a7b386857d79e8c5be842deb54da05ca9f180131e08caa1693563b
+  src/t1_navigation/maps/static_world.meta.yaml: c8343d046e5d157e37d9ae1c6afe2c292789a8c30effbf7b0d12e5916d8d8758
+  src/t1_navigation/maps/static_world.pgm: 36df8c63639d9172cd5cd614977e6c9711a08ac88c6bb7b5efb3a79c956a8e4e
+  src/t1_navigation/maps/static_world.yaml: ad4f4a57ec1e2e220bad97c5226616d1c0d236884288470a299f5d5380853163
+run_order:
+- sequence: 1
+  stage: B
+  case: STARTUP-01
+  seed: 0
+  scene: static_world
+  map: src/t1_navigation/maps/static_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal: null
+  event: null
+  rviz: true
+  deadline_wall_s: 90
+  overall_wall_s: 150
+  max_sim_time_s: 60
+  method: new Python process + modern harness.Session + frozen W11 startup_probe(1);
+    audit starter JSON, process exits and ports
+- sequence: 2
+  stage: B
+  case: STARTUP-02
+  seed: 0
+  scene: static_world
+  map: src/t1_navigation/maps/static_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal: null
+  event: null
+  rviz: true
+  deadline_wall_s: 90
+  overall_wall_s: 150
+  max_sim_time_s: 60
+  method: new Python process + modern harness.Session + frozen W11 startup_probe(1);
+    audit starter JSON, process exits and ports
+- sequence: 3
+  stage: B
+  case: STARTUP-03
+  seed: 0
+  scene: static_world
+  map: src/t1_navigation/maps/static_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal: null
+  event: null
+  rviz: true
+  deadline_wall_s: 90
+  overall_wall_s: 150
+  max_sim_time_s: 60
+  method: new Python process + modern harness.Session + frozen W11 startup_probe(1);
+    audit starter JSON, process exits and ports
+- sequence: 4
+  stage: B
+  case: STARTUP-04
+  seed: 0
+  scene: static_world
+  map: src/t1_navigation/maps/static_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal: null
+  event: null
+  rviz: true
+  deadline_wall_s: 90
+  overall_wall_s: 150
+  max_sim_time_s: 60
+  method: new Python process + modern harness.Session + frozen W11 startup_probe(1);
+    audit starter JSON, process exits and ports
+- sequence: 5
+  stage: B
+  case: STARTUP-05
+  seed: 0
+  scene: static_world
+  map: src/t1_navigation/maps/static_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal: null
+  event: null
+  rviz: true
+  deadline_wall_s: 90
+  overall_wall_s: 150
+  max_sim_time_s: 60
+  method: new Python process + modern harness.Session + frozen W11 startup_probe(1);
+    audit starter JSON, process exits and ports
+- sequence: 6
+  stage: B
+  case: STARTUP-06
+  seed: 0
+  scene: static_world
+  map: src/t1_navigation/maps/static_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal: null
+  event: null
+  rviz: true
+  deadline_wall_s: 90
+  overall_wall_s: 150
+  max_sim_time_s: 60
+  method: new Python process + modern harness.Session + frozen W11 startup_probe(1);
+    audit starter JSON, process exits and ports
+- sequence: 7
+  stage: B
+  case: STARTUP-07
+  seed: 0
+  scene: static_world
+  map: src/t1_navigation/maps/static_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal: null
+  event: null
+  rviz: true
+  deadline_wall_s: 90
+  overall_wall_s: 150
+  max_sim_time_s: 60
+  method: new Python process + modern harness.Session + frozen W11 startup_probe(1);
+    audit starter JSON, process exits and ports
+- sequence: 8
+  stage: B
+  case: STARTUP-08
+  seed: 0
+  scene: static_world
+  map: src/t1_navigation/maps/static_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal: null
+  event: null
+  rviz: true
+  deadline_wall_s: 90
+  overall_wall_s: 150
+  max_sim_time_s: 60
+  method: new Python process + modern harness.Session + frozen W11 startup_probe(1);
+    audit starter JSON, process exits and ports
+- sequence: 9
+  stage: B
+  case: STARTUP-09
+  seed: 0
+  scene: static_world
+  map: src/t1_navigation/maps/static_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal: null
+  event: null
+  rviz: true
+  deadline_wall_s: 90
+  overall_wall_s: 150
+  max_sim_time_s: 60
+  method: new Python process + modern harness.Session + frozen W11 startup_probe(1);
+    audit starter JSON, process exits and ports
+- sequence: 10
+  stage: B
+  case: STARTUP-10
+  seed: 0
+  scene: static_world
+  map: src/t1_navigation/maps/static_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal: null
+  event: null
+  rviz: true
+  deadline_wall_s: 90
+  overall_wall_s: 150
+  max_sim_time_s: 60
+  method: new Python process + modern harness.Session + frozen W11 startup_probe(1);
+    audit starter JSON, process exits and ports
+- sequence: 11
+  stage: C
+  case: C01
+  repeat: 1
+  suite: crossing
+  seed: 2000
+  scene: dynamic_crossing_world
+  start: &id001
+  - 0.0
+  - 0.0
+  - 0.0
+  goal: &id002
+  - 9.0
+  - 0.0
+  - 0.0
+  scenario: C01
+  kind: crossing
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  event_file: src/t1_bringup/config/w13_events_v1.yaml
+  event_config: &id003
+    slot: crossing_slot
+    seed: 2000
+    start:
+    - 2.75
+    - -3.0
+    trigger_x: 0.45
+    initial_surface_gap_lower_bound_m: 2.75
+    allowed: safe_wait_then_continue_or_detour
+    end: obstacle_clear_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 2.75
+      - 3.0
+      speed: 0.4
+      hold: 180.0
+  time_limit_s: 120
+- sequence: 12
+  stage: C
+  case: C01
+  repeat: 2
+  suite: crossing
+  seed: 2000
+  scene: dynamic_crossing_world
+  start: *id001
+  goal: *id002
+  scenario: C01
+  kind: crossing
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  event_file: src/t1_bringup/config/w13_events_v1.yaml
+  event_config: *id003
+  time_limit_s: 120
+- sequence: 13
+  stage: C
+  case: C01
+  repeat: 3
+  suite: crossing
+  seed: 2000
+  scene: dynamic_crossing_world
+  start: *id001
+  goal: *id002
+  scenario: C01
+  kind: crossing
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  event_file: src/t1_bringup/config/w13_events_v1.yaml
+  event_config: *id003
+  time_limit_s: 120
+- sequence: 14
+  stage: C
+  case: C09
+  repeat: 1
+  suite: crossing
+  seed: 2008
+  scene: dynamic_crossing_world
+  start: &id004
+  - 0.0
+  - 0.0
+  - 0.0
+  goal: &id005
+  - 9.0
+  - 0.0
+  - 0.0
+  scenario: C09
+  kind: crossing
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  event_file: src/t1_bringup/config/w13_events_v1.yaml
+  event_config: &id006
+    slot: crossing_slot
+    seed: 2008
+    start:
+    - 2.75
+    - -3.0
+    trigger_x: 0.85
+    initial_surface_gap_lower_bound_m: 2.75
+    allowed: safe_wait_then_continue_or_detour
+    end: obstacle_clear_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 2.75
+      - 3.0
+      speed: 0.56
+      hold: 180.0
+  time_limit_s: 120
+- sequence: 15
+  stage: C
+  case: C09
+  repeat: 2
+  suite: crossing
+  seed: 2008
+  scene: dynamic_crossing_world
+  start: *id004
+  goal: *id005
+  scenario: C09
+  kind: crossing
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  event_file: src/t1_bringup/config/w13_events_v1.yaml
+  event_config: *id006
+  time_limit_s: 120
+- sequence: 16
+  stage: C
+  case: C09
+  repeat: 3
+  suite: crossing
+  seed: 2008
+  scene: dynamic_crossing_world
+  start: *id004
+  goal: *id005
+  scenario: C09
+  kind: crossing
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  event_file: src/t1_bringup/config/w13_events_v1.yaml
+  event_config: *id006
+  time_limit_s: 120
+- sequence: 17
+  stage: C
+  case: B04
+  repeat: 1
+  suite: blocking
+  seed: 3003
+  scene: dynamic_crossing_world
+  start: &id007
+  - 0.0
+  - 0.0
+  - 0.0
+  goal: &id008
+  - 9.0
+  - 0.0
+  - 0.0
+  scenario: B04
+  kind: blocking
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  event_file: src/t1_bringup/config/w13_events_v1.yaml
+  event_config: &id009
+    slot: blocking_slot
+    seed: 3003
+    start:
+    - 4.5
+    - 3.0
+    trigger_x: 0.21
+    initial_surface_gap_lower_bound_m: 3.75
+    allowed: real_detour_while_blocker_remains
+    end: goal_verified_within_120_sim_s_and_blocker_still_present
+    legs:
+    - to:
+      - 4.5
+      - 0.0
+      speed: 0.56
+      hold: 186.0
+  time_limit_s: 120
+- sequence: 18
+  stage: C
+  case: B04
+  repeat: 2
+  suite: blocking
+  seed: 3003
+  scene: dynamic_crossing_world
+  start: *id007
+  goal: *id008
+  scenario: B04
+  kind: blocking
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  event_file: src/t1_bringup/config/w13_events_v1.yaml
+  event_config: *id009
+  time_limit_s: 120
+- sequence: 19
+  stage: C
+  case: B04
+  repeat: 3
+  suite: blocking
+  seed: 3003
+  scene: dynamic_crossing_world
+  start: *id007
+  goal: *id008
+  scenario: B04
+  kind: blocking
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  event_file: src/t1_bringup/config/w13_events_v1.yaml
+  event_config: *id009
+  time_limit_s: 120
+- sequence: 20
+  stage: C
+  case: B06
+  repeat: 1
+  suite: blocking
+  seed: 3005
+  scene: dynamic_crossing_world
+  start: &id010
+  - 0.0
+  - 0.0
+  - 0.0
+  goal: &id011
+  - 9.0
+  - 0.0
+  - 0.0
+  scenario: B06
+  kind: blocking
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  event_file: src/t1_bringup/config/w13_events_v1.yaml
+  event_config: &id012
+    slot: blocking_slot
+    seed: 3005
+    start:
+    - 4.5
+    - 3.0
+    trigger_x: 0.25
+    initial_surface_gap_lower_bound_m: 3.75
+    allowed: real_detour_while_blocker_remains
+    end: goal_verified_within_120_sim_s_and_blocker_still_present
+    legs:
+    - to:
+      - 4.5
+      - 0.0
+      speed: 0.6
+      hold: 190.0
+  time_limit_s: 120
+- sequence: 21
+  stage: C
+  case: B06
+  repeat: 2
+  suite: blocking
+  seed: 3005
+  scene: dynamic_crossing_world
+  start: *id010
+  goal: *id011
+  scenario: B06
+  kind: blocking
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  event_file: src/t1_bringup/config/w13_events_v1.yaml
+  event_config: *id012
+  time_limit_s: 120
+- sequence: 22
+  stage: C
+  case: B06
+  repeat: 3
+  suite: blocking
+  seed: 3005
+  scene: dynamic_crossing_world
+  start: *id010
+  goal: *id011
+  scenario: B06
+  kind: blocking
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  event_file: src/t1_bringup/config/w13_events_v1.yaml
+  event_config: *id012
+  time_limit_s: 120
+- sequence: 23
+  stage: D
+  case: S01
+  seed: 1000
+  kind: short_straight
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal:
+  - 1.75
+  - 0.0
+  - 0.0
+  scene: static_world
+  map: src/t1_navigation/maps/static_world.yaml
+  event: null
+  time_limit_s: 120
+- sequence: 24
+  stage: D
+  case: S02
+  seed: 1001
+  kind: corner
+  start:
+  - 0.0
+  - 0.0
+  - 1.5708
+  goal:
+  - 2.5
+  - 2.75
+  - 0.0
+  scene: static_world
+  map: src/t1_navigation/maps/static_world.yaml
+  event: null
+  time_limit_s: 120
+- sequence: 25
+  stage: D
+  case: S03
+  seed: 1002
+  kind: island_detour
+  start: &id016
+  - 1.5
+  - 0.0
+  - 0.0
+  goal: &id017
+  - 8.0
+  - 0.0
+  - -1.5708
+  scene: static_world
+  map: src/t1_navigation/maps/static_world.yaml
+  event: null
+  time_limit_s: 120
+- sequence: 26
+  stage: D
+  case: S04
+  seed: 1003
+  kind: full_A_to_B
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal:
+  - 9.0
+  - 0.0
+  - 0.0
+  rviz: true
+  screenshot_after_s: 18.0
+  scene: static_world
+  map: src/t1_navigation/maps/static_world.yaml
+  event: null
+  time_limit_s: 120
+- sequence: 27
+  stage: D
+  case: S05
+  seed: 1004
+  kind: return_detour_heading_change
+  start:
+  - 9.0
+  - 0.0
+  - 3.1416
+  goal:
+  - 0.0
+  - 0.0
+  - 1.5708
+  scene: static_world
+  map: src/t1_navigation/maps/static_world.yaml
+  event: null
+  time_limit_s: 120
+- sequence: 28
+  stage: E
+  case: cancel-replace
+  seed: 0
+  scene: static_world
+  map: src/t1_navigation/maps/static_world.yaml
+  event: null
+  spec:
+    start:
+    - 0.0
+    - 0.0
+    - 0.0
+    first_goal:
+    - 9.0
+    - 0.0
+    - 0.0
+    cancel_after_moving_s: 3.0
+    second_goal:
+    - 2.5
+    - 2.75
+    - 0.0
+    replace_after_moving_s: 2.0
+    replacement_goal:
+    - 1.0
+    - -2.75
+    - 3.1416
+  stop_displacement_max_m: 0.453
+  time_limit_s: 120
+  method: frozen W11R1 cancel_smoke.py with absolute new output path; replacement_settle
+    must be true in addition to verdict
+- sequence: 29
+  stage: F
+  case: crossing-1
+  scene: dynamic_crossing_world
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal:
+  - 9.0
+  - 0.0
+  - 0.0
+  seed: 1201
+  event_file: src/t1_bringup/config/w12_events.yaml
+  scenario: crossing
+  event_config: &id013
+    slot: crossing_slot
+    seed: 1201
+    start:
+    - 2.75
+    - -3.0
+    trigger_x: 0.6
+    initial_surface_gap_lower_bound_m: 2.75
+    allowed: safe_wait_then_continue_or_detour
+    end: obstacle_clear_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 2.75
+      - 3.0
+      speed: 0.5
+      hold: 180.0
+  time_limit_s: 120
+  rviz: false
+- sequence: 30
+  stage: F
+  case: crossing-2
+  scene: dynamic_crossing_world
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal:
+  - 9.0
+  - 0.0
+  - 0.0
+  seed: 1201
+  event_file: src/t1_bringup/config/w12_events.yaml
+  scenario: crossing
+  event_config: *id013
+  time_limit_s: 120
+  rviz: false
+- sequence: 31
+  stage: F
+  case: crossing-3
+  scene: dynamic_crossing_world
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal:
+  - 9.0
+  - 0.0
+  - 0.0
+  seed: 1201
+  event_file: src/t1_bringup/config/w12_events.yaml
+  scenario: crossing
+  event_config: *id013
+  time_limit_s: 120
+  rviz: false
+- sequence: 32
+  stage: F
+  case: blocking-1
+  scene: dynamic_crossing_world
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal:
+  - 9.0
+  - 0.0
+  - 0.0
+  seed: 1202
+  event_file: src/t1_bringup/config/w12_events.yaml
+  scenario: blocking
+  event_config: &id014
+    slot: blocking_slot
+    seed: 1202
+    start:
+    - 4.5
+    - 3.0
+    trigger_x: 0.25
+    initial_surface_gap_lower_bound_m: 3.75
+    allowed: real_detour_while_blocker_remains
+    end: goal_verified_within_120_sim_s_and_blocker_still_present
+    legs:
+    - to:
+      - 4.5
+      - 0.0
+      speed: 0.6
+      hold: 180.0
+  time_limit_s: 120
+  rviz: false
+- sequence: 33
+  stage: F
+  case: blocking-2
+  scene: dynamic_crossing_world
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal:
+  - 9.0
+  - 0.0
+  - 0.0
+  seed: 1202
+  event_file: src/t1_bringup/config/w12_events.yaml
+  scenario: blocking
+  event_config: *id014
+  time_limit_s: 120
+  rviz: false
+- sequence: 34
+  stage: F
+  case: blocking-3
+  scene: dynamic_crossing_world
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal:
+  - 9.0
+  - 0.0
+  - 0.0
+  seed: 1202
+  event_file: src/t1_bringup/config/w12_events.yaml
+  scenario: blocking
+  event_config: *id014
+  time_limit_s: 120
+  rviz: false
+- sequence: 35
+  stage: F
+  case: approach-1
+  scene: dynamic_crossing_world
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal:
+  - 9.0
+  - 0.0
+  - 0.0
+  seed: 1203
+  event_file: src/t1_bringup/config/w12_events.yaml
+  scenario: approach
+  event_config: &id015
+    slot: approach_slot
+    seed: 1203
+    start:
+    - 6.0
+    - 3.0
+    trigger_x: 3.2
+    initial_surface_gap_lower_bound_m: 2.55
+    allowed: physical_stop_then_resume_when_scan_clear
+    end: obstacle_retreat_and_goal_verified_within_120_sim_s
+    legs:
+    - to:
+      - 6.0
+      - 0.0
+      speed: 0.6
+      hold: 3.0
+    - to:
+      - 6.0
+      - 3.0
+      speed: 0.6
+      hold: 180.0
+  time_limit_s: 120
+  rviz: false
+- sequence: 36
+  stage: F
+  case: approach-2
+  scene: dynamic_crossing_world
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal:
+  - 9.0
+  - 0.0
+  - 0.0
+  seed: 1203
+  event_file: src/t1_bringup/config/w12_events.yaml
+  scenario: approach
+  event_config: *id015
+  time_limit_s: 120
+  rviz: false
+- sequence: 37
+  stage: F
+  case: approach-3
+  scene: dynamic_crossing_world
+  map: src/t1_navigation/maps/dynamic_crossing_world.yaml
+  start:
+  - 0.0
+  - 0.0
+  - 0.0
+  goal:
+  - 9.0
+  - 0.0
+  - 0.0
+  seed: 1203
+  event_file: src/t1_bringup/config/w12_events.yaml
+  scenario: approach
+  event_config: *id015
+  time_limit_s: 120
+  rviz: false
+- sequence: 38
+  stage: F
+  case: static-S03
+  seed: 1002
+  kind: island_detour
+  start: *id016
+  goal: *id017
+  scene: static_world
+  map: src/t1_navigation/maps/static_world.yaml
+  event: null
+  time_limit_s: 120
+forbidden_changes:
+- src/
+- scripts/
+- existing test entries
+- navigation/safety parameters
+- launch
+- maps/scenes/cases/seeds/events/BT/checkpoint
+- external upstream
+- W11/W12/W13/W11R1 evidence
+- formal-v1
+- docs/results W13 history
+- docs/start_commands.md
+forbidden_execution:
+- W13 formal-v2
+- formal RTF acceptance
+- W14
+- W15
+- delegation
+- reset/rebase/clean
+- kill unrelated processes
+immutability: After preregistration commit never edit run cases/order/seeds/criteria;
+  append corrections only. Output rebinding only, no test logic changes.

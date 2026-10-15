@@ -1,0 +1,46 @@
+{
+  "created_utc": "2026-10-15T09:34:26.176153+00:00",
+  "project_processes": [],
+  "excluded_system_and_auditor": [
+    {
+      "pid": 256,
+      "comm": "unattended-upgr",
+      "argv": [
+        "/usr/bin/python3",
+        "/usr/share/unattended-upgrades/unattended-upgrade-shutdown",
+        "--wait-for-signal"
+      ]
+    },
+    {
+      "pid": 97054,
+      "comm": "python3",
+      "argv": [
+        "python3",
+        "-"
+      ]
+    }
+  ],
+  "listening_sockets": "Netid State  Recv-Q Send-Q  Local Address:Port  Peer Address:PortProcess                              \nudp   UNCONN 0      0          127.0.0.54:53         0.0.0.0:*                                        \nudp   UNCONN 0      0       127.0.0.53%lo:53         0.0.0.0:*                                        \nudp   UNCONN 0      0      10.255.255.254:53         0.0.0.0:*                                        \nudp   UNCONN 0      0           127.0.0.1:323        0.0.0.0:*                                        \nudp   UNCONN 0      0             0.0.0.0:5353       0.0.0.0:*                                        \nudp   UNCONN 0      0             0.0.0.0:46427      0.0.0.0:*                                        \nudp   UNCONN 0      0               [::1]:323           [::]:*                                        \nudp   UNCONN 0      0                [::]:5353          [::]:*                                        \nudp   UNCONN 0      0                [::]:46350         [::]:*                                        \ntcp   LISTEN 0      4096    127.0.0.53%lo:53         0.0.0.0:*                                        \ntcp   LISTEN 0      511         127.0.0.1:35233      0.0.0.0:*    users:((\"MainThread\",pid=583,fd=43))\ntcp   LISTEN 0      1000   10.255.255.254:53         0.0.0.0:*                                        \ntcp   LISTEN 0      4096       127.0.0.54:53         0.0.0.0:*                                        \ntcp   LISTEN 0      511         127.0.0.1:46653      0.0.0.0:*    users:((\"MainThread\",pid=589,fd=33))\ntcp   LISTEN 0      64          127.0.0.1:5345       0.0.0.0:*                                        \ntcp   LISTEN 0      511         127.0.0.1:46049      0.0.0.0:*    users:((\"MainThread\",pid=480,fd=22))\n",
+  "ports_free": [
+    42124,
+    42126
+  ],
+  "domains": [
+    34,
+    134
+  ],
+  "upstreams": {
+    "booster_deploy": {
+      "sha": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+      "dirty": []
+    },
+    "booster_assets": {
+      "sha": "12a97516f57469078707afb587a5f84c1cb110d1",
+      "dirty": []
+    }
+  },
+  "uname": "Linux DESKTOP-MF19MEU 6.18.54.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Tue Oct  6 19:13:07 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux",
+  "no_process_stopped": true,
+  "verdict": "PASS",
+  "audit_correction": "First read-only audit assertion counted auditor Python itself and OS unattended-upgrade-shutdown PID256; exited1 before saving. Neither is project/ROS. No candidate/test execution occurred. Original error preserved here."
+}
