@@ -1,5 +1,5 @@
 import unittest
-from gpu_watch import threshold_failure,renderer_verified
+from gpu_watch import threshold_failure,renderer_verified,ERROR
 
 class Limits(unittest.TestCase):
     def row(self,**kwargs):return dict(temperature_c=47,memory_mib=600,memory_total_mib=6141,utilization_pct=20,**kwargs)
@@ -19,5 +19,10 @@ class Limits(unittest.TestCase):
             self.assertFalse(renderer_verified('OpenGL renderer string: '+value))
     def test_canary_json(self):
         self.assertTrue(renderer_verified('{"renderer":"D3D12 (NVIDIA GeForce RTX 4050 Laptop GPU)"}'))
+
+    def test_graphics_shader_fault_stops_gpu_work(self):
+        for text in ('GLSL link result :','active samplers with a different type refer to the same texture image unit','GL_INVALID_OPERATION','D3D12: Removing Device.'):
+            self.assertIsNotNone(ERROR.search(text))
+        self.assertIsNone(ERROR.search('OpenGl version: 4.5 (GLSL 4.5)'))
 
 if __name__=='__main__':unittest.main()

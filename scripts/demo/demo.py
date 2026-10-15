@@ -514,9 +514,9 @@ class Demo:
             import rclpy
             if rclpy.ok():
                 rclpy.shutdown()
-        self.summary['dds_port_immediately_bindable']=port_free()
-        self.summary['dds_port_state_after_exit']=port_connections()
-        self.summary['dds_port_released']=wait_port_reusable()
+        self.summary['dds_port_state_before_runner_exit']=port_connections()
+        self.summary['dds_port_released']=None
+        self.summary['dds_port_check_deferred']=True
         self.summary['wall_total_s']=time.monotonic()-self.started
 
     def metrics(self):
@@ -554,12 +554,13 @@ class Demo:
             obstacle_truth_isolated=set(graph.get('/t1/eval/obstacle',{}).get('subscribers',[]))=={'t1_evaluator'},
             robot_truth_isolated=set(graph.get('/t1/eval/ground_truth',{}).get('subscribers',[]))=={'t1_evaluator'})
         exit_ok=all(v==0 for v in self.summary['parent_exit_codes'].values()) and bool(self.summary['launch_process_exit_codes']) and all(r['exit_code']==0 for r in self.summary['launch_process_exit_codes'].values()) and manifest.get('exit_code')==0
-        self.summary['status']='SUCCESS' if (self.summary['arrived'] and not self.summary['fell'] and
+        self.summary['validation_before_port_check']=bool(self.summary['arrived'] and not self.summary['fell'] and
             contacts==dict(static_env=0,obstacle=0,ground_nonfoot=0) and result['dynamic']['verdict']=='PASS' and
             exit_ok and all(self.summary['graph_contract'].values()) and self.summary.get('safe_stop',{}).get('physical_stationary') and
             not self.summary['remaining_owned_pids'] and not self.summary['remaining_project_processes'] and
-            self.summary['dds_port_released'] and self.summary.get('clock_regressions')==0 and
-            len(self.summary['initializations'])==1 and not self.summary.get('error') and not self.summary.get('gpu_monitor_error')) else 'FAILED'
+            self.summary.get('clock_regressions')==0 and
+            len(self.summary['initializations'])==1 and not self.summary.get('error') and not self.summary.get('gpu_monitor_error'))
+        self.summary['status']='PENDING_PORT_CHECK' if self.summary['validation_before_port_check'] else 'FAILED'
 
 
 def main():
@@ -639,8 +640,9 @@ def main():
                 demo.summary.update(contacts=manifest.get('contact_counts'),simulator_exit_code=manifest.get('exit_code'),
                     zero_policy=all(float(row['u_pol_x'])==0 and float(row['u_pol_wz'])==0 for row in rows),
                     fell=any(row['state'] in ('FALLEN','FAULT') for row in rows))
-                ok=demo.summary.get('startup_check_completed') and demo.summary.get('safe_stop',{}).get('physical_stationary') and all(v==0 for v in demo.summary.get('parent_exit_codes',{}).values()) and all(r['exit_code']==0 for r in demo.summary.get('launch_process_exit_codes',{}).values()) and demo.summary.get('dds_port_released') and not demo.summary.get('remaining_owned_pids') and not demo.summary.get('error') and not demo.summary.get('gpu_monitor_error') and manifest.get('exit_code')==0 and demo.summary['contacts']==dict(static_env=0,obstacle=0,ground_nonfoot=0) and demo.summary['zero_policy'] and not demo.summary['fell']
-                demo.summary['status']='SUCCESS_STARTUP_CHECK' if ok else 'FAILED'
+                ok=demo.summary.get('startup_check_completed') and demo.summary.get('safe_stop',{}).get('physical_stationary') and all(v==0 for v in demo.summary.get('parent_exit_codes',{}).values()) and all(r['exit_code']==0 for r in demo.summary.get('launch_process_exit_codes',{}).values()) and not demo.summary.get('remaining_owned_pids') and not demo.summary.get('error') and not demo.summary.get('gpu_monitor_error') and manifest.get('exit_code')==0 and demo.summary['contacts']==dict(static_env=0,obstacle=0,ground_nonfoot=0) and demo.summary['zero_policy'] and not demo.summary['fell']
+                demo.summary['validation_before_port_check']=bool(ok)
+                demo.summary['status']='PENDING_PORT_CHECK' if ok else 'FAILED'
             else:
                 demo.metrics()
         except Exception:
@@ -650,7 +652,7 @@ def main():
         s=demo.summary
         say(f'{s["status"]} | arrived={s["arrived"]} | error={s.get("settle")} | contacts={s.get("contacts")} | fall={s.get("fell")} | sampled body gap={s.get("body_clearance",{}).get("min_m")}m')
         say(f'Exit codes {s.get("parent_exit_codes")} | remaining={s.get("remaining_owned_pids")} | port released={s.get("dds_port_released")} | result: {OUT}/result.json')
-    return 0 if demo.summary['status'] in ('SUCCESS','SUCCESS_STARTUP_CHECK') else 1
+    return 4 if demo.summary['status']=='PENDING_PORT_CHECK' else 1
 
 
 if __name__=='__main__':

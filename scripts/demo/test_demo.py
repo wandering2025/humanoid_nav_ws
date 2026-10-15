@@ -66,7 +66,7 @@ class Isolation(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError,'Cannot inspect DDS port'):
                 demo.port_free()
 
-    def test_ros_context_closes_before_port_reuse_check(self):
+    def test_port_binding_is_deferred_until_runner_exit(self):
         state={'node_closed':False,'context_closed':False}
         instance=object.__new__(demo.Demo)
         instance.children={};instance.owned={};instance.cleanup_started=False
@@ -76,10 +76,11 @@ class Isolation(unittest.TestCase):
             destroy_node=lambda:state.update(node_closed=True))
         fake=SimpleNamespace(ok=lambda:True,shutdown=lambda:state.update(context_closed=True))
         def bind_check():
-            self.assertTrue(state['node_closed']);self.assertTrue(state['context_closed'])
-            return True
+            raise AssertionError('port bind must happen only in the independent finalizer')
         with patch.dict(demo.sys.modules,{'rclpy':fake}),patch.object(demo,'port_free',side_effect=bind_check),patch.object(demo,'port_connections',return_value={}):
             instance.cleanup()
+        self.assertTrue(state['node_closed']);self.assertTrue(state['context_closed'])
+        self.assertTrue(instance.summary['dds_port_check_deferred'])
 
     def test_time_wait_waits_without_signalling_any_process(self):
         with patch.object(demo,'port_free',side_effect=[False,True]), \

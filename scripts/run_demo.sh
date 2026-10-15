@@ -76,4 +76,11 @@ if kill -0 "$runner_pid" 2>/dev/null; then
   wait "$runner_pid" || result=$?
 fi
 runner_pid=''
+if [[ -f "$T1_DEMO_DIR/result.json" ]]; then
+  if /usr/bin/python3 "$DEMO_ROOT/scripts/demo/finalize.py" "$T1_DEMO_DIR" "$result"; then
+    result=0
+  else
+    result=$?
+  fi
+fi
 exit "$result"
