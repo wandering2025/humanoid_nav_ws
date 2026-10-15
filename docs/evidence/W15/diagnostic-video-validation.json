@@ -1,0 +1,24 @@
+[
+  {
+    "path": "/home/haoyang/humanoid_nav_ws/docs/evidence/W15/raw/minimal-capture/demo.mp4",
+    "bytes": 184992,
+    "sha256": "ea8d7fb58a1819b0f21aa5ef3c6377575302c4d3f53672e8227d735088eed404",
+    "decoded_frames": 317,
+    "expected_frames": 317,
+    "fps": 15.0,
+    "decode_complete": true,
+    "classification": "FAILED_DIAGNOSTIC_ONLY_NOT_RELEASE_VIDEO",
+    "full_presentation_playback": "NOT_APPLICABLE; no successful navigation was recorded"
+  },
+  {
+    "path": "/home/haoyang/humanoid_nav_ws/docs/evidence/W15/raw/minimal-capture-02/demo.mp4",
+    "bytes": 285350,
+    "sha256": "f0184fc73236b9fcb62113926c55446d952e06ad2e75380a9ae42a0308601124",
+    "decoded_frames": 536,
+    "expected_frames": 536,
+    "fps": 15.0,
+    "decode_complete": true,
+    "classification": "FAILED_DIAGNOSTIC_ONLY_NOT_RELEASE_VIDEO",
+    "full_presentation_playback": "NOT_APPLICABLE; no successful navigation was recorded"
+  }
+]

@@ -30,6 +30,7 @@ def main():
         module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
         module.OUT=out;module.RAW=out/'raw';module.RAW.mkdir()
         shutil.copyfile(WS/'docs/evidence/W10/open.yaml',out/'open.yaml')
+        shutil.copyfile(WS/'docs/evidence/W10/fault.launch.py',out/'fault.launch.py')
         sys.argv=[sys.argv[0],'source_timeout']
         code=module.main()
     else:

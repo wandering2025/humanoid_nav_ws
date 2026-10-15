@@ -1,0 +1,11 @@
+{
+  "status": "FAIL_STARTUP",
+  "run_id": "20261015T151455Z_w15_source_timeout_b13f13",
+  "physical_run_id": "w10_source_timeout_d2c5b095",
+  "source_sha": "801791d",
+  "cause": "W15 relocation wrapper copied open.yaml but omitted the original fault.launch.py; ros2 launch rejected missing path before simulator start",
+  "correction": "Copy the unchanged original launch fixture into the unique W15 raw directory; W10 files untouched",
+  "safety_result": "NOT_RUN; no physical simulator started",
+  "evidence": "docs/evidence/W15/raw/20261015T151455Z_w15_source_timeout_b13f13",
+  "retry": "One corrected CPU-only source_timeout test; no GPU/graphics"
+}
