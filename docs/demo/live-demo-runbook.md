@@ -1,3 +1,5 @@
+> **W15 当前状态：FINAL_RELEASE_BLOCKED（2026-10-15）。** 新最小 MuJoCo 检查退出 −11，内核记录 NVIDIA `libnvwgf2umx.so` 故障；GUI 已在 GPU 访问前封锁。独立 B01 也发生 120s 超时。没有成功的最终录像，不可将本工程声明为现场发布完成。详见 [最终审查](../results/final-review.md)。以下 W14 内容保留为历史或讲解草案，不代表当前启动许可。
+
 # 5–8分钟现场流程
 
 当前 **W14_DEMO_READY_WITH_DDS_TEARDOWN_WARNING**，两次固定默认演示均到达并通过动态判据。

@@ -1,3 +1,5 @@
+> **2026-10-15 W15当前状态：FINAL_RELEASE_BLOCKED。** 唯一演示入口是`./scripts/run_demo.sh`，当前因新NVIDIA图形库崩溃在GPU访问前返回3；不要绕过故障锁。没有最终成功录像或发布tag。见[当前操作说明](demo/quick-start.md)和[最终审查](results/final-review.md)。以下既有笔记完整保留。
+
 > W01 说明（2026-10-13）：以下为既有启动说明。当前版本与复核以 docs/baseline/environment.md 为准；工作目录仅确定开发上下文，工具权限由 sandbox 控制。后续 ROS launch 尚未实现。
 
 对，现在不需要让 Codex 或 DeepSeek继续安装东西。环境已经达到开发条件。继续追加 setup 只会增加版本冲突风险。

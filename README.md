@@ -1,3 +1,12 @@
+# 当前交付：FINAL_RELEASE_BLOCKED
+
+唯一演示入口：`./scripts/run_demo.sh`。W15最小MuJoCo测试发生NVIDIA用户态图形库崩溃（−11），当前GUI在GPU访问前安全拒绝启动。独立B01阻塞导航也120s超时。没有合格最终录像，没有发布tag，不能声称Task2已可用于现场presentation。
+
+[最终独立审查](docs/results/final-review.md) · [W15证据](docs/evidence/W15/README.md) · [当前操作说明](docs/demo/quick-start.md) · [发布清单](docs/demo/release-manifest.md)。
+W13原FAILED/36/40及所有历史证据保持；只实现显示层小修，未降低安全标准。以下W14状态与开发入口为历史资料，不代表当前图形启动许可。
+
+---
+
 # 演示快速开始
 
 ```bash

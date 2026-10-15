@@ -1,3 +1,51 @@
+# W15 最终发布清单：FINAL_RELEASE_BLOCKED
+
+唯一入口：`./scripts/run_demo.sh`。当前实际返回3，在GPU访问之前拒绝GUI启动；这不是可用的现场发布版本。
+本段是当前权威清单，下方W14清单与历史失败完整保留。
+
+| 项目 | 版本/结果 |
+|---|---|
+| 分支 | release/w13-formal-v1-demo |
+| W15起始HEAD | e916d0db2a10b1728c1421264336564884e3d7ea；dirty无 |
+| 发布基线 | b23a92465b317ca781d3eb210051126c5786908e |
+| 最终实现/测试SHA | f09f7d80169033edf3486903db10a7290535507f |
+| 最后运行逻辑SHA | 010ecce865057d7916b995685f422e4ce4ab6ca9 |
+| 最终证据SHA | b2c0be2f6ce2b331993a556184fbe0f4e87753ce |
+| 发布tag | 未创建；发布条件未满足 |
+| 完整最终GUI运行ID | N/A；在最小图形阶段已停止 |
+| 最后默认入口拒绝ID | 20261015T151851Z_demo_U01_c3160cd2-517a-410e-ab36-df7433d44125（exit3，无GPU/ROS任务） |
+| 最终成功录像路径/大小/SHA256 | N/A；MISSING |
+| 成功原片播放验证 | NOT_RUN |
+| 当前任务进程 | 无；42127–42132均可bind |
+
+完成的实现：独立viewer副本材质/灯光/固定全路线相机、纯user_scn的A/B圆环与文字；RViz删减默认调试显示并标记A/B；到达后8s自动清理/可选--hold；实时双窗口CPU H264捕获与源码/时间记录。**这些新增显示尚未通过完整GUI验收。** 没有改变机器人运动、场景碰撞、LiDAR、地图、障碍轨迹、Nav2参数或安全阈值。
+
+实际验证：四包build成功；初始186测试PASS，最终55项受影响测试PASS；CPU预检0；默认入口安全封锁3。最终回归曾有1条旧测试要求W14 GUI解锁，与新故障锁不符；原54/55日志保留，修订为要求新锁并保持所有旧DDS/图形证据哈希检查后55/55。
+
+| 新运行 | 实际结果 |
+|---|---|
+| minimum01，干净a975e992d50e71813945ef86fa23d1a59c1a69f0 | FAIL，截图早于就绪的KeyError；保留原片/锁，修正测试器后仅进行minimum02 |
+| minimum02，干净833f35d7400139dd00cd23750fcdf1fb010ee382 | FAIL，renderer PID68872退出−11，内核NVIDIA用户态库故障；停止GPU扩载、保留新锁 |
+| S01，20261015T151038Z_w15_S01_3df26e | SUCCESS；0.106857463m / 0.603794073°；接触0/跌倒false |
+| B01，20261015T151138Z_w15_B01_7b4d34 | FAIL_TIMEOUT；120s未到达，动态判据FAIL；接触0/跌倒false；不重跑 |
+| source_timeout第一次 | FAIL_STARTUP，重定位测试缺少原fault.launch.py；无物理仿真；原失败保留 |
+| source_timeout修正，20261015T151630Z_w15_source_timeout_1a9080 / w10_source_timeout_2a66ba8d | PASS；0.30s置零、置零后最大位移0.184094256m、保持站立、锁存和显式rearm通过 |
+
+minimum02的测试器漏了viewer关闭后的线程join，正式仿真入口早已有此等待；现已离线补上，但没有图形复验，不能宣称底层故障已修复。Windows新增显示事件查询为空并不证明宿主图形安全。新MuJoCo/图形故障**不能**套DDS_TEARDOWN_EXCEPTION。
+S01/B01被测8f26105905d041c1484de66c80d62524e4f57140；故障停车被测3bacd05595fb5a234d0ebc019604c82895c43f14。差异和最终封锁逻辑均可由Git追溯。旧CPU测试器未保存DDS精确退出码，不能作为DDS例外放行证据。
+
+仅有失败诊断录像（不是presentation备用片）：
+
+- `docs/evidence/W15/raw/minimal-capture/demo.mp4`；184992 bytes；SHA256 `ea8d7fb58a1819b0f21aa5ef3c6377575302c4d3f53672e8227d735088eed404`；317/317帧解码。
+- `docs/evidence/W15/raw/minimal-capture-02/demo.mp4`；285350 bytes；SHA256 `f0184fc73236b9fcb62113926c55446d952e06ad2e75380a9ae42a0308601124`；536/536帧解码。
+
+W13正式FAILED不变：static10/10、crossing8/10、blocking8/10、sudden approach10/10，总36/40，碰撞0、跌倒0。99项冻结资源/行为文件未变，W13/W14原证据不变，两外部仓库原SHA且clean。理想odom、真值姿态补偿、有限束/无噪声、宽通道、mocap动态体、无预测、步态死区/偏航回弹、非认证安全限制保留。
+
+[证据索引](../evidence/W15/README.md) · [最终审查/需求追踪](../results/final-review.md) · [操作说明](quick-start.md)。
+W15以明确BLOCKED结案，停止自动开发；不创建W16、不创建发布tag、不将尚缺成果列作已完成。
+
+---
+
 # W14 发布清单：W14_DEMO_READY_WITH_DDS_TEARDOWN_WARNING
 
 当前权威发布状态；下方旧清单是历史快照，原始FAILED文件与所有日志/索引未覆盖。W13继续FAILED，W15未启动。
