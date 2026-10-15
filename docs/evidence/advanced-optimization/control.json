@@ -1,0 +1,488 @@
+{
+  "run_id": "20261015T234208Z_advanced_89cb184c-a79b-4e26-b251-29ccbbe46d2b",
+  "code_sha": "2875228d3c27e293c80087453543be0c549f3347",
+  "status": "SUCCESS",
+  "control_no_obstacle": true,
+  "arrived": true,
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "body_clearance": {
+    "min_m": 2.1610187837964565,
+    "sim_time": 112.4199999999194,
+    "geom_pair": [
+      "t1_geom_015",
+      "obstacle_approach_slot"
+    ],
+    "samples": 1387,
+    "robot_geoms": 22,
+    "environment_geoms": 6,
+    "sample_hz": 10,
+    "definition": "signed 3D MuJoCo collision geometry distance; excludes ground/self/visual; sampled minimum, not continuous bound"
+  },
+  "settle": {
+    "settled": true,
+    "settle_start_sim": 120.19999999990127,
+    "settle_delay_s": 0.6599999999012596,
+    "pos_err_m": 0.08160971715382578,
+    "yaw_err_deg": 1.2184501767671672
+  },
+  "controller_goal_tolerances": [
+    0.2,
+    0.2
+  ],
+  "controller_plugin": "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController",
+  "mapping_passes": 6,
+  "map_route_checks": [
+    {
+      "sim": 86.82000000000001,
+      "status": 4,
+      "error_code": 0
+    }
+  ],
+  "navigation_start_sim": 89.88000000000001,
+  "navigation_map_sha256": "3a2d5de1f5d634ed90d0b686b9efc17b69f851a8d1380582fe2fb82e0dfae73b",
+  "navigation_static_map_unchanged": true,
+  "mapping_coverage_checks": [
+    {
+      "sim": 79.78,
+      "known_fraction": 0.8852916666666667
+    },
+    {
+      "sim": 86.82000000000001,
+      "known_fraction": 0.995125
+    }
+  ],
+  "slam_measurement_transitions": [
+    {
+      "sim": 87.16000000000001,
+      "before": false,
+      "after": true
+    },
+    {
+      "sim": 121.72000000000001,
+      "before": true,
+      "after": false
+    }
+  ],
+  "nonstraight_plan": true,
+  "dynamic": {
+    "protective_stationary_s": 0.0,
+    "scan_hit_frames": 0,
+    "triggered": false,
+    "finished": false,
+    "active_scan_hit_frames": 0,
+    "active_costmap_marked_frames": 0,
+    "replan": {
+      "active_motion_m": 0.0,
+      "plan_deviation_m": 0.0,
+      "robot_deviation_m": 0.0,
+      "replanned_while_active": false
+    },
+    "blocked_wait": {
+      "stationary_s": 0.0,
+      "resumed_m": 0.0
+    },
+    "verdict": "FAIL",
+    "response": "UNVERIFIED"
+  },
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 39919.89379799,
+      "sim_time": 137.8,
+      "health_reason": ""
+    }
+  },
+  "slam_shutdown": {
+    "complete": true,
+    "transitions": [
+      {
+        "transition": 4,
+        "success": true,
+        "state": 2
+      },
+      {
+        "transition": 2,
+        "success": true,
+        "state": 1
+      }
+    ]
+  },
+  "graph_contract": {
+    "final_only_collision_monitor": true,
+    "obstacle_truth_isolated": true,
+    "robot_truth_isolated": true,
+    "no_initialpose": true,
+    "map_only_slam": true,
+    "map_odom_only_slam": true
+  },
+  "parent_exit_codes": {
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "map_saver": 0,
+    "goal": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 269042,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 269043,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 269044,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 269045,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 269046,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 269047,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 269337,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 269423,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 269424,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 269425,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 269426,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 269427,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 269428,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 269429,
+      "exit_code": 0
+    }
+  },
+  "dds_port_released": true,
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "shutdown_signals": [
+    [
+      "authority",
+      268996,
+      "SIGINT"
+    ],
+    [
+      "launch",
+      268999,
+      "SIGINT"
+    ],
+    [
+      "dds",
+      268970,
+      "SIGINT"
+    ]
+  ],
+  "error": null,
+  "cleanup_error": null,
+  "gpu_monitor_error": null,
+  "physical_trace_duration_sim_s": 137.7,
+  "sampled_trajectory_m": 29.91659109215056,
+  "goals": [
+    {
+      "label": "MAPPING_01",
+      "pose": [
+        3.5,
+        0.0,
+        0.0
+      ],
+      "result": {
+        "status": "PASSED",
+        "accepted_sim": 13.180000000000001,
+        "end_sim": 22.6,
+        "duration_sim": 9.42,
+        "premature_success_retries": [],
+        "passed_pose": [
+          2.8541048966323843,
+          0.013640561494010928,
+          0.008936660843441746
+        ],
+        "goal_id": "d75789fc45f3452abd3eecf7d3b93c08"
+      }
+    },
+    {
+      "label": "MAPPING_02",
+      "pose": [
+        3.5,
+        3.5,
+        1.5707963267948966
+      ],
+      "result": {
+        "status": "PASSED",
+        "accepted_sim": 22.6,
+        "end_sim": 37.02,
+        "duration_sim": 14.420000000000002,
+        "premature_success_retries": [],
+        "passed_pose": [
+          3.3725081205231904,
+          2.8633975018477735,
+          1.4761789102959997
+        ],
+        "goal_id": "74a31eb714a34009a532f69a002a5909"
+      }
+    },
+    {
+      "label": "MAPPING_03",
+      "pose": [
+        3.5,
+        7.8,
+        1.5707963267948966
+      ],
+      "result": {
+        "status": "PASSED",
+        "accepted_sim": 37.02,
+        "end_sim": 49.040000000000006,
+        "duration_sim": 12.020000000000003,
+        "premature_success_retries": [],
+        "passed_pose": [
+          3.412616334226484,
+          7.159010766581755,
+          1.5234734224455266
+        ],
+        "goal_id": "4e04ac360de34903bd06b8c7114722b8"
+      }
+    },
+    {
+      "label": "MAPPING_04",
+      "pose": [
+        7.5,
+        8.0,
+        0.0
+      ],
+      "result": {
+        "status": "PASSED",
+        "accepted_sim": 49.040000000000006,
+        "end_sim": 65.56,
+        "duration_sim": 16.519999999999996,
+        "premature_success_retries": [],
+        "passed_pose": [
+          6.878506318790792,
+          7.820140345083142,
+          0.16660282283328465
+        ],
+        "goal_id": "df3aaec7e8044cbf84679d8b93099d39"
+      }
+    },
+    {
+      "label": "MAPPING_05",
+      "pose": [
+        11.5,
+        6.5,
+        -0.36
+      ],
+      "result": {
+        "status": "PASSED",
+        "accepted_sim": 65.56,
+        "end_sim": 77.78,
+        "duration_sim": 12.219999999999999,
+        "premature_success_retries": [],
+        "passed_pose": [
+          10.933405063056465,
+          6.813868385164038,
+          -0.5559609127015657
+        ],
+        "goal_id": "fe30b7d4e12f4b70a0a4e3445bec22a8"
+      }
+    },
+    {
+      "label": "MAPPING_06",
+      "pose": [
+        13.4,
+        6.5,
+        0.0
+      ],
+      "result": {
+        "status": "PASSED",
+        "accepted_sim": 79.78,
+        "end_sim": 84.82000000000001,
+        "duration_sim": 5.040000000000006,
+        "premature_success_retries": [],
+        "passed_pose": [
+          12.756347992286893,
+          6.467239637116248,
+          0.08360164782807616
+        ],
+        "goal_id": "55f733b70707419aa10d6480a09480f5"
+      }
+    },
+    {
+      "label": "NAVIGATING_APPROACH",
+      "pose": [
+        12.0,
+        2.5,
+        -1.5707963267948966
+      ],
+      "result": {
+        "status": "PASSED",
+        "accepted_sim": 89.88000000000001,
+        "end_sim": 107.32000000000001,
+        "duration_sim": 17.439999999999998,
+        "premature_success_retries": [],
+        "passed_pose": [
+          11.691501069883008,
+          3.064750541364288,
+          -1.3311350350569244
+        ],
+        "goal_id": "f1da39d52e91433e825c959c36c80fb1"
+      }
+    },
+    {
+      "label": "NAVIGATING_TO_B",
+      "pose": [
+        12.0,
+        0.0,
+        -1.5707963267948966
+      ],
+      "exit_code": 0,
+      "result": {
+        "event": "result",
+        "goal": [
+          12.0,
+          0.0,
+          -1.5707963267948966
+        ],
+        "time_limit_s": 200.0,
+        "tolerances": {
+          "xy": 0.2,
+          "yaw": 0.2
+        },
+        "attempts": [
+          {
+            "stage": "approach",
+            "target": [
+              12.0,
+              1.5,
+              -1.5707963267948966
+            ],
+            "accepted_sim": 108.96000000000001,
+            "goal_id": "a6deb047b6074713b47490e904c08e84",
+            "status": "PASSED",
+            "end_sim": 113.76,
+            "passed_pose": [
+              11.954308320561974,
+              1.8434991099610547,
+              -1.4877087706416572
+            ]
+          },
+          {
+            "stage": "goal",
+            "target": [
+              12.0,
+              0.0,
+              -1.5707963267948966
+            ],
+            "accepted_sim": 113.76,
+            "goal_id": "b88dbc87b9a74c1e92415bf6e7bb929b",
+            "status": "SUCCEEDED",
+            "end_sim": 119.54,
+            "error_code": 0,
+            "verify_sim": 121.28,
+            "verified_pose": [
+              11.984376919667367,
+              0.0836917525453293,
+              -1.589165748567311
+            ],
+            "xy_error": 0.08513747754772001,
+            "yaw_error": 0.018369421772414407
+          }
+        ],
+        "arm_attempts": 0,
+        "approach_distance": 1.5,
+        "accepted_sim": 108.96000000000001,
+        "goal_id": "a6deb047b6074713b47490e904c08e84",
+        "status": "SUCCEEDED",
+        "timed_out": false,
+        "end_sim": 121.28,
+        "duration_sim": 12.319999999999993,
+        "verified": {
+          "stage": "goal",
+          "target": [
+            12.0,
+            0.0,
+            -1.5707963267948966
+          ],
+          "accepted_sim": 113.76,
+          "goal_id": "b88dbc87b9a74c1e92415bf6e7bb929b",
+          "status": "SUCCEEDED",
+          "end_sim": 119.54,
+          "error_code": 0,
+          "verify_sim": 121.28,
+          "verified_pose": [
+            11.984376919667367,
+            0.0836917525453293,
+            -1.589165748567311
+          ],
+          "xy_error": 0.08513747754772001,
+          "yaw_error": 0.018369421772414407
+        },
+        "terminal_retries": 0,
+        "error_code": 0,
+        "nav2_success_sim": 119.54,
+        "exit": 0
+      }
+    }
+  ],
+  "map_growth": {
+    "initial_known_m2": 2.8600000852346428,
+    "final_known_m2": 328.68500979557643
+  },
+  "overview_length_m": 20.235119457377554,
+  "final_result_sha256": "043620000dac60605b931a033d0d5e15f9f0f32edb00d7858b24544d71f48c92",
+  "observation_sha256": "32feb6e295c77c959440eb2cabc2093b3bc34640e9bf976dcf37275e04ed1286",
+  "terminal_trajectory": {
+    "sample_interval_min_s": 0.5,
+    "travel_m": 2.6771732743668473,
+    "endpoint_distance_m": 2.4952242935219284,
+    "distance_ratio": 1.0729188880203244,
+    "heading_span_rad": 0.6814016636967869,
+    "scope": "Physical odom trajectory from final goal-tool acceptance through verified standstill; detects loops independently of Nav2 result/retry count."
+  },
+  "obstacle_phases": [
+    {
+      "phase": "staged",
+      "sim": 0.020000000000000004,
+      "position": [
+        15.9,
+        3.0,
+        0.75
+      ]
+    }
+  ]
+}

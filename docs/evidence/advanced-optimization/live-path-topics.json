@@ -1,0 +1,1561 @@
+{
+  "run_id": "20261015T234553Z_advanced_12517517-2132-4dd2-a997-3dc793ec7747",
+  "source_sha": "2875228d3c27e293c80087453543be0c549f3347",
+  "duration_wall_s": 30.068541732005542,
+  "records": [
+    {
+      "topic": "overview",
+      "wall": 40085.674778777,
+      "sha256": "909eae1063ba9c574d0501924a6da2e805018117ec96c7d4fb3cff65aad2281b",
+      "poses": 811,
+      "frame": "map"
+    },
+    {
+      "topic": "markers",
+      "wall": 40085.675670954,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (2.1s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "display",
+      "wall": 40085.678318325,
+      "sha256": "3b2b3e7ab6c7ee5303c519c07ca282e88b61c08dbf8a02d941c08f865f881ebc",
+      "poses": 184,
+      "frame": "map"
+    },
+    {
+      "topic": "markers",
+      "wall": 40085.847077059,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (2.3s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40086.047110741,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (2.5s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40086.248190077,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (2.7s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40086.448834717,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (2.9s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40086.648943301,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (3.1s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40086.84881471,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (3.3s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40087.04934627,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (3.5s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40087.253702081,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (3.7s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40087.453857898,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (3.9s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40087.656418213,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (4.1s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40087.85672574,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (4.3s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40088.057076022,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (4.5s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40088.257097868,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (4.7s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40088.457694525,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (4.9s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40088.658244515,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (5.1s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40088.85882056,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (5.3s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40089.05803934,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (5.5s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40089.095145411,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (5.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40089.258709166,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (5.7s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40089.459104057,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (5.9s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "planner",
+      "wall": 40089.542785708,
+      "sha256": "2d1037b760a20ee7f20083715edacbdebdaed4aa7e64fcdde830f5d4f0294212",
+      "poses": 188,
+      "frame": "map"
+    },
+    {
+      "topic": "display",
+      "wall": 40089.54910218,
+      "sha256": "2d1037b760a20ee7f20083715edacbdebdaed4aa7e64fcdde830f5d4f0294212",
+      "poses": 188,
+      "frame": "map"
+    },
+    {
+      "topic": "markers",
+      "wall": 40089.660373441,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (0.1s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40089.863062647,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (0.3s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40090.063336667,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (0.5s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40090.26395385,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (0.7s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40090.465332669,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (0.9s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40090.665951321,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (1.1s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40090.865838696,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (1.3s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40091.066653724,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (1.5s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40091.26656526,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (1.7s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40091.471664278,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (1.9s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40091.671324531,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (2.1s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40091.871509565,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (2.3s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40092.074873074,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (2.5s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40092.275903032,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (2.7s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40092.481136077,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (2.9s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40092.683060337,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (3.2s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40092.883050012,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (3.4s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40093.083594704,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (3.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40093.284683006,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (3.8s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40093.486983142,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (4.0s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40093.687336642,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (4.2s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40093.887673875,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (4.4s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40094.087440803,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (4.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40094.09518079,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (4.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40094.287548522,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (4.8s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40094.491768894,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (5.0s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40094.69489631,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (5.2s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40094.894876343,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (5.4s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40095.095017632,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (5.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40095.295362437,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (5.8s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40095.499104023,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (6.0s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40095.702090024,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (6.2s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40095.902261264,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (6.4s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40096.103559891,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (6.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40096.303258652,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (6.8s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40096.507155391,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (7.0s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40096.707318697,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (7.2s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40096.907417031,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (7.4s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40097.107554724,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (7.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40097.308441501,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (7.8s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40097.514127696,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (8.0s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40097.715870288,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (8.2s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40097.916189338,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (8.4s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40098.116361098,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (8.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40098.316839057,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (8.8s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40098.519752056,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (9.0s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40098.724124769,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (9.2s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40098.923413835,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (9.4s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40099.09587177,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (9.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40099.126558096,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (9.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40099.327674205,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (9.8s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40099.527597354,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (10.0s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40099.727516487,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (10.2s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40099.928152078,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (10.4s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40100.128738784,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (10.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40100.328654196,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (10.8s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40100.531461562,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (11.0s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40100.735046252,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (11.2s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40100.936095304,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (11.4s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40101.138308948,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (11.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40101.337823602,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (11.8s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40101.538777049,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (12.0s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40101.740315767,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (12.2s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40101.942231087,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (12.4s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40102.14252635,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (12.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40102.342404797,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (12.8s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40102.543891998,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (13.0s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40102.744560762,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (13.2s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40102.974339039,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (13.4s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40103.144962324,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (13.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40103.344797817,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (13.8s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40103.548991156,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (14.0s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40103.749298564,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (14.2s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40103.948978133,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (14.4s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40104.098866652,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (14.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40104.150114126,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (14.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40104.350531334,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (14.8s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40104.554037673,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (15.0s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40104.755335431,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (15.2s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40104.955911395,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (15.4s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40105.155870969,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (15.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40105.35816303,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (15.8s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40105.561713019,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (16.0s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40105.763797946,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (16.2s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40105.969519714,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (16.4s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40106.169385422,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (16.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40106.370347898,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (16.8s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40106.57038039,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (17.0s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40106.774417776,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (17.2s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40106.976951921,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (17.4s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40107.183431028,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (17.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40107.376991978,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (17.8s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40107.577359792,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (18.0s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40107.77723512,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (18.2s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40107.981094332,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (18.5s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40108.181603437,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (18.7s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40108.381740913,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (18.9s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40108.58233848,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (19.1s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40108.782207351,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (19.3s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40108.982380842,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (19.5s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40109.100976609,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (19.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40109.182537983,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (19.7s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40109.382777283,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (19.9s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40109.584337836,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (20.1s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40109.78658616,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (20.3s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40109.986676619,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (20.5s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40110.186967048,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (20.7s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40110.386902959,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Waiting / replanning - last plan shown",
+        "Blue: last plan (20.9s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "planner",
+      "wall": 40110.447557077,
+      "sha256": "5d4742142d3d90f229c34a316e125995f7d55a7e14f68e25d8151afe993ce86a",
+      "poses": 163,
+      "frame": "map"
+    },
+    {
+      "topic": "display",
+      "wall": 40110.451911379,
+      "sha256": "5d4742142d3d90f229c34a316e125995f7d55a7e14f68e25d8151afe993ce86a",
+      "poses": 163,
+      "frame": "map"
+    },
+    {
+      "topic": "markers",
+      "wall": 40110.589586508,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (0.1s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40110.789436466,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (0.3s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40110.993824645,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (0.5s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40111.193963588,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (0.7s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40111.394293564,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (0.9s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40111.594312206,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (1.1s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40111.794569047,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (1.3s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40111.996828501,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (1.5s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40112.196917781,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (1.7s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40112.397098869,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (1.9s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40112.597370048,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (2.1s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40112.80113006,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (2.4s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40113.001487994,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (2.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40113.201136644,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (2.8s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40113.401612152,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (3.0s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40113.601610226,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (3.2s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40113.802351566,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (3.4s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40114.002409454,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (3.6s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40114.101333154,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (3.7s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40114.20255623,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (3.8s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40114.402849615,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (4.0s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    },
+    {
+      "topic": "markers",
+      "wall": 40114.60333357,
+      "texts": [
+        "A START",
+        "B GOAL",
+        "Mapped navigation: odom + live LiDAR",
+        "Blue: last plan (4.2s old) | Cyan: A-B overview | Purple: travelled"
+      ]
+    }
+  ],
+  "matched_planner_display_hashes": 2,
+  "scope": "Readonly ROS subscriptions during headless run. Serialized message equality proves actual planner Path forwarded unchanged; not an RViz rendering check."
+}

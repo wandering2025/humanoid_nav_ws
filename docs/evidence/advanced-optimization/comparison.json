@@ -1,0 +1,12 @@
+{
+  "old_run": "20261015T180213Z_advanced_c20b40f2-12f5-4b5c-8c96-0d5a68461b8f",
+  "new_run": "20261015T234553Z_advanced_12517517-2132-4dd2-a997-3dc793ec7747",
+  "old_distance_m": 76.70704410972368,
+  "new_distance_m": 30.14632775946662,
+  "distance_reduction_fraction": 0.6069940106628988,
+  "old_trace_sim_s": 374.660000001,
+  "new_trace_sim_s": 169.4,
+  "intervention_approach_s": 37.53999999999999,
+  "control_approach_s": 17.439999999999998,
+  "caveat": "Actual 0.5s trajectory samples; workflows, B and cart differ from old release. Not a matched planner benchmark. Gait/timing variation also affects total duration; same-source control is evidence of obstacle-response contrast, not a reliability study."
+}

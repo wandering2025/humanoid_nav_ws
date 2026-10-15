@@ -1,0 +1,175 @@
+{
+  "initial": {
+    "source": "run_data/advanced/20261015T234553Z_advanced_12517517-2132-4dd2-a997-3dc793ec7747/maps/initial.pgm",
+    "sha256": "537b50b0b062d7ec639860d668d35cc028e2a3cbfa771d27e44383adf22b87e6",
+    "resolution": 0.05,
+    "known_m2": 2.8525000000000005,
+    "occupied_m2": 0.0,
+    "regions": {
+      "west": {
+        "bounds": [
+          -2,
+          6,
+          -2,
+          10
+        ],
+        "expected_cells": 38400,
+        "cells_within_saved_grid": 38400,
+        "known_fraction": 0.029713541666666666,
+        "free_fraction": 0.029713541666666666
+      },
+      "east": {
+        "bounds": [
+          9,
+          16,
+          -2,
+          10
+        ],
+        "expected_cells": 33600,
+        "cells_within_saved_grid": 0,
+        "known_fraction": 0.0,
+        "free_fraction": 0.0
+      },
+      "north_gallery": {
+        "bounds": [
+          6,
+          10,
+          6,
+          10
+        ],
+        "expected_cells": 6400,
+        "cells_within_saved_grid": 1680,
+        "known_fraction": 0.0,
+        "free_fraction": 0.0
+      }
+    }
+  },
+  "mapped": {
+    "source": "run_data/advanced/20261015T234553Z_advanced_12517517-2132-4dd2-a997-3dc793ec7747/maps/mapped.pgm",
+    "sha256": "b44bf8c8187f256aaac755f5a5770f19412591279d83729796422241caed9ca5",
+    "resolution": 0.05,
+    "known_m2": 326.32500000000005,
+    "occupied_m2": 6.040000000000001,
+    "regions": {
+      "west": {
+        "bounds": [
+          -2,
+          6,
+          -2,
+          10
+        ],
+        "expected_cells": 38400,
+        "cells_within_saved_grid": 38400,
+        "known_fraction": 1.0,
+        "free_fraction": 1.0
+      },
+      "east": {
+        "bounds": [
+          9,
+          16,
+          -2,
+          10
+        ],
+        "expected_cells": 33600,
+        "cells_within_saved_grid": 33600,
+        "known_fraction": 0.9396428571428571,
+        "free_fraction": 0.9380357142857143
+      },
+      "north_gallery": {
+        "bounds": [
+          6,
+          10,
+          6,
+          10
+        ],
+        "expected_cells": 6400,
+        "cells_within_saved_grid": 6400,
+        "known_fraction": 0.99984375,
+        "free_fraction": 0.99984375
+      }
+    }
+  },
+  "final": {
+    "source": "run_data/advanced/20261015T234553Z_advanced_12517517-2132-4dd2-a997-3dc793ec7747/maps/final.pgm",
+    "sha256": "5467f784d035592479fc5581eb23c90136619049e2b9b2d37656823f183a6d8b",
+    "resolution": 0.05,
+    "known_m2": 329.36750000000006,
+    "occupied_m2": 6.102500000000001,
+    "regions": {
+      "west": {
+        "bounds": [
+          -2,
+          6,
+          -2,
+          10
+        ],
+        "expected_cells": 38400,
+        "cells_within_saved_grid": 38400,
+        "known_fraction": 1.0,
+        "free_fraction": 1.0
+      },
+      "east": {
+        "bounds": [
+          9,
+          16,
+          -2,
+          10
+        ],
+        "expected_cells": 33600,
+        "cells_within_saved_grid": 33600,
+        "known_fraction": 0.9562797619047619,
+        "free_fraction": 0.9546130952380952
+      },
+      "north_gallery": {
+        "bounds": [
+          6,
+          10,
+          6,
+          10
+        ],
+        "expected_cells": 6400,
+        "cells_within_saved_grid": 6400,
+        "known_fraction": 0.99984375,
+        "free_fraction": 0.99984375
+      }
+    },
+    "structural_distance_m": {
+      "west_wall": {
+        "mean": 0.03962879712421012,
+        "p95": 0.04719996130214016,
+        "maximum": 0.04767255765988448
+      },
+      "east_wall": {
+        "mean": 0.27837188593961393,
+        "p95": 1.5439451557515098,
+        "maximum": 1.9513721060886213
+      },
+      "north_wall": {
+        "mean": 0.01894064269356069,
+        "p95": 0.051870803785490305,
+        "maximum": 0.05488538019069847
+      },
+      "south_wall": {
+        "mean": 0.03396405813577488,
+        "p95": 0.05769532027174427,
+        "maximum": 0.1199208072020848
+      },
+      "partition_west": {
+        "mean": 0.02437724905414663,
+        "p95": 0.042263387835665765,
+        "maximum": 0.04425808149680552
+      },
+      "partition_east": {
+        "mean": 0.03793253415803072,
+        "p95": 0.04769024671587678,
+        "maximum": 0.04904948594028221
+      },
+      "partition_end": {
+        "mean": 0.04674512559981855,
+        "p95": 0.05483557040145308,
+        "maximum": 0.05560675418608108
+      }
+    }
+  },
+  "scope": "Offline structure/coverage description from real SLAM PGM; no analytic map was provided to navigation. Half-open regions use cell centres; saved-grid coverage outside the ROI is excluded and missing cells count unknown. Known area includes occupied cells; finite-sample map-quality evidence, not sensor realism proof."
+}

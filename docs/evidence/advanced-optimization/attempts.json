@@ -1,0 +1,296 @@
+[
+  {
+    "run_id": "20261015T220015Z_advanced_c171be81-40f2-4a13-a537-2aa174bce3f5",
+    "code_sha": "b191ef6af36b0a3d611604cd9de922866167ce27",
+    "status": "FAILED",
+    "error": "RuntimeError(\"GPU monitoring stopped this run: RuntimeError('GPU memory limit/growth exceeded')\")",
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "cba3c117d859b701bc2bf88c6a9bb0bf4a10c37031311dd5379081bc557c0b6b"
+  },
+  {
+    "run_id": "20261015T221326Z_advanced_b523dc22-8ba7-4c9f-b235-9ba3d9135728",
+    "code_sha": "2f46a633c9901112eaa714f0c8ab5994b34fff40",
+    "status": "FAILED",
+    "error": "AssertionError(\"NAVIGATING_TO_B failed: {'event': 'result', 'goal': [14.0, 0.0, -1.5707963267948966], 'time_limit_s': 200.0, 'tolerances': {'xy': 0.2, 'yaw': 0.2}, 'attempts': [{'stage': 'goal', 'target': [14.0, 0.0, -1.5707963267948966], 'accepted_sim': 63.160000000000004, 'goal_id': 'd3b15e3c19f54f76a8f4d2ef4109f0ea', 'status': 'ABORTED', 'end_sim': 93.9, 'error_code': 208}], 'arm_attempts': 0, 'approach_distance': None, 'accepted_sim': 63.160000000000004, 'goal_id': 'd3b15e3c19f54f76a8f4d2ef4109f0ea', 'status': 'ABORTED', 'timed_out': False, 'end_sim': 93.9, 'duration_sim': 30.740000000000002, 'verified': None, 'terminal_retries': 0, 'error_code': 208, 'nav2_success_sim': None, 'exit': 2}\")",
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "1c309b07333cf173ab023f5f7a354be37ae6b26736d1629a565c90e3ada116ea"
+  },
+  {
+    "run_id": "20261015T221656Z_advanced_f9e4ca8e-e1c8-4b64-9ac3-a1c413ea9d0e",
+    "code_sha": "c648e13f9d579d502039b7bcecba4e30f63287e2",
+    "status": "FAILED",
+    "error": "AssertionError('A-B map route unavailable: 6')",
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "4d026f37769526df85aeb65b661127a8d9ae004c1f01d36ad42ea0e2500ca6c0"
+  },
+  {
+    "run_id": "20261015T222035Z_advanced_ba98c44b-1131-48ab-b333-dd5ba4cdb4ac",
+    "code_sha": "d7a1ef77e024d587474f71bbd881277287e6dfbc",
+    "status": "FAILED",
+    "error": "RuntimeError('MAPPING_04: action ended before passing: 4')",
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "02bf682d029674ab87a288fb48524295f8e97961f5e32d11c048f99f10c489c3"
+  },
+  {
+    "run_id": "20261015T222306Z_advanced_74693c50-c716-496f-9717-72fed08855d1",
+    "code_sha": "5b87b140e578e1b9bf4015abc630afde95234d7d",
+    "status": "FAILED",
+    "error": "AssertionError('Observed map does not yet support an A-B route')",
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "25fd38954cdd27cba8e347fa831475054f53fcaa5e6874873849cba43015c245"
+  },
+  {
+    "run_id": "20261015T222718Z_advanced_544fae27-d94a-47e4-b42d-10180c5b2855",
+    "code_sha": "fdb6e88c6b503a53e33b2164124c217bbdc76625",
+    "status": "SUCCESS",
+    "error": null,
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "a1b1a0ace289b716f3bca04a7e48627029592cfb1a87c9e092f77d8cdaf8445c"
+  },
+  {
+    "run_id": "20261015T223133Z_advanced_aca44043-52cb-481b-9428-a97f6130b21e",
+    "code_sha": "c90da3027b96fc544f01065ba4e8adf5a6522ee5",
+    "status": "FAILED",
+    "error": "RuntimeError('NAVIGATING_APPROACH: action ended before passing: 6')",
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "63a79be760b815528ad4a0b88794787a6d676b5fcb6572cc727aae8b7378873c"
+  },
+  {
+    "run_id": "20261015T223603Z_advanced_c492ace1-2536-4b78-b462-961082eb34fa",
+    "code_sha": "e44f6076f21f9c34224ac05d3fe9e518155d07b5",
+    "status": "SUCCESS",
+    "error": null,
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "a21c990aa3ed1ee39f354c6ffcca6620c2bda8d65598082492259d793938ed8f"
+  },
+  {
+    "run_id": "20261015T224015Z_advanced_440a4b82-aa19-4366-8628-7b06d396d0a0",
+    "code_sha": "e44f6076f21f9c34224ac05d3fe9e518155d07b5",
+    "status": "SUCCESS",
+    "error": null,
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "cda5cab71e2e468524581af82c3e9b10400ef4b574c489c7a4c44ebf42562306"
+  },
+  {
+    "run_id": "20261015T224510Z_advanced_efe2ea63-4e66-4420-92ba-0964d4cf25a2",
+    "code_sha": "1d6948732342cc81581461669c680d7802d37752",
+    "status": "SUCCESS",
+    "error": null,
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "f61cf19f3362e01f5840954d1ef218243b999b78aff4708278ac9b059812ebfd"
+  },
+  {
+    "run_id": "20261015T224855Z_advanced_350ff703-44d0-4fca-8e90-62715bf5cb54",
+    "code_sha": "1d6948732342cc81581461669c680d7802d37752",
+    "status": "SUCCESS",
+    "error": null,
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "34ce3d1aa690c9a4001fc57b083c3bede26acaf28e75e8e06d616d3835d5bc3b"
+  },
+  {
+    "run_id": "20261015T225325Z_advanced_fc1a7aa3-1671-422b-9c2f-4da71554c80a",
+    "code_sha": "4457b9365a76abe5c019ec7357cea59d23c23416",
+    "status": "FAILED",
+    "error": "InterruptedError('User requested stop')",
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "591e39e640c6464e080cc283abfdfa16f1ed4dfaf36c47e8c8e7dfe34a5c680e"
+  },
+  {
+    "run_id": "20261015T230758Z_advanced_386fefae-952b-4cf6-a551-1c9789f058cc",
+    "code_sha": "b427e48c57ecd9c84ab25e9a2da6cc15e8bed1ea",
+    "status": "FAILED",
+    "error": "AssertionError(\"NAVIGATING_TO_B failed: {'event': 'result', 'goal': [12.0, -1.5, -1.5707963267948966], 'time_limit_s': 200.0, 'tolerances': {'xy': 0.2, 'yaw': 0.2}, 'attempts': [{'stage': 'approach', 'target': [12.0, 0.0, -1.5707963267948966], 'accepted_sim': 0.0, 'goal_id': '142db2bcda0949f9956c2892cb770805', 'status': 'PASSED', 'end_sim': 135.94, 'passed_pose': [11.96384232357983, 0.34027090794365167, -1.4652148020607807]}, {'stage': 'goal', 'target': [12.0, -1.5, -1.5707963267948966], 'accepted_sim': 135.94, 'goal_id': '646540e06da940babe40d7ff850015b0', 'status': 'CANCELED', 'end_sim': 200.04000000000002, 'error_code': 0}], 'arm_attempts': 0, 'approach_distance': 1.5, 'accepted_sim': 0.0, 'goal_id': '142db2bcda0949f9956c2892cb770805', 'status': 'CANCELED', 'timed_out': True, 'end_sim': 200.04000000000002, 'duration_sim': 200.04000000000002, 'verified': None, 'terminal_retries': 0, 'error_code': 0, 'nav2_success_sim': None, 'exit': 3}\")",
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "5f63b96d0254d5d7fc0b3fc9452c2c72772fdad6a31bcc8807a3eaaac8c4dfff"
+  },
+  {
+    "run_id": "20261015T231632Z_advanced_16b0d7f9-aa8e-431a-a7a1-2ab3876de719",
+    "code_sha": "959b3f133ace6d6cf54ac6c1de4cd38672e6198b",
+    "status": "FAILED",
+    "error": "AssertionError('Observed map does not yet support an A-B route')",
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "dcb015b2e0d347acedfecd9c8f6bd0a3dd51382b501a8980722d85b3230e7cb0"
+  },
+  {
+    "run_id": "20261015T232343Z_advanced_bbe92e4a-f215-44fb-9258-27a862920974",
+    "code_sha": "be18dbbdf54ee11b9a4f4ed69ba656b5c8e05e90",
+    "status": "SUCCESS",
+    "error": null,
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "94faee92fb1f25f405bbcdc0dab00bda1c6de7e14334669c77c8cbbc97b1942a"
+  },
+  {
+    "run_id": "20261015T232755Z_advanced_77ac3ddc-9baa-4e78-a760-e2a9635e5d05",
+    "code_sha": "be18dbbdf54ee11b9a4f4ed69ba656b5c8e05e90",
+    "status": "SUCCESS",
+    "error": null,
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "67aab99b54a955afa6c1e111fc4822b69e7c26782ea85cf0ed9fd77ac0302fc6"
+  },
+  {
+    "run_id": "20261015T233320Z_advanced_78c16de1-e3de-4c11-ba76-37393ea77d16",
+    "code_sha": "b2294e04829dc8f4da28831ce96f9924d39ff054",
+    "status": "SUCCESS",
+    "error": null,
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "66ec95081490bf2d442c5e0b348997cb57e2800f925becd1a62aa8a45a267327"
+  },
+  {
+    "run_id": "20261015T233754Z_advanced_27be94b7-8d59-4ed5-ab98-587155ac2d01",
+    "code_sha": "b2294e04829dc8f4da28831ce96f9924d39ff054",
+    "status": "SUCCESS",
+    "error": null,
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "c2c6aef187b847b2363cada8076af8a3cc4c18a2094285cd5c29554a74de5244"
+  },
+  {
+    "run_id": "20261015T234208Z_advanced_89cb184c-a79b-4e26-b251-29ccbbe46d2b",
+    "code_sha": "2875228d3c27e293c80087453543be0c549f3347",
+    "status": "SUCCESS",
+    "error": null,
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "043620000dac60605b931a033d0d5e15f9f0f32edb00d7858b24544d71f48c92"
+  },
+  {
+    "run_id": "20261015T234553Z_advanced_12517517-2132-4dd2-a997-3dc793ec7747",
+    "code_sha": "2875228d3c27e293c80087453543be0c549f3347",
+    "status": "SUCCESS",
+    "error": null,
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "e2ac8a0537fed65096759346ec482a784bea3d5a62a235cd6b46bf0da318b3d7"
+  },
+  {
+    "run_id": "20261015T235044Z_advanced_cac8c8bc-7233-4b39-8e96-4998aa292108",
+    "code_sha": "2875228d3c27e293c80087453543be0c549f3347",
+    "status": "FAILED",
+    "error": "InterruptedError('User requested stop')",
+    "contacts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "dds_port_released": true,
+    "result_sha256": "db4c3d2ce23573f58be6a55145ea87419840216253f1117ff87c67a442a4cff6"
+  }
+]

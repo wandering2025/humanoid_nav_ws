@@ -1,0 +1,62 @@
+{
+  "graphics_source_unchanged": {
+    "scripts/demo/gpu_watch.py": "cdc21672511a8cfee146a00d4e3a518b3d42d2896c2633e164624330d5da28e8",
+    "scripts/demo/cpu_guard.py": "07760b8edc637671568c237ec37c7e0269a1fb35d8eb07ca8ef0b817e4ac388b",
+    "scripts/demo/build_rviz.sh": "71b27f08510997e6323ceb3b2ed9c0e6e6d71086b40061660f4c45e56141b61b"
+  },
+  "external": {
+    "deploy": {
+      "head": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+      "clean": true
+    },
+    "assets": {
+      "head": "12a97516f57469078707afb587a5f84c1cb110d1",
+      "clean": true
+    }
+  },
+  "tested_source_sha": "2875228d3c27e293c80087453543be0c549f3347",
+  "delivery_head_at_audit": "2875228d3c27e293c80087453543be0c549f3347",
+  "runtime_source_unchanged": true,
+  "interruption_source_sha": "2875228d3c27e293c80087453543be0c549f3347",
+  "interruption_methods_identical": true,
+  "interruption_scope": "First moving mapping goal at the identical final source, including the RPP controller; expected mission failure, physical safety stop and cleanup verified.",
+  "stable_original_head": "0f51d54b1dbfdde0664966118b5546109a3f6ff2",
+  "stable_original_clean": true,
+  "tags": {
+    "demo-v0.1.0": {
+      "object": "844036e69644272dce6178552dd10778e80d4d35",
+      "commit": "0f51d54b1dbfdde0664966118b5546109a3f6ff2"
+    },
+    "demo-v0.2.0": {
+      "object": "19466fc53775d30d96b5b76c0d9a5b2a440d0c95",
+      "commit": "b191ef6af36b0a3d611604cd9de922866167ce27"
+    }
+  },
+  "stable_byte_identical": {
+    "scripts/run_demo.sh": "58ffe34829a5b6daa112a8e691842066627e73deee7106717082cb9b45e44d6f",
+    "src/t1_navigation/config/safety.yaml": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf",
+    "src/t1_navigation/config/navigation.yaml": "94ab4486b10599f6516954e45609d3db01ffef3cfee0a72b11058f55fcc2be13",
+    "src/t1_mujoco/config/command_map.yaml": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+    "src/t1_bringup/t1_bringup/navigation_adapter.py": "15199a5ea3d80c6f2f8ff51cc0a8fc11be4697b8f08f752c2e14510d1d1d8edb",
+    "src/t1_bringup/t1_bringup/safety.py": "310f9bdd4960ce33ff82c78fc3d818c93972ec30cd3e4f7f066395bd813debdd",
+    "src/t1_mujoco/t1_mujoco/runner.py": "ebf0863116884e35aa2643da47112dcb2b00b37b30e3217200e2ae00b64a105b"
+  },
+  "goal_tool_default_compatible": true,
+  "advanced_clock_guard": "Opt-in --require-clock only; stripping 3 exact lines reproduces stable source. Actual final-goal acceptance timestamps verified positive and after navigation start.",
+  "advanced_controller": {
+    "plugin": "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController",
+    "config_sha256": "12abc22989fe39c4e33439142c844a32d3d200c59ab35e98ae09aa53f22cfdd2",
+    "goal_tolerances": [
+      0.2,
+      0.2
+    ],
+    "scope": "Advanced-only RPP override; baseline MPPI and original0.20/0.20 tolerances unchanged"
+  },
+  "gpu_latch": {
+    "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/demo-gpu-halt.json",
+    "sha256": "60095afd345dff75caa25046bc7d8b81597837b13c4f8625026f3a885b66c0fc",
+    "preserved": true
+  },
+  "graphical_validation": "PENDING_GPU_RECOVERY_AUTHORIZATION",
+  "new_video": null
+}

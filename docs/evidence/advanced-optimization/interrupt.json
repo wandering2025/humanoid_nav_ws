@@ -1,0 +1,253 @@
+{
+  "run_id": "20261015T235044Z_advanced_cac8c8bc-7233-4b39-8e96-4998aa292108",
+  "code_sha": "2875228d3c27e293c80087453543be0c549f3347",
+  "status": "FAILED",
+  "control_no_obstacle": null,
+  "arrived": false,
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "body_clearance": {
+    "min_m": 3.659563519101069,
+    "sim_time": 14.520000000001518,
+    "geom_pair": [
+      "t1_geom_023",
+      "env_wall_south"
+    ],
+    "samples": 206,
+    "robot_geoms": 22,
+    "environment_geoms": 6,
+    "sample_hz": 10,
+    "definition": "signed 3D MuJoCo collision geometry distance; excludes ground/self/visual; sampled minimum, not continuous bound"
+  },
+  "settle": {
+    "settled": false,
+    "pos_err_m": 11.656567875823347,
+    "yaw_err_deg": 91.84590257802492,
+    "final_window_speed": 0.0011596188954506755,
+    "final_window_rate": 0.008979577459042529
+  },
+  "controller_goal_tolerances": [
+    0.2,
+    0.2
+  ],
+  "controller_plugin": "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController",
+  "mapping_passes": null,
+  "map_route_checks": null,
+  "navigation_start_sim": null,
+  "navigation_map_sha256": null,
+  "navigation_static_map_unchanged": null,
+  "mapping_coverage_checks": null,
+  "slam_measurement_transitions": null,
+  "nonstraight_plan": false,
+  "dynamic": {
+    "protective_stationary_s": 0.0,
+    "scan_hit_frames": 0,
+    "triggered": false,
+    "finished": false,
+    "active_scan_hit_frames": 0,
+    "active_costmap_marked_frames": 0,
+    "replan": {
+      "active_motion_m": 0.0,
+      "plan_deviation_m": 0.0,
+      "robot_deviation_m": 0.0,
+      "replanned_while_active": false
+    },
+    "blocked_wait": {
+      "stationary_s": 0.0,
+      "resumed_m": 0.0
+    },
+    "verdict": "FAIL",
+    "response": "UNVERIFIED"
+  },
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 40277.542173643,
+      "sim_time": 19.68,
+      "health_reason": ""
+    }
+  },
+  "slam_shutdown": {
+    "complete": true,
+    "transitions": [
+      {
+        "transition": 4,
+        "success": true,
+        "state": 2
+      },
+      {
+        "transition": 2,
+        "success": true,
+        "state": 1
+      }
+    ]
+  },
+  "graph_contract": {
+    "final_only_collision_monitor": true,
+    "obstacle_truth_isolated": true,
+    "robot_truth_isolated": true,
+    "no_initialpose": true,
+    "map_only_slam": true,
+    "map_odom_only_slam": true
+  },
+  "parent_exit_codes": {
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "map_saver": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 275237,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 275238,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 275239,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 275240,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 275241,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 275242,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 275532,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 275618,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 275619,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 275620,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 275621,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 275622,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 275623,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 275624,
+      "exit_code": 0
+    }
+  },
+  "dds_port_released": true,
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "shutdown_signals": [
+    [
+      "authority",
+      275191,
+      "SIGINT"
+    ],
+    [
+      "launch",
+      275194,
+      "SIGINT"
+    ],
+    [
+      "dds",
+      275165,
+      "SIGINT"
+    ]
+  ],
+  "error": "InterruptedError('User requested stop')",
+  "cleanup_error": null,
+  "gpu_monitor_error": null,
+  "physical_trace_duration_sim_s": 19.6,
+  "sampled_trajectory_m": 0.4174634220354166,
+  "goals": [],
+  "map_growth": {
+    "initial_known_m2": 2.8600000852346428,
+    "final_known_m2": 12.465000371485951
+  },
+  "overview_length_m": null,
+  "final_result_sha256": "db4c3d2ce23573f58be6a55145ea87419840216253f1117ff87c67a442a4cff6",
+  "observation_sha256": "44ff6b1d5a2f38d6553b645e1ff5801901be35917a39a13a822957abe0ccb2c7",
+  "obstacle_phases": [
+    {
+      "phase": "staged",
+      "sim": 0.020000000000000004,
+      "position": [
+        15.9,
+        3.0,
+        0.75
+      ]
+    }
+  ],
+  "interrupt_request": {
+    "request": {
+      "utc": "2026-10-15T23:51:06.763058+00:00",
+      "runner_pid": 275077,
+      "signal": "SIGINT",
+      "observed_motion": {
+        "sim_time": "15.280000000001772",
+        "wall_mono": "40273.13641809",
+        "episode": "0",
+        "state": "READY",
+        "cmd_status": "ACTIVE",
+        "cmd_source": "cmd_vel",
+        "v_cmd_in_x": "0.4",
+        "v_cmd_in_y": "0.0",
+        "v_cmd_in_wz": "-0.09045402835470412",
+        "v_guard_x": "0.4",
+        "v_guard_y": "0.0",
+        "v_guard_wz": "-0.09045402835470413",
+        "u_pol_x": "0.4590909090909091",
+        "u_pol_y": "0.0",
+        "u_pol_wz": "-0.07045402835470413",
+        "v_meas_x": "0.2869355664063461",
+        "v_meas_y": "0.07874714915703096",
+        "v_meas_wz": "-0.3322042917053282",
+        "x_w": "0.18869959415002813",
+        "y_w": "0.034508397259429294",
+        "z_w": "0.6714913761277068",
+        "yaw_w": "0.02890657329174276",
+        "roll": "0.010271597811584083",
+        "pitch": "0.004774501188652398",
+        "proj_grav_z": "-0.9999358502951265",
+        "action_norm": "4.835861682891846",
+        "step_compute_ms": "1.8014870001934469",
+        "policy_compute_ms": "0.667314998281654",
+        "physics_compute_ms": "0.783609997597523",
+        "scan_due": "False",
+        "scan_compute_ms": "0.0",
+        "rtf_10s": "0.9274374132668913",
+        "nonfinite": "False"
+      }
+    },
+    "wrapper_exit": 1
+  }
+}

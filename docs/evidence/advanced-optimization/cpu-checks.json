@@ -1,0 +1,6 @@
+{
+  "source_sha": "2875228d3c27e293c80087453543be0c549f3347",
+  "result": "194 PASS / 1 historical v0.1-only source-shape assertion deselected",
+  "build": "4 packages PASS",
+  "scope": "Tests/build passed immediately before committing these exact source bytes; no runtime source changes after commit."
+}

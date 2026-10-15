@@ -1,0 +1,16 @@
+{
+  "docs/evidence/advanced-optimization/raw/analysis/advanced-live-topics-b229.json": "d00ff656273c9d83bb54bf8519ffd9dbae43538b5da01fc64a13a805c0108b5c",
+  "docs/evidence/advanced-optimization/raw/analysis/advanced-live-topics-wrong-discovery.json": "c1b16ddf445aafbdf031cc141f81975e7f96c866168b41b78fa97250753a15cf",
+  "docs/evidence/advanced-optimization/raw/analysis/advanced-live-topics.json": "91d8e66fcd481cedaca456c682d212942959ac5a902d435f81cd0b1501953698",
+  "docs/evidence/advanced-optimization/raw/analysis/advanced-opt-cpu-provenance.json": "44882ff82b43bbfe2c958c3b2426f84b0830403d2ccf307073e2ed537a302a28",
+  "docs/evidence/advanced-optimization/raw/analysis/advanced-opt-final-build.log": "60c0f18987ef7f9fb644840b7364013384afcf3be73ca5211a4db9647c97e868",
+  "docs/evidence/advanced-optimization/raw/analysis/advanced-opt-final-tests.log": "2e2eebe11440941c9ab9a7451332e4a46e9338ccdb6c42cf6d9a00bdc03581e5",
+  "docs/evidence/advanced-optimization/raw/analysis/advanced_live_topics.py": "9f1509fb9ccfba65897e0246201f942e4a55b8f3e464129f0ef1df98058c930f",
+  "docs/evidence/advanced-optimization/raw/analysis/advanced_map_plot.py": "86deded2e205e0dec8a18648057bbdf03ce52cf449eb4b2b3adf343386c7baeb",
+  "docs/evidence/advanced-optimization/raw/analysis/advanced_map_report.py": "e17a445c214fea7ce9539ae7372212ea4912f4549c0a2edb6de1974245ba6ef4",
+  "docs/evidence/advanced-optimization/raw/analysis/advanced_opt_interrupt.py": "fab33b0b6bfe81e4256329a235e5598114cae43bb22d7a1b3e53a8579ee71a47",
+  "docs/evidence/advanced-optimization/raw/analysis/advanced_opt_plot.py": "6a419e05879df74382af6e4b7198f4600e7756d3610e69cc1a1d133546ab0fe7",
+  "docs/evidence/advanced-optimization/raw/analysis/advanced_opt_report.py": "13fc636f5720d1925c0ef5699243160a996a81ded5293ebdaabbb5ca73e06944",
+  "docs/evidence/advanced-optimization/raw/analysis/package_advanced_opt.py": "d6d569eceb957c029a2e134ff56d7ec9f813c226b999db6e33e9d5b257f302e6",
+  "docs/evidence/advanced-optimization/raw/analysis/watch_advanced_topics.py": "87e9854a062a708c1d049f603f64cba9f01f73e8a4d9a9a49916c827d84b12d7"
+}
