@@ -63,3 +63,5 @@ H10 B06失败：位置已收敛但三次修正稳定yaw为+.454612、+.335612、
 H11精确yaw测试4/4、149tests通过，但B06在sim50.02位置(8.3775,−.0406)、yaw1.1594仍以.3948m/s前进，随后绕圈120s超时。CM stop/slowdown0；该次未进入终点修正，不推翻精确yaw单元复现，而是暴露路径跟踪仍忽略朝向。H12真实已安装MPPI PathAlignCritic测试：相同XY轨迹、yaw0与90°在原配置都得到0代价；预期区分的断言先FAIL。只开启PathAlignCritic.use_path_orientations（默认关是NavFn二维路径遗留），其余所有成本权重/距离阈值/RotationShim/PathAngle模式不变。官方实现：https://github.com/ros-navigation/navigation2/blob/1.3.13/nav2_mppi_controller/src/critics/path_align_critic.cpp（125–129）。
 
 H12 B06仍120s超时（df0d1280a0f4edbeb396514363faaacaef0b2871，run 20261015T084910Z_w11r1-repair-smoke-v9_B06_s3005_8813f6），朝向成本开关未使物理收敛。原样保存，不再追加成本权重试探。MPPI连续低速预测与W05非连续可行集不一致，反复短脉冲无法越过smoother/步态下限。H13改用已安装标准RegulatedPurePursuit直接跟踪同一可行路径；.33–.40m/s行走请求、航向差>.60rad先转、原地目标.60rad/s、禁反向且自身collision check保留。内部angular accel2.0使首个转向请求>.05意图阈值；物理加速度仍由原W10 smoother约束。实际ROS controller集成测试覆盖距目标.4m且yaw0/1.1594两种输入、近终点步行请求在冻结带/侧向先转不前进及取消状态5。详见ADR-027。
+
+最终H13验证：REPAIR_SHA 47a383bdeb57f9531485a464dec22d7b2514cdb3；151tests/build通过，campaign w11r1-repair-smoke-v10中C01/C09/B04/B06均单次SUCCESS、各0终点重试，原判据2s稳定；取消替换及其附加到达核验通过。五次物理运行碰撞/跌倒0，各17子进程正常退出、PIDs空。该结果仅支持冻结候选交独立验证，不证明可靠率，详细交接见REPAIR_HANDOFF.md。

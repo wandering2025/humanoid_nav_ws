@@ -1,0 +1,636 @@
+{
+  "status": "CANDIDATE_READY_FOR_INDEPENDENT_VERIFICATION",
+  "repair_sha": "47a383bdeb57f9531485a464dec22d7b2514cdb3",
+  "campaign": "w11r1-repair-smoke-v10",
+  "cases": [
+    {
+      "case": "C01",
+      "run_id": "20261015T090302Z_w11r1-repair-smoke-v10_C01_s2000_2b2382",
+      "source_sha": "47a383bdeb57f9531485a464dec22d7b2514cdb3",
+      "outcome": "SUCCESS",
+      "task_duration_s": 46.42,
+      "settle": {
+        "settled": true,
+        "settle_start_sim": 60.62000000002812,
+        "settle_delay_s": 1.720000000028115,
+        "pos_err_m": 0.08736847790473974,
+        "yaw_err_deg": 11.195168957994438
+      },
+      "hold_s": 2.0,
+      "velocity_window_s": 0.5,
+      "action_status": "SUCCEEDED",
+      "error_code": 0,
+      "corrections": 0,
+      "contact_counts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "safety": {
+        "cm_stop": 2,
+        "cm_slowdown": 2,
+        "gate_stopped": 0,
+        "bridge_timeouts": 0
+      },
+      "events": [
+        {
+          "kind": "gate",
+          "sim": 0.0,
+          "wall": 9186.013694785,
+          "state": "DISARMED",
+          "reason": "explicit arm required"
+        },
+        {
+          "kind": "sim_state",
+          "sim": 0.0,
+          "wall": 9186.281570284,
+          "state": "STARTING",
+          "fault": null
+        },
+        {
+          "kind": "sim_state",
+          "sim": 2.0,
+          "wall": 9188.27344755,
+          "state": "READY",
+          "fault": null
+        },
+        {
+          "kind": "collision_monitor",
+          "sim": 9.76,
+          "wall": 9196.736093238,
+          "action_type": 1,
+          "polygon": "invalid source"
+        },
+        {
+          "kind": "collision_monitor",
+          "sim": 9.76,
+          "wall": 9196.747894688,
+          "action_type": 0,
+          "polygon": ""
+        },
+        {
+          "kind": "gate",
+          "sim": 16.220000000000002,
+          "wall": 9203.228387231,
+          "state": "ARMED",
+          "reason": "awaiting a new source command"
+        },
+        {
+          "kind": "collision_monitor",
+          "sim": 22.84,
+          "wall": 9209.84802063,
+          "action_type": 2,
+          "polygon": "Slow"
+        },
+        {
+          "kind": "collision_monitor",
+          "sim": 23.16,
+          "wall": 9210.168391281,
+          "action_type": 0,
+          "polygon": ""
+        },
+        {
+          "kind": "collision_monitor",
+          "sim": 23.200000000000003,
+          "wall": 9210.207941551,
+          "action_type": 1,
+          "polygon": "Stop"
+        },
+        {
+          "kind": "collision_monitor",
+          "sim": 30.700000000000003,
+          "wall": 9217.70790092,
+          "action_type": 2,
+          "polygon": "Slow"
+        },
+        {
+          "kind": "collision_monitor",
+          "sim": 31.6,
+          "wall": 9218.607859046,
+          "action_type": 0,
+          "polygon": ""
+        }
+      ],
+      "lifecycle_and_endpoints": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 12.5}"
+      ],
+      "hashes": {
+        "scene_sha256": "3aa86f8977e5582b39b7afb4aa37d2763c3a96bb9e0a2216d2818eed4f8031bd",
+        "map_sha256": "fad1a0cdc1a7b386857d79e8c5be842deb54da05ca9f180131e08caa1693563b",
+        "map_image_sha256": "8652777ba15a030f1c57c7c4728644b22a5c182ce62ebb814c0e825edc0ecdf0",
+        "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7",
+        "parameters_sha256": "1b5b9bebf40af2a1d812daa115a0d58fba12ab30aac2a90fa5a38bd0574c2b0d",
+        "parameter_files": {
+          "nav2": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml",
+            "sha256": "14f45a71cccb3e93886f6c9bf484bdccdfbed2b98f3940ad16ab24f157bb5fcf"
+          },
+          "slam": null,
+          "amcl": {
+            "path": "/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+            "sha256": "598d6c224834de4766018d9ab07e592f599668dceb9864f6dcdb358789f8c548"
+          },
+          "velocity_smoother": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+            "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+          },
+          "collision_monitor": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+            "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+          },
+          "command_map": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+            "sha256": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+            "evidence": {
+              "report": "docs/evidence/W05/locomotion-envelope.md",
+              "runs": {
+                "20261013T212155Z_dev_w05_c3": "00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe",
+                "20261013T215753Z_dev_w05_dense": "50ef2baf9ae2530bac0edfdc07c131f99725909836fe07511264fcc6dd33fb01",
+                "20261013T220627Z_dev_w05_context": "25976d72867333007b5a1cec96b1ea9d84920a620cde6cb0f79b09525bc8f65e"
+              },
+              "statistic": "largest 2 s window mean, >=3 s after command onset, segments >=8 s (raw traces)",
+              "tested_code_sha": "abc5b4a8248b05037ef02f46022c2a6779915acd",
+              "builder": "docs/evidence/W05/build_command_map.py",
+              "validation": "docs/evidence/W05/command-map-validation.json"
+            }
+          },
+          "events": {
+            "path": "/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+            "sha256": "23794bd05b3fe820c7c9dfcecf40cf8e683732b0d40c2cc99161fa587bae5853",
+            "scenario": "C01",
+            "seed": 2000,
+            "scene": "dynamic_crossing_world"
+          },
+          "command_gate": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+            "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+          }
+        }
+      },
+      "process_exit": {
+        "launch": 0,
+        "children": [
+          [
+            "goal",
+            0
+          ]
+        ],
+        "remaining_owned_pids": [],
+        "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v10/20261015T090302Z_w11r1-repair-smoke-v10_C01_s2000_2b2382/raw/20261015T090302Z_w11r1-repair-smoke-v10_C01_s2000_2b2382.txt",
+        "sha256": "0ff51ce917d3c67167974fc62ca31f667da98dceba58eedfcf64e957a2b635dd",
+        "clean_child_exits": 17,
+        "abnormal_exit_lines": [],
+        "startup_lines": [
+          "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 12.5}"
+        ]
+      },
+      "raw_result": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v10/20261015T090302Z_w11r1-repair-smoke-v10_C01_s2000_2b2382/result.json",
+      "raw_result_sha256": "56c717464d97ac06de25d173feb13a95de5882bfb5dbbfcd37891edfda0ba3fa"
+    },
+    {
+      "case": "C09",
+      "run_id": "20261015T090450Z_w11r1-repair-smoke-v10_C09_s2008_ed05e9",
+      "source_sha": "47a383bdeb57f9531485a464dec22d7b2514cdb3",
+      "outcome": "SUCCESS",
+      "task_duration_s": 40.22,
+      "settle": {
+        "settled": true,
+        "settle_start_sim": 52.980000000018784,
+        "settle_delay_s": 0.42000000001878135,
+        "pos_err_m": 0.06608942070486393,
+        "yaw_err_deg": 4.115068703165692
+      },
+      "hold_s": 2.0,
+      "velocity_window_s": 0.5,
+      "action_status": "SUCCEEDED",
+      "error_code": 0,
+      "corrections": 0,
+      "contact_counts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "safety": {
+        "cm_stop": 1,
+        "cm_slowdown": 2,
+        "gate_stopped": 0,
+        "bridge_timeouts": 147
+      },
+      "events": [
+        {
+          "kind": "gate",
+          "sim": 0.0,
+          "wall": 9286.92160238,
+          "state": "DISARMED",
+          "reason": "explicit arm required"
+        },
+        {
+          "kind": "sim_state",
+          "sim": 0.0,
+          "wall": 9287.13464018,
+          "state": "STARTING",
+          "fault": null
+        },
+        {
+          "kind": "sim_state",
+          "sim": 2.0,
+          "wall": 9289.125609535,
+          "state": "READY",
+          "fault": null
+        },
+        {
+          "kind": "gate",
+          "sim": 14.840000000000002,
+          "wall": 9302.944751622,
+          "state": "ARMED",
+          "reason": "awaiting a new source command"
+        },
+        {
+          "kind": "collision_monitor",
+          "sim": 21.1,
+          "wall": 9309.19378304,
+          "action_type": 2,
+          "polygon": "Slow"
+        },
+        {
+          "kind": "collision_monitor",
+          "sim": 21.42,
+          "wall": 9309.513905287,
+          "action_type": 0,
+          "polygon": ""
+        },
+        {
+          "kind": "collision_monitor",
+          "sim": 21.5,
+          "wall": 9309.593903473,
+          "action_type": 1,
+          "polygon": "Stop"
+        },
+        {
+          "kind": "collision_monitor",
+          "sim": 27.5,
+          "wall": 9315.593695868,
+          "action_type": 2,
+          "polygon": "Slow"
+        },
+        {
+          "kind": "collision_monitor",
+          "sim": 28.1,
+          "wall": 9316.193779821,
+          "action_type": 0,
+          "polygon": ""
+        }
+      ],
+      "lifecycle_and_endpoints": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 11.040000000000001}"
+      ],
+      "hashes": {
+        "scene_sha256": "3aa86f8977e5582b39b7afb4aa37d2763c3a96bb9e0a2216d2818eed4f8031bd",
+        "map_sha256": "fad1a0cdc1a7b386857d79e8c5be842deb54da05ca9f180131e08caa1693563b",
+        "map_image_sha256": "8652777ba15a030f1c57c7c4728644b22a5c182ce62ebb814c0e825edc0ecdf0",
+        "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7",
+        "parameters_sha256": "3cbf56cd6ecac190f146d7f2ac93269ee28ba0a598563ee4e5631e8652740da0",
+        "parameter_files": {
+          "nav2": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml",
+            "sha256": "14f45a71cccb3e93886f6c9bf484bdccdfbed2b98f3940ad16ab24f157bb5fcf"
+          },
+          "slam": null,
+          "amcl": {
+            "path": "/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+            "sha256": "598d6c224834de4766018d9ab07e592f599668dceb9864f6dcdb358789f8c548"
+          },
+          "velocity_smoother": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+            "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+          },
+          "collision_monitor": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+            "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+          },
+          "command_map": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+            "sha256": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+            "evidence": {
+              "report": "docs/evidence/W05/locomotion-envelope.md",
+              "runs": {
+                "20261013T212155Z_dev_w05_c3": "00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe",
+                "20261013T215753Z_dev_w05_dense": "50ef2baf9ae2530bac0edfdc07c131f99725909836fe07511264fcc6dd33fb01",
+                "20261013T220627Z_dev_w05_context": "25976d72867333007b5a1cec96b1ea9d84920a620cde6cb0f79b09525bc8f65e"
+              },
+              "statistic": "largest 2 s window mean, >=3 s after command onset, segments >=8 s (raw traces)",
+              "tested_code_sha": "abc5b4a8248b05037ef02f46022c2a6779915acd",
+              "builder": "docs/evidence/W05/build_command_map.py",
+              "validation": "docs/evidence/W05/command-map-validation.json"
+            }
+          },
+          "events": {
+            "path": "/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+            "sha256": "23794bd05b3fe820c7c9dfcecf40cf8e683732b0d40c2cc99161fa587bae5853",
+            "scenario": "C09",
+            "seed": 2008,
+            "scene": "dynamic_crossing_world"
+          },
+          "command_gate": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+            "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+          }
+        }
+      },
+      "process_exit": {
+        "launch": 0,
+        "children": [
+          [
+            "goal",
+            0
+          ]
+        ],
+        "remaining_owned_pids": [],
+        "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v10/20261015T090450Z_w11r1-repair-smoke-v10_C09_s2008_ed05e9/raw/20261015T090450Z_w11r1-repair-smoke-v10_C09_s2008_ed05e9.txt",
+        "sha256": "81340a1dc3655c861fd6e8019213fc5c2186145f9f1e58dffaa7a0996f05d212",
+        "clean_child_exits": 17,
+        "abnormal_exit_lines": [],
+        "startup_lines": [
+          "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 11.040000000000001}"
+        ]
+      },
+      "raw_result": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v10/20261015T090450Z_w11r1-repair-smoke-v10_C09_s2008_ed05e9/result.json",
+      "raw_result_sha256": "1ef5d8bd7ce308b6ab2e1a6a8d5377c2aed9c7f0e13b4aaf18198cac1e81fe17"
+    },
+    {
+      "case": "B04",
+      "run_id": "20261015T090054Z_w11r1-repair-smoke-v10_B04_s3003_ac23a9",
+      "source_sha": "47a383bdeb57f9531485a464dec22d7b2514cdb3",
+      "outcome": "SUCCESS",
+      "task_duration_s": 55.360000000000014,
+      "settle": {
+        "settled": true,
+        "settle_start_sim": 66.66000000002605,
+        "settle_delay_s": 1.0600000000260366,
+        "pos_err_m": 0.057441390716204424,
+        "yaw_err_deg": 9.92525183080391
+      },
+      "hold_s": 2.0,
+      "velocity_window_s": 0.5,
+      "action_status": "SUCCEEDED",
+      "error_code": 0,
+      "corrections": 0,
+      "contact_counts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "safety": {
+        "cm_stop": 0,
+        "cm_slowdown": 0,
+        "gate_stopped": 0,
+        "bridge_timeouts": 0
+      },
+      "events": [
+        {
+          "kind": "gate",
+          "sim": 0.0,
+          "wall": 9067.26113885,
+          "state": "DISARMED",
+          "reason": "explicit arm required"
+        },
+        {
+          "kind": "sim_state",
+          "sim": 0.0,
+          "wall": 9067.65383147,
+          "state": "STARTING",
+          "fault": null
+        },
+        {
+          "kind": "sim_state",
+          "sim": 2.0,
+          "wall": 9069.451041762,
+          "state": "READY",
+          "fault": null
+        },
+        {
+          "kind": "gate",
+          "sim": 15.8,
+          "wall": 9083.600369577,
+          "state": "ARMED",
+          "reason": "awaiting a new source command"
+        }
+      ],
+      "lifecycle_and_endpoints": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 12.4}"
+      ],
+      "hashes": {
+        "scene_sha256": "3942636b79ae4ba47ecbdf5574f38f411e29801985bef934109aaedd038fedeb",
+        "map_sha256": "fad1a0cdc1a7b386857d79e8c5be842deb54da05ca9f180131e08caa1693563b",
+        "map_image_sha256": "8652777ba15a030f1c57c7c4728644b22a5c182ce62ebb814c0e825edc0ecdf0",
+        "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7",
+        "parameters_sha256": "bff3c9c8f395c6f611d3fc98d3a591dc34f9b0bac677e610f8d1f2cd7d7095ac",
+        "parameter_files": {
+          "nav2": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml",
+            "sha256": "14f45a71cccb3e93886f6c9bf484bdccdfbed2b98f3940ad16ab24f157bb5fcf"
+          },
+          "slam": null,
+          "amcl": {
+            "path": "/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+            "sha256": "598d6c224834de4766018d9ab07e592f599668dceb9864f6dcdb358789f8c548"
+          },
+          "velocity_smoother": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+            "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+          },
+          "collision_monitor": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+            "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+          },
+          "command_map": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+            "sha256": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+            "evidence": {
+              "report": "docs/evidence/W05/locomotion-envelope.md",
+              "runs": {
+                "20261013T212155Z_dev_w05_c3": "00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe",
+                "20261013T215753Z_dev_w05_dense": "50ef2baf9ae2530bac0edfdc07c131f99725909836fe07511264fcc6dd33fb01",
+                "20261013T220627Z_dev_w05_context": "25976d72867333007b5a1cec96b1ea9d84920a620cde6cb0f79b09525bc8f65e"
+              },
+              "statistic": "largest 2 s window mean, >=3 s after command onset, segments >=8 s (raw traces)",
+              "tested_code_sha": "abc5b4a8248b05037ef02f46022c2a6779915acd",
+              "builder": "docs/evidence/W05/build_command_map.py",
+              "validation": "docs/evidence/W05/command-map-validation.json"
+            }
+          },
+          "events": {
+            "path": "/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+            "sha256": "23794bd05b3fe820c7c9dfcecf40cf8e683732b0d40c2cc99161fa587bae5853",
+            "scenario": "B04",
+            "seed": 3003,
+            "scene": "dynamic_crossing_world"
+          },
+          "command_gate": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+            "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+          }
+        }
+      },
+      "process_exit": {
+        "launch": 0,
+        "children": [
+          [
+            "goal",
+            0
+          ]
+        ],
+        "remaining_owned_pids": [],
+        "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v10/20261015T090054Z_w11r1-repair-smoke-v10_B04_s3003_ac23a9/raw/20261015T090054Z_w11r1-repair-smoke-v10_B04_s3003_ac23a9.txt",
+        "sha256": "2a0b0ce0eb99d84e0d6d7e7eae3cd869f7dad1ef594e5a9d678c111aeaccfc2b",
+        "clean_child_exits": 17,
+        "abnormal_exit_lines": [],
+        "startup_lines": [
+          "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 12.4}"
+        ]
+      },
+      "raw_result": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v10/20261015T090054Z_w11r1-repair-smoke-v10_B04_s3003_ac23a9/result.json",
+      "raw_result_sha256": "c1c3a734d7707ad75eaa6cecfb454ee42c095042efe3eb519a33138916e2baea"
+    },
+    {
+      "case": "B06",
+      "run_id": "20261015T085752Z_w11r1-repair-smoke-v10_B06_s3005_c1366a",
+      "source_sha": "47a383bdeb57f9531485a464dec22d7b2514cdb3",
+      "outcome": "SUCCESS",
+      "task_duration_s": 101.14000000000001,
+      "settle": {
+        "settled": true,
+        "settle_start_sim": 113.81999999991613,
+        "settle_delay_s": 0.35999999991612697,
+        "pos_err_m": 0.07952820445035673,
+        "yaw_err_deg": 3.4523967266605466
+      },
+      "hold_s": 2.0,
+      "velocity_window_s": 0.5,
+      "action_status": "SUCCEEDED",
+      "error_code": 0,
+      "corrections": 0,
+      "contact_counts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "safety": {
+        "cm_stop": 0,
+        "cm_slowdown": 0,
+        "gate_stopped": 0,
+        "bridge_timeouts": 0
+      },
+      "events": [
+        {
+          "kind": "gate",
+          "sim": 0.0,
+          "wall": 8896.782725317,
+          "state": "DISARMED",
+          "reason": "explicit arm required"
+        },
+        {
+          "kind": "sim_state",
+          "sim": 0.0,
+          "wall": 8897.588085332,
+          "state": "STARTING",
+          "fault": null
+        },
+        {
+          "kind": "sim_state",
+          "sim": 2.0,
+          "wall": 8899.913487109,
+          "state": "READY",
+          "fault": null
+        },
+        {
+          "kind": "gate",
+          "sim": 14.82,
+          "wall": 8912.882396446,
+          "state": "ARMED",
+          "reason": "awaiting a new source command"
+        }
+      ],
+      "lifecycle_and_endpoints": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 10.72}"
+      ],
+      "hashes": {
+        "scene_sha256": "3942636b79ae4ba47ecbdf5574f38f411e29801985bef934109aaedd038fedeb",
+        "map_sha256": "fad1a0cdc1a7b386857d79e8c5be842deb54da05ca9f180131e08caa1693563b",
+        "map_image_sha256": "8652777ba15a030f1c57c7c4728644b22a5c182ce62ebb814c0e825edc0ecdf0",
+        "checkpoint_sha256": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7",
+        "parameters_sha256": "d13e16caf4240ef6fd5399a8253cd4d047723140bc7711e3f8f4c15f1ab37224",
+        "parameter_files": {
+          "nav2": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml",
+            "sha256": "14f45a71cccb3e93886f6c9bf484bdccdfbed2b98f3940ad16ab24f157bb5fcf"
+          },
+          "slam": null,
+          "amcl": {
+            "path": "/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+            "sha256": "598d6c224834de4766018d9ab07e592f599668dceb9864f6dcdb358789f8c548"
+          },
+          "velocity_smoother": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+            "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+          },
+          "collision_monitor": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+            "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+          },
+          "command_map": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_mujoco/share/t1_mujoco/config/command_map.yaml",
+            "sha256": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+            "evidence": {
+              "report": "docs/evidence/W05/locomotion-envelope.md",
+              "runs": {
+                "20261013T212155Z_dev_w05_c3": "00dc7c632867190ec0e7cc5844c382d6a4ebc2507d5670e6f527cd4c796e5bbe",
+                "20261013T215753Z_dev_w05_dense": "50ef2baf9ae2530bac0edfdc07c131f99725909836fe07511264fcc6dd33fb01",
+                "20261013T220627Z_dev_w05_context": "25976d72867333007b5a1cec96b1ea9d84920a620cde6cb0f79b09525bc8f65e"
+              },
+              "statistic": "largest 2 s window mean, >=3 s after command onset, segments >=8 s (raw traces)",
+              "tested_code_sha": "abc5b4a8248b05037ef02f46022c2a6779915acd",
+              "builder": "docs/evidence/W05/build_command_map.py",
+              "validation": "docs/evidence/W05/command-map-validation.json"
+            }
+          },
+          "events": {
+            "path": "/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+            "sha256": "23794bd05b3fe820c7c9dfcecf40cf8e683732b0d40c2cc99161fa587bae5853",
+            "scenario": "B06",
+            "seed": 3005,
+            "scene": "dynamic_crossing_world"
+          },
+          "command_gate": {
+            "path": "/home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml",
+            "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf"
+          }
+        }
+      },
+      "process_exit": {
+        "launch": 0,
+        "children": [
+          [
+            "goal",
+            0
+          ]
+        ],
+        "remaining_owned_pids": [],
+        "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v10/20261015T085752Z_w11r1-repair-smoke-v10_B06_s3005_c1366a/raw/20261015T085752Z_w11r1-repair-smoke-v10_B06_s3005_c1366a.txt",
+        "sha256": "38fa0017505769ce5f716dfe7bb003c73044b8124fa98aaa2b22b7c5e42a6c05",
+        "clean_child_exits": 17,
+        "abnormal_exit_lines": [],
+        "startup_lines": [
+          "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 10.72}"
+        ]
+      },
+      "raw_result": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v10/20261015T085752Z_w11r1-repair-smoke-v10_B06_s3005_c1366a/result.json",
+      "raw_result_sha256": "06909ee7123f8085ce804b23655a181efaecde0103853605e4e4e42c27d2f7b0"
+    }
+  ],
+  "scope": "Four cases once on this SHA; not a formal campaign or reliability estimate"
+}

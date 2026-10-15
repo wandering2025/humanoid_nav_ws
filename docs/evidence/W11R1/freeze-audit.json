@@ -1,0 +1,78 @@
+{
+  "time_utc": "2026-10-15T09:08:56.520706+00:00",
+  "start_sha": "b23a92465b317ca781d3eb210051126c5786908e",
+  "repair_sha": "47a383bdeb57f9531485a464dec22d7b2514cdb3",
+  "source_fingerprint": "5ea0ccb65508bd4c70030759fb0d78aa7b382c49e2e303ca7858ea706117fe58",
+  "runtime_sha": "47a383bdeb57f9531485a464dec22d7b2514cdb3",
+  "runtime_diff_to_repair": "",
+  "freeze_note": "All four final cases and cancellation ran at REPAIR; no source changes afterward.",
+  "formal_v1": {
+    "files": 1371,
+    "mismatches": [],
+    "index_sha256": "aacf82f84604a1b0b79a9efa2e36c7d8e78f7cd4cf1cfca66598e90d2ed55c2e"
+  },
+  "source_changes": [
+    "src/t1_bringup/package.xml",
+    "src/t1_bringup/t1_bringup/navigation_adapter.py",
+    "src/t1_bringup/t1_bringup/navigation_launch.py",
+    "src/t1_bringup/t1_bringup/navigation_protocol.py",
+    "src/t1_bringup/t1_bringup/navigation_readiness.py",
+    "src/t1_bringup/t1_bringup/navigation_tools.py",
+    "src/t1_bringup/t1_bringup/slam.py",
+    "src/t1_bringup/test/test_bounded_manager_ros.py",
+    "src/t1_bringup/test/test_controller_feasible_ros.py",
+    "src/t1_bringup/test/test_heading_planner_ros.py",
+    "src/t1_bringup/test/test_navigation_adapter.py",
+    "src/t1_bringup/test/test_navigation_protocol.py",
+    "src/t1_navigation/CMakeLists.txt",
+    "src/t1_navigation/config/navigation.yaml",
+    "src/t1_navigation/package.xml",
+    "src/t1_navigation/plugins.xml",
+    "src/t1_navigation/src/bounded_lifecycle_manager.cpp",
+    "src/t1_navigation/src/exact_goal_lattice.cpp"
+  ],
+  "frozen_paths": [
+    "src/t1_mujoco/config/command_map.yaml",
+    "src/t1_navigation/config/safety.yaml",
+    "src/t1_bringup/t1_bringup/safety.py",
+    "src/t1_bringup/t1_bringup/safety_launch.py",
+    "src/t1_mujoco/t1_mujoco/command_map.py",
+    "src/t1_mujoco/worlds",
+    "src/t1_navigation/maps",
+    "src/t1_bringup/config",
+    "scripts",
+    "src/t1_navigation/behavior_trees",
+    "docs/evidence/W05",
+    "docs/evidence/W10",
+    "docs/evidence/W11",
+    "docs/evidence/W12",
+    "docs/evidence/W13",
+    "docs/results"
+  ],
+  "frozen_diff": "",
+  "frozen_parameter_blocks": {
+    "local_costmap": true,
+    "global_costmap": true,
+    "behavior_server": true,
+    "goal_checker": true
+  },
+  "user_document": {
+    "sha256": "6973bb1c423297cebdf2c1a97391487023d3b4af955e3a51d4fc735b2fba7027",
+    "modified_staged_or_committed_by_this_task": false,
+    "external_commit": "e50accf1cb7498a1cd2fe4fc27c7f81152d44aa6"
+  },
+  "lattice_file": {
+    "path": "/opt/ros/jazzy/share/nav2_smac_planner/sample_primitives/5cm_resolution/1m_turning_radius/diff/output.json",
+    "sha256": "984ecd63a24eb705ad24a102f7b8021c2f5fa46dcced03122449308728625590"
+  },
+  "final_tests": {
+    "build_packages": 4,
+    "tests": 151,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "no_formal_v2": true,
+  "no_w14": true,
+  "no_w15": true
+}

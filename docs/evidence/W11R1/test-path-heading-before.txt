@@ -1,0 +1,18 @@
+Running main() from /opt/ros/jazzy/src/gtest_vendor/src/gtest_main.cc
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from TerminalHeading
+[ RUN      ] TerminalHeading.SamePositionDifferentHeadingMustHaveDifferentCost
+/home/haoyang/humanoid_nav_ws/src/t1_navigation/test/test_path_heading.cpp:47: Failure
+Expected: (costs(1)) > (costs(0) + 1.0f), actual: 0 vs 1
+
+[  FAILED  ] TerminalHeading.SamePositionDifferentHeadingMustHaveDifferentCost (3 ms)
+[----------] 1 test from TerminalHeading (3 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (3 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] TerminalHeading.SamePositionDifferentHeadingMustHaveDifferentCost
+
+ 1 FAILED TEST

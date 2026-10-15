@@ -773,5 +773,33 @@
     "contacts": 0,
     "falls": 0,
     "remaining_owned_pids": []
+  },
+  {
+    "hypothesis": "H13 final RPP candidate",
+    "repair_sha": "47a383bdeb57f9531485a464dec22d7b2514cdb3",
+    "campaign": "w11r1-repair-smoke-v10",
+    "results": {
+      "C01": "SUCCESS",
+      "C09": "SUCCESS",
+      "B04": "SUCCESS",
+      "B06": "SUCCESS"
+    },
+    "run_ids": {
+      "C01": "20261015T090302Z_w11r1-repair-smoke-v10_C01_s2000_2b2382",
+      "C09": "20261015T090450Z_w11r1-repair-smoke-v10_C09_s2008_ed05e9",
+      "B04": "20261015T090054Z_w11r1-repair-smoke-v10_B04_s3003_ac23a9",
+      "B06": "20261015T085752Z_w11r1-repair-smoke-v10_B06_s3005_c1366a"
+    },
+    "tests": 151,
+    "cancellation": {
+      "run_id": "20261015T090629Z_dev_cancel_s0_3a8460",
+      "verdict": "PASS",
+      "settled": true
+    },
+    "environment_collisions": 0,
+    "falls": 0,
+    "remaining_owned_pids": [],
+    "status": "CANDIDATE_READY_FOR_INDEPENDENT_VERIFICATION",
+    "not_final_pass": true
   }
 ]

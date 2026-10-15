@@ -1,0 +1,18 @@
+{
+  "time_utc": "2026-10-15T09:08:55.516636+00:00",
+  "cwd": "/home/haoyang/humanoid_nav_ws",
+  "branch": "feat/t1-mujoco-navigation",
+  "remaining_ros_sim_dds_evaluation_processes": [],
+  "dds_ports_42124_42126": [],
+  "upstreams": {
+    "booster_deploy": {
+      "sha": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+      "status": ""
+    },
+    "booster_assets": {
+      "sha": "12a97516f57469078707afb587a5f84c1cb110d1",
+      "status": ""
+    }
+  },
+  "note": "Read-only host audit; no unrelated processes signaled. Per-run owned PIDs and child exits are also retained."
+}

@@ -1,0 +1,3501 @@
+[
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-h1-dev-v1/20261015T063939Z_w11r1-h1-dev-v1_C01_s2000_ca0729/result.json",
+    "sha256": "f6fb225aeaf7a211517d45fe8ba4e559c46b3c00c66e03484a93eca1f7d55578",
+    "run_id": "20261015T063939Z_w11r1-h1-dev-v1_C01_s2000_ca0729",
+    "case": "C01",
+    "outcome": "SUCCESS",
+    "source_sha": "9c86895a66bbb19a1f2932ff85c920612bd665b8",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 14.14,
+          "goal_id": "0cdc68e6b8284974a8ebbfb2d06a60ae",
+          "status": "PASSED",
+          "end_sim": 51.68,
+          "passed_pose": [
+            7.220033582066525,
+            0.20703010502194494,
+            -0.1782009692690315
+          ]
+        },
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 51.68,
+          "goal_id": "118992888dcd4049b16e497987c70297",
+          "status": "SUCCEEDED",
+          "end_sim": 58.34,
+          "error_code": 0,
+          "verify_sim": 61.120000000000005,
+          "verified_pose": [
+            8.922343253120554,
+            0.15061639891331025,
+            -0.003319582445191055
+          ],
+          "xy_error": 0.16945757568639952,
+          "yaw_error": 0.0033195824451910556
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": 1.5,
+      "accepted_sim": 14.14,
+      "goal_id": "0cdc68e6b8284974a8ebbfb2d06a60ae",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 61.120000000000005,
+      "duration_sim": 46.980000000000004,
+      "verified": {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 51.68,
+        "goal_id": "118992888dcd4049b16e497987c70297",
+        "status": "SUCCEEDED",
+        "end_sim": 58.34,
+        "error_code": 0,
+        "verify_sim": 61.120000000000005,
+        "verified_pose": [
+          8.922343253120554,
+          0.15061639891331025,
+          -0.003319582445191055
+        ],
+        "xy_error": 0.16945757568639952,
+        "yaw_error": 0.0033195824451910556
+      },
+      "terminal_retries": 0,
+      "error_code": 0,
+      "nav2_success_sim": 58.34,
+      "exit": 0
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 59.14000000002631,
+      "settle_delay_s": 0.8000000000263086,
+      "pos_err_m": 0.17656725492207567,
+      "yaw_err_deg": 1.5139973398779807
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T063939Z_w11r1-h1-dev-v1_C01_s2000_ca0729",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=2000",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=C01"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-h1-dev-v1/20261015T063939Z_w11r1-h1-dev-v1_C01_s2000_ca0729/raw/20261015T063939Z_w11r1-h1-dev-v1_C01_s2000_ca0729.txt",
+      "sha256": "fa47324e89ce2ea924d4b6aa29669ed5992175dea7fc3b0ecba09a87517e19fd",
+      "clean_child_exits": 15,
+      "abnormal_exit_lines": [
+        "[ERROR] [bounded_lifecycle_manager-14]: process has died [pid 6536, exit code -6, cmd '/home/haoyang/humanoid_nav_ws/install/t1_navigation/lib/t1_navigation/bounded_lifecycle_manager --ros-args -r __node:=lifecycle_manager_navigation --params-file /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml'].",
+        "[ERROR] [bounded_lifecycle_manager-8]: process has died [pid 6378, exit code -6, cmd '/home/haoyang/humanoid_nav_ws/install/t1_navigation/lib/t1_navigation/bounded_lifecycle_manager --ros-args -r __node:=lifecycle_manager_localization --params-file /tmp/launch_params_sjinifoz']."
+      ],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 10.74}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-h3-dev-v1/20261015T064141Z_w11r1-h3-dev-v1_B04_s3003_587bff/result.json",
+    "sha256": "d023c934f8bc7ef84a3de9afdc82ef7d6a0783f0869571e9cd2ad61493ba8fbb",
+    "run_id": "20261015T064141Z_w11r1-h3-dev-v1_B04_s3003_587bff",
+    "case": "B04",
+    "outcome": "SUCCESS",
+    "source_sha": "18373789e4416305101225f0aeb5a5c6fffeaa20",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 14.8,
+          "goal_id": "c9bf369ec5dd4570adac8ee3a227f703",
+          "status": "PASSED",
+          "end_sim": 63.440000000000005,
+          "passed_pose": [
+            7.346503142030572,
+            0.030308494409054337,
+            -0.1947824645694741
+          ]
+        },
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 63.440000000000005,
+          "goal_id": "fa9f7fd4118a41e2a90efbb4be8b9962",
+          "status": "SUCCEEDED",
+          "end_sim": 63.480000000000004,
+          "error_code": 0,
+          "verify_sim": 68.34,
+          "verified_pose": [
+            7.354803479321985,
+            0.031872149554388295,
+            -0.5489905829256589
+          ],
+          "xy_error": 1.6455052189428823,
+          "yaw_error": 0.5489905829256589,
+          "next_aim_yaw": 0.5
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            9.0,
+            0.0,
+            0.5
+          ],
+          "accepted_sim": 68.34,
+          "goal_id": "a0e69276549041ebb13351216514c591",
+          "status": "SUCCEEDED",
+          "end_sim": 75.54,
+          "error_code": 0,
+          "verify_sim": 78.04,
+          "verified_pose": [
+            8.964301139011404,
+            -0.07019500113777734,
+            0.3047309159680652
+          ],
+          "xy_error": 0.07875117053489213,
+          "yaw_error": 0.3047309159680652,
+          "next_aim_yaw": -0.3047309159680652
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            9.0,
+            0.0,
+            -0.3047309159680652
+          ],
+          "accepted_sim": 78.04,
+          "goal_id": "fbb6c86ed05a4c36b9ec93f3a9b81550",
+          "status": "SUCCEEDED",
+          "end_sim": 80.88000000000001,
+          "error_code": 0,
+          "verify_sim": 85.2,
+          "verified_pose": [
+            8.963928866922787,
+            -0.03254340666364568,
+            0.23994767839190428
+          ],
+          "xy_error": 0.04858188920523189,
+          "yaw_error": 0.23994767839190428,
+          "next_aim_yaw": -0.23994767839190428
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            9.0,
+            0.0,
+            -0.23994767839190428
+          ],
+          "accepted_sim": 85.2,
+          "goal_id": "e74962ea7dd74771acb9b1f8f305d378",
+          "status": "SUCCEEDED",
+          "end_sim": 88.64,
+          "error_code": 0,
+          "verify_sim": 92.4,
+          "verified_pose": [
+            8.956547019410465,
+            -0.03428797254903622,
+            0.16517532798476153
+          ],
+          "xy_error": 0.05535184354326405,
+          "yaw_error": 0.16517532798476153
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": 1.5,
+      "accepted_sim": 14.8,
+      "goal_id": "c9bf369ec5dd4570adac8ee3a227f703",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 92.4,
+      "duration_sim": 77.60000000000001,
+      "verified": {
+        "stage": "terminal_retry",
+        "target": [
+          9.0,
+          0.0,
+          -0.23994767839190428
+        ],
+        "accepted_sim": 85.2,
+        "goal_id": "e74962ea7dd74771acb9b1f8f305d378",
+        "status": "SUCCEEDED",
+        "end_sim": 88.64,
+        "error_code": 0,
+        "verify_sim": 92.4,
+        "verified_pose": [
+          8.956547019410465,
+          -0.03428797254903622,
+          0.16517532798476153
+        ],
+        "xy_error": 0.05535184354326405,
+        "yaw_error": 0.16517532798476153
+      },
+      "terminal_retries": 3,
+      "error_code": 0,
+      "nav2_success_sim": 88.64,
+      "exit": 0
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 90.37999999997076,
+      "settle_delay_s": 1.7399999999707632,
+      "pos_err_m": 0.053075970630531405,
+      "yaw_err_deg": 9.322481006169447
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T064141Z_w11r1-h3-dev-v1_B04_s3003_587bff",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=3003",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=B04"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-h3-dev-v1/20261015T064141Z_w11r1-h3-dev-v1_B04_s3003_587bff/raw/20261015T064141Z_w11r1-h3-dev-v1_B04_s3003_587bff.txt",
+      "sha256": "8463485c87cba93bb4d5b67d48422139ac772e5a5463d86b539c3d9694749f72",
+      "clean_child_exits": 15,
+      "abnormal_exit_lines": [
+        "[ERROR] [bounded_lifecycle_manager-14]: process has died [pid 8492, exit code -6, cmd '/home/haoyang/humanoid_nav_ws/install/t1_navigation/lib/t1_navigation/bounded_lifecycle_manager --ros-args -r __node:=lifecycle_manager_navigation --params-file /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml'].",
+        "[ERROR] [bounded_lifecycle_manager-8]: process has died [pid 8335, exit code -6, cmd '/home/haoyang/humanoid_nav_ws/install/t1_navigation/lib/t1_navigation/bounded_lifecycle_manager --ros-args -r __node:=lifecycle_manager_localization --params-file /tmp/launch_params_f7mn92_o']."
+      ],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 11.22}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-h4-dev-v1/20261015T064841Z_w11r1-h4-dev-v1_B04_s3003_de3f4d/result.json",
+    "sha256": "0af306e03a1a34f6aaabfe320ea2e1378581255983482a636b31bc3825560825",
+    "run_id": "20261015T064841Z_w11r1-h4-dev-v1_B04_s3003_de3f4d",
+    "case": "B04",
+    "outcome": "SUCCESS",
+    "source_sha": "9fff78f009c04265a0018aeb0c2b47ff38fcc164",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 14.48,
+          "goal_id": "a130128212994cba98715fabe4be6319",
+          "status": "SUCCEEDED",
+          "end_sim": 55.68000000000001,
+          "error_code": 0,
+          "verify_sim": 59.720000000000006,
+          "verified_pose": [
+            7.660494644621087,
+            0.06610807132981524,
+            0.4286854710406856
+          ],
+          "xy_error": 0.17357651928471482,
+          "yaw_error": 0.4286854710406856,
+          "next_aim": [
+            7.5,
+            0.0,
+            -0.4286854710406856
+          ]
+        },
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            -0.4286854710406856
+          ],
+          "accepted_sim": 59.720000000000006,
+          "goal_id": "b4fc36f22a064721b9175039846e94a0",
+          "status": "SUCCEEDED",
+          "end_sim": 62.86000000000001,
+          "error_code": 0,
+          "verify_sim": 65.48,
+          "verified_pose": [
+            7.6443139129196185,
+            0.11500394395597852,
+            -0.30770031783109186
+          ],
+          "xy_error": 0.18453295799829653,
+          "yaw_error": 0.30770031783109186,
+          "next_aim": [
+            7.5,
+            0.0,
+            -0.12098515320959374
+          ]
+        },
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            -0.12098515320959374
+          ],
+          "accepted_sim": 65.48,
+          "goal_id": "3e95d65e4ea3471593c88473e75df0ab",
+          "status": "SUCCEEDED",
+          "end_sim": 65.52000000000001,
+          "error_code": 0,
+          "verify_sim": 68.02000000000001,
+          "verified_pose": [
+            7.642088255036973,
+            0.11223114062019988,
+            -0.29031482987037377
+          ],
+          "xy_error": 0.18106601322270005,
+          "yaw_error": 0.29031482987037377,
+          "next_aim": [
+            7.5,
+            0.0,
+            0.16932967666078003
+          ]
+        },
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.16932967666078003
+          ],
+          "accepted_sim": 68.02000000000001,
+          "goal_id": "d1eac37a2d58427aa8a663f1a41341c7",
+          "status": "SUCCEEDED",
+          "end_sim": 70.52000000000001,
+          "error_code": 0,
+          "verify_sim": 74.12,
+          "verified_pose": [
+            7.668998673215079,
+            0.09165646729640098,
+            -0.178303802395088
+          ],
+          "xy_error": 0.19225363337454363,
+          "yaw_error": 0.178303802395088
+        },
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 74.12,
+          "goal_id": "4085175b07b040299879126a38ecc076",
+          "status": "SUCCEEDED",
+          "end_sim": 78.92,
+          "error_code": 0,
+          "verify_sim": 81.56,
+          "verified_pose": [
+            8.958402945191121,
+            0.12148376176970499,
+            0.018405200050249943
+          ],
+          "xy_error": 0.12840801899605528,
+          "yaw_error": 0.018405200050249943
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": 1.5,
+      "accepted_sim": 14.48,
+      "goal_id": "a130128212994cba98715fabe4be6319",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 81.56,
+      "duration_sim": 67.08,
+      "verified": {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 74.12,
+        "goal_id": "4085175b07b040299879126a38ecc076",
+        "status": "SUCCEEDED",
+        "end_sim": 78.92,
+        "error_code": 0,
+        "verify_sim": 81.56,
+        "verified_pose": [
+          8.958402945191121,
+          0.12148376176970499,
+          0.018405200050249943
+        ],
+        "xy_error": 0.12840801899605528,
+        "yaw_error": 0.018405200050249943
+      },
+      "terminal_retries": 3,
+      "error_code": 0,
+      "nav2_success_sim": 78.92,
+      "exit": 0
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 79.57999999999593,
+      "settle_delay_s": 0.6599999999959323,
+      "pos_err_m": 0.11866205939169168,
+      "yaw_err_deg": 0.9088977151080213
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T064841Z_w11r1-h4-dev-v1_B04_s3003_de3f4d",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=3003",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=B04"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-h4-dev-v1/20261015T064841Z_w11r1-h4-dev-v1_B04_s3003_de3f4d/raw/20261015T064841Z_w11r1-h4-dev-v1_B04_s3003_de3f4d.txt",
+      "sha256": "fe54f89c91bfe4891ddc5761fd9c01bd10306eb5d9d917016be6e7ac83c19b30",
+      "clean_child_exits": 15,
+      "abnormal_exit_lines": [
+        "[ERROR] [bounded_lifecycle_manager-14]: process has died [pid 12516, exit code -6, cmd '/home/haoyang/humanoid_nav_ws/install/t1_navigation/lib/t1_navigation/bounded_lifecycle_manager --ros-args -r __node:=lifecycle_manager_navigation --params-file /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml'].",
+        "[ERROR] [bounded_lifecycle_manager-8]: process has died [pid 12351, exit code -6, cmd '/home/haoyang/humanoid_nav_ws/install/t1_navigation/lib/t1_navigation/bounded_lifecycle_manager --ros-args -r __node:=lifecycle_manager_localization --params-file /tmp/launch_params_i8bl3j_5']."
+      ],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 11.040000000000001}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v1/20261015T065338Z_w11r1-repair-smoke-v1_C01_s2000_20b410/result.json",
+    "sha256": "c755788a0f02f50ed3d92a4d2b76385bede0f2598b9a6b9e83baafb1ca6dda43",
+    "run_id": "20261015T065338Z_w11r1-repair-smoke-v1_C01_s2000_20b410",
+    "case": "C01",
+    "outcome": "SUCCESS",
+    "source_sha": "996f36ae9f5ee61c3bb27c71268052dfbb858e4d",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 15.000000000000002,
+          "goal_id": "349b20f0cb6c42149e7b07bfeb5bb1aa",
+          "status": "SUCCEEDED",
+          "end_sim": 54.540000000000006,
+          "error_code": 0,
+          "verify_sim": 57.040000000000006,
+          "verified_pose": [
+            7.579010505215523,
+            0.1405952642629832,
+            -0.12212438125687472
+          ],
+          "xy_error": 0.16127519421036288,
+          "yaw_error": 0.12212438125687472
+        },
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 57.040000000000006,
+          "goal_id": "4caf31a198414cf39a730f0153619965",
+          "status": "SUCCEEDED",
+          "end_sim": 62.440000000000005,
+          "error_code": 0,
+          "verify_sim": 65.10000000000001,
+          "verified_pose": [
+            8.948110001938574,
+            0.16710636595947562,
+            0.013791611441596604
+          ],
+          "xy_error": 0.17497745409908397,
+          "yaw_error": 0.013791611441596604
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": 1.5,
+      "accepted_sim": 15.000000000000002,
+      "goal_id": "349b20f0cb6c42149e7b07bfeb5bb1aa",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 65.10000000000001,
+      "duration_sim": 50.10000000000001,
+      "verified": {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 57.040000000000006,
+        "goal_id": "4caf31a198414cf39a730f0153619965",
+        "status": "SUCCEEDED",
+        "end_sim": 62.440000000000005,
+        "error_code": 0,
+        "verify_sim": 65.10000000000001,
+        "verified_pose": [
+          8.948110001938574,
+          0.16710636595947562,
+          0.013791611441596604
+        ],
+        "xy_error": 0.17497745409908397,
+        "yaw_error": 0.013791611441596604
+      },
+      "terminal_retries": 0,
+      "error_code": 0,
+      "nav2_success_sim": 62.440000000000005,
+      "exit": 0
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 63.0600000000311,
+      "settle_delay_s": 0.6200000000310979,
+      "pos_err_m": 0.17996691841351783,
+      "yaw_err_deg": 0.8415960445479986
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T065338Z_w11r1-repair-smoke-v1_C01_s2000_20b410",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=2000",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=C01"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v1/20261015T065338Z_w11r1-repair-smoke-v1_C01_s2000_20b410/raw/20261015T065338Z_w11r1-repair-smoke-v1_C01_s2000_20b410.txt",
+      "sha256": "f73a7791d717857f47ed50da11d459034e989a9e5870fca61abd4b96e7b68b3e",
+      "clean_child_exits": 15,
+      "abnormal_exit_lines": [
+        "[ERROR] [bounded_lifecycle_manager-14]: process has died [pid 16046, exit code -6, cmd '/home/haoyang/humanoid_nav_ws/install/t1_navigation/lib/t1_navigation/bounded_lifecycle_manager --ros-args -r __node:=lifecycle_manager_navigation --params-file /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml'].",
+        "[ERROR] [bounded_lifecycle_manager-8]: process has died [pid 15905, exit code -6, cmd '/home/haoyang/humanoid_nav_ws/install/t1_navigation/lib/t1_navigation/bounded_lifecycle_manager --ros-args -r __node:=lifecycle_manager_localization --params-file /tmp/launch_params_kjaq7ha6']."
+      ],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 11.520000000000001}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v1/20261015T065506Z_w11r1-repair-smoke-v1_C09_s2008_dbe69c/result.json",
+    "sha256": "8a167f7ff45a82842bbad49cbae0abde27303fed832b8ef06dd782b71fd158fb",
+    "run_id": "20261015T065506Z_w11r1-repair-smoke-v1_C09_s2008_dbe69c",
+    "case": "C09",
+    "outcome": "SUCCESS",
+    "source_sha": "996f36ae9f5ee61c3bb27c71268052dfbb858e4d",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 14.74,
+          "goal_id": "37156d15ce404e40ad8afd410fa153f1",
+          "status": "SUCCEEDED",
+          "end_sim": 54.260000000000005,
+          "error_code": 0,
+          "verify_sim": 57.160000000000004,
+          "verified_pose": [
+            7.466500631337572,
+            0.12678062407195517,
+            -0.0845786188843727
+          ],
+          "xy_error": 0.13113174421495224,
+          "yaw_error": 0.0845786188843727
+        },
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 57.160000000000004,
+          "goal_id": "a9080614a1e9476e8801c4fda4a30b9e",
+          "status": "SUCCEEDED",
+          "end_sim": 63.32000000000001,
+          "error_code": 0,
+          "verify_sim": 65.82000000000001,
+          "verified_pose": [
+            8.979945364218189,
+            0.13455062762331624,
+            -0.022742839640815648
+          ],
+          "xy_error": 0.13603697956867983,
+          "yaw_error": 0.022742839640815648
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": 1.5,
+      "accepted_sim": 14.74,
+      "goal_id": "37156d15ce404e40ad8afd410fa153f1",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 65.82000000000001,
+      "duration_sim": 51.080000000000005,
+      "verified": {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 57.160000000000004,
+        "goal_id": "a9080614a1e9476e8801c4fda4a30b9e",
+        "status": "SUCCEEDED",
+        "end_sim": 63.32000000000001,
+        "error_code": 0,
+        "verify_sim": 65.82000000000001,
+        "verified_pose": [
+          8.979945364218189,
+          0.13455062762331624,
+          -0.022742839640815648
+        ],
+        "xy_error": 0.13603697956867983,
+        "yaw_error": 0.022742839640815648
+      },
+      "terminal_retries": 0,
+      "error_code": 0,
+      "nav2_success_sim": 63.32000000000001,
+      "exit": 0
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 63.560000000031714,
+      "settle_delay_s": 0.2400000000317064,
+      "pos_err_m": 0.14670789981462176,
+      "yaw_err_deg": 1.659496902168269
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T065506Z_w11r1-repair-smoke-v1_C09_s2008_dbe69c",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=2008",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=C09"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v1/20261015T065506Z_w11r1-repair-smoke-v1_C09_s2008_dbe69c/raw/20261015T065506Z_w11r1-repair-smoke-v1_C09_s2008_dbe69c.txt",
+      "sha256": "636bcfe6da211af11af05c8cd6966e64fa7c6e3e338a868e6bfba126043433f1",
+      "clean_child_exits": 15,
+      "abnormal_exit_lines": [
+        "[ERROR] [bounded_lifecycle_manager-14]: process has died [pid 17887, exit code -6, cmd '/home/haoyang/humanoid_nav_ws/install/t1_navigation/lib/t1_navigation/bounded_lifecycle_manager --ros-args -r __node:=lifecycle_manager_navigation --params-file /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/navigation.yaml'].",
+        "[ERROR] [bounded_lifecycle_manager-8]: process has died [pid 17712, exit code -6, cmd '/home/haoyang/humanoid_nav_ws/install/t1_navigation/lib/t1_navigation/bounded_lifecycle_manager --ros-args -r __node:=lifecycle_manager_localization --params-file /tmp/launch_params_gx_o2yz9']."
+      ],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 11.260000000000002}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v10/20261015T085752Z_w11r1-repair-smoke-v10_B06_s3005_c1366a/result.json",
+    "sha256": "06909ee7123f8085ce804b23655a181efaecde0103853605e4e4e42c27d2f7b0",
+    "run_id": "20261015T085752Z_w11r1-repair-smoke-v10_B06_s3005_c1366a",
+    "case": "B06",
+    "outcome": "SUCCESS",
+    "source_sha": "47a383bdeb57f9531485a464dec22d7b2514cdb3",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 14.82,
+          "goal_id": "a56a22952d7e4ecd854d5adbdcad75ed",
+          "status": "SUCCEEDED",
+          "end_sim": 113.46000000000001,
+          "error_code": 0,
+          "verify_sim": 115.96000000000001,
+          "verified_pose": [
+            8.887652405811032,
+            -0.02672303395674997,
+            -0.05637791027540605
+          ],
+          "xy_error": 0.11548204390251607,
+          "yaw_error": 0.05637791027540605
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 14.82,
+      "goal_id": "a56a22952d7e4ecd854d5adbdcad75ed",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 115.96000000000001,
+      "duration_sim": 101.14000000000001,
+      "verified": {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 14.82,
+        "goal_id": "a56a22952d7e4ecd854d5adbdcad75ed",
+        "status": "SUCCEEDED",
+        "end_sim": 113.46000000000001,
+        "error_code": 0,
+        "verify_sim": 115.96000000000001,
+        "verified_pose": [
+          8.887652405811032,
+          -0.02672303395674997,
+          -0.05637791027540605
+        ],
+        "xy_error": 0.11548204390251607,
+        "yaw_error": 0.05637791027540605
+      },
+      "terminal_retries": 0,
+      "error_code": 0,
+      "nav2_success_sim": 113.46000000000001,
+      "exit": 0
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 113.81999999991613,
+      "settle_delay_s": 0.35999999991612697,
+      "pos_err_m": 0.07952820445035673,
+      "yaw_err_deg": 3.4523967266605466
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T085752Z_w11r1-repair-smoke-v10_B06_s3005_c1366a",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=3005",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=B06"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v10/20261015T085752Z_w11r1-repair-smoke-v10_B06_s3005_c1366a/raw/20261015T085752Z_w11r1-repair-smoke-v10_B06_s3005_c1366a.txt",
+      "sha256": "38fa0017505769ce5f716dfe7bb003c73044b8124fa98aaa2b22b7c5e42a6c05",
+      "clean_child_exits": 17,
+      "abnormal_exit_lines": [],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 10.72}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v10/20261015T090054Z_w11r1-repair-smoke-v10_B04_s3003_ac23a9/result.json",
+    "sha256": "c1c3a734d7707ad75eaa6cecfb454ee42c095042efe3eb519a33138916e2baea",
+    "run_id": "20261015T090054Z_w11r1-repair-smoke-v10_B04_s3003_ac23a9",
+    "case": "B04",
+    "outcome": "SUCCESS",
+    "source_sha": "47a383bdeb57f9531485a464dec22d7b2514cdb3",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 15.8,
+          "goal_id": "a59b511ab94b43cea1e2b00ddc96cdd6",
+          "status": "SUCCEEDED",
+          "end_sim": 65.60000000000001,
+          "error_code": 0,
+          "verify_sim": 71.16000000000001,
+          "verified_pose": [
+            9.010932690800669,
+            0.02099964186886433,
+            0.18189119648395477
+          ],
+          "xy_error": 0.02367506466228939,
+          "yaw_error": 0.1818911964839548
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 15.8,
+      "goal_id": "a59b511ab94b43cea1e2b00ddc96cdd6",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 71.16000000000001,
+      "duration_sim": 55.360000000000014,
+      "verified": {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 15.8,
+        "goal_id": "a59b511ab94b43cea1e2b00ddc96cdd6",
+        "status": "SUCCEEDED",
+        "end_sim": 65.60000000000001,
+        "error_code": 0,
+        "verify_sim": 71.16000000000001,
+        "verified_pose": [
+          9.010932690800669,
+          0.02099964186886433,
+          0.18189119648395477
+        ],
+        "xy_error": 0.02367506466228939,
+        "yaw_error": 0.1818911964839548
+      },
+      "terminal_retries": 0,
+      "error_code": 0,
+      "nav2_success_sim": 65.60000000000001,
+      "exit": 0
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 66.66000000002605,
+      "settle_delay_s": 1.0600000000260366,
+      "pos_err_m": 0.057441390716204424,
+      "yaw_err_deg": 9.92525183080391
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T090054Z_w11r1-repair-smoke-v10_B04_s3003_ac23a9",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=3003",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=B04"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v10/20261015T090054Z_w11r1-repair-smoke-v10_B04_s3003_ac23a9/raw/20261015T090054Z_w11r1-repair-smoke-v10_B04_s3003_ac23a9.txt",
+      "sha256": "2a0b0ce0eb99d84e0d6d7e7eae3cd869f7dad1ef594e5a9d678c111aeaccfc2b",
+      "clean_child_exits": 17,
+      "abnormal_exit_lines": [],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 12.4}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v10/20261015T090302Z_w11r1-repair-smoke-v10_C01_s2000_2b2382/result.json",
+    "sha256": "56c717464d97ac06de25d173feb13a95de5882bfb5dbbfcd37891edfda0ba3fa",
+    "run_id": "20261015T090302Z_w11r1-repair-smoke-v10_C01_s2000_2b2382",
+    "case": "C01",
+    "outcome": "SUCCESS",
+    "source_sha": "47a383bdeb57f9531485a464dec22d7b2514cdb3",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 16.220000000000002,
+          "goal_id": "327e56bc9d414dd299a3c604bc92d790",
+          "status": "SUCCEEDED",
+          "end_sim": 58.900000000000006,
+          "error_code": 0,
+          "verify_sim": 62.64,
+          "verified_pose": [
+            8.906446292000298,
+            -0.0017417277588146268,
+            -0.1955841734345705
+          ],
+          "xy_error": 0.09356991982511924,
+          "yaw_error": 0.19558417343457052
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 16.220000000000002,
+      "goal_id": "327e56bc9d414dd299a3c604bc92d790",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 62.64,
+      "duration_sim": 46.42,
+      "verified": {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 16.220000000000002,
+        "goal_id": "327e56bc9d414dd299a3c604bc92d790",
+        "status": "SUCCEEDED",
+        "end_sim": 58.900000000000006,
+        "error_code": 0,
+        "verify_sim": 62.64,
+        "verified_pose": [
+          8.906446292000298,
+          -0.0017417277588146268,
+          -0.1955841734345705
+        ],
+        "xy_error": 0.09356991982511924,
+        "yaw_error": 0.19558417343457052
+      },
+      "terminal_retries": 0,
+      "error_code": 0,
+      "nav2_success_sim": 58.900000000000006,
+      "exit": 0
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 60.62000000002812,
+      "settle_delay_s": 1.720000000028115,
+      "pos_err_m": 0.08736847790473974,
+      "yaw_err_deg": 11.195168957994438
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T090302Z_w11r1-repair-smoke-v10_C01_s2000_2b2382",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=2000",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=C01"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v10/20261015T090302Z_w11r1-repair-smoke-v10_C01_s2000_2b2382/raw/20261015T090302Z_w11r1-repair-smoke-v10_C01_s2000_2b2382.txt",
+      "sha256": "0ff51ce917d3c67167974fc62ca31f667da98dceba58eedfcf64e957a2b635dd",
+      "clean_child_exits": 17,
+      "abnormal_exit_lines": [],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 12.5}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v10/20261015T090450Z_w11r1-repair-smoke-v10_C09_s2008_ed05e9/result.json",
+    "sha256": "1ef5d8bd7ce308b6ab2e1a6a8d5377c2aed9c7f0e13b4aaf18198cac1e81fe17",
+    "run_id": "20261015T090450Z_w11r1-repair-smoke-v10_C09_s2008_ed05e9",
+    "case": "C09",
+    "outcome": "SUCCESS",
+    "source_sha": "47a383bdeb57f9531485a464dec22d7b2514cdb3",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 14.840000000000002,
+          "goal_id": "8b64371aa2bd4ff2b5cfb3983074f034",
+          "status": "SUCCEEDED",
+          "end_sim": 52.56,
+          "error_code": 0,
+          "verify_sim": 55.06,
+          "verified_pose": [
+            8.913723633827308,
+            -0.029193375540830492,
+            -0.07333161591798831
+          ],
+          "xy_error": 0.09108163665323755,
+          "yaw_error": 0.07333161591798831
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 14.840000000000002,
+      "goal_id": "8b64371aa2bd4ff2b5cfb3983074f034",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 55.06,
+      "duration_sim": 40.22,
+      "verified": {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 14.840000000000002,
+        "goal_id": "8b64371aa2bd4ff2b5cfb3983074f034",
+        "status": "SUCCEEDED",
+        "end_sim": 52.56,
+        "error_code": 0,
+        "verify_sim": 55.06,
+        "verified_pose": [
+          8.913723633827308,
+          -0.029193375540830492,
+          -0.07333161591798831
+        ],
+        "xy_error": 0.09108163665323755,
+        "yaw_error": 0.07333161591798831
+      },
+      "terminal_retries": 0,
+      "error_code": 0,
+      "nav2_success_sim": 52.56,
+      "exit": 0
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 52.980000000018784,
+      "settle_delay_s": 0.42000000001878135,
+      "pos_err_m": 0.06608942070486393,
+      "yaw_err_deg": 4.115068703165692
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T090450Z_w11r1-repair-smoke-v10_C09_s2008_ed05e9",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=2008",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=C09"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v10/20261015T090450Z_w11r1-repair-smoke-v10_C09_s2008_ed05e9/raw/20261015T090450Z_w11r1-repair-smoke-v10_C09_s2008_ed05e9.txt",
+      "sha256": "81340a1dc3655c861fd6e8019213fc5c2186145f9f1e58dffaa7a0996f05d212",
+      "clean_child_exits": 17,
+      "abnormal_exit_lines": [],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 11.040000000000001}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v2/20261015T070517Z_w11r1-repair-smoke-v2_C01_s2000_43e7ce/result.json",
+    "sha256": "07f844ec29e5247d523ea73e5be707ff7522b100551a87b3e06d004cd375de16",
+    "run_id": "20261015T070517Z_w11r1-repair-smoke-v2_C01_s2000_43e7ce",
+    "case": "C01",
+    "outcome": "SUCCESS",
+    "source_sha": "007b118a3154f695c5c5217f671f7232dd3f46e9",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 14.540000000000001,
+          "goal_id": "a2f14086663b4da49ea2d25e067ac1d7",
+          "status": "SUCCEEDED",
+          "end_sim": 53.78,
+          "error_code": 0,
+          "verify_sim": 56.36000000000001,
+          "verified_pose": [
+            7.600187488924996,
+            0.15463718949637584,
+            -0.030407909318019097
+          ],
+          "xy_error": 0.18425578230393252,
+          "yaw_error": 0.030407909318019097
+        },
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 56.36000000000001,
+          "goal_id": "a175b563934b46c4bd5ff707738ffcb3",
+          "status": "SUCCEEDED",
+          "end_sim": 62.00000000000001,
+          "error_code": 0,
+          "verify_sim": 64.64,
+          "verified_pose": [
+            9.01544674191873,
+            0.13570169171964214,
+            0.013270706771064587
+          ],
+          "xy_error": 0.13657800324897357,
+          "yaw_error": 0.013270706771064587
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": 1.5,
+      "accepted_sim": 14.540000000000001,
+      "goal_id": "a2f14086663b4da49ea2d25e067ac1d7",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 64.64,
+      "duration_sim": 50.1,
+      "verified": {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 56.36000000000001,
+        "goal_id": "a175b563934b46c4bd5ff707738ffcb3",
+        "status": "SUCCEEDED",
+        "end_sim": 62.00000000000001,
+        "error_code": 0,
+        "verify_sim": 64.64,
+        "verified_pose": [
+          9.01544674191873,
+          0.13570169171964214,
+          0.013270706771064587
+        ],
+        "xy_error": 0.13657800324897357,
+        "yaw_error": 0.013270706771064587
+      },
+      "terminal_retries": 0,
+      "error_code": 0,
+      "nav2_success_sim": 62.00000000000001,
+      "exit": 0
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 62.580000000030516,
+      "settle_delay_s": 0.580000000030509,
+      "pos_err_m": 0.162292750499411,
+      "yaw_err_deg": 0.7442882610352655
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T070517Z_w11r1-repair-smoke-v2_C01_s2000_43e7ce",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=2000",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=C01"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v2/20261015T070517Z_w11r1-repair-smoke-v2_C01_s2000_43e7ce/raw/20261015T070517Z_w11r1-repair-smoke-v2_C01_s2000_43e7ce.txt",
+      "sha256": "6bfec3f59406c1746e4e719a9d31714fa3755bf4887d1adb51d929d7058ba20e",
+      "clean_child_exits": 17,
+      "abnormal_exit_lines": [],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 10.98}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v2/20261015T070703Z_w11r1-repair-smoke-v2_C09_s2008_1c381c/result.json",
+    "sha256": "da7c5dbc1746a75181141524aae53c6525485e776d69119c5238477940d9f5a1",
+    "run_id": "20261015T070703Z_w11r1-repair-smoke-v2_C09_s2008_1c381c",
+    "case": "C09",
+    "outcome": "SUCCESS",
+    "source_sha": "007b118a3154f695c5c5217f671f7232dd3f46e9",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 15.920000000000002,
+          "goal_id": "9cbbc628147d4afaaf370660e686bc97",
+          "status": "SUCCEEDED",
+          "end_sim": 47.040000000000006,
+          "error_code": 0,
+          "verify_sim": 49.900000000000006,
+          "verified_pose": [
+            7.481348385778222,
+            0.1460013866601247,
+            -0.09092359076082045
+          ],
+          "xy_error": 0.14718793299641533,
+          "yaw_error": 0.09092359076082045
+        },
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 49.900000000000006,
+          "goal_id": "13399c9dc6874be6b8db46008b03a6a4",
+          "status": "SUCCEEDED",
+          "end_sim": 56.1,
+          "error_code": 0,
+          "verify_sim": 58.6,
+          "verified_pose": [
+            8.95926217459075,
+            0.12524242611028297,
+            0.028568642081897428
+          ],
+          "xy_error": 0.131701312510788,
+          "yaw_error": 0.028568642081897428
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": 1.5,
+      "accepted_sim": 15.920000000000002,
+      "goal_id": "9cbbc628147d4afaaf370660e686bc97",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 58.6,
+      "duration_sim": 42.68,
+      "verified": {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 49.900000000000006,
+        "goal_id": "13399c9dc6874be6b8db46008b03a6a4",
+        "status": "SUCCEEDED",
+        "end_sim": 56.1,
+        "error_code": 0,
+        "verify_sim": 58.6,
+        "verified_pose": [
+          8.95926217459075,
+          0.12524242611028297,
+          0.028568642081897428
+        ],
+        "xy_error": 0.131701312510788,
+        "yaw_error": 0.028568642081897428
+      },
+      "terminal_retries": 0,
+      "error_code": 0,
+      "nav2_success_sim": 56.1,
+      "exit": 0
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 56.46000000002304,
+      "settle_delay_s": 0.3600000000230352,
+      "pos_err_m": 0.1497306285285204,
+      "yaw_err_deg": 1.2532695579444393
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T070703Z_w11r1-repair-smoke-v2_C09_s2008_1c381c",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=2008",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=C09"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v2/20261015T070703Z_w11r1-repair-smoke-v2_C09_s2008_1c381c/raw/20261015T070703Z_w11r1-repair-smoke-v2_C09_s2008_1c381c.txt",
+      "sha256": "deffa3c64bdd0b4c1de2466bbbfcf43ed0ce285268e36495db4329e3f0a23158",
+      "clean_child_exits": 17,
+      "abnormal_exit_lines": [],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 12.42}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v2/20261015T070844Z_w11r1-repair-smoke-v2_B04_s3003_caedbc/result.json",
+    "sha256": "e675c79f97d0056d6ef94c45bbda8c0e050a6f23e130ffd84e6c490e83db52ac",
+    "run_id": "20261015T070844Z_w11r1-repair-smoke-v2_B04_s3003_caedbc",
+    "case": "B04",
+    "outcome": "SUCCESS",
+    "source_sha": "007b118a3154f695c5c5217f671f7232dd3f46e9",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 15.540000000000001,
+          "goal_id": "c2545e3466e54d8788974ee890d3a1e0",
+          "status": "SUCCEEDED",
+          "end_sim": 103.18,
+          "error_code": 0,
+          "verify_sim": 107.26,
+          "verified_pose": [
+            7.255267166392217,
+            0.10247208091331228,
+            0.41259032753256936
+          ],
+          "xy_error": 0.2653199713787093,
+          "yaw_error": 0.41259032753256936,
+          "next_aim": [
+            7.5,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 107.26,
+          "goal_id": "989679cb7ee241d48c089773e06236c1",
+          "status": "SUCCEEDED",
+          "end_sim": 114.46000000000001,
+          "error_code": 0,
+          "verify_sim": 117.00000000000001,
+          "verified_pose": [
+            7.383534772842648,
+            0.021133395322414608,
+            -0.024565187508159014
+          ],
+          "xy_error": 0.11836709650349259,
+          "yaw_error": 0.024565187508159014
+        },
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 117.00000000000001,
+          "goal_id": "59c8848c2e64408c8e07be81d4790f79",
+          "status": "SUCCEEDED",
+          "end_sim": 122.64,
+          "error_code": 0,
+          "verify_sim": 125.14000000000001,
+          "verified_pose": [
+            8.921182586169472,
+            0.11192816256455436,
+            0.06870045072892927
+          ],
+          "xy_error": 0.13689447869804688,
+          "yaw_error": 0.06870045072892927
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": 1.5,
+      "accepted_sim": 15.540000000000001,
+      "goal_id": "c2545e3466e54d8788974ee890d3a1e0",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 125.14000000000001,
+      "duration_sim": 109.60000000000001,
+      "verified": {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 117.00000000000001,
+        "goal_id": "59c8848c2e64408c8e07be81d4790f79",
+        "status": "SUCCEEDED",
+        "end_sim": 122.64,
+        "error_code": 0,
+        "verify_sim": 125.14000000000001,
+        "verified_pose": [
+          8.921182586169472,
+          0.11192816256455436,
+          0.06870045072892927
+        ],
+        "xy_error": 0.13689447869804688,
+        "yaw_error": 0.06870045072892927
+      },
+      "terminal_retries": 1,
+      "error_code": 0,
+      "nav2_success_sim": 122.64,
+      "exit": 0
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 123.09999999989451,
+      "settle_delay_s": 0.4599999998945066,
+      "pos_err_m": 0.12329208084328051,
+      "yaw_err_deg": 3.8308014325128883
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T070844Z_w11r1-repair-smoke-v2_B04_s3003_caedbc",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=3003",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=B04"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v2/20261015T070844Z_w11r1-repair-smoke-v2_B04_s3003_caedbc/raw/20261015T070844Z_w11r1-repair-smoke-v2_B04_s3003_caedbc.txt",
+      "sha256": "b8fd2164f3f5da7f8bd87ffe89455afa0912cb635e252d90cfb4ede9468e9495",
+      "clean_child_exits": 17,
+      "abnormal_exit_lines": [],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 12.06}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v2/20261015T071135Z_w11r1-repair-smoke-v2_B06_s3005_9f0a75/result.json",
+    "sha256": "e6c6da3e50731cccb1b8bfb7751dc37bd10d2fc7c53fd115a9f3ede1bbf6ad97",
+    "run_id": "20261015T071135Z_w11r1-repair-smoke-v2_B06_s3005_9f0a75",
+    "case": "B06",
+    "outcome": "FAIL_SAFETY_STOP_UNRECOVERED",
+    "source_sha": "007b118a3154f695c5c5217f671f7232dd3f46e9",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 15.66,
+          "goal_id": "3377ed354d8e4eda806730d658a03611",
+          "status": "SUCCEEDED",
+          "end_sim": 68.12,
+          "error_code": 0,
+          "verify_sim": 72.56,
+          "verified_pose": [
+            7.36759917566704,
+            0.019047376667091116,
+            -0.44440245632509573
+          ],
+          "xy_error": 0.13376389962147975,
+          "yaw_error": 0.44440245632509573,
+          "next_aim": [
+            7.5,
+            0.0,
+            0.44440245632509573
+          ]
+        },
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.44440245632509573
+          ],
+          "accepted_sim": 72.56,
+          "goal_id": "dc860e8262b145f48e8a41d33394d3e5",
+          "status": "SUCCEEDED",
+          "end_sim": 75.80000000000001,
+          "error_code": 0,
+          "verify_sim": 78.4,
+          "verified_pose": [
+            7.409223647929009,
+            -0.02244970845947126,
+            0.33378448122163906
+          ],
+          "xy_error": 0.09351115176935726,
+          "yaw_error": 0.33378448122163906,
+          "next_aim": [
+            7.5,
+            0.0,
+            0.11061797510345667
+          ]
+        },
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.11061797510345667
+          ],
+          "accepted_sim": 78.4,
+          "goal_id": "d8a44a31750f47c7834e50cb34b13313",
+          "status": "SUCCEEDED",
+          "end_sim": 80.4,
+          "error_code": 0,
+          "verify_sim": 82.94000000000001,
+          "verified_pose": [
+            7.415901333121918,
+            -0.004201672812206219,
+            0.33374452264270205
+          ],
+          "xy_error": 0.08420356183138206,
+          "yaw_error": 0.33374452264270205,
+          "next_aim": [
+            7.5,
+            0.0,
+            -0.22312654753924538
+          ]
+        },
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            -0.22312654753924538
+          ],
+          "accepted_sim": 82.94000000000001,
+          "goal_id": "a1ec5924da0741cebc0b99695c4a1289",
+          "status": "SUCCEEDED",
+          "end_sim": 85.98,
+          "error_code": 0,
+          "verify_sim": 90.06,
+          "verified_pose": [
+            7.440718129391479,
+            0.010204964173649132,
+            0.2402397006364851
+          ],
+          "xy_error": 0.06015381514609741,
+          "yaw_error": 0.2402397006364851
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": 1.5,
+      "accepted_sim": 15.66,
+      "goal_id": "3377ed354d8e4eda806730d658a03611",
+      "status": "FAILED",
+      "error": "ProtocolFailure('TERMINAL_CORRECTIONS_EXHAUSTED')",
+      "timed_out": false,
+      "end_sim": 90.06,
+      "duration_sim": 74.4,
+      "exit": 2
+    },
+    "settle": {
+      "settled": false
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T071135Z_w11r1-repair-smoke-v2_B06_s3005_9f0a75",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=3005",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=B06"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v2/20261015T071135Z_w11r1-repair-smoke-v2_B06_s3005_9f0a75/raw/20261015T071135Z_w11r1-repair-smoke-v2_B06_s3005_9f0a75.txt",
+      "sha256": "efae2e06db046e45fd599af6c9bfbd57c4c2ee18972596ada0edda1bf49e6ccf",
+      "clean_child_exits": 17,
+      "abnormal_exit_lines": [],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 12.180000000000001}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v3/20261015T071948Z_w11r1-repair-smoke-v3_B06_s3005_1de8e2/result.json",
+    "sha256": "47ea5380f529783922675e31ce87b1804a0c8d0a7f9b4ff9ccf5610d96d66876",
+    "run_id": "20261015T071948Z_w11r1-repair-smoke-v3_B06_s3005_1de8e2",
+    "case": "B06",
+    "outcome": "FAIL_SAFETY_STOP_UNRECOVERED",
+    "source_sha": "3b987c9ef2735ead34e125096b8ceaf3a644a01c",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 13.600000000000001,
+          "goal_id": "7fd3d73c1c594d08b1b9834bbc6787dc",
+          "status": "SUCCEEDED",
+          "end_sim": 53.620000000000005,
+          "error_code": 0,
+          "verify_sim": 58.46,
+          "verified_pose": [
+            7.588879322098032,
+            0.06340764418886312,
+            0.2576607149333213
+          ],
+          "xy_error": 0.10917904211975492,
+          "yaw_error": 0.2576607149333214,
+          "forward_staging_distance": 0.75,
+          "next_reference": [
+            8.25,
+            0.0,
+            0.0
+          ],
+          "next_aim": [
+            8.25,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "stage": "approach",
+          "target": [
+            8.25,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 58.46,
+          "goal_id": "026f3fd4efd448919db66363ac640a4a",
+          "status": "SUCCEEDED",
+          "end_sim": 92.74000000000001,
+          "error_code": 0,
+          "verify_sim": 96.82000000000001,
+          "verified_pose": [
+            8.174420407032226,
+            0.021875102097161002,
+            0.42737081209926014
+          ],
+          "xy_error": 0.07868160499720113,
+          "yaw_error": 0.42737081209926014,
+          "next_aim": [
+            8.25,
+            0.0,
+            -0.42737081209926014
+          ]
+        },
+        {
+          "stage": "approach",
+          "target": [
+            8.25,
+            0.0,
+            -0.42737081209926014
+          ],
+          "accepted_sim": 96.82000000000001,
+          "goal_id": "82ca6debe1504cf1a88268c2d56e6092",
+          "status": "SUCCEEDED",
+          "end_sim": 100.06,
+          "error_code": 0,
+          "verify_sim": 103.08000000000001,
+          "verified_pose": [
+            8.160524222513043,
+            0.13326530547621565,
+            -0.2908214038098499
+          ],
+          "xy_error": 0.16051652999166308,
+          "yaw_error": 0.2908214038098499,
+          "next_aim": [
+            8.25,
+            0.0,
+            -0.13654940828941026
+          ]
+        },
+        {
+          "stage": "approach",
+          "target": [
+            8.25,
+            0.0,
+            -0.13654940828941026
+          ],
+          "accepted_sim": 103.08000000000001,
+          "goal_id": "fca12d94075f4b7b9de76bee9d35cc8d",
+          "status": "SUCCEEDED",
+          "end_sim": 103.12,
+          "error_code": 0,
+          "verify_sim": 105.62,
+          "verified_pose": [
+            8.160044639186967,
+            0.13159620696452812,
+            -0.28298934339999215
+          ],
+          "xy_error": 0.1594036656619094,
+          "yaw_error": 0.28298934339999215
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": 1.5,
+      "accepted_sim": 13.600000000000001,
+      "goal_id": "7fd3d73c1c594d08b1b9834bbc6787dc",
+      "status": "FAILED",
+      "error": "ProtocolFailure('TERMINAL_CORRECTIONS_EXHAUSTED')",
+      "timed_out": false,
+      "end_sim": 105.62,
+      "duration_sim": 92.02000000000001,
+      "exit": 2
+    },
+    "settle": {
+      "settled": false
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T071948Z_w11r1-repair-smoke-v3_B06_s3005_1de8e2",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=3005",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=B06"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v3/20261015T071948Z_w11r1-repair-smoke-v3_B06_s3005_1de8e2/raw/20261015T071948Z_w11r1-repair-smoke-v3_B06_s3005_1de8e2.txt",
+      "sha256": "6738274765fabfd97a1478e5661c2aa1f66beedbf0952781d0b414501f899b8a",
+      "clean_child_exits": 17,
+      "abnormal_exit_lines": [],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 10.180000000000001}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v4/20261015T073036Z_w11r1-repair-smoke-v4_B06_s3005_dacbe2/result.json",
+    "sha256": "e82655d4837b182a37a6d81bbe69e4d21f38cd7e351ecdaf3c99aeb3e69ec64e",
+    "run_id": "20261015T073036Z_w11r1-repair-smoke-v4_B06_s3005_dacbe2",
+    "case": "B06",
+    "outcome": "SUCCESS",
+    "source_sha": "95335f11a1f958f578b3647a7692117005285910",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 13.82,
+          "goal_id": "f5b91ca7001144e6b765f234ab0451e9",
+          "status": "SUCCEEDED",
+          "end_sim": 80.16000000000001,
+          "error_code": 0,
+          "verify_sim": 84.60000000000001,
+          "verified_pose": [
+            7.336455226874348,
+            0.019140551900507632,
+            0.509580731017971
+          ],
+          "xy_error": 0.16466102618342054,
+          "yaw_error": 0.509580731017971,
+          "next_aim": [
+            7.5,
+            0.0,
+            -0.5
+          ]
+        },
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            -0.5
+          ],
+          "accepted_sim": 84.60000000000001,
+          "goal_id": "db001d7c4bdb48359e7dccd5134afc60",
+          "status": "SUCCEEDED",
+          "end_sim": 88.14,
+          "error_code": 0,
+          "verify_sim": 90.7,
+          "verified_pose": [
+            7.334277203126559,
+            0.0447030497562651,
+            -0.31888101752980436
+          ],
+          "xy_error": 0.1716461711226522,
+          "yaw_error": 0.31888101752980436,
+          "next_aim": [
+            7.5,
+            0.0,
+            -0.18111898247019564
+          ]
+        },
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            -0.18111898247019564
+          ],
+          "accepted_sim": 90.7,
+          "goal_id": "f728bd1329c9475e8de2217aed9abf43",
+          "status": "SUCCEEDED",
+          "end_sim": 90.74000000000001,
+          "error_code": 0,
+          "verify_sim": 93.24000000000001,
+          "verified_pose": [
+            7.340609311579483,
+            0.021203192090052753,
+            -0.2982911116944231
+          ],
+          "xy_error": 0.160794797521481,
+          "yaw_error": 0.2982911116944231,
+          "next_aim": [
+            7.5,
+            0.0,
+            0.11717212922422743
+          ]
+        },
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.11717212922422743
+          ],
+          "accepted_sim": 93.24000000000001,
+          "goal_id": "a628d941d0f94fe29a0a3309cf396689",
+          "status": "SUCCEEDED",
+          "end_sim": 95.94000000000001,
+          "error_code": 0,
+          "verify_sim": 99.4,
+          "verified_pose": [
+            7.358303068424323,
+            0.02958544422165363,
+            -0.19500868005643904
+          ],
+          "xy_error": 0.14475261285294497,
+          "yaw_error": 0.19500868005643904
+        },
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 99.4,
+          "goal_id": "199d16fe4e5847a3aa987c1c38a17b59",
+          "status": "SUCCEEDED",
+          "end_sim": 105.54,
+          "error_code": 0,
+          "verify_sim": 108.04,
+          "verified_pose": [
+            8.970480004017887,
+            0.1250112728636255,
+            0.12089950511297584
+          ],
+          "xy_error": 0.12844940056601206,
+          "yaw_error": 0.12089950511297586
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": 1.5,
+      "accepted_sim": 13.82,
+      "goal_id": "f5b91ca7001144e6b765f234ab0451e9",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 108.04,
+      "duration_sim": 94.22,
+      "verified": {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 99.4,
+        "goal_id": "199d16fe4e5847a3aa987c1c38a17b59",
+        "status": "SUCCEEDED",
+        "end_sim": 105.54,
+        "error_code": 0,
+        "verify_sim": 108.04,
+        "verified_pose": [
+          8.970480004017887,
+          0.1250112728636255,
+          0.12089950511297584
+        ],
+        "xy_error": 0.12844940056601206,
+        "yaw_error": 0.12089950511297586
+      },
+      "terminal_retries": 3,
+      "error_code": 0,
+      "nav2_success_sim": 105.54,
+      "exit": 0
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 105.73999999993497,
+      "settle_delay_s": 0.19999999993495976,
+      "pos_err_m": 0.1256928753691482,
+      "yaw_err_deg": 7.315514861927222
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T073036Z_w11r1-repair-smoke-v4_B06_s3005_dacbe2",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=3005",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=B06"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v4/20261015T073036Z_w11r1-repair-smoke-v4_B06_s3005_dacbe2/raw/20261015T073036Z_w11r1-repair-smoke-v4_B06_s3005_dacbe2.txt",
+      "sha256": "95c06c25529c16b1d2f08aabf96830aacc52528475784fe784717100789124f3",
+      "clean_child_exits": 17,
+      "abnormal_exit_lines": [],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 10.360000000000001}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v4/20261015T073331Z_w11r1-repair-smoke-v4_B04_s3003_4dc188/result.json",
+    "sha256": "1d3cfdadce21c1c71bdb1e803bdd7428fc6df076a4fe6576c65c7c1adf190368",
+    "run_id": "20261015T073331Z_w11r1-repair-smoke-v4_B04_s3003_4dc188",
+    "case": "B04",
+    "outcome": "SUCCESS",
+    "source_sha": "95335f11a1f958f578b3647a7692117005285910",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 15.64,
+          "goal_id": "671871e2a19f4584ab9fe5b9abb6f6bf",
+          "status": "SUCCEEDED",
+          "end_sim": 88.80000000000001,
+          "error_code": 0,
+          "verify_sim": 92.46000000000001,
+          "verified_pose": [
+            7.58481664430219,
+            -0.1267613283875886,
+            -0.3062314527205762
+          ],
+          "xy_error": 0.15251982666286487,
+          "yaw_error": 0.3062314527205762,
+          "next_aim": [
+            7.5,
+            0.0,
+            0.3062314527205762
+          ]
+        },
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.3062314527205762
+          ],
+          "accepted_sim": 92.46000000000001,
+          "goal_id": "8fbef85e7a144ee5b37f57f8eecdb4a8",
+          "status": "SUCCEEDED",
+          "end_sim": 95.5,
+          "error_code": 0,
+          "verify_sim": 100.44000000000001,
+          "verified_pose": [
+            7.6607484799881345,
+            -0.12037211321210702,
+            -0.10106968221454693
+          ],
+          "xy_error": 0.20082210898614716,
+          "yaw_error": 0.10106968221454693,
+          "next_aim": [
+            7.5,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 100.44000000000001,
+          "goal_id": "d1074a14c7294766acbd2e4fce65b5d0",
+          "status": "SUCCEEDED",
+          "end_sim": 101.08000000000001,
+          "error_code": 0,
+          "verify_sim": 103.58000000000001,
+          "verified_pose": [
+            7.659683533759219,
+            -0.1139144916581691,
+            -0.12228668478940269
+          ],
+          "xy_error": 0.19615132516394276,
+          "yaw_error": 0.12228668478940269
+        },
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 103.58000000000001,
+          "goal_id": "970f06c711cf41dd9953c27701695a4e",
+          "status": "SUCCEEDED",
+          "end_sim": 112.38000000000001,
+          "error_code": 0,
+          "verify_sim": 115.42,
+          "verified_pose": [
+            8.95104891713146,
+            0.09300206105596345,
+            0.24605456694765523
+          ],
+          "xy_error": 0.10509801080258255,
+          "yaw_error": 0.24605456694765523,
+          "next_aim": [
+            9.0,
+            0.0,
+            -0.24605456694765523
+          ]
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            9.0,
+            0.0,
+            -0.24605456694765523
+          ],
+          "accepted_sim": 115.42,
+          "goal_id": "d8afb9e3e38a4e59a5d542d2dfa6eb59",
+          "status": "SUCCEEDED",
+          "end_sim": 118.56,
+          "error_code": 0,
+          "verify_sim": 121.22000000000001,
+          "verified_pose": [
+            9.019973999331478,
+            0.08755407962870543,
+            -0.047694212832417364
+          ],
+          "xy_error": 0.08980354953410018,
+          "yaw_error": 0.04769421283241737
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": 1.5,
+      "accepted_sim": 15.64,
+      "goal_id": "671871e2a19f4584ab9fe5b9abb6f6bf",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 121.22000000000001,
+      "duration_sim": 105.58000000000001,
+      "verified": {
+        "stage": "terminal_retry",
+        "target": [
+          9.0,
+          0.0,
+          -0.24605456694765523
+        ],
+        "accepted_sim": 115.42,
+        "goal_id": "d8afb9e3e38a4e59a5d542d2dfa6eb59",
+        "status": "SUCCEEDED",
+        "end_sim": 118.56,
+        "error_code": 0,
+        "verify_sim": 121.22000000000001,
+        "verified_pose": [
+          9.019973999331478,
+          0.08755407962870543,
+          -0.047694212832417364
+        ],
+        "xy_error": 0.08980354953410018,
+        "yaw_error": 0.04769421283241737
+      },
+      "terminal_retries": 3,
+      "error_code": 0,
+      "nav2_success_sim": 118.56,
+      "exit": 0
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 119.15999999990369,
+      "settle_delay_s": 0.5999999999036874,
+      "pos_err_m": 0.11443351578108173,
+      "yaw_err_deg": 2.919023382294937
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T073331Z_w11r1-repair-smoke-v4_B04_s3003_4dc188",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=3003",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=B04"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v4/20261015T073331Z_w11r1-repair-smoke-v4_B04_s3003_4dc188/raw/20261015T073331Z_w11r1-repair-smoke-v4_B04_s3003_4dc188.txt",
+      "sha256": "7e8e9e9e8dccbe6c7bec400a0bd152eac2c52181edc444d20cddae48ddcf5734",
+      "clean_child_exits": 16,
+      "abnormal_exit_lines": [
+        "[ERROR] [command_gate-5]: process has died [pid 39809, exit code 1, cmd '/home/haoyang/humanoid_nav_ws/install/t1_bringup/lib/t1_bringup/command_gate --ros-args -r __node:=t1_command_gate --params-file /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml --params-file /tmp/launch_params_ujyldbaf']."
+      ],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 11.88}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v4/20261015T073621Z_w11r1-repair-smoke-v4_C01_s2000_61b478/result.json",
+    "sha256": "b1028f7c0ef74eb66ed5c18823295d2cff6d3d4e5daa494a2bb7309e35398011",
+    "run_id": "20261015T073621Z_w11r1-repair-smoke-v4_C01_s2000_61b478",
+    "case": "C01",
+    "outcome": "FAIL_SAFETY_STOP_UNRECOVERED",
+    "source_sha": "95335f11a1f958f578b3647a7692117005285910",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 14.82,
+          "goal_id": "adc820958ba64adf980dfb63c6519e13",
+          "status": "SUCCEEDED",
+          "end_sim": 74.22,
+          "error_code": 0,
+          "verify_sim": 78.80000000000001,
+          "verified_pose": [
+            7.455254427305635,
+            -0.07606654432395403,
+            -0.40353676393136984
+          ],
+          "xy_error": 0.08825126311353698,
+          "yaw_error": 0.40353676393136984,
+          "next_aim": [
+            7.5,
+            0.0,
+            0.40353676393136984
+          ]
+        },
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.40353676393136984
+          ],
+          "accepted_sim": 78.80000000000001,
+          "goal_id": "a5e11a648749427ba4c0174a83483c5e",
+          "status": "SUCCEEDED",
+          "end_sim": 81.88000000000001,
+          "error_code": 0,
+          "verify_sim": 84.62,
+          "verified_pose": [
+            7.4926273221640605,
+            -0.13633675032530274,
+            0.29757810044678984
+          ],
+          "xy_error": 0.1365359508251819,
+          "yaw_error": 0.29757810044678984,
+          "next_aim": [
+            7.5,
+            0.0,
+            0.10595866348458
+          ]
+        },
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.10595866348458
+          ],
+          "accepted_sim": 84.62,
+          "goal_id": "ab94896ca53549b28e5f7430ce8d9054",
+          "status": "SUCCEEDED",
+          "end_sim": 84.66000000000001,
+          "error_code": 0,
+          "verify_sim": 87.16000000000001,
+          "verified_pose": [
+            7.492474398917066,
+            -0.12560042494299523,
+            0.2820350633093946
+          ],
+          "xy_error": 0.12582567868889258,
+          "yaw_error": 0.2820350633093946,
+          "next_aim": [
+            7.5,
+            0.0,
+            -0.1760763998248146
+          ]
+        },
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            -0.1760763998248146
+          ],
+          "accepted_sim": 87.16000000000001,
+          "goal_id": "c7ffd1ea19e447ef9658a4b154355684",
+          "status": "SUCCEEDED",
+          "end_sim": 89.60000000000001,
+          "error_code": 0,
+          "verify_sim": 93.4,
+          "verified_pose": [
+            7.49080664491406,
+            -0.038023118966629264,
+            0.23628684322635365
+          ],
+          "xy_error": 0.03911873405015327,
+          "yaw_error": 0.23628684322635363
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": 1.5,
+      "accepted_sim": 14.82,
+      "goal_id": "adc820958ba64adf980dfb63c6519e13",
+      "status": "FAILED",
+      "error": "ProtocolFailure('TERMINAL_CORRECTIONS_EXHAUSTED')",
+      "timed_out": false,
+      "end_sim": 93.4,
+      "duration_sim": 78.58000000000001,
+      "exit": 2
+    },
+    "settle": {
+      "settled": false
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T073621Z_w11r1-repair-smoke-v4_C01_s2000_61b478",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=2000",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=C01"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v4/20261015T073621Z_w11r1-repair-smoke-v4_C01_s2000_61b478/raw/20261015T073621Z_w11r1-repair-smoke-v4_C01_s2000_61b478.txt",
+      "sha256": "b9e66d1878bd2e8f778a3493d441be059d7774aad8ad5b3e575281f44e427aee",
+      "clean_child_exits": 16,
+      "abnormal_exit_lines": [
+        "[ERROR] [command_gate-5]: process has died [pid 42208, exit code 1, cmd '/home/haoyang/humanoid_nav_ws/install/t1_bringup/lib/t1_bringup/command_gate --ros-args -r __node:=t1_command_gate --params-file /home/haoyang/humanoid_nav_ws/install/t1_navigation/share/t1_navigation/config/safety.yaml --params-file /tmp/launch_params_73w64r4o']."
+      ],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 11.280000000000001}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v5/20261015T075143Z_w11r1-repair-smoke-v5_B06_s3005_7fdfc1/result.json",
+    "sha256": "7a6cfc07c65cea82eb4b4b271adbabe36884a57eea66d76c38728c2fb81eb02a",
+    "run_id": "20261015T075143Z_w11r1-repair-smoke-v5_B06_s3005_7fdfc1",
+    "case": "B06",
+    "outcome": "FAIL_SAFETY_STOP_UNRECOVERED",
+    "source_sha": "4279293a78d1804c0b5b6a5aa544e582eb116915",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 15.440000000000001,
+          "goal_id": "be8ffc00ae694944941dfa3122c32581",
+          "status": "ABORTED",
+          "end_sim": 31.200000000000003,
+          "error_code": 208
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 15.440000000000001,
+      "goal_id": "be8ffc00ae694944941dfa3122c32581",
+      "status": "FAILED",
+      "error": "ProtocolFailure('ACTION_ABORTED:208')",
+      "timed_out": false,
+      "end_sim": 31.200000000000003,
+      "duration_sim": 15.760000000000002,
+      "exit": 2
+    },
+    "settle": {
+      "settled": false
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T075143Z_w11r1-repair-smoke-v5_B06_s3005_7fdfc1",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=3005",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=B06"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v5/20261015T075143Z_w11r1-repair-smoke-v5_B06_s3005_7fdfc1/raw/20261015T075143Z_w11r1-repair-smoke-v5_B06_s3005_7fdfc1.txt",
+      "sha256": "2288bff668a695565db1f5a0024fdb5496fca29c2455c14086cbadfafb82c42c",
+      "clean_child_exits": 17,
+      "abnormal_exit_lines": [],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 11.92}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v6/20261015T080000Z_w11r1-repair-smoke-v6_B06_s3005_95e7e8/result.json",
+    "sha256": "50d6ca3cd676cfeabedf45aded37b3efb853d0af49b9cb53dff0a4bdb55847df",
+    "run_id": "20261015T080000Z_w11r1-repair-smoke-v6_B06_s3005_95e7e8",
+    "case": "B06",
+    "outcome": "SUCCESS",
+    "source_sha": "ea66bdedd57c6a3fdba20f468b19c43c353169ee",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 14.14,
+          "goal_id": "40b212d3481f4617befd81d5a82c0beb",
+          "status": "SUCCEEDED",
+          "end_sim": 98.14,
+          "error_code": 0,
+          "verify_sim": 101.44000000000001,
+          "verified_pose": [
+            8.880115029082923,
+            -0.02014833666435062,
+            -0.27400949180136325
+          ],
+          "xy_error": 0.12156628530200501,
+          "yaw_error": 0.27400949180136325,
+          "next_aim": [
+            9.0,
+            0.0,
+            0.27400949180136325
+          ]
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            9.0,
+            0.0,
+            0.27400949180136325
+          ],
+          "accepted_sim": 101.44000000000001,
+          "goal_id": "6b8069820efd4c11b469a0011f819035",
+          "status": "SUCCEEDED",
+          "end_sim": 104.78,
+          "error_code": 0,
+          "verify_sim": 109.4,
+          "verified_pose": [
+            8.878725129743652,
+            -0.030850045250789472,
+            -0.012630024812743106
+          ],
+          "xy_error": 0.12513720249258373,
+          "yaw_error": 0.012630024812743106
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 14.14,
+      "goal_id": "40b212d3481f4617befd81d5a82c0beb",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 109.4,
+      "duration_sim": 95.26,
+      "verified": {
+        "stage": "terminal_retry",
+        "target": [
+          9.0,
+          0.0,
+          0.27400949180136325
+        ],
+        "accepted_sim": 101.44000000000001,
+        "goal_id": "6b8069820efd4c11b469a0011f819035",
+        "status": "SUCCEEDED",
+        "end_sim": 104.78,
+        "error_code": 0,
+        "verify_sim": 109.4,
+        "verified_pose": [
+          8.878725129743652,
+          -0.030850045250789472,
+          -0.012630024812743106
+        ],
+        "xy_error": 0.12513720249258373,
+        "yaw_error": 0.012630024812743106
+      },
+      "terminal_retries": 1,
+      "error_code": 0,
+      "nav2_success_sim": 104.78,
+      "exit": 0
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 107.35999999993119,
+      "settle_delay_s": 2.5799999999311893,
+      "pos_err_m": 0.10821961224267329,
+      "yaw_err_deg": 0.7806222532350465
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T080000Z_w11r1-repair-smoke-v6_B06_s3005_95e7e8",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=3005",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=B06"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v6/20261015T080000Z_w11r1-repair-smoke-v6_B06_s3005_95e7e8/raw/20261015T080000Z_w11r1-repair-smoke-v6_B06_s3005_95e7e8.txt",
+      "sha256": "8db5318ae6059d4e1e8e4a5e14e2c5a00d77c8ad09c16dcc6b0d52c41f33c079",
+      "clean_child_exits": 17,
+      "abnormal_exit_lines": [],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 10.06}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v6/20261015T080307Z_w11r1-repair-smoke-v6_B04_s3003_638893/result.json",
+    "sha256": "39fa43f09fbaada53bfb04db45141bf3f097485e78b5031adcedb65886417580",
+    "run_id": "20261015T080307Z_w11r1-repair-smoke-v6_B04_s3003_638893",
+    "case": "B04",
+    "outcome": "FAIL_TIMEOUT",
+    "source_sha": "ea66bdedd57c6a3fdba20f468b19c43c353169ee",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 15.88,
+          "goal_id": "72e3c702237a4887a4cd354c2989139d",
+          "status": "CANCELED",
+          "end_sim": 135.9,
+          "error_code": 0
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 15.88,
+      "goal_id": "72e3c702237a4887a4cd354c2989139d",
+      "status": "FAILED",
+      "error": "ProtocolFailure('TASK_TIMEOUT')",
+      "timed_out": true,
+      "end_sim": 135.9,
+      "duration_sim": 120.02000000000001,
+      "exit": 3
+    },
+    "settle": {
+      "settled": false
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T080307Z_w11r1-repair-smoke-v6_B04_s3003_638893",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=3003",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=B04"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v6/20261015T080307Z_w11r1-repair-smoke-v6_B04_s3003_638893/raw/20261015T080307Z_w11r1-repair-smoke-v6_B04_s3003_638893.txt",
+      "sha256": "b56fbc88d7ba78c1623e006b1e658e86ed697418ace7ade5cf8e5ac803ddfe2a",
+      "clean_child_exits": 17,
+      "abnormal_exit_lines": [],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 12.42}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v7/20261015T082108Z_w11r1-repair-smoke-v7_B04_s3003_ad926a/result.json",
+    "sha256": "33ec8d149ac2d4f311328464e08544cd18249ea67a3895bb56b65422b4c9db4f",
+    "run_id": "20261015T082108Z_w11r1-repair-smoke-v7_B04_s3003_ad926a",
+    "case": "B04",
+    "outcome": "SUCCESS",
+    "source_sha": "805ae5f5f7e67693078df2543174a9a996c509d4",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 14.280000000000001,
+          "goal_id": "d76b5034f53e4b569b0b525fad693aeb",
+          "status": "SUCCEEDED",
+          "end_sim": 110.42,
+          "error_code": 0,
+          "verify_sim": 112.92,
+          "verified_pose": [
+            8.830791539884887,
+            -0.049325983682183994,
+            0.09647050843838385
+          ],
+          "xy_error": 0.17625139897527903,
+          "yaw_error": 0.09647050843838385
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 14.280000000000001,
+      "goal_id": "d76b5034f53e4b569b0b525fad693aeb",
+      "status": "SUCCEEDED",
+      "timed_out": false,
+      "end_sim": 112.92,
+      "duration_sim": 98.64,
+      "verified": {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 14.280000000000001,
+        "goal_id": "d76b5034f53e4b569b0b525fad693aeb",
+        "status": "SUCCEEDED",
+        "end_sim": 110.42,
+        "error_code": 0,
+        "verify_sim": 112.92,
+        "verified_pose": [
+          8.830791539884887,
+          -0.049325983682183994,
+          0.09647050843838385
+        ],
+        "xy_error": 0.17625139897527903,
+        "yaw_error": 0.09647050843838385
+      },
+      "terminal_retries": 0,
+      "error_code": 0,
+      "nav2_success_sim": 110.42,
+      "exit": 0
+    },
+    "settle": {
+      "settled": true,
+      "settle_start_sim": 110.6999999999234,
+      "settle_delay_s": 0.27999999992340463,
+      "pos_err_m": 0.15845807537690149,
+      "yaw_err_deg": 5.789102595127716
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T082108Z_w11r1-repair-smoke-v7_B04_s3003_ad926a",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=3003",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=B04"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v7/20261015T082108Z_w11r1-repair-smoke-v7_B04_s3003_ad926a/raw/20261015T082108Z_w11r1-repair-smoke-v7_B04_s3003_ad926a.txt",
+      "sha256": "6ce7c2ce626305fad42939dba72b00916bc9f0444ae146630e6cfc89420545d2",
+      "clean_child_exits": 17,
+      "abnormal_exit_lines": [],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 10.360000000000001}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v7/20261015T083117Z_w11r1-repair-smoke-v7_B06_s3005_19a4b5/result.json",
+    "sha256": "a93484043a5bba681eaddee8cf88b267ce81885d5b57c6c6fc13bff0804fe359",
+    "run_id": "20261015T083117Z_w11r1-repair-smoke-v7_B06_s3005_19a4b5",
+    "case": "B06",
+    "outcome": "FAIL_SAFETY_STOP_UNRECOVERED",
+    "source_sha": "2a98358aa6fc2baf0c0984682e7722972d2b6f46",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 13.38,
+          "goal_id": "419f2fff288e4738b855f86fd0ced31a",
+          "status": "SUCCEEDED",
+          "end_sim": 73.62,
+          "error_code": 0,
+          "verify_sim": 77.54,
+          "verified_pose": [
+            8.969848828411024,
+            -0.09732938100909394,
+            -0.23803412784795017
+          ],
+          "xy_error": 0.10189259814040098,
+          "yaw_error": 0.23803412784795014,
+          "next_aim": [
+            9.0,
+            0.0,
+            0.23803412784795014
+          ]
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            9.0,
+            0.0,
+            0.23803412784795014
+          ],
+          "accepted_sim": 77.54,
+          "goal_id": "6065f44de82b4c47ad51482854050bbd",
+          "status": "SUCCEEDED",
+          "end_sim": 79.94000000000001,
+          "error_code": 0,
+          "verify_sim": 82.62,
+          "verified_pose": [
+            9.006551217466212,
+            -0.08906356551611738,
+            0.4546119601499056
+          ],
+          "xy_error": 0.08930418328798118,
+          "yaw_error": 0.4546119601499056,
+          "next_aim": [
+            9.0,
+            0.0,
+            -0.21657783230195551
+          ]
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            9.0,
+            0.0,
+            -0.21657783230195551
+          ],
+          "accepted_sim": 82.62,
+          "goal_id": "59505a3126e94b8481c333240e05a372",
+          "status": "SUCCEEDED",
+          "end_sim": 84.86,
+          "error_code": 0,
+          "verify_sim": 88.84,
+          "verified_pose": [
+            9.019891069246441,
+            -0.053257238685214786,
+            0.33561243776541505
+          ],
+          "xy_error": 0.05685057702557333,
+          "yaw_error": 0.33561243776541505,
+          "next_aim": [
+            9.0,
+            0.0,
+            -0.5
+          ]
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            9.0,
+            0.0,
+            -0.5
+          ],
+          "accepted_sim": 88.84,
+          "goal_id": "8ee7ff41f739452dafdccdedb178e7a6",
+          "status": "SUCCEEDED",
+          "end_sim": 91.58000000000001,
+          "error_code": 0,
+          "verify_sim": 94.34,
+          "verified_pose": [
+            9.047259041417213,
+            -0.04750722782116597,
+            -0.43396676926219957
+          ],
+          "xy_error": 0.06701010140960864,
+          "yaw_error": 0.4339667692621995
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 13.38,
+      "goal_id": "419f2fff288e4738b855f86fd0ced31a",
+      "status": "FAILED",
+      "error": "ProtocolFailure('TERMINAL_CORRECTIONS_EXHAUSTED')",
+      "timed_out": false,
+      "end_sim": 94.34,
+      "duration_sim": 80.96000000000001,
+      "exit": 2
+    },
+    "settle": {
+      "settled": false
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T083117Z_w11r1-repair-smoke-v7_B06_s3005_19a4b5",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=3005",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=B06"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v7/20261015T083117Z_w11r1-repair-smoke-v7_B06_s3005_19a4b5/raw/20261015T083117Z_w11r1-repair-smoke-v7_B06_s3005_19a4b5.txt",
+      "sha256": "0174108c93a6a1c968c218f966bd63f17376be502fa474546db2b7d30a6a3900",
+      "clean_child_exits": 17,
+      "abnormal_exit_lines": [],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 9.96}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v8/20261015T083822Z_w11r1-repair-smoke-v8_B06_s3005_758d9d/result.json",
+    "sha256": "85237d4ecbbda78152e5bf909caf9b457bdbc420483778db4cac8b6cff47aaf1",
+    "run_id": "20261015T083822Z_w11r1-repair-smoke-v8_B06_s3005_758d9d",
+    "case": "B06",
+    "outcome": "FAIL_TIMEOUT",
+    "source_sha": "cf8e49fcb0ee593a94ca6e9b17d43bdfaa5a0762",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 13.82,
+          "goal_id": "6d881c42354c4c159da10f6589dc7a94",
+          "status": "CANCELED",
+          "end_sim": 133.84,
+          "error_code": 0
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 13.82,
+      "goal_id": "6d881c42354c4c159da10f6589dc7a94",
+      "status": "FAILED",
+      "error": "ProtocolFailure('TASK_TIMEOUT')",
+      "timed_out": true,
+      "end_sim": 133.84,
+      "duration_sim": 120.02000000000001,
+      "exit": 3
+    },
+    "settle": {
+      "settled": false
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T083822Z_w11r1-repair-smoke-v8_B06_s3005_758d9d",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=3005",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=B06"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v8/20261015T083822Z_w11r1-repair-smoke-v8_B06_s3005_758d9d/raw/20261015T083822Z_w11r1-repair-smoke-v8_B06_s3005_758d9d.txt",
+      "sha256": "85d2b0abec35a62ce13de7a24ac493e40ecac1b7582f1388bd558a9dcc0e155e",
+      "clean_child_exits": 17,
+      "abnormal_exit_lines": [],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 10.26}"
+      ]
+    }
+  },
+  {
+    "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v9/20261015T084910Z_w11r1-repair-smoke-v9_B06_s3005_8813f6/result.json",
+    "sha256": "a6678a922b50da855e266bebb7247ac2e9ae3fa1ba3aa64c86d17cafe632b3ba",
+    "run_id": "20261015T084910Z_w11r1-repair-smoke-v9_B06_s3005_8813f6",
+    "case": "B06",
+    "outcome": "FAIL_TIMEOUT",
+    "source_sha": "df0d1280a0f4edbeb396514363faaacaef0b2871",
+    "nav2": {
+      "event": "result",
+      "goal": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "time_limit_s": 120.0,
+      "tolerances": {
+        "xy": 0.2,
+        "yaw": 0.2
+      },
+      "attempts": [
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 13.8,
+          "goal_id": "cb55b4010a2346c89b5728d229ee51ef",
+          "status": "CANCELED",
+          "end_sim": 133.8,
+          "error_code": 0
+        }
+      ],
+      "arm_attempts": 1,
+      "approach_distance": null,
+      "accepted_sim": 13.8,
+      "goal_id": "cb55b4010a2346c89b5728d229ee51ef",
+      "status": "FAILED",
+      "error": "ProtocolFailure('TASK_TIMEOUT')",
+      "timed_out": true,
+      "end_sim": 133.8,
+      "duration_sim": 120.00000000000001,
+      "exit": 3
+    },
+    "settle": {
+      "settled": false
+    },
+    "contact_counts": {
+      "static_env": 0,
+      "obstacle": 0,
+      "ground_nonfoot": 0
+    },
+    "fell": false,
+    "command": [
+      "ros2",
+      "launch",
+      "t1_bringup",
+      "navigation.launch.py",
+      "run_id:=20261015T084910Z_w11r1-repair-smoke-v9_B06_s3005_8813f6",
+      "target_rtf:=1.0",
+      "scene:=dynamic_crossing_world",
+      "start_pose:=0.0 0.0 0.0",
+      "initial_pose:=0.0 0.0 0.0",
+      "rviz:=false",
+      "max_sim_time:=180",
+      "headless:=true",
+      "seed:=3005",
+      "localization_params_file:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/config/w12_localization.yaml",
+      "map:=/home/haoyang/humanoid_nav_ws/src/t1_navigation/maps/dynamic_crossing_world.yaml",
+      "events_file:=/home/haoyang/humanoid_nav_ws/src/t1_bringup/config/w13_events_v1.yaml",
+      "scenario:=B06"
+    ],
+    "remaining_owned_pids": [],
+    "launch_audit": {
+      "path": "docs/evidence/W11R1/raw/w11r1-repair-smoke-v9/20261015T084910Z_w11r1-repair-smoke-v9_B06_s3005_8813f6/raw/20261015T084910Z_w11r1-repair-smoke-v9_B06_s3005_8813f6.txt",
+      "sha256": "fc0cebbb0b141b617ced72c92bfd52d8d51a3da2c670a7d8c9eefcad26944d4d",
+      "clean_child_exits": 17,
+      "abnormal_exit_lines": [],
+      "startup_lines": [
+        "[navigation_starter-16] {\"starter\": \"navigation active\", \"exit\": 0, \"readiness\": [{\"node\": \"map_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"amcl\", \"state\": 3, \"attempt\": 1}, {\"node\": \"controller_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"planner_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"behavior_server\", \"state\": 3, \"attempt\": 1}, {\"node\": \"bt_navigator\", \"state\": 3, \"attempt\": 1}, {\"node\": \"local_costmap/local_costmap\", \"state\": 3, \"attempt\": 1}, {\"node\": \"global_costmap/global_costmap\", \"state\": 3, \"attempt\": 1}, {\"action\": \"follow_path\", \"ack\": true, \"expected_invalid_path\": 103}, {\"service\": \"local_costmap/clear_entirely_local_costmap\", \"responded\": true}, {\"service\": \"global_costmap/clear_entirely_global_costmap\", \"responded\": true}], \"sim_time\": 10.38}"
+      ]
+    }
+  }
+]
