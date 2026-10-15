@@ -1,0 +1,913 @@
+{
+  "head": "8cd6adc0af387f2101168c278157fdc87ee8e22d",
+  "tests": [
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_bounded_manager_ros",
+      "name": "test_lost_transition_ack_is_reconciled_without_replaying_configure",
+      "time": "3.607"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_bounded_manager_ros",
+      "name": "test_missing_lifecycle_service_returns_failure_instead_of_hanging",
+      "time": "9.374"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_bounded_manager_ros",
+      "name": "test_sigint_with_formed_bond_exits_cleanly",
+      "time": "1.593"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_controller_feasible_ros",
+      "name": "test_controller_emits_executable_near_goal_intent[0.0]",
+      "time": "2.233"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_controller_feasible_ros",
+      "name": "test_controller_emits_executable_near_goal_intent[1.1594]",
+      "time": "2.197"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_description",
+      "name": "test_wrapper_preserves_joint_tree_and_resolves_assets",
+      "time": "0.005"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_description",
+      "name": "test_duplicate_alias_is_rejected",
+      "time": "0.001"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_heading_planner_ros",
+      "name": "test_detour_path_arrives_forward_along_goal_heading[0.0-0.0]",
+      "time": "4.358"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_heading_planner_ros",
+      "name": "test_detour_path_arrives_forward_along_goal_heading[1.85-0.0]",
+      "time": "4.341"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_heading_planner_ros",
+      "name": "test_detour_path_arrives_forward_along_goal_heading[0.0-0.238034]",
+      "time": "4.416"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_heading_planner_ros",
+      "name": "test_detour_path_arrives_forward_along_goal_heading[0.0--0.216578]",
+      "time": "4.357"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_launch_support",
+      "name": "test_evaluation_cannot_silently_start",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_launch_support",
+      "name": "test_unknown_mode",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_launch_support",
+      "name": "test_invalid_boolean",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_launch_support",
+      "name": "test_sim_only_enabled",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_launch_support",
+      "name": "test_w09_w11_modes_enabled[mapping]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_launch_support",
+      "name": "test_w09_w11_modes_enabled[localization]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_launch_support",
+      "name": "test_w09_w11_modes_enabled[navigation]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_envelope_matches_w05",
+      "time": "0.005"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_dense_grid_output_is_feasible_and_sign_preserving",
+      "time": "0.007"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[0.2-0.1-expected0]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[0.005-0.0-expected1]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[0.04-0.0-expected2]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[0.1-0.0-expected3]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[0.05-0.3-expected4]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[0.0--0.7-expected5]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[0.09-0.45-expected6]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[0.2--0.3-expected7]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[0.25-0.3-expected8]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[0.06-0.1-expected9]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[0.0-0.1-expected10]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[0.5-0.8-expected11]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[-0.3-0.0-expected12]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[0.0-2.0-expected13]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[0.9-0.0-expected14]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[0.0-0.049-expected15]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[0.0-0.05-expected16]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[0.0--0.0845-expected17]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_examples[0.0061--0.0582-expected18]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_nonfinite_reaches_gate_unchanged",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_adapter",
+      "name": "test_uncalibrated_map_rejected",
+      "time": "0.011"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_discovered_action_without_ack_fails_with_bounded_reason",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_costmap_discovery_is_not_a_response",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_original_detour_handoff_is_rejected[pose0]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_original_detour_handoff_is_rejected[pose1]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_rebound_restarts_stationary_hold",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_cancel_clears_cache_and_cannot_revive_old_goal",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_aborted_zero_error_cannot_authorize_commands_or_arrival",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_preemption_waits_for_new_followpath_and_fresh_command",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_late_follow_probe_cannot_move_without_navigation_goal",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_readiness_missing_initialpose_and_tf_is_explicit",
+      "time": "0.001"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_inactive_lifecycle_cannot_pass_readiness",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_action_aborted_zero_code_is_never_success",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_stale_success_position_miss_resends_nominal_not_yaw_residual",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_exhaustion_is_explicit_and_never_more_than_three_corrections",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_no_reverse_overshoot_has_bounded_failure_boundary",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_discovered_followpath_that_rejects_probe_blocks_startup",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_cli_cannot_relax_frozen_bounds[--time-limit-121]",
+      "time": "0.002"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_cli_cannot_relax_frozen_bounds[--xy-tolerance-.21]",
+      "time": "0.001"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_cli_cannot_relax_frozen_bounds[--yaw-tolerance-.21]",
+      "time": "0.001"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_cli_cannot_relax_frozen_bounds[--terminal-retries-4]",
+      "time": "0.001"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_cli_cannot_relax_frozen_bounds[--settle-hold-1]",
+      "time": "0.001"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_navigation_protocol",
+      "name": "test_cli_cannot_relax_frozen_bounds[--settle-window-.4]",
+      "time": "0.001"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_safety_shutdown",
+      "name": "test_live_context_emits_shutdown_stop",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_safety_shutdown",
+      "name": "test_closed_context_skips_publish",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_safety_shutdown",
+      "name": "test_signal_invalidates_between_check_and_publish",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_bringup",
+      "classname": "t1_bringup.test.test_safety_shutdown",
+      "name": "test_live_publish_errors_still_raise",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_calibration",
+      "name": "test_metrics_are_body_frame_and_heading_invariant[0.0]",
+      "time": "0.003"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_calibration",
+      "name": "test_metrics_are_body_frame_and_heading_invariant[90.0]",
+      "time": "0.002"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_calibration",
+      "name": "test_metrics_are_body_frame_and_heading_invariant[180.0]",
+      "time": "0.002"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_calibration",
+      "name": "test_metrics_are_body_frame_and_heading_invariant[-135.0]",
+      "time": "0.002"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_calibration",
+      "name": "test_no_stop_metrics_after_zero_segment",
+      "time": "0.002"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_zero_maps_to_zero_exactly[<memory>]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_zero_maps_to_zero_exactly[/home/haoyang/humanoid_nav_ws/src/t1_mujoco/config/command_map.yaml]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_only_reduces_never_raises_and_keeps_sign[<memory>]",
+      "time": "0.065"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_only_reduces_never_raises_and_keeps_sign[/home/haoyang/humanoid_nav_ws/src/t1_mujoco/config/command_map.yaml]",
+      "time": "0.070"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_deadband_zeroes_requests_below_walking_minimum[<memory>]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_deadband_zeroes_requests_below_walking_minimum[/home/haoyang/humanoid_nav_ws/src/t1_mujoco/config/command_map.yaml]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_monotone_per_axis[<memory>]",
+      "time": "0.001"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_monotone_per_axis[/home/haoyang/humanoid_nav_ws/src/t1_mujoco/config/command_map.yaml]",
+      "time": "0.001"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_envelope_clip[<memory>]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_envelope_clip[/home/haoyang/humanoid_nav_ws/src/t1_mujoco/config/command_map.yaml]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_invalid_maps_rejected[change0]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_invalid_maps_rejected[change1]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_invalid_maps_rejected[change2]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_invalid_maps_rejected[change3]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_invalid_maps_rejected[change4]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_invalid_maps_rejected[change5]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_invalid_maps_rejected[change6]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_invalid_maps_rejected[change7]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_invalid_maps_rejected[change8]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_load_requires_absolute_existing_file",
+      "time": "0.004"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_command_map",
+      "name": "test_input_buffer_uses_map_only_when_given",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_control",
+      "name": "test_dual_timeouts_and_no_minimum_boost",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_control",
+      "name": "test_all_six_components_checked_and_recoverable",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_control",
+      "name": "test_pause_clears_and_discards_commands",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_control",
+      "name": "test_uncalibrated_and_upstream_debug_clamp",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_control",
+      "name": "test_safety_lease_veto_and_no_cached_revival",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_events",
+      "name": "test_mapping_rejects_dynamic_events",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_events",
+      "name": "test_interpolation_pause_reset_and_single_owner",
+      "time": "0.012"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_events",
+      "name": "test_reject_invalid_event_speed",
+      "time": "0.002"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_lidar_contract",
+      "name": "test_virtual_origin_matches_rigid_sensor_with_tilt[0.0]",
+      "time": "0.001"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_lidar_contract",
+      "name": "test_virtual_origin_matches_rigid_sensor_with_tilt[1.5707963267948966]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_lidar_contract",
+      "name": "test_virtual_origin_matches_rigid_sensor_with_tilt[-2.0]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_lidar_contract",
+      "name": "test_invalid_sensor_config_fails_before_start[lidar_dropout--1.0]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_lidar_contract",
+      "name": "test_invalid_sensor_config_fails_before_start[lidar_dropout-1.01]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_lidar_contract",
+      "name": "test_invalid_sensor_config_fails_before_start[lidar_dropout-nan]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_lidar_contract",
+      "name": "test_invalid_sensor_config_fails_before_start[lidar_noise_std--1.0]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_lidar_contract",
+      "name": "test_invalid_sensor_config_fails_before_start[lidar_noise_std-inf]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_lidar_contract",
+      "name": "test_invalid_sensor_config_fails_before_start[seed--1]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_map_provenance",
+      "name": "test_saved_map_is_bound_to_scene_and_manifest",
+      "time": "0.002"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_map_provenance",
+      "name": "test_map_or_scene_change_requires_regeneration[yaml]",
+      "time": "0.002"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_map_provenance",
+      "name": "test_map_or_scene_change_requires_regeneration[image]",
+      "time": "0.002"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_map_provenance",
+      "name": "test_map_or_scene_change_requires_regeneration[scene]",
+      "time": "0.002"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_map_provenance",
+      "name": "test_localization_cannot_start_without_saved_map",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_map_provenance",
+      "name": "test_w09_cannot_use_policy_debug_bypass[mapping]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_map_provenance",
+      "name": "test_w09_cannot_use_policy_debug_bypass[localization]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_runtime",
+      "name": "test_invalid_selection[unknown-t1_walk-mode must be]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_runtime",
+      "name": "test_invalid_selection[sim_only-other-task must be t1_walk]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_runtime",
+      "name": "test_bad_path_parameter[-is required]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_runtime",
+      "name": "test_bad_path_parameter[relative/path-must be absolute]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_runtime",
+      "name": "test_missing_path",
+      "time": "0.001"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_runtime",
+      "name": "test_wrong_path_type",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_runtime",
+      "name": "test_incomplete_repository_fails_before_import",
+      "time": "0.001"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_runtime",
+      "name": "test_dependency_error_is_actionable[error0]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_runtime",
+      "name": "test_dependency_error_is_actionable[error1]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_runtime",
+      "name": "test_absolute_path_independent_of_cwd",
+      "time": "0.001"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_scenes",
+      "name": "test_malformed_layout_rejected[nan_pose]",
+      "time": "0.006"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_scenes",
+      "name": "test_malformed_layout_rejected[reversed_bounds]",
+      "time": "0.004"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_scenes",
+      "name": "test_malformed_layout_rejected[negative_box]",
+      "time": "0.004"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_scenes",
+      "name": "test_malformed_layout_rejected[duplicate_box]",
+      "time": "0.005"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_scenes",
+      "name": "test_malformed_layout_rejected[bad_slot]",
+      "time": "0.004"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_scenes",
+      "name": "test_malformed_layout_rejected[endpoint_inside]",
+      "time": "0.004"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_scenes",
+      "name": "test_unknown_scene_cannot_silently_use_upstream",
+      "time": "0.001"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_scenes",
+      "name": "test_static_world_respects_frozen_w10_zones",
+      "time": "0.002"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_scenes",
+      "name": "test_start_pose_parsing_and_validation",
+      "time": "0.002"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_scenes",
+      "name": "test_contact_events_dedupe_and_gap",
+      "time": "0.002"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_scenes",
+      "name": "test_dynamic_world_respects_frozen_w10_zones",
+      "time": "0.003"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_state_bridge",
+      "name": "test_rotated_forward_velocity_and_ros_quaternion_order[90.0]",
+      "time": "0.001"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_state_bridge",
+      "name": "test_rotated_forward_velocity_and_ros_quaternion_order[-90.0]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_state_bridge",
+      "name": "test_rotated_forward_velocity_and_ros_quaternion_order[180.0]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_state_bridge",
+      "name": "test_rotated_forward_velocity_and_ros_quaternion_order[-135.0]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_state_bridge",
+      "name": "test_tilted_tf_chain_reconstructs_trunk_and_body_twist",
+      "time": "0.001"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_state_bridge",
+      "name": "test_invalid_quaternion_is_rejected[q0]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_state_bridge",
+      "name": "test_invalid_quaternion_is_rejected[q1]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_state_bridge",
+      "name": "test_invalid_quaternion_is_rejected[q2]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_state_bridge",
+      "name": "test_snapshot_copies_live_arrays_and_requires_owner",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_state_bridge",
+      "name": "test_schedule_rejects_invalid_divisor[0]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_state_bridge",
+      "name": "test_schedule_rejects_invalid_divisor[-1]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_state_bridge",
+      "name": "test_schedule_rejects_invalid_divisor[1.5]",
+      "time": "0.000"
+    },
+    {
+      "package": "t1_mujoco",
+      "classname": "t1_mujoco.test.test_state_bridge",
+      "name": "test_schedule_rejects_invalid_divisor[True]",
+      "time": "0.000"
+    }
+  ],
+  "total": 151,
+  "scope_note": "Protocol faults include synthetic/mocked inputs; real ROS manager/planner/controller tests use synthetic TF/scan without physics. Physical stages not yet executed."
+}
