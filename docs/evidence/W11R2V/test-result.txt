@@ -1,0 +1,4 @@
+build/t1_bringup/pytest.xml: 80 tests, 0 errors, 0 failures, 0 skipped
+build/t1_mujoco/pytest.xml: 84 tests, 0 errors, 0 failures, 0 skipped
+
+Summary: 164 tests, 0 errors, 0 failures, 0 skipped
