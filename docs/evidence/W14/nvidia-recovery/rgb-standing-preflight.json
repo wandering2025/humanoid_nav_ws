@@ -1,0 +1,37 @@
+{
+  "run_id": "20261015T130850Z_demo_U01_8243f83a-c28e-47af-a8af-963adebac875",
+  "code_sha": "a99a29752545982fd9c42813a2cc8d54f752db9e",
+  "dirty": "",
+  "baseline": "b23a92465b317ca781d3eb210051126c5786908e",
+  "scenario": "U01",
+  "seed": 4000,
+  "start": [
+    0,
+    0,
+    0
+  ],
+  "goal": [
+    9,
+    0,
+    0
+  ],
+  "interpreter": "/home/haoyang/venvs/humanoid_mujoco/bin/python",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "mujoco": "3.15.0",
+  "torch": "2.14.1+cu130",
+  "ros": "jazzy",
+  "domain": 37,
+  "dds_port": 42127,
+  "graphics": {
+    "requested": true,
+    "cuda_probe": false,
+    "cpu_guard": null,
+    "status": "NVIDIA4050_VERIFIED",
+    "rviz": "CPU llvmpipe"
+  },
+  "locked_files": 100,
+  "resource_hashes": {
+    "/home/haoyang/robot_sim_sources/booster_deploy/tasks/locomotion/robots/t1/models/t1_walk.pt": "ef1d61e19082b83405f4320a08f4cfc2d7d7f003ed3790dab013778ba442dec7",
+    "/home/haoyang/robot_sim_sources/booster_assets/robots/T1/T1_23dof.xml": "f00e3410362b1e2267e6db05d25c33d6240bbf2436d62a409f07042bad4f7fb2"
+  }
+}

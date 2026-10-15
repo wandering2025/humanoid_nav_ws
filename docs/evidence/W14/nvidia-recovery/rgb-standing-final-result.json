@@ -1,0 +1,1054 @@
+{
+  "run_id": "20261015T130850Z_demo_U01_8243f83a-c28e-47af-a8af-963adebac875",
+  "code_sha": "a99a29752545982fd9c42813a2cc8d54f752db9e",
+  "scenario": "U01",
+  "seed": 4000,
+  "started_utc": "2026-10-15T13:09:05.714829+00:00",
+  "arrived": false,
+  "human_intervention": false,
+  "status": "SUCCESS_STARTUP_CHECK",
+  "readiness_wall_s": 18.564995757999895,
+  "lifecycle": {
+    "map_server": 3,
+    "amcl": 3,
+    "controller_server": 3,
+    "planner_server": 3,
+    "behavior_server": 3,
+    "bt_navigator": 3,
+    "global_costmap/global_costmap": 3,
+    "local_costmap/local_costmap": 3,
+    "velocity_smoother": 3,
+    "collision_monitor": 3
+  },
+  "initializations": [
+    [
+      0.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "parameters": {
+    "controller_server": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "controller_frequency": 20.0
+    },
+    "behavior_server": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "behavior_plugins": [
+        "wait"
+      ],
+      "robot_base_frame": "base_footprint"
+    },
+    "planner_server": {
+      "use_sim_time": true,
+      "planner_plugins": [
+        "GridBased"
+      ]
+    },
+    "bt_navigator": {
+      "use_sim_time": true,
+      "robot_base_frame": "base_footprint"
+    },
+    "velocity_smoother": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "feedback": "OPEN_LOOP"
+    },
+    "collision_monitor": {
+      "use_sim_time": true,
+      "enable_stamped_cmd_vel": false,
+      "base_frame_id": "base_footprint"
+    },
+    "amcl": {
+      "use_sim_time": true,
+      "base_frame_id": "base_footprint"
+    },
+    "local_costmap/local_costmap": {
+      "robot_base_frame": "base_footprint",
+      "robot_radius": 2.05,
+      "use_sim_time": true
+    },
+    "global_costmap/global_costmap": {
+      "robot_base_frame": "base_footprint",
+      "robot_radius": 2.05,
+      "use_sim_time": true
+    },
+    "t1_navigation_adapter": {
+      "use_sim_time": true
+    },
+    "t1_command_gate": {
+      "use_sim_time": true,
+      "command_source": "navigation"
+    }
+  },
+  "parameter_checks": {
+    "sim_time_everywhere": true,
+    "unstamped": true,
+    "base_footprint": true,
+    "wait_only_behaviors": true,
+    "nav_radius": true,
+    "gate_navigation": true
+  },
+  "ready_screenshots": [
+    "/home/haoyang/humanoid_nav_ws/run_data/demo/20261015T130850Z_demo_U01_8243f83a-c28e-47af-a8af-963adebac875/ready-mujoco.png",
+    "/home/haoyang/humanoid_nav_ws/run_data/demo/20261015T130850Z_demo_U01_8243f83a-c28e-47af-a8af-963adebac875/ready-rviz.png"
+  ],
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 4506.07604634,
+      "sim_time": 44.160000000000004,
+      "health_reason": ""
+    }
+  },
+  "startup_check_completed": true,
+  "shutdown_signals": [
+    [
+      "rviz",
+      25882,
+      "SIGINT"
+    ],
+    [
+      "launch",
+      24861,
+      "SIGINT"
+    ],
+    [
+      "dds",
+      24835,
+      "SIGINT"
+    ]
+  ],
+  "gpu_monitor_error": null,
+  "gpu_samples": [
+    {
+      "wall_mono": 4442.641140906,
+      "utc": "2026-10-15T13:08:51.012837+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 47.0,
+      "memory_mib": 712.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 41.0,
+      "power_w": 5.3
+    },
+    {
+      "wall_mono": 4443.697909207,
+      "utc": "2026-10-15T13:08:52.069600+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 47.0,
+      "memory_mib": 712.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 21.0,
+      "power_w": 7.04
+    },
+    {
+      "wall_mono": 4444.7650151,
+      "utc": "2026-10-15T13:08:53.136706+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 47.0,
+      "memory_mib": 710.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 25.0,
+      "power_w": 7.01
+    },
+    {
+      "wall_mono": 4445.817071416,
+      "utc": "2026-10-15T13:08:54.188762+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 47.0,
+      "memory_mib": 710.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 49.0,
+      "power_w": 7.11
+    },
+    {
+      "wall_mono": 4446.873221706,
+      "utc": "2026-10-15T13:08:55.244912+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 47.0,
+      "memory_mib": 724.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 21.0,
+      "power_w": 6.88
+    },
+    {
+      "wall_mono": 4447.932894747,
+      "utc": "2026-10-15T13:08:56.304585+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 47.0,
+      "memory_mib": 707.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 42.0,
+      "power_w": 7.2
+    },
+    {
+      "wall_mono": 4448.990876491,
+      "utc": "2026-10-15T13:08:57.362567+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 47.0,
+      "memory_mib": 704.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 21.0,
+      "power_w": 7.1
+    },
+    {
+      "wall_mono": 4450.046747228,
+      "utc": "2026-10-15T13:08:58.418438+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 47.0,
+      "memory_mib": 704.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 24.0,
+      "power_w": 7.09
+    },
+    {
+      "wall_mono": 4451.101829796,
+      "utc": "2026-10-15T13:08:59.473521+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 47.0,
+      "memory_mib": 694.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 24.0,
+      "power_w": 7.05
+    },
+    {
+      "wall_mono": 4452.161777105,
+      "utc": "2026-10-15T13:09:00.533468+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 47.0,
+      "memory_mib": 708.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 21.0,
+      "power_w": 6.98
+    },
+    {
+      "wall_mono": 4453.22127795,
+      "utc": "2026-10-15T13:09:01.592969+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 47.0,
+      "memory_mib": 709.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 21.0,
+      "power_w": 7.04
+    },
+    {
+      "wall_mono": 4456.280328544,
+      "utc": "2026-10-15T13:09:04.652020+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 47.0,
+      "memory_mib": 713.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 28.0,
+      "power_w": 7.31
+    },
+    {
+      "wall_mono": 4457.335409382,
+      "utc": "2026-10-15T13:09:05.707100+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 48.0,
+      "memory_mib": 706.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 6.0,
+      "power_w": 8.79
+    },
+    {
+      "wall_mono": 4458.411038091,
+      "utc": "2026-10-15T13:09:06.782729+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 49.0,
+      "memory_mib": 706.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 6.0,
+      "power_w": 11.16
+    },
+    {
+      "wall_mono": 4459.49377769,
+      "utc": "2026-10-15T13:09:07.865468+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 48.0,
+      "memory_mib": 703.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 34.0,
+      "power_w": 10.05
+    },
+    {
+      "wall_mono": 4460.571611254,
+      "utc": "2026-10-15T13:09:08.943302+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 48.0,
+      "memory_mib": 703.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 21.0,
+      "power_w": 6.46
+    },
+    {
+      "wall_mono": 4461.657754451,
+      "utc": "2026-10-15T13:09:10.029445+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 50.0,
+      "memory_mib": 788.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 5.0,
+      "power_w": 10.71
+    },
+    {
+      "wall_mono": 4462.737176497,
+      "utc": "2026-10-15T13:09:11.108867+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 50.0,
+      "memory_mib": 897.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 13.0,
+      "power_w": 12.66
+    },
+    {
+      "wall_mono": 4463.831112747,
+      "utc": "2026-10-15T13:09:12.202804+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 50.0,
+      "memory_mib": 896.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 11.0,
+      "power_w": 10.91
+    },
+    {
+      "wall_mono": 4464.911333098,
+      "utc": "2026-10-15T13:09:13.283024+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 51.0,
+      "memory_mib": 896.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 12.0,
+      "power_w": 11.1
+    },
+    {
+      "wall_mono": 4465.993313495,
+      "utc": "2026-10-15T13:09:14.365005+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 50.0,
+      "memory_mib": 897.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 36.0,
+      "power_w": 8.29
+    },
+    {
+      "wall_mono": 4467.107092593,
+      "utc": "2026-10-15T13:09:15.478784+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 50.0,
+      "memory_mib": 867.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 33.0,
+      "power_w": 8.24
+    },
+    {
+      "wall_mono": 4468.107807269,
+      "utc": "2026-10-15T13:09:18.706541+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 51.0,
+      "memory_mib": 868.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 31.0,
+      "power_w": 8.19
+    },
+    {
+      "wall_mono": 4469.103016779,
+      "utc": "2026-10-15T13:09:19.701751+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 51.0,
+      "memory_mib": 868.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 31.0,
+      "power_w": 8.14
+    },
+    {
+      "wall_mono": 4470.109061782,
+      "utc": "2026-10-15T13:09:20.707795+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 51.0,
+      "memory_mib": 867.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 31.0,
+      "power_w": 8.14
+    },
+    {
+      "wall_mono": 4471.105228599,
+      "utc": "2026-10-15T13:09:21.703963+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 52.0,
+      "memory_mib": 867.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 31.0,
+      "power_w": 8.34
+    },
+    {
+      "wall_mono": 4472.110770154,
+      "utc": "2026-10-15T13:09:22.709503+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 52.0,
+      "memory_mib": 867.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 31.0,
+      "power_w": 8.33
+    },
+    {
+      "wall_mono": 4473.210879844,
+      "utc": "2026-10-15T13:09:23.809613+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 52.0,
+      "memory_mib": 867.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 31.0,
+      "power_w": 8.26
+    },
+    {
+      "wall_mono": 4474.22454283,
+      "utc": "2026-10-15T13:09:24.823277+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 53.0,
+      "memory_mib": 867.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 49.0,
+      "power_w": 8.33
+    },
+    {
+      "wall_mono": 4475.243905621,
+      "utc": "2026-10-15T13:09:25.842639+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 54.0,
+      "memory_mib": 867.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 13.0,
+      "power_w": 10.98
+    },
+    {
+      "wall_mono": 4476.245725419,
+      "utc": "2026-10-15T13:09:26.844460+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 54.0,
+      "memory_mib": 867.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 30.0,
+      "power_w": 10.47
+    },
+    {
+      "wall_mono": 4477.255706333,
+      "utc": "2026-10-15T13:09:27.854440+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 54.0,
+      "memory_mib": 867.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 35.0,
+      "power_w": 8.35
+    },
+    {
+      "wall_mono": 4478.275908536,
+      "utc": "2026-10-15T13:09:28.874642+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 54.0,
+      "memory_mib": 867.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 33.0,
+      "power_w": 8.33
+    },
+    {
+      "wall_mono": 4479.28326507,
+      "utc": "2026-10-15T13:09:29.881999+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 54.0,
+      "memory_mib": 867.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 32.0,
+      "power_w": 8.26
+    },
+    {
+      "wall_mono": 4480.297690655,
+      "utc": "2026-10-15T13:09:30.896424+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 55.0,
+      "memory_mib": 867.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 32.0,
+      "power_w": 8.25
+    },
+    {
+      "wall_mono": 4481.302272575,
+      "utc": "2026-10-15T13:09:31.901007+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 55.0,
+      "memory_mib": 867.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 32.0,
+      "power_w": 8.26
+    },
+    {
+      "wall_mono": 4482.311309285,
+      "utc": "2026-10-15T13:09:32.910043+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 55.0,
+      "memory_mib": 867.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 32.0,
+      "power_w": 8.41
+    },
+    {
+      "wall_mono": 4483.32344404,
+      "utc": "2026-10-15T13:09:33.922178+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 56.0,
+      "memory_mib": 867.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 31.0,
+      "power_w": 8.32
+    },
+    {
+      "wall_mono": 4484.330246478,
+      "utc": "2026-10-15T13:09:34.928980+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 56.0,
+      "memory_mib": 867.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 35.0,
+      "power_w": 8.35
+    },
+    {
+      "wall_mono": 4485.348203727,
+      "utc": "2026-10-15T13:09:35.946939+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 56.0,
+      "memory_mib": 857.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 51.0,
+      "power_w": 8.49
+    },
+    {
+      "wall_mono": 4486.372104589,
+      "utc": "2026-10-15T13:09:36.970839+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 57.0,
+      "memory_mib": 866.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 18.0,
+      "power_w": 11.65
+    },
+    {
+      "wall_mono": 4487.383707561,
+      "utc": "2026-10-15T13:09:37.982441+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 57.0,
+      "memory_mib": 882.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 32.0,
+      "power_w": 10.24
+    },
+    {
+      "wall_mono": 4488.405175514,
+      "utc": "2026-10-15T13:09:39.003909+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 57.0,
+      "memory_mib": 900.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 47.0,
+      "power_w": 8.48
+    },
+    {
+      "wall_mono": 4489.412298578,
+      "utc": "2026-10-15T13:09:40.011032+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 57.0,
+      "memory_mib": 900.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 46.0,
+      "power_w": 8.53
+    },
+    {
+      "wall_mono": 4490.41181976,
+      "utc": "2026-10-15T13:09:41.010553+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 58.0,
+      "memory_mib": 900.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 12.0,
+      "power_w": 11.43
+    },
+    {
+      "wall_mono": 4491.52081009,
+      "utc": "2026-10-15T13:09:42.119544+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 58.0,
+      "memory_mib": 893.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 31.0,
+      "power_w": 11.11
+    },
+    {
+      "wall_mono": 4492.524757121,
+      "utc": "2026-10-15T13:09:43.123491+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 58.0,
+      "memory_mib": 893.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 33.0,
+      "power_w": 8.47
+    },
+    {
+      "wall_mono": 4493.530849578,
+      "utc": "2026-10-15T13:09:44.129583+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 58.0,
+      "memory_mib": 887.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 46.0,
+      "power_w": 8.55
+    },
+    {
+      "wall_mono": 4494.544826262,
+      "utc": "2026-10-15T13:09:45.143560+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 59.0,
+      "memory_mib": 870.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 21.0,
+      "power_w": 9.06
+    },
+    {
+      "wall_mono": 4495.553964807,
+      "utc": "2026-10-15T13:09:46.152700+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 59.0,
+      "memory_mib": 883.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 13.0,
+      "power_w": 11.74
+    },
+    {
+      "wall_mono": 4496.563558671,
+      "utc": "2026-10-15T13:09:47.162292+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 59.0,
+      "memory_mib": 881.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 43.0,
+      "power_w": 10.03
+    },
+    {
+      "wall_mono": 4497.570598842,
+      "utc": "2026-10-15T13:09:48.169332+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 59.0,
+      "memory_mib": 875.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 29.0,
+      "power_w": 9.27
+    },
+    {
+      "wall_mono": 4498.576120004,
+      "utc": "2026-10-15T13:09:49.174854+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 60.0,
+      "memory_mib": 875.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 18.0,
+      "power_w": 9.66
+    },
+    {
+      "wall_mono": 4499.577694647,
+      "utc": "2026-10-15T13:09:50.176429+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 60.0,
+      "memory_mib": 868.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 41.0,
+      "power_w": 9.0
+    },
+    {
+      "wall_mono": 4500.581766305,
+      "utc": "2026-10-15T13:09:53.432463+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 60.0,
+      "memory_mib": 869.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 36.0,
+      "power_w": 8.67
+    },
+    {
+      "wall_mono": 4501.588376497,
+      "utc": "2026-10-15T13:09:54.439074+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 60.0,
+      "memory_mib": 875.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 40.0,
+      "power_w": 8.74
+    },
+    {
+      "wall_mono": 4502.593231644,
+      "utc": "2026-10-15T13:09:55.443928+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 60.0,
+      "memory_mib": 872.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 40.0,
+      "power_w": 8.79
+    },
+    {
+      "wall_mono": 4503.604644825,
+      "utc": "2026-10-15T13:09:56.455342+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 60.0,
+      "memory_mib": 872.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 40.0,
+      "power_w": 8.85
+    },
+    {
+      "wall_mono": 4504.607030899,
+      "utc": "2026-10-15T13:09:57.457729+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 61.0,
+      "memory_mib": 873.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 14.0,
+      "power_w": 11.65
+    },
+    {
+      "wall_mono": 4505.618222217,
+      "utc": "2026-10-15T13:09:58.468918+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 61.0,
+      "memory_mib": 874.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 36.0,
+      "power_w": 10.78
+    },
+    {
+      "wall_mono": 4506.618347613,
+      "utc": "2026-10-15T13:09:59.469044+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 61.0,
+      "memory_mib": 725.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 31.0,
+      "power_w": 8.88
+    },
+    {
+      "wall_mono": 4507.625946474,
+      "utc": "2026-10-15T13:10:00.476644+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 60.0,
+      "memory_mib": 728.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 24.0,
+      "power_w": 7.12
+    }
+  ],
+  "parent_exit_codes": {
+    "dds": 0,
+    "launch": 0,
+    "rviz": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 24878,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 24879,
+      "exit_code": 0
+    },
+    "map_server-3": {
+      "pid": 24880,
+      "exit_code": 0
+    },
+    "amcl-4": {
+      "pid": 24882,
+      "exit_code": 0
+    },
+    "command_gate-5": {
+      "pid": 24883,
+      "exit_code": 0
+    },
+    "velocity_smoother-6": {
+      "pid": 24884,
+      "exit_code": 0
+    },
+    "collision_monitor-7": {
+      "pid": 24885,
+      "exit_code": 0
+    },
+    "lifecycle_manager-8": {
+      "pid": 25203,
+      "exit_code": 0
+    },
+    "lifecycle_manager-9": {
+      "pid": 25204,
+      "exit_code": 0
+    },
+    "controller_server-10": {
+      "pid": 25352,
+      "exit_code": 0
+    },
+    "planner_server-11": {
+      "pid": 25353,
+      "exit_code": 0
+    },
+    "behavior_server-12": {
+      "pid": 25354,
+      "exit_code": 0
+    },
+    "bt_navigator-13": {
+      "pid": 25355,
+      "exit_code": 0
+    },
+    "lifecycle_manager-14": {
+      "pid": 25356,
+      "exit_code": 0
+    },
+    "navigation_adapter-15": {
+      "pid": 25357,
+      "exit_code": 0
+    },
+    "navigation_starter-16": {
+      "pid": 25358,
+      "exit_code": 0
+    },
+    "t1_initial_pose_once-17": {
+      "pid": 25359,
+      "exit_code": 0
+    }
+  },
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "events": [
+    {
+      "kind": "gate",
+      "sim": 0.0,
+      "wall": 4459.997159261,
+      "state": "DISARMED",
+      "reason": "explicit arm required"
+    },
+    {
+      "kind": "sim_state",
+      "sim": 0.0,
+      "wall": 4461.854384428,
+      "state": "STARTING",
+      "fault": null
+    },
+    {
+      "kind": "sim_state",
+      "sim": 2.0,
+      "wall": 4463.880580172,
+      "state": "READY",
+      "fault": null
+    },
+    {
+      "kind": "gate",
+      "sim": 44.080000000000005,
+      "wall": 4505.997230208,
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL"
+    }
+  ],
+  "graph": {
+    "/cmd_vel": {
+      "publishers": [
+        "collision_monitor"
+      ],
+      "subscribers": [
+        "t1_sim",
+        "t1_command_gate",
+        "t1_evaluator"
+      ],
+      "types": [
+        "geometry_msgs/msg/Twist"
+      ]
+    },
+    "/t1/eval/obstacle": {
+      "publishers": [
+        "t1_sim"
+      ],
+      "subscribers": [
+        "t1_evaluator"
+      ],
+      "types": [
+        "std_msgs/msg/String"
+      ]
+    },
+    "/t1/eval/ground_truth": {
+      "publishers": [
+        "t1_sim"
+      ],
+      "subscribers": [
+        "t1_evaluator"
+      ],
+      "types": [
+        "nav_msgs/msg/Odometry"
+      ]
+    },
+    "/t1/cmd_teleop": {
+      "publishers": [],
+      "subscribers": [
+        "t1_evaluator"
+      ],
+      "types": []
+    }
+  },
+  "clock_regressions": 0,
+  "dds_port_state_before_runner_exit": {
+    "listeners": [],
+    "time_wait": [],
+    "other_connections": [
+      {
+        "family": "tcp",
+        "local": "0100007F:A48F",
+        "state": "05"
+      }
+    ]
+  },
+  "dds_port_released": true,
+  "dds_port_check_deferred": true,
+  "wall_total_s": 50.45142872900033,
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "simulator_exit_code": 0,
+  "zero_policy": true,
+  "fell": false,
+  "validation_before_port_check": true,
+  "runner_exit_code": 4,
+  "post_runner_remaining_pids": [],
+  "post_runner_port_wait_wall_s": 59.83933625700047
+}

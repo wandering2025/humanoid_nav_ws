@@ -1,7 +1,7 @@
 # 演示发布清单
 
 最终状态：**W14_BLOCKED**。不启动W15，不推荐当前版本用于现场演示。
-原目标入口 `./scripts/run_demo.sh` 默认GUI仍因宿主事故封锁，返回3。
+原目标入口 `./scripts/run_demo.sh` 已通过替代显示组合的站立/停车/退出/端口检查；完整默认正式排练尚待执行。
 --preflight/--headless仅在内核CPU隔离下开放，无GPU设备访问/窗口/CUDA探测；不代表GUI恢复。
 [安全审查](graphics-incident-20261015.md)；[机器可读证据](../evidence/W14/incident-summary.json)。
 
@@ -65,7 +65,7 @@ W15开始前首先读 `docs/plans/t1_mujoco_navigation/交接记录.md`、`recor
 完整[CPU证据](../evidence/W14/cpu-recovery/README.md)和[机器可读裁定](../evidence/W14/cpu-recovery/assessment.json)。
 
 
-## 用户授权NVIDIA阶段（当前仍BLOCKED）
+## 用户授权NVIDIA阶段（以下为保留的阶段历史）
 
 用户允许新GUI正式两次排练并保留CPU失败；实际只完成最小GL、320×240、静态T1渲染和两次无目标站立检查。
 NVIDIA渲染实测最高61°C、787MiB，未触发温度/显存/驱动超时停止线；Windows事后查询无匹配新Display/141/41事件。
@@ -78,3 +78,13 @@ NVIDIA渲染实测最高61°C、787MiB，未触发温度/显存/驱动超时停�
 均未发导航目标，三类接触0/跌倒False，全部登记进程exit0；原FIN_WAIT端口失败保留。事后无残留且端口可绑定。
 新GUI正式01/02均NOT_RUN，无run ID；不能冒充已完成两次默认排练。录像仍MISSING。
 见[完整证据](../evidence/W14/nvidia-recovery/README.md)。
+
+## RGB替代组合：正式排练前检查点
+
+站立run `20261015T130850Z_demo_U01_8243f83a-c28e-47af-a8af-963adebac875`，干净被测SHA `a99a29752545982fd9c42813a2cc8d54f752db9e`。
+final-result为SUCCESS_STARTUP_CHECK；就绪18.5650s，退出记录50.4514s，runner退出后TCP等待59.8393s。
+安全STOP ACK/站稳；三类接触0、跌倒False、策略全0；DDS/launch/RViz与17组件均0，无PID/端口残留。
+GPU最高61°C/900MiB/51%；无监控或shader错误。此轮无导航目标，不计正式默认排练。
+当前采用NVIDIA MuJoCo+CPU llvmpipe RGB点格，不加载旧MapDisplay shader；地图/costmap输入不改。
+已授权新默认01/02，同一干净源码SHA、同命令、U01/4000；失败不替换、不放宽原0.5s动态判据。
+录像仍MISSING，按troubleshooting人工步骤在W15前完成并填写哈希/播放核验。

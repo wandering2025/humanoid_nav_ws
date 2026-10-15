@@ -46,3 +46,7 @@ DDS退出−6（Bad file descriptor），整体退出未通过，原result标PAS
 两次命令都为 `./scripts/run_demo.sh`，同一干净源码SHA。任何导航失败保留并判W14_BLOCKED，不换seed。
 正式01/02不使用 --startup-check/--headless/--no-rviz；每次独立新PTY，不继承ROS/venv，仍保留原PYTHONPATH。
 记录图形/安全/动态/退出/端口指标。允许并发不要求并发；当前继续单GPU MuJoCo+CPU RViz以减少负载。
+
+替代组合站立check已通过：run 20261015T130850Z_demo_U01_8243f83a-c28e-47af-a8af-963adebac875，
+被测a99a29752545982fd9c42813a2cc8d54f752db9e；final SUCCESS_STARTUP_CHECK，全部进程0、端口可绑定、无shader错误。
+profile晋级GUI_VALIDATED只表示分阶段入口条件满足，不表示两次正式排练或W14已通过。

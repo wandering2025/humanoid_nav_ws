@@ -125,7 +125,7 @@ Visualization Manager:
       Depth: 1
   - Class: rviz_default_plugins/Polygon
     Name: W10 stop zone
-    Enabled: false
+    Enabled: true
     Color: 220; 0; 0
     Topic:
       Value: /safety/stop_zone
@@ -135,7 +135,7 @@ Visualization Manager:
       Depth: 1
   - Class: rviz_default_plugins/Polygon
     Name: W10 slowdown zone
-    Enabled: false
+    Enabled: true
     Color: 230; 160; 0
     Topic:
       Value: /safety/slow_zone

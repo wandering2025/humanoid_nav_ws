@@ -1,19 +1,17 @@
-# W14 当前状态：BLOCKED（NVIDIA分阶段测试已按条件停止）
+# 演示快速开始
 
-首次默认演示启动后出现宿主黑屏和强制重启。后续经用户授权的NVIDIA最小/单窗口/静态T1测试通过，
-完整站立检查发现CPU RViz的GLSL错误，已停止GPU；两次新GUI正式排练未开始。
-[本轮证据](docs/evidence/W14/nvidia-recovery/README.md)。**一行入口已封锁，当前不能用于现场演示。**
-`./scripts/run_demo.sh` 默认图形模式仍返回3；`--preflight`已恢复为内核隔离下的CPU预检。
-`--headless`是CPU辅助路径，唯一完整运行已到达但动态停车判据FAIL，不能替代现场演示。
-见[CPU恢复证据](docs/evidence/W14/cpu-recovery/README.md)；`--help`可查看接口。
+```bash
+./scripts/run_demo.sh
+```
 
-[事故与安全审查](docs/demo/graphics-incident-20261015.md) · [发布清单](docs/demo/release-manifest.md) ·
-[快速开始](docs/demo/quick-start.md) · [现场流程草案](docs/demo/live-demo-runbook.md) ·
-[排障](docs/demo/troubleshooting.md) · [架构与限制](docs/demo/architecture-and-limitations.md) ·
-[讲解提纲](docs/demo/presentation-outline.md)
+当前W14正式排练中，尚未宣布DEMO_READY。NVIDIA MuJoCo与CPU RGB网格RViz的站立、停车、退出和端口核验已通过。
+入口自动加载环境并启动全部组件；到达后保留画面，Ctrl+C安全停车并退出。无需多终端或手工source。
+[快速开始](docs/demo/quick-start.md) · [发布状态/证据](docs/demo/release-manifest.md) · [现场流程](docs/demo/live-demo-runbook.md) ·
+[排障](docs/demo/troubleshooting.md) · [架构限制](docs/demo/architecture-and-limitations.md) · [讲解提纲](docs/demo/presentation-outline.md)
 
-首次W13 **仍FAILED（36/40）**，仅由[用户决策](docs/demo/baseline-decision.md)接受为演示基线。
-两次完整排练、正常安全清理和录像未完成；W15未启动。以下历史开发说明不构成当前启动许可。
+首次W13仍FAILED（36/40）；[用户决策](docs/demo/baseline-decision.md)接受其作为演示基线。
+历史宿主黑屏、CPU动态FAIL及后续检查失败全部保留，见[事故审查](docs/demo/graphics-incident-20261015.md)。
+未改导航/控制/安全/世界参数，不启动W15。以下是历史开发说明，现场启动使用上方唯一入口。
 
 ---
 

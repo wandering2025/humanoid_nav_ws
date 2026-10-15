@@ -6,10 +6,11 @@ case "${1:-}" in
   --help|-h)
     cat <<'HELP'
 Usage: ./scripts/run_demo.sh [--preflight] [--headless] [--no-rviz] [--scenario U01]
-STATUS: W14_BLOCKED for GUI. CPU-isolated --preflight and --headless are available.
-Default GUI remains locked after the host black-screen incident.
+STATUS: staged NVIDIA/CPU RGB display validated; W14 formal rehearsals pending.
+MuJoCo: NVIDIA RTX 4050. RViz: CPU llvmpipe RGB cells (no MapDisplay shader).
 Default: MuJoCo + RViz, frozen formal-v1 U01 seed 4000, A(0,0,0) -> B(9,0,0).
---preflight  Check only; start no ROS/DDS/simulation processes.
+--preflight  CPU resource/environment checks only; no graphics/ROS/DDS processes.
+--startup-check  Bounded standing/stop/exit check; no navigation goal.
 --headless   Disable both GUI windows; automatically exit after result.
 --no-rviz    Keep MuJoCo viewer only.
 --scenario   U01 (or sudden-approach); no automatic seed substitution.

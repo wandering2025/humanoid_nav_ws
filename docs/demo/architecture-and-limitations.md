@@ -19,8 +19,9 @@ headless RTF 0.9999998608211204严格低于1，工程差异小仍记FAIL。
 ROS/MPPI调度非确定性；同机小样本不能外推真机可靠率。W10停止/减速圆1.65/1.95m保持。
 10Hz采样三维全身净距不是连续下界，500Hz接触另计。无硬件安全认证。
 
-当前新增限制：双GUI触发/暴露宿主双显卡TDR；startup与清理未通过，正常进程回收不能阻止宿主驱动挂起。
-第一次排练尚未发导航目标，第二次未运行，不能宣传一行入口已可用。
+当前图形限制：历史双GUI触发/暴露宿主双显卡TDR。已改为明确NVIDIA MuJoCo+CPU llvmpipe RGB点格RViz；
+替代组合站立/停车/退出/端口已通过，完整默认正式排练尚待完成。正常进程回收和监控不能阻止宿主驱动挂起。
+RViz只读原地图/costmap，转换单元格中心与颜色供显示；不改变planner输入。原MapDisplay shader禁用。
 
 不打包外部权重/mesh。冻结Deploy 7bb1462，LICENSE标Apache-2.0并提及IsaacLab BSD-3-Clause；
 Assets 12a9751，BSD-3-Clause。本地文件清单未发现更局部许可证；不是对所有第三方/权重分发权的法律结论。

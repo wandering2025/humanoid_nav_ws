@@ -1,0 +1,12 @@
+[INFO] [1792069764.519584548] [rviz2]: Stereo is NOT SUPPORTED
+[INFO] [1792069764.519681573] [rviz2]: OpenGl version: 4.5 (GLSL 4.5)
+[INFO] [1792069764.567050374] [rviz2]: Stereo is NOT SUPPORTED
+[INFO] [1792069764.634764041] [rviz]: Subscribing to: /t1/viz/global_cells
+
+[INFO] [1792069764.635418488] [rviz]: Subscribing to: /t1/viz/map_cells
+
+[INFO] [1792069764.642100104] [rviz]: Subscribing to: /t1/viz/local_cells
+
+[INFO] [1792069775.509449575] [rviz]: Message Filter dropping message: frame 'odom' at time 13.120 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1792069775.528906571] [rviz]: Message Filter dropping message: frame 'laser_stabilized' at time 13.000 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1792069798.938981992] [rclcpp]: signal_handler(SIGINT/SIGTERM)
