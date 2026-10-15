@@ -1,21 +1,14 @@
-# 5–8分钟现场流程
+# 5–8分钟现场演示
 
-当前 **W14_DEMO_READY_WITH_DDS_TEARDOWN_WARNING**，两次固定默认演示均到达并通过动态判据。
-第二轮原始FAILED不改；发布层只接受严格[DDS关闭例外](dds-teardown-exception.md)。不安排第三轮W14排练，录像交W15。
-先了解[宿主事故与限制](graphics-incident-20261015.md)，不声称监控能保证宿主安全。
+唯一推荐入口：`./scripts/run_demo.sh`。完整操作和应急说明见[quick-start](quick-start.md)。
 
-| 时间 | 拟操作与讲解 |
-|---|---|
-| 0:00–0:30 | “官方策略驱动T1，靠LiDAR感知动态体，安全等待后自主到达。”输入 `./scripts/run_demo.sh`。 |
-| 0:30–1:00 | 指出MuJoCo中的T1/活动实体；RViz的地图、scan、AMCL、全局路径与costmap。目标在就绪后自动发送，无需点击。 |
-| 1:00–2:00 | 障碍在实际走过x=2.9m后接近；解释LiDAR/局部代价变化、Collision Monitor减速落入步态死区而停车、障碍退离后恢复到达。 |
-| 2:00–3:00 | 保留最终双视图讲解目标和实际机器人；该案例演示等待恢复，不冒充强制绕行。 |
-| 3:00–4:00 | 用30–60秒说明四包、单一物理/clock/TF所有者、NavFn+MPPI及完整安全链。 |
-| 4:00–5:00 | 明说理想odom、真值姿态补偿、有限束、平地宽通道、mocap限制；展示W13 36/40 FAILED及四失败。 |
-| 5:00–6:00 | Ctrl+C后看最终独立误差、接触/跌倒、采样净距、退出状态和端口回收。若出现DDS_TEARDOWN_WARNING，指出精确退出码和已保存日志；严格14项门槛全部满足才为SUCCESS_WITH_WARNING。 |
-| 6:00–8:00 | 问答，或使用已验证且明确标记的备用录像。当前FINAL_VIDEO_PENDING_W15，没有可用备用片。 |
+1. **0:00–0:45，提出任务。** “This is a Booster T1 humanoid walking in MuJoCo. It uses simulated LiDAR and ROS 2 navigation to reach B from A while responding to a moving obstacle.” 指出A/B与橙色障碍，说明没有遥控或基座瞬移。
+2. **0:45–2:30，运行一条命令。** 就绪后自动发送目标；MuJoCo看步态与障碍，RViz看地图、scan、局部代价和路径。需要讲解时Alt+Tab切换已有窗口即可。
+3. **障碍接近时。** “The obstacle is detected by ray-cast LiDAR. This scenario demonstrates a protective stop, then autonomous resumption when the route clears.” U01是安全等待再继续，不要把它描述成持续阻塞绕行；B01绕行有独立证据。
+4. **到达时。** 绿色B点、机器人站稳；最终运行误差0.124m/2.22°。默认8秒后自动清理，等终端结果。提前选择`--hold`可保留最终画面。终端最终判断比截图更完整。
+5. **2:30–5:30，解释流程和取舍。** 使用[提纲](presentation-outline.md)讲LiDAR→定位/代价地图→规划→速度安全链→策略/动力学；解释步态死区、姿态补偿、唯一TF/time/command owner，以及图形退出生命周期。
+6. **5:30–7:00，证据与限制。** 给出最终运行/录像SHA；披露理想odom、无动态预测、平地原型与W13 36/40 FAILED。关闭DDS异常仅在严格14条件下接受警告，不说“所有异常都可以忽略”。
 
-实际机器人导航预期约一分钟，其余时间用于讲解；不放慢物理或篡改/clock来凑时长。
-默认加载先前真实SLAM地图，不声称现场重新建图。任何失败保留run，不换seed重跑冒充首次通过。
-“为什么不是100%？”：首次固定40例36到达，4例启动/action确认或末端收敛失败；样本零碰撞/跌倒
-不是保证。用户接受演示基线，不等于可靠性或安全认证。新出现的宿主图形事故另行披露。
+若演示异常，Ctrl+C等待安全清理；出现图形错误不要重试或改驱动，播放[已验证录像](../evidence/W15/raw/recovery/final-recording-02/demo.mp4)。说明这是发布实现的一次真实记录，不是当前现场成功。录像不含声音，演示者自行讲解。
+
+本版本已完成受控恢复；旧W15阻塞和原始失败仍在[历史审查](../results/w15-original-blocked-review.md)。不创建W16。

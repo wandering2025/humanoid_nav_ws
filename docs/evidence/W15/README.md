@@ -1,3 +1,9 @@
+# 当前W15：受控恢复发布通过
+
+**DEMO_RELEASE_READY_WITH_KNOWN_LIMITATIONS**。见[恢复证据索引](recovery/README.md)和[当前发布清单](../../demo/release-manifest.md)。以下原阻塞说明完整保留为历史。
+
+---
+
 # W15 evidence — FINAL_RELEASE_BLOCKED
 
 This directory contains genuine passes and failures; it is not a successful release record.

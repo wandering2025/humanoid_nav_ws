@@ -1,46 +1,21 @@
 # 架构与已知限制
 
-当前 **W14_DEMO_READY_WITH_DDS_TEARDOWN_WARNING**；严格[DDS关闭例外](dds-teardown-exception.md)不代表修复DDS或认证安全。历史[宿主图形事故](graphics-incident-20261015.md)仍保留。
+当前 **DEMO_RELEASE_READY_WITH_KNOWN_LIMITATIONS**，依据[最终审查](../results/final-review.md)。固定U01演示已验证，W13正式FAILED不变；不是生产级可靠性或硬件安全认证。
 
-MuJoCo唯一物理owner以2ms推进接触动力学，20ms执行官方t1_walk策略；不编辑基座伪造行走。
-真实9×360射线生成scan；AMCL在已有SLAM图上定位且独占map→odom。NavFn全局规划，
-RotationShim+MPPI跟踪，经适配器→gate→smoother→Collision Monitor→只减不增bridge→策略。
-动态mocap实体进入射线与碰撞；规划器只读scan/costmap，不读实体真值或未来轨迹。
-评测器独立读取truth；离线独立模型重放不驱动现场机器人。详见[导航契约](../architecture/navigation.md)。
+MuJoCo唯一物理owner以2ms推进接触动力学，20ms执行官方t1_walk策略和关节PD；不编辑基座来行走。9×360几何射线生成scan，真实动态实体进入射线与碰撞。SLAM Toolbox生成并保存地图；当前AMCL独占map→odom，理想odom提供odom→base_footprint。NavFn与RotationShim/MPPI经适配器→gate→smoother→Collision Monitor→只减不增bridge→策略。规划器不读取障碍真值或未来轨迹；评测器独立用真值判定。
 
-首次W13仍FAILED：static10/10、crossing8/10、blocking8/10、sudden10/10，总36/40，
-环境碰撞/跌倒0；C01启动定位、C09 action/服务确认超时、B04/B06末端过冲/收敛失败。
-headless RTF 0.9999998608211204严格低于1，工程差异小仍记FAIL。
-原[评测](../results/evaluation.md)/[性能](../results/performance.md)不改，
-仅[用户决策](baseline-decision.md)允许W14使用该失败基线。
+A/B标记仅在独立viewer副本的user_scn与只读RViz MarkerArray中存在。它们不进入MjModel、碰撞、LiDAR、地图、costmap或导航结果判定。显示模型的简单颜色/已有headlight不改变物理模型。恢复版保留W14跟随与close+join，放弃原W15网格/全路线相机/ctypes窗口管理/自动双窗录像；录像是独立ImageMagick抓图，关闭仿真后CPU编码。
 
-限制：理想truth odom、真值姿态补偿、默认无噪声、有限垂直束会漏检束间/高度外物体；
-平地宽通道（规划半径2.05m）、不可推开的mocap、反应式避障无动态预测；低速死区/停车偏航回弹；
-ROS/MPPI调度非确定性；同机小样本不能外推真机可靠率。W10停止/减速圆1.65/1.95m保持。
-10Hz采样三维全身净距不是连续下界，500Hz接触另计。无硬件安全认证。
+U01的避障方式是安全等待后继续，保护区实际静止7.08s；不是持续阻塞绕行。独立B01恢复检查有真实绕行，先前一次B01超时也完整保留。冻结阈值未降低，W10停止/减速圆仍1.65/1.95m。
 
-当前图形限制：历史双GUI触发/暴露宿主驱动TDR与黑屏；现在MuJoCo和RViz明确绑定NVIDIA RTX4050，WSLg仍是Mesa/D3D12。
-RViz RGB点格薄宿主按Qt线程顺序销毁显示和ROS context；最小和两次完整退出均0，但原−6的精确堆破坏对象未证明。
-第二轮DDS关闭后外部libfastrtps.so.2.14.7 TCP线程SIGSEGV−11未修复，严格门槛满足时仅列关闭警告，原FAILED不改。
-无新增Windows显示事件/LiveKernelEvent141或WSLg RemovingDevice/Pagefault；kernel仍有dxg adapter-query ioctl−22/−2，未证明无害。
-正常进程回收和监控不构成宿主故障隔离保证，不能承诺绝对安全；新图形故障仍锁存并停止，不自动重试。
-RViz只读原地图/costmap，转换单元格中心与颜色供显示；不改变planner输入，原MapDisplay shader禁用。
-录像FINAL_VIDEO_PENDING_W15，无已验证备用片。本次不执行W15。
+已知限制：理想truth odom、真值姿态补偿、有限垂直束/默认零噪声、宽平走廊、不可推开的mocap障碍、反应式避障无预测、策略低速死区与停车偏航回弹、ROS/MPPI调度非确定性。10Hz三维全身净距不是连续下界，接触另按500Hz物理步检查。
 
-不打包外部权重/mesh。冻结Deploy 7bb1462，LICENSE标Apache-2.0并提及IsaacLab BSD-3-Clause；
-Assets 12a9751，BSD-3-Clause。本地文件清单未发现更局部许可证；不是对所有第三方/权重分发权的法律结论。
-按[固定来源](../../dependencies.repos)获取，分享时保留版权/许可说明；本次不重新分发这些资产。
-[资产清单](../baseline/assets-manifest.md)。
+W13仍FAILED：static10/10、crossing8/10、blocking8/10、sudden10/10，共36/40，碰撞0/跌倒0。C01启动定位、C09 action/服务确认超时、B04/B06末端收敛失败保留；headless中位RTF0.9999998608211204严格低于1的原判定也不改。[原评测](../results/evaluation.md)。
 
+图形仍使用本机WSLg Mesa/D3D12的NVIDIA RTX4050适配器，没有转用Intel、安装驱动或改变系统显示。恢复后未出现新的gdrv/libnv崩溃、WSLg设备丢失或Windows显示事件，但已有dxg adapter/feature查询−22/−2日志持续存在，不能宣称普遍无害。旧W15SIGSEGV、历史黑屏和RViz异常退出证据均保留。新故障会锁存，禁止自动重试；监控不是宿主故障隔离保证。
 
-CPU续作：在任何runtime导入前用Landlock禁止GPU设备read/write/ioctl，子进程exec继承；
-不探测CUDA、不创建窗口。原官方策略本就在CPU，Nav2/物理/安全参数不变。
-唯一辅助run已到达、零接触/跌倒、stop和正常退出通过；保护区连续静止0.42s不足冻结0.5s，
-整轮仍FAIL。CPU辅助原FAIL不变。GUI最新到达/动态通过但RViz异常退出；两次默认验收及录像仍未完成。
+DDS外部Fast DDS2.14.7关闭缺陷未修复。恢复录制尝试01在期望SIGINT后退出−11，全部14门槛满足，分类为SUCCESS_WITH_WARNING；最终录像运行所有组件退出0。[例外全文](dds-teardown-exception.md)不变，运行期通信、导航/安全、其他组件或宿主图形错误不能套用。
 
-本轮最新阻塞：CPU RViz退出原生堆损坏（−6），具体库/线程根因未定位。当前GUI再次锁定，停止扩载且未自动重试。
-本轮Windows查询无匹配新驱动/异常断电事件，不足以排除底层驱动因素。30项非图形回归检查不证明再次渲染安全。
+录像77.125s，1024×736/8fps，真实抓取418帧，以重复最近帧保留墙钟时间，没有加速；末尾8s为明确标注的运行后结果卡，没有音频。无额外媒体播放器GPU负载；用软件完整解码和关键帧视觉检查验证。环境为现有本机安装，原片/原始trace保持ignored并由哈希索引追溯，不声称克隆仓库即可在任意GPU/空白系统运行。
 
-最新严格授权结果：仓库本地RViz薄宿主在ROS context有效时逐个销毁显示，再shutdown ROS和frame，明确NVIDIA，15Hz显示。
-唯一最小+两轮RViz均0；两轮导航/dynamic均PASS，但第二轮DDS TCP线程关闭SIGSEGV−11。当前blocker为DDS生命周期；
-精确RViz破坏堆对象仍未知，不把三次退出0当作根因单因素证明。内核dxg ioctl−22/−2也如实披露，未证明无害。
+不重新分发外部权重和mesh；固定来源见[dependencies](../../dependencies.repos)与[资产清单](../baseline/assets-manifest.md)。冻结外部仓库未修改。旧W15[阻塞审查](../results/w15-original-blocked-review.md)、[阻塞发布清单](w15-original-blocked-manifest.md)完整保留。

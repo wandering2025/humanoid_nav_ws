@@ -1,3 +1,48 @@
+# W15 最终发布清单：DEMO_RELEASE_READY_WITH_KNOWN_LIMITATIONS
+
+唯一推荐入口：`./scripts/run_demo.sh`。本段为当前权威发布状态；下方W14为历史快照。
+
+| 项目 | 标识 |
+|---|---|
+| 恢复分支 / 发布tag | release/w15-controlled-recovery / demo-v0.1.0 |
+| W14恢复起点 | e916d0db2a10b1728c1421264336564884e3d7ea |
+| 原W15失败分支与HEAD | release/w13-formal-v1-demo / 37a765c3677b258d04e6bb413570088b1d77a482，完整保留 |
+| 最终实现/发布状态SHA | 21df4b116f0e987690c6288e400c7fa0e45a65b5 |
+| 最终证据SHA | 945eb32bd774a206743ab6d06432c6024bb0504a |
+| 录像实际被测干净SHA | 127a1e7672f72616de728c84f41701669a41f1c9 |
+| 最终演示运行ID | 20261015T155946Z_demo_U01_79a6bb62-5b16-427f-986d-eb23df9a93c1 |
+| 发布tag目标 | 最终交接提交；`git rev-parse demo-v0.1.0^{commit}`读取完整SHA |
+
+录像之后仅更新shell帮助STATUS一行及profile的说明性release_status；所有src、实际启动/停止逻辑、渲染生命周期、录像工具均与被录版本一致，见[等价审计](../evidence/W15/recovery/publication-equivalence.json)。最终tag还包含证据、文档和交接；不把不同版本的录像冒充此次运行。
+
+[最终演示录像](../evidence/W15/raw/recovery/final-recording-02/demo.mp4)：`docs/evidence/W15/raw/recovery/final-recording-02/demo.mp4`，1896620 bytes，SHA256 `9980c060692af05c26f6ed83ac2a3a5b5dd88935a4cc72de8fdd1966470e0df0`。1024×736，8fps，77.125s，无音频；617/617帧CPU解码、关键帧人工视觉检查PASS。418份原始抓图保持原样；69.125s连续实时窗口画面后加8s明确标注的运行后证据卡，不加速、不替换动作。
+
+| 最终运行检查 | 实测 |
+|---|---|
+| 导航 / 动态判据 | SUCCESS / PASS，U01/4000，46.4sim s到验证目标 |
+| 终点误差 | 0.123586349m / 2.216213678° |
+| 保护区实际静止 | 7.08sim s；障碍退出后安全恢复 |
+| static / obstacle / nonfoot contacts；跌倒 | 0 / 0 / 0；false |
+| 安全停车 | ACK=true，physical_stationary=true |
+| MuJoCo / RViz / launch / DDS / goal | 全部退出0；全部launch组件0 |
+| 残留/端口 | 无任务进程；42127–42133均可bind |
+| GPU | 49–64°C，998–1390MiB，5–63%利用率；无新增图形/宿主显示故障 |
+| 身体净距 | 1.444234181m，10Hz采样，非连续保证 |
+
+[原始最终result](../../run_data/demo/20261015T155946Z_demo_U01_79a6bb62-5b16-427f-986d-eb23df9a93c1/final-result.json) · [汇总](../evidence/W15/recovery/final-summary.json) · [录像核验](../evidence/W15/recovery/video-review.json)。
+截图：[A与MuJoCo](../../run_data/demo/20261015T155946Z_demo_U01_79a6bb62-5b16-427f-986d-eb23df9a93c1/ready-mujoco.png)、[A/B与RViz](../../run_data/demo/20261015T155946Z_demo_U01_79a6bb62-5b16-427f-986d-eb23df9a93c1/ready-rviz.png)、[B到达](../../run_data/demo/20261015T155946Z_demo_U01_79a6bb62-5b16-427f-986d-eb23df9a93c1/arrived-mujoco.png)、[到达RViz](../../run_data/demo/20261015T155946Z_demo_U01_79a6bb62-5b16-427f-986d-eb23df9a93c1/arrived-rviz.png)。
+
+验证顺序与失败均保留：CPU四包构建、186测试、受影响55测试；B01唯一对照SUCCESS；一次生产入口最小站立GUI SUCCESS_STARTUP_CHECK；一次完整U01 SUCCESS；录像尝试01演示SUCCESS_WITH_WARNING但抓图过早0帧；修正独立capture就绪等待后的最终录像运行SUCCESS。没有重试原SIGSEGV的自定义静态checker，没有更改驱动、依赖或安全/导航参数。录制失败不是图形渲染崩溃，之后同次ready截图与组件退出均正常。全部记录见[恢复证据](../evidence/W15/recovery/README.md)。
+
+原W15的FINAL_RELEASE_BLOCKED判断和全部失败见[原审查](../results/w15-original-blocked-review.md)、[原清单](w15-original-blocked-manifest.md)；原155份raw哈希复核未变。恢复699份raw文件另建哈希索引，不覆盖原记录。外部deploy/assets仍固定原SHA且clean，未push或改写历史。
+
+W13仍 **FAILED**：static10/10、crossing8/10、blocking8/10、sudden approach10/10，共36/40，碰撞0/跌倒0。此次不开展新可靠性研究。U01演示安全等待再继续；B01真实绕行仅有独立测试证据，不把U01写作持续阻塞绕行。
+理想odom、真值姿态、无噪声有限束、平地宽走廊、mocap动态障碍、无预测、非确定性和非认证安全限制继续披露；WSLg故障风险与已存在dxg查询诊断未被证明消除。[DDS例外](dds-teardown-exception.md)14项不变，最终录像本身没有DDS警告。
+
+[操作说明](quick-start.md) · [演示流程](live-demo-runbook.md) · [最终审查](../results/final-review.md)。W15完成后Task2开发结束，无W16或未定义续作。
+
+---
+
 # W14 发布清单：W14_DEMO_READY_WITH_DDS_TEARDOWN_WARNING
 
 当前权威发布状态；下方旧清单是历史快照，原始FAILED文件与所有日志/索引未覆盖。W13继续FAILED，W15未启动。

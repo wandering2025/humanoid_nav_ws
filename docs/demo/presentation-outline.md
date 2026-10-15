@@ -1,17 +1,35 @@
-# 求职讲解提纲
+# Presentation notes
 
-当前W14_DEMO_READY_WITH_DDS_TEARDOWN_WARNING；求职演示发布，含明确关闭警告，不是稳定性认证。
+“This demo uses the Booster T1, MuJoCo, simulated LiDAR, and ROS 2 Jazzy. The robot walks through contact dynamics using an official pretrained locomotion policy. There is no base-pose animation or teleoperation.”
 
-- 目标：官方策略+接触动力学的T1，以真实仿真LiDAR感知动态障碍，自主A→B。
-- 展示：MuJoCo步行/实体；RViz地图、scan、AMCL、全局路径、局部costmap与安全状态。
-- 架构：四包；AMCL+NavFn/MPPI；命令整形在安全过滤前；唯一clock/TF/命令owner。
-- 安全：gate→smoother→CM→只减不增bridge，失联停车；不将软件仿真称为认证。
-- 证据：W13正式36/40 FAILED，四失败保留；固定U01是演示，不是新随机统计。
-- 限制：理想odom/姿态补偿、有限束、平地宽通道、mocap、无预测、步态死区/回弹。
-- 工程限制：历史黑屏、CPU失败、RViz−6及DDS−11均保留。新RViz最小与两次完整均0；两次均到达并安全停车。
-- 第二轮原FAILED保持；发布解释为NAVIGATION_SUCCESS / SAFETY_PASS / DDS_TEARDOWN_WARNING。DDS−11只发生在预期关闭后，其他组件全0、无强杀或残留，按14项门槛接受警告；不声称外部DDS已修复。
-- 录像FINAL_VIDEO_PENDING_W15；本次没有新增GPU/GUI运行，未启动W15。
+**What the audience sees.** Start at the cyan A marker, walk toward green B, observe an orange obstacle approaching the route, safely wait, resume after clearance, and stand at B. U01 demonstrates reactive stop-and-resume. It is not the sustained-blocking detour case. The independent B01 control separately demonstrated a physical detour.
 
-“为什么不是100%？”：启动/通信和末端收敛仍有失败。用户接受演示基线不改变统计结论，
-不应以精选场景代替可靠性声明。“是否建图？”：图来自先前真实LiDAR/SLAM，默认加载图做AMCL。
-“是否真机安全？”：没有真机验证或安全认证。“是否预测动态轨迹？”：没有。
+```mermaid
+flowchart LR
+  Physics[MuJoCo T1 dynamics] --> Rays[Body-fixed LiDAR rays]
+  Rays --> Scan[Attitude-compensated scan]
+  Scan --> AMCL[AMCL on saved SLAM map]
+  Scan --> Costs[Obstacle costmaps]
+  AMCL --> Nav[NavFn + RotationShim / MPPI]
+  Costs --> Nav
+  Nav --> Adapter[Velocity adapter and command gate]
+  Adapter --> Smooth[Velocity smoother]
+  Smooth --> CM[Collision Monitor]
+  CM --> Bridge[Only-reducing bridge / watchdog]
+  Bridge --> Policy[Official policy + joint PD]
+  Policy --> Physics
+```
+
+**Why these choices.** MuJoCo gives actual biped contact dynamics with an already available T1 policy. ROS 2/Nav2 separates localization, planning and protective command handling. The map was produced from simulated LiDAR using SLAM Toolbox; the live demo loads that map and uses AMCL. It does not run live SLAM and AMCL as competing map→odom owners.
+
+**Perception and information boundaries.** The scanner casts 9 × 360 geometric rays against the actual environment, including mocap obstacle geometry. Attitude compensation removes body tilt for planar navigation. The planner receives scan/costmaps, not obstacle truth or future trajectories. Ground truth is used for ideal odometry, attitude compensation and independent evaluation; these are explicit simulation simplifications.
+
+**Practical challenges.** The walking policy has a low-speed deadband and imperfect yaw/stop response. Command adaptation happens before final collision filtering; the last bridge cannot turn zero into motion or increase a safety-limited command. Watchdogs handle stale commands and scans. Separate physical and viewing state prevent mouse/camera operations from moving the robot. The recovered graphics path uses the proven production close/join lifecycle, restrained annotations and independent CPU recording.
+
+**Measured result.** Final recorded run: 46.4 simulated seconds from accepted navigation to verified goal, position error0.124m, yaw error2.22°, actual protective hold 7.08 s, zero contacts/falls, safety stop and complete cleanup, all component exits 0. The 1.444m minimum body clearance is sampled at10Hz, not a continuous guarantee.
+
+**Honest limits.** Ideal odometry; truth attitude; finite, default noiseless beams; flat wide corridors; kinematic obstacles; no motion prediction; timing-sensitive planning/gait behavior; no physical robot or certified safety validation. W13 remains FAILED: static 10/10, crossing 8/10, blocking 8/10, sudden approach 10/10, total 36/40. The W15 B01 timeout is retained; a single unchanged-case recovery control passed, so no deterministic regression was reproduced and no new reliability rate is claimed.
+
+**Engineering evidence.** The first W15 static checker crashed in NVIDIA's user-mode library. That failed custom path was not reused; the original branch and evidence remain. The recovered production chain passed a standing stage and complete demonstrations. One recording attempt captured zero frames before window readiness; that failure is retained and the corrected recorder waits for completed screenshots. DDS can still exit−11 during expected teardown; only the existing14-condition exception can classify that warning. Monitoring is not host fault isolation.
+
+[Release identifiers and movie](release-manifest.md) · [Architecture constraints](architecture-and-limitations.md).

@@ -2,31 +2,26 @@
 ./scripts/run_demo.sh
 ```
 
-**W14_DEMO_READY_WITH_DDS_TEARDOWN_WARNING**。这是唯一推荐的完整现场入口，默认 GUI 已解除本次 DDS-only 封锁。
-脚本自动定位仓库、加载 Jazzy/当前 overlay/既有 venv，检查资源/端口/遗留进程，启动 DDS、MuJoCo/T1、
-真实 LiDAR、AMCL、Nav2、安全链、动态障碍和 NVIDIA RViz；真实就绪后自动发送 A→B，无需多终端或手动 source。
-在其他 cwd 可直接执行 `/home/haoyang/humanoid_nav_ws/scripts/run_demo.sh`。
+**DEMO_RELEASE_READY_WITH_KNOWN_LIMITATIONS**。在 Ubuntu-24.04 的 `/home/haoyang/humanoid_nav_ws` 中执行这一条命令。无需手动启动DDS、source多个终端、点击目标或驱动机器人。
 
-到达后安全停车并保留双窗口供讲解；按 Ctrl+C 正常结束，等待独立摘要和端口冷却完成再关闭终端。
-日志/原始 result/独立 final-result 保存在 `run_data/demo/<run_id>/`；物理记录在 `run_data/<run_id>/`，均 ignored。
+默认固定U01/seed4000，A(0,0,0)→B(9,0,0)。脚本加载既有ROS Jazzy/overlay/venv，先启动MuJoCo与安全/导航，再启动RViz；就绪后自动导航。橙色障碍接近路线，机器人安全等待，障碍退开后继续到绿色B点。
 
-**DDS_TEARDOWN_EXCEPTION** 只接受完成后的关闭警告，全部条件见[独立发布决策](dds-teardown-exception.md)：
+- MuJoCo：青色A START、绿色B GOAL；真实T1步行，跟随视角。
+- RViz：SLAM生成的地图、红色LiDAR点、蓝色规划路径、局部障碍代价、安全边界和A/B。窗口重叠时可用Alt+Tab切换，不需要第二条启动命令。
+- 正常结束：到达后安全停车，保留画面8秒，再自动关闭登记进程。等待终端显示 `Final SUCCESS` 或符合严格条件的 `SUCCESS_WITH_WARNING`。TCP端口冷却另需至多65秒，不要提前关闭终端。
+- 讲解需要更久时可使用 `--hold`，最终画面保留到Ctrl+C。
+- 紧急停止：在启动终端按一次 **Ctrl+C**，等待锁存停车、物理静止、进程清理。不要用全局pkill杀ROS/Python，不要直接关终端。
+- 新图形故障会锁存并停止；不要删除锁或自动重试。现场改用下面的已验证录像，保存日志。
 
-- 必须已导航 SUCCESS、动态判据 PASS、零碰撞/跌倒，安全停车 ACK 与物理静止均完成。
-- 目标工具、launch、MuJoCo、RViz、navigation_starter 与所有机器人组件均退出0；DDS运行期未死亡、ROS通信未中断，且只在预期SIGINT之后退出。
-- DDS日志、哈希及真实退出码均保存；不需SIGTERM/SIGKILL；DDS PID消失、端口释放、无项目残留、无宿主图形故障或黑屏。
-- 此时终端醒目显示 `DDS_TEARDOWN_WARNING dds_returncode=-11`（示例），整体返回成功；JSON仍保留真实非零退出码。
+CPU预检接口为 `./scripts/run_demo.sh --preflight`；它不启动仿真或GPU。入口不安装/升级依赖，不改变驱动或显示设置。适用环境是本机已冻结的Ubuntu-24.04/WSLg/NVIDIA RTX4050配置；并非空白系统安装器。
 
-任何缺项、运行期DDS死亡/通信丢失、导航或停车失败、其他组件异常、强杀、残留、宿主故障仍为 FAILED，不自动重试。
-第二轮原始 FAILED/−11 永久保留；新汇总为 NAVIGATION_SUCCESS / SAFETY_PASS / DDS_TEARDOWN_WARNING，详见[清单](release-manifest.md)。
+[最终录像](../evidence/W15/raw/recovery/final-recording-02/demo.mp4)：77.125秒，1024×736、8fps H264，无音频，1896620 bytes。617/617帧软件解码及关键画面检查通过。
+SHA256 `9980c060692af05c26f6ed83ac2a3a5b5dd88935a4cc72de8fdd1966470e0df0`。
+录像前69.125秒是同一次运行的连续真实窗口抓取、保持墙钟时间；最后8秒明确标注为运行后证据卡。RViz独立截图在[证据清单](release-manifest.md)。
 
-本机依赖见[环境定位](../plans/t1_mujoco_navigation/环境定位.md)。不自动安装/升级，不改变驱动或系统设置。
-MuJoCo和RViz明确选择NVIDIA RTX4050，WSLg实际使用Mesa/D3D12 NVIDIA；策略保持CPU。
-RViz使用RGB点格和Qt线程正常析构薄宿主，禁用原MapDisplay shader。监控不是宿主故障隔离保证，原黑屏事故仍披露。
+最终录像运行 `20261015T155946Z_demo_U01_79a6bb62-5b16-427f-986d-eb23df9a93c1`：SUCCESS、动态PASS、碰撞0/跌倒0、停车/清理通过，全部组件退出0。日志位于 `run_data/demo/<run_id>/`，物理trace位于 `run_data/<run_id>/`，原始数据均ignored并有Git追踪的哈希索引。
 
-辅助接口：`--help`、`--preflight`（CPU资源检查，不启动ROS/DDS/图形）、`--headless`、`--scenario U01`、`--no-rviz`。
-固定formal-v1 U01/seed4000，A(0,0,0)→B(9,0,0)，是成功固定演示，不是40例评测或随机可靠率统计。
-已有两轮约30–42秒至ready，任务46.66–47.30秒仿真时间；保留最终画面后Ctrl+C，TCP冷却可另需约60秒（最多65秒）。
-首次W13仍FAILED：36/40、crossing/blocking各8/10、严格headless RTF略低于1。首次黑屏、CPU失败、RViz−6、DDS−11证据均保留。
-录像 **FINAL_VIDEO_PENDING_W15**，尚无已核验可播放备用片；本次不启动W15或新增GUI排练。
-[5–8分钟流程](live-demo-runbook.md) · [排障](troubleshooting.md) · [架构限制](architecture-and-limitations.md)。
+已批准的[DDS关闭例外](dds-teardown-exception.md)保持全部14项条件，真实退出码仍保存，终端必须显示警告。运行期DDS、导航、停车、其他组件或宿主图形故障均不能归入该例外。
+W13正式 **FAILED/36/40** 不变；本版本是固定场景演示，不是可靠性认证。
+
+[演示流程](live-demo-runbook.md) · [讲解提纲](presentation-outline.md) · [架构与限制](architecture-and-limitations.md) · [完整版本清单](release-manifest.md)。

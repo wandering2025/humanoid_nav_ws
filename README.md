@@ -1,3 +1,17 @@
+# Booster T1 一行启动演示
+
+```bash
+./scripts/run_demo.sh
+```
+
+**DEMO_RELEASE_READY_WITH_KNOWN_LIMITATIONS** · `release/w15-controlled-recovery` · `demo-v0.1.0`。固定U01：T1在MuJoCo中用LiDAR与ROS2导航从A到B，遇动态障碍安全等待后继续，到达后自动停车和清理。
+
+[操作说明](docs/demo/quick-start.md) · [最终录像](docs/evidence/W15/raw/recovery/final-recording-02/demo.mp4) · [发布清单](docs/demo/release-manifest.md) · [技术讲解](docs/demo/presentation-outline.md) · [审查与限制](docs/results/final-review.md)。
+
+最终运行SUCCESS、碰撞0/跌倒0、全部组件退出0。W13仍FAILED36/40；原W15失败分支/证据保留。以下W14入口说明为历史，当前默认到达后8秒自动结束，精确操作以链接为准。
+
+---
+
 # 演示快速开始
 
 ```bash

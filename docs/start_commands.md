@@ -1,3 +1,5 @@
+> **W15最终发布：DEMO_RELEASE_READY_WITH_KNOWN_LIMITATIONS。** 唯一推荐命令 `./scripts/run_demo.sh`；恢复分支 `release/w15-controlled-recovery`，tag `demo-v0.1.0`。到达后安全停车，保留8秒再自动清理，紧急停止Ctrl+C。见[操作说明](demo/quick-start.md)、[录像与完整SHA](demo/release-manifest.md)。以下既有笔记完整保留。
+
 > W01 说明（2026-10-13）：以下为既有启动说明。当前版本与复核以 docs/baseline/environment.md 为准；工作目录仅确定开发上下文，工具权限由 sandbox 控制。后续 ROS launch 尚未实现。
 
 对，现在不需要让 Codex 或 DeepSeek继续安装东西。环境已经达到开发条件。继续追加 setup 只会增加版本冲突风险。
