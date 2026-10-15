@@ -576,5 +576,25 @@
     },
     "evidence": "docs/evidence/W11R1/raw/w11r1-h4-dev-v1/20261015T064841Z_w11r1-h4-dev-v1_B04_s3003_de3f4d/result.json",
     "remaining_owned_pids": []
+  },
+  {
+    "hypothesis": "H5 active bond shutdown",
+    "code_sha": "996f36ae9f5ee61c3bb27c71268052dfbb858e4d",
+    "campaign": "w11r1-repair-smoke-v1",
+    "qualification": "REJECTED_EXIT",
+    "arrival_success": [
+      "C01",
+      "C09"
+    ],
+    "interrupted": [
+      "B04"
+    ],
+    "not_run": [
+      "B06"
+    ],
+    "reason": "active bond destroyed after context shutdown: both bounded managers exit -6; arrival success alone insufficient",
+    "remaining_owned_pids": [],
+    "fix": "pre-shutdown cleanup while context valid, cancel finite pending RPC, serialize bond/control teardown",
+    "test": "test_sigint_with_formed_bond_exits_cleanly; three real ROS tests passed in 14.84s"
   }
 ]

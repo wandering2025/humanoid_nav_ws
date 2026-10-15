@@ -13,6 +13,8 @@ from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.node import Node
 from lifecycle_msgs.srv import GetState, ChangeState
 from nav2_msgs.srv import ManageLifecycleNodes
+from bond.msg import Status
+from std_msgs.msg import Header
 
 
 @pytest.fixture
@@ -45,10 +47,12 @@ def manager(tmp_path):
         assert client.wait_for_service(timeout_sec=10.)
         return client
 
+    start.processes = processes
     yield node, start
     for proc, output in processes:
-        os.killpg(proc.pid, signal.SIGINT)
-        proc.wait(timeout=10.)
+        if proc.poll() is None:
+            os.killpg(proc.pid, signal.SIGINT)
+            proc.wait(timeout=10.)
         output.close()
     executor.shutdown(timeout_sec=5.)
     thread.join(timeout=5.)
@@ -63,6 +67,7 @@ def manager(tmp_path):
             os.environ.pop(k, None)
         else:
             os.environ[k] = v
+    assert all(proc.returncode == 0 for proc, _ in processes)
 
 
 def response(future, seconds=25.):
@@ -109,3 +114,41 @@ def test_missing_lifecycle_service_returns_failure_instead_of_hanging(manager):
     begin = time.monotonic()
     assert not response(client.call_async(ManageLifecycleNodes.Request(command=0))).success
     assert time.monotonic()-begin < 15.
+
+
+def test_sigint_with_formed_bond_exits_cleanly(manager):
+    """Exercise actual bond handshake and OS shutdown, not an unactivated stub."""
+    node, start = manager
+    state = {'value': 1, 'active': True}
+
+    def get(req, res):
+        res.current_state.id = state['value']
+        return res
+
+    def change(req, res):
+        state['value'] = {1: 2, 3: 3, 4: 2}[req.transition.id]
+        res.success = True
+        return res
+
+    node.create_service(GetState, '/w11r1_stub/get_state', get)
+    node.create_service(ChangeState, '/w11r1_stub/change_state', change)
+    publisher = node.create_publisher(Status, '/bond', 10)
+
+    def heartbeat():
+        publisher.publish(Status(header=Header(
+            stamp=node.get_clock().now().to_msg()), id='w11r1_stub',
+            instance_id='w11r1_test_peer', active=state['active'],
+            heartbeat_timeout=4., heartbeat_period=.1))
+
+    def peer(msg):
+        if msg.id == 'w11r1_stub' and msg.instance_id != 'w11r1_test_peer' and not msg.active:
+            state['active'] = False
+            heartbeat()
+
+    node.create_subscription(Status, '/bond', peer, 10)
+    node.create_timer(.05, heartbeat)
+    client = start('w11r1_stub')
+    assert response(client.call_async(ManageLifecycleNodes.Request(command=0))).success
+    proc, _ = start.processes[-1]
+    os.killpg(proc.pid, signal.SIGINT)
+    assert proc.wait(timeout=5.) == 0

@@ -27,6 +27,10 @@ remaining = result['run']['remaining_owned_pids']
 contacts = result['run']['manifest'].get('contact_counts', {})
 assert not remaining, remaining
 assert not any(contacts.values()), contacts
-assert result['run']['manifest'].get('final_state') != 'FALLEN'
+trace = module.load_trace(result['run']['run_id'])
+result['repair_checks'] = dict(no_fall_or_fault=not any(
+    state in ('FALLEN', 'FAULT') for state in trace['state']),
+    no_contacts=not any(contacts.values()), no_remaining_processes=not remaining)
+result['verdict'] = 'PASS' if result['verdict'] == 'PASS' and all(result['repair_checks'].values()) else 'FAIL'
 (out/'result.json').write_text(json.dumps(result, indent=2)+'\n')
 raise SystemExit(0 if result['verdict'] == 'PASS' else 1)

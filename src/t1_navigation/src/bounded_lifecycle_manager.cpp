@@ -1,8 +1,10 @@
 // W11R1: finite, state-reconciled lifecycle RPCs. No velocity or TF ownership.
 // Retains Nav2's 4 s bond / 0.1 s heartbeat contract for localization/navigation.
 #include <chrono>
+#include <atomic>
 #include <map>
 #include <memory>
+#include <mutex>
 #include <string>
 #include <vector>
 #include "bondcpp/bond.hpp"
@@ -38,6 +40,8 @@ public:
     stop_ = create_client<std_srvs::srv::Trigger>("/t1/safety/stop");
     service_ = create_service<Manage>(std::string(get_name()) + "/manage_nodes",
       [this](const Manage::Request::SharedPtr request, Manage::Response::SharedPtr response) {
+        std::lock_guard<std::mutex> lock(control_mutex_);
+        if (closing_) {response->success = false; return;}
         if (request->command == Manage::Request::STARTUP && !failed_) {
           response->success = active_ || startup();
         } else if (request->command == Manage::Request::SHUTDOWN) {
@@ -49,10 +53,13 @@ public:
       }, rclcpp::ServicesQoS(), control_group_);
     status_ = create_service<std_srvs::srv::Trigger>(std::string(get_name()) + "/is_active",
       [this](std_srvs::srv::Trigger::Request::SharedPtr, std_srvs::srv::Trigger::Response::SharedPtr r) {
+        std::lock_guard<std::mutex> lock(control_mutex_);
         r->success = active_; r->message = failed_ ? "FAILED_RESTART_REQUIRED" : "";
       }, rclcpp::ServicesQoS(), control_group_);
     // Bonds run in a separate callback group while finite lifecycle calls execute.
     tick_ = create_wall_timer(200ms, [this]() {
+      std::lock_guard<std::mutex> lock(control_mutex_);
+      if (closing_) {return;}
       if (autostart_) {autostart_ = false; startup();}
       if (active_) {
         for (const auto & entry : bonds_) {
@@ -63,6 +70,21 @@ public:
         }
       }
     }, control_group_);
+    // Bond destruction creates its disconnect timer. It must happen before
+    // rcl_shutdown invalidates the context, including on asynchronous SIGINT.
+    pre_shutdown_ = get_node_base_interface()->get_context()->add_pre_shutdown_callback([this]() {
+      closing_ = true;
+      tick_->cancel();
+      rpc_executor_.cancel();
+      std::lock_guard<std::mutex> lock(control_mutex_);
+      active_ = false;
+      bonds_.clear();
+    });
+  }
+
+  ~BoundedManager() override
+  {
+    get_node_base_interface()->get_context()->remove_pre_shutdown_callback(pre_shutdown_);
   }
 
 private:
@@ -70,7 +92,7 @@ private:
   typename S::Response::SharedPtr call(
     typename rclcpp::Client<S>::SharedPtr client, typename S::Request::SharedPtr request)
   {
-    if (!client->wait_for_service(2s)) {return nullptr;}
+    if (closing_ || !client->wait_for_service(2s) || closing_) {return nullptr;}
     auto future = client->async_send_request(request);
     if (rpc_executor_.spin_until_future_complete(future, 2s) != rclcpp::FutureReturnCode::SUCCESS) {
       client->remove_pending_request(future); return nullptr;
@@ -81,7 +103,7 @@ private:
   bool transition(const std::string & name, uint8_t from, uint8_t to, uint8_t id)
   {
     // A timed-out mutation may have succeeded. Read state before any replay.
-    for (int attempt = 0; attempt < 3 && rclcpp::ok(); ++attempt) {
+    for (int attempt = 0; attempt < 3 && rclcpp::ok() && !closing_; ++attempt) {
       auto state = call<Get>(get_[name], std::make_shared<Get::Request>());
       if (!state) {RCLCPP_WARN(get_logger(), "STATE_RPC_TIMEOUT %s", name.c_str()); continue;}
       if (state->current_state.id == to) {return true;}
@@ -107,6 +129,7 @@ private:
     }
     for (auto & name : names_) {
       if (!transition(name, 2, 3, 3)) {failed_ = true; stop_and_deactivate(); return false;}
+      if (closing_) {return false;}
       auto bond = std::make_shared<bond::Bond>("bond", name, shared_from_this());
       bond->setHeartbeatTimeout(4.0); bond->setHeartbeatPeriod(.10); bond->start();
       bonds_[name] = bond;
@@ -115,6 +138,7 @@ private:
         failed_ = true; stop_and_deactivate(); return false;
       }
     }
+    if (closing_) {return false;}
     active_ = true;
     RCLCPP_INFO(get_logger(), "Managed nodes are active (bounded state-confirmed startup)");
     return true;
@@ -123,7 +147,9 @@ private:
   void stop_and_deactivate()
   {
     active_ = false;
-    if (stop_->service_is_ready()) {stop_->async_send_request(std::make_shared<std_srvs::srv::Trigger::Request>());}
+    if (!closing_ && stop_->service_is_ready()) {
+      stop_->async_send_request(std::make_shared<std_srvs::srv::Trigger::Request>());
+    }
     for (auto it = names_.rbegin(); it != names_.rend(); ++it) {
       auto state = call<Get>(get_[*it], std::make_shared<Get::Request>());
       if (state && state->current_state.id == 3) {transition(*it, 3, 2, 4);}
@@ -132,6 +158,9 @@ private:
   }
 
   bool autostart_{false}, active_{false}, failed_{false};
+  std::atomic<bool> closing_{false};
+  std::mutex control_mutex_;
+  rclcpp::PreShutdownCallbackHandle pre_shutdown_;
   std::vector<std::string> names_;
   rclcpp::CallbackGroup::SharedPtr rpc_group_, control_group_;
   rclcpp::executors::SingleThreadedExecutor rpc_executor_;
