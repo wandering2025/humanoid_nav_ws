@@ -40,6 +40,9 @@ class PresentationTests(unittest.TestCase):
         before=(view.ngeom,view.nbody,view.nq,view.nv);annotate(holder)
         self.assertEqual(before,(view.ngeom,view.nbody,view.nq,view.nv))
         self.assertEqual(holder.user_scn.ngeom,4)
+        # mjv_initGeom accepts radius/half-height, then expands the render size.
+        np.testing.assert_allclose(holder.user_scn.geoms[0].size,[.65,.65,.008])
+        np.testing.assert_allclose(holder.user_scn.geoms[2].size,[.65,.65,.008])
         self.assertEqual([g.label for g in holder.user_scn.geoms[:holder.user_scn.ngeom] if g.label],['A  START','B  GOAL'])
 
     def test_simulation_changes_are_only_view_copy_hooks(self):

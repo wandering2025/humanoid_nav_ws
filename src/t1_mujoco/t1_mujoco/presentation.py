@@ -22,7 +22,7 @@ def annotate(viewer):
     for x, label, color in ((0., 'A  START', [.10, .75, .95, 1.]),
                             (9., 'B  GOAL', [.20, .95, .45, 1.])):
         for kind, size, pos, text in (
-            (mujoco.mjtGeom.mjGEOM_CYLINDER, [.65, .65, .008], [x, 0., .012], ''),
+            (mujoco.mjtGeom.mjGEOM_CYLINDER, [.65, .008, 0.], [x, 0., .012], ''),
             (mujoco.mjtGeom.mjGEOM_LABEL, [.1, .1, .1], [x, -.85, .12], label),
         ):
             geom = scene.geoms[scene.ngeom]

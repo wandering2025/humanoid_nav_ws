@@ -1,5 +1,5 @@
 {
   "src/t1_mujoco/t1_mujoco/simulation.py": "092e358a65c6d3b6cab78929a4c83cb94422e116379272f5758294ed13029e52",
-  "src/t1_mujoco/t1_mujoco/presentation.py": "3d1f8b083dbaf5152b6b110025e2e12c647fd88eba9449493226247f17d1e4f8",
+  "src/t1_mujoco/t1_mujoco/presentation.py": "62994b79a2660a67cc2030889902699dc99b24435ac53ab907fff4f4d0da0544",
   "src/t1_navigation/config/demo.rviz": "e20be3ab027bea8a9718cb60cd3167f80c683333a20c229a64be47ca57b1708c"
 }
