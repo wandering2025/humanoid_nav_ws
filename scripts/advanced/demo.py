@@ -128,15 +128,26 @@ class Advanced(base.Demo):
         handle=sent.result();assert handle.accepted,'mapping goal rejected'
         self.mapping_handle=handle
         result=handle.get_result_async();start=self.node.sim
+        premature=[]
         def passed():
+            nonlocal result,handle
             here=self.node.map_pose()
             if here and math.dist(here[:2],pose[:2])<=self.route['mapping_pass_radius_m']:return True
-            if result.done():raise RuntimeError(f'{label}: action ended before passing: {result.result().status}')
+            if result.done():
+                status=result.result().status
+                if status!=4 or len(premature)>=2:
+                    raise RuntimeError(f'{label}: action ended before passing: {status}')
+                # The 1 Hz BT pipeline can finish its previous FollowPath during
+                # preemption. Never trust that success for a different target.
+                premature.append(dict(sim=self.node.sim,status=status,actual=list(here) if here else None))
+                sent=self.action.send_goal_async(goal);self.until(sent.done,10)
+                handle=sent.result();assert handle.accepted,'mapping redispatch rejected'
+                self.mapping_handle=handle;result=handle.get_result_async()
             if self.node.sim-start>self.route['waypoint_time_limit_s']:raise TimeoutError(label)
             return False
         self.until(passed,self.route['waypoint_time_limit_s']*2.5+100)
         record=dict(label=label,pose=pose,result=dict(status='PASSED',accepted_sim=start,end_sim=self.node.sim,
-                    duration_sim=self.node.sim-start,passed_pose=list(self.node.map_pose()),
+                    duration_sim=self.node.sim-start,premature_success_retries=premature,passed_pose=list(self.node.map_pose()),
                     goal_id=bytes(handle.goal_id.uuid).hex()))
         self.summary['goals'].append(record);base.save('partial-result.json',self.summary)
         # The next goal preempts this action. No cancel/re-arm between observations.

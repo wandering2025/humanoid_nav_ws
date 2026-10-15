@@ -13,3 +13,6 @@ First control at 2f46a63: run20261015T221326Z_advanced_b523dc22-8ba7-4c9f-b235-9
 
 
 Second control c648e13, run20261015T221656Z_advanced_f9e4ca8e-e1c8-4b64-9ac3-a1c413ea9d0e: FAILED safely before enabling the cart. Real saved grid still has unknown cells at B and preB; (13,0)/(11,0) were known, so this is incomplete ray coverage, not proof of cart occlusion alone. Add a southward observation pass(11.5,5.5), and make map handover depend on an actual successful A-B NavFn route check after target5 or6. Stop mapping as soon as the acquired grid supports it. Same cart pending control. Fix direct-action cancellation handle ownership from acceptance, including interruption during first pass. Suppress overview planner output on the current-execution display so the cyan display-only route cannot masquerade as the blue active plan.
+
+
+Third control d7a1ef7, run20261015T222035Z_advanced_ba98c44b-1131-48ab-b333-dd5ba4cdb4ac: FAILED safely. On target3→4 preemption, BT reported SUCCEEDED at(3.27,7.54) for requested(7.5,8), before the1Hz pipeline consumed the new FollowPath. The map-frame pass check rejected it correctly; no false arrival. Add at most2 redispatches for this specific premature-SUCCEEDED case, retaining actual-pose passage and original total timeout. Abort/cancel still fails immediately; no cancellation/rearm or controller changes.
