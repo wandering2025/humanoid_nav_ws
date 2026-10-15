@@ -20,9 +20,10 @@ spec.loader.exec_module(demo)
 
 class Isolation(unittest.TestCase):
     def test_first_clock_absence_is_startup_not_frozen_clock(self):
-        self.assertFalse(demo.clock_stalled(SimpleNamespace(first_clock=None),20.,0.))
-        self.assertTrue(demo.clock_stalled(SimpleNamespace(first_clock=.02),20.,16.9))
-        self.assertFalse(demo.clock_stalled(SimpleNamespace(first_clock=.02),20.,17.1))
+        self.assertFalse(demo.clock_stalled(SimpleNamespace(first_clock=None,sim=0.),20.,0.))
+        self.assertFalse(demo.clock_stalled(SimpleNamespace(first_clock=0.,sim=0.),20.,0.))
+        self.assertTrue(demo.clock_stalled(SimpleNamespace(first_clock=0.,sim=.02),20.,16.9))
+        self.assertFalse(demo.clock_stalled(SimpleNamespace(first_clock=0.,sim=.02),20.,17.1))
 
     def test_pid_reuse_guard(self):
         own=demo.identity(os.getpid())

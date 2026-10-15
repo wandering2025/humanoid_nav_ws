@@ -1,0 +1,399 @@
+{
+  "run_id": "20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db",
+  "code_sha": "2a211be8b6f4f94bf5cb4db40e20e9848ab30323",
+  "scenario": "U01",
+  "seed": 4000,
+  "started_utc": "2026-10-15T13:19:37.098188+00:00",
+  "arrived": false,
+  "human_intervention": false,
+  "status": "FAILED",
+  "error": "RuntimeError('Simulation clock stalled for 3 wall seconds; stopping this run')",
+  "shutdown_signals": [
+    [
+      "launch",
+      32046,
+      "SIGINT"
+    ],
+    [
+      "dds",
+      32020,
+      "SIGINT"
+    ]
+  ],
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 5054.25318828,
+      "sim_time": 2.6,
+      "health_reason": "COMMAND_OWNERSHIP"
+    }
+  },
+  "gpu_monitor_error": null,
+  "gpu_samples": [
+    {
+      "wall_mono": 5038.785969763,
+      "utc": "2026-10-15T13:19:28.797480+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 48.0,
+      "memory_mib": 794.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 27.0,
+      "power_w": 6.97
+    },
+    {
+      "wall_mono": 5039.85175221,
+      "utc": "2026-10-15T13:19:29.863257+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 48.0,
+      "memory_mib": 794.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 21.0,
+      "power_w": 7.13
+    },
+    {
+      "wall_mono": 5040.921719795,
+      "utc": "2026-10-15T13:19:30.933224+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 48.0,
+      "memory_mib": 813.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 21.0,
+      "power_w": 7.01
+    },
+    {
+      "wall_mono": 5041.979556234,
+      "utc": "2026-10-15T13:19:31.991060+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 48.0,
+      "memory_mib": 812.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 24.0,
+      "power_w": 7.0
+    },
+    {
+      "wall_mono": 5043.04150126,
+      "utc": "2026-10-15T13:19:33.053005+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 48.0,
+      "memory_mib": 800.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 21.0,
+      "power_w": 6.74
+    },
+    {
+      "wall_mono": 5046.006304155,
+      "utc": "2026-10-15T13:19:36.017809+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 48.0,
+      "memory_mib": 810.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 24.0,
+      "power_w": 6.81
+    },
+    {
+      "wall_mono": 5047.078052755,
+      "utc": "2026-10-15T13:19:37.089556+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 49.0,
+      "memory_mib": 800.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 7.0,
+      "power_w": 8.76
+    },
+    {
+      "wall_mono": 5048.188487795,
+      "utc": "2026-10-15T13:19:38.199992+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 50.0,
+      "memory_mib": 805.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 11.0,
+      "power_w": 11.11
+    },
+    {
+      "wall_mono": 5049.281995833,
+      "utc": "2026-10-15T13:19:41.605056+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 49.0,
+      "memory_mib": 806.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 20.0,
+      "power_w": 9.68
+    },
+    {
+      "wall_mono": 5050.350174252,
+      "utc": "2026-10-15T13:19:42.673235+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 49.0,
+      "memory_mib": 806.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 21.0,
+      "power_w": 6.83
+    },
+    {
+      "wall_mono": 5051.430695325,
+      "utc": "2026-10-15T13:19:43.753756+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 51.0,
+      "memory_mib": 893.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 5.0,
+      "power_w": 10.17
+    },
+    {
+      "wall_mono": 5052.517130106,
+      "utc": "2026-10-15T13:19:44.840190+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 51.0,
+      "memory_mib": 1008.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 10.0,
+      "power_w": 12.29
+    },
+    {
+      "wall_mono": 5053.598495456,
+      "utc": "2026-10-15T13:19:45.921555+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 51.0,
+      "memory_mib": 1002.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 32.0,
+      "power_w": 8.42
+    },
+    {
+      "wall_mono": 5054.669502281,
+      "utc": "2026-10-15T13:19:46.992563+00:00",
+      "index": "0",
+      "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "driver": "596.58",
+      "temperature_c": 51.0,
+      "memory_mib": 827.0,
+      "memory_total_mib": 6141.0,
+      "utilization_pct": 25.0,
+      "power_w": 7.82
+    }
+  ],
+  "parent_exit_codes": {
+    "dds": 0,
+    "launch": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 32058,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 32059,
+      "exit_code": 0
+    },
+    "map_server-3": {
+      "pid": 32060,
+      "exit_code": 0
+    },
+    "amcl-4": {
+      "pid": 32061,
+      "exit_code": 0
+    },
+    "command_gate-5": {
+      "pid": 32062,
+      "exit_code": 0
+    },
+    "velocity_smoother-6": {
+      "pid": 32063,
+      "exit_code": 0
+    },
+    "collision_monitor-7": {
+      "pid": 32064,
+      "exit_code": 0
+    },
+    "lifecycle_manager-8": {
+      "pid": 32379,
+      "exit_code": 0
+    },
+    "lifecycle_manager-9": {
+      "pid": 32380,
+      "exit_code": 0
+    }
+  },
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "events": [
+    {
+      "kind": "gate",
+      "sim": 0.0,
+      "wall": 5049.87934728,
+      "state": "DISARMED",
+      "reason": "explicit arm required"
+    },
+    {
+      "kind": "sim_state",
+      "sim": 0.0,
+      "wall": 5051.623270314,
+      "state": "STARTING",
+      "fault": null
+    },
+    {
+      "kind": "gate",
+      "sim": 0.060000000000000005,
+      "wall": 5051.713046805,
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL"
+    },
+    {
+      "kind": "sim_state",
+      "sim": 2.0,
+      "wall": 5053.637254146,
+      "state": "READY",
+      "fault": null
+    }
+  ],
+  "graph": {
+    "/cmd_vel": {
+      "publishers": [],
+      "subscribers": [
+        "t1_sim",
+        "t1_command_gate",
+        "t1_evaluator"
+      ],
+      "types": []
+    },
+    "/t1/eval/obstacle": {
+      "publishers": [
+        "t1_sim"
+      ],
+      "subscribers": [
+        "t1_evaluator"
+      ],
+      "types": [
+        "std_msgs/msg/String"
+      ]
+    },
+    "/t1/eval/ground_truth": {
+      "publishers": [
+        "t1_sim"
+      ],
+      "subscribers": [
+        "t1_evaluator"
+      ],
+      "types": [
+        "nav_msgs/msg/Odometry"
+      ]
+    },
+    "/t1/cmd_teleop": {
+      "publishers": [],
+      "subscribers": [
+        "t1_evaluator"
+      ],
+      "types": []
+    }
+  },
+  "initializations": [],
+  "clock_regressions": 0,
+  "dds_port_state_before_runner_exit": {
+    "listeners": [],
+    "time_wait": [],
+    "other_connections": [
+      {
+        "family": "tcp",
+        "local": "0100007F:A48F",
+        "state": "05"
+      }
+    ]
+  },
+  "dds_port_released": null,
+  "dds_port_check_deferred": true,
+  "wall_total_s": 8.310510797999996,
+  "settle": {
+    "settled": false,
+    "pos_err_m": 9.003548660917907,
+    "yaw_err_deg": 0.2724652554898718,
+    "final_window_speed": 0.004688317478429109,
+    "final_window_rate": 0.0034479178547523514
+  },
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "simulator_exit_code": 0,
+  "body_clearance": {
+    "min_m": 2.437589714910703,
+    "sim_time": 0.020000000000000004,
+    "geom_pair": [
+      "t1_geom_036",
+      "env_wall_west"
+    ],
+    "samples": 27,
+    "robot_geoms": 22,
+    "environment_geoms": 8,
+    "sample_hz": 10,
+    "definition": "signed 3D MuJoCo collision geometry distance; excludes ground/self/visual; sampled minimum, not continuous bound"
+  },
+  "dynamic": {
+    "scenario": "approach",
+    "checks": {
+      "triggered_after_actual_walking": false,
+      "scan_hits_entity": false,
+      "local_costmap_marks_entity": false,
+      "no_planner_obstacle_truth": true,
+      "no_teleop": true,
+      "dimensions": true,
+      "vacated_costmap_clears": false,
+      "actual_stop_in_protection": false,
+      "safely_resumed": false,
+      "navigation_success": false
+    },
+    "verdict": "FAIL",
+    "trigger_sim": null,
+    "scan_hit_frames": 0,
+    "costmap_marked_samples": 0,
+    "costmap_cleared_samples": 0,
+    "actual_stop_sim": null,
+    "resume_sim": null,
+    "stopped_hold_s": 0.0,
+    "min_center_surface_gap_m": 6.357859829808221,
+    "min_rotated_footprint_gap_m": 5.693573504965003,
+    "max_robot_lateral_m": 0.0,
+    "initial_plan_lateral_m": null,
+    "replanned_lateral_m": 0,
+    "scan_topic_samples": []
+  },
+  "graph_contract": {
+    "final_only_collision_monitor": false,
+    "obstacle_truth_isolated": true,
+    "robot_truth_isolated": true
+  },
+  "validation_before_port_check": false
+}

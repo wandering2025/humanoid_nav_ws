@@ -1,0 +1,13 @@
+{
+  "status": "FAILED_BATCH",
+  "run_id": "20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db",
+  "code_sha": "2a211be8b6f4f94bf5cb4db40e20e9848ab30323",
+  "command": "./scripts/run_demo.sh",
+  "second_run": "NOT_RUN",
+  "navigation_goal_sent": false,
+  "reason": "New watchdog treated first zero timestamp as established clock before first physics sample; actual trace then advanced2.62s; packaging bug",
+  "repair": "Require actual clock advance before activating3s ROS-clock stall line; simulator trace independent watchdog retained",
+  "graphics_errors": false,
+  "contacts": 0,
+  "falls": 0
+}

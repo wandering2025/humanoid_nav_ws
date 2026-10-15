@@ -1,0 +1,152 @@
+[
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db-costmap.csv",
+    "size": 80,
+    "sha256": "54b3fabdf0f44c20cae30b10e0acbc7f88c9701f165b74b7a2fc53a4550a699e"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db-obstacle.csv",
+    "size": 964,
+    "sha256": "9d99ab9aa0375f85adb97ea390d651a5d0ca0f9becbb3824a8899e283b5b68cf"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/dds.log",
+    "size": 240,
+    "sha256": "f9b5bcfab3f26c65dfe029ec899ebcab5b437238bb2a05482eb8c594b61f33e4"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/environment.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/failure.txt",
+    "size": 673,
+    "sha256": "73e3b93314129466ff777be52f4c9c62d8857f25c5faf129d9d3b5bf36b1f0ef"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/final-result.json",
+    "size": 10042,
+    "sha256": "3c1ab6fc04e30c1abce6185adec6498acddd7442a27dd9564ddd36a4b81712ae"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/gpu/gpu-samples.jsonl",
+    "size": 3738,
+    "sha256": "7ad753b74403e5441fa7a71ac987ed0fd44e903cf7852df833b92a128976ad12"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/graphics.txt",
+    "size": 1776,
+    "sha256": "75ad83c72bae2c9e3382fcb1a64f3e6e6e0faa54ab3a08adbc4d5eaa29389f26"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/launch.log",
+    "size": 14216,
+    "sha256": "d0ed7db103ec41f0637a2a7dd5647f1f09b24ab13ec693706cd5fa21274b99f0"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/owned-processes.json",
+    "size": 4153,
+    "sha256": "142074807ccbbd79532de0608bfda52a0fd99e17692df624240c1fa1e74db0a3"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/preflight.json",
+    "size": 1078,
+    "sha256": "59e6f3ecdfdda1fd4199b4365b9fa07cbbcb03e9ee47bbd90f76b094e4a75692"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/raw/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db-topic-data.json",
+    "size": 22669,
+    "sha256": "da1dedd37d32053b5e5b4925dfa2ae8283ad16252071d8e1ab3a0ee83a6623bd"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/result.json",
+    "size": 9928,
+    "sha256": "8effa4cc50b183cbf266d628431175417d1c2adc6592bfb6d5a74a2fa7cfd4f6"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/ros-log/2026-10-15-15-19-38-030927-DESKTOP-MF19MEU-32046/launch.log",
+    "size": 2752,
+    "sha256": "de1df0fdfb329ef3a12c92645e5a2fef683d24bdfb41a746f75dc130c975f22b"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/ros-log/amcl_32061_1792070378183.log",
+    "size": 1278,
+    "sha256": "3a93e6ddb809dab36610d7c45920eb13c09dd21859428150cb549cef07c18394"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/ros-log/collision_monitor_32064_1792070378187.log",
+    "size": 1754,
+    "sha256": "3f5d61a5ec08c7d6799b36cca08828e7e7e338480c85dac56ee41a95b2bf97e1"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/ros-log/lifecycle_manager_32379_1792070383497.log",
+    "size": 1454,
+    "sha256": "61cf46d55069489e0d80707b01006b83652f4f8ddb09d0c222cc78f4e4371e1c"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/ros-log/lifecycle_manager_32380_1792070383495.log",
+    "size": 1430,
+    "sha256": "95b3ea1a9d52352d4da776a584a183fe85d55e8188488d3458fa6ec65ade6466"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/ros-log/map_server_32060_1792070378207.log",
+    "size": 1838,
+    "sha256": "c0fed5c52efba2afb84ea07aa6e95ba54b0395190313f7fb43345250bd423103"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/ros-log/python3_32062_1792070378427.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/ros-log/python_31926_1792070377531.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/ros-log/python_32058_1792070378312.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/ros-log/robot_state_publisher_32059_1792070378168.log",
+    "size": 144,
+    "sha256": "cb4c6ba5d563676493c44c419dd334c4207fb3f1ca2c96b891360d74a3814267"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/ros-log/velocity_smoother_32063_1792070378174.log",
+    "size": 1012,
+    "sha256": "f87930b7a2b2712125a849035608fedae5201ab703058b9e6dfe110f27e784f5"
+  },
+  {
+    "path": "run_data/demo/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/runtime.log",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run_data/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/contact_events.csv",
+    "size": 108,
+    "sha256": "e19231ca735fe6ec0b4b20ae580614cc40994470245f101736d11b7830d7319c"
+  },
+  {
+    "path": "run_data/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/events.jsonl",
+    "size": 5426,
+    "sha256": "bdde455e89a7728695c08747811296fd05dff5b2d8951812bd8a396c0886d1ab"
+  },
+  {
+    "path": "run_data/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/geometry.jsonl",
+    "size": 20642,
+    "sha256": "590415188e87bb6f1a93fa015c364d63dade3479888ea74b36bad827ff6c83fa"
+  },
+  {
+    "path": "run_data/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/manifest.json",
+    "size": 16098,
+    "sha256": "f413c0f35159a28acf75657b06de146bf3f5b82da66847228b4bbd513c6539d4"
+  },
+  {
+    "path": "run_data/20261015T131927Z_demo_U01_21579b69-8303-495e-9611-adc3ccb4b9db/sim_trace.csv",
+    "size": 56692,
+    "sha256": "f3beff919492d698667844fd8fd5f521ceb003f012c01d7ed0b95c9da76ab086"
+  }
+]

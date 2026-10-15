@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/haoyang/humanoid_nav_ws/scripts/demo/demo.py", line 632, in main
+    demo.execute()
+  File "/home/haoyang/humanoid_nav_ws/scripts/demo/demo.py", line 387, in execute
+    self.until(lambda:'"starter": "navigation active"' in self.launch_log.read_text(errors='replace'),120)
+  File "/home/haoyang/humanoid_nav_ws/scripts/demo/demo.py", line 302, in until
+    self.spin(check_stop)
+  File "/home/haoyang/humanoid_nav_ws/scripts/demo/demo.py", line 278, in spin
+    raise RuntimeError('Simulation clock stalled for 3 wall seconds; stopping this run')
+RuntimeError: Simulation clock stalled for 3 wall seconds; stopping this run

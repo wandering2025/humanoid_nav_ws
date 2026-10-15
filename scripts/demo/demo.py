@@ -70,7 +70,10 @@ def alive(record):
 
 
 def clock_stalled(node,now,last_progress):
-    return node is not None and node.first_clock is not None and now-last_progress>3
+    # The simulator publishes its initial timestamp before taking its first
+    # physics step. That single sample does not establish a running clock.
+    return (node is not None and node.first_clock is not None
+            and node.sim>node.first_clock and now-last_progress>3)
 
 
 def project_processes():
