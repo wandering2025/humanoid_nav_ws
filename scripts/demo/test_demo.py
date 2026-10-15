@@ -150,7 +150,7 @@ if __name__=='__main__':
 
 
 def test_heartbeat_uses_monotonic_progress_despite_wall_clock_steps():
-    from demo import heartbeat_progress
+    heartbeat_progress=demo.heartbeat_progress
     state,stalled=heartbeat_progress(None,1000000000,10.)
     assert not stalled
     # Same timestamp during a +2.78s wall jump: only .3 monotonic seconds elapsed.

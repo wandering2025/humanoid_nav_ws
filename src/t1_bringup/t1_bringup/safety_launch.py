@@ -27,7 +27,7 @@ def actions(context):
             for name, node in ((name, Node(package=package, executable=exe, name=name, output='screen',
                  parameters=[path, extra], remappings=remaps))
             for package,exe,name,extra,remaps in (
-                ('t1_bringup','command_gate','t1_command_gate',{'command_source':source},[]),
+                ('t1_bringup',('advanced_command_gate' if LaunchConfiguration('mode').perform(context)=='advanced_mapping' else 'command_gate'),'t1_command_gate',{'command_source':source},[]),
                 ('nav2_velocity_smoother','velocity_smoother','velocity_smoother',{},
                  [('cmd_vel','/cmd_vel_nav'),('cmd_vel_smoothed','/cmd_vel_smoothed')]),
                 ('nav2_collision_monitor','collision_monitor','collision_monitor',{},[]),

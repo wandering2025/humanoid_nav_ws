@@ -12,6 +12,7 @@ setup(
     ],
     install_requires=['setuptools'], zip_safe=True,
     entry_points={'console_scripts': [
+        'advanced_command_gate = t1_bringup.advanced_gate:main',
         'initial_pose = t1_bringup.initial_pose:main', 'command_gate = t1_bringup.safety:main',
         'navigation_adapter = t1_bringup.navigation_adapter:main',
         'navigation_starter = t1_bringup.navigation_tools:starter_main',

@@ -1,0 +1,105 @@
+{
+  "purpose": "Read-only legacy W14 regression fixtures absent from clean worktree because raw data is ignored; copied byte-for-byte from preserved stable workspace. Not new v0.2 runs.",
+  "files": [
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/result.json",
+      "copy": "run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/result.json",
+      "sha256": "267cbea54c96bc72e7434211d68ff0175224fe3179050db1e73cc01f9a085fdf"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/final-result.json",
+      "copy": "run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/final-result.json",
+      "sha256": "6e873cee55201a6fcf50c1ad75646613b19cf90663547753acee6975829a386d"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/dds.log",
+      "copy": "run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/dds.log",
+      "sha256": "f9b5bcfab3f26c65dfe029ec899ebcab5b437238bb2a05482eb8c594b61f33e4"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/gpu/host/stderr.log.baseline",
+      "copy": "run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/gpu/host/stderr.log.baseline",
+      "sha256": "8a2715f10d0c7e4728d481e3141e692328c0fd42e22575fa99bb84315ab222e7"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/gpu/host/weston.log.baseline",
+      "copy": "run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/gpu/host/weston.log.baseline",
+      "sha256": "f4484d1d3d569b1653b4003a26a8dd9d72a6aaf47938c78a6c1c04287ae9c67d"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/gpu/host/weston.log.delta",
+      "copy": "run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/gpu/host/weston.log.delta",
+      "sha256": "3c4884921f0712bc48c85b38137612dce746531639b2ed33f32125c084378b83"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/gpu/host/windows-checks.json",
+      "copy": "run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/gpu/host/windows-checks.json",
+      "sha256": "08312eba3fdb890384bd483c15cfb9f154a9a0922c7e8bdbf5e355564b74b09c"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/gpu/host/windows-baseline.json",
+      "copy": "run_data/demo/20261015T135052Z_demo_U01_825a6e42-ad9d-45b3-a76c-26e30466af89/gpu/host/windows-baseline.json",
+      "sha256": "c7eceee60b3ccb9056421f7cfaa519a0f4be0daa4a8b8c3b1ab009404823c49d"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/result.json",
+      "copy": "run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/result.json",
+      "sha256": "a583df06fcd0b22e09421091b877d4bbfcd5b186f3d96737de34d5b764ceb970"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/final-result.json",
+      "copy": "run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/final-result.json",
+      "sha256": "624549872a2182f66488712efc37138a5c47704e4cfda43466b71b04b34151bb"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/dds.log",
+      "copy": "run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/dds.log",
+      "sha256": "f9b5bcfab3f26c65dfe029ec899ebcab5b437238bb2a05482eb8c594b61f33e4"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/gpu/host/stderr.log.baseline",
+      "copy": "run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/gpu/host/stderr.log.baseline",
+      "sha256": "8a2715f10d0c7e4728d481e3141e692328c0fd42e22575fa99bb84315ab222e7"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/gpu/host/weston.log.baseline",
+      "copy": "run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/gpu/host/weston.log.baseline",
+      "sha256": "db9ebe4ee8d7eb7dd4d93f4b8dd429f93ad2941b4fa3d85e4771b3cc4ffe1cf8"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/gpu/host/weston.log.delta",
+      "copy": "run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/gpu/host/weston.log.delta",
+      "sha256": "aa843dfcc9cfbd82d29207017b34ef7ebd2a7b469b53b074daf1769f897a5c54"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/gpu/host/windows-checks.json",
+      "copy": "run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/gpu/host/windows-checks.json",
+      "sha256": "22d23b97957805638e8c21d0b59a7c010d0519ece484a8e0003630375ef0f42c"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/gpu/host/windows-baseline.json",
+      "copy": "run_data/demo/20261015T135427Z_demo_U01_32c2cee4-f75e-4bd9-8e91-faccdb1d6217/gpu/host/windows-baseline.json",
+      "sha256": "c7eceee60b3ccb9056421f7cfaa519a0f4be0daa4a8b8c3b1ab009404823c49d"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/docs/evidence/W14/raw/dds-teardown-release/dds-only-halt-original.json",
+      "copy": "docs/evidence/W14/raw/dds-teardown-release/dds-only-halt-original.json",
+      "sha256": "51ff001974ea062a8c1821644869ead973e4246586335653ca9259f42199494f"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/docs/evidence/W14/raw/nvidia-stages/20261015T124013Z_01-minimal-gl_203309/offline-parser-assessment.json",
+      "copy": "docs/evidence/W14/raw/nvidia-stages/20261015T124013Z_01-minimal-gl_203309/offline-parser-assessment.json",
+      "sha256": "2d162a53d5e9348ed1c5e3a4ef402f1b3fd217cc6e9c6969f3f8948bc899fae0"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/docs/evidence/W14/raw/nvidia-stages/20261015T124135Z_02-small-window_ba98e0/result.json",
+      "copy": "docs/evidence/W14/raw/nvidia-stages/20261015T124135Z_02-small-window_ba98e0/result.json",
+      "sha256": "68a25a534d44992107e3f713f64466797107834d1e5cbe97e129757a7d8cbd5e"
+    },
+    {
+      "source": "/home/haoyang/humanoid_nav_ws/docs/evidence/W14/raw/nvidia-stages/20261015T124206Z_03-static-t1_0354ff/result.json",
+      "copy": "docs/evidence/W14/raw/nvidia-stages/20261015T124206Z_03-static-t1_0354ff/result.json",
+      "sha256": "01348129bb2854b53f32dc4aef50d9406c2e25d90697f334baa046166c935c42"
+    }
+  ]
+}
