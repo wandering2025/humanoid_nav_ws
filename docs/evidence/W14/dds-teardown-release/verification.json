@@ -30,7 +30,7 @@
   },
   "source_hashes": {
     "scripts/run_demo.sh": "76ab986a913da3cc56457e70d265a817d4473392131392174751d68f500a3eb8",
-    "scripts/demo/demo.py": "0ac5ecc25d344adbc63dbcf497ce19fc2eee1c7a1791a91a576c64f9a05c7549",
+    "scripts/demo/demo.py": "9342f049550c4ec26a363222412302f2bda5a0476d400c89941e2afc67fb80f9",
     "scripts/demo/finalize.py": "35da7a89c72f9933144a4852865ccd697e8502103102d29f7393c0fc8d2b10d2",
     "scripts/demo/dds_teardown.py": "091e39753a959c79fa3a346fbc157021b2174f276a7c450264da7c3c25e972cb",
     "scripts/demo/test_dds_teardown.py": "fe33e4f02e5dc3d7eb53d0877fae32a5c231724b86413ac83a94246b9e5b210c",
@@ -40,5 +40,6 @@
   "diagnostics_preserved": [
     "First offline historical adapter found audit01 has no project_processes field; fixed to require original result remaining_project_processes=[] for01; no raw result changed.",
     "Sandbox denied local socket creation (EPERM); authorized read-only bind audit repeated with sandbox escalation, both ports free; no service started."
-  ]
+  ],
+  "raw_result_note": "Future result.json and final-result.json both retain top-level dds_returncode in addition to parent_exit_codes; original historical files unchanged."
 }

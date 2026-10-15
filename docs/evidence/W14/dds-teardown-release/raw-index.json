@@ -7,7 +7,7 @@
   {
     "path": "docs/evidence/W14/raw/dds-teardown-release/classification-tests.log",
     "bytes": 2938,
-    "sha256": "39bc8754dfacc05fa7cf2dc434f915f342626e487778c8308f05a3aad25591e8"
+    "sha256": "c3c57a5e039af445f74079e938455e1dc16c97051acea7418ffc7b9dec92e41b"
   },
   {
     "path": "docs/evidence/W14/raw/dds-teardown-release/dds-only-halt-original.json",
@@ -17,7 +17,7 @@
   {
     "path": "docs/evidence/W14/raw/dds-teardown-release/finalizer-regression.log",
     "bytes": 1018,
-    "sha256": "79582ae0bf7b71351e165c2812743c023b0842e9c7863f01ad7ea7f6983d737e"
+    "sha256": "7bee2242aec85337db4ea50a14ac61e05f94b86e50d7e08246e48cf1103422e9"
   },
   {
     "path": "docs/evidence/W14/raw/dds-teardown-release/graphics-guard-regression.log",

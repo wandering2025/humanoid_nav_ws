@@ -539,6 +539,7 @@ class Demo:
         if any(row[-1]=='SIGKILL' for row in self.summary['shutdown_signals']):
             self.summary['error']='SIGKILL was needed; mandatory stop, no further tests'
         self.summary['parent_exit_codes']={name:p.poll() for name,(p,_) in self.children.items()}
+        self.summary['dds_returncode']=self.summary['parent_exit_codes'].get('dds')
         if getattr(self,'gpu_watch',None) and (self.summary['parent_exit_codes'].get('rviz',0)!=0 or any(row[-1]=='SIGKILL' for row in self.summary['shutdown_signals'])):
             self.gpu_watch.halt('Abnormal RViz exit or forced kill; strict authorization requires stop, no retry')
         text=self.launch_log.read_text(errors='replace') if self.launch_log.exists() else ''
