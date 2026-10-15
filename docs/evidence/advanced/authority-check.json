@@ -1,0 +1,108 @@
+{
+  "code_sha": "e4c94c65914c8184bdde6b082bd54ce3419e2f5e",
+  "status": "SUCCESS",
+  "startup_check_completed": true,
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 17933.395617958,
+      "sim_time": 40.52,
+      "health_reason": ""
+    }
+  },
+  "zero_policy": true,
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "parent_exit_codes": {
+    "dds": 0,
+    "authority": 0,
+    "launch": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 118884,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 118885,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 118886,
+      "exit_code": 0
+    },
+    "command_gate-4": {
+      "pid": 118887,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 118888,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 118889,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 119163,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 119283,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 119284,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 119285,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 119286,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 119287,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 119288,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 119289,
+      "exit_code": 0
+    }
+  },
+  "remaining_owned_pids": [],
+  "dds_port_released": true,
+  "graph_contract": {
+    "final_only_collision_monitor": true,
+    "obstacle_truth_isolated": true,
+    "robot_truth_isolated": true,
+    "no_initialpose": true,
+    "map_only_slam": true,
+    "map_odom_only_slam": true
+  },
+  "map_odom_authorities": [
+    "slam_toolbox"
+  ],
+  "map_odom_gids": [
+    "010f074266d0e3180000000000002603"
+  ],
+  "run_id": "20261015T170848Z_advanced_33c9e8d0-ec6a-4b74-ad73-1f487e1345f2",
+  "raw": "run_data/advanced/20261015T170848Z_advanced_33c9e8d0-ec6a-4b74-ad73-1f487e1345f2",
+  "result_sha256": "dbcb525b006db39b12a2cd8b61f22077896b1d3ffacfeefbacea076d2f59c656",
+  "scope": "CPU standing/authority/stop/cleanup only; not a navigation success"
+}

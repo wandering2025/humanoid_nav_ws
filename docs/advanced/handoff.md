@@ -23,3 +23,7 @@ Run 20261015T170327Z_advanced_1d379a8f-92a7-472f-83b2-4e566587f99f FAILED before
 ## Graphics passed; TF evidence interface corrected
 
 Minimal02 `20261015T170517Z_advanced_0c8fe097-3b4f-4c6a-9d86-b4d39f940381`: actual MuJoCo/RViz screenshots, NVIDIA renderer verified, zero commands/contact/fall, safe stop and all exits0, no graphics error. Overall FAILED solely due missing GID evidence: Jazzy rclpy omits that field (already documented by W09 source). Reuse unchanged W09 C++ RMW observer; register it in existing owned shutdown order, default v0.1 order unchanged. Implementation b216ce241083278c7c9ef961aecc9375b38087b2. Next `./scripts/run_advanced_demo.sh --headless --startup-check` verifies observer without another GPU run, then full GUI. Numerically adjusted camera8m/40deg and readable RViz phase labels from inspected screenshots. No complex host changes. PIDs none.
+
+## Minimum gates passed 2026-10-15T17:11:36.443854+00:00
+
+CPU authority/standing run 20261015T170848Z_advanced_33c9e8d0-ec6a-4b74-ad73-1f487e1345f2 at e4c94c65914c8184bdde6b082bd54ce3419e2f5e: SUCCESS for standing check; map→odom one actual RMW GID from slam_toolbox; scan/map/command/truth ownership pass, zero policy/contacts/fall, safe stop, all exits0 and port released. GUI rendering already inspected in minimal02, no GPU error. Next `./scripts/run_advanced_demo.sh` full GUI rehearsal with GPU monitor, no recorder. PIDs none, advanced worktree otherwise clean.
