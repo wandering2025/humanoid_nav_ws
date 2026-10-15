@@ -10,7 +10,7 @@ NAVIGATION = ('controller_server', 'planner_server', 'behavior_server', 'bt_navi
 
 
 class Readiness:
-    def __init__(self, node):
+    def __init__(self, node, *, spin_once=None):
         from geometry_msgs.msg import PoseWithCovarianceStamped
         from sensor_msgs.msg import LaserScan
         from std_msgs.msg import String
@@ -18,6 +18,7 @@ class Readiness:
         from tf2_ros import Buffer, TransformListener
         from lifecycle_msgs.srv import GetState
         self.node, self.state, self.scan, self.initialized = node, None, None, False
+        self._spin_once = spin_once
         self.first_clock = None
         self.buffer = Buffer()
         self.listener = TransformListener(self.buffer, node)
@@ -33,6 +34,8 @@ class Readiness:
         self.state = json.loads(msg.data)['state']
 
     def spin(self):
+        if self._spin_once is not None:
+            return self._spin_once()
         import rclpy
         if not rclpy.ok():
             raise ProtocolFailure('CONTEXT_SHUTDOWN')

@@ -20,41 +20,47 @@ def _yaw_quaternion(yaw):
 
 
 def starter(args=None):
-    import rclpy
-    from rclpy.node import Node
+    from rclpy.executors import ExternalShutdownException
     from nav2_msgs.srv import ManageLifecycleNodes
     from .navigation_readiness import Readiness, LOCALIZATION, NAVIGATION
     from .navigation_protocol import require_response, ProtocolFailure
+    from .starter_runtime import StarterRuntime
 
-    rclpy.init(args=args)
-    node = Node('t1_navigation_starter')
-    timeout = node.declare_parameter('ready_timeout_wall_s', 120.0).value
-    manager = node.declare_parameter('lifecycle_manager', 'lifecycle_manager_navigation').value
-    ready = Readiness(node)
-    client = node.create_client(ManageLifecycleNodes, f'/{manager}/manage_nodes')
-    deadline = time.monotonic() + timeout
     code, reason = 1, 'READINESS_FAILED'
-    try:
-        ready.wait_sensors(deadline)
-        ready.lifecycle(LOCALIZATION, deadline)
-        if not client.wait_for_service(timeout_sec=2.):
-            raise ProtocolFailure('NAVIGATION_MANAGER_NOT_DISCOVERED')
-        response = require_response(client, ManageLifecycleNodes.Request(command=ManageLifecycleNodes.Request.STARTUP), ready.spin,
-                                    min(60., max(0., deadline-time.monotonic())), 'NAVIGATION_STARTUP')
-        if not response.success:
-            raise ProtocolFailure('NAVIGATION_STARTUP_FAILED')
-        ready.lifecycle(NAVIGATION, deadline)
-        ready.endpoints()
-        ready.wait_sensors(deadline)
-        code, reason = 0, 'navigation active'
-    except Exception as exc:
-        reason = str(exc)
-    finally:
-        print(json.dumps(dict(starter=reason, exit=code, readiness=ready.trace,
-                              sim_time=node.get_clock().now().nanoseconds*1e-9)), flush=True)
-        node.destroy_node()
-        if rclpy.ok():
-            rclpy.shutdown()
+    with StarterRuntime() as runtime:
+        ready = None
+        try:
+            runtime.initialize(args)
+            node = runtime.node
+            timeout = node.declare_parameter('ready_timeout_wall_s', 120.0).value
+            manager = node.declare_parameter('lifecycle_manager', 'lifecycle_manager_navigation').value
+            ready = Readiness(node, spin_once=runtime.spin)
+            client = node.create_client(ManageLifecycleNodes, f'/{manager}/manage_nodes')
+            deadline = time.monotonic() + timeout
+            ready.wait_sensors(deadline)
+            ready.lifecycle(LOCALIZATION, deadline)
+            if not client.wait_for_service(timeout_sec=2.):
+                raise ProtocolFailure('NAVIGATION_MANAGER_NOT_DISCOVERED')
+            response = require_response(client, ManageLifecycleNodes.Request(command=ManageLifecycleNodes.Request.STARTUP), ready.spin,
+                                        min(60., max(0., deadline-time.monotonic())), 'NAVIGATION_STARTUP')
+            if not response.success:
+                raise ProtocolFailure('NAVIGATION_STARTUP_FAILED')
+            ready.lifecycle(NAVIGATION, deadline)
+            ready.endpoints()
+            ready.wait_sensors(deadline)
+            code, reason = 0, 'navigation active'
+        except KeyboardInterrupt:
+            code, reason = 0, 'INTERRUPTED'
+        except ExternalShutdownException:
+            if runtime.context.ok():
+                raise  # an active context is not a normal external shutdown
+            code, reason = 0, 'CONTEXT_SHUTDOWN'
+        except ProtocolFailure as exc:
+            reason = str(exc)
+        finally:
+            if ready is not None:
+                print(json.dumps(dict(starter=reason, exit=code, readiness=ready.trace,
+                                      sim_time=runtime.node.get_clock().now().nanoseconds*1e-9)), flush=True)
     return code
 
 
