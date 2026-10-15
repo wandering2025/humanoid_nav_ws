@@ -24,7 +24,7 @@ RUN_ID = os.environ['T1_DEMO_RUN_ID']
 BASELINE = 'b23a92465b317ca781d3eb210051126c5786908e'
 STOP = False
 GPU_PROFILE=WS/'scripts/demo/gpu-profile.json'
-SAFETY_BLOCK_REASON = 'W14_BLOCKED: staged NVIDIA validation has not authorized this GUI mode.'
+SAFETY_BLOCK_REASON = 'FINAL_RELEASE_BLOCKED: graphical validation does not authorize this GUI mode.'
 
 
 def say(message):

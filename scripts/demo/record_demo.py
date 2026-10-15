@@ -105,9 +105,12 @@ def capture(output, command):
             fps=FPS, size=[1920,1080], frames=index, duration_s=index/FPS, wall_s=time.monotonic()-started,
             repeated_frames=repeats, captures=captures, max_capture_and_encode_s=max_capture_s,
             method='Live X11 window pixels, simultaneous two-panel composition, CPU H264, uncut wall-time timeline')
+        manifest['capture_complete'] = (child.returncode == 0 and not interrupted and
+            all(n >= 5*FPS for n in captures.values()))
+        manifest['release_video_verified'] = False  # requires independent run/coverage/decode review
         (output/'capture.json').write_text(json.dumps(manifest,indent=2)+'\n')
         print(json.dumps(manifest,indent=2),flush=True)
-    return child.returncode or 0
+    return child.returncode or (0 if manifest['capture_complete'] else 1)
 
 
 if __name__ == '__main__':

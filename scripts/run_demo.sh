@@ -6,9 +6,9 @@ case "${1:-}" in
   --help|-h)
     cat <<'HELP'
 Usage: ./scripts/run_demo.sh [--preflight] [--headless] [--no-rviz] [--scenario U01]
-STATUS: W15 presentation candidate. GUI enabled; final result is independently checked.
+STATUS: FINAL_RELEASE_BLOCKED. GUI fails closed before GPU access after W15 NVIDIA viewer crash.
 DDS_TEARDOWN_EXCEPTION: only verified post-success/post-stop DDS teardown may warn; exact exit/log retained.
-MuJoCo/RViz: NVIDIA RTX 4050; RViz Qt-thread cleanup and RGB cells.
+Intended MuJoCo/RViz: NVIDIA RTX 4050; graphics revalidation and final video are NOT complete.
 Default: MuJoCo + RViz, frozen formal-v1 U01 seed 4000, A(0,0,0) -> B(9,0,0).
 --preflight  CPU resource/environment checks only; no graphics/ROS/DDS processes.
 --startup-check  Bounded standing/stop/exit check; no navigation goal.
