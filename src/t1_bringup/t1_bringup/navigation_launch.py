@@ -43,6 +43,11 @@ def actions(context):
     nodes = []
     for package, name in NAV2_NODES:
         extra = {'use_sim_time': True}
+        if name == 'controller_server' and LaunchConfiguration('mode').perform(context) == 'advanced_mapping':
+            # Advanced only: observed post-stop drift can take a 0.20m Nav2
+            # success outside the unchanged 0.20m physical arrival verification.
+            # Tighten the internal position target; all safety/stopped speeds stay.
+            extra['general_goal_checker.xy_goal_tolerance'] = 0.12
         if name == 'bt_navigator':
             extra['default_nav_to_pose_bt_xml'] = str(tree)
         remaps = [('cmd_vel', RAW_CMD)] if name in ('controller_server', 'behavior_server') else []
