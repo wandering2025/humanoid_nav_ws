@@ -291,8 +291,11 @@ class Advanced(base.Demo):
         route_ready=False
         for index,pose in enumerate(self.route['mapping_waypoints']):
             self.mapping_pass(pose,f'MAPPING_{index+1:02d}')
-            if index>=4 and self.route_overview():
-                route_ready=True;break
+            if index>=4:
+                # Await the existing 1 Hz global costmap/SLAM publication after motion.
+                refreshed=n.sim+2.;self.until(lambda:n.sim>=refreshed,8)
+                if self.route_overview():
+                    route_ready=True;break
         assert route_ready,'Observed map does not yet support an A-B route'
         self.summary['mapping_passes']=index+1
         assert n.obstacle and n.obstacle['triggered_at'] is None, 'Obstacle moved during mapping'
