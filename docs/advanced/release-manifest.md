@@ -1,3 +1,5 @@
+> 本文为已冻结 `demo-v0.2.0` 的历史发布记录。当前优化分支的状态与证据以 [optimization-review.md](optimization-review.md) 为准；新图形和录像尚未验收。
+
 # Advanced SLAM and Navigation Demo v0.2 发布清单
 
 **ADVANCED_DEMO_RELEASE_READY_WITH_KNOWN_LIMITATIONS**

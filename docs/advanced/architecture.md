@@ -1,68 +1,36 @@
-# Advanced SLAM and Navigation Demo v0.2 架构与限制
+# Advanced demo：连续建图与可见动态干扰
 
-本阶段独立于 demo-v0.1.0；最终验收和可追溯证据见 [release-manifest.md](release-manifest.md)。新阶段授权只覆盖高级分支/worktree，未改写稳定历史、旧入口或外部上游。
+本页描述优化分支当前实现；冻结的旧版架构可从 `demo-v0.2.0` 查看。当前验收状态见 [optimization-review.md](optimization-review.md)。
 
-## 真实能力与方案
+## 运动与地图流程
 
-只读审查确认 v0.1 使用物理 T1 步行、补偿 LiDAR、保存的 SLAM 地图、AMCL/Nav2、动态障碍安全等待及进程清理。旧建图实验是指令序列，不是自主探索。
+物理 T1 policy/PD/mj_step、LiDAR射线、导航适配器、安全门、平滑器和 Collision Monitor 均复用原实现。没有编辑机器人 base pose，没有把场景几何栅格化后提供给规划器。
 
-v0.2 选择 **guided autonomous mapping**：预定义 map 坐标航点由 Nav2 自主执行。初始启动空白 SLAM Toolbox 会话，没有加载先验地图；NavFn 保持 `allow_unknown:false`。近距离航点让机器人先观测、再逐步进入新区域。9 个建图航点经过西区、北廊、东区后回 A，保存真实 `/map`，再导航到 B。整个过程 SLAM 是唯一 map→odom 发布者，不切换 AMCL。
+1. 从空白 SLAM 会话开始，Nav2在已观测自由空间自主通过观测航点；`allow_unknown:false`。
+2. 航点为(3.5,0)→(3.5,3.5)→(3.5,7.8)→(7.5,8)→(11.5,6.5)，必要时到(13.4,6.5)。0.65m是观测点通过半径，不是最终到达容差。下一目标直接 preempt；不 cancel/re-arm，不要求逐点精确停稳。
+3. 第5点起等待原1Hz地图/costmap更新，再由 NavFn ComputePathToPose检查A→B。同时要求东区主通道观测区域[9,14]×[−2,10]已知比例≥95%，才结束观测路线；不再返回A。该区域不包含x≥14.4的停放障碍遮挡区；完整东区[9,16]的覆盖率单独报告。区域仅是覆盖目标，不是占据地图先验。青色概览是这个真实规划结果，只用于显示，不驱动机器人返回A。
+4. 调用SLAM已安装版本的暂停接口，读参数确认状态。保存真实`/map`，记录地图几何/数据指纹。保留最后的map→odom修正，障碍处理阶段显式依赖理想里程计。实时LiDAR仍进入costmaps及安全系统。
+5. 启用场景事件；导航到(12,2.5)的通过点，保留工具启动期间的行进余量，防止越过1.5m直线接近位置。动态物体的truth话题只由评测节点订阅；没有给Nav2未来运动或真值位置。
+6. 原工具完成B=(12,0)及可行的直线接近，严格验证停稳；核对导航阶段地图指纹未变，再恢复SLAM、保存最终地图、安全停车和有界清理。B距南墙4m，保留充分的停车及恢复空间。
 
-```mermaid
-flowchart LR
-  P[MuJoCo + 原 T1 policy/PD] --> S[补偿 LiDAR /scan]
-  P --> O[理想里程计 /odom + odom TF]
-  S --> M[SLAM Toolbox: /map + map→odom]
-  O --> M
-  M --> N[Nav2: 已知空间规划与控制]
-  S --> N
-  N --> G[原安全门 / smoother / Collision Monitor]
-  S --> G
-  G --> A[原导航适配器]
-  A --> P
-  W[自主建图/导航状态机] -->|NavigateToPose| N
-  M --> V[RViz + map_saver]
-```
+持续建图会把较宽移动障碍写入累积静态图，使撤离后仍无法规划；失败01保留。分阶段地图冻结避免此问题，但不提供该阶段的LiDAR定位修正。依据安装版本[暂停接口与TF发布](https://github.com/SteveMacenski/slam_toolbox/blob/2.8.5/src/slam_toolbox_common.cpp)及[异步扫描回调](https://github.com/SteveMacenski/slam_toolbox/blob/2.8.5/src/slam_toolbox_async.cpp)实现；没有修改SLAM依赖源码或新建TF发布者。
 
-演示阶段为启动/自检→SLAM 初始化→MAPPING_01…09→返回 A/保存地图→启用障碍实验→A 到 B 导航→到达验证→锁存停车/物理静止→退出/端口释放。中断先锁存停车，再通过 action 服务取消活动目标，等待工具返回 CANCELED；有界清理保留所有真实退出码。取消不会重新 arm。
+## 可见干扰与规划
 
-## 场景、路线和数据所有权
+东区3×0.6×1.5m的mocap障碍从(15.9,3)以0.6m/s进入(12.5,3)，停8s再撤离。事件必须在建图阶段之后显式启用，且x≥10、前进指令>0.1才触发。几何/时序制造真实通路阻塞；车体不能被推动，不代表人体交互模型。
 
-| 项目 | 实现 |
-|---|---|
-| 空间 | 外围 x=[−4,18]、y=[−4,12]；隔墙 x=[7,8]、y=[−4,4.5]，高 1.5m |
-| 宽度 | 北侧通道 7.5m；复杂度来自遮挡、区域和转弯 |
-| A/B | A=(0,0,0)，B=(14,0,−π/2)，B 被隔墙遮挡 |
-| 航点 | (3.5,0)→(3.5,3.5)→(3.5,7.8)→(7.5,8)→(11.5,8)→(14,4)→(12.5,8)→(3.5,8)→A；朝向见 advanced_route.yaml |
-| 障碍 ADV01 | 建图后显式启用；机器人 x≥10 且前进指令>0.1 时触发。0.5×0.5×1.5m 箱体从(17.2,5)以0.6m/s靠近(14,5)，停6s，原速撤离 |
-| 规划信息 | 只接收地图、扫描与 TF；不读取障碍真值或未来轨迹。实验事件用姿态触发；真值仅供独立评测 |
-| 地图保存 | Nav2 map_saver 从 SLAM `/map` 保存 initial/mapped/final PGM/YAML；sidecar 绑定 run ID、源码/场景/SLAM 参数哈希和实际 TF。保存地图不被重新加载到导航 |
-| 可视化 | A/B 仅在 MuJoCo user_scn 和 RViz；材质仅作用于显示模型副本。CPU 测试核对物理几何、动力学、ray 结果不变 |
-| 命令与时间 | `/cmd_vel` 唯一输出为 Collision Monitor；导航适配器及命令映射不变；ROS 节点使用仿真时钟；窗口心跳用单调时钟判断同一3s期限 |
+高级模式用已安装的Regulated Pure Pursuit替代MPPI作为RotationShim的主跟踪器；NavFn与5秒重规划逻辑不变。单独的advanced_controller.yaml只作用于高级模式，默认导航仍使用原MPPI。0.40m/s目标速度不超过原0.45m/s，前视0.8m，保留碰撞预测、禁用倒走；接近减速适配现有步行下限，未修改适配器。package.xml仅声明已安装的RPP运行依赖，没有安装或升级环境。实际插件在启动时查询确认。选择依据是实测MPPI在最低步行速度/航向误差下错过目标并绕圈；RPP提供直接几何路径跟踪。[已安装接口对应的上游实现](https://github.com/ros-navigation/navigation2/blob/jazzy/nav2_regulated_pure_pursuit_controller/src/regulated_pure_pursuit_controller.cpp)。
 
-原 policy/PD、runner、导航适配器、目标验证工具、safety.py、navigation.yaml、safety.yaml、command_map.yaml 和 run_demo.sh 均与稳定 tag 字节一致。规划半径2.05m、停车1.65m、减速1.95m、膨胀2.6m，以及原跌倒/停稳/超时阈值保持不变。物理运动从未通过编辑 base pose 替代。
+高级专用BT临时阻塞恢复为Wait4秒、最多6次，不使用spin/backup。观测目标各120sim s、最终目标200sim s，失败不会被改写为成功。预抢占偶发旧FollowPath提前返回SUCCEEDED时，仍用实际地图位姿检查；最多重新发送2次，ABORTED/CANCELED立即失败。
 
-高级 gate 只增加顺序退出包装：复用原 SafetyGate，在 ROS context 有效时结束回调并发布原关闭 veto，再销毁节点。TF 观察器复用 W09 的实际 RMW publisher GID 查询（Jazzy Python MessageInfo 不提供该字段），增加相同的信号标志/顺序退出；W09 历史源文件不变。二者都不改变控制律。
+RViz蓝线复制实际`/plan`的帧、时间戳和poses到持久化显示话题；新规划到达就更新，不伪造理想轨迹。规划失败等待时显示最后一次成功路径及其年龄，不能把旧蓝线视为当前保证可执行的路径。青线是A-B地图概览、紫线是TF测得轨迹、橙色是当前目标；显示都不参与控制。
 
-## 验证边界
+## 保持与收紧的标准
 
-完整演示必须同时满足：9 个建图目标及最终目标验证、地图增长、非直线路径、真实扫描与 costmap 标记、可测量的障碍响应、到达及停稳、四项零接触/跌倒、正确 TF/command/truth 所有权、仿真时钟无回退、全部组件退出0、无残留/端口可重用、无新图形监控故障。
+规划半径2.05m、停止区1.65m、减速区1.95m、膨胀2.6m、原速度/停稳/跌倒标准未降低。原navigation.yaml、安全文件、适配器、runner、run_demo.sh与稳定tag字节一致。目标工具只增加高级入口显式启用的`--require-clock`，在收到有效仿真时钟前不发目标；去掉该选项及检查共3行后与稳定源码完全相同。默认行为和原工作区文件未改。实验中的0.12m内部容差已撤回；Nav2与最终工具均保持稳定版的0.20m/0.20rad，停止速度标准未变。启动查询确认实际参数和插件。
 
-动态响应接受保护等待后继续，或障碍活跃期间规划相对事前路径偏移≥0.5m、机器人实际偏移≥0.25m且行进≥0.5m。两者都要求≥3帧扫描命中、≥2帧局部 costmap 标记、障碍结束及到达。这是行为证据判据，没有降低安全阈值。第一轮成功运动但不满足旧“必须等待”判据的 FAILED 结果保持原样。
+动态验收要求≥3帧扫描命中、≥2帧costmap标记、≥2s实际静止且最终命令为零、距B>1m、障碍结束后行进≥1m并到达。仅有路径偏移不再放行。SLAM有序deactivate/cleanup、按登记PID关闭、端口释放和四项零碰撞/跌倒仍是硬条件。
 
-CPU 构建/契约→自主无界面运行→最小图形负载→完整双窗口→独立窗口读取→离线 CPU H264 编码/逐帧解码/关键阶段视觉检查。失败尝试全部保留。进程按 PID 和启动时间登记，退出仅处理本次任务；TCP TIME_WAIT 最多等待65s，不杀无关进程。
+## 限制
 
-## 已知限制
-
-- 理想真值里程计与真值姿态 LiDAR 补偿仍在使用；不是未知环境下真实传感器定位性能证明。LiDAR 为有限9×360射线、10Hz、1cm噪声的模拟器。
-- 预定义地图坐标航点依赖设计好的宽敞平地场景与已知坐标，不是 frontier exploration；固定 ADV01/seed4000 演示不等同于任意建筑探索。
-- 不可推动的 mocap 障碍、响应式 Nav2，没有轨迹预测或人体交互保证。机体最近间距以10Hz碰撞几何采样，不能解释为连续时间距离下界。
-- 原步态存在速度死区与停步回弹；目标工具保留已有分段接近与停稳验证。没有重新训练或大规模重写步行控制。
-- GPU 使用已冻结 WSLg/Mesa 的 NVIDIA OpenGL 路径，底层仍经 WSLg D3D12；不是原生 Linux OpenGL/CUDA 仿真。策略推理保持原 CPU 路径。未改驱动、显示设置或依赖。监控不能保证宿主图形故障隔离。
-- 录像4fps、无音频，左右窗口顺序读取存在记录在案的时间差；不加速仿真片段，末尾证据卡为明确标记的后处理内容。
-- 外部 Fast DDS 关闭 SIGSEGV 的历史风险没有被宣称修复。中断负测曾观察到−11，失败及精确退出码均保留；最终完整运行要求所有组件0，不使用 v0.1 的 DDS_TEARDOWN_EXCEPTION 放行。主动取消的任务结果应为 FAILED/CANCELED，不能算到达成功。
-- 历史 W13 正式结果仍为 **FAILED/36/40**；v0.2 验证针对本次演示目标，不是新的可靠性研究或安全认证。
-
-## SLAM 退出时序
-
-完整录像01的实际任务通过，但 SLAM Toolbox 在 SIGINT 后抛出 context 已失效的等待异常并退出−6，故整轮 FAILED，原帧保留且未放行编码。安装版本2.8.5的[上游实现](https://github.com/SteveMacenski/slam_toolbox/blob/2.8.5/src/slam_toolbox_common.cpp#L163-L213)在 deactivate 中中断并 join 后台线程，cleanup 释放地图与 TF 对象。高级入口在物理停稳后、ROS context 仍有效时请求这两个生命周期转换并确认状态，再按原有登记进程顺序退出；转换不成功仍判失败。没有修改已安装 SLAM、ROS 或 DDS 库。
+预定义观测航点与场景坐标，不是真正frontier exploration；理想真值里程计、真值姿态LiDAR补偿、有限9×360射线/10Hz/1cm噪声仍在使用。动态障碍处理阶段暂停SLAM修正，不能称为持续LiDAR定位。静态图包含建图时停放的可移动物体，它后方仍有未知区和东墙局部缺口；地图表达主要结构，不是建筑每面墙已完整扫描。动态层的反应并非轨迹预测。步态漂移与终端有界重试仍可能出现；两次通过不是可靠性认证。采样机体间距不是连续时间下界。W13仍FAILED36/40。当前GPU锁与新图形/录像未验收的限制见验收记录；没有更换驱动、环境或录像宿主。

@@ -1,3 +1,5 @@
+> 当前优化交接在本文末尾；旧版 RELEASE_READY 记录属于冻结的 `demo-v0.2.0`。当前状态见 [optimization-review.md](optimization-review.md)。
+
 # v0.2 working record
 
 Current: **ADVANCED_DEMO_RELEASE_READY_WITH_KNOWN_LIMITATIONS**. Earlier IN_PROGRESS/FAILED entries below are preserved historical checkpoints; see final delivery entry.
@@ -69,3 +71,22 @@ Validation:system colcon4 packages; latest CPU192pass/1 historical v0.1-only sou
 Limits:guided waypoints, ideal truth odom and attitude compensation, flat fixed scene/seed, finite simulatedLiDAR,mocap obstacle, reactive navigation, variable terminal-heading convergence, WSLg/NVIDIA graphics risk,4fps sequential capture. Native DDS teardown risk not claimed fixed; final full run uses no DDS exception. W13 remains FAILED36/40, not replaced by this demonstration.
 
 Before this completion record:both worktrees clean; after edit dirty only docs/advanced/handoff.md, committed next. Remaining project/owned PIDs:none; local42127 bind verified. Docs links/video hash/source-equivalence verified. Next recommended command `/home/haoyang/humanoid_nav_ws_advanced/scripts/run_advanced_demo.sh`; stable fallback `/home/haoyang/humanoid_nav_ws/scripts/run_demo.sh`. No required work remains after tag creation and final clean-state verification.
+
+
+## User-feedback optimization handoff — 2026-10-15T23:56:49.657254+00:00
+
+**ADVANCED_DEMO_BLOCKED_STABLE_V0_1_PRESERVED**. Physical functionality validated; new graphical validation/video blocked pending the already-requested GPU recovery authorization. Sole primary agent, no delegation/push. Started atb191ef6af36b0a3d611604cd9de922866167ce27 with both worktrees clean. Branch feature/advanced-slam-demo-v0.2; cwd/worktree /home/haoyang/humanoid_nav_ws_advanced.
+
+Final runtime implementation SHA `2875228d3c27e293c80087453543be0c549f3347`; committed evidence SHA `0b9ba65b30585d07d99db0f18cd70cff5ba8deae`. Current uncommitted changes are only the9 docs/advanced files listed in optimization-record; they are committed together next. Final `git status --short` must be empty in both worktrees. No runtime source changes after these tests.
+
+Dynamic run `20261015T234553Z_advanced_12517517-2132-4dd2-a997-3dc793ec7747` and parked control `20261015T234208Z_advanced_89cb184c-a79b-4e26-b251-29ccbbe46d2b` SUCCESS. Moving interrupt `20261015T235044Z_advanced_cac8c8bc-7233-4b39-8e96-4998aa292108` intentionally FAILED with stop/cleanup PASS. CPU194PASS/1 historicalv0.1 source-shape assertion excluded, four-package buildPASS. Dynamic wait16.1s, resume7.223m, contact/fall0; final position0.08159m/yaw0.04052rad. Control final0.08514m/0.01837rad. All infrastructure exits0, no DDS exception used, no residual project/owned PIDs, port42127 released. Runtime source and1177 raw hashes bound in evidence. Final travel30.146m/169.4sim s versus published76.707m/374.66s; source/goal/workflow differences declared.
+
+Implementation: continuous guided mapping passes, no returnA, actual map coverage/NavFn readiness, advanced-only RPP with original RotationShim/adapter/safety. RPP desired0.40m/s, baseline MPPI retained. Internal experimental0.12m tolerance removed; original0.20m/0.20rad restored throughout. A=(0,0), B=(12,0), optional final survey(13.4,6.5), nav handover(12,2.5); wide north gallery7.5m.3m cart enters(12.5,3), holds8s, withdraws. Static SLAM pauses through dynamic navigation, retaining final map correction and ideal odometry; live LiDAR/costmaps/safety continue, SLAM resumes atB. Actual blue plan, cyan display-only A-B overview, purple trail, orange target and plan age are published;2 exact serialized planner/display matches verified in ROS, no new RViz visual check.
+
+Limits: guided waypoints, ideal truth odometry and attitude compensation, paused scan matching in navigation, parked-cart map shadow (east95.63% known), finite turning corrections, flat fixed scene/seed and mocap obstacle; no reliability certification. W13 remains FAILED36/40. See architecture/optimization-review for current authoritative details.
+
+Original stable worktree /home/haoyang/humanoid_nav_ws remains clean at0f51d54b1dbfdde0664966118b5546109a3f6ff2; demo-v0.1.0 object844036e69644272dce6178552dd10778e80d4d35 unchanged, run_demo.sh and protected source byte-identical. This turn's v0.1 regression is source/isolation audit, not a new v0.1 runtime. Existing demo-v0.2.0 object19466fc53775d30d96b5b76c0d9a5b2a440d0c95 still targetsb191ef6af36b0a3d611604cd9de922866167ce27. Frozen deploy7bb1462e2ac742eba5c01659b815e2e99fbe617f/assets12a97516f57469078707afb587a5f84c1cb110d1 unchanged and clean.
+
+No new video. Old frozen-tag video docs/evidence/advanced/raw/final-recording-02/advanced-demo.mp4 remains368.25s, SHA2563f9547f14e7ecadd4d0f115c4a562291dc4530e4de7a95d7633041d0f7a3716a, hash rechecked; it does not validate this optimization. Existing GPU halt from run20261015T220015Z_advanced_c171be81-40f2-4a13-a537-2aa174bce3f5 remains byte-identical, SHA25660095afd345dff75caa25046bc7d8b81597837b13c4f8625026f3a885b66c0fc. gpu_watch.py:61 forbids automatic retry; thresholds/driver/display configuration unchanged.
+
+Next recommended command `/home/haoyang/humanoid_nav_ws_advanced/scripts/run_advanced_demo.sh --headless`. Pending required input: GPU recovery authorization, already requested asynchronously and unanswered. Once explicitly allowed, archive original latch and retain fault records; perform unchanged-threshold minimal `--startup-check`, then full GUI plus decoupled capture/CPU encoding/full decode/key-stage review. Stop on any new GPU fault. Do not move existing tags or claim a new visual release without that work. Stable fallback `/home/haoyang/humanoid_nav_ws/scripts/run_demo.sh`. Remaining PIDs:none.
