@@ -1,17 +1,19 @@
 {
-  "status": "GPU_HALTED_RVIZ_HEAP_CORRUPTION",
+  "status": "GUI_VALIDATED",
   "adapter": "NVIDIA GeForce RTX 4050",
-  "rviz": "CPU llvmpipe",
+  "rviz": "NVIDIA lifecycle wrapper",
   "stages": {
     "docs/evidence/W14/raw/nvidia-stages/20261015T124013Z_01-minimal-gl_203309/offline-parser-assessment.json": "2d162a53d5e9348ed1c5e3a4ef402f1b3fd217cc6e9c6969f3f8948bc899fae0",
     "docs/evidence/W14/raw/nvidia-stages/20261015T124135Z_02-small-window_ba98e0/result.json": "68a25a534d44992107e3f713f64466797107834d1e5cbe97e129757a7d8cbd5e",
     "docs/evidence/W14/raw/nvidia-stages/20261015T124206Z_03-static-t1_0354ff/result.json": "01348129bb2854b53f32dc4aef50d9406c2e25d90697f334baa046166c935c42",
     "docs/evidence/W14/nvidia-recovery/cpu-rgb-assessment.json": "5cf59a644babe683b2220f5acfc291dee9a9bf94d14d4125593adcac687b30e1",
-    "docs/evidence/W14/nvidia-recovery/rgb-standing-final-result.json": "06727a0cf5d813c23b03a2e8ee046d6994b14f4dc1c1f5b02d155e2278e782e9"
+    "docs/evidence/W14/nvidia-recovery/rgb-standing-final-result.json": "06727a0cf5d813c23b03a2e8ee046d6994b14f4dc1c1f5b02d155e2278e782e9",
+    "docs/evidence/W14/rviz-lifecycle/minimal-result.json": "5a1e1a231ea72656df6de1652f50f8accce112718cb5f7d54119fab793781ad9"
   },
-  "halt_reason": "CPU RViz native heap corruption at shutdown; no automatic retry, original FAIL preserved",
+  "halt_reason": "Single strictly authorized minimal lifecycle test PASS; only two registered full rehearsals next; any new stop condition ends authorization",
   "halt_evidence": {
-    "path": "run_data/demo-gpu-halt.json"
+    "archived_path": "docs/evidence/W14/raw/rviz-lifecycle/20261015T134828Z_rviz_minimal_6d4beca0/previous-halt.json",
+    "sha256": "0fcb2688f6e087fcdd94e71b30135a64d01d78163eccc912fb97e8bfeec752b0"
   },
-  "display_path": "RGB PointCloud2; CPU llvmpipe; no RViz MapDisplay or text markers"
+  "display_path": "NVIDIA RGB PointCloud2; local Qt-thread lifecycle wrapper; no MapDisplay shader"
 }

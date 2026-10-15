@@ -1,0 +1,38 @@
+{
+  "run_id": "20261015T134828Z_rviz_minimal_6d4beca0",
+  "code_sha": "bb4b13f5d75cafe45b68636eaab8df6b39c1402f",
+  "started_utc": "2026-10-15T13:48:28.346752+00:00",
+  "status": "PASS",
+  "exit_codes": {
+    "rviz": 0,
+    "publisher": 0,
+    "dds": 0
+  },
+  "signals": [
+    [
+      "rviz",
+      42112,
+      "SIGINT"
+    ],
+    [
+      "publisher",
+      42111,
+      "SIGINT"
+    ],
+    [
+      "dds",
+      42100,
+      "SIGINT"
+    ]
+  ],
+  "display_verified": true,
+  "gpu_max": {
+    "temperature_c": 51.0,
+    "memory_mib": 851.0,
+    "utilization_pct": 45.0
+  },
+  "remaining_pids": [],
+  "port_released": true,
+  "wall_total_s": 37.733187000000726,
+  "clean_lifecycle": true
+}

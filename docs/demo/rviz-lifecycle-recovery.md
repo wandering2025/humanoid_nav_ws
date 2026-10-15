@@ -32,3 +32,9 @@
 任一出现Removing Device、DX12_PAGEFAULT、LiveKernelEvent141/显示超时、RViz−6、持续无响应、异常显存、宿主黑屏/鼠标消失或图形进程需SIGKILL：
 停止扩载并终止最近任务，保存证据，不再重试、不换路径继续。最小失败则完整两次NOT_RUN、W14_BLOCKED。
 本次授权不等于整机GPU安全保证；W15不开始。视频仍MISSING，人工步骤保留。
+
+唯一最小测试完成：20261015T134828Z_rviz_minimal_6d4beca0，被测干净bb4b13f5d75cafe45b68636eaab8df6b39c1402f，PASS。
+NVIDIA实际renderer；GPU最高51°C/851MiB/45%；RViz/publisher/DDS均0，signals只有SIGINT，正常析构完成、端口可bind、无PID。
+Windows新增事件为空，WSLg无匹配新驱动/渲染错误；资源图标的debug查找fallback日志完整保留，不冒充为shader/驱动错误。
+该结果支持修复组合可正常退出，不证明原始破坏堆对象的精确根因；GPU路径与生命周期均有改变，不能作单因素因果结论。
+接下来只允许两次同源码、同U01/4000、同默认命令；任何停止条件后不再换路径或重试。

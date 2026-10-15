@@ -1,0 +1,67 @@
+[
+  {
+    "path": "docs/evidence/W14/raw/rviz-lifecycle/20261015T134828Z_rviz_minimal_6d4beca0/dds.log",
+    "bytes": 240,
+    "sha256": "2f1adeb6626f1d712cb6e9a51f5c45fb6a376621e2c0fe24d1c1d6d35dfcbe61"
+  },
+  {
+    "path": "docs/evidence/W14/raw/rviz-lifecycle/20261015T134828Z_rviz_minimal_6d4beca0/gpu/gpu-samples.jsonl",
+    "bytes": 8806,
+    "sha256": "1b62c94fb7a4d4f7d4e565b29397ce775d81f6004b8889ebbd5a6649712a49cc"
+  },
+  {
+    "path": "docs/evidence/W14/raw/rviz-lifecycle/20261015T134828Z_rviz_minimal_6d4beca0/gpu/host/stderr.log.baseline",
+    "bytes": 2676,
+    "sha256": "8a2715f10d0c7e4728d481e3141e692328c0fd42e22575fa99bb84315ab222e7"
+  },
+  {
+    "path": "docs/evidence/W14/raw/rviz-lifecycle/20261015T134828Z_rviz_minimal_6d4beca0/gpu/host/weston.log.baseline",
+    "bytes": 48574,
+    "sha256": "934b5cb3ec388aa882a1f428f5c7e159efb9cf43b408c23a1057653b0b53c3f0"
+  },
+  {
+    "path": "docs/evidence/W14/raw/rviz-lifecycle/20261015T134828Z_rviz_minimal_6d4beca0/gpu/host/weston.log.delta",
+    "bytes": 768,
+    "sha256": "b20e825f495aa28a066ce527fae321d3dbe48c1e5253b8c07635aa9dbd99dd31"
+  },
+  {
+    "path": "docs/evidence/W14/raw/rviz-lifecycle/20261015T134828Z_rviz_minimal_6d4beca0/gpu/host/windows-baseline.json",
+    "bytes": 46,
+    "sha256": "736b064991a4b2a7dab7956815c33e3580d1e2f3b73b85a162c92066cc0fdf2a"
+  },
+  {
+    "path": "docs/evidence/W14/raw/rviz-lifecycle/20261015T134828Z_rviz_minimal_6d4beca0/gpu/host/windows-checks.json",
+    "bytes": 488,
+    "sha256": "b63dca4f8bf5b77f50f416683f7ff08951d7ae6b91e6201f89347e2000670fe4"
+  },
+  {
+    "path": "docs/evidence/W14/raw/rviz-lifecycle/20261015T134828Z_rviz_minimal_6d4beca0/heartbeat",
+    "bytes": 25,
+    "sha256": "f952f33554ddd9dda3bb30f1cf50f0b9d3d9c81121ff0fc8c7b789f72cdd9e50"
+  },
+  {
+    "path": "docs/evidence/W14/raw/rviz-lifecycle/20261015T134828Z_rviz_minimal_6d4beca0/minimal.rviz",
+    "bytes": 1824,
+    "sha256": "09c551b1542e9f058f0f443f29872b894d01ba515763f43695a0fa0ae38600de"
+  },
+  {
+    "path": "docs/evidence/W14/raw/rviz-lifecycle/20261015T134828Z_rviz_minimal_6d4beca0/previous-halt.json",
+    "bytes": 340,
+    "sha256": "0fcb2688f6e087fcdd94e71b30135a64d01d78163eccc912fb97e8bfeec752b0"
+  },
+  {
+    "path": "docs/evidence/W14/raw/rviz-lifecycle/20261015T134828Z_rviz_minimal_6d4beca0/publisher.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "docs/evidence/W14/raw/rviz-lifecycle/20261015T134828Z_rviz_minimal_6d4beca0/result.json",
+    "bytes": 689,
+    "sha256": "5a1e1a231ea72656df6de1652f50f8accce112718cb5f7d54119fab793781ad9"
+  },
+  {
+    "path": "docs/evidence/W14/raw/rviz-lifecycle/20261015T134828Z_rviz_minimal_6d4beca0/rviz.log",
+    "bytes": 14673,
+    "sha256": "10cea06da58b912e113e29e79ac4adb711e139ce0d0688b43fc58aae40b12a76"
+  }
+]

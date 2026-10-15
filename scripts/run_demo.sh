@@ -6,8 +6,8 @@ case "${1:-}" in
   --help|-h)
     cat <<'HELP'
 Usage: ./scripts/run_demo.sh [--preflight] [--headless] [--no-rviz] [--scenario U01]
-STATUS: W14_BLOCKED after RViz heap corruption on shutdown; GUI locked.
-MuJoCo: NVIDIA RTX 4050. RViz: CPU llvmpipe RGB cells (no MapDisplay shader).
+STATUS: strict RViz lifecycle minimum passed; two full rehearsals pending.
+MuJoCo/RViz: NVIDIA RTX 4050; RViz Qt-thread cleanup and RGB cells.
 Default: MuJoCo + RViz, frozen formal-v1 U01 seed 4000, A(0,0,0) -> B(9,0,0).
 --preflight  CPU resource/environment checks only; no graphics/ROS/DDS processes.
 --startup-check  Bounded standing/stop/exit check; no navigation goal.
