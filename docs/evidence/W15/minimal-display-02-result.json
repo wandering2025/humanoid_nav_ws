@@ -1,0 +1,11 @@
+{
+  "status": "FAIL",
+  "model": "/home/haoyang/humanoid_nav_ws/run_data/cache/scenes/24e8dea1e7c76ee40acfd5493a8b1c01dd191ad3174c213071a88be253582b0e/dynamic_crossing_world.xml",
+  "pid": 68872,
+  "error": "RuntimeError('Viewer exit -11')",
+  "gpu_peaks": {
+    "temperature_c": 52.0,
+    "memory_mib": 1024.0,
+    "utilization_pct": 44.0
+  }
+}

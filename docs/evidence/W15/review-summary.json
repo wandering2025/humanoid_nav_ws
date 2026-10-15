@@ -1,0 +1,606 @@
+{
+  "navigation": [
+    {
+      "run_id": "20261015T151038Z_w15_S01_3df26e",
+      "case": "S01",
+      "source_sha": "8f26105905d041c1484de66c80d62524e4f57140",
+      "outcome": "SUCCESS",
+      "source_dirty": false,
+      "validity": {
+        "source_clean": true,
+        "fresh_clock": true,
+        "monotonic_clock": true,
+        "one_initialpose": true,
+        "complete_manifest": true,
+        "frozen_timing": true,
+        "processes_reaped": true,
+        "runtime_graph": true
+      },
+      "settle": {
+        "settled": true,
+        "settle_start_sim": 19.999999999999794,
+        "settle_delay_s": 0.2799999999997915,
+        "pos_err_m": 0.10685746330836399,
+        "yaw_err_deg": 0.6037940726113996
+      },
+      "terminal_error": null,
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "body_clearance": {
+        "min_m": 2.101809540504282,
+        "sim_time": 19.52000000000006,
+        "geom_pair": [
+          "t1_geom_015",
+          "env_island"
+        ],
+        "samples": 335,
+        "robot_geoms": 22,
+        "environment_geoms": 8,
+        "sample_hz": 10,
+        "definition": "signed 3D MuJoCo collision geometry distance; excludes ground/self/visual; sampled minimum, not continuous bound"
+      },
+      "nav2": {
+        "event": "result",
+        "goal": [
+          1.75,
+          0.0,
+          0.0
+        ],
+        "time_limit_s": 120.0,
+        "tolerances": {
+          "xy": 0.2,
+          "yaw": 0.2
+        },
+        "attempts": [
+          {
+            "stage": "approach",
+            "target": [
+              0.25,
+              0.0,
+              0.0
+            ],
+            "accepted_sim": 13.420000000000002,
+            "goal_id": "a533e03f32714e10ac27b57072e98e28",
+            "status": "PASSED",
+            "end_sim": 13.600000000000001,
+            "passed_pose": [
+              0.005383980787563678,
+              0.002651297472522393,
+              0.0314385376182994
+            ]
+          },
+          {
+            "stage": "goal",
+            "target": [
+              1.75,
+              0.0,
+              0.0
+            ],
+            "accepted_sim": 13.600000000000001,
+            "goal_id": "c244c40f33124639ad5c0d744fd7f7a1",
+            "status": "SUCCEEDED",
+            "end_sim": 19.720000000000002,
+            "error_code": 0,
+            "verify_sim": 21.28,
+            "verified_pose": [
+              1.6876194665822761,
+              0.06331439377461073,
+              -0.01943916606753272
+            ],
+            "xy_error": 0.08888218836485874,
+            "yaw_error": 0.01943916606753272
+          }
+        ],
+        "arm_attempts": 1,
+        "approach_distance": 1.5,
+        "accepted_sim": 13.420000000000002,
+        "goal_id": "a533e03f32714e10ac27b57072e98e28",
+        "status": "SUCCEEDED",
+        "timed_out": false,
+        "end_sim": 21.28,
+        "duration_sim": 7.859999999999999,
+        "verified": {
+          "stage": "goal",
+          "target": [
+            1.75,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 13.600000000000001,
+          "goal_id": "c244c40f33124639ad5c0d744fd7f7a1",
+          "status": "SUCCEEDED",
+          "end_sim": 19.720000000000002,
+          "error_code": 0,
+          "verify_sim": 21.28,
+          "verified_pose": [
+            1.6876194665822761,
+            0.06331439377461073,
+            -0.01943916606753272
+          ],
+          "xy_error": 0.08888218836485874,
+          "yaw_error": 0.01943916606753272
+        },
+        "terminal_retries": 0,
+        "error_code": 0,
+        "nav2_success_sim": 19.720000000000002,
+        "exit": 0
+      },
+      "tf_owners": {
+        "base_footprint": [
+          "t1_sim"
+        ],
+        "base_link": [
+          "t1_sim"
+        ],
+        "laser_stabilized": [
+          "t1_sim"
+        ],
+        "aahead_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "aahead_yaw_link": [
+          "robot_state_publisher"
+        ],
+        "left_ankle_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "left_ankle_roll_link": [
+          "robot_state_publisher"
+        ],
+        "left_elbow_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "left_elbow_yaw_link": [
+          "robot_state_publisher"
+        ],
+        "left_hip_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "left_hip_roll_link": [
+          "robot_state_publisher"
+        ],
+        "left_hip_yaw_link": [
+          "robot_state_publisher"
+        ],
+        "left_knee_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "left_shoulder_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "left_shoulder_roll_link": [
+          "robot_state_publisher"
+        ],
+        "right_ankle_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "right_ankle_roll_link": [
+          "robot_state_publisher"
+        ],
+        "right_elbow_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "right_elbow_yaw_link": [
+          "robot_state_publisher"
+        ],
+        "right_hip_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "right_hip_roll_link": [
+          "robot_state_publisher"
+        ],
+        "right_hip_yaw_link": [
+          "robot_state_publisher"
+        ],
+        "right_knee_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "right_shoulder_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "right_shoulder_roll_link": [
+          "robot_state_publisher"
+        ],
+        "waist_yaw_link": [
+          "robot_state_publisher"
+        ],
+        "odom": [
+          "amcl"
+        ]
+      },
+      "graph_checks": {
+        "final_only_collision_monitor": true,
+        "gate_only_cmd_vel_nav": true,
+        "adapter_only_navigation_source": true,
+        "nav2_into_adapter_only": true,
+        "no_teleop_source": true,
+        "one_clock": true,
+        "truth_isolated": true,
+        "debug_disabled": true,
+        "twist_only": true,
+        "amcl_map_odom": true,
+        "sim_base": true,
+        "unique_tf": true
+      },
+      "launch_exit": 0,
+      "remaining_owned": [],
+      "dynamic": null,
+      "original_result": "docs/evidence/W15/raw/20261015T151038Z_w15_S01_3df26e/result.json",
+      "original_result_sha256": "fce3cb7ab2a481b60fd5f95b2159a5f5d0f9b8a3acb4a049430913bfaa1d9ea4"
+    },
+    {
+      "run_id": "20261015T151138Z_w15_B01_7b4d34",
+      "case": "B01",
+      "source_sha": "8f26105905d041c1484de66c80d62524e4f57140",
+      "outcome": "FAIL_TIMEOUT",
+      "source_dirty": false,
+      "validity": {
+        "source_clean": true,
+        "fresh_clock": true,
+        "monotonic_clock": true,
+        "one_initialpose": true,
+        "complete_manifest": true,
+        "frozen_timing": true,
+        "processes_reaped": true,
+        "runtime_graph": true
+      },
+      "settle": {
+        "settled": false
+      },
+      "terminal_error": {
+        "pos_err_m": 7.051830800487211,
+        "yaw_err_deg": 60.74774237044963
+      },
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "body_clearance": {
+        "min_m": 1.7300093025930143,
+        "sim_time": 28.419999999995127,
+        "geom_pair": [
+          "t1_geom_015",
+          "obstacle_blocking_slot"
+        ],
+        "samples": 1463,
+        "robot_geoms": 22,
+        "environment_geoms": 8,
+        "sample_hz": 10,
+        "definition": "signed 3D MuJoCo collision geometry distance; excludes ground/self/visual; sampled minimum, not continuous bound"
+      },
+      "nav2": {
+        "event": "result",
+        "goal": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "time_limit_s": 120.0,
+        "tolerances": {
+          "xy": 0.2,
+          "yaw": 0.2
+        },
+        "attempts": [
+          {
+            "stage": "approach",
+            "target": [
+              7.5,
+              0.0,
+              0.0
+            ],
+            "accepted_sim": 14.020000000000001,
+            "goal_id": "dac936e4e4ae4c189cf82dac26affdb2",
+            "status": "ABORTED",
+            "end_sim": 82.36,
+            "error_code": 104
+          },
+          {
+            "stage": "goal",
+            "target": [
+              9.0,
+              0.0,
+              0.0
+            ],
+            "accepted_sim": 82.36,
+            "goal_id": "2d631e15af154aa99009c3a66bff59cd",
+            "status": "CANCELED",
+            "end_sim": 134.04000000000002,
+            "error_code": 0
+          }
+        ],
+        "arm_attempts": 1,
+        "approach_distance": 1.5,
+        "accepted_sim": 14.020000000000001,
+        "goal_id": "dac936e4e4ae4c189cf82dac26affdb2",
+        "status": "CANCELED",
+        "timed_out": true,
+        "end_sim": 134.04000000000002,
+        "duration_sim": 120.02000000000002,
+        "verified": null,
+        "terminal_retries": 0,
+        "error_code": 0,
+        "nav2_success_sim": null,
+        "exit": 3
+      },
+      "tf_owners": {
+        "base_footprint": [
+          "t1_sim"
+        ],
+        "base_link": [
+          "t1_sim"
+        ],
+        "laser_stabilized": [
+          "t1_sim"
+        ],
+        "aahead_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "aahead_yaw_link": [
+          "robot_state_publisher"
+        ],
+        "left_ankle_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "left_ankle_roll_link": [
+          "robot_state_publisher"
+        ],
+        "left_elbow_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "left_elbow_yaw_link": [
+          "robot_state_publisher"
+        ],
+        "left_hip_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "left_hip_roll_link": [
+          "robot_state_publisher"
+        ],
+        "left_hip_yaw_link": [
+          "robot_state_publisher"
+        ],
+        "left_knee_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "left_shoulder_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "left_shoulder_roll_link": [
+          "robot_state_publisher"
+        ],
+        "right_ankle_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "right_ankle_roll_link": [
+          "robot_state_publisher"
+        ],
+        "right_elbow_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "right_elbow_yaw_link": [
+          "robot_state_publisher"
+        ],
+        "right_hip_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "right_hip_roll_link": [
+          "robot_state_publisher"
+        ],
+        "right_hip_yaw_link": [
+          "robot_state_publisher"
+        ],
+        "right_knee_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "right_shoulder_pitch_link": [
+          "robot_state_publisher"
+        ],
+        "right_shoulder_roll_link": [
+          "robot_state_publisher"
+        ],
+        "waist_yaw_link": [
+          "robot_state_publisher"
+        ],
+        "odom": [
+          "amcl"
+        ]
+      },
+      "graph_checks": {
+        "final_only_collision_monitor": true,
+        "gate_only_cmd_vel_nav": true,
+        "adapter_only_navigation_source": true,
+        "nav2_into_adapter_only": true,
+        "no_teleop_source": true,
+        "one_clock": true,
+        "truth_isolated": true,
+        "debug_disabled": true,
+        "twist_only": true,
+        "amcl_map_odom": true,
+        "sim_base": true,
+        "unique_tf": true
+      },
+      "launch_exit": 0,
+      "remaining_owned": [],
+      "dynamic": {
+        "scenario": "blocking",
+        "checks": {
+          "triggered_after_actual_walking": true,
+          "scan_hits_entity": true,
+          "local_costmap_marks_entity": true,
+          "no_planner_obstacle_truth": true,
+          "no_teleop": true,
+          "dimensions": true,
+          "real_detour": false,
+          "blocker_never_removed": true,
+          "goal_reached_while_blocked": true,
+          "navigation_success": false
+        },
+        "verdict": "FAIL",
+        "trigger_sim": 15.75000000000193,
+        "scan_hit_frames": 1303,
+        "costmap_marked_samples": 217,
+        "costmap_cleared_samples": 0,
+        "actual_stop_sim": null,
+        "resume_sim": null,
+        "stopped_hold_s": 0.0,
+        "min_center_surface_gap_m": 2.003219784377116,
+        "min_rotated_footprint_gap_m": 1.4020365509345525,
+        "max_robot_lateral_m": 0.1455284738283697,
+        "initial_plan_lateral_m": 0.29999835008380416,
+        "replanned_lateral_m": 3.01839247933615
+      },
+      "original_result": "docs/evidence/W15/raw/20261015T151138Z_w15_B01_7b4d34/result.json",
+      "original_result_sha256": "19b3aeff3bc153a85baa3115cad7d5b7311a237a368ffac090dbd2e271c4da99"
+    }
+  ],
+  "fault_stop": {
+    "post_fault_gate": {
+      "state": "STOPPED",
+      "reason": "SOURCE_TIMEOUT",
+      "source": "teleop",
+      "permit": false,
+      "wall_mono": 11616.573863886,
+      "sim_time": 15.780000000000001,
+      "health_reason": ""
+    },
+    "still_latched": true,
+    "rearmed": true,
+    "case": "source_timeout",
+    "run_id": "w10_source_timeout_2a66ba8d",
+    "started_utc": "2026-10-15T15:16:31.627643+00:00",
+    "ended_utc": "2026-10-15T15:16:58.874668+00:00",
+    "tested_sha": "3bacd05595fb5a234d0ebc019604c82895c43f14",
+    "command": [
+      "ros2",
+      "launch",
+      "/home/haoyang/humanoid_nav_ws/docs/evidence/W15/raw/20261015T151630Z_w15_source_timeout_1a9080/fault.launch.py",
+      "run_id:=w10_source_timeout_2a66ba8d",
+      "scene:=/home/haoyang/humanoid_nav_ws/docs/evidence/W15/raw/20261015T151630Z_w15_source_timeout_1a9080/open.yaml",
+      "target_rtf:=1.0",
+      "max_sim_time:=90.0",
+      "command_source:=teleop"
+    ],
+    "injection": {
+      "sim": 7.78,
+      "wall": 11608.569434442,
+      "state": {
+        "schema": 1,
+        "run_id": "w10_source_timeout_2a66ba8d",
+        "episode": 0,
+        "state": "READY",
+        "fault": null,
+        "mode": "sim_only",
+        "sim_time": 6.8599999999994665,
+        "wall_unix": 1792077400.4935696,
+        "wall_mono": 11607.650060814,
+        "rtf_10s": 0.9988165654805456,
+        "cmd_status": "ACTIVE",
+        "cmd_source": "cmd_vel",
+        "v_des": [
+          0.5,
+          0.0,
+          0.0
+        ],
+        "u_pol": [
+          0.5549999999999999,
+          0.0,
+          0.0
+        ],
+        "v_guard": [
+          0.5,
+          0.0,
+          0.0
+        ],
+        "guard": [],
+        "command_map_calibrated": true,
+        "scenario": "/home/haoyang/humanoid_nav_ws/run_data/cache/scenes/15f7bb8e16abcc045ee4dd0b84f5fcafd46a82fa3d339494670892603adda30e/calibration_world.xml",
+        "seed": 0,
+        "code_sha": "3bacd05595fb5a234d0ebc019604c82895c43f14",
+        "deadline_overruns": 1,
+        "ignored_components": 0,
+        "odom_mode": "ideal_truth",
+        "covariance_mode": "nominal_not_estimated",
+        "sensor_mode": "compensated",
+        "sensor_healthy": true,
+        "scan_compute_ms": 0.0,
+        "scan_known_fraction": 1.0,
+        "scan_blind_bins": 0,
+        "env_contacts": {
+          "static_env": 0,
+          "obstacle": 0,
+          "ground_nonfoot": 0
+        }
+      },
+      "pose": {
+        "sim": 7.72,
+        "wall": 11608.509911807,
+        "x": 1.654478877807266,
+        "y": 0.08803782275788735,
+        "vx": 0.5365777340624949,
+        "vy": -0.20048156625198071,
+        "wz": -0.07681621107889465,
+        "cmds": {
+          "cmd_vel_nav": [
+            0.5,
+            0.0
+          ],
+          "cmd_vel_smoothed": [
+            0.5,
+            0.0
+          ],
+          "cmd_vel": [
+            0.5,
+            0.0
+          ]
+        },
+        "gate": "ARMED"
+      },
+      "cm": {
+        "action_type": 0,
+        "polygon_name": ""
+      }
+    },
+    "zero_sim": 8.079999999999368,
+    "zero_delay_sim": 0.29999999999936744,
+    "stop_distance_from_zero_m": 0.18409425610157168,
+    "distance_from_injection_m": 0.3009694475789284,
+    "final_speed_mps": 0.0008477593400327776,
+    "final_yaw_speed": 0.005210674979812424,
+    "scan_compute_p95_ms": 1.1201809998055978,
+    "checks": {
+      "exit_zero": true,
+      "continued_standing": true,
+      "moved_before_fault": true,
+      "zero_reached": true,
+      "no_motion_command_after_stop": true,
+      "standing_final": true,
+      "stop_distance": true,
+      "unique_final": true,
+      "no_speed_boost": true,
+      "requires_explicit_rearm": true,
+      "own_children_exited": true
+    },
+    "verdict": "PASS",
+    "launch_exit": 0,
+    "manifest": "/home/haoyang/humanoid_nav_ws/run_data/w10_source_timeout_2a66ba8d/manifest.json",
+    "children": [
+      74757,
+      74762,
+      74763,
+      74764,
+      74765,
+      74766,
+      74767
+    ],
+    "original_result": "docs/evidence/W15/raw/20261015T151630Z_w15_source_timeout_1a9080/w10_source_timeout_2a66ba8d.json",
+    "original_result_sha256": "251b1ae58c2548803dcf81f26578971c00dfbc65072dfca3d7ae79a3006b4a5e"
+  },
+  "scope": "W15 independent checks, not a new reliability campaign; original W13 FAILED unchanged",
+  "legacy_harness_limit": "CPU harness records launch/simulator exits and process reaping but does not persist DDS exact exit; not used to grant DDS exception"
+}

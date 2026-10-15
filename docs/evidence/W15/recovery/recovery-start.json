@@ -1,0 +1,13 @@
+{
+  "status": "IN_PROGRESS",
+  "started_utc": "2026-10-15T15:37:15.506168+00:00",
+  "original_branch": "release/w13-formal-v1-demo",
+  "original_head": "37a765c3677b258d04e6bb413570088b1d77a482",
+  "original_dirty": [],
+  "branch": "release/w15-controlled-recovery",
+  "base": "e916d0db2a10b1728c1421264336564884e3d7ea",
+  "halt_sha256": "ca4c281e9118ae011d2353de24fab5cb33efe5fa5cb65480ae53df1d115aefd5",
+  "halt_removed": false,
+  "authorization": "User explicitly requested controlled W15 recovery from W14, one minimal GUI then one full rehearsal then one independent recording; stop on any new graphics fault, no retry.",
+  "scope": "No failed custom visual checker, camera, window control or concurrent recorder in minimal/full rehearsal. Existing W14 production lifecycle. Presentation-only small markers and colors; control/navigation/safety unchanged."
+}

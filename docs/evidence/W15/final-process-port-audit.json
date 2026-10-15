@@ -1,0 +1,13 @@
+{
+  "project_processes": [],
+  "review_or_capture_processes": [],
+  "ports_bindable": {
+    "42127": true,
+    "42128": true,
+    "42129": true,
+    "42130": true,
+    "42131": true,
+    "42132": true
+  },
+  "gpu_queries_performed": false
+}

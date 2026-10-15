@@ -1,0 +1,16 @@
+{
+  "start_sha": "e916d0db2a10b1728c1421264336564884e3d7ea",
+  "baseline": "b23a92465b317ca781d3eb210051126c5786908e",
+  "build": "4 packages PASS",
+  "tests": "186 passed, CPU device isolation",
+  "video_codec": "existing system OpenCV CPU avc1/H264: 30/30 frames decoded at 15fps",
+  "files": {
+    "scripts/demo/demo.py": "f1a27fa002fba273483f424a8545e685a205c9d7035d4d0256838bd9bf9ba687",
+    "scripts/demo/windows.py": "4e3edcdff574c2e7aa86a2479ded1f3b71f52dcad8f7bf116018c96b4ad720dc",
+    "scripts/demo/record_demo.py": "739e1b24590cf5ca19d934733712cd90c1362c5b32238551c682b44c5d95fc25",
+    "scripts/demo/visual_check.py": "ce1b88cece6ed99d62433f18b902e8467b1d1484604667d7358531d251168246",
+    "src/t1_mujoco/t1_mujoco/simulation.py": "75cf5039fe469ae0ad660cb33eb165d5b3046d9800272d4d0a3aff2987585c22",
+    "src/t1_mujoco/t1_mujoco/presentation.py": "e806b6110156232743848bae542ad0b7a0be6a08f73cca7f4383f4ab78ae7140",
+    "src/t1_navigation/config/demo.rviz": "e20be3ab027bea8a9718cb60cd3167f80c683333a20c229a64be47ca57b1708c"
+  }
+}

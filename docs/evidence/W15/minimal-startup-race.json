@@ -1,0 +1,15 @@
+{
+  "classification": "CAPTURE_STARTUP_RACE_NOT_GRAPHICS_FAULT",
+  "original_status": "FAIL",
+  "windows": {
+    "Last": {
+      "System": 92349,
+      "Application": 52239
+    },
+    "Events": []
+  },
+  "original_halt_sha256": "237ac4ed736932091b568fb49eeaf0d99781a931bdddbaa49f007d4d53e99e45",
+  "evidence": "KeyError from screenshot before window/heartbeat; original failure and capture retained",
+  "fix": "Require configured renderer heartbeat and discovered window before screenshot",
+  "authorization": "W15 bounded fixes and staged validation explicitly authorized"
+}

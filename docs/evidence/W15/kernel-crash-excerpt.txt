@@ -1,0 +1,19 @@
+2026-10-15T17:20:20,029934+02:00 misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+2026-10-15T17:20:21,190942+02:00 misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+2026-10-15T17:20:21,597035+02:00 traps: python:gdrv0[5090] general protection fault ip:7c629dbe4ed0 sp:7c62965a13e8 error:0 in libnvwgf2umx.so[1bfaed0,7c629da36000+f49000]
+2026-10-15T17:20:21,597068+02:00 python3.12: python:gdrv0: potentially unexpected fatal signal 11.
+2026-10-15T17:20:21,597096+02:00 CPU: 2 UID: 1000 PID: 5090 Comm: python:gdrv0 Not tainted 6.18.54.1-microsoft-standard-WSL2 #1 PREEMPT(none) 
+2026-10-15T17:20:21,597109+02:00 RIP: 0033:0x7c629dbe4ed0
+2026-10-15T17:20:21,597138+02:00 Code: ff 49 8b b6 90 00 00 00 4c 89 f7 e8 ca fb ff ff 4c 89 f7 e8 32 18 00 00 48 83 c4 38 5b 41 5e c3 cc cc cc cc cc cc cc cc cc cc <48> 8b 47 18 c3 cc cc cc cc cc cc cc cc cc cc cc 55 41 57 41 56 53
+2026-10-15T17:20:21,597139+02:00 RSP: 002b:00007c62965a13e8 EFLAGS: 00010206
+2026-10-15T17:20:21,597140+02:00 RAX: 00007c62cb004b40 RBX: 4f593006b4f1022b RCX: 4f593006b4f1022b
+2026-10-15T17:20:21,597141+02:00 RDX: 0000000000000000 RSI: 4f593006b4f1022b RDI: 4f593006b4f1022b
+2026-10-15T17:20:21,597154+02:00 RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000000
+2026-10-15T17:20:21,597155+02:00 R10: 00007c62965a1664 R11: 0000000000000000 R12: 0000000000000000
+2026-10-15T17:20:21,597155+02:00 R13: 00007c62cafe7ae0 R14: 0000000000000000 R15: 00007c62cb008080
+2026-10-15T17:20:21,597156+02:00 FS:  00007c62965a46c0 GS:  0000000000000000
+2026-10-15T17:20:21,597264+02:00 misc dxg: dxgk: dxgvmb_send_sync_msg: wait_for_completion failed: fffffe00
+2026-10-15T17:20:21,597926+02:00 misc dxg: dxgk: dxgkio_destroy_allocation: Ioctl failed: -512
+2026-10-15T17:20:21,599079+02:00 WSL (5350 - CaptureCrash): Capturing crash for pid: 68872, executable: !usr!bin!python3.12, signal: 11, port: 50005
+2026-10-15T17:20:22,350385+02:00 misc dxg: dxgk: dxgkio_query_adapter_info: Ioctl failed: -22
+2026-10-15T17:22:33,012374+02:00 mini_init (207): drop_caches: 3
