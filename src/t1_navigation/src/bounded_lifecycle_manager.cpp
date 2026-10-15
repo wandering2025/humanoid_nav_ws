@@ -22,7 +22,7 @@ class BoundedManager : public rclcpp::Node
 public:
   BoundedManager() : Node("bounded_lifecycle_manager")
   {
-    names_ = declare_parameter<std::vector<std::string>>("node_names", {});
+    names_ = declare_parameter<std::vector<std::string>>("node_names", std::vector<std::string>{});
     autostart_ = declare_parameter("autostart", false);
     if (declare_parameter("bond_timeout", 4.0) != 4.0) {
       throw std::runtime_error("W11R1 requires the frozen 4 s bond timeout");
@@ -50,7 +50,7 @@ public:
     status_ = create_service<std_srvs::srv::Trigger>(std::string(get_name()) + "/is_active",
       [this](std_srvs::srv::Trigger::Request::SharedPtr, std_srvs::srv::Trigger::Response::SharedPtr r) {
         r->success = active_; r->message = failed_ ? "FAILED_RESTART_REQUIRED" : "";
-      });
+      }, rclcpp::ServicesQoS(), control_group_);
     // Bonds run in a separate callback group while finite lifecycle calls execute.
     tick_ = create_wall_timer(200ms, [this]() {
       if (autostart_) {autostart_ = false; startup();}

@@ -34,12 +34,6 @@ def angle(value):
     return math.atan2(math.sin(value), math.cos(value))
 
 
-def aligned_pass(here, waypoint, radius, yaw_tolerance=.20):
-    """Position alone is insufficient at the end of a detour (B04/B06)."""
-    return (math.dist(here[:2], waypoint[:2]) <= radius and
-            abs(angle(here[2] - waypoint[2])) <= yaw_tolerance)
-
-
 class StationaryWindow:
     def __init__(self, window=.5, hold=2.):
         self.window, self.hold = window, hold
@@ -58,6 +52,40 @@ class StationaryWindow:
         still = math.dist(pose[:2], old[:2])/dt < .05 and abs(angle(pose[2]-old[2]))/dt < .05
         self.since = (now if self.since is None else self.since) if still else None
         return self.since is not None and now-self.since >= self.hold
+
+
+class TerminalCorrections:
+    """One shared correction budget, always verify the nominal pose after settling.
+
+    A position miss needs the original position/heading, not a yaw-only residual
+    adjustment. Rebound corrections integrate measured yaw error, capped at the
+    existing 0.5 rad aim offset. Never infer success from result error_code=0.
+    """
+    def __init__(self, limit=3, xy=.20, yaw=.20, gain=1.):
+        self.limit, self.xy, self.yaw, self.gain = limit, xy, yaw, gain
+        self.used = 0
+
+    def next(self, status, nominal, aim, settled):
+        if status != 'SUCCEEDED':
+            raise ProtocolFailure('ACTION_' + status)
+        if settled is None:
+            raise ProtocolFailure('TERMINAL_NOT_STATIONARY')
+        exy = math.dist(settled[:2], nominal[:2])
+        residual = angle(nominal[2]-settled[2])
+        if exy <= self.xy and abs(residual) <= self.yaw:
+            return None
+        if self.used >= self.limit:
+            raise ProtocolFailure('TERMINAL_CORRECTIONS_EXHAUSTED')
+        self.used += 1
+        if exy > self.xy:
+            return nominal
+        offset = angle(aim[2]-nominal[2]) + self.gain*residual
+        return (nominal[0], nominal[1], nominal[2]+max(-.5, min(.5, offset)))
+
+
+def overshot(here, goal):
+    dx, dy = here[0]-goal[0], here[1]-goal[1]
+    return dx*math.cos(goal[2])+dy*math.sin(goal[2]) > .30 and math.hypot(dx, dy) > .30
 
 
 class CommandEpoch:

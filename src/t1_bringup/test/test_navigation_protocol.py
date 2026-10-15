@@ -6,7 +6,7 @@ import math
 import pytest
 
 from t1_bringup.navigation_protocol import (
-    ProtocolFailure, await_future, require_response, CommandEpoch, aligned_pass, StationaryWindow)
+    ProtocolFailure, await_future, require_response, CommandEpoch, TerminalCorrections, StationaryWindow)
 
 
 class Clock:
@@ -40,8 +40,9 @@ def test_costmap_discovery_is_not_a_response(monkeypatch):
 @pytest.mark.parametrize('pose', [(7.706993, -.281345, 1.655849), (7.650173, -.312482, 1.601123)])
 def test_original_detour_handoff_is_rejected(pose):
     assert math.dist(pose[:2], (7.5, 0.)) < .35
-    assert not aligned_pass(pose, (7.5, 0., 0.), .35)
-    assert aligned_pass((7.5, .1, .1), (7.5, 0., 0.), .35)
+    nominal = (7.5, 0., 0.)
+    assert TerminalCorrections().next('SUCCEEDED', nominal, nominal, pose) == nominal
+    assert TerminalCorrections().next('SUCCEEDED', nominal, nominal, (7.5, .1, .1)) is None
 
 
 def test_rebound_restarts_stationary_hold():
@@ -120,3 +121,34 @@ def test_inactive_lifecycle_cannot_pass_readiness(monkeypatch):
     with pytest.raises(ProtocolFailure, match='NOT_ACTIVE:2'):
         ready.lifecycle(('controller_server',), float('inf'))
     assert not ready.trace
+
+
+def test_action_aborted_zero_code_is_never_success():
+    from t1_bringup.navigation_protocol import TerminalCorrections
+    with pytest.raises(ProtocolFailure, match='ACTION_ABORTED'):
+        TerminalCorrections().next('ABORTED', (9., 0., 0.), (9., 0., 0.), (9., 0., 0.))
+
+
+def test_stale_success_position_miss_resends_nominal_not_yaw_residual():
+    from t1_bringup.navigation_protocol import TerminalCorrections
+    correction = TerminalCorrections()
+    assert correction.next('SUCCEEDED', (9., 0., 0.), (9., 0., 0.), (7.35, .03, -.55)) == (9., 0., 0.)
+    assert correction.used == 1
+
+
+def test_exhaustion_is_explicit_and_never_more_than_three_corrections():
+    from t1_bringup.navigation_protocol import TerminalCorrections
+    correction = TerminalCorrections()
+    nominal = aim = (9., 0., 0.)
+    for _ in range(3):
+        aim = correction.next('SUCCEEDED', nominal, aim, (9., 0., .3))
+        assert abs(aim[2]) <= .5
+    with pytest.raises(ProtocolFailure, match='CORRECTIONS_EXHAUSTED'):
+        correction.next('SUCCEEDED', nominal, aim, (9., 0., .3))
+    assert correction.used == 3
+
+
+def test_no_reverse_overshoot_has_bounded_failure_boundary():
+    from t1_bringup.navigation_protocol import overshot
+    assert overshot((9.4, .5, 0.), (9., 0., 0.))
+    assert not overshot((8.5, .5, 0.), (9., 0., 0.))

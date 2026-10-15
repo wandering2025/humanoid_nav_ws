@@ -81,14 +81,16 @@ def navigate(argv=None):
                         help='m; walk the last segment along the goal heading (0 disables)')
     parser.add_argument('--retry-gain', type=float, default=1.0,
                         help='terminal retry aims past the goal yaw by gain*residual (clamped 0.5 rad)')
-    parser.add_argument('--approach-pass-radius', type=float, default=0.35,
-                        help='m; preempt the staging waypoint with the goal once this close')
     parser.add_argument('--settle-window', type=float, default=0.5, help='sim s; W05 stationary window')
     parser.add_argument('--settle-hold', type=float, default=2.0, help='sim s stationary before verifying')
     parser.add_argument('--settle-timeout', type=float, default=10.0, help='sim s to become stationary')
     options = parser.parse_args(argv)
     if not all(math.isfinite(v) for v in (options.x, options.y, options.yaw, options.time_limit)):
         parser.error('goal and limit must be finite')
+    if not (0 < options.time_limit <= 120 and 0 < options.xy_tolerance <= .20 and
+            0 < options.yaw_tolerance <= .20 and 0 <= options.terminal_retries <= 3 and
+            options.settle_window == .5 and options.settle_hold >= 2.):
+        parser.error('W11R1 frozen task/tolerance/stability/correction bounds violated')
 
     import rclpy
     from rclpy.action import ActionClient
@@ -100,7 +102,7 @@ def navigate(argv=None):
     from lifecycle_msgs.srv import GetState
     from nav2_msgs.action import NavigateToPose
     from action_msgs.msg import GoalStatus
-    from .navigation_protocol import ProtocolFailure, await_future, aligned_pass, StationaryWindow
+    from .navigation_protocol import ProtocolFailure, await_future, StationaryWindow, TerminalCorrections, overshot
     from .navigation_readiness import Readiness, LOCALIZATION, NAVIGATION
     from rclpy.time import Time
     from tf2_ros import Buffer, TransformListener
@@ -119,12 +121,14 @@ def navigate(argv=None):
                              QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL))
     lifecycle = node.create_client(GetState, '/bt_navigator/get_state')
     arm = node.create_client(Trigger, '/t1/safety/arm')
+    stop = node.create_client(Trigger, '/t1/safety/stop')
     action = ActionClient(node, NavigateToPose, 'navigate_to_pose')
     buffer = Buffer()
     TransformListener(buffer, node)
     summary = dict(goal=[options.x, options.y, options.yaw], time_limit_s=options.time_limit,
                    tolerances=dict(xy=options.xy_tolerance, yaw=options.yaw_tolerance), attempts=[])
     code = 1
+    state = dict(start=None, timed_out=False, handle=None, clock=None, clock_wall=time.monotonic())
 
     def spin_until(predicate, wall_timeout):
         end = time.monotonic() + wall_timeout
@@ -164,7 +168,8 @@ def navigate(argv=None):
         names = {GoalStatus.STATUS_SUCCEEDED: 'SUCCEEDED', GoalStatus.STATUS_ABORTED: 'ABORTED',
                  GoalStatus.STATUS_CANCELED: 'CANCELED'}
         target = (options.x, options.y, options.yaw)
-        state = dict(start=None, timed_out=False)
+        corrections = TerminalCorrections(options.terminal_retries, options.xy_tolerance,
+                                          options.yaw_tolerance, options.retry_gain)
 
         def make_goal(x, y, a):
             msg = NavigateToPose.Goal()
@@ -183,9 +188,14 @@ def navigate(argv=None):
                     math.atan2(2*(q.w*q.z + q.x*q.y), 1 - 2*(q.y*q.y + q.z*q.z)))
 
         def expired():
+            now = sim()
+            if state['clock'] != now:
+                state.update(clock=now, clock_wall=time.monotonic())
+            elif time.monotonic()-state['clock_wall'] > 2.:
+                raise ProtocolFailure('TASK_CLOCK_STALLED')
             return state['start'] is not None and sim() - state['start'] > options.time_limit
 
-        def settle():
+        def settle(reference):
             """Wait for a stationary localized pose (W05 window criterion held for
             settle_hold); return (pose, (xy_error, yaw_error)) or None."""
             stable = StationaryWindow(options.settle_window, options.settle_hold)
@@ -197,15 +207,16 @@ def navigate(argv=None):
                     continue
                 if stable.update(now, pose):
                     x, y, a = pose
-                    return pose, (math.hypot(x-target[0], y-target[1]),
-                                  abs(math.atan2(math.sin(a-target[2]), math.cos(a-target[2]))))
+                    return pose, (math.hypot(x-reference[0], y-reference[1]),
+                                  abs(math.atan2(math.sin(a-reference[2]), math.cos(a-reference[2]))))
             return None
 
-        def execute(stage, pose, pass_radius=None):
+        def execute(stage, pose):
             send = action.send_goal_async(make_goal(*pose))
             handle = await_future(send, lambda: rclpy.spin_once(node, timeout_sec=.02), 2., 'NAVIGATE_ACK')
             if not handle.accepted:
                 raise ProtocolFailure(stage + ':GOAL_REJECTED')
+            state['handle'] = handle
             if state['start'] is None:
                 state['start'] = sim()
                 summary.update(accepted_sim=state['start'], goal_id=bytes(handle.goal_id.uuid).hex())
@@ -214,14 +225,9 @@ def navigate(argv=None):
             result = handle.get_result_async()
             while not result.done():
                 rclpy.spin_once(node, timeout_sec=.05)
-                here = map_pose() if pass_radius else None
-                if here is not None and aligned_pass(here, pose, pass_radius):
-                    # Pass-through waypoint: the caller preempts with the next goal
-                    # (no cancel, so the W10 stop latch is not involved).
-                    record.update(status='PASSED', end_sim=sim(), passed_pose=list(here))
-                    summary['attempts'].append(record)
-                    print(json.dumps(dict(event='stage', **record)), flush=True)
-                    return record
+                here = map_pose()
+                if stage != 'approach' and here is not None and overshot(here, target):
+                    raise ProtocolFailure('TERMINAL_OVERSHOOT_NO_REVERSE')
                 if expired():
                     state['timed_out'] = True
                     cancel = handle.cancel_goal_async()
@@ -262,44 +268,54 @@ def navigate(argv=None):
                       if d > 0 and (here is None or math.dist(here[:2], target[:2]) > d + options.xy_tolerance)]
         chosen = next((d for d in candidates if segment_free(d)), None)
         summary['approach_distance'] = chosen
+        def converge(stage, nominal):
+            aim = nominal
+            while True:
+                record = execute(stage, aim)
+                if state['timed_out']:
+                    raise ProtocolFailure('TASK_TIMEOUT')
+                if record['status'] != 'SUCCEEDED':
+                    raise ProtocolFailure('ACTION_' + record['status'] + ':' + str(record.get('error_code')))
+                settled = settle(nominal)
+                pose = None if settled is None else settled[0]
+                if settled is not None:
+                    record.update(verify_sim=sim(), verified_pose=list(pose),
+                                  xy_error=settled[1][0], yaw_error=settled[1][1])
+                next_aim = corrections.next(record['status'], nominal, aim, pose)
+                if next_aim is None:
+                    return record
+                record['next_aim'] = list(next_aim)
+                print(json.dumps(dict(event='terminal_retry', **record)), flush=True)
+                aim = next_aim
+                if stage != 'approach':
+                    stage = 'terminal_retry'
+
+        # Completion boundary: a staging action must finish AND remain aligned
+        # after rebound. Preempting at its success boundary can attach the old
+        # FollowPath result to the new NavigateToPose (H3 B04, 0.04 s success).
         if chosen:
             pre = (target[0] - chosen*math.cos(target[2]), target[1] - chosen*math.sin(target[2]), target[2])
-            approach = execute('approach', pre, options.approach_pass_radius)
-            if approach['status'] not in ('PASSED', 'SUCCEEDED'):
-                raise ProtocolFailure('APPROACH_' + approach['status'] + ':' + str(approach.get('error_code')))
-        verified, aim = None, target
-        if not state['timed_out']:
-            for attempt in range(options.terminal_retries + 1):
-                record = execute('goal' if attempt == 0 else 'terminal_retry', aim)
-                if state['timed_out'] or record['status'] != 'SUCCEEDED':
-                    break
-                settled = settle()
-                if settled is None:
-                    record['verify'] = 'not_stationary'
-                    if expired():
-                        state['timed_out'] = True
-                        break
-                    continue
-                pose, (exy, eyaw) = settled
-                record.update(verify_sim=sim(), verified_pose=list(pose), xy_error=exy, yaw_error=eyaw)
-                if exy <= options.xy_tolerance and eyaw <= options.yaw_tolerance:
-                    verified = record
-                    break
-                # Integral correction: an in-place turn lands short by about its
-                # rebound, so aim past the target by the measured residual.
-                signed = math.atan2(math.sin(target[2]-pose[2]), math.cos(target[2]-pose[2]))
-                aim = (target[0], target[1], target[2] + max(-.5, min(.5, options.retry_gain*signed)))
-                record['next_aim_yaw'] = aim[2]
-                print(json.dumps(dict(event='terminal_retry', **record)), flush=True)
+            converge('approach', pre)
+        verified = converge('goal', target)
         goal_attempts = [a for a in summary['attempts'] if a['stage'] != 'approach']
         last = summary['attempts'][-1]
         summary.update(status='SUCCEEDED' if verified else (last['status'] if last['status'] != 'SUCCEEDED' else 'UNVERIFIED'),
                        timed_out=state['timed_out'], end_sim=sim(), duration_sim=sim()-state['start'],
-                       verified=verified, terminal_retries=max(0, len(goal_attempts)-1), error_code=last.get('error_code'),
+                       verified=verified, terminal_retries=corrections.used, error_code=last.get('error_code'),
                        nav2_success_sim=next((a['end_sim'] for a in reversed(goal_attempts) if a['status'] == 'SUCCEEDED'), None))
         code = 3 if state['timed_out'] else (0 if verified else 2)
     except Exception as exc:
-        summary.update(status='SETUP_FAILED', error=repr(exc))
+        timed_out = state['timed_out'] or (state['start'] is not None and sim()-state['start'] >= options.time_limit)
+        code = 3 if timed_out else (2 if state['start'] is not None else 1)
+        summary.update(status='FAILED' if state['start'] is not None else 'SETUP_FAILED', error=repr(exc),
+                       timed_out=timed_out, end_sim=sim(),
+                       duration_sim=None if state['start'] is None else sim()-state['start'])
+        if stop.service_is_ready():
+            pending = stop.call_async(Trigger.Request())
+            spin_until(pending.done, 2.)
+        if state['handle'] is not None:
+            pending = state['handle'].cancel_goal_async()
+            spin_until(pending.done, 2.)
     finally:
         summary['exit'] = code
         print(json.dumps(dict(event='result', **summary)), flush=True)

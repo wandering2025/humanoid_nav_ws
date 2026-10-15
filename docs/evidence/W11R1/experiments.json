@@ -141,5 +141,215 @@
     },
     "evidence": "docs/evidence/W11R1/raw/w11r1-h1-dev-v1/20261015T063939Z_w11r1-h1-dev-v1_C01_s2000_ca0729/result.json",
     "remaining_owned_pids": []
+  },
+  {
+    "hypothesis": "H3 joint staging handoff",
+    "run_id": "20261015T064141Z_w11r1-h3-dev-v1_B04_s3003_587bff",
+    "sha": "18373789e4416305101225f0aeb5a5c6fffeaa20",
+    "outcome": "SUCCESS",
+    "metrics": {
+      "nav2_status": "SUCCEEDED",
+      "nav2_error_code": 0,
+      "tool_exit": 0,
+      "time_to_goal_s": 73.84,
+      "task_duration_s": 77.60000000000001,
+      "terminal_retries": 3,
+      "attempts": [
+        {
+          "stage": "approach",
+          "target": [
+            7.5,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 14.8,
+          "goal_id": "c9bf369ec5dd4570adac8ee3a227f703",
+          "status": "PASSED",
+          "end_sim": 63.440000000000005,
+          "passed_pose": [
+            7.346503142030572,
+            0.030308494409054337,
+            -0.1947824645694741
+          ]
+        },
+        {
+          "stage": "goal",
+          "target": [
+            9.0,
+            0.0,
+            0.0
+          ],
+          "accepted_sim": 63.440000000000005,
+          "goal_id": "fa9f7fd4118a41e2a90efbb4be8b9962",
+          "status": "SUCCEEDED",
+          "end_sim": 63.480000000000004,
+          "error_code": 0,
+          "verify_sim": 68.34,
+          "verified_pose": [
+            7.354803479321985,
+            0.031872149554388295,
+            -0.5489905829256589
+          ],
+          "xy_error": 1.6455052189428823,
+          "yaw_error": 0.5489905829256589,
+          "next_aim_yaw": 0.5
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            9.0,
+            0.0,
+            0.5
+          ],
+          "accepted_sim": 68.34,
+          "goal_id": "a0e69276549041ebb13351216514c591",
+          "status": "SUCCEEDED",
+          "end_sim": 75.54,
+          "error_code": 0,
+          "verify_sim": 78.04,
+          "verified_pose": [
+            8.964301139011404,
+            -0.07019500113777734,
+            0.3047309159680652
+          ],
+          "xy_error": 0.07875117053489213,
+          "yaw_error": 0.3047309159680652,
+          "next_aim_yaw": -0.3047309159680652
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            9.0,
+            0.0,
+            -0.3047309159680652
+          ],
+          "accepted_sim": 78.04,
+          "goal_id": "fbb6c86ed05a4c36b9ec93f3a9b81550",
+          "status": "SUCCEEDED",
+          "end_sim": 80.88000000000001,
+          "error_code": 0,
+          "verify_sim": 85.2,
+          "verified_pose": [
+            8.963928866922787,
+            -0.03254340666364568,
+            0.23994767839190428
+          ],
+          "xy_error": 0.04858188920523189,
+          "yaw_error": 0.23994767839190428,
+          "next_aim_yaw": -0.23994767839190428
+        },
+        {
+          "stage": "terminal_retry",
+          "target": [
+            9.0,
+            0.0,
+            -0.23994767839190428
+          ],
+          "accepted_sim": 85.2,
+          "goal_id": "e74962ea7dd74771acb9b1f8f305d378",
+          "status": "SUCCEEDED",
+          "end_sim": 88.64,
+          "error_code": 0,
+          "verify_sim": 92.4,
+          "verified_pose": [
+            8.956547019410465,
+            -0.03428797254903622,
+            0.16517532798476153
+          ],
+          "xy_error": 0.05535184354326405,
+          "yaw_error": 0.16517532798476153
+        }
+      ],
+      "verified": {
+        "stage": "terminal_retry",
+        "target": [
+          9.0,
+          0.0,
+          -0.23994767839190428
+        ],
+        "accepted_sim": 85.2,
+        "goal_id": "e74962ea7dd74771acb9b1f8f305d378",
+        "status": "SUCCEEDED",
+        "end_sim": 88.64,
+        "error_code": 0,
+        "verify_sim": 92.4,
+        "verified_pose": [
+          8.956547019410465,
+          -0.03428797254903622,
+          0.16517532798476153
+        ],
+        "xy_error": 0.05535184354326405,
+        "yaw_error": 0.16517532798476153
+      },
+      "settle": {
+        "settled": true,
+        "settle_start_sim": 90.37999999997076,
+        "settle_delay_s": 1.7399999999707632,
+        "pos_err_m": 0.053075970630531405,
+        "yaw_err_deg": 9.322481006169447
+      },
+      "arrived_truth": true,
+      "path_len_m": 16.768279631836762,
+      "straight_m": 9.0,
+      "detour": {
+        "first_plan_length_m": 7.572584879121556,
+        "straight_m": 9.0,
+        "max_lateral_from_straight_m": 0.33171412509253884
+      },
+      "n_plans": 14,
+      "clear_center_min_m": 2.3417388559717045,
+      "clear_footprint_min_m": 1.7212585027248504,
+      "scan_min_range_m": 2.338319778442383,
+      "env_contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "safety": {
+        "cm_stop": 0,
+        "cm_slowdown": 0,
+        "gate_stopped": 0,
+        "bridge_timeouts": 0
+      },
+      "log_counts": {
+        "tf_extrapolation": 0,
+        "tf_old_data": 0,
+        "tf_timeout": 0,
+        "no_valid_control": 0,
+        "progress_failure": 0,
+        "planning_failure": 0,
+        "goal_aborted": 1,
+        "collision_ahead": 0,
+        "scan_dropped": 0
+      },
+      "nav_activated_in_log": true,
+      "scan_empty": 0,
+      "scan_known_min": 1.0,
+      "rtf_median": 1.0000002418825948,
+      "sim_time_s": 104.69999999993739,
+      "wall_time_s": 110.77744045600002,
+      "min_trunk_z": 0.6195557038722014,
+      "graph_checks": {
+        "final_only_collision_monitor": true,
+        "gate_only_cmd_vel_nav": true,
+        "adapter_only_navigation_source": true,
+        "nav2_into_adapter_only": true,
+        "no_teleop_source": true,
+        "one_clock": true,
+        "truth_isolated": true,
+        "debug_disabled": true,
+        "twist_only": true,
+        "amcl_map_odom": true,
+        "sim_base": true,
+        "unique_tf": true
+      },
+      "settle_complete_task_s": 77.57999999997077,
+      "n_safety_stops": 17,
+      "n_recoveries": 0
+    },
+    "evidence": "docs/evidence/W11R1/raw/w11r1-h3-dev-v1/20261015T064141Z_w11r1-h3-dev-v1_B04_s3003_587bff/result.json",
+    "remaining_owned_pids": [],
+    "finding": "Immediate terminal SUCCEEDED at staging pose after preemption; independent verification rejected. Requires completion boundary repair before candidate."
   }
 ]
