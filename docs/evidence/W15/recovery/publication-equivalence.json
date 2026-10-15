@@ -1,0 +1,14 @@
+{
+  "recorded_sha": "127a1e7672f72616de728c84f41701669a41f1c9",
+  "post_recording_changes": [
+    "scripts/demo/gpu-profile.json",
+    "scripts/run_demo.sh"
+  ],
+  "allowed_changes_only": [
+    "help STATUS line",
+    "profile release_status informational field"
+  ],
+  "all_src_and_other_scripts_identical": true,
+  "physics_navigation_safety_and_render_lifecycle_identical": true,
+  "no_additional_graphical_validation_needed_for_publication_text": true
+}

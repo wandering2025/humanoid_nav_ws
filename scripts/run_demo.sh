@@ -6,7 +6,7 @@ case "${1:-}" in
   --help|-h)
     cat <<'HELP'
 Usage: ./scripts/run_demo.sh [--preflight] [--headless] [--no-rviz] [--scenario U01]
-STATUS: W15 recovery. Full U01 rehearsal passed; independent release recording pending.
+STATUS: DEMO_RELEASE_READY_WITH_KNOWN_LIMITATIONS. W15 recovery and final recording verified.
 DDS_TEARDOWN_EXCEPTION: only verified post-success/post-stop DDS teardown may warn; exact exit/log retained.
 MuJoCo/RViz: NVIDIA RTX 4050; RViz Qt-thread cleanup and RGB cells.
 Default: MuJoCo + RViz, frozen formal-v1 U01 seed 4000, A(0,0,0) -> B(9,0,0).

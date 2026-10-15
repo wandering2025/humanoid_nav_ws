@@ -1,0 +1,269 @@
+{
+  "run_id": "20261015T155946Z_demo_U01_79a6bb62-5b16-427f-986d-eb23df9a93c1",
+  "code_sha": "127a1e7672f72616de728c84f41701669a41f1c9",
+  "status": "SUCCESS",
+  "arrived": true,
+  "human_intervention": false,
+  "readiness_wall_s": 20.498541019000186,
+  "task_wall_s": 82.3539086719993,
+  "wall_total_s": 94.52826608400028,
+  "settle": {
+    "settled": true,
+    "settle_start_sim": 62.940000000030956,
+    "settle_delay_s": 0.42000000003095295,
+    "pos_err_m": 0.12358634864358127,
+    "yaw_err_deg": 2.2162136784660467
+  },
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "body_clearance": {
+    "min_m": 1.444234181368898,
+    "sim_time": 31.11999999999363,
+    "geom_pair": [
+      "t1_geom_036",
+      "obstacle_approach_slot"
+    ],
+    "samples": 856,
+    "robot_geoms": 22,
+    "environment_geoms": 8,
+    "sample_hz": 10,
+    "definition": "signed 3D MuJoCo collision geometry distance; excludes ground/self/visual; sampled minimum, not continuous bound"
+  },
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 14133.885629335,
+      "sim_time": 84.9,
+      "health_reason": ""
+    }
+  },
+  "parent_exit_codes": {
+    "dds": 0,
+    "launch": 0,
+    "rviz": 0,
+    "goal": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 92730,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 92731,
+      "exit_code": 0
+    },
+    "map_server-3": {
+      "pid": 92732,
+      "exit_code": 0
+    },
+    "amcl-4": {
+      "pid": 92733,
+      "exit_code": 0
+    },
+    "command_gate-5": {
+      "pid": 92734,
+      "exit_code": 0
+    },
+    "velocity_smoother-6": {
+      "pid": 92735,
+      "exit_code": 0
+    },
+    "collision_monitor-7": {
+      "pid": 92736,
+      "exit_code": 0
+    },
+    "lifecycle_manager-8": {
+      "pid": 93049,
+      "exit_code": 0
+    },
+    "lifecycle_manager-9": {
+      "pid": 93050,
+      "exit_code": 0
+    },
+    "controller_server-10": {
+      "pid": 93209,
+      "exit_code": 0
+    },
+    "planner_server-11": {
+      "pid": 93210,
+      "exit_code": 0
+    },
+    "behavior_server-12": {
+      "pid": 93211,
+      "exit_code": 0
+    },
+    "bt_navigator-13": {
+      "pid": 93212,
+      "exit_code": 0
+    },
+    "lifecycle_manager-14": {
+      "pid": 93213,
+      "exit_code": 0
+    },
+    "navigation_adapter-15": {
+      "pid": 93214,
+      "exit_code": 0
+    },
+    "navigation_starter-16": {
+      "pid": 93215,
+      "exit_code": 0
+    },
+    "t1_initial_pose_once-17": {
+      "pid": 93216,
+      "exit_code": 0
+    }
+  },
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "post_runner_remaining_pids": [],
+  "dds_port_released": true,
+  "gpu_monitor_error": null,
+  "graph_contract": {
+    "final_only_collision_monitor": true,
+    "obstacle_truth_isolated": true,
+    "robot_truth_isolated": true
+  },
+  "nav2": {
+    "event": "result",
+    "goal": [
+      9.0,
+      0.0,
+      0.0
+    ],
+    "time_limit_s": 120.0,
+    "tolerances": {
+      "xy": 0.2,
+      "yaw": 0.2
+    },
+    "attempts": [
+      {
+        "stage": "approach",
+        "target": [
+          7.5,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 17.68,
+        "goal_id": "d88b31092f664d93b133fe8e1f140cd2",
+        "status": "PASSED",
+        "end_sim": 57.32,
+        "passed_pose": [
+          7.176738031097729,
+          0.12904547179143358,
+          -0.11643895227053232
+        ]
+      },
+      {
+        "stage": "goal",
+        "target": [
+          9.0,
+          0.0,
+          0.0
+        ],
+        "accepted_sim": 57.32,
+        "goal_id": "2d96d774b3624ae1837eac867a6e4694",
+        "status": "SUCCEEDED",
+        "end_sim": 62.52,
+        "error_code": 0,
+        "verify_sim": 64.08,
+        "verified_pose": [
+          8.948334429026664,
+          0.10843641984018484,
+          0.038487738076203086
+        ],
+        "xy_error": 0.12011572907724306,
+        "yaw_error": 0.038487738076203086
+      }
+    ],
+    "arm_attempts": 1,
+    "approach_distance": 1.5,
+    "accepted_sim": 17.68,
+    "goal_id": "d88b31092f664d93b133fe8e1f140cd2",
+    "status": "SUCCEEDED",
+    "timed_out": false,
+    "end_sim": 64.08,
+    "duration_sim": 46.4,
+    "verified": {
+      "stage": "goal",
+      "target": [
+        9.0,
+        0.0,
+        0.0
+      ],
+      "accepted_sim": 57.32,
+      "goal_id": "2d96d774b3624ae1837eac867a6e4694",
+      "status": "SUCCEEDED",
+      "end_sim": 62.52,
+      "error_code": 0,
+      "verify_sim": 64.08,
+      "verified_pose": [
+        8.948334429026664,
+        0.10843641984018484,
+        0.038487738076203086
+      ],
+      "xy_error": 0.12011572907724306,
+      "yaw_error": 0.038487738076203086
+    },
+    "terminal_retries": 0,
+    "error_code": 0,
+    "nav2_success_sim": 62.52,
+    "exit": 0
+  },
+  "dynamic": {
+    "scenario": "approach",
+    "checks": {
+      "triggered_after_actual_walking": true,
+      "scan_hits_entity": true,
+      "local_costmap_marks_entity": true,
+      "no_planner_obstacle_truth": true,
+      "no_teleop": true,
+      "dimensions": true,
+      "vacated_costmap_clears": true,
+      "actual_stop_in_protection": true,
+      "safely_resumed": true,
+      "navigation_success": true
+    },
+    "verdict": "PASS",
+    "trigger_sim": 26.1239999999964,
+    "scan_hit_frames": 491,
+    "costmap_marked_samples": 91,
+    "costmap_cleared_samples": 76,
+    "actual_stop_sim": 29.979999999994263,
+    "resume_sim": 45.00000000000903,
+    "stopped_hold_s": 7.08,
+    "min_center_surface_gap_m": 1.655459163843692,
+    "min_rotated_footprint_gap_m": 1.0440784209835892,
+    "max_robot_lateral_m": 0.27209731713540447,
+    "initial_plan_lateral_m": 0.0019999172985549762,
+    "replanned_lateral_m": 1.1483424026421076
+  },
+  "gpu_range": {
+    "temperature_c": [
+      49.0,
+      64.0
+    ],
+    "memory_mib": [
+      998.0,
+      1390.0
+    ],
+    "utilization_pct": [
+      5.0,
+      63.0
+    ]
+  },
+  "kernel_novel_messages": [],
+  "raw": {
+    "path": "run_data/demo/20261015T155946Z_demo_U01_79a6bb62-5b16-427f-986d-eb23df9a93c1/final-result.json",
+    "sha256": "4f119e0ded9b416d3de9accd57fcbf7175947539639ebdb191f3850fa78464cb"
+  },
+  "visual_review": "Actual raw frame00000 A START, frame00150 orange moving obstacle and robot, frame00417 B GOAL with standing robot; complete A/B RViz view confirmed on ready screenshot."
+}

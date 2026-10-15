@@ -19,7 +19,7 @@
     "sha256": "51ff001974ea062a8c1821644869ead973e4246586335653ca9259f42199494f"
   },
   "display_path": "NVIDIA RGB PointCloud2; local Qt-thread lifecycle wrapper; no MapDisplay shader",
-  "release_status": "W15_RECORDING_PENDING",
+  "release_status": "DEMO_RELEASE_READY_WITH_KNOWN_LIMITATIONS",
   "dds_teardown_exception_decision_sha": "f687f21922245aa6cace42a9cef204c18f50f9b2",
   "w15_prior_halt": {
     "path": "docs/evidence/W15/recovery/prior-gpu-halt.json",

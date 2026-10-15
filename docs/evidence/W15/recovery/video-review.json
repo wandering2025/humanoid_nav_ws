@@ -1,0 +1,46 @@
+{
+  "path": "docs/evidence/W15/raw/recovery/final-recording-02/demo.mp4",
+  "bytes": 1896620,
+  "sha256": "9980c060692af05c26f6ed83ac2a3a5b5dd88935a4cc72de8fdd1966470e0df0",
+  "fps": 8.0,
+  "width": 1024,
+  "height": 736,
+  "decoded_frames": 617,
+  "expected_frames": 617,
+  "live_seconds": 69.125,
+  "post_run_evidence_card_seconds": 8,
+  "source_sha": "127a1e7672f72616de728c84f41701669a41f1c9",
+  "run_id": "20261015T155946Z_demo_U01_79a6bb62-5b16-427f-986d-eb23df9a93c1",
+  "capture_frames": 418,
+  "max_capture_gap_s": 0.38470899399908376,
+  "capture_error": null,
+  "full_decode_verified": true,
+  "visual_review_pending": false,
+  "visual_review": "PASS: encoded frames0/160/320/520/600 reviewed, matching raw A/obstacle/B views; 617/617 frames fully decoded in software. No GUI media player launched.",
+  "release_video_verified": true,
+  "duration_s": 77.125,
+  "audio": "none",
+  "timeline": "69.125s uncut live-window timeline, duplicate latest available frame at 8fps without speed-up; followed by explicitly labeled 8s post-run evidence card.",
+  "reviewed_frames": [
+    {
+      "path": "docs/evidence/W15/raw/recovery/final-recording-02/video-frame-0000.png",
+      "sha256": "a9cb64b2207d26dd0a49eb01bce566c198e3c2918e5d60e7f66c0fca8fb0f4c9"
+    },
+    {
+      "path": "docs/evidence/W15/raw/recovery/final-recording-02/video-frame-0160.png",
+      "sha256": "82a226576299e67b37ba5dd725439342087a4645aaba00856b8162d8018eeaad"
+    },
+    {
+      "path": "docs/evidence/W15/raw/recovery/final-recording-02/video-frame-0320.png",
+      "sha256": "0001f3fdce06bc737c5c7a8ca55e5358e033c3b09e9f416654ce1d8617a24889"
+    },
+    {
+      "path": "docs/evidence/W15/raw/recovery/final-recording-02/video-frame-0520.png",
+      "sha256": "74ffc8f2833bb56d7c352106bd336f6c38eb7df0c903425b8cff798e0a4adf17"
+    },
+    {
+      "path": "docs/evidence/W15/raw/recovery/final-recording-02/video-frame-0600.png",
+      "sha256": "b3513952c9c831b5e47462f47d1c817b3c4ebf02c103fd0401c575f4773e6643"
+    }
+  ]
+}
