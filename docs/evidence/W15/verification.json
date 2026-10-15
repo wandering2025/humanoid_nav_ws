@@ -1,0 +1,37 @@
+{
+  "final_status": "FINAL_RELEASE_BLOCKED",
+  "implementation_sha": "f09f7d80169033edf3486903db10a7290535507f",
+  "runtime_change_sha": "010ecce865057d7916b995685f422e4ce4ab6ca9",
+  "build": "4 packages PASS, 2.76s",
+  "initial_offline_tests": "186 passed",
+  "final_affected_tests": "55 passed; initial 54/55 failure preserved because old test required W14 GUI unlocked; now asserts W15 halt and retains old evidence hashes",
+  "preflight": {
+    "exit": 0,
+    "source_sha": "010ecce865057d7916b995685f422e4ce4ab6ca9"
+  },
+  "default_gui": {
+    "exit": 3,
+    "gpu_started": false,
+    "run_id": "20261015T151851Z_demo_U01_c3160cd2-517a-410e-ab36-df7433d44125"
+  },
+  "unchanged_locked_files": 99,
+  "unexpected_lock_changes": [],
+  "original_W13_W14_evidence_unchanged": true,
+  "visual_exceptions": {
+    "src/t1_mujoco/t1_mujoco/simulation.py": "75cf5039fe469ae0ad660cb33eb165d5b3046d9800272d4d0a3aff2987585c22",
+    "src/t1_mujoco/t1_mujoco/presentation.py": "e806b6110156232743848bae542ad0b7a0be6a08f73cca7f4383f4ab78ae7140",
+    "src/t1_navigation/config/demo.rviz": "e20be3ab027bea8a9718cb60cd3167f80c683333a20c229a64be47ca57b1708c"
+  },
+  "external_dependencies": {
+    "booster_deploy": {
+      "sha": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+      "dirty": ""
+    },
+    "booster_assets": {
+      "sha": "12a97516f57469078707afb587a5f84c1cb110d1",
+      "dirty": ""
+    }
+  },
+  "release_tag_created": false,
+  "final_successful_video": null
+}
