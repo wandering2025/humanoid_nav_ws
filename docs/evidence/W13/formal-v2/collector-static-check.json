@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "returncode": 0,
+      "unchanged_sequence": [
+        "rclpy.shutdown",
+        "SIGINT",
+        "wait(timeout=10)",
+        "log.close"
+      ],
+      "exact_saved": true
+    },
+    {
+      "returncode": 7,
+      "unchanged_sequence": [
+        "rclpy.shutdown",
+        "SIGINT",
+        "wait(timeout=10)",
+        "log.close"
+      ],
+      "exact_saved": true
+    },
+    {
+      "returncode": -2,
+      "unchanged_sequence": [
+        "rclpy.shutdown",
+        "SIGINT",
+        "wait(timeout=10)",
+        "log.close"
+      ],
+      "exact_saved": true
+    },
+    {
+      "timeout_propagated": true
+    }
+  ],
+  "physical_runs": 0,
+  "description": "AST-extracted wrapper only; original close invoked once; return and exception preserved"
+}
