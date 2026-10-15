@@ -151,3 +151,5 @@ blocks all commands without a current active navigation/controller goal.
 W11R1 ADR-025：`t1_navigation::ExactGoalLattice`复用已安装SmacPlannerLattice并恢复最后path pose的精确请求orientation。搜索内部角度离散不应改变对外连续终点语义，尤其是±0.2rad附近的回弹纠偏。所有平移样本与圆形2.05m碰撞检查原样保留；真实规划服务测试覆盖+.238034/−.216578请求。
 
 W11R1 ADR-026：MPPI PathAlignCritic使用可行格点路径的朝向；旧二维路径的XY-only成本会把同位置的侧向轨迹看作完全对齐。其余成本权重/激活距离不变，实际Nav2 critic行为测试验证区别，而非只断言YAML值。
+
+W11R1 ADR-027（替代ADR-026候选控制配置）：局部控制采用已安装RegulatedPurePursuit，直接请求.33–.40m/s前进与允许的原地对准，避免MPPI连续亚步态预测与实际整形后的不一致；全局ExactGoalLattice、安全链、终点核验/预算保持。MPPI/RotationShim配置不再启用，旧实验记录不删。

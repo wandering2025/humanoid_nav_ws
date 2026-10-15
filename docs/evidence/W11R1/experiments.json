@@ -762,5 +762,16 @@
     "contacts": 0,
     "falls": 0,
     "remaining_owned_pids": []
+  },
+  {
+    "hypothesis": "H12 did not converge; H13 match controller requests to calibrated gait",
+    "code_sha": "df0d1280a0f4edbeb396514363faaacaef0b2871",
+    "run_id": "20261015T084910Z_w11r1-repair-smoke-v9_B06_s3005_8813f6",
+    "result": "FAIL_TIMEOUT",
+    "reason": "MPPI continuous sub-gait short commands and adapter/smoother mode switching still produce terminal loops after path-heading cost was enabled.",
+    "decision": "Replace MPPI/rotation shim local controller with installed RPP: 0.33..0.40 forward requests and align before forward motion; preserve all safety/arrival constraints. Remove now-unused MPPI-specific test/config; historical commit and test evidence preserved.",
+    "contacts": 0,
+    "falls": 0,
+    "remaining_owned_pids": []
   }
 ]
