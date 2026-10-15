@@ -20,6 +20,11 @@ esac
 export T1_VENV="${T1_VENV:-/home/haoyang/venvs/humanoid_mujoco}"
 export T1_UPSTREAM="${T1_UPSTREAM:-/home/haoyang/robot_sim_sources/booster_deploy}"
 export T1_ASSETS="${T1_ASSETS:-/home/haoyang/robot_sim_sources/booster_assets}"
+# WSLg's Mesa needs its D3D12 backend in a genuinely fresh terminal on this host.
+# This affects only our child processes; preserve any explicit driver selection.
+if [[ -e /dev/dxg ]]; then
+  export GALLIUM_DRIVER="${GALLIUM_DRIVER:-d3d12}"
+fi
 export T1_LOCAL_DDS=1 T1_DDS_PORT=42127 ROS_DOMAIN_ID=37
 export T1_DEMO_RUN_ID="$(date -u +%Y%m%dT%H%M%SZ)_demo_U01_$(cat /proc/sys/kernel/random/uuid)"
 export T1_DEMO_DIR="$DEMO_ROOT/run_data/demo/$T1_DEMO_RUN_ID"
