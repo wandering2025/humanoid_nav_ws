@@ -83,3 +83,38 @@ def test_ab_annotations_are_viewer_only_and_do_not_change_physics_or_rays():
     np.testing.assert_array_equal(model.geom_pos,positions)
     np.testing.assert_array_equal(model.geom_size,sizes)
     np.testing.assert_array_equal(data.qpos,qpos)
+
+def test_blockage_wait_requires_zero_command_actual_stillness_and_later_motion():
+    import sys
+    sys.path.insert(0,str(WS/'scripts/advanced'))
+    from verification import blocked_wait_evidence
+    rows=[]
+    for i in range(101):
+        t=i/10
+        x=t if t<2 else (2. if t<=6 else 2.+.5*(t-6))
+        rows.append(dict(sim=t,x=x,y=0.,yaw=0.,final=(0.,0.) if 2<=t<=6 else (.5,0.)))
+    obs=[dict(phase='move_0',sim_time=1.),dict(phase='hold_0',sim_time=6.)]
+    good=blocked_wait_evidence(rows,obs,(10.,0.,0.))
+    assert good['stationary_s']>=3 and good['resumed_m']>1.5
+    assert blocked_wait_evidence([dict(r,final=(.1,0.)) for r in rows],obs,(10.,0.,0.))['stationary_s']==0
+    assert blocked_wait_evidence([dict(r,yaw=r['sim']) for r in rows],obs,(10.,0.,0.))['stationary_s']==0
+    assert blocked_wait_evidence(rows,obs,(2.,0.,0.))['stationary_s']==0
+    assert blocked_wait_evidence(rows,[],(10.,0.,0.))['stationary_s']==0
+
+
+def test_goal_and_display_agree_and_cart_keeps_static_clearance():
+    import yaml,mujoco
+    from t1_mujoco.advanced_presentation import annotate
+    route=yaml.safe_load((WS/'src/t1_bringup/config/advanced_route.yaml').read_text())
+    layout=load_layout(WS/'src/t1_mujoco/worlds/advanced_world.yaml')
+    assert route['goal']==layout['goal']
+    x,y,_=route['goal'];xmin,xmax,ymin,ymax=layout['bounds']
+    assert min(x-xmin,xmax-x,y-ymin,ymax-y)>=2.25
+    m=mujoco.MjModel.from_xml_string('<mujoco><worldbody/></mujoco>')
+    scn=mujoco.MjvScene(m,maxgeom=8);annotate(SimpleNamespace(user_scn=scn,cam=SimpleNamespace()))
+    np.testing.assert_allclose(scn.geoms[2].pos[:2],route['goal'][:2])
+    scenario,_=load_scenario(WS/'src/t1_bringup/config/advanced_events.yaml','ADV01')
+    size=layout['obstacle_slots'][0]['size']
+    for cx,cy in [scenario['start']]+[leg['to'] for leg in scenario['legs']]:
+        assert xmin<cx-size[0]/2<cx+size[0]/2<xmax
+        assert ymin<cy-size[1]/2<cy+size[1]/2<ymax

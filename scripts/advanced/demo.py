@@ -75,8 +75,8 @@ class Advanced(base.Demo):
         m.pose.orientation.w=1.;m.pose.position.x=7.;m.pose.position.y=13.;m.scale.z=.65
         m.color.r,m.color.g,m.color.b=.1,.2,.3;m.color.a=1.
         status=self.summary['status']
-        m.text=('Guided mapping '+str(int(status.rsplit('_',1)[1]))+'/'+str(len(self.route['mapping_waypoints']))) if status.startswith('MAPPING_') and status.rsplit('_',1)[1].isdigit() else {'SLAM_INITIALIZING':'Live LiDAR SLAM','MAPPING_SUFFICIENT':'Map ready - continue from here','NAVIGATING_TO_B':'Live planning to B','ARRIVED_SAFE_STOP':'Arrived - safely stopped'}.get(status,status)
-        if status=='NAVIGATING_TO_B' and self.node.odom:
+        m.text=('Guided mapping '+str(int(status.rsplit('_',1)[1]))+'/'+str(len(self.route['mapping_waypoints']))) if status.startswith('MAPPING_') and status.rsplit('_',1)[1].isdigit() else {'SLAM_INITIALIZING':'Live LiDAR SLAM','MAPPING_SUFFICIENT':'Map ready - continue from here','NAVIGATING_TO_B':'Final walking approach to B','NAVIGATING_APPROACH':'Live planning - approach B','ARRIVED_SAFE_STOP':'Arrived - safely stopped'}.get(status,status)
+        if status.startswith('NAVIGATING_') and self.node.odom:
             v=self.node.odom.twist.twist
             if abs(v.linear.x)<.05 and abs(v.angular.z)<.05 and self.node.cmds['final']==(0.,0.):
                 m.text='Waiting / replanning - final command zero'
@@ -310,6 +310,7 @@ class Advanced(base.Demo):
             self.until(lambda:n.obstacle and n.obstacle.get('enabled'),5)
         self.summary['control_no_obstacle']=self.args.control_no_obstacle
         self.summary['navigation_start_sim']=n.sim
+        self.mapping_pass(self.route['navigation_approach'],'NAVIGATING_APPROACH')
         self.summary['nav2']=self.goal(self.route['goal'],'NAVIGATING_TO_B',self.route['navigation_time_limit_s'])
         end=n.sim+12;self.until(lambda:n.sim>=end,35)
         self.summary['final_map']=self.save_map('final')
@@ -412,7 +413,7 @@ class Advanced(base.Demo):
             s['dynamic']['blocked_wait']=blocked_wait_evidence(n.rows,n.obstacles,self.route['goal'])
             s['dynamic'].update(response_verdict(s['dynamic'],s['arrived']))
             behavior=(s['arrived'] and s['nonstraight_plan'] and s['map_growth_ratio']>1.3
-                      and (s['dynamic']['verdict']=='PASS' or self.args.control_no_obstacle) and len(s['goals'])==s.get('mapping_passes',0)+1)
+                      and (s['dynamic']['verdict']=='PASS' or self.args.control_no_obstacle) and len(s['goals'])==s.get('mapping_passes',0)+2)
         records=[json.loads(line) for line in (OUT/'authority.log').read_text().splitlines() if line.startswith('{')]
         actual=[r for r in records if r['parent']=='map' and r['child']=='odom']
         s['tf_authority']=records
