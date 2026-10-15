@@ -198,6 +198,29 @@ class Advanced(base.Demo):
             end=time.monotonic()+8
             while not base.STOP and (self.args.hold or time.monotonic()<end):self.spin(False)
 
+    def cleanup(self):
+        # Cancel through the action protocol while ROS is alive. A signal into
+        # the unchanged goal tool can tear down its context before its finally.
+        # The safety latch is acknowledged first and is never re-armed here.
+        if not self.cleanup_started and self.node and 'goal' in self.children:
+            goal=self.children['goal'][0]
+            if goal.poll() is None:
+                self.safe_stop()
+                try:
+                    from action_msgs.srv import CancelGoal
+                    replies=[];deadline=time.monotonic()+8
+                    while goal.poll() is None and time.monotonic()<deadline:
+                        reply=self.call(CancelGoal,'/navigate_to_pose/_action/cancel_goal',
+                                        CancelGoal.Request(),2.,False)
+                        replies.append(dict(return_code=reply.return_code,canceling=len(reply.goals_canceling)))
+                        pause=time.monotonic()+.5
+                        while goal.poll() is None and time.monotonic()<pause:self.spin(False)
+                    self.summary['goal_cancel']=dict(replies=replies,exit_code=goal.poll())
+                except Exception as exc:
+                    self.summary['goal_cancel']=dict(error=repr(exc))
+        # Original bounded cleanup remains the fallback, preserving actual codes.
+        super().cleanup()
+
     def metrics(self):
         import numpy as np
         from evaluation.episode import load_trace,settle_analysis
