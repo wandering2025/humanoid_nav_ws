@@ -4,18 +4,18 @@ Panels:
 Visualization Manager:
   Class: ''
   Global Options:
-    Background Color: 220; 220; 220
+    Background Color: 233; 239; 242
     Fixed Frame: map
     Frame Rate: 15
   Displays:
   - Class: rviz_default_plugins/Grid
     Name: Ground z=0
-    Enabled: true
+    Enabled: false
     Cell Size: 0.5
     Plane Cell Count: 40
     Reference Frame: odom
   - Class: rviz_default_plugins/RobotModel
-    Name: T1 (external URDF)
+    Name: Booster T1
     Enabled: true
     Description Source: Topic
     Description Topic:
@@ -29,7 +29,7 @@ Visualization Manager:
     Alpha: 1
   - Class: rviz_default_plugins/Axes
     Name: base_link axes
-    Enabled: true
+    Enabled: false
     Reference Frame: base_link
     Length: 0.3
     Radius: 0.025
@@ -48,12 +48,12 @@ Visualization Manager:
     Shape: Arrow
   - Class: rviz_default_plugins/TF
     Name: TF
-    Enabled: true
+    Enabled: false
     Show Axes: false
     Show Arrows: false
     Show Names: false
   - Class: rviz_default_plugins/LaserScan
-    Name: Compensated LiDAR
+    Name: LiDAR returns
     Enabled: true
     Topic:
       Value: /scan
@@ -67,9 +67,9 @@ Visualization Manager:
     Color: 220; 30; 30
     Decay Time: 0
   - Class: rviz_default_plugins/PointCloud2
-    Name: Saved LiDAR SLAM map
+    Name: LiDAR SLAM map
     Enabled: true
-    Alpha: 0.7
+    Alpha: 1.0
     Topic:
       Value: /t1/viz/map_cells
       Durability Policy: Transient Local
@@ -83,7 +83,7 @@ Visualization Manager:
     Decay Time: 0
   - Class: rviz_default_plugins/PointCloud2
     Name: Global costmap
-    Enabled: true
+    Enabled: false
     Alpha: 0.2
     Topic:
       Value: /t1/viz/global_cells
@@ -97,9 +97,9 @@ Visualization Manager:
     Position Transformer: XYZ
     Decay Time: 0
   - Class: rviz_default_plugins/PointCloud2
-    Name: Local costmap
+    Name: Local obstacle costs
     Enabled: true
-    Alpha: 0.3
+    Alpha: 0.34
     Topic:
       Value: /t1/viz/local_cells
       Durability Policy: Transient Local
@@ -112,7 +112,7 @@ Visualization Manager:
     Position Transformer: XYZ
     Decay Time: 0
   - Class: rviz_default_plugins/Path
-    Name: Global plan
+    Name: Nav2 global path
     Enabled: true
     Color: 25; 90; 220
     Line Style: Billboards
@@ -124,7 +124,7 @@ Visualization Manager:
       History Policy: Keep Last
       Depth: 1
   - Class: rviz_default_plugins/Polygon
-    Name: W10 stop zone
+    Name: Stop boundary 1.65 m
     Enabled: true
     Color: 220; 0; 0
     Topic:
@@ -134,7 +134,7 @@ Visualization Manager:
       History Policy: Keep Last
       Depth: 1
   - Class: rviz_default_plugins/Polygon
-    Name: W10 slowdown zone
+    Name: Slow boundary 1.95 m
     Enabled: true
     Color: 230; 160; 0
     Topic:
@@ -145,7 +145,7 @@ Visualization Manager:
       Depth: 1
   - Class: rviz_default_plugins/Pose
     Name: Navigation goal
-    Enabled: true
+    Enabled: false
     Color: 0; 160; 0
     Shape: Arrow
     Topic:
@@ -156,7 +156,7 @@ Visualization Manager:
       Depth: 1
   - Class: rviz_default_plugins/PoseWithCovariance
     Name: AMCL localization
-    Enabled: true
+    Enabled: false
     Topic:
       Value: /amcl_pose
       Durability Policy: Transient Local
@@ -165,7 +165,7 @@ Visualization Manager:
       Depth: 1
     Shape: Arrow
   - Class: rviz_default_plugins/Polygon
-    Name: Local footprint
+    Name: Planning footprint
     Enabled: true
     Color: 20; 180; 110
     Topic:
@@ -175,7 +175,7 @@ Visualization Manager:
       History Policy: Keep Last
       Depth: 5
   - Class: rviz_default_plugins/MarkerArray
-    Name: Demo safety and goal
+    Name: A start / B goal
     Enabled: true
     Topic:
       Value: /t1/viz/demo
@@ -186,8 +186,8 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 17
-      Pitch: 1.45
+      Distance: 18.0
+      Pitch: 1.5707
       Yaw: -1.5708
       Focal Point:
         X: 4.5
@@ -197,10 +197,6 @@ Visualization Manager:
   Tools:
   - Class: rviz_default_plugins/Interact
   - Class: rviz_default_plugins/MoveCamera
-  - Class: rviz_default_plugins/SetInitialPose
-    Topic: /initialpose
-  - Class: rviz_default_plugins/SetGoal
-    Topic: /goal_pose
 Window Geometry:
-  Width: 1050
-  Height: 800
+  Width: 760
+  Height: 740

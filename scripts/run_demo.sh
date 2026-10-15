@@ -6,7 +6,7 @@ case "${1:-}" in
   --help|-h)
     cat <<'HELP'
 Usage: ./scripts/run_demo.sh [--preflight] [--headless] [--no-rviz] [--scenario U01]
-STATUS: W14_DEMO_READY_WITH_DDS_TEARDOWN_WARNING. GUI enabled.
+STATUS: W15 presentation candidate. GUI enabled; final result is independently checked.
 DDS_TEARDOWN_EXCEPTION: only verified post-success/post-stop DDS teardown may warn; exact exit/log retained.
 MuJoCo/RViz: NVIDIA RTX 4050; RViz Qt-thread cleanup and RGB cells.
 Default: MuJoCo + RViz, frozen formal-v1 U01 seed 4000, A(0,0,0) -> B(9,0,0).
@@ -14,6 +14,7 @@ Default: MuJoCo + RViz, frozen formal-v1 U01 seed 4000, A(0,0,0) -> B(9,0,0).
 --startup-check  Bounded standing/stop/exit check; no navigation goal.
 --headless   Disable both GUI windows; automatically exit after result.
 --no-rviz    Keep MuJoCo viewer only.
+--hold       Hold the final view for explanation until Ctrl+C (default: 8s then cleanup).
 --scenario   U01 (or sudden-approach); no automatic seed substitution.
 Ctrl+C: request latched safety stop, then reap this run's registered processes.
 Detailed logs and result: run_data/demo/<unique-run-id>/
