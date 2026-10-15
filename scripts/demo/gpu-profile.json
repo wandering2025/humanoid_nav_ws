@@ -1,5 +1,5 @@
 {
-  "status": "GUI_VALIDATED",
+  "status": "GPU_HALTED_DDS_SHUTDOWN_FAILURE",
   "adapter": "NVIDIA GeForce RTX 4050",
   "rviz": "NVIDIA lifecycle wrapper",
   "stages": {
@@ -10,10 +10,10 @@
     "docs/evidence/W14/nvidia-recovery/rgb-standing-final-result.json": "06727a0cf5d813c23b03a2e8ee046d6994b14f4dc1c1f5b02d155e2278e782e9",
     "docs/evidence/W14/rviz-lifecycle/minimal-result.json": "5a1e1a231ea72656df6de1652f50f8accce112718cb5f7d54119fab793781ad9"
   },
-  "halt_reason": "Single strictly authorized minimal lifecycle test PASS; only two registered full rehearsals next; any new stop condition ends authorization",
+  "halt_reason": "Two authorized full rehearsals exhausted; run02 DDS SIGSEGV -11 on shutdown, overallFAILED. No further graphical retry authorized.",
   "halt_evidence": {
-    "archived_path": "docs/evidence/W14/raw/rviz-lifecycle/20261015T134828Z_rviz_minimal_6d4beca0/previous-halt.json",
-    "sha256": "0fcb2688f6e087fcdd94e71b30135a64d01d78163eccc912fb97e8bfeec752b0"
+    "path": "run_data/demo-gpu-halt.json",
+    "sha256": "51ff001974ea062a8c1821644869ead973e4246586335653ca9259f42199494f"
   },
   "display_path": "NVIDIA RGB PointCloud2; local Qt-thread lifecycle wrapper; no MapDisplay shader"
 }

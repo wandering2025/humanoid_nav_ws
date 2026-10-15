@@ -1,0 +1,3 @@
+2026-10-15T15:56:34+02:00 DESKTOP-MF19MEU kernel: dds.tcp.42127[16233]: segfault at 28 ip 00007f88ef3c4181 sp 00007f88ec9fbb80 error 4 in libfastrtps.so.2.14.7[3c4181,7f88ef17c000+609000] likely on CPU 16 (core 8, socket 0)
+2026-10-15T15:56:34+02:00 DESKTOP-MF19MEU kernel: fast-discovery-server: dds.tcp.42127: potentially unexpected fatal signal 11.
+2026-10-15T15:56:34+02:00 DESKTOP-MF19MEU unknown: WSL (16234 - CaptureCrash): Capturing crash for pid: 45795, executable: !opt!ros!jazzy!bin!fast-discovery-server, signal: 11, port: 50005

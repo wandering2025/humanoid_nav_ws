@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-15T13:58:28.693720+00:00",
+  "remaining_owned_pids": [],
+  "project_processes": [],
+  "ports": {
+    "42127": "bindable",
+    "42128": "bindable"
+  },
+  "windows": {
+    "Last": {
+      "System": 92347,
+      "Application": 52196
+    },
+    "Events": []
+  },
+  "wslg_errors": [],
+  "gpu": {
+    "wall_mono": 7227.72550104,
+    "utc": "2026-10-15T13:58:28.758371+00:00",
+    "index": "0",
+    "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "driver": "596.58",
+    "temperature_c": 49.0,
+    "memory_mib": 765.0,
+    "memory_total_mib": 6141.0,
+    "utilization_pct": 21.0,
+    "power_w": 6.93
+  }
+}

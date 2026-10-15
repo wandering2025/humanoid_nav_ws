@@ -1,0 +1,104 @@
+{
+  "remaining_owned_pids": [],
+  "ports": {
+    "42127": "bindable",
+    "42128": "bindable"
+  },
+  "windows": {
+    "Last": {
+      "System": 92343,
+      "Application": 52194
+    },
+    "Events": []
+  },
+  "wslg_errors": [],
+  "gpu": {
+    "wall_mono": 6985.662855455,
+    "utc": "2026-10-15T13:54:10.440508+00:00",
+    "index": "0",
+    "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "driver": "596.58",
+    "temperature_c": 49.0,
+    "memory_mib": 773.0,
+    "memory_total_mib": 6141.0,
+    "utilization_pct": 47.0,
+    "power_w": 5.75
+  },
+  "all_parent_exit_codes": {
+    "dds": 0,
+    "launch": 0,
+    "rviz": 0,
+    "goal": 0
+  },
+  "launch_exit_codes": {
+    "t1_sim-1": {
+      "pid": 43125,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 43126,
+      "exit_code": 0
+    },
+    "map_server-3": {
+      "pid": 43127,
+      "exit_code": 0
+    },
+    "amcl-4": {
+      "pid": 43128,
+      "exit_code": 0
+    },
+    "command_gate-5": {
+      "pid": 43129,
+      "exit_code": 0
+    },
+    "velocity_smoother-6": {
+      "pid": 43130,
+      "exit_code": 0
+    },
+    "collision_monitor-7": {
+      "pid": 43131,
+      "exit_code": 0
+    },
+    "lifecycle_manager-8": {
+      "pid": 43441,
+      "exit_code": 0
+    },
+    "lifecycle_manager-9": {
+      "pid": 43442,
+      "exit_code": 0
+    },
+    "controller_server-10": {
+      "pid": 43584,
+      "exit_code": 0
+    },
+    "planner_server-11": {
+      "pid": 43585,
+      "exit_code": 0
+    },
+    "behavior_server-12": {
+      "pid": 43586,
+      "exit_code": 0
+    },
+    "bt_navigator-13": {
+      "pid": 43587,
+      "exit_code": 0
+    },
+    "lifecycle_manager-14": {
+      "pid": 43588,
+      "exit_code": 0
+    },
+    "navigation_adapter-15": {
+      "pid": 43589,
+      "exit_code": 0
+    },
+    "navigation_starter-16": {
+      "pid": 43590,
+      "exit_code": 0
+    },
+    "t1_initial_pose_once-17": {
+      "pid": 43591,
+      "exit_code": 0
+    }
+  },
+  "no_sigkill": true
+}

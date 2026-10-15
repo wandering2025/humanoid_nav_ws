@@ -1,0 +1,12 @@
+{
+  "dxg_query_error_counts": {
+    "-22": 303,
+    "-2": 201
+  },
+  "dxg_query_errors_not_proven_benign": true,
+  "dds_thread": "dds.tcp.42127",
+  "module": "libfastrtps.so.2.14.7",
+  "signal": 11,
+  "rviz_heap_exact_root_cause_unproven": true,
+  "graphics_retests_after_failure": 0
+}
