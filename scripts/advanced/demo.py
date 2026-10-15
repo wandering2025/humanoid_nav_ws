@@ -75,11 +75,11 @@ class Advanced(base.Demo):
         m.pose.orientation.w=1.;m.pose.position.x=7.;m.pose.position.y=13.;m.scale.z=.65
         m.color.r,m.color.g,m.color.b=.1,.2,.3;m.color.a=1.
         status=self.summary['status']
-        m.text=('Guided mapping '+str(int(status.rsplit('_',1)[1]))+'/'+str(len(self.route['mapping_waypoints']))) if status.startswith('MAPPING_') and status.rsplit('_',1)[1].isdigit() else {'SLAM_INITIALIZING':'Live LiDAR SLAM','MAPPING_SUFFICIENT':'Map ready - continue from here','NAVIGATING_TO_B':'Final walking approach to B','NAVIGATING_APPROACH':'Live planning - approach B','ARRIVED_SAFE_STOP':'Arrived - safely stopped'}.get(status,status)
+        m.text=('Guided mapping '+str(int(status.rsplit('_',1)[1]))+'/'+str(len(self.route['mapping_waypoints']))) if status.startswith('MAPPING_') and status.rsplit('_',1)[1].isdigit() else {'SLAM_INITIALIZING':'Live LiDAR SLAM','MAPPING_SUFFICIENT':'Map ready - continue from here','NAVIGATING_TO_B':'Final walking approach to B','NAVIGATING_APPROACH':'Mapped navigation: odom + live LiDAR','ARRIVED_SAFE_STOP':'Arrived - safely stopped'}.get(status,status)
         if status.startswith('NAVIGATING_') and self.node.odom:
             v=self.node.odom.twist.twist
             if abs(v.linear.x)<.05 and abs(v.angular.z)<.05 and self.node.cmds['final']==(0.,0.):
-                m.text='Waiting / replanning - final command zero'
+                m.text='Waiting / replanning - last plan shown'
         a.markers.append(m)
         # Display-only: current Nav2 endpoint, actual TF trail and full route overview.
         def line(mid,ns,points,color,width):
@@ -97,7 +97,7 @@ class Advanced(base.Demo):
         m.pose.orientation.w=1.;m.pose.position.x=7.;m.pose.position.y=12.;m.scale.z=.38
         m.color.r,m.color.g,m.color.b=.1,.2,.3;m.color.a=1.
         age=self.node.sim-self.node.plans[-1]['sim'] if self.node.plans else 0.
-        m.text=f'Blue: current plan ({age:.1f}s old) | Cyan: A-B overview | Purple: travelled'
+        m.text=f'Blue: last plan ({age:.1f}s old) | Cyan: A-B overview | Purple: travelled'
         a.markers.append(m);self.viz.publish(a)
 
     def spin(self,check_stop=True):
@@ -182,6 +182,31 @@ class Advanced(base.Demo):
             return True
         finally:
             self.computing_overview=False;client.destroy()
+
+    def pause_mapping(self,paused):
+        # Installed SLAM2.8.5 service toggles state; response.status is only an ACK.
+        # Read the actual parameter before/after. TF keeps the last correction;
+        # navigation then explicitly depends on the existing ideal odometry.
+        from slam_toolbox.srv import Pause
+        from rcl_interfaces.srv import GetParameters
+        def state():
+            req=GetParameters.Request();req.names=['paused_new_measurements']
+            reply=self.call(GetParameters,'/slam_toolbox/get_parameters',req)
+            assert len(reply.values)==1 and reply.values[0].type==1,'SLAM pause state unavailable'
+            return reply.values[0].bool_value
+        before=state()
+        if before!=paused:
+            reply=self.call(Pause,'/slam_toolbox/pause_new_measurements',Pause.Request())
+            assert reply.status,'SLAM pause toggle not acknowledged'
+        after=state();assert after==paused,'SLAM measurement state not confirmed'
+        self.summary.setdefault('slam_measurement_transitions',[]).append(dict(sim=self.node.sim,before=before,after=after))
+        refreshed=self.node.sim+1.2;self.until(lambda:self.node.sim>=refreshed,6)
+
+    def map_fingerprint(self):
+        import hashlib
+        m=self.node.map
+        description=(m.info.width,m.info.height,m.info.resolution,m.info.origin.position.x,m.info.origin.position.y,list(m.data))
+        return hashlib.sha256(json.dumps(description).encode()).hexdigest()
 
     def on_map(self,m):
         known=sum(v>=0 for v in m.data)
@@ -301,7 +326,9 @@ class Advanced(base.Demo):
         assert n.obstacle and n.obstacle['triggered_at'] is None, 'Obstacle moved during mapping'
         self.summary['status']='MAPPING_SUFFICIENT'
         self.summary['mapping_completed_sim']=n.sim
+        self.pause_mapping(True)
         self.summary['generated_map']=self.save_map('mapped')
+        self.summary['navigation_map_sha256']=self.map_fingerprint()
         self.screenshot('mapped')
         # Service changes only the experiment source, never a navigation command.
         if not self.args.control_no_obstacle:
@@ -312,6 +339,9 @@ class Advanced(base.Demo):
         self.summary['navigation_start_sim']=n.sim
         self.mapping_pass(self.route['navigation_approach'],'NAVIGATING_APPROACH')
         self.summary['nav2']=self.goal(self.route['goal'],'NAVIGATING_TO_B',self.route['navigation_time_limit_s'])
+        self.summary['navigation_static_map_unchanged']=self.map_fingerprint()==self.summary['navigation_map_sha256']
+        assert self.summary['navigation_static_map_unchanged'],'Static SLAM map changed during dynamic navigation'
+        self.pause_mapping(False)
         end=n.sim+12;self.until(lambda:n.sim>=end,35)
         self.summary['final_map']=self.save_map('final')
         self.screenshot('arrived');self.safe_stop()
@@ -412,7 +442,7 @@ class Advanced(base.Demo):
                 replan=replan_evidence(n.rows,n.plans,n.obstacles,start))
             s['dynamic']['blocked_wait']=blocked_wait_evidence(n.rows,n.obstacles,self.route['goal'])
             s['dynamic'].update(response_verdict(s['dynamic'],s['arrived']))
-            behavior=(s['arrived'] and s['nonstraight_plan'] and s['map_growth_ratio']>1.3
+            behavior=(s['arrived'] and s.get('navigation_static_map_unchanged') and s['nonstraight_plan'] and s['map_growth_ratio']>1.3
                       and (s['dynamic']['verdict']=='PASS' or self.args.control_no_obstacle) and len(s['goals'])==s.get('mapping_passes',0)+2)
         records=[json.loads(line) for line in (OUT/'authority.log').read_text().splitlines() if line.startswith('{')]
         actual=[r for r in records if r['parent']=='map' and r['child']=='odom']
@@ -461,6 +491,8 @@ def main():
     finally:
         try:
             if run.node:
+                for kind,grid in (('map',run.node.map),('costmap',run.global_grid)):
+                    if grid is not None:base.save(f'last-{kind}.json',dict(resolution=grid.info.resolution,width=grid.info.width,height=grid.info.height,origin=[grid.info.origin.position.x,grid.info.origin.position.y],data=list(grid.data)))
                 run.runtime_graph=run.node.graph(('/cmd_vel','/t1/eval/obstacle','/t1/eval/ground_truth','/t1/cmd_teleop','/map','/tf'))
         except Exception:
             run.summary['error']='Final graph evidence unavailable'

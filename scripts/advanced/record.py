@@ -105,7 +105,7 @@ def encode(run,out):
            'Dynamic obstacle response: '+r['dynamic']['response'],
            'Static contacts 0 | Dynamic contacts 0 | Non-foot ground contacts 0 | Falls 0',
            'Safety stop + physical standstill: PASS | Registered processes cleaned | DDS port released',
-           'SLAM is the sole map->odom owner. Map saved from actual LiDAR SLAM output.',
+           'Static SLAM map held during navigation; ideal odometry + live LiDAR obstacle updates.',
            'Limits: ideal odometry, truth attitude, flat wide scene, reactive kinematic obstacles.',
            'Not frontier exploration, not hardware validation, not a reliability certification.',
            run.name,meta['source_sha']]
