@@ -1,0 +1,12 @@
+{
+  "start_sha": "b23a92465b317ca781d3eb210051126c5786908e",
+  "time_utc": "2026-10-15T06:29:06.983480+00:00",
+  "branch": "feat/t1-mujoco-navigation",
+  "dirty": {
+    "docs/start_commands.md": "6973bb1c423297cebdf2c1a97391487023d3b4af955e3a51d4fc735b2fba7027"
+  },
+  "formal_v1_files": 1371,
+  "formal_baseline_index_sha256": "aacf82f84604a1b0b79a9efa2e36c7d8e78f7cd4cf1cfca66598e90d2ed55c2e",
+  "host_processes": [],
+  "ports_in_42120_42129": []
+}

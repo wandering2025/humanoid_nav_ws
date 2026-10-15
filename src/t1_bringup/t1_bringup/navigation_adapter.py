@@ -18,6 +18,7 @@ import time
 from pathlib import Path
 
 import yaml
+from .navigation_protocol import CommandEpoch
 
 FINITE_FIELDS = ('vx', 'wz')
 
@@ -101,16 +102,15 @@ def main(args=None):
                 raise ValueError('in-place target must lie in the W05 in-place band')
             if not (0 < self.timeout <= .3 and 20 <= self.rate <= 100):
                 raise ValueError('adapter must publish at >=20 Hz and expire input within the 0.3 s gate budget')
-            self.raw = None            # (vx, wz, wall time received)
+            self.epoch = CommandEpoch()
             self.out = (0.0, 0.0, 'idle')
-            self.status = {}
-            self.cancelled = set()
-            self.blocked_goal = None   # goal id whose cancellation latched a stop
-            self.events = []
             self.pub = self.create_publisher(Twist, '/t1/cmd_navigation', 1)
             self.state_pub = self.create_publisher(String, '/t1/nav/adapter_state', 10)
             self.create_subscription(Twist, '/t1/nav/cmd_vel_raw', self.input, 10)
             self.create_subscription(GoalStatusArray, '/navigate_to_pose/_action/status', self.goals,
+                                     QoSProfile(depth=10, durability=DurabilityPolicy.TRANSIENT_LOCAL))
+            self.create_subscription(GoalStatusArray, '/follow_path/_action/status',
+                                     lambda m: self.goals(m, 'follow'),
                                      QoSProfile(depth=10, durability=DurabilityPolicy.TRANSIENT_LOCAL))
             self.stop_client = self.create_client(Trigger, '/t1/safety/stop')
             self.GoalStatus = GoalStatus
@@ -119,51 +119,31 @@ def main(args=None):
             self.create_timer(1/self.rate, self.tick, clock=Clock(clock_type=ClockType.STEADY_TIME))
 
         def input(self, msg):
-            if self.blocked_goal is not None:
-                return  # after cancel: nothing from the old goal may pass
-            self.raw = (msg.linear.x, msg.angular.z, time.monotonic())
+            self.epoch.receive(msg.linear.x, msg.angular.z, time.monotonic())
 
-        def goals(self, msg):
-            active, finished = [], False
-            for status in msg.status_list:
-                gid = bytes(status.goal_info.goal_id.uuid).hex()
-                previous = self.status.get(gid)
-                self.status[gid] = status.status
-                if status.status in (self.GoalStatus.STATUS_CANCELING, self.GoalStatus.STATUS_CANCELED):
-                    if gid not in self.cancelled:
-                        self.cancelled.add(gid)
-                        self.raw = None
-                        self.blocked_goal = gid
-                        self.events.append(dict(event='cancel', goal=gid, wall=time.monotonic()))
-                        if self.stop_client.service_is_ready():
-                            self.stop_client.call_async(Trigger.Request())
-                        else:
-                            self.get_logger().error('/t1/safety/stop unavailable; publishing zero only')
-                elif status.status == self.GoalStatus.STATUS_EXECUTING:
-                    active.append(gid)
-                if previous != status.status and status.status in (
-                        self.GoalStatus.STATUS_SUCCEEDED, self.GoalStatus.STATUS_ABORTED):
-                    finished = True
-            if finished and not active:
-                self.raw = None  # preemption aborts the old goal while a new one executes
-            # A newer executing goal (after explicit arm) releases the cancel block.
-            if self.blocked_goal is not None and any(g != self.blocked_goal and g not in self.cancelled for g in active):
-                self.blocked_goal = None
+        def goals(self, msg, kind='nav'):
+            rows = [(bytes(s.goal_info.goal_id.uuid).hex(),
+                     s.goal_info.stamp.sec*1_000_000_000 + s.goal_info.stamp.nanosec, s.status)
+                    for s in msg.status_list]
+            if self.epoch.statuses(kind, rows):
+                if self.stop_client.service_is_ready():
+                    self.stop_client.call_async(Trigger.Request())
+                else:
+                    self.get_logger().error('/t1/safety/stop unavailable; epoch blocked, publishing zero')
 
         def tick(self):
             now = time.monotonic()
-            if self.raw is None or now - self.raw[2] > self.timeout or self.blocked_goal is not None:
-                vx, wz, reason = 0.0, 0.0, 'cancel_latched' if self.blocked_goal else 'no_fresh_nav_command'
-                raw = None
+            raw = self.epoch.command(now, self.timeout)
+            if raw is None:
+                vx, wz, reason = 0.0, 0.0, 'no_current_goal_command'
             else:
-                raw = self.raw[:2]
                 vx, wz, reason = shape(*raw, self.env, **self.shaping)
             msg = self.Twist()
             msg.linear.x, msg.angular.z = float(vx), float(wz)
             self.pub.publish(msg)
             self.out = (vx, wz, reason)
             self.state_pub.publish(self.String(data=json.dumps(dict(
-                raw=raw, out=[vx, wz], reason=reason, blocked_goal=self.blocked_goal,
+                raw=raw, out=[vx, wz], reason=reason, blocked_goal=self.epoch.nav[0] if self.epoch.nav and not self.epoch.allowed() else None,
                 sim_time=self.get_clock().now().nanoseconds*1e-9, wall_mono=now), allow_nan=True)))
 
     rclpy.init(args=args)

@@ -2,7 +2,9 @@
 from pathlib import Path
 
 from ament_index_python.packages import get_package_share_directory
-from launch.actions import DeclareLaunchArgument, ExecuteProcess, TimerAction
+from launch.actions import DeclareLaunchArgument, ExecuteProcess, TimerAction, RegisterEventHandler, EmitEvent
+from launch.event_handlers import OnProcessExit
+from launch.events import Shutdown
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
@@ -48,13 +50,17 @@ def actions(context):
         remaps = [('cmd_vel', RAW_CMD)] if name in ('controller_server', 'behavior_server') else []
         nodes.append(Node(package=package, executable=name, name=name, output='screen',
                           parameters=[str(params), extra], remappings=remaps))
+    starter_node = Node(package='t1_bringup', executable='navigation_starter', name='t1_navigation_starter',
+                        output='screen', parameters=[str(params)])
     nodes += [
-        Node(package='nav2_lifecycle_manager', executable='lifecycle_manager',
+        Node(package='t1_navigation', executable='bounded_lifecycle_manager',
              name='lifecycle_manager_navigation', output='screen', parameters=[str(params)]),
         Node(package='t1_bringup', executable='navigation_adapter', name='t1_navigation_adapter',
              output='screen', parameters=[str(params), {'command_map_file': command_map}]),
-        Node(package='t1_bringup', executable='navigation_starter', name='t1_navigation_starter',
-             output='screen', parameters=[str(params)]),
+        RegisterEventHandler(OnProcessExit(target_action=starter_node,
+            on_exit=lambda event, context: [EmitEvent(event=Shutdown(reason='W11R1 readiness failed'))]
+            if event.returncode else [])),
+        starter_node,
     ]
     delay = float(LaunchConfiguration('nav_start_delay').perform(context))
     if not 0 <= delay <= 60:

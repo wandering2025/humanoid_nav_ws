@@ -30,52 +30,39 @@ def _yaw_quaternion(yaw):
 def starter(args=None):
     import rclpy
     from rclpy.node import Node
-    from rclpy.qos import QoSProfile, DurabilityPolicy
-    from rclpy.time import Time
-    from sensor_msgs.msg import LaserScan
-    from std_msgs.msg import String
     from nav2_msgs.srv import ManageLifecycleNodes
-    from tf2_ros import Buffer, TransformListener
+    from .navigation_readiness import Readiness, LOCALIZATION, NAVIGATION
+    from .navigation_protocol import require_response, ProtocolFailure
 
     rclpy.init(args=args)
     node = Node('t1_navigation_starter')
     timeout = node.declare_parameter('ready_timeout_wall_s', 120.0).value
     manager = node.declare_parameter('lifecycle_manager', 'lifecycle_manager_navigation').value
-    buffer = Buffer()
-    TransformListener(buffer, node)
-    seen = dict(state=None, scan=None)
-    node.create_subscription(String, '/t1/sim_state', lambda m: seen.update(state=json.loads(m.data)['state']),
-                             QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL))
-    node.create_subscription(LaserScan, '/scan', lambda m: seen.update(scan=m.header.stamp), 5)
+    ready = Readiness(node)
     client = node.create_client(ManageLifecycleNodes, f'/{manager}/manage_nodes')
     deadline = time.monotonic() + timeout
-    code, reason, first_clock = 1, 'timeout', None
+    code, reason = 1, 'READINESS_FAILED'
     try:
-        while time.monotonic() < deadline:
-            rclpy.spin_once(node, timeout_sec=.1)
-            now = node.get_clock().now().nanoseconds*1e-9
-            first_clock = first_clock if first_clock is not None or now <= 0 else now
-            scan_age = None if seen['scan'] is None else now - (seen['scan'].sec + seen['scan'].nanosec*1e-9)
-            checks = dict(sim_ready=seen['state'] == 'READY',
-                          clock_advancing=first_clock is not None and now > first_clock + .5,
-                          scan_fresh=scan_age is not None and -.05 <= scan_age <= .3,
-                          localized=buffer.can_transform('map', 'base_footprint', Time()),
-                          manager=client.service_is_ready())
-            if all(checks.values()):
-                request = ManageLifecycleNodes.Request(command=ManageLifecycleNodes.Request.STARTUP)
-                future = client.call_async(request)
-                end = time.monotonic() + 60
-                while not future.done() and time.monotonic() < end:
-                    rclpy.spin_once(node, timeout_sec=.1)
-                ok = future.done() and future.result().success
-                code, reason = (0, 'navigation active') if ok else (1, 'lifecycle STARTUP failed')
-                break
-            reason = 'waiting: ' + ','.join(k for k, v in checks.items() if not v)
-        print(json.dumps(dict(starter=reason, exit=code, sim_time=node.get_clock().now().nanoseconds*1e-9)),
-              flush=True)
+        ready.wait_sensors(deadline)
+        ready.lifecycle(LOCALIZATION, deadline)
+        if not client.wait_for_service(timeout_sec=2.):
+            raise ProtocolFailure('NAVIGATION_MANAGER_NOT_DISCOVERED')
+        response = require_response(client, ManageLifecycleNodes.Request(command=0), ready.spin,
+                                    min(60., max(0., deadline-time.monotonic())), 'NAVIGATION_STARTUP')
+        if not response.success:
+            raise ProtocolFailure('NAVIGATION_STARTUP_FAILED')
+        ready.lifecycle(NAVIGATION, deadline)
+        ready.endpoints()
+        ready.wait_sensors(deadline)
+        code, reason = 0, 'navigation active'
+    except Exception as exc:
+        reason = str(exc)
     finally:
+        print(json.dumps(dict(starter=reason, exit=code, readiness=ready.trace,
+                              sim_time=node.get_clock().now().nanoseconds*1e-9)), flush=True)
         node.destroy_node()
-        rclpy.shutdown()
+        if rclpy.ok():
+            rclpy.shutdown()
     return code
 
 
@@ -97,7 +84,7 @@ def navigate(argv=None):
     parser.add_argument('--approach-pass-radius', type=float, default=0.35,
                         help='m; preempt the staging waypoint with the goal once this close')
     parser.add_argument('--settle-window', type=float, default=0.5, help='sim s; W05 stationary window')
-    parser.add_argument('--settle-hold', type=float, default=1.0, help='sim s stationary before verifying')
+    parser.add_argument('--settle-hold', type=float, default=2.0, help='sim s stationary before verifying')
     parser.add_argument('--settle-timeout', type=float, default=10.0, help='sim s to become stationary')
     options = parser.parse_args(argv)
     if not all(math.isfinite(v) for v in (options.x, options.y, options.yaw, options.time_limit)):
@@ -113,6 +100,8 @@ def navigate(argv=None):
     from lifecycle_msgs.srv import GetState
     from nav2_msgs.action import NavigateToPose
     from action_msgs.msg import GoalStatus
+    from .navigation_protocol import ProtocolFailure, await_future, aligned_pass, StationaryWindow
+    from .navigation_readiness import Readiness, LOCALIZATION, NAVIGATION
     from rclpy.time import Time
     from tf2_ros import Buffer, TransformListener
     from nav_msgs.msg import OccupancyGrid
@@ -121,6 +110,7 @@ def navigate(argv=None):
     node = Node('t1_navigate_to_pose')
     node.set_parameters([Parameter('use_sim_time', value=True)])
     gate, costmap = {}, {}
+    readiness = Readiness(node)
     node.create_subscription(String, '/t1/safety/state', lambda m: gate.update(json.loads(m.data)),
                              QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL))
     # Global costmap (static SLAM map + scan obstacles + 2.05 m inflation), only to
@@ -149,16 +139,9 @@ def navigate(argv=None):
 
     try:
         setup_end = time.monotonic() + options.setup_timeout
-        active = False
-        while not active and time.monotonic() < setup_end:
-            if lifecycle.wait_for_service(timeout_sec=.5):
-                future = lifecycle.call_async(GetState.Request())
-                spin_until(future.done, 2)
-                active = future.done() and future.result().current_state.id == 3
-            if not active:
-                spin_until(lambda: False, .5)
-        if not active:
-            raise RuntimeError('bt_navigator is not active (navigation_starter not finished?)')
+        readiness.wait_sensors(setup_end)
+        readiness.lifecycle(LOCALIZATION + NAVIGATION, setup_end)
+        readiness.endpoints()
         if not spin_until(lambda: bool(gate), 10):
             raise RuntimeError('no /t1/safety/state from t1_command_gate')
         if gate.get('source') != 'navigation':
@@ -205,22 +188,14 @@ def navigate(argv=None):
         def settle():
             """Wait for a stationary localized pose (W05 window criterion held for
             settle_hold); return (pose, (xy_error, yaw_error)) or None."""
-            samples, end, since = [], sim() + options.settle_timeout, None
+            stable = StationaryWindow(options.settle_window, options.settle_hold)
+            end = sim() + options.settle_timeout
             while sim() < end and not expired():
                 rclpy.spin_once(node, timeout_sec=.02)
                 pose, now = map_pose(), sim()
-                if pose is None or (samples and now - samples[-1][0] < .05):
+                if pose is None:
                     continue
-                samples.append((now, pose))
-                ref = [q for u, q in samples if u <= now - options.settle_window]
-                if not ref:
-                    continue
-                o = ref[-1]
-                dyaw = math.atan2(math.sin(pose[2]-o[2]), math.cos(pose[2]-o[2]))
-                still = (math.dist(pose[:2], o[:2])/options.settle_window < .05 and
-                         abs(dyaw)/options.settle_window < .05)
-                since = (since if since is not None else now) if still else None
-                if since is not None and now - since >= options.settle_hold:
+                if stable.update(now, pose):
                     x, y, a = pose
                     return pose, (math.hypot(x-target[0], y-target[1]),
                                   abs(math.atan2(math.sin(a-target[2]), math.cos(a-target[2]))))
@@ -228,9 +203,9 @@ def navigate(argv=None):
 
         def execute(stage, pose, pass_radius=None):
             send = action.send_goal_async(make_goal(*pose))
-            if not spin_until(send.done, 10) or not send.result().accepted:
-                raise RuntimeError(f'{stage} goal rejected')
-            handle = send.result()
+            handle = await_future(send, lambda: rclpy.spin_once(node, timeout_sec=.02), 2., 'NAVIGATE_ACK')
+            if not handle.accepted:
+                raise ProtocolFailure(stage + ':GOAL_REJECTED')
             if state['start'] is None:
                 state['start'] = sim()
                 summary.update(accepted_sim=state['start'], goal_id=bytes(handle.goal_id.uuid).hex())
@@ -240,7 +215,7 @@ def navigate(argv=None):
             while not result.done():
                 rclpy.spin_once(node, timeout_sec=.05)
                 here = map_pose() if pass_radius else None
-                if here is not None and math.dist(here[:2], pose[:2]) <= pass_radius:
+                if here is not None and aligned_pass(here, pose, pass_radius):
                     # Pass-through waypoint: the caller preempts with the next goal
                     # (no cancel, so the W10 stop latch is not involved).
                     record.update(status='PASSED', end_sim=sim(), passed_pose=list(here))
@@ -289,7 +264,9 @@ def navigate(argv=None):
         summary['approach_distance'] = chosen
         if chosen:
             pre = (target[0] - chosen*math.cos(target[2]), target[1] - chosen*math.sin(target[2]), target[2])
-            execute('approach', pre, options.approach_pass_radius)  # never counts as arrival
+            approach = execute('approach', pre, options.approach_pass_radius)
+            if approach['status'] not in ('PASSED', 'SUCCEEDED'):
+                raise ProtocolFailure('APPROACH_' + approach['status'] + ':' + str(approach.get('error_code')))
         verified, aim = None, target
         if not state['timed_out']:
             for attempt in range(options.terminal_retries + 1):
@@ -328,7 +305,8 @@ def navigate(argv=None):
         print(json.dumps(dict(event='result', **summary)), flush=True)
         action.destroy()
         node.destroy_node()
-        rclpy.shutdown()
+        if rclpy.ok():
+            rclpy.shutdown()
     return code
 
 
