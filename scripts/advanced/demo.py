@@ -74,7 +74,7 @@ class Advanced(base.Demo):
             m.pose.position.y=y-1.;m.scale.z=.65;m.color.r,m.color.g,m.color.b=color;m.color.a=1.;m.text=label
             a.markers.append(m)
         m=Marker();m.header.frame_id='map';m.ns='phase';m.id=0;m.type=Marker.TEXT_VIEW_FACING
-        m.pose.orientation.w=1.;m.pose.position.x=7.;m.pose.position.y=13.;m.scale.z=.65
+        m.pose.orientation.w=1.;m.pose.position.x=7.;m.pose.position.y=14.;m.scale.z=.65
         m.color.r,m.color.g,m.color.b=.1,.2,.3;m.color.a=1.
         status=self.summary['status']
         m.text=('Guided mapping '+str(int(status.rsplit('_',1)[1]))+'/'+str(len(self.route['mapping_waypoints']))) if status.startswith('MAPPING_') and status.rsplit('_',1)[1].isdigit() else {'SLAM_INITIALIZING':'Live LiDAR SLAM','MAPPING_SUFFICIENT':'Map ready - continue from here','NAVIGATING_TO_B':'Final walking approach to B','NAVIGATING_APPROACH':'Mapped navigation: odom + live LiDAR','ARRIVED_SAFE_STOP':'Arrived - safely stopped'}.get(status,status)
@@ -98,7 +98,7 @@ class Advanced(base.Demo):
             x,y,_=self.active_target
             line(0,'active_target',[(x-.25,y),(x+.25,y),(x,y),(x,y-.25),(x,y+.25)],(.95,.45,.05),.10)
         m=Marker();m.header.frame_id='map';m.ns='legend';m.id=0;m.type=Marker.TEXT_VIEW_FACING
-        m.pose.orientation.w=1.;m.pose.position.x=7.;m.pose.position.y=12.;m.scale.z=.38
+        m.pose.orientation.w=1.;m.pose.position.x=7.;m.pose.position.y=13.;m.scale.z=.50
         m.color.r,m.color.g,m.color.b=.1,.2,.3;m.color.a=1.
         age=self.node.sim-self.node.plans[-1]['sim'] if self.node.plans else 0.
         m.text=f'Blue: last plan ({age:.1f}s old) | Cyan: A-B overview | Purple: travelled'
