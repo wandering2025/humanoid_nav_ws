@@ -1,0 +1,291 @@
+{
+  "code_sha": "d7b4c1742776dfae9019f3c25241f7c9c51f04ea",
+  "dirty": null,
+  "status": "SUCCESS",
+  "presentation_goal_consistent": true,
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "body_clearance": {
+    "min_m": 2.1522159085181807,
+    "sim_time": 126.51999999988654,
+    "geom_pair": [
+      "t1_geom_015",
+      "obstacle_approach_slot"
+    ],
+    "samples": 1579,
+    "robot_geoms": 22,
+    "environment_geoms": 6,
+    "sample_hz": 10,
+    "definition": "signed 3D MuJoCo collision geometry distance; excludes ground/self/visual; sampled minimum, not continuous bound"
+  },
+  "settle": {
+    "settled": true,
+    "settle_start_sim": 138.9799999999355,
+    "settle_delay_s": 0.7799999999354839,
+    "pos_err_m": 0.09236597602674249,
+    "yaw_err_deg": 3.041268682119113
+  },
+  "controller_plugin": "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController",
+  "controller_goal_tolerances": [
+    0.2,
+    0.2
+  ],
+  "mapping_passes": 6,
+  "navigation_static_map_unchanged": true,
+  "dynamic": {
+    "protective_stationary_s": 0.0,
+    "scan_hit_frames": 613,
+    "triggered": true,
+    "finished": true,
+    "active_scan_hit_frames": 190,
+    "active_costmap_marked_frames": 32,
+    "replan": {
+      "active_motion_m": 0.8446226697869167,
+      "plan_deviation_m": 0.15212632771007065,
+      "robot_deviation_m": 0.1794670456092465,
+      "replanned_while_active": false,
+      "active_interval": [
+        93.91999999996251,
+        113.11999999991777
+      ],
+      "baseline_plan_sim": 87.9
+    },
+    "blocked_wait": {
+      "stationary_s": 15.999999999999957,
+      "resumed_m": 6.969372446697564
+    },
+    "verdict": "PASS",
+    "response": "BLOCKED_PATH_WAIT_AND_CONTINUE"
+  },
+  "nav2": {
+    "event": "result",
+    "goal": [
+      12.0,
+      0.0,
+      -1.5707963267948966
+    ],
+    "time_limit_s": 200.0,
+    "tolerances": {
+      "xy": 0.2,
+      "yaw": 0.2
+    },
+    "attempts": [
+      {
+        "stage": "approach",
+        "target": [
+          12.0,
+          1.5,
+          -1.5707963267948966
+        ],
+        "accepted_sim": 127.22000000000001,
+        "goal_id": "d8e9ff1cb41a4a76b94cb9f18a25a6a5",
+        "status": "PASSED",
+        "end_sim": 133.06,
+        "passed_pose": [
+          11.958043074040699,
+          1.844615339707315,
+          -1.5130738772360937
+        ]
+      },
+      {
+        "stage": "goal",
+        "target": [
+          12.0,
+          0.0,
+          -1.5707963267948966
+        ],
+        "accepted_sim": 133.06,
+        "goal_id": "c214bc91a1614277855fdd0d77520fa7",
+        "status": "SUCCEEDED",
+        "end_sim": 138.20000000000002,
+        "error_code": 0,
+        "verify_sim": 140.12,
+        "verified_pose": [
+          11.959269752125195,
+          0.09532389435457166,
+          -1.5171119010246463
+        ],
+        "xy_error": 0.10366097591121068,
+        "yaw_error": 0.053684425770250226
+      }
+    ],
+    "arm_attempts": 0,
+    "approach_distance": 1.5,
+    "accepted_sim": 127.22000000000001,
+    "goal_id": "d8e9ff1cb41a4a76b94cb9f18a25a6a5",
+    "status": "SUCCEEDED",
+    "timed_out": false,
+    "end_sim": 140.12,
+    "duration_sim": 12.899999999999991,
+    "verified": {
+      "stage": "goal",
+      "target": [
+        12.0,
+        0.0,
+        -1.5707963267948966
+      ],
+      "accepted_sim": 133.06,
+      "goal_id": "c214bc91a1614277855fdd0d77520fa7",
+      "status": "SUCCEEDED",
+      "end_sim": 138.20000000000002,
+      "error_code": 0,
+      "verify_sim": 140.12,
+      "verified_pose": [
+        11.959269752125195,
+        0.09532389435457166,
+        -1.5171119010246463
+      ],
+      "xy_error": 0.10366097591121068,
+      "yaw_error": 0.053684425770250226
+    },
+    "terminal_retries": 0,
+    "error_code": 0,
+    "nav2_success_sim": 138.20000000000002,
+    "exit": 0
+  },
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 6221.189720073,
+      "sim_time": 157.0,
+      "health_reason": ""
+    }
+  },
+  "slam_shutdown": {
+    "complete": true,
+    "transitions": [
+      {
+        "transition": 4,
+        "success": true,
+        "state": 2
+      },
+      {
+        "transition": 2,
+        "success": true,
+        "state": 1
+      }
+    ]
+  },
+  "graph_contract": {
+    "final_only_collision_monitor": true,
+    "obstacle_truth_isolated": true,
+    "robot_truth_isolated": true,
+    "no_initialpose": true,
+    "map_only_slam": true,
+    "map_odom_only_slam": true
+  },
+  "parent_exit_codes": {
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "map_saver": 0,
+    "goal": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 37525,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 37526,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 37527,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 37528,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 37529,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 37530,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 37813,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 37906,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 37907,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 37908,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 37909,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 37910,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 37911,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 37928,
+      "exit_code": 0
+    }
+  },
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "dds_port_released": true,
+  "error": null,
+  "gpu_monitor_error": null,
+  "run_id": "20261016T102558Z_advanced_bb6bc3ae-7927-4029-af26-b8a1082e6f62",
+  "presentation_goal": {
+    "schema": 1,
+    "frame": "map",
+    "source": "/home/haoyang/humanoid_nav_ws_advanced/presentation/goal.yaml",
+    "source_sha256": "908b1e7c90f499461e9c49b4dbb513e8920e41531987511e3d11c46703cae0b0",
+    "source_text": "# Editable B-point interface. Read at EVERY advanced-demo launch.\n# Coordinates: metres in the ROS map frame; +X east, +Y north.\n# Allowed inclusive ranges: 11.0 <= x <= 12.0; -0.5 <= y <= 0.5.\n# Final heading is fixed south (-90 degrees). Do not add a yaw field.\n# Final handover is derived automatically as (x, y + 2.5).\n# Keep these ranges: they preserve wide static clearance, cart interaction,\n# the occluded A-to-B route and the existing straight walking approach.\n# Edit between runs; changes during a run apply to the NEXT run.\n# Validate with: ./scripts/run_advanced_demo.sh --check-goal\nschema: 1\nframe: map\ngoal:\n  x: 12.0\n  y: 0.0\n",
+    "goal": [
+      12.0,
+      0.0,
+      -1.5707963267948966
+    ],
+    "navigation_approach": [
+      12.0,
+      2.5,
+      -1.5707963267948966
+    ],
+    "selection_min_clearance_m": 2.4083189157584592
+  },
+  "overview_length_m": 20.24971152441385,
+  "overview_endpoint": [
+    12.0,
+    0.0
+  ],
+  "derived_approach_received": [
+    12.0,
+    2.5,
+    -1.5707963267948966
+  ],
+  "artifacts": {
+    "run_data/advanced/20261016T102558Z_advanced_bb6bc3ae-7927-4029-af26-b8a1082e6f62/final-result.json": "b32418068e3d30a1ff543feb684c35749b4060186edffd3d5cdfab77833c4e1f",
+    "run_data/advanced/20261016T102558Z_advanced_bb6bc3ae-7927-4029-af26-b8a1082e6f62/presentation-goal.json": "1bd7b6daef54711c4397d483a733298cb7090965eff2ac1df0ee9e66276df04a",
+    "run_data/20261016T102558Z_advanced_bb6bc3ae-7927-4029-af26-b8a1082e6f62/manifest.json": "279dd20f67df09c32e6fc94c23376ecf0600c3c2963bf58e26e8b772e9c57b86"
+  },
+  "screenshots": {}
+}
