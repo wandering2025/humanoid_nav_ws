@@ -47,6 +47,14 @@ def preflight():
                 stable_tag=base.git('rev-parse','demo-v0.1.0'),cwd=str(WS))
 
 
+def path_geometry(msg):
+    # The action result and /plan delivery can race. Ignore stamps when identifying
+    # the display-only overview, but forward accepted execution messages unchanged.
+    return (msg.header.frame_id, tuple((p.pose.position.x,p.pose.position.y,p.pose.position.z,
+            p.pose.orientation.x,p.pose.orientation.y,p.pose.orientation.z,p.pose.orientation.w)
+            for p in msg.poses))
+
+
 class Advanced(base.Demo):
     managed_shutdown_order = ('goal','rviz','authority','launch','dds')
     def __init__(self,args,provenance):
@@ -100,7 +108,7 @@ class Advanced(base.Demo):
         m=Marker();m.header.frame_id='map';m.ns='legend';m.id=0;m.type=Marker.TEXT_VIEW_FACING
         m.pose.orientation.w=1.;m.pose.position.x=7.;m.pose.position.y=13.;m.scale.z=.50
         m.color.r,m.color.g,m.color.b=.1,.2,.3;m.color.a=1.
-        age=self.node.sim-self.node.plans[-1]['sim'] if self.node.plans else 0.
+        age=self.node.sim-getattr(self,'live_plan_sim',self.node.sim)
         m.text=f'Blue: last plan ({age:.1f}s old) | Cyan: A-B overview | Purple: travelled'
         a.markers.append(m);self.viz.publish(a)
 
@@ -112,7 +120,9 @@ class Advanced(base.Demo):
     def live_plan(self,msg):
         # Copy the actual planner output, preserving frame, stamps and poses.
         if getattr(self,'computing_overview',False):return
+        if path_geometry(msg)==getattr(self,'overview_geometry',None):return
         self.plan_viz.publish(msg)
+        self.live_plan_sim=self.node.sim
         if msg.poses:
             q=msg.poses[-1].pose
             self.active_target=(q.position.x,q.position.y,0.)
@@ -190,6 +200,7 @@ class Advanced(base.Demo):
             path=reply.result.path;points=[(p.pose.position.x,p.pose.position.y) for p in path.poses]
             self.summary['a_to_b_overview']=dict(sim=self.node.sim,points=points,
                 length=sum(math.dist(a,b) for a,b in zip(points,points[1:])),source='NavFn ComputePathToPose, display only')
+            self.overview_geometry=path_geometry(path)
             self.overview_viz.publish(path)
             return True
         finally:

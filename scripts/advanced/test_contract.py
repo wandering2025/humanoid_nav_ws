@@ -118,3 +118,28 @@ def test_goal_and_display_agree_and_cart_keeps_static_clearance():
     for cx,cy in [scenario['start']]+[leg['to'] for leg in scenario['legs']]:
         assert xmin<cx-size[0]/2<cx+size[0]/2<xmax
         assert ymin<cy-size[1]/2<cy+size[1]/2<ymax
+
+
+def test_delayed_overview_never_masquerades_as_execution_plan():
+    # Execute the actual callback without constructing ROS processes or GPU owners.
+    import ast,copy
+    from nav_msgs.msg import Path as NavPath
+    from geometry_msgs.msg import PoseStamped
+    from rclpy.serialization import serialize_message
+    tree=ast.parse((WS/'scripts/advanced/demo.py').read_text())
+    geometry=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='path_geometry')
+    cls=next(n for n in tree.body if isinstance(n,ast.ClassDef) and n.name=='Advanced')
+    callback=next(n for n in cls.body if isinstance(n,ast.FunctionDef) and n.name=='live_plan')
+    ns={};exec(compile(ast.Module(body=[geometry,callback],type_ignores=[]),'actual_display_callback','exec'),ns)
+    overview=NavPath();overview.header.frame_id='map'
+    for x,y in ((0.,0.),(3.,8.),(12.,0.)):
+        p=PoseStamped();p.pose.position.x=x;p.pose.position.y=y;p.pose.orientation.w=1.;overview.poses.append(p)
+    published=[];owner=SimpleNamespace(computing_overview=True,plan_viz=SimpleNamespace(publish=published.append),node=SimpleNamespace(sim=100.),active_target=(13.4,6.5,0.))
+    cb=ns['live_plan'];cb(owner,overview);assert not published
+    owner.overview_geometry=ns['path_geometry'](overview);owner.computing_overview=False
+    late=copy.deepcopy(overview);late.header.stamp.sec=101;late.poses[0].header.stamp.sec=101
+    cb(owner,late);assert not published and owner.active_target==(13.4,6.5,0.)
+    actual=copy.deepcopy(late);actual.poses[0].pose.position.x=13.;actual.poses[0].pose.position.y=6.5
+    before=serialize_message(actual);cb(owner,actual)
+    assert len(published)==1 and serialize_message(published[0])==before
+    assert owner.live_plan_sim==100. and owner.active_target==(12.,0.,0.)
