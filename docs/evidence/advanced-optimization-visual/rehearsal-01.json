@@ -1,0 +1,679 @@
+{
+  "code_sha": "e410513c9019801a8a6948bd59d1d7b04f13cf81",
+  "status": "SUCCESS",
+  "startup_check_completed": null,
+  "zero_policy": null,
+  "arrived": true,
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "body_clearance": {
+    "min_m": 2.200379126219304,
+    "sim_time": 141.31999999994667,
+    "geom_pair": [
+      "t1_geom_015",
+      "obstacle_approach_slot"
+    ],
+    "samples": 1768,
+    "robot_geoms": 22,
+    "environment_geoms": 6,
+    "sample_hz": 10,
+    "definition": "signed 3D MuJoCo collision geometry distance; excludes ground/self/visual; sampled minimum, not continuous bound"
+  },
+  "settle": {
+    "settled": true,
+    "settle_start_sim": 149.43999999998545,
+    "settle_delay_s": 0.6999999999854367,
+    "pos_err_m": 0.09241531802132469,
+    "yaw_err_deg": 3.9594305725681544
+  },
+  "controller_goal_tolerances": [
+    0.2,
+    0.2
+  ],
+  "controller_plugin": "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController",
+  "mapping_passes": 6,
+  "mapping_completed_sim": 89.5,
+  "navigation_start_sim": 93.42,
+  "navigation_static_map_unchanged": true,
+  "mapping_coverage_checks": [
+    {
+      "sim": 82.14,
+      "known_fraction": 0.9192083333333333
+    },
+    {
+      "sim": 89.5,
+      "known_fraction": 0.9976666666666667
+    }
+  ],
+  "slam_measurement_transitions": [
+    {
+      "sim": 89.88000000000001,
+      "before": false,
+      "after": true
+    },
+    {
+      "sim": 150.94,
+      "before": true,
+      "after": false
+    }
+  ],
+  "nonstraight_plan": true,
+  "dynamic": {
+    "protective_stationary_s": 0.0,
+    "scan_hit_frames": 624,
+    "triggered": true,
+    "finished": true,
+    "active_scan_hit_frames": 179,
+    "active_costmap_marked_frames": 32,
+    "replan": {
+      "active_motion_m": 0.822248876474633,
+      "plan_deviation_m": 0.11180340054098996,
+      "robot_deviation_m": 0.11808512449748661,
+      "replanned_while_active": false,
+      "active_interval": [
+        99.01999999995063,
+        118.21999999990588
+      ],
+      "baseline_plan_sim": 93.42
+    },
+    "blocked_wait": {
+      "stationary_s": 15.419999999999732,
+      "resumed_m": 7.068792481828022
+    },
+    "verdict": "PASS",
+    "response": "BLOCKED_PATH_WAIT_AND_CONTINUE"
+  },
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 1115.497633185,
+      "sim_time": 175.84,
+      "health_reason": ""
+    }
+  },
+  "slam_shutdown": {
+    "complete": true,
+    "transitions": [
+      {
+        "transition": 4,
+        "success": true,
+        "state": 2
+      },
+      {
+        "transition": 2,
+        "success": true,
+        "state": 1
+      }
+    ]
+  },
+  "graph_contract": {
+    "final_only_collision_monitor": true,
+    "obstacle_truth_isolated": true,
+    "robot_truth_isolated": true,
+    "no_initialpose": true,
+    "map_only_slam": true,
+    "map_odom_only_slam": true
+  },
+  "parent_exit_codes": {
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "rviz": 0,
+    "map_saver": 0,
+    "goal": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 5984,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 5985,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 5986,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 5987,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 5988,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 5989,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 6316,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 6424,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 6425,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 6426,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 6427,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 6428,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 6429,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 6454,
+      "exit_code": 0
+    }
+  },
+  "dds_port_released": true,
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "shutdown_signals": [
+    [
+      "rviz",
+      6894,
+      "SIGINT"
+    ],
+    [
+      "authority",
+      5908,
+      "SIGINT"
+    ],
+    [
+      "launch",
+      5911,
+      "SIGINT"
+    ],
+    [
+      "dds",
+      5882,
+      "SIGINT"
+    ]
+  ],
+  "error": null,
+  "cleanup_error": null,
+  "gpu_monitor_error": null,
+  "gpu_summary": null,
+  "nav2": {
+    "event": "result",
+    "goal": [
+      12.0,
+      0.0,
+      -1.5707963267948966
+    ],
+    "time_limit_s": 200.0,
+    "tolerances": {
+      "xy": 0.2,
+      "yaw": 0.2
+    },
+    "attempts": [
+      {
+        "stage": "approach",
+        "target": [
+          12.0,
+          1.5,
+          -1.5707963267948966
+        ],
+        "accepted_sim": 135.94,
+        "goal_id": "8d13f1d8ad074d3087a98447771b2d3f",
+        "status": "PASSED",
+        "end_sim": 142.56,
+        "passed_pose": [
+          11.948143953619079,
+          1.8421097174894252,
+          -1.5170872727754365
+        ]
+      },
+      {
+        "stage": "goal",
+        "target": [
+          12.0,
+          0.0,
+          -1.5707963267948966
+        ],
+        "accepted_sim": 142.56,
+        "goal_id": "47f3009541094d7aa430738a20e46436",
+        "status": "SUCCEEDED",
+        "end_sim": 148.74,
+        "error_code": 0,
+        "verify_sim": 150.54000000000002,
+        "verified_pose": [
+          11.990370838440992,
+          0.07566160615550292,
+          -1.6345348477081825
+        ],
+        "xy_error": 0.07627187816200622,
+        "yaw_error": 0.06373852091328593
+      }
+    ],
+    "arm_attempts": 0,
+    "approach_distance": 1.5,
+    "accepted_sim": 135.94,
+    "goal_id": "8d13f1d8ad074d3087a98447771b2d3f",
+    "status": "SUCCEEDED",
+    "timed_out": false,
+    "end_sim": 150.54000000000002,
+    "duration_sim": 14.600000000000023,
+    "verified": {
+      "stage": "goal",
+      "target": [
+        12.0,
+        0.0,
+        -1.5707963267948966
+      ],
+      "accepted_sim": 142.56,
+      "goal_id": "47f3009541094d7aa430738a20e46436",
+      "status": "SUCCEEDED",
+      "end_sim": 148.74,
+      "error_code": 0,
+      "verify_sim": 150.54000000000002,
+      "verified_pose": [
+        11.990370838440992,
+        0.07566160615550292,
+        -1.6345348477081825
+      ],
+      "xy_error": 0.07627187816200622,
+      "yaw_error": 0.06373852091328593
+    },
+    "terminal_retries": 0,
+    "error_code": 0,
+    "nav2_success_sim": 148.74,
+    "exit": 0
+  },
+  "run_id": "20261016T085208Z_advanced_0677b454-b1f4-45ea-b6d4-78d0f91b5b5a",
+  "final_result_sha256": "3a9ca201480ee0ff784cdb1d0873038c9ce51169da40139b15c1c7f0bee10077",
+  "gpu_observed": {
+    "temperature_c": {
+      "min": 52.0,
+      "max": 62.0
+    },
+    "memory_mib": {
+      "min": 699.0,
+      "max": 1121.0
+    },
+    "utilization_pct": {
+      "min": 10.0,
+      "max": 60.0
+    }
+  },
+  "gpu_baseline_memory_mib": 710.0,
+  "gpu_peak_growth_mib": 411.0,
+  "windows_checks": {
+    "count": 20,
+    "events": []
+  },
+  "graphics_halt_created": false,
+  "screenshots": {
+    "arrived-mujoco.png": {
+      "bytes": 111720,
+      "sha256": "c27c002e488635a5bf01dc8a471e99a21a36231cc17d060881f280e852632021"
+    },
+    "arrived-rviz.png": {
+      "bytes": 154952,
+      "sha256": "53a8202ae4c52262b861cf598d64646bc64b5f6c26585c80bca3bd1d3f589efd"
+    },
+    "mapped-mujoco.png": {
+      "bytes": 100879,
+      "sha256": "b4311a686e9b28ad3dea4208239c7b011db288c9812ceafff74053320e9c1521"
+    },
+    "mapped-rviz.png": {
+      "bytes": 148685,
+      "sha256": "18976a6955ab7a95f5ff7fd4eacbf7aa33895da18976e11a328701c625607a98"
+    },
+    "observed-mapping-mujoco.png": {
+      "bytes": 102172,
+      "sha256": "eca06c0dc09145b6e5dbad006227a9e3c9289d0a69130c38039618809526d622"
+    },
+    "observed-mapping-rviz.png": {
+      "bytes": 137757,
+      "sha256": "823d8c39b68dcb410ac6d584fe2ba70aee57ef17c7c7c0a67c5d97795cc15e9c"
+    },
+    "observed-obstacle-mujoco.png": {
+      "bytes": 102877,
+      "sha256": "3075647ced2b1624141aa5043dc14a742e0cebab9d9b46d1752b978b0341de73"
+    },
+    "observed-obstacle-rviz.png": {
+      "bytes": 148857,
+      "sha256": "1be6b9e560f4dde510eae67f638e59eb5fc6a3ebaa20e854352ae7c94c770df2"
+    },
+    "ready-mujoco.png": {
+      "bytes": 117416,
+      "sha256": "04e76f35d39e2a258da9b4dc1f68b0b2cdec492a55021e6803c3e7041231b20a"
+    },
+    "ready-rviz.png": {
+      "bytes": 86706,
+      "sha256": "6e5732f8fdb38a7da3fe2349647114d686326c7443284829062c3e64816cc7e6"
+    }
+  },
+  "runtime_source_matches_headless_implementation": true,
+  "changes_since_headless_implementation": [],
+  "navigation_and_safety_identical_to_headless_implementation": true,
+  "trace_duration_sim_s": 175.76,
+  "sampled_trajectory_m": 29.815112538183392,
+  "goals": [
+    {
+      "label": "MAPPING_01",
+      "pose": [
+        3.5,
+        0.0,
+        0.0
+      ],
+      "result": {
+        "status": "PASSED",
+        "accepted_sim": 16.240000000000002,
+        "end_sim": 25.64,
+        "duration_sim": 9.399999999999999,
+        "premature_success_retries": [],
+        "passed_pose": [
+          2.854853877416049,
+          0.015991073924527754,
+          0.01347160569237907
+        ],
+        "goal_id": "7b63749872474970bfeea0c0e16f2e18"
+      }
+    },
+    {
+      "label": "MAPPING_02",
+      "pose": [
+        3.5,
+        3.5,
+        1.5707963267948966
+      ],
+      "result": {
+        "status": "PASSED",
+        "accepted_sim": 25.64,
+        "end_sim": 40.04,
+        "duration_sim": 14.399999999999999,
+        "premature_success_retries": [],
+        "passed_pose": [
+          3.366364638316187,
+          2.8687455712062517,
+          1.438988264323045
+        ],
+        "goal_id": "4e065f126c414518995566bf55a11f60"
+      }
+    },
+    {
+      "label": "MAPPING_03",
+      "pose": [
+        3.5,
+        7.8,
+        1.5707963267948966
+      ],
+      "result": {
+        "status": "PASSED",
+        "accepted_sim": 40.04,
+        "end_sim": 51.92,
+        "duration_sim": 11.880000000000003,
+        "premature_success_retries": [],
+        "passed_pose": [
+          3.401398145271894,
+          7.161672819780363,
+          1.5114417829621403
+        ],
+        "goal_id": "68658267e72b491e834d96e071eb8df6"
+      }
+    },
+    {
+      "label": "MAPPING_04",
+      "pose": [
+        7.5,
+        8.0,
+        0.0
+      ],
+      "result": {
+        "status": "PASSED",
+        "accepted_sim": 51.92,
+        "end_sim": 68.28,
+        "duration_sim": 16.36,
+        "premature_success_retries": [],
+        "passed_pose": [
+          6.872365330575142,
+          7.842208756103877,
+          0.14387431459002706
+        ],
+        "goal_id": "ae10bc64bc0b452382ab584174ed8d89"
+      }
+    },
+    {
+      "label": "MAPPING_05",
+      "pose": [
+        11.5,
+        6.5,
+        -0.36
+      ],
+      "result": {
+        "status": "PASSED",
+        "accepted_sim": 68.28,
+        "end_sim": 80.14,
+        "duration_sim": 11.86,
+        "premature_success_retries": [],
+        "passed_pose": [
+          10.916478082916228,
+          6.777810446626363,
+          -0.3403703120150215
+        ],
+        "goal_id": "c761307f61124e42aff0fb8e5b41eafe"
+      }
+    },
+    {
+      "label": "MAPPING_06",
+      "pose": [
+        13.4,
+        6.5,
+        0.0
+      ],
+      "result": {
+        "status": "PASSED",
+        "accepted_sim": 82.14,
+        "end_sim": 87.5,
+        "duration_sim": 5.359999999999999,
+        "premature_success_retries": [],
+        "passed_pose": [
+          12.75640734838538,
+          6.558023598658157,
+          0.06775675229704832
+        ],
+        "goal_id": "7481d4464f3d4ed983c1c73fd6d1701f"
+      }
+    },
+    {
+      "label": "NAVIGATING_APPROACH",
+      "pose": [
+        12.0,
+        2.5,
+        -1.5707963267948966
+      ],
+      "result": {
+        "status": "PASSED",
+        "accepted_sim": 93.42,
+        "end_sim": 131.82000000000002,
+        "duration_sim": 38.40000000000002,
+        "premature_success_retries": [],
+        "passed_pose": [
+          11.70173860040605,
+          3.07719361525465,
+          -1.366925859136214
+        ],
+        "goal_id": "a0eaac26e5494138be13fcba95d6e8eb"
+      }
+    },
+    {
+      "label": "NAVIGATING_TO_B",
+      "pose": [
+        12.0,
+        0.0,
+        -1.5707963267948966
+      ],
+      "exit_code": 0,
+      "result": {
+        "event": "result",
+        "goal": [
+          12.0,
+          0.0,
+          -1.5707963267948966
+        ],
+        "time_limit_s": 200.0,
+        "tolerances": {
+          "xy": 0.2,
+          "yaw": 0.2
+        },
+        "attempts": [
+          {
+            "stage": "approach",
+            "target": [
+              12.0,
+              1.5,
+              -1.5707963267948966
+            ],
+            "accepted_sim": 135.94,
+            "goal_id": "8d13f1d8ad074d3087a98447771b2d3f",
+            "status": "PASSED",
+            "end_sim": 142.56,
+            "passed_pose": [
+              11.948143953619079,
+              1.8421097174894252,
+              -1.5170872727754365
+            ]
+          },
+          {
+            "stage": "goal",
+            "target": [
+              12.0,
+              0.0,
+              -1.5707963267948966
+            ],
+            "accepted_sim": 142.56,
+            "goal_id": "47f3009541094d7aa430738a20e46436",
+            "status": "SUCCEEDED",
+            "end_sim": 148.74,
+            "error_code": 0,
+            "verify_sim": 150.54000000000002,
+            "verified_pose": [
+              11.990370838440992,
+              0.07566160615550292,
+              -1.6345348477081825
+            ],
+            "xy_error": 0.07627187816200622,
+            "yaw_error": 0.06373852091328593
+          }
+        ],
+        "arm_attempts": 0,
+        "approach_distance": 1.5,
+        "accepted_sim": 135.94,
+        "goal_id": "8d13f1d8ad074d3087a98447771b2d3f",
+        "status": "SUCCEEDED",
+        "timed_out": false,
+        "end_sim": 150.54000000000002,
+        "duration_sim": 14.600000000000023,
+        "verified": {
+          "stage": "goal",
+          "target": [
+            12.0,
+            0.0,
+            -1.5707963267948966
+          ],
+          "accepted_sim": 142.56,
+          "goal_id": "47f3009541094d7aa430738a20e46436",
+          "status": "SUCCEEDED",
+          "end_sim": 148.74,
+          "error_code": 0,
+          "verify_sim": 150.54000000000002,
+          "verified_pose": [
+            11.990370838440992,
+            0.07566160615550292,
+            -1.6345348477081825
+          ],
+          "xy_error": 0.07627187816200622,
+          "yaw_error": 0.06373852091328593
+        },
+        "terminal_retries": 0,
+        "error_code": 0,
+        "nav2_success_sim": 148.74,
+        "exit": 0
+      }
+    }
+  ],
+  "overview_length_m": 20.234761816311014,
+  "known_area_m2": [
+    2.8525000850111253,
+    330.30500984385617
+  ],
+  "obstacle_phases": [
+    {
+      "phase": "staged",
+      "sim": 0.020000000000000004,
+      "position": [
+        15.9,
+        3.0,
+        0.75
+      ]
+    },
+    {
+      "phase": "move_0",
+      "sim": 99.01999999995063,
+      "position": [
+        15.877200000000053,
+        3.0,
+        0.75
+      ]
+    },
+    {
+      "phase": "hold_0",
+      "sim": 104.71999999993734,
+      "position": [
+        12.5,
+        3.0,
+        0.75
+      ]
+    },
+    {
+      "phase": "move_1",
+      "sim": 112.7199999999187,
+      "position": [
+        12.542799999980788,
+        3.0,
+        0.75
+      ]
+    },
+    {
+      "phase": "finished",
+      "sim": 118.31999999990565,
+      "position": [
+        15.9,
+        3.0,
+        0.75
+      ]
+    }
+  ],
+  "terminal_trajectory": {
+    "travel_m": 2.7083159714254013,
+    "endpoint_distance_m": 2.4926494814487254,
+    "distance_ratio": 1.0865209856346632,
+    "heading_span_rad": 1.017128590509894
+  }
+}

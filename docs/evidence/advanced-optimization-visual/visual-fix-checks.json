@@ -1,0 +1,7 @@
+{
+  "implementation_sha": "06d3f48ff5a45bdf43f201926bfe5037c1bbebfe",
+  "command": "Existing scripts/advanced/test_contract.py under CPU guard",
+  "passed": 8,
+  "log_sha256": "f83d9d610e658c2588951f9d5fcf5eb6869412bb3ff4984e533ea0cdb5fce58f",
+  "change": "Two display-marker coordinate/font assignments only; no navigation or safety changes."
+}
