@@ -1,0 +1,116 @@
+{
+  "code_sha": "618e48706ab87896b00dc97b4ef787ce3bb4011f",
+  "dirty": null,
+  "status": "SUCCESS",
+  "presentation_goal": {
+    "schema": 1,
+    "frame": "map",
+    "source": "/home/haoyang/humanoid_nav_ws_advanced/presentation/goal.yaml",
+    "source_sha256": "0c9169a0aec692fcde8fdc9700b999ca3f61f9f4205a8ae600687ef4a191779f",
+    "source_text": "# Editable B-point interface. Read at EVERY advanced-demo launch.\n# Coordinates: metres in the ROS map frame; +X east, +Y north.\n# Allowed inclusive ranges: 11.0 <= x <= 12.0; -0.5 <= y <= 0.5.\n# Final heading is fixed south (-90 degrees). Do not add a yaw field.\n# Final handover is derived automatically as (x, y + 2.5).\n# Keep these ranges: they preserve wide static clearance, cart interaction,\n# the occluded A-to-B route and the existing straight walking approach.\n# Edit between runs; changes during a run apply to the NEXT run.\n# Validate with: ./scripts/run_advanced_demo.sh --check-goal\nschema: 1\nframe: map\ngoal:\n  x: 11.0\n  y: 0.5\n",
+    "goal": [
+      11.0,
+      0.5,
+      -1.5707963267948966
+    ],
+    "navigation_approach": [
+      11.0,
+      3.0,
+      -1.5707963267948966
+    ],
+    "selection_min_clearance_m": 3.0
+  },
+  "presentation_goal_consistent": true,
+  "startup_check_completed": true,
+  "zero_policy": true,
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 6405.189802423,
+      "sim_time": 44.7,
+      "health_reason": ""
+    }
+  },
+  "parent_exit_codes": {
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "rviz": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 40831,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 40832,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 40833,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 40834,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 40835,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 40836,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 41123,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 41254,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 41255,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 41256,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 41257,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 41258,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 41259,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 41278,
+      "exit_code": 0
+    }
+  },
+  "dds_port_released": true,
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "gpu_monitor_error": null,
+  "run_id": "20261016T103117Z_advanced_34676af5-5f26-4f32-8f70-fb81578f5e39",
+  "final_result_sha256": "1d6e1829feddcc04378f4bd032c72a34d0d934ed38ef37b86fcf7a7db30e3105",
+  "visual_review": "Actual ready MuJoCo and RViz screenshots inspected; initial robot/A/LiDAR and changed B marker visible."
+}

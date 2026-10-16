@@ -51,10 +51,9 @@ The first file binds the exact configuration text, SHA256 and selected goal to t
 
 ## Backup
 
-```bash
-# Published verified backup video: B=(12,0), independent of current goal.yaml.
-xdg-open /home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/advanced-demo.mp4
+[Open the published backup video](../docs/evidence/advanced-optimization-visual/raw/recording-03/advanced-demo.mp4). It uses B=(12,0), independent of the current goal.yaml.
 
+```bash
 # Original stable demo.
 /home/haoyang/humanoid_nav_ws/scripts/run_demo.sh
 ```
