@@ -1,6 +1,24 @@
 # Demo commands
 
-All commands below run in an Ubuntu / WSL Bash terminal. The launcher loads the existing ROS, overlay and Python environment automatically.
+The Bash sections below require an Ubuntu / WSL Bash terminal. A `PS ...` prompt is Windows PowerShell, even when the current folder is under `\\wsl$`. Changing into a WSL shared folder does not select Bash. The launcher loads the existing ROS, overlay and Python environment automatically.
+
+## Start from Windows PowerShell
+
+```powershell
+# Validate the current B without starting simulation.
+wsl.exe -d Ubuntu-24.04 --cd /home/haoyang/humanoid_nav_ws_advanced --exec bash ./scripts/run_advanced_demo.sh --check-goal
+
+# Start the live demo and keep the final stopped scene visible.
+wsl.exe -d Ubuntu-24.04 --cd /home/haoyang/humanoid_nav_ws_advanced --exec bash ./scripts/run_advanced_demo.sh --hold
+```
+
+These commands work from any PowerShell directory. `--hold` preserves the final scene after arrival; startup should still print progress. Press Ctrl+C once in the launching terminal and wait for cleanup.
+
+Alternatively, enter Ubuntu interactively, then use the Bash commands below:
+
+```powershell
+wsl.exe -d Ubuntu-24.04
+```
 
 ## Before the presentation
 

@@ -1,6 +1,16 @@
+Ubuntu / WSL Bash 终端：
+
 ```bash
 /home/haoyang/humanoid_nav_ws_advanced/scripts/run_advanced_demo.sh
 ```
+
+如果提示符以 `PS` 开头，你仍在 Windows PowerShell；进入 `\\wsl$` 文件夹不会切换到 Bash。请使用：
+
+```powershell
+wsl.exe -d Ubuntu-24.04 --cd /home/haoyang/humanoid_nav_ws_advanced --exec bash ./scripts/run_advanced_demo.sh --hold
+```
+
+`--hold` 只保留到达后的画面，启动仍会输出进度。按一次 Ctrl+C 后等待安全停车和清理。
 
 演示材料已集中到 [presentation/](../../presentation/README.md)：[英文命令](../../presentation/COMMANDS.md)、[中英对照讲稿](../../presentation/TALK_TRACK.md)、[B点接口与范围](../../presentation/GOAL_CONFIGURATION.md)。每次启动会先读取 `presentation/goal.yaml`；可用 `./scripts/run_advanced_demo.sh --check-goal` 检查，修改坐标无需构建。当前接口已完成默认B与边界B=(11,0.5)的完整验证，见[接口验证](../../presentation/VALIDATION.md)。下述旧发布录像保持默认B=(12,0)。
 
