@@ -1,8 +1,8 @@
-> 当前优化版本仍有GPU告警启动锁，尚未授权/完成图形恢复。下述独立录像流程仅在恢复验证通过后执行；旧发布02录像不代表本轮优化。
+> 当前优化发布录像为 `advanced-optimization-visual/raw/recording-03/advanced-demo.mp4`，161.5秒，完整解码及16关键画面通过。见[当前发布清单](optimization-release-manifest.md)。原停机记录已归档，运行监控保留。
 
 # 独立录像流程
 
-正常演示入口不启动录像。发布视频见[清单](release-manifest.md)。以下只用于明确需要另录一轮时，输出目录必须是新的、Git ignored的目录，源码必须干净。
+正常演示入口不启动录像。发布视频见[当前清单](optimization-release-manifest.md)。以下只用于明确需要另录一轮时，输出目录必须是新的、Git ignored的目录，源码必须干净。
 
 先运行推荐演示命令。在新run目录出现后、机器人开始运动前，从高级worktree的另一终端启动独立读取：
 

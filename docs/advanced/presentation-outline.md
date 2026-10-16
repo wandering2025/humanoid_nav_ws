@@ -1,6 +1,6 @@
 # 优化版本讲解提纲
 
-当前图形恢复及新录像未验收；不要用旧版录像冒充以下流程。先看[当前验收记录](optimization-review.md)。
+当前 `demo-v0.2.1` 已完成真实图形和录像验收。先看[发布清单与录像章节](optimization-release-manifest.md)，使用本次161.5秒录像。
 
 1. **A与空白地图**：这是Booster T1的物理步行仿真，LiDAR正在构建地图；使用理想里程计及真值姿态补偿。
 2. **连续观测路线**：机器人自主执行guided autonomous mapping。经过宽敞西区、北廊与遮挡后的东区；没有遥控，不宣称frontier exploration。

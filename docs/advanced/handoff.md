@@ -1,4 +1,4 @@
-> 当前优化交接在本文末尾；旧版 RELEASE_READY 记录属于冻结的 `demo-v0.2.0`。当前状态见 [optimization-review.md](optimization-review.md)。
+> 当前交付为 `demo-v0.2.1`，最终交接在本文末尾。此前 BLOCKED 和旧版 `demo-v0.2.0` 记录均保留为历史。当前状态见 [optimization-review.md](optimization-review.md)。
 
 # v0.2 working record
 
@@ -115,3 +115,18 @@ Recording01 20261016T085709Z_advanced_114f805e-6872-48eb-b531-8586b3c98ef4 faile
 ## Full recording runtime passed, visual provenance defect found — 2026-10-16T09:07:07.314173+00:00
 
 Run 20261016T090042Z_advanced_ba68d227-7194-4848-a9ec-deef22777d90 runtimeSUCCESS with safety/cleanup/portPASS;579 real frame pairs retained. Visual review FAILED: mapped-rviz shows display-only A-B overview in blue due action/topic delivery race. No release encode/tag from this recording. Fix 405ba357689f566a485d945c797e192b4e981162 remembers overview geometry independent of stamps and filters late callbacks; blue plan age now tracks only forwarded execution messages. No navigation commands/planner/controller/safety changes.18 CPU checksPASS incl reordered callback. Next full GUI plus raw/recording-03 and independent full-mission topic audit; require overview never blue and actual live path byte equality. No owned PIDs; dirty only evidence/record before checkpoint.
+
+
+## Final optimized graphical delivery — 2026-10-16T09:19:00.645169+00:00
+
+**ADVANCED_DEMO_RELEASE_READY_WITH_KNOWN_LIMITATIONS**. Sole primary agent, no delegation/push. Worktree/home/haoyang/humanoid_nav_ws_advanced; branch feature/advanced-slam-demo-v0.2. Continuation starting HEAD22eb5cfb79e2aa520d52b3a30bf2466324cd6dcf, clean. Final implementation `405ba357689f566a485d945c797e192b4e981162`, tested recording source `a19286279bfe0122d2a2ffb918b2ac6ae5d89579`, final evidence `f62f51324500d5d7dc587fe64cd83c21e0043529`. Runtime scripts/src unchanged after recording. Final completion docs are committed next; new tag `demo-v0.2.1` is created only afterward, never moving either existing release tag.
+
+Full run `20261016T090707Z_advanced_d2063f25-32cf-473b-bd06-ff6f2b578c7e` SUCCESS: guided autonomous mapping and actual nonstraight20.24m A-B overview; continuous current-position navigation using RPP. Cart3×0.6m intrudes/holds8s/withdraws; actual wait16.10s and resumed travel7.506m. Final position0.09127m/yaw0.01396rad, terminal retries0, final leg15.28sim s. Actual trajectory29.898m; no terminal loops. All contact/fall0, sampled gap2.227m (10Hz, not continuous bound). Physical latched stop/standstill, SLAM inactive→unconfigured, all processes0, no residual andDDS42127releasePASS. GPU61C/1157MiB peak, no new fault. Full map west/north100%, east95.57%; cart shadow remains.
+
+Video `/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/advanced-demo.mp4`: 161.50s,2048×852,4fps,avc1,no audio. SHA256 `9231af1918b061bfc60089f8c48d2b61621b185e28c31eabe9429fbf45c289e9`. 564 captured window pairs;646/646 decoded;16keyframes inspected including enlarged overview/wait views.153.5s real elapsed plus8s explicitly post-run evidence. All1128 frame hashes verified; video/frames ignored, metadata and1489raw-file hashes tracked. Old1177 files and original video unchanged.
+
+Minimal/full rehearsal and18 focusedCPU checks passed. Original194-pass suite/build, matched headless control/intervention and moving interruption remain valid for unchanged navigation/safety core. Full-run topic audit:23geometry/frame matches,11CDR byte matches, overviewneverblue. Strict byte audit's failure and CPU serialization-padding analysis preserved, not relabelled. Recording01 startup reject/0frames and recording02 visual reject/579frames preserved. Original fault latch archived, not erased. Advanced startup≤60% load/default40%; runtime protections unchanged. No system/driver/display/dependency changes.
+
+Limits: guided rather thanfrontier; ideal truth odom/attitude, SLAM paused during dynamic nav then resumes atB, remaining cart shadow; fixed flat simulated scene, kinematic obstacle, finite alignment corrections,4fps capture/WSLg risks; no arbitrary-building or hardware/reliability claim. W13 staysFAILED36/40. Stable worktreeHEAD0f51d54b1dbfdde0664966118b5546109a3f6ff2 clean, demo-v0.1.0 object844036e69644272dce6178552dd10778e80d4d35 unchanged; demo-v0.2.0 object19466fc53775d30d96b5b76c0d9a5b2a440d0c95 unchanged. Frozen upstreams clean. This continuation's v0.1 check is source/tag/isolation, not a new runtime.
+
+Remaining project/owned PIDs:none;42127bindPASS. Dirty before completion commit: only updated docs/advanced files; require both worktrees clean after commit/tag. Recommended next command `/home/haoyang/humanoid_nav_ws_advanced/scripts/run_advanced_demo.sh`; stable fallback `/home/haoyang/humanoid_nav_ws/scripts/run_demo.sh`. Full task complete once final commit/tag and clean-state audit finish.

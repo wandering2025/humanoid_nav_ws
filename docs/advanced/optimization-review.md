@@ -1,40 +1,36 @@
-# 2026-10-16 优化验收
+# 2026-10-16 优化最终验收
 
-**ADVANCED_DEMO_BLOCKED_STABLE_V0_1_PRESERVED**。功能性无界面演示通过；新图形展示与新录像未验收，等待GPU受控恢复授权。两项用户反馈已落实为可测量的运动和路径显示改动，不能把这份结果写成新的图形发布。
+**ADVANCED_DEMO_RELEASE_READY_WITH_KNOWN_LIMITATIONS**。用户反馈的两项问题已通过完整图形运行、真实录像及数据验证。最终版本和视频身份见 [发布清单](optimization-release-manifest.md)。
 
-| 项目 | 实测/状态 |
+| 验收项 | 实测结论 |
 |---|---|
-| 完整动态运行 | `20261015T234553Z_advanced_12517517-2132-4dd2-a997-3dc793ec7747`，SUCCESS |
-| 完整运行源码SHA | `2875228d3c27e293c80087453543be0c549f3347` |
-| 最终实现SHA | `2875228d3c27e293c80087453543be0c549f3347`；与完整动态运行及对照的代码一致 |
-| 证据SHA | `0b9ba65b30585d07d99db0f18cd70cff5ba8deae` |
-| 同版本无障碍对照 | `20261015T234208Z_advanced_89cb184c-a79b-4e26-b251-29ccbbe46d2b`，SUCCESS |
-| 真实等待 | 16.10s，撤离后继续7.22m |
-| 扫描/costmap | 188帧 / 32帧 |
-| 实际地图 | 已知面积2.85→329.37m²；最终西区100.00%、北廊99.98%、完整东区95.63% |
-| 路径显示数据 | 同时捕获2次Nav2与显示消息SHA256一致；真实等待状态/路径年龄更新已观察；未验证图形渲染 |
-| 四项安全结果 | 静态0、动态0、非足接地0、跌倒0 |
-| 采样机体最近间距 | 2.200m，10Hz；非连续下界 |
-| 到达与停车 | 原工具验证成功；锁存停车、物理静止、SLAM关闭、全部退出0、无残留、端口释放通过 |
-| 最终接近 | 16.28sim s，终端重试0次 |
-| 末端轨迹效率 | 动态/对照路程与端点直线距离比1.144/1.073；航向跨度1.206/0.681rad，无末端绕圈 |
-| 轨迹距离 | 旧版76.71m → 本轮30.15m，0.5s采样 |
-| 流程仿真时长 | 旧版374.66s → 本轮169.40s；不同任务流程/展示配置，不是算法基准 |
-| A-B地图概览 | 实际NavFn路径20.28m，经过北廊形成明显转弯 |
-| 跟踪控制器 | 高级专用Regulated Pure Pursuit，原RotationShim/适配器/安全链；默认MPPI不变 |
-| CPU/构建 | 194PASS，1条仅适用于v0.1源码形状的断言排除；4包构建通过 |
-| 中断负测 | [interrupt.json](../evidence/advanced-optimization/interrupt.json)：任务应FAILED，停车和清理通过 |
-| 新RViz运行/录像 | NOT_RUN，GPU告警锁尚未解除；无新录像时长或SHA256 |
-| 发布tag | 无新tag；`demo-v0.1.0`及`demo-v0.2.0`原对象和目标均未移动 |
+| 1. v0.1和原入口 | PASS：原工作区HEAD/tag/受保护源码和run_demo.sh不变，clean |
+| 2. 独立一行启动 | PASS：run_advanced_demo.sh；图形完整运行SUCCESS |
+| 3. 自主建图 | PASS：连续guided autonomous mapping，6个观测点，无遥控或先验地图 |
+| 4. LiDAR与地图增长 | PASS：实际RViz及录像，已知面积2.85→328.84m² |
+| 5. 地图主要结构 | PASS：西区、北廊、遮挡隔墙和东区；完整东区95.57%已知，残余遮挡未知区明确保留 |
+| 6. 非直线路线 | PASS：实际NavFn A→B概览20.24m，明显绕隔墙；机器人从当前观测位置接续导航，不返回A |
+| 7. 动态干扰及恢复 | PASS：真实停等16.10s，撤离后继续7.51m；活跃期扫描命中175帧、costmap标记32帧 |
+| 8. 到达B | PASS：位置误差0.09127m，朝向误差0.01396rad，终端重试0次 |
+| 9. 四项安全结果 | PASS：静态碰撞0、动态接触0、非足接地0、跌倒0 |
+| 10. 停车与清理 | PASS：ACK、物理静止、SLAM生命周期有序关闭、全部组件退出0、残留0、端口42127释放；未使用DDS例外 |
+| 11. 现场显示 | PASS：A/B、地图增长、蓝线执行/青线概览/紫线轨迹、等待状态和实际障碍可辨；迟到概览过滤已验证 |
+| 12. 真正可播放录像 | PASS：161.50s，646帧全解码，16个关键画面检查 |
+| 13. 文档和限制 | PASS：操作、讲解、架构、录像流程、版本身份与限制齐全 |
+| 14. Git与证据 | PASS：实现/证据先于完成记录，原标签不变，新demo-v0.2.1标记完整交付；无push |
 
-地图来自真实SLAM，未注入场景先验。[地图增长图](../evidence/advanced-optimization/map-growth.png)显示主要结构；停放障碍后方仍存在未知区，东墙局部缺口的离线采样最大距离为1.95m，不能称为完整扫描了每面墙。主通道覆盖门槛与完整东区覆盖分开报告。
+最终运行：`20261016T090707Z_advanced_d2063f25-32cf-473b-bd06-ff6f2b578c7e`，实测源码`a19286279bfe0122d2a2ffb918b2ac6ae5d89579`，最终实现`405ba357689f566a485d945c797e192b4e981162`，证据`f62f51324500d5d7dc587fe64cd83c21e0043529`。
 
-对照中接近阶段耗时17.44s，动态运行37.54s。物理步态与ROS时序有波动，不能只用总耗时推断干扰；实际停等、命令、扫描、costmap与恢复才是主要证据。全部失败尝试见[attempts.json](../evidence/advanced-optimization/attempts.json)，原始数据绑定见[raw-index.json](../evidence/advanced-optimization/raw-index.json)。
+路线效率：该图形运行采样轨迹29.90m，最终接近15.28sim s；末段路程/端点直线距离比1.144，航向跨度1.201rad，未出现完整末端绕圈。此前同源无界面对照/动态测试分别1.073/1.144；旧发布总行程76.71m，优化后约30m。任务流程、B位置和障碍配置已变化，这不是同条件规划算法基准。步态时序仍可能产生小幅转向修正。
 
-[轨迹对比图](../evidence/advanced-optimization/trajectory-comparison.png)来自真实运行数据，非RViz截图、非录像替代品。图中障碍仅画停留位置；机器人经过该位置前它已撤离。[源码/稳定版审计](../evidence/advanced-optimization/source-audit.json)确认原工作区clean、原入口和保护文件相同。未推送，未改外部仓库、驱动或显示设置；未安装/升级依赖。
+蓝线显示数据：完整运行中11条显示路径与实际/plan序列化字节相同，1条概览消息及其几何未出现在蓝色执行话题。显示状态/轨迹更新5Hz，规划器仍按新目标、路径失效和原5秒周期重规划。阻塞响应为 **BLOCKED_PATH_WAIT_AND_CONTINUE**；本轮Collision Monitor保护停车时间0.00s，不能把规划等待称为紧急保护停车。
 
-GPU阻塞来自此前运行`20261015T220015Z_advanced_c171be81-40f2-4a13-a537-2aa174bce3f5`：显存1126→1895MiB，触发原768MiB增长阈值。峰值61°C，记录中未见驱动错误，但不能据此断定无风险。`run_data/demo-gpu-halt.json`原字节保留；[gpu_watch.py:61](../../scripts/demo/gpu_watch.py#L61) 明确写有“do not retry automatically”，因此保留启动锁。已请求一次受控恢复：保留/归档原锁和全部故障证据，原阈值下先`--startup-check`，再完整图形运行与独立录像。尚未收到授权，不启动新GPU渲染器。
+验证范围：原4包system colcon构建和194PASS/1历史v0.1源码形状断言排除的完整CPU测试保留；本轮显示/GPU准入改动后18项相关检查PASS，包括异步迟到消息。此前同一导航核心的动态/停放对照与行进中断负测通过；中断任务保持FAILED语义，停车/清理PASS。AST及文件审计确认后续未改导航、控制器、运动和机器人安全行为。v0.1本轮为源码/标签/隔离审计，没有冒称新运行；此前完整U01成功证据保留。W13仍FAILED36/40。
 
-已发布旧版备份录像仍是`docs/evidence/advanced/raw/final-recording-02/advanced-demo.mp4`，368.25s，SHA256`3f9547f14e7ecadd4d0f115c4a562291dc4530e4de7a95d7633041d0f7a3716a`。它属于旧tag，不验证本轮优化。当前推荐无界面命令见[quick-start.md](quick-start.md)；稳定兜底入口保留。
+GPU：最小图形检查与完整无录像排练通过；最终录制峰值61°C、1157MiB/6141MiB，无新宿主/图形监控错误。原停机锁逐字节归档，旧1177件证据重新核验。基于53–57°C、704–812MiB、平均28.44%/峰值49%的桌面负载，**仅高级启动准入**从连续5秒≤40%调整为≤60%；默认准入40%不变。运行中75°C、70%显存、增长768MiB、95%持续5秒和错误监控全部原值；未改驱动、显示、环境或录像宿主。
 
-本轮v0.1回归范围：原工作区HEAD、tag、入口和受保护源码的不可变审计通过；未重跑v0.1仿真。此前完整U01成功记录仍保留。最终两个工作区的clean状态在文档提交后复查；运行中断和正常退出均无残留PID，42127可重新绑定。
+已知限制：预定义观测路线而非frontier exploration；理想真值里程计和真值姿态补偿；动态导航时暂停SLAM扫描匹配/修正，保留最后map→odom并靠理想里程计，LiDAR障碍层仍实时更新，到B后恢复建图；地图存在停放障碍阴影。固定平地/场景/seed、模拟LiDAR与mocap障碍，非任意未知建筑和真机认证；采样间距不是连续时间安全下界；WSLg/NVIDIA OpenGL底层仍为D3D12，监控不能保证故障隔离；DDS历史风险未宣称根治，录像4fps且两窗口顺序采样。
+
+[最终运行](../evidence/advanced-optimization-visual/final-run.json) · [地图覆盖](../evidence/advanced-optimization-visual/final-map-coverage.json) · [完整消息审计](../evidence/advanced-optimization-visual/live-path-topics.json) · [所有本轮尝试](../evidence/advanced-optimization-visual/attempts.json) · [早期优化证据](../evidence/advanced-optimization/README.md)
+
+消息审计说明：首次“所有序列化字节必须相同”断言失败，原报告与退出码保留。进一步核对发现全部23条显示路径的坐标系、逐点坐标/朝向与实际规划一致，11条完整字节也一致。CPU实验复现同一ROS消息在CDR字节40–43存在不同填充值，而反序列化后所有字段相等。因此显示验收采用23条几何匹配、概览隔离及实际画面，未虚称其余12条全部时间戳字段被单独采集核验。详见[对应分析](../evidence/advanced-optimization-visual/live-path-correspondence.json)。

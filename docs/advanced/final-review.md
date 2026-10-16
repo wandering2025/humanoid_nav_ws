@@ -1,4 +1,4 @@
-> 本文为已冻结 `demo-v0.2.0` 的历史发布记录。当前优化分支的状态与证据以 [optimization-review.md](optimization-review.md) 为准；新图形和录像尚未验收。
+> 本文为已冻结 `demo-v0.2.0` 的历史发布记录。当前优化分支的状态与证据以 [optimization-review.md](optimization-review.md) 为准；当前已验证的优化发布及新录像见[demo-v0.2.1清单](optimization-release-manifest.md)。
 
 # v0.2 最终验收
 
