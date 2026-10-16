@@ -2,14 +2,19 @@
 set -Eeuo pipefail
 ADV_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
 if [[ "${1:-}" == --help || "${1:-}" == -h ]]; then
-  echo 'Usage: ./scripts/run_advanced_demo.sh [--preflight|--headless|--startup-check] [--no-rviz] [--hold]'
+  echo 'Usage: ./scripts/run_advanced_demo.sh [--check-goal|--preflight|--headless|--startup-check] [--no-rviz] [--hold]'
   echo 'Advanced SLAM and Navigation Demo v0.2: continuous guided mapping, live planning from current position to B.'
+  echo 'Reads presentation/goal.yaml on every launch. --check-goal validates it without simulation.'
   echo 'Ctrl+C requests latched safe stop and cleanup. Recording is a separate process.'
   exit 0
 fi
 export T1_VENV="${T1_VENV:-/home/haoyang/venvs/humanoid_mujoco}"
 export T1_UPSTREAM="${T1_UPSTREAM:-/home/haoyang/robot_sim_sources/booster_deploy}"
 export T1_ASSETS="${T1_ASSETS:-/home/haoyang/robot_sim_sources/booster_assets}"
+if [[ "${1:-}" == --check-goal ]]; then
+  source "$ADV_ROOT/scripts/env.sh"
+  exec "$T1_VENV/bin/python" -m t1_mujoco.advanced_goal
+fi
 export T1_LOCAL_DDS=1 T1_DDS_PORT=42127 ROS_DOMAIN_ID=37
 export T1_DEMO_RUN_ID="$(date -u +%Y%m%dT%H%M%SZ)_advanced_$(cat /proc/sys/kernel/random/uuid)"
 export T1_DEMO_DIR="$ADV_ROOT/run_data/advanced/$T1_DEMO_RUN_ID"

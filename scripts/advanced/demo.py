@@ -61,6 +61,8 @@ class Advanced(base.Demo):
         super().__init__(args,provenance)
         self.summary.update(scenario='ADV01',method='guided_autonomous_mapping',goals=[],map_growth=[])
         self.route=__import__('yaml').safe_load((WS/'src/t1_bringup/config/advanced_route.yaml').read_text())
+        self.route.update({k:args.presentation_goal[k] for k in ('goal','navigation_approach')})
+        self.summary['presentation_goal']=args.presentation_goal
         self.runtime_graph={}
         self.global_grid=None
         self.active_target=None
@@ -438,6 +440,8 @@ class Advanced(base.Demo):
         artifact=WS/'run_data'/RUN_ID
         manifest=json.loads((artifact/'manifest.json').read_text())
         trace=load_trace(RUN_ID);n=self.node;s=self.summary
+        s['presentation_goal_consistent']=manifest.get('presentation_goal')==self.args.presentation_goal and manifest.get('goal')==self.route['goal']
+        assert s['presentation_goal_consistent'],'Simulator and navigation presentation goals differ'
         s.update(contacts=manifest.get('contact_counts'),fell=any(v in ('FALLEN','FAULT') for v in trace['state']),
                  simulator_exit_code=manifest.get('exit_code'),body_clearance=body_clearance(manifest,artifact/'geometry.jsonl'))
         if self.args.startup_check:
@@ -453,7 +457,7 @@ class Advanced(base.Demo):
             plans=[p for p in n.plans if p['sim']>=start]
             s['navigation_plans']=plans
             overview=s.get('a_to_b_overview',{})
-            s['nonstraight_plan']=bool(plans and overview.get('length',0)>19 and max(p[1] for p in overview['points'])>6)
+            s['nonstraight_plan']=bool(plans and overview.get('length',0)>1.4*math.hypot(*self.route['goal'][:2]) and max(p[1] for p in overview['points'])>6)
             growth=s['map_growth'];s['map_growth_ratio']=growth[-1]['known_cells']/growth[0]['known_cells'] if growth else 0
             # Measured robot stationarity during the obstacle's active interval.
             active=[o for o in n.obstacles if o['phase'] not in ('staged','finished')]
@@ -502,16 +506,24 @@ class Advanced(base.Demo):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    for flag in ('headless','no-rviz','hold','startup-check','preflight','control-no-obstacle'):p.add_argument('--'+flag,action='store_true')
+    for flag in ('headless','no-rviz','hold','startup-check','preflight','control-no-obstacle','check-goal'):p.add_argument('--'+flag,action='store_true')
     args=p.parse_args();args.gpu_watch=None
     (WS/'run_data/demo').mkdir(parents=True,exist_ok=True)
     lock=(WS/'run_data/demo/active.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     signal.signal(signal.SIGINT,lambda *_:setattr(base,'STOP',True))
     signal.signal(signal.SIGTERM,lambda *_:setattr(base,'STOP',True))
-    if args.headless or args.preflight:
+    if args.headless or args.preflight or args.check_goal:
         from cpu_guard import enter
         base.save('cpu-guard.json',enter())
-    provenance=preflight();base.save('provenance.json',provenance)
+    # Always reread the editable interface; never reuse an inherited old snapshot.
+    from t1_mujoco.advanced_goal import load_goal, SNAPSHOT_ENV
+    args.presentation_goal=load_goal(WS/'presentation/goal.yaml')
+    base.save('presentation-goal.json',args.presentation_goal)
+    os.environ[SNAPSHOT_ENV]=str(OUT/'presentation-goal.json')
+    base.say('Presentation B: '+str(args.presentation_goal['goal'])+' | config SHA256 '+args.presentation_goal['source_sha256'])
+    if args.check_goal:return 0
+    provenance=preflight();provenance['presentation_goal']=args.presentation_goal
+    base.save('provenance.json',provenance)
     if args.preflight:return 0
     if not args.headless:
         from gpu_watch import Watch,GPU_ENV

@@ -1,0 +1,11 @@
+# Presentation folder and live B-point interface
+
+IN_PROGRESS. User requested English command reference, concise English/Chinese talk track, and a real editable B-point interface. Sole primary agent, no delegation. Starting HEAD1172dc94466f57933163b919fa3bf3d8e27f993e, branch feature/advanced-slam-demo-v0.2, cwd/worktree /home/haoyang/humanoid_nav_ws_advanced, dirty none. Existing demo-v0.1.0/demo-v0.2.0/demo-v0.2.1 tags immutable; no push.
+
+Decision: presentation/goal.yaml is the sole operator goal. Each launch rereads/validates it and snapshots exact source text/hash; navigation, NavFn overview, RViz, simulator render-only B, manifest and arrival checks consume the same snapshot. Fixed south heading and a derived2.5m handover preserve the calibrated final approach. Allowed x[11,12], y[-.5,.5]m; validate the entire vertical final segment against walls/static boxes/parked cart with≥2.4m clearance. Geometry is admission-only, not a supplied SLAM map. Dynamic safety remains the original live LiDAR chain. Mid-run file edits apply on the next launch.
+
+Implementation validation pending: CPU schema/range/snapshot/physics-isolation tests, system colcon, default complete headless run, changed-goal complete GUI run with matching marker/goal/arrival evidence. No new release tag or video requested; old release/video preserved. GPU read-only:RTX4050,884MiB/6141MiB,47C,15%; no active halt. Next: focused CPU validation and build. No owned processes.
+
+## CPU milestone — 2026-10-16T10:25:58.771508+00:00
+
+Four-package system colcon PASS2.80s. Focused27 testsPASS; fullCPU214PASS/1 historical v0.1-only source-shape assertion deselected (existing exclusion),1.01s. Actual --check-goal CLI invoked from/tmp: x12.01 rejected/exit1, x11 accepted/exit0, no run directories or runtime components created; exact default file restored. Schema/finite values/duplicate keys/range corners, CRLF exact source hash, changed-file reread/in-flight immutable snapshot, corrupted snapshot rejection and real MuJoCo render-only marker/ray isolation verified. English presentation kit and bilingual concise talk track written. Next default fullheadless, then edited B=(11,.5) complete GUI; no source changes between these runs except operator config edit recorded by hash.

@@ -10,9 +10,7 @@ mapping_waypoints:
   - [11.5, 6.5, -0.36]
   - [13.4, 6.5, 0.0]
 mapping_pass_radius_m: 0.65
-goal: [12.0, 0.0, -1.5707963267948966]
-# Leave 2.5m for the original 1.5m straight approach, including node startup/drift.
-navigation_approach: [12.0, 2.5, -1.5707963267948966]
+# B and its 2.5m handover are resolved from presentation/goal.yaml every run.
 waypoint_time_limit_s: 120.0
 navigation_time_limit_s: 200.0
 # Survey the main east-room passage; x>=14.4 is the cart parking/occlusion bay.

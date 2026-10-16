@@ -107,12 +107,14 @@ def test_goal_and_display_agree_and_cart_keeps_static_clearance():
     from t1_mujoco.advanced_presentation import annotate
     route=yaml.safe_load((WS/'src/t1_bringup/config/advanced_route.yaml').read_text())
     layout=load_layout(WS/'src/t1_mujoco/worlds/advanced_world.yaml')
-    assert route['goal']==layout['goal']
-    x,y,_=route['goal'];xmin,xmax,ymin,ymax=layout['bounds']
+    from t1_mujoco.advanced_goal import load_goal
+    goal=load_goal(WS/'presentation/goal.yaml')['goal']
+    assert 'goal' not in route and 'navigation_approach' not in route
+    x,y,_=goal;xmin,xmax,ymin,ymax=layout['bounds']
     assert min(x-xmin,xmax-x,y-ymin,ymax-y)>=2.25
     m=mujoco.MjModel.from_xml_string('<mujoco><worldbody/></mujoco>')
     scn=mujoco.MjvScene(m,maxgeom=8);annotate(SimpleNamespace(user_scn=scn,cam=SimpleNamespace()))
-    np.testing.assert_allclose(scn.geoms[2].pos[:2],route['goal'][:2])
+    np.testing.assert_allclose(scn.geoms[2].pos[:2],goal[:2])
     scenario,_=load_scenario(WS/'src/t1_bringup/config/advanced_events.yaml','ADV01')
     size=layout['obstacle_slots'][0]['size']
     for cx,cy in [scenario['start']]+[leg['to'] for leg in scenario['legs']]:

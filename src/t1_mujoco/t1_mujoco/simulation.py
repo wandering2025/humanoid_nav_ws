@@ -103,6 +103,10 @@ def main(args=None):
         validate_parameters(p)
         runtime = inspect_runtime(p['upstream_path'], p['assets_path'], p['mode'], p['task'])
         cfg = load_task_config(p['upstream_path'], p['task'])
+        presentation_goal = None
+        if p['mode'] == 'advanced_mapping':
+            from .advanced_goal import runtime_goal
+            presentation_goal = runtime_goal()
         from ament_index_python.packages import get_package_share_directory
         from .scenes import configure_scene, parse_start_pose
         scenario, event_provenance = None, None
@@ -137,6 +141,9 @@ def main(args=None):
             log.manifest['goal'] = metadata['goal'] if metadata else None
             log.manifest['case'] = metadata['name'] if metadata else 'custom_mjcf'
             log.manifest['start_pose_override'] = scene_provenance.get('start_pose_override')
+            log.save()
+        if presentation_goal is not None:
+            log.manifest.update(goal=presentation_goal['goal'], presentation_goal=presentation_goal)
             log.save()
         if command_map is not None:
             from .recording import sha256
@@ -247,7 +254,10 @@ def main(args=None):
             viewer.cam.elevation = -20
             if presentation:
                 with viewer.lock():
-                    annotate(viewer)
+                    if presentation_goal is not None:
+                        annotate(viewer, goal=presentation_goal['goal'])
+                    else:
+                        annotate(viewer)
 
         samples = deque()
         rtf = 0.0
