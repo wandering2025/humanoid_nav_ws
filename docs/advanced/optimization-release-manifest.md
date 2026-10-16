@@ -1,3 +1,5 @@
+> 本页保留 `demo-v0.2.1` 固定默认B的发布验收。当前工作分支新增可编辑B点的presentation接口，验证见[presentation/VALIDATION.md](../../presentation/VALIDATION.md)；旧标签与录像未移动或覆盖。
+
 # 优化发布 demo-v0.2.1
 
 **ADVANCED_DEMO_RELEASE_READY_WITH_KNOWN_LIMITATIONS**。本次针对用户反馈增强了动态障碍的可见干扰，减少重复行程和末端绕圈，并验证 RViz 实际规划显示。既有 `demo-v0.2.0` 不移动；新标签只在完整验收和文档提交后创建。

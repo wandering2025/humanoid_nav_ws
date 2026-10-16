@@ -1,3 +1,5 @@
+> 本页保留 `demo-v0.2.1` 固定默认B的发布验收。当前工作分支新增可编辑B点的presentation接口，验证见[presentation/VALIDATION.md](../../presentation/VALIDATION.md)；旧标签与录像未移动或覆盖。
+
 # 2026-10-16 优化最终验收
 
 **ADVANCED_DEMO_RELEASE_READY_WITH_KNOWN_LIMITATIONS**。用户反馈的两项问题已通过完整图形运行、真实录像及数据验证。最终版本和视频身份见 [发布清单](optimization-release-manifest.md)。

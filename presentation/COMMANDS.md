@@ -34,7 +34,7 @@ Start only one mission at a time. Watch the printed `Presentation B` and configu
 
 ## Stop and finish
 
-Press **Ctrl+C once in the launching terminal**. This requests latched safety stop and bounded cleanup. Wait for the process to finish; DDS TCP TIME_WAIT may add up to65 seconds. An intentionally interrupted mission is reported FAILED/CANCELED, not as arrival success. Normal completion prints `Final SUCCESS` after verified arrival, zero contact/fall checks, cleanup and port release.
+Press **Ctrl+C once in the launching terminal**. This requests latched safety stop and bounded cleanup. Wait for the process to finish; DDS TCP TIME_WAIT may add up to 65 seconds. An intentionally interrupted mission is reported FAILED/CANCELED, not as arrival success. Normal completion prints `Final SUCCESS` after verified arrival, zero contact/fall checks, cleanup and port release.
 
 Do not use global `pkill`, close the terminal during cleanup, or move the robot with the keyboard. Stop the current run before editing B for another run. Starting the demo does not start recording.
 

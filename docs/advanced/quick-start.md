@@ -2,6 +2,8 @@
 /home/haoyang/humanoid_nav_ws_advanced/scripts/run_advanced_demo.sh
 ```
 
+演示材料已集中到 [presentation/](../../presentation/README.md)：[英文命令](../../presentation/COMMANDS.md)、[中英对照讲稿](../../presentation/TALK_TRACK.md)、[B点接口与范围](../../presentation/GOAL_CONFIGURATION.md)。每次启动会先读取 `presentation/goal.yaml`；可用 `./scripts/run_advanced_demo.sh --check-goal` 检查，修改坐标无需构建。当前接口已完成默认B与边界B=(11,0.5)的完整验证，见[接口验证](../../presentation/VALIDATION.md)。下述旧发布录像保持默认B=(12,0)。
+
 **ADVANCED_DEMO_RELEASE_READY_WITH_KNOWN_LIMITATIONS**。当前优化发布为 `demo-v0.2.1`：已完成完整图形演示、真实动态停等/恢复、录像完整解码和关键画面审查。旧 `demo-v0.2.0` 与稳定兜底 `demo-v0.1.0` 保持原标签和历史。
 
 机器人从 A=(0,0) 出发，自主执行 **guided autonomous mapping**：沿西区、7.5米宽北廊和遮挡后的东区连续通过观测点。第5点起检查实际地图主通道覆盖率≥95%，且真实 NavFn 能在已观测地图上规划 A→B；必要时补第6个观测点。不返回 A，也不逐点停稳校正朝向。地图足够后从当前位置继续走向 B=(12,0)，以高级专用 Regulated Pure Pursuit 跟踪路径。

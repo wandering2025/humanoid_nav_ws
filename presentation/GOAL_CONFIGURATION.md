@@ -16,11 +16,11 @@ goal:
 | y | Finite number in **[-0.5,0.5]**, inclusive, metres |
 | frame | Exactly `map`; +X east, +Y north, A=(0,0) |
 | Final heading | Fixed south: -90 degrees / -π/2 radians; no yaw setting |
-| Navigation handover | Automatically `(x,y+2.5,-π/2)`; retain the original1.5m final walking approach |
+| Navigation handover | Automatically `(x,y+2.5,-π/2)`; retain the original 1.5m final walking approach |
 
 Example alternate B: `x: 11.5`, `y: -0.25`. Use numeric YAML values, not quoted strings, booleans, NaN or infinity. Unknown or duplicate keys are rejected. Keep schema/frame unchanged.
 
-These bounds preserve the occluding partition, the broad east-room passage and cart interaction. Every point on the2.5m vertical approach must have at least2.4m static/parked-cart clearance. The navigation footprint remains2.05m, stop zone1.65m and slow zone1.95m. The cart temporarily blocks this route; live LiDAR/costmaps handle it. This check does not provide a geometry-generated map to SLAM or Nav2.
+These bounds preserve the occluding partition, the broad east-room passage and cart interaction. Every point on the2.5m vertical approach must have at least 2.4m static/parked-cart clearance. The navigation footprint remains 2.05m, stop zone 1.65m and slow zone 1.95m. The cart temporarily blocks this route; live LiDAR/costmaps handle it. This check does not provide a geometry-generated map to SLAM or Nav2.
 
 Run `./scripts/run_advanced_demo.sh --check-goal` before presenting. An invalid or missing configuration stops startup; there is no fallback to the old B. No rebuild is needed. Broader locations or arbitrary headings require a separate route/scenario review and are intentionally rejected.
 

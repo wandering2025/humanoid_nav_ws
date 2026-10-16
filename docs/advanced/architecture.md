@@ -41,3 +41,12 @@ RViz蓝线复制实际`/plan`的帧、时间戳和poses到持久化显示话题�
 高级入口启动准入为连续5秒GPU温度≤60°C、利用率≤60%，默认监控调用仍用40%。这一高级专用调整基于真实桌面短时负载；运行中75°C、70%显存、相对基线增长768MiB、95%利用率持续5秒，以及宿主/图形错误监控均原值。此前显存告警锁逐字节归档，未删除失败证据或修改驱动。最小图形、完整排练和独立录制均完成。
 
 NavFn ComputePathToPose的概览结果与其/plan发布存在异步时序；仅检查“正在算概览”标志会漏掉迟到消息。现在保存概览的坐标系和完整路径几何，排除迟到概览，并只对实际转发的执行路径更新年龄。蓝线消息直接原样发布，青线概览不用于发送机器人目标。完整运行核验23条几何/坐标系匹配、概览不混入蓝线，11条序列化字节完全一致；CDR填充字节的不稳定性与初次严格审计失败均如实保留。
+
+
+## Presentation B-point interface
+
+`presentation/goal.yaml` is the operator source for each launch. The advanced orchestrator always rereads it, validates finite x/y within[11,12]×[-.5,.5]m in map, fixes heading south and derives the handover(x,y+2.5). The entire vertical segment is checked against walls/static boxes/parked cart for≥2.4m clearance; this is operator admission only, not an injected SLAM map. Existing planning/safety/controller thresholds remain unchanged.
+
+`presentation-goal.json` stores exact UTF-8 source text/hash and resolved targets. The orchestrator passes its snapshot path to its children via `T1_ADVANCED_GOAL_SNAPSHOT`; the advanced simulator verifies the snapshot and writes the same goal/provenance into its manifest. Navigation, real NavFn overview, RViz, render-only MuJoCo annotations and arrival metrics use this goal. Verification rejects a mixed simulator/navigation goal. Standalone advanced simulation reads the YAML when no internal snapshot is supplied. No non-advanced mode reads this file. The world YAML goal is nominal scene metadata; advanced_route.yaml no longer duplicates B or its handover.
+
+The above fixed coordinates describe the default(12,0). Nonstraight-route validation is now relative to A-B distance(>1.4×) with the existing north-gallery passage check, so selecting another supported B does not trigger a hardcoded19m quality threshold. No robot safety threshold changed. Editing the file during a run affects only the next launch. See[operator rules](../../presentation/GOAL_CONFIGURATION.md) and[actual validation](../../presentation/VALIDATION.md).
