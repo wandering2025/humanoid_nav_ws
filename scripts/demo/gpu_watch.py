@@ -56,8 +56,15 @@ def threshold_failure(row, baseline_memory, high_since, now):
     return None,high_since
 
 
+def startup_ready(row, max_utilization_pct=40.):
+    # Startup admission only. Runtime thermal/memory/fault limits stay unchanged.
+    if not 0 < max_utilization_pct <= 60:
+        raise ValueError('Startup utilization limit must be in (0, 60]')
+    return row['temperature_c'] <= 60 and row['utilization_pct'] <= max_utilization_pct
+
+
 class Watch:
-    def __init__(self,output,*,idle_wait_s=0.):
+    def __init__(self,output,*,idle_wait_s=0.,idle_max_utilization_pct=40.):
         if HALT.exists():raise RuntimeError(f'Previous GPU halt is latched: {HALT}; do not retry automatically')
         self.output=Path(output);self.output.mkdir(parents=True,exist_ok=True)
         self.lock=(WS/'run_data/demo-gpu.lock').open('a')
@@ -68,17 +75,17 @@ class Watch:
         self.check([])
         if idle_wait_s:
             end=time.monotonic()+idle_wait_s;since=None
-            print('[demo] Waiting for 5s NVIDIA idle window (<=60C, <=40% load).',flush=True)
+            print(f'[demo] Waiting for 5s NVIDIA startup window (<=60C, <={idle_max_utilization_pct:g}% load).',flush=True)
             while time.monotonic()<end:
                 self.check([]);row=self.samples[-1]
-                cool=row['temperature_c']<=60 and row['utilization_pct']<=40
+                cool=startup_ready(row,idle_max_utilization_pct)
                 since=(since if since is not None else time.monotonic()) if cool else None
                 if since is not None and time.monotonic()-since>=5:break
                 time.sleep(.1)
             else:
                 self.close();raise RuntimeError('NVIDIA idle-window deadline; no renderer started')
-        elif self.samples[-1]['temperature_c']>60 or self.samples[-1]['utilization_pct']>40:
-            self.close();raise RuntimeError('GPU not idle/cool enough to start (<=60C, <=40% load required)')
+        elif not startup_ready(self.samples[-1],idle_max_utilization_pct):
+            self.close();raise RuntimeError(f'GPU not idle/cool enough to start (<=60C, <={idle_max_utilization_pct:g}% load required)')
 
     def check(self,logs):
         now=time.monotonic()

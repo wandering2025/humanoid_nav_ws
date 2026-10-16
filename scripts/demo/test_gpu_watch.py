@@ -1,8 +1,21 @@
 import unittest
-from gpu_watch import threshold_failure,renderer_verified,ERROR
+from gpu_watch import threshold_failure,renderer_verified,ERROR,startup_ready
 
 class Limits(unittest.TestCase):
     def row(self,**kwargs):return dict(temperature_c=47,memory_mib=600,memory_total_mib=6141,utilization_pct=20,**kwargs)
+    def test_startup_admission_keeps_default_and_bounds_advanced_override(self):
+        row=self.row();row['utilization_pct']=50
+        self.assertFalse(startup_ready(row))
+        self.assertTrue(startup_ready(row,60))
+        row['utilization_pct']=60
+        self.assertTrue(startup_ready(row,60))
+        row['utilization_pct']=61
+        self.assertFalse(startup_ready(row,60))
+        row.update(utilization_pct=20,temperature_c=61)
+        self.assertFalse(startup_ready(row,60))
+        for invalid in (0,61,float('nan')):
+            with self.assertRaises(ValueError):startup_ready(row,invalid)
+
     def test_healthy(self):self.assertIsNone(threshold_failure(self.row(),600,None,0)[0])
     def test_temperature(self):
         r=self.row();r['temperature_c']=75;self.assertIsNotNone(threshold_failure(r,600,None,0)[0])

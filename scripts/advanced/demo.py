@@ -504,7 +504,7 @@ def main():
     if args.preflight:return 0
     if not args.headless:
         from gpu_watch import Watch,GPU_ENV
-        os.environ.update(GPU_ENV);args.gpu_watch=Watch(OUT/'gpu',idle_wait_s=60)
+        os.environ.update(GPU_ENV);args.gpu_watch=Watch(OUT/'gpu',idle_wait_s=60,idle_max_utilization_pct=60.)
     run=Advanced(args,provenance)
     base.say(f'Advanced run {RUN_ID}; {OUT}')
     try:run.execute()
