@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-16T08:49:32.031613+00:00",
+  "starting_head": "22eb5cfb79e2aa520d52b3a30bf2466324cd6dcf",
+  "starting_dirty": [],
+  "branch": "feature/advanced-slam-demo-v0.2",
+  "authorization": "User explicitly authorizes reasonable operations and resumption; previous extra-approval interpretation superseded. Project-local reviewed recovery only.",
+  "prior_halt_sha256": "60095afd345dff75caa25046bc7d8b81597837b13c4f8625026f3a885b66c0fc",
+  "prior_halt_archive": "/home/haoyang/humanoid_nav_ws_advanced/run_data/gpu-recovery-archives/20261016-optimization/demo-gpu-halt.json",
+  "gpu_thresholds_changed": false,
+  "robot_safety_thresholds_changed": false,
+  "plan": "Original-threshold standing graphics check; then full GUI rehearsal; then full GUI with independent capture and offline CPU encoding. Stop on new fault.",
+  "processes": [],
+  "dds_port_free": true
+}
