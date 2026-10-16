@@ -1,0 +1,173 @@
+{
+  "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/advanced-demo.mp4",
+  "bytes": 6422510,
+  "sha256": "9231af1918b061bfc60089f8c48d2b61621b185e28c31eabe9429fbf45c289e9",
+  "source_sha": "a19286279bfe0122d2a2ffb918b2ac6ae5d89579",
+  "run_id": "20261016T090707Z_advanced_d2063f25-32cf-473b-bd06-ff6f2b578c7e",
+  "width": 2048,
+  "height": 852,
+  "fps": 4.0,
+  "live_seconds": 153.5,
+  "evidence_card_seconds": 8,
+  "total_seconds": 161.5,
+  "decoded_frames": 646,
+  "expected_frames": 646,
+  "capture_pairs": 564,
+  "max_pair_gap_s": 0.5032084130000385,
+  "max_view_skew_s": 0.2634484110001267,
+  "full_decode_verified": true,
+  "visual_review_pending": false,
+  "visual_review_index_sha256": "c443a1d623cecd44a5d385303780b40010c057155e0538df9836d3b6b59a48b4",
+  "visual_review": {
+    "status": "PASS",
+    "video_sha256": "9231af1918b061bfc60089f8c48d2b61621b185e28c31eabe9429fbf45c289e9",
+    "keyframes": [
+      {
+        "label": "A and initial LiDAR map",
+        "sim": null,
+        "video_frame": 0,
+        "video_seconds": 0.0,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/review/00.png",
+        "sha256": "8053470bc597f262cc30da7c05b364f499ab818af77eb6fadb7beafeb3c783a1"
+      },
+      {
+        "label": "West area: live blue plan",
+        "sim": 19.32,
+        "video_frame": 23,
+        "video_seconds": 5.75,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/review/01.png",
+        "sha256": "d475f384610c927312c4733abe1d530b77dc838b2a7aa36acb9a4abe27014726"
+      },
+      {
+        "label": "Turn into west gallery",
+        "sim": 31.37,
+        "video_frame": 72,
+        "video_seconds": 18.0,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/review/02.png",
+        "sha256": "255bb3ea704e48a26531b7fddd4b1315ff74ca24f340dee381fd05a5a5385671"
+      },
+      {
+        "label": "Northward mapping: map grows",
+        "sim": 44.800000000000004,
+        "video_frame": 125,
+        "video_seconds": 31.25,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/review/03.png",
+        "sha256": "615a73e9b42327195bae9a265872ddf51f2e4646367f031d31da81e9fcf8f1f0"
+      },
+      {
+        "label": "Turn through north gallery",
+        "sim": 58.08,
+        "video_frame": 179,
+        "video_seconds": 44.75,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/review/04.png",
+        "sha256": "92a900fa79e5308c0325c8d889af666f7343c969958f333a64481c3b5d6ccc21"
+      },
+      {
+        "label": "East survey around occlusion",
+        "sim": 71.30000000000001,
+        "video_frame": 232,
+        "video_seconds": 58.0,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/review/05.png",
+        "sha256": "00b0f1f67240cc7f3f931d6cfd765f5e321b7775a2e34ed4bf57ac6045d71c44"
+      },
+      {
+        "label": "Map ready: cyan A-B overview",
+        "sim": 90.9,
+        "video_frame": 310,
+        "video_seconds": 77.5,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/review/06.png",
+        "sha256": "6f43a370408e81d5d16dc01c13b05ac0a7129999ee91bc92e9eaf6744df23694"
+      },
+      {
+        "label": "Cart enters actual route",
+        "sim": 98.61999999995855,
+        "video_frame": 341,
+        "video_seconds": 85.25,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/review/07.png",
+        "sha256": "ad91f1fc067be833a31d20ac3aa646af755fd6320d9cd164f0a98ad62631e558"
+      },
+      {
+        "label": "Cart holds: robot waiting",
+        "sim": 105.31999999993594,
+        "video_frame": 368,
+        "video_seconds": 92.0,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/review/08.png",
+        "sha256": "c4df4901f1bf112d9ae3ede314f11342561d4e59a462bd42ad1e79fb3d50da1a"
+      },
+      {
+        "label": "Waiting near end of hold",
+        "sim": 109.21999999992686,
+        "video_frame": 383,
+        "video_seconds": 95.75,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/review/09.png",
+        "sha256": "36db5ffb5abf33f49b6542b1e9dfd6fdc72456df0df097f5f15979199ed695ae"
+      },
+      {
+        "label": "Cart withdraws",
+        "sim": 112.91999999991357,
+        "video_frame": 398,
+        "video_seconds": 99.5,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/review/10.png",
+        "sha256": "efba74206fffa0cf2aef09f873520a51d701ec7672f5cdedfeac883c682e3949"
+      },
+      {
+        "label": "Route clear: walking resumes",
+        "sim": 118.91999999991357,
+        "video_frame": 422,
+        "video_seconds": 105.5,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/review/11.png",
+        "sha256": "d2c9e88b757f6ac19aae9484d46e0f2ee068494d790c07e567e7db83c348aab4"
+      },
+      {
+        "label": "Final straight approach",
+        "sim": 136.14000000000001,
+        "video_frame": 491,
+        "video_seconds": 122.75,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/review/12.png",
+        "sha256": "473727d4b8f89bb5819a31a36da0a7e8afc510b649bbfb6244bbabd1f2958efb"
+      },
+      {
+        "label": "Verified B arrival",
+        "sim": 148.42000000000002,
+        "video_frame": 540,
+        "video_seconds": 135.0,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/review/13.png",
+        "sha256": "0231890b7c25ed4bea77555918816c0dd9cd61b3c011e197f352f7c8b5fb0ff7"
+      },
+      {
+        "label": "Safe-stop final view",
+        "sim": "end",
+        "video_frame": 610,
+        "video_seconds": 152.5,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/review/14.png",
+        "sha256": "fada6698db8bc37e07b6c910d8ebd840e6cb31ea948defaf4bc5d939d685fd20"
+      },
+      {
+        "label": "Post-run verified evidence",
+        "sim": "card",
+        "video_frame": 626,
+        "video_seconds": 156.5,
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/docs/evidence/advanced-optimization-visual/raw/recording-03/review/15.png",
+        "sha256": "db225214ee9b16c8cb91fcbf5ab05d2e7ef617c9e0e6b67c8e12b751c93b6cfb"
+      }
+    ],
+    "reviewer": "Primary agent, direct inspection using view_image; no delegation",
+    "reviewed_utc": "2026-10-16T09:15:45.866557+00:00",
+    "method": "Inspected all16 decoded video keyframes in four contact sheets; additionally inspected full-size frames06 and08, plus actual mapped screenshot.",
+    "findings": [
+      "A visible; initial limited map and red LiDAR visible.",
+      "Map grows through west/north/east; several physical walking turns and wide regions visible.",
+      "Cyan nonstraight A-B overview is separate from blue current execution segment; legend above wall remains readable.",
+      "Orange cart enters, holds across corridor; robot remains still and waiting state/plan age visible; cart retreats and robot proceeds.",
+      "Final B marker, verified arrival and safe-stop view visible.",
+      "Post-run evidence card is explicitly labelled; odometry and SLAM pause limitations disclosed."
+    ],
+    "limits": [
+      "4fps serial capture; wall elapsed time preserved, no speedup.",
+      "Occasional RViz frame-rate variation; no persistent unresponsive window or new graphics fault.",
+      "Geometry/safety counts derived from logs, not inferred from images."
+    ]
+  },
+  "frame_ledger_sha256": "7a92720e1318ba1db53c186d68dced485e4fd8e0f0ccd18b2e059e9bbffa3d12",
+  "all_capture_frame_hashes_verified": true
+}

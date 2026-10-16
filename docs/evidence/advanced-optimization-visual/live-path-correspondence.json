@@ -1,0 +1,244 @@
+{
+  "run_id": "20261016T090707Z_advanced_d2063f25-32cf-473b-bd06-ff6f2b578c7e",
+  "source_sha": "a19286279bfe0122d2a2ffb918b2ac6ae5d89579",
+  "status": "PASS_GEOMETRY_AND_OVERVIEW_PROVENANCE",
+  "initial_strict_byte_audit": "FAILED; retained unmodified. Exact-byte identity is not a valid necessary condition: CPU experiment reproduces unequal CDR bytes40..43 for equal decoded ROS messages.",
+  "display_paths": 23,
+  "planner_paths": 24,
+  "overview_paths": 1,
+  "all_display_geometry_and_frame_match_planner": true,
+  "matched_serialized_paths": 11,
+  "max_observed_delivery_lag_s": 0.05466667999985475,
+  "overview_never_displayed_as_execution": true,
+  "pairs": [
+    {
+      "display_sha256": "9577d516b633f0c40f5561d6d2252d938859166f4860f47b7a20d6aff0715802",
+      "planner_sha256": "ce5b6277eac0985686d3106f922202fc460e8f9bc039b5fea621b74eb26ebeed",
+      "geometry_sha256": "7c68287da28f0badf345b99fcf64da1c83d7e3023dfb8262900eeeb9087fd40d",
+      "lag_s": 0.005313010999998369,
+      "serialized_equal": false
+    },
+    {
+      "display_sha256": "10bcc58e96b11c1ac7ce9ae3f0055c8c98be2d4e8b60de349deff086115dc52f",
+      "planner_sha256": "b26f76edf3db272a25b387ff14077120e1331b217f046dd7feee95313acb3bfa",
+      "geometry_sha256": "51850e6f87ce289350781514db1b1a172fc7af905ebe22f0fd9faf8559bda273",
+      "lag_s": 0.0020068719998107554,
+      "serialized_equal": false
+    },
+    {
+      "display_sha256": "b6ab0440bbfce33ae35b5a837fdba1eed06093ae163c1bf37a13f78879294e3d",
+      "planner_sha256": "b6ab0440bbfce33ae35b5a837fdba1eed06093ae163c1bf37a13f78879294e3d",
+      "geometry_sha256": "d28985572b200517e3defd799fba360e1112b145907823a856e114714e83bc70",
+      "lag_s": 0.003504358000100183,
+      "serialized_equal": true
+    },
+    {
+      "display_sha256": "cd677fc8bf663a800e9e62f7a2c788eb1125da587850b3438c3f9a74c2f57615",
+      "planner_sha256": "cd677fc8bf663a800e9e62f7a2c788eb1125da587850b3438c3f9a74c2f57615",
+      "geometry_sha256": "91d7025fdab2e51b1ec139a6bf0b08efb5a02aeb7ddd2116d27555f50fbf7d62",
+      "lag_s": 0.005532947999881799,
+      "serialized_equal": true
+    },
+    {
+      "display_sha256": "530cab9a22b288965d614b1a78b1bb4942d136d5b00abeac49a7f1f2a6fbf7d0",
+      "planner_sha256": "530cab9a22b288965d614b1a78b1bb4942d136d5b00abeac49a7f1f2a6fbf7d0",
+      "geometry_sha256": "f80eecb2ce3bf6ebf13140c499cd4dac3cf831048c63328b0255f08332f20376",
+      "lag_s": 0.0032175359999655484,
+      "serialized_equal": true
+    },
+    {
+      "display_sha256": "01f8af701a124d67fb202e02c4fd1751a14b50d7ddffe26d5bd458386a222dac",
+      "planner_sha256": "f4b89fd4288197329c16f5b6f72e95a5df61d9f8fba7d8e9a242a36c6ca9927f",
+      "geometry_sha256": "39a61f38e6117318ec31cb646be5e2cc54bb4a421400da45a07d25636bc8471a",
+      "lag_s": 0.0074190010000165785,
+      "serialized_equal": false
+    },
+    {
+      "display_sha256": "1f7d14be38b7bc64ae3c003073312aa81a2a3178e9f3b6e07697d30b5e1eb535",
+      "planner_sha256": "4a5312133e60d7ed1a91fa6701747fce76525d2eb7c00994f460a73cd073bf39",
+      "geometry_sha256": "ab5fa06a74eced7ff3b3354df465c6f9e83bb36c27cb98a2c466d09c666e5274",
+      "lag_s": 0.0032658990000982158,
+      "serialized_equal": false
+    },
+    {
+      "display_sha256": "bdd042bf959da425009d67c82dd791cc2469f3a1a3d0202be9617056ea661968",
+      "planner_sha256": "a7262fa2cb0ae2c1ab46ec97cd4157427c29340f382bf5650587886bf375d391",
+      "geometry_sha256": "e5eacd9dc0fd3d07f83e0e51c83712c694b2ff1d4e13c28cf80cc558cd6b321d",
+      "lag_s": 0.009211665000066205,
+      "serialized_equal": false
+    },
+    {
+      "display_sha256": "a9df02fc24d62a0cb0f039e74aa7bfa35e3efa06c0e19ac8a756079fadc43b30",
+      "planner_sha256": "a9df02fc24d62a0cb0f039e74aa7bfa35e3efa06c0e19ac8a756079fadc43b30",
+      "geometry_sha256": "c37f616cfea124e79269b6afcf9306e65eb19d55e11ad232ac9b48a1a5e29b24",
+      "lag_s": 0.014148991999945792,
+      "serialized_equal": true
+    },
+    {
+      "display_sha256": "41eaf4ede46401de3eec3235f7b54d99d43b6e9b9bb6546bc9575fee5e05722e",
+      "planner_sha256": "f03ed0e4f4da4af8ccd16e94ee1cecd48c7f0765cad19cb55db81faee47d172c",
+      "geometry_sha256": "98585eee9a67fb7ec7b4698e1b821a673443175637d6317df95ad89a4bd0619c",
+      "lag_s": 0.009261048999860577,
+      "serialized_equal": false
+    },
+    {
+      "display_sha256": "02336df40a27f332c1a7fc739acf44a2fc5f0ee1b56040ac421662010d127964",
+      "planner_sha256": "02336df40a27f332c1a7fc739acf44a2fc5f0ee1b56040ac421662010d127964",
+      "geometry_sha256": "51d785a7d2c64f3815cc11e330aabba2c115a076e92b56929b98e9021a571221",
+      "lag_s": 0.05466667999985475,
+      "serialized_equal": true
+    },
+    {
+      "display_sha256": "79c2996b6082a64c5dccee475cb7a2d3923512dd35a0d0b94099b253428fcab2",
+      "planner_sha256": "8a26acf4302d6170023db719aa440bc27d4eac55b9d2d6b69c2795398787a7d4",
+      "geometry_sha256": "50be2b1640178dd88c1e098c59fbf1d43746c56b41db01931169612426dfdb22",
+      "lag_s": 0.011121748000050502,
+      "serialized_equal": false
+    },
+    {
+      "display_sha256": "94b3e6b50fdc84b5a18326e71b818d7a79859c800a19fd2ddb1c2ce78aa4a7e7",
+      "planner_sha256": "94b3e6b50fdc84b5a18326e71b818d7a79859c800a19fd2ddb1c2ce78aa4a7e7",
+      "geometry_sha256": "c9995677ff78f3a8cabc30ebe66f9acc620f06a337ab82cd0be91d54ab4a41f2",
+      "lag_s": 0.0021891270000651275,
+      "serialized_equal": true
+    },
+    {
+      "display_sha256": "3fc36ec25854f0dc06af0a8c56e8ee7d6d829d86199b5604a64763b89250728a",
+      "planner_sha256": "e39ae5dff934aa6cf90f470f0593eb9577f467174140ca941b302ec884986a9d",
+      "geometry_sha256": "37fe842d98c1741f28d813e782a0b7175cbcc3475607dd84f4f1436942922e5e",
+      "lag_s": 0.004276350000054663,
+      "serialized_equal": false
+    },
+    {
+      "display_sha256": "6c2eac7c82ae5c512ea60c8f290672c3f5cb1e54c8917d04ddf781c9b55c8976",
+      "planner_sha256": "6c2eac7c82ae5c512ea60c8f290672c3f5cb1e54c8917d04ddf781c9b55c8976",
+      "geometry_sha256": "6fefd8b13ceb131f82d7885882d46f722e9ef1951c0776ad8c8d965bf4e43b4f",
+      "lag_s": 0.0012334000000464584,
+      "serialized_equal": true
+    },
+    {
+      "display_sha256": "c62f92d145b66ade33ca25dbefb4d5e8c4a778485366f48c2aa09f241b0a87f6",
+      "planner_sha256": "c62f92d145b66ade33ca25dbefb4d5e8c4a778485366f48c2aa09f241b0a87f6",
+      "geometry_sha256": "495cc288f09663246ba2d8ae00aede24415a9d6a735f3d572ec3c481dd66af22",
+      "lag_s": 0.00653139399992142,
+      "serialized_equal": true
+    },
+    {
+      "display_sha256": "58388dde6a7487f6026c8f7dd60a77c5da4cd599652055cca566278424ec7ea0",
+      "planner_sha256": "b7096bcdea7faec180dd68bb7537d5519a5abc1a0e3b521d557dab94da387a45",
+      "geometry_sha256": "6d8c7d897facdf6f07400a0434b098745903ada553fc454c12adc78a61357dcd",
+      "lag_s": 0.005464289999963512,
+      "serialized_equal": false
+    },
+    {
+      "display_sha256": "69812328d7e7b433d3f7c7fbedc241c4aee3b991738531de5a9a7097147f646c",
+      "planner_sha256": "69812328d7e7b433d3f7c7fbedc241c4aee3b991738531de5a9a7097147f646c",
+      "geometry_sha256": "a4dfbe7079f80a96204c3d2bd3805e8845c20924eeeb5d08bdcae7224c0b5607",
+      "lag_s": 0.009930173999919134,
+      "serialized_equal": true
+    },
+    {
+      "display_sha256": "0bfefd9acfd71a4dc77422af0926c498912fb27d8765323f530e1f04730fe901",
+      "planner_sha256": "0bfefd9acfd71a4dc77422af0926c498912fb27d8765323f530e1f04730fe901",
+      "geometry_sha256": "3d45789ed7fae6d1d846452190cb8ae398928863fb9230191a032bdfaa20d421",
+      "lag_s": 0.039060930999994525,
+      "serialized_equal": true
+    },
+    {
+      "display_sha256": "e18886931d5f084b54232fb1fdf70308de120b0b8b5597c9099c34fd1eff973e",
+      "planner_sha256": "e18886931d5f084b54232fb1fdf70308de120b0b8b5597c9099c34fd1eff973e",
+      "geometry_sha256": "f489dc49293eaaccc2ff7639a357eae6e526778a3ef812333f27cbdb138a901c",
+      "lag_s": 0.0071462169998994796,
+      "serialized_equal": true
+    },
+    {
+      "display_sha256": "263dbd6d38d54d433e042a115884b4e7a330820f0d5f230e3766edf15af91873",
+      "planner_sha256": "baadf3ce8be232e1ced795583febf4b9b792183bd5736443aca2444bcfce9e88",
+      "geometry_sha256": "ce9034c1547c168c4859f3b36c98a5f21a8f09c7332804947030bd8ee97766e3",
+      "lag_s": 0.02158852799993838,
+      "serialized_equal": false
+    },
+    {
+      "display_sha256": "4e66d892f4097f396704a231b44d70443e5f3a3e02398ffdc1e21149b5bf9a77",
+      "planner_sha256": "701d0d383126d77074ae9eb6984d6b61c19e6e4fe2fee038a0c8641db03b13ce",
+      "geometry_sha256": "7650266531b132cfa573967eb4f364ee11908d368459a1c6402077275f1652f1",
+      "lag_s": 0.0019115669999791862,
+      "serialized_equal": false
+    },
+    {
+      "display_sha256": "cb7caa0605581905f8d990f8c5c08d25dbbdf154ef4518818b8f15b7d7d792a8",
+      "planner_sha256": "7e8a74d669aed9e1f854d89760f61807f7109ce86d28cfec74d686c67a510773",
+      "geometry_sha256": "10f660d633c759b796c0141f625da82a0e0feb323abbc5ccaa0a3e0ce02d1a83",
+      "lag_s": 0.002384680999966804,
+      "serialized_equal": false
+    }
+  ],
+  "cdr_roundtrip": [
+    {
+      "poses": 6,
+      "bytes": 460,
+      "distinct_serializations": 1,
+      "decoded_messages_all_equal": true,
+      "different_offsets": []
+    },
+    {
+      "poses": 10,
+      "bytes": 748,
+      "distinct_serializations": 1,
+      "decoded_messages_all_equal": true,
+      "different_offsets": []
+    },
+    {
+      "poses": 20,
+      "bytes": 1468,
+      "distinct_serializations": 1,
+      "decoded_messages_all_equal": true,
+      "different_offsets": []
+    },
+    {
+      "poses": 65,
+      "bytes": 4708,
+      "distinct_serializations": 2,
+      "decoded_messages_all_equal": true,
+      "different_offsets": [
+        42,
+        43
+      ]
+    },
+    {
+      "poses": 71,
+      "bytes": 5140,
+      "distinct_serializations": 2,
+      "decoded_messages_all_equal": true,
+      "different_offsets": [
+        40,
+        41,
+        42
+      ]
+    },
+    {
+      "poses": 139,
+      "bytes": 10036,
+      "distinct_serializations": 3,
+      "decoded_messages_all_equal": true,
+      "different_offsets": [
+        40,
+        41,
+        42,
+        43
+      ]
+    },
+    {
+      "poses": 809,
+      "bytes": 58276,
+      "distinct_serializations": 2,
+      "decoded_messages_all_equal": true,
+      "different_offsets": [
+        41,
+        42,
+        43
+      ]
+    }
+  ],
+  "scope": "All23 display trajectories match map frame and every pose position/orientation;11 additionally match whole serialized bytes. Remaining per-pose/header timestamp fields were not separately captured. Actual callback republishes the received message unchanged; CPU callback test checks equality. Serialization-only criterion is superseded based on reproducible no-GPU evidence, not silently marked PASS."
+}

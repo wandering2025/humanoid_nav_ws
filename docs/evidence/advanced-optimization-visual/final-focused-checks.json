@@ -1,0 +1,7 @@
+{
+  "implementation_sha": "405ba357689f566a485d945c797e192b4e981162",
+  "command": "Existing advanced contract + GPU watch tests under CPU guard",
+  "passed": 18,
+  "tests_log_sha256": "f3cc59d8e91f5bef7ad0018e4a482efcb7f865eb26b26cda35dd6e9faf382a1d",
+  "scope": "Advanced display asynchronous race and startup admission; prior full CPU194PASS/1 deselected and four-package build preserved. No runtime navigation or safety changes after2875228."
+}
