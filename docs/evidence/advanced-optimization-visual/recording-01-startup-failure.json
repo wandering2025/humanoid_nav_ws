@@ -1,0 +1,38 @@
+{
+  "run_id": "20261016T085709Z_advanced_114f805e-6872-48eb-b531-8586b3c98ef4",
+  "source_sha": "e027a31a166a2e528f72b2c9be53f9772f0ea312",
+  "status": "FAILED_STARTUP_ADMISSION",
+  "wrapper_exit": 1,
+  "renderer_started": false,
+  "new_gpu_fault": false,
+  "new_halt": false,
+  "reason": "No continuous5s<=40% GPU utilization during60s admission window; background utilization2..49%, mean28.44%, temperature53..57C, VRAM704..812MiB.",
+  "capture": {
+    "source_sha": "e027a31a166a2e528f72b2c9be53f9772f0ea312",
+    "run_id": "20261016T085709Z_advanced_114f805e-6872-48eb-b531-8586b3c98ef4",
+    "run_dir": "/home/haoyang/humanoid_nav_ws_advanced/run_data/advanced/20261016T085709Z_advanced_114f805e-6872-48eb-b531-8586b3c98ef4",
+    "start_mono": 1219.12074476,
+    "end_mono": 1339.217291347,
+    "frame_pairs": 0,
+    "window_ids": null,
+    "error": "RuntimeError('Ready screenshot deadline')",
+    "method": "Independent ImageMagick serial reads of MuJoCo and RViz, <=4 paired frames/s. No encoding during simulation."
+  },
+  "fix_sha": "2630a605d7909003464cadd46e14693a1f3816c0",
+  "advanced_startup_limit_pct": 60,
+  "default_startup_limit_pct": 40,
+  "unchanged_runtime_limits": {
+    "temperature_c": 75,
+    "memory_fraction": 0.7,
+    "memory_growth_mib": 768,
+    "utilization_pct": 95,
+    "high_load_s": 5
+  },
+  "tests": "17 passed; GPU admission boundaries and existing runtime fault guards plus advanced contracts",
+  "log_hashes": {
+    "advanced-opt-gpu-admission-tests.log": "74a9f4f9259985abd8c51e87abbd6304e7372b6398fff4673cab10bc05c34141",
+    "advanced-opt-visual-recording01.log": "03c406f397f54dc771b380f5dff792f739b9c897dff16927763107d4c98a91ac",
+    "advanced-opt-visual-contract-tests.log": "f83d9d610e658c2588951f9d5fcf5eb6869412bb3ff4984e533ea0cdb5fce58f",
+    "advanced-opt-visual-capture01.log": "c71dbee6a94960653a45e32f31750cf111f3b7ff1378055745ecc5233636e4c5"
+  }
+}
