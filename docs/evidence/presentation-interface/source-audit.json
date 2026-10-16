@@ -1,0 +1,44 @@
+{
+  "utc": "2026-10-16T10:39:16.317577+00:00",
+  "implementation_sha": "d7b4c1742776dfae9019f3c25241f7c9c51f04ea",
+  "run_ids": [
+    "20261016T102558Z_advanced_bb6bc3ae-7927-4029-af26-b8a1082e6f62",
+    "20261016T103421Z_advanced_3ef55d11-4de2-4e6d-baa7-3f685541e579"
+  ],
+  "runtime_source_unchanged_after_tests": true,
+  "stable_worktree_head": "0f51d54b1dbfdde0664966118b5546109a3f6ff2",
+  "stable_clean": true,
+  "tags_unchanged": {
+    "demo-v0.1.0": {
+      "object": "844036e69644272dce6178552dd10778e80d4d35",
+      "commit": "0f51d54b1dbfdde0664966118b5546109a3f6ff2"
+    },
+    "demo-v0.2.0": {
+      "object": "19466fc53775d30d96b5b76c0d9a5b2a440d0c95",
+      "commit": "b191ef6af36b0a3d611604cd9de922866167ce27"
+    },
+    "demo-v0.2.1": {
+      "object": "c0ad96785f77370f461ccbb6e063bf26e870b998",
+      "commit": "1172dc94466f57933163b919fa3bf3d8e27f993e"
+    }
+  },
+  "protected_files_identical": {
+    "scripts/run_demo.sh": "58ffe34829a5b6daa112a8e691842066627e73deee7106717082cb9b45e44d6f",
+    "src/t1_navigation/config/safety.yaml": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf",
+    "src/t1_navigation/config/navigation.yaml": "94ab4486b10599f6516954e45609d3db01ffef3cfee0a72b11058f55fcc2be13",
+    "src/t1_mujoco/config/command_map.yaml": "54b1e238b96fb4f1451a07f02bdb51cbce8a7f9009b7f44f54c5a82bbbc8813d",
+    "src/t1_bringup/t1_bringup/navigation_adapter.py": "15199a5ea3d80c6f2f8ff51cc0a8fc11be4697b8f08f752c2e14510d1d1d8edb",
+    "src/t1_bringup/t1_bringup/safety.py": "310f9bdd4960ce33ff82c78fc3d818c93972ec30cd3e4f7f066395bd813debdd",
+    "src/t1_mujoco/t1_mujoco/runner.py": "ebf0863116884e35aa2643da47112dcb2b00b37b30e3217200e2ae00b64a105b"
+  },
+  "scene_event_controller_gpu_sources_unchanged": true,
+  "simulator_changes_only_advanced_goal_metadata_and_visual_argument": true,
+  "external": {
+    "booster_deploy": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+    "booster_assets": "12a97516f57469078707afb587a5f84c1cb110d1"
+  },
+  "default_goal_restored_sha256": "908b1e7c90f499461e9c49b4dbb513e8920e41531987511e3d11c46703cae0b0",
+  "remaining_project_processes": [],
+  "dds_port_free": true,
+  "v01_regression_scope": "Source/tag/isolation audit only; no new stable runtime, driver changes or W13 work."
+}

@@ -1,0 +1,323 @@
+{
+  "code_sha": "c74a99214f205edb4efb6d8a07264ec4cd242539",
+  "dirty": null,
+  "status": "SUCCESS",
+  "presentation_goal_consistent": true,
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "body_clearance": {
+    "min_m": 2.1948129495878823,
+    "sim_time": 103.3199999999406,
+    "geom_pair": [
+      "t1_geom_015",
+      "obstacle_approach_slot"
+    ],
+    "samples": 1668,
+    "robot_geoms": 22,
+    "environment_geoms": 6,
+    "sample_hz": 10,
+    "definition": "signed 3D MuJoCo collision geometry distance; excludes ground/self/visual; sampled minimum, not continuous bound"
+  },
+  "settle": {
+    "settled": true,
+    "settle_start_sim": 140.01999999994047,
+    "settle_delay_s": 0.3999999999404622,
+    "pos_err_m": 0.09524937322463083,
+    "yaw_err_deg": 2.167702671724856
+  },
+  "controller_plugin": "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController",
+  "controller_goal_tolerances": [
+    0.2,
+    0.2
+  ],
+  "mapping_passes": 6,
+  "navigation_static_map_unchanged": true,
+  "dynamic": {
+    "protective_stationary_s": 0.0,
+    "scan_hit_frames": 600,
+    "triggered": true,
+    "finished": true,
+    "active_scan_hit_frames": 175,
+    "active_costmap_marked_frames": 32,
+    "replan": {
+      "active_motion_m": 0.8688699638532582,
+      "plan_deviation_m": 0.8126998746621674,
+      "robot_deviation_m": 0.20520050990970795,
+      "replanned_while_active": false,
+      "active_interval": [
+        99.21999999995016,
+        118.41999999990541
+      ],
+      "baseline_plan_sim": 93.14
+    },
+    "blocked_wait": {
+      "stationary_s": 14.099999999999781,
+      "resumed_m": 6.73770107780356
+    },
+    "verdict": "PASS",
+    "response": "BLOCKED_PATH_WAIT_AND_CONTINUE"
+  },
+  "nav2": {
+    "event": "result",
+    "goal": [
+      11.0,
+      0.5,
+      -1.5707963267948966
+    ],
+    "time_limit_s": 200.0,
+    "tolerances": {
+      "xy": 0.2,
+      "yaw": 0.2
+    },
+    "attempts": [
+      {
+        "stage": "approach",
+        "target": [
+          11.0,
+          2.0,
+          -1.5707963267948966
+        ],
+        "accepted_sim": 130.08,
+        "goal_id": "15412cff22d047f59ce64dacdbbb8cf0",
+        "status": "SUCCEEDED",
+        "end_sim": 130.56,
+        "error_code": 0
+      },
+      {
+        "stage": "goal",
+        "target": [
+          11.0,
+          0.5,
+          -1.5707963267948966
+        ],
+        "accepted_sim": 130.56,
+        "goal_id": "414163847c524445acaa09252b354e65",
+        "status": "SUCCEEDED",
+        "end_sim": 139.62,
+        "error_code": 0,
+        "verify_sim": 141.18,
+        "verified_pose": [
+          10.961656887232081,
+          0.5941563276182663,
+          -1.5380898224898933
+        ],
+        "xy_error": 0.10166419392928681,
+        "yaw_error": 0.032706504305003214
+      }
+    ],
+    "arm_attempts": 0,
+    "approach_distance": 1.5,
+    "accepted_sim": 130.08,
+    "goal_id": "15412cff22d047f59ce64dacdbbb8cf0",
+    "status": "SUCCEEDED",
+    "timed_out": false,
+    "end_sim": 141.18,
+    "duration_sim": 11.099999999999994,
+    "verified": {
+      "stage": "goal",
+      "target": [
+        11.0,
+        0.5,
+        -1.5707963267948966
+      ],
+      "accepted_sim": 130.56,
+      "goal_id": "414163847c524445acaa09252b354e65",
+      "status": "SUCCEEDED",
+      "end_sim": 139.62,
+      "error_code": 0,
+      "verify_sim": 141.18,
+      "verified_pose": [
+        10.961656887232081,
+        0.5941563276182663,
+        -1.5380898224898933
+      ],
+      "xy_error": 0.10166419392928681,
+      "yaw_error": 0.032706504305003214
+    },
+    "terminal_retries": 0,
+    "error_code": 0,
+    "nav2_success_sim": 139.62,
+    "exit": 0
+  },
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 6690.778314578,
+      "sim_time": 165.9,
+      "health_reason": ""
+    }
+  },
+  "slam_shutdown": {
+    "complete": true,
+    "transitions": [
+      {
+        "transition": 4,
+        "success": true,
+        "state": 2
+      },
+      {
+        "transition": 2,
+        "success": true,
+        "state": 1
+      }
+    ]
+  },
+  "graph_contract": {
+    "final_only_collision_monitor": true,
+    "obstacle_truth_isolated": true,
+    "robot_truth_isolated": true,
+    "no_initialpose": true,
+    "map_only_slam": true,
+    "map_odom_only_slam": true
+  },
+  "parent_exit_codes": {
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "rviz": 0,
+    "map_saver": 0,
+    "goal": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 42943,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 42944,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 42945,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 42946,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 42947,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 42948,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 43266,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 43440,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 43441,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 43442,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 43443,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 43444,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 43445,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 43456,
+      "exit_code": 0
+    }
+  },
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "dds_port_released": true,
+  "error": null,
+  "gpu_monitor_error": null,
+  "run_id": "20261016T103421Z_advanced_3ef55d11-4de2-4e6d-baa7-3f685541e579",
+  "presentation_goal": {
+    "schema": 1,
+    "frame": "map",
+    "source": "/home/haoyang/humanoid_nav_ws_advanced/presentation/goal.yaml",
+    "source_sha256": "0c9169a0aec692fcde8fdc9700b999ca3f61f9f4205a8ae600687ef4a191779f",
+    "source_text": "# Editable B-point interface. Read at EVERY advanced-demo launch.\n# Coordinates: metres in the ROS map frame; +X east, +Y north.\n# Allowed inclusive ranges: 11.0 <= x <= 12.0; -0.5 <= y <= 0.5.\n# Final heading is fixed south (-90 degrees). Do not add a yaw field.\n# Final handover is derived automatically as (x, y + 2.5).\n# Keep these ranges: they preserve wide static clearance, cart interaction,\n# the occluded A-to-B route and the existing straight walking approach.\n# Edit between runs; changes during a run apply to the NEXT run.\n# Validate with: ./scripts/run_advanced_demo.sh --check-goal\nschema: 1\nframe: map\ngoal:\n  x: 11.0\n  y: 0.5\n",
+    "goal": [
+      11.0,
+      0.5,
+      -1.5707963267948966
+    ],
+    "navigation_approach": [
+      11.0,
+      3.0,
+      -1.5707963267948966
+    ],
+    "selection_min_clearance_m": 3.0
+  },
+  "overview_length_m": 19.654652378154935,
+  "overview_endpoint": [
+    11.0,
+    0.5
+  ],
+  "derived_approach_received": [
+    11.0,
+    3.0,
+    -1.5707963267948966
+  ],
+  "artifacts": {
+    "run_data/advanced/20261016T103421Z_advanced_3ef55d11-4de2-4e6d-baa7-3f685541e579/final-result.json": "643669686a8f491883536a5e723dbcf529c33ccc504ed774f06c92097323f920",
+    "run_data/advanced/20261016T103421Z_advanced_3ef55d11-4de2-4e6d-baa7-3f685541e579/presentation-goal.json": "cd21ba7bc9373faddc078370781314ce2d7295ab825f6cf75e4e788efa067fc2",
+    "run_data/20261016T103421Z_advanced_3ef55d11-4de2-4e6d-baa7-3f685541e579/manifest.json": "bc850e9c661b03bd6c781290f4e62007e44c6b649c120c8b3e7d49e0b55d9008"
+  },
+  "gpu_peak": {
+    "temperature_c": 61.0,
+    "memory_mib": 1180.0,
+    "utilization_pct": 59.0
+  },
+  "screenshots": {
+    "arrived-mujoco.png": {
+      "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/advanced/20261016T103421Z_advanced_3ef55d11-4de2-4e6d-baa7-3f685541e579/arrived-mujoco.png",
+      "sha256": "e97d24acada32cb2fde0844bf2c271b91476dcba4b982f5a20c8584d12c76451"
+    },
+    "ready-mujoco.png": {
+      "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/advanced/20261016T103421Z_advanced_3ef55d11-4de2-4e6d-baa7-3f685541e579/ready-mujoco.png",
+      "sha256": "bf169906d9c3e7c96deaa490740ee578669ebab8ad1823e032b8305a1cffb58d"
+    },
+    "mapped-mujoco.png": {
+      "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/advanced/20261016T103421Z_advanced_3ef55d11-4de2-4e6d-baa7-3f685541e579/mapped-mujoco.png",
+      "sha256": "a4b8dcf049d8da7d6be7e80b10f918fdd6d058ecc6a6ea81fe08ed331ec28805"
+    },
+    "mapped-rviz.png": {
+      "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/advanced/20261016T103421Z_advanced_3ef55d11-4de2-4e6d-baa7-3f685541e579/mapped-rviz.png",
+      "sha256": "fefe387ffb8b4c712be9ef3c017effcb37d547b3bb0c3e594cb3dc9e22df2170"
+    },
+    "arrived-rviz.png": {
+      "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/advanced/20261016T103421Z_advanced_3ef55d11-4de2-4e6d-baa7-3f685541e579/arrived-rviz.png",
+      "sha256": "4c0ee7a423db11c950c9c7f265e7e5738b6f114b1be7f6f50bf3606d4ffbce71"
+    },
+    "ready-rviz.png": {
+      "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/advanced/20261016T103421Z_advanced_3ef55d11-4de2-4e6d-baa7-3f685541e579/ready-rviz.png",
+      "sha256": "b5b7a5c5e6839e6b0adb09d5c7025ae1a3dc9d877e69d04fd2f9f092308d1b4c"
+    }
+  },
+  "visual_review": {
+    "status": "PASS",
+    "method": "Primary agent directly inspected actual ready MuJoCo/RViz images from minimal run and full changed-goal arrived MuJoCo/RViz screenshots using view_image.",
+    "findings": "B marker at changed target; real robot at B; RViz shows acquired map, actual trail, separate A-B overview and reached state. No visual or physical geometry modifications beyond render-only marker coordinates."
+  }
+}

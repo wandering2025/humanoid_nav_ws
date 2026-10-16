@@ -1,0 +1,39 @@
+{
+  "implementation_sha": "d7b4c1742776dfae9019f3c25241f7c9c51f04ea",
+  "focused_tests_pass": 27,
+  "full_tests_pass": 214,
+  "historical_v01_only_source_assertion_deselected": 1,
+  "system_colcon_packages": 4,
+  "cli": {
+    "checks": [
+      {
+        "x": 12.01,
+        "y": 0.0,
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Invalid presentation/goal.yaml: goal.x must be in [11.0, 12.0] metres (inclusive)\n"
+      },
+      {
+        "x": 11.0,
+        "y": 0.0,
+        "exit": 0,
+        "stdout": "{\n  \"schema\": 1,\n  \"frame\": \"map\",\n  \"source\": \"/home/haoyang/humanoid_nav_ws_advanced/presentation/goal.yaml\",\n  \"source_sha256\": \"380b50951b1c7b31d8a490f1f5982f8ed5b07e3517d948b025a9153bae24d18a\",\n  \"source_text\": \"# Editable B-point interface. Read at EVERY advanced-demo launch.\\n# Coordinates: metres in the ROS map frame; +X east, +Y north.\\n# Allowed inclusive ranges: 11.0 <= x <= 12.0; -0.5 <= y <= 0.5.\\n# Final heading is fixed south (-90 degrees). Do not add a yaw field.\\n# Final handover is derived automatically as (x, y + 2.5).\\n# Keep these ranges: they preserve wide static clearance, cart interaction,\\n# the occluded A-to-B route and the existing straight walking approach.\\n# Edit between runs; changes during a run apply to the NEXT run.\\n# Validate with: ./scripts/run_advanced_demo.sh --check-goal\\nschema: 1\\nframe: map\\ngoal:\\n  x: 11.0\\n  y: 0.0\\n\",\n  \"goal\": [\n    11.0,\n    0.0,\n    -1.5707963267948966\n  ],\n  \"navigation_approach\": [\n    11.0,\n    2.5,\n    -1.5707963267948966\n  ],\n  \"selection_min_clearance_m\": 3.0\n}\n",
+        "stderr": ""
+      }
+    ],
+    "no_run_directories_created": true,
+    "original_file_restored": true
+  },
+  "source_logs": {
+    "presentation-changed-run.log": "a2afb8a063b47e3cbe17ae417b36c2cbc68a0050ea82d6cf440a20268810db0c",
+    "presentation-changed-check-goal.log": "cd21ba7bc9373faddc078370781314ce2d7295ab825f6cf75e4e788efa067fc2",
+    "presentation-default-run.log": "5d7c2cb4c027b58b7a4176464f1d6decda64b3d1b69bd26ac03278f86e6756cf",
+    "presentation-interface-check-goal.log": "1bd7b6daef54711c4397d483a733298cb7090965eff2ac1df0ee9e66276df04a",
+    "presentation-changed-startup.log": "3b9651b0391ff925d609c461cb1141cc2e84f5e475331709f84095f5762e9d95",
+    "presentation-interface-build.log": "e96688416a127244fc5ce238ec82de0a615fffc2b11f377eee7bc2724fde621f",
+    "presentation-interface-full-tests.log": "7cd806daa5a96bf129ea792c3d586732c37eddbc0801d1113b691144a8776cec",
+    "presentation-interface-tests.log": "9cee0a98eeb773b9083a010280f88bb875952c8b2929a5e31494ec0d25f9e736",
+    "presentation-changed-marker-audit.log": "85b3f30abd723bec8c5870a95e20c947c6ab6984dd6155b9f6eff11c366251b4",
+    "presentation-interface-cli-checks.json": "ad629f86969bb639c3aad86cc97db49f7e424d9c280dc84b266d4b858ffc6a12"
+  }
+}

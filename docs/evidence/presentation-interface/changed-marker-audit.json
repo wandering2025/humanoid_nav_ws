@@ -1,0 +1,47 @@
+{
+  "run_id": "20261016T103421Z_advanced_3ef55d11-4de2-4e6d-baa7-3f685541e579",
+  "goal": [
+    11.0,
+    0.5,
+    -1.5707963267948966
+  ],
+  "source_sha256": "0c9169a0aec692fcde8fdc9700b999ca3f61f9f4205a8ae600687ef4a191779f",
+  "observations": {
+    "markers": 810,
+    "overviews": 1
+  },
+  "marker_centres": [
+    [
+      11.0,
+      0.49999999999999994
+    ]
+  ],
+  "overview_endpoints": [
+    [
+      11.0,
+      0.5
+    ]
+  ],
+  "phases": [
+    "Live LiDAR SLAM",
+    "Guided mapping 1/6",
+    "Guided mapping 2/6",
+    "Guided mapping 3/6",
+    "Guided mapping 4/6",
+    "Guided mapping 5/6",
+    "Guided mapping 6/6",
+    "Map ready - continue from here",
+    "Waiting / replanning - last plan shown",
+    "Mapped navigation: odom + live LiDAR",
+    "Waiting / replanning - last plan shown",
+    "Mapped navigation: odom + live LiDAR",
+    "Final walking approach to B",
+    "Waiting / replanning - last plan shown",
+    "B reached - confirming safe stop",
+    "Arrived - safely stopped"
+  ],
+  "errors": [],
+  "duration_wall_s": 156.32856580499993,
+  "scope": "Actual readonly ROS marker/Path subscriptions, no motion publishers. MuJoCo marker separately inspected in actual arrival screenshot and tested for physical/ray isolation.",
+  "status": "PASS"
+}
