@@ -1,0 +1,13 @@
+{
+  "run_id": "20261016T090042Z_advanced_ba68d227-7194-4848-a9ec-deef22777d90",
+  "runtime_status": "SUCCESS",
+  "visual_status": "FAILED_OVERVIEW_MISLABEL",
+  "capture_pairs": 579,
+  "capture_error": null,
+  "encoded_for_release": false,
+  "issue": "Delayed /plan callback can arrive after ComputePathToPose result and computing_overview flag resets; display-only A-B overview temporarily appears blue as execution path.",
+  "screenshot": "/home/haoyang/humanoid_nav_ws_advanced/run_data/advanced/20261016T090042Z_advanced_ba68d227-7194-4848-a9ec-deef22777d90/mapped-rviz.png",
+  "screenshot_sha256": "e51dc735ce60b6623652de636b12d2803c4ef8c42d816d8caf21b2fbd814dd80",
+  "fix_sha": "405ba357689f566a485d945c797e192b4e981162",
+  "validation": "18 CPU checks pass, including delayed reordered overview with differing stamps rejected and actual execution path forwarded byte-identically; full-mission topic audit and new recording follow."
+}
