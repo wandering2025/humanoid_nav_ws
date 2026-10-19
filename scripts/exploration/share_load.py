@@ -13,6 +13,7 @@ import signal
 import subprocess
 import sys
 import time
+import resource
 
 WS = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(WS/'scripts/demo'), str(WS/'scripts/advanced')]
@@ -40,7 +41,7 @@ def main():
     result = dict(started_utc=datetime.now(timezone.utc).isoformat(),
                   run=str(args.run), method='serial ImageMagick window reads + CPU H264',
                   proxy_only=True, meeting_application_tested=False, guard=guard,
-                  requested_fps=15, width=1280, height=720, samples=0, encoded_frames=0)
+                  requested_fps=15, width=1920, height=1080, samples=0, encoded_frames=0)
     writer = None
     begun = time.monotonic()
     frames = args.output/'samples.jsonl'
@@ -61,14 +62,14 @@ def main():
             raise RuntimeError(f'Both existing windows required: {ids}')
         result['window_ids'] = ids
         writer = cv2.VideoWriter(str(args.output/'share-proxy.mp4'),
-            cv2.VideoWriter_fourcc(*'avc1'), 15., (1280,720))
+            cv2.VideoWriter_fourcc(*'avc1'), 15., (1920,1080))
         if not writer.isOpened():
             raise RuntimeError('Existing CPU H264 encoder unavailable')
         start = time.monotonic()
         result['capture_started_mono'] = start
         while not STOP and time.monotonic()-start < args.seconds:
             tick = time.monotonic()
-            canvas = np.zeros((720,1280,3), dtype=np.uint8)
+            canvas = np.zeros((1080,1920,3), dtype=np.uint8)
             for index, name in enumerate(('MuJoCo','RViz')):
                 raw = subprocess.run(['import','-window',str(ids[name]),'-depth','8','ppm:-'],
                     capture_output=True, timeout=3, check=True,
@@ -77,9 +78,9 @@ def main():
                 if frame is None:
                     raise RuntimeError('Window capture decode failed')
                 height,width = frame.shape[:2]
-                scale = min(640/width,720/height)
+                scale = min(960/width,1080/height)
                 frame = cv2.resize(frame,(int(width*scale),int(height*scale)))
-                y=(720-frame.shape[0])//2; x=index*640+(640-frame.shape[1])//2
+                y=(1080-frame.shape[0])//2; x=index*960+(960-frame.shape[1])//2
                 canvas[y:y+frame.shape[0],x:x+frame.shape[1]]=frame
             # Preserve wall duration when serial capture is slower than 15 fps.
             # Report unique samples separately; repeats are never called new captures.
@@ -103,6 +104,12 @@ def main():
             writer.release()
         result['finished_utc']=datetime.now(timezone.utc).isoformat()
         result['wall_s']=time.monotonic()-begun
+        if result.get('capture_wall_s'):
+            result['unique_capture_fps']=result['samples']/result['capture_wall_s']
+            result['encoded_fps']=result['encoded_frames']/result['capture_wall_s']
+        result['self_cpu_s']=time.process_time()
+        children=resource.getrusage(resource.RUSAGE_CHILDREN)
+        result['capture_children_cpu_s']=children.ru_utime+children.ru_stime
         (args.output/'result.json').write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result),flush=True)
     return 0 if result['status']=='STOPPED' and result['samples']>10 else 1
