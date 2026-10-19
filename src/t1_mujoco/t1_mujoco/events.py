@@ -25,6 +25,14 @@ def load_scenario(path, name):
     vector(scenario['start'], 2, 'event start')
     if not math.isfinite(scenario['trigger_x']) or scenario['trigger_x'] < 0:
         raise ValueError('invalid event trigger')
+    approach = scenario.get('trigger_approach')
+    if approach is not None:
+        keys = {'y_min', 'y_max', 'heading', 'heading_tolerance'}
+        if (not isinstance(approach, dict) or set(approach) != keys
+                or any(type(v) not in (int, float) or not math.isfinite(v) for v in approach.values())
+                or approach['y_min'] >= approach['y_max']
+                or not 0 < approach['heading_tolerance'] <= math.pi):
+            raise ValueError('invalid event trigger_approach')
     if type(scenario['seed']) is not int or scenario['seed'] < 0:
         raise ValueError('invalid event seed')
     for leg in scenario['legs']:
@@ -37,6 +45,19 @@ def load_scenario(path, name):
         raise ValueError('event needs a trajectory')
     return scenario, dict(path=str(source.resolve()), sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
                           scenario=name, seed=scenario['seed'], scene=data['scene'])
+
+
+def approach_ready(scenario, qpos):
+    """Simulator-only physical pose gate; no map, planner or mission feedback."""
+    approach = scenario.get('trigger_approach')
+    if approach is None:
+        return True
+    if not approach['y_min'] <= qpos[1] <= approach['y_max']:
+        return False
+    w, x, y, z = qpos[3:7]
+    yaw = math.atan2(2*(w*z+x*y), 1-2*(y*y+z*z))
+    error = math.atan2(math.sin(yaw-approach['heading']), math.cos(yaw-approach['heading']))
+    return abs(error) <= approach['heading_tolerance']
 
 
 class SceneEvents:
@@ -75,6 +96,7 @@ class SceneEvents:
         d = self.runner.mj_data
         if (self.enable_requested.is_set() and self.triggered_at is None and self.runner.state == 'READY'
                 and d.qpos[0] >= self.scenario['trigger_x']
+                and approach_ready(self.scenario, d.qpos)
                 and self.runner.incoming[0] > .1):
             self.triggered_at = float(d.time)
             if self.log:

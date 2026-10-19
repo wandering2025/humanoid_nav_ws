@@ -1,0 +1,16 @@
+{
+  "build": {
+    "status": "PASS",
+    "packages": 4,
+    "log": "../raw/reliability-build-01.log"
+  },
+  "cpu": {
+    "passed": 250,
+    "deselected": 1,
+    "log": "../raw/reliability-cpu-05.log",
+    "exclusion": "known historical v0.1 full-source equality assertion test_simulation_changes_are_only_view_copy_hooks; failure retained in cpu-03"
+  },
+  "physical_repetition": "PENDING; reset all acceptance counts after trigger change",
+  "runtime_change": "simulator-only optional physical approach gate; EXP01 only opts in",
+  "original_result": "1 complete GUI PASS / 1 dynamic-demo FAIL; both reached B safely"
+}

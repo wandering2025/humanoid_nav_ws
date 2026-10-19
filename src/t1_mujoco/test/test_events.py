@@ -2,11 +2,12 @@
 from pathlib import Path
 from types import SimpleNamespace
 import threading
+import math
 
 import numpy as np
 import pytest
 
-from t1_mujoco.events import SceneEvents, load_scenario
+from t1_mujoco.events import SceneEvents, approach_ready, load_scenario
 from t1_mujoco.simulation import parameter_defaults, validate_parameters
 
 EVENTS = Path(__file__).parents[2]/'t1_bringup/config/w12_events.yaml'
@@ -74,3 +75,36 @@ def test_reject_invalid_event_speed(tmp_path):
     path = tmp_path/'events.yaml'; path.write_text(text)
     with pytest.raises(ValueError, match='event speed'):
         load_scenario(path, 'approach')
+
+
+def test_exploration_approach_requires_nearby_southward_motion():
+    path = EVENTS.with_name('exploration_events.yaml')
+    scenario, _ = load_scenario(path, 'EXP01')
+    def pose(y, yaw):
+        return np.array([11., y, .67, math.cos(yaw/2), 0., 0., math.sin(yaw/2)])
+    # Original failure: crossed x threshold while still exploring eastward.
+    assert not approach_ready(scenario, pose(7.66, -.44))
+    assert not approach_ready(scenario, pose(6.1, -.44))
+    assert not approach_ready(scenario, pose(6.1, 2.8))
+    assert not approach_ready(scenario, pose(8., -math.pi/2))
+    assert not approach_ready(scenario, pose(4., -math.pi/2))
+    for y in (5.6, 6.5, 7.4):
+        assert approach_ready(scenario, pose(y, -math.pi/2))
+        assert approach_ready(scenario, pose(y, 3*math.pi/2))
+    legacy, _ = load_scenario(EVENTS, 'approach')
+    assert approach_ready(legacy, pose(7.66, -.44))
+
+
+@pytest.mark.parametrize('gate', [False, {}, {'y_min': 0},
+    dict(y_min=7.4, y_max=5.6, heading=0., heading_tolerance=.6),
+    dict(y_min=5.6, y_max=7.4, heading=float('nan'), heading_tolerance=.6),
+    dict(y_min=5.6, y_max=7.4, heading=0., heading_tolerance=True),
+    dict(y_min=5.6, y_max=7.4, heading=0., heading_tolerance=0.)])
+def test_reject_invalid_approach_conditions(tmp_path, gate):
+    import yaml
+    path = EVENTS.with_name('exploration_events.yaml')
+    data = yaml.safe_load(path.read_text())
+    data['scenarios']['EXP01']['trigger_approach'] = gate
+    out = tmp_path/'events.yaml'; out.write_text(yaml.safe_dump(data))
+    with pytest.raises(ValueError, match='trigger_approach'):
+        load_scenario(out, 'EXP01')

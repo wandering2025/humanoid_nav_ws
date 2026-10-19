@@ -1,0 +1,35 @@
+{
+  "label": "base-02",
+  "profile": "default",
+  "cancel": null,
+  "hold_s": 0.0,
+  "started_utc": "2026-10-19T22:44:15.921079+00:00",
+  "command": [
+    "/home/haoyang/humanoid_nav_ws_advanced/scripts/run_exploration_demo.sh"
+  ],
+  "code_sha": "ae30baaa851ba06b12048d668a2e9f67787bab8e",
+  "run": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T224415Z_exploration_82b70325-2c88-47c1-b1fe-590d5538f379",
+  "status": "FAIL",
+  "launcher_pid": 117651,
+  "launcher_exit": 1,
+  "load_exit": null,
+  "finished_utc": "2026-10-19T22:48:13.806416+00:00",
+  "wall_s": 232.0036206090008,
+  "mission_status": "FAILED",
+  "readiness_wall_s": 15.082016910000675,
+  "dynamic": {
+    "triggered": true,
+    "finished": true,
+    "actual_travel_m": 6.800000000000001,
+    "active_scan_hit_frames": 177,
+    "active_costmap_marked_frames": 37,
+    "blocked_wait": {
+      "stationary_s": 0.0,
+      "resumed_m": 7.455626629794053
+    },
+    "verdict": "FAIL",
+    "response": "UNVERIFIED"
+  },
+  "final_error_m": 0.089549167949907,
+  "audit_exit": 1
+}

@@ -1,0 +1,25 @@
+{
+  "method": "offline measured pose replay; does not predict the changed closed loop",
+  "runs": [
+    {
+      "run_id": "20261019T223916Z_exploration_fbab0dd9-d0e7-4d67-a969-9632f6324455",
+      "old_trigger": 80.14599999999461,
+      "new_first_eligible": {
+        "sim": 84.60000000000001,
+        "x": 10.80501808734353,
+        "y": 6.171918643094793,
+        "yaw": -1.4416060744800667
+      }
+    },
+    {
+      "run_id": "20261019T224415Z_exploration_82b70325-2c88-47c1-b1fe-590d5538f379",
+      "old_trigger": 87.37199999997777,
+      "new_first_eligible": {
+        "sim": 116.38000000000001,
+        "x": 12.773569583846157,
+        "y": 6.722427261800592,
+        "yaw": -2.145836743128752
+      }
+    }
+  ]
+}
