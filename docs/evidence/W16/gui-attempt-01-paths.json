@@ -1,0 +1,196 @@
+{
+  "run_id": "20261019T214458Z_exploration_2ee32754-a9df-44f3-b085-4c70a33069b1",
+  "code_sha": "6920eaa0b29a60c13434fe031caf2e19e4fc413a",
+  "status": "FAILED",
+  "raw_path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T214458Z_exploration_2ee32754-a9df-44f3-b085-4c70a33069b1",
+  "arrived": false,
+  "error": "RuntimeError('Exploration failed: {\\'status\\': \\'FAILED\\', \\'task\\': {\\'schema\\': 1, \\'frame\\': \\'start\\', \\'offset\\': [11.0, 0.5], \\'source_sha256\\': \\'b9e83c12fdf595f32d56ac6bc6e602fd4c7e7cf1e02d564893521554d117396d\\'}, \\'arrival_position_tolerance_m\\': 0.3, \\'anchor_odom\\': [0.0043775797537012814, -0.014109307963673694, 0.05137506050468389], \\'goal_odom\\': [10.964187857970632, 1.0501080878208984], \\'error\\': \"TimeoutError(\\'ROS operation deadline\\')\", \\'finished_sim\\': 83.4, \\'decisions\\': 6}')",
+  "exploration": {
+    "status": "FAILED",
+    "task": {
+      "schema": 1,
+      "frame": "start",
+      "offset": [
+        11.0,
+        0.5
+      ],
+      "source_sha256": "b9e83c12fdf595f32d56ac6bc6e602fd4c7e7cf1e02d564893521554d117396d"
+    },
+    "arrival_position_tolerance_m": 0.3,
+    "anchor_odom": [
+      0.0043775797537012814,
+      -0.014109307963673694,
+      0.05137506050468389
+    ],
+    "goal_odom": [
+      10.964187857970632,
+      1.0501080878208984
+    ],
+    "error": "TimeoutError('ROS operation deadline')",
+    "finished_sim": 83.4,
+    "decisions": 6
+  },
+  "truth_final_error_m": 9.120919374311187,
+  "truth_final_hold_max_error_m": 9.120919374311187,
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 16357.684237721,
+      "sim_time": 88.30000000000001,
+      "health_reason": ""
+    }
+  },
+  "dynamic": {
+    "triggered": false,
+    "finished": false,
+    "actual_travel_m": 0.0,
+    "active_scan_hit_frames": 0,
+    "active_costmap_marked_frames": 0,
+    "blocked_wait": {
+      "stationary_s": 0.0,
+      "resumed_m": 0.0
+    },
+    "verdict": "FAIL",
+    "response": "UNVERIFIED"
+  },
+  "static_control": false,
+  "graph_contract": {
+    "map_only_slam": true,
+    "explorer_reads_map": true,
+    "explorer_reads_live_costmap": true,
+    "truth_isolated": true,
+    "obstacle_truth_isolated": true,
+    "final_only_collision_monitor": true,
+    "map_odom_only_slam": true,
+    "no_initialpose": true,
+    "physical_obstacle_count": true,
+    "raw_scan_only_simulator": true,
+    "safety_reads_raw_scan": true,
+    "nav2_reads_raw_scan": true,
+    "mapping_filter_only": true,
+    "slam_reads_filtered_scan": true
+  },
+  "infrastructure_valid": true,
+  "parent_exit_codes": {
+    "scan_filter": 0,
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "rviz": 0,
+    "map_saver": 0,
+    "goal": 2
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 78574,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 78575,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 78576,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 78577,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 78578,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 78579,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 78895,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 79042,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 79043,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 79044,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 79045,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 79046,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 79047,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 79058,
+      "exit_code": 0
+    }
+  },
+  "dds_port_released": true,
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "scene": "advanced_world",
+  "decision_count": 3,
+  "exploration_target_count": 3,
+  "event_counts": {
+    "action_result": 1,
+    "decision": 3,
+    "failure": 1,
+    "frontier_invalidated_by_observation": 2,
+    "navigate": 3,
+    "start": 1,
+    "temporarily_blocked": 1
+  },
+  "path_replay": [
+    {
+      "snapshot": "map-001.npz",
+      "sha256": "dea4ea274244ba3c4b70f7ba93544cea3d5c93346808a8de741e58ee0eae2029",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-003.npz",
+      "sha256": "a28fbe4c5849a4a9ba6acc37bce9197e7fe6e6c21b785bba6d6b31ccd41e5855",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-005.npz",
+      "sha256": "025be54f93a35ebc5de82c9ff49e5ca6dfef7460e9f42eee2285fda97d376190",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    }
+  ],
+  "all_selected_paths_observed": true,
+  "trajectory_y_range": [
+    -0.06842669471283218,
+    1.2047025784933525
+  ],
+  "trajectory_length_m": 3.1381856839428446
+}

@@ -1,0 +1,101 @@
+{
+  "run_id": "20261019T214913Z_exploration_daae14be-969d-43b3-ab78-edaa6f65f3f9",
+  "code_sha": "499a0062b31b5164b4fe98bdaca4ee9fe548858a",
+  "status": "FAILED",
+  "error": "RuntimeError('Exploration failed: {\\'status\\': \\'FAILED\\', \\'task\\': {\\'schema\\': 1, \\'frame\\': \\'start\\', \\'offset\\': [11.0, 0.5], \\'source_sha256\\': \\'b9e83c12fdf595f32d56ac6bc6e602fd4c7e7cf1e02d564893521554d117396d\\'}, \\'arrival_position_tolerance_m\\': 0.3, \\'anchor_odom\\': [0.004367703442877308, -0.01444075667271239, 0.05510511180047927], \\'goal_odom\\': [10.96013216200784, 1.0906497954743692], \\'error\\': \\'RuntimeError(\"exploration safety latch: {\\\\\\'state\\\\\\': \\\\\\'STOPPED\\\\\\', \\\\\\'reason\\\\\\': \\\\\\'STALE_scan\\\\\\', \\\\\\'source\\\\\\': \\\\\\'navigation\\\\\\', \\\\\\'permit\\\\\\': False, \\\\\\'wall_mono\\\\\\': 16563.87696998, \\\\\\'sim_time\\\\\\': 49.5, \\\\\\'health_reason\\\\\\': \\\\\\'STALE_scan\\\\\\'}\")\\', \\'finished_sim\\': 49.5, \\'decisions\\': 5}')",
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 16568.897841561,
+      "sim_time": 53.84,
+      "health_reason": ""
+    }
+  },
+  "parent_exit_codes": {
+    "scan_filter": 0,
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "rviz": 0,
+    "map_saver": 0,
+    "goal": 2
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 81955,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 81956,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 81957,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 81958,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 81959,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 81960,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 82249,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 82400,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 82401,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 82402,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 82403,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 82404,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 82405,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 82416,
+      "exit_code": 0
+    }
+  },
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "dds_port_released": true,
+  "gpu_monitor_error": null,
+  "display_coordinates_consistent": true,
+  "raw_path": "run_data/exploration/20261019T214913Z_exploration_daae14be-969d-43b3-ab78-edaa6f65f3f9",
+  "cause_evidence": "Physical scan wall gap 0.3796 s at sim 49.5 exceeded frozen 0.3 s health budget; STALE_scan latched. No TF extrapolation during navigation after mapping optimization.",
+  "physical_scan_wall_gap_s": 0.379637933,
+  "mapping_max_output_age_s": 0.04
+}

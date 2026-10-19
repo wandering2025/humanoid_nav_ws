@@ -31,6 +31,8 @@ def audit(run):
                     size = list(im.size); im.verify()
                 screenshots[stage].append(dict(path=str(path),sha256=sha(path),size=size))
     samples = [json.loads(l) for l in (run/'gpu/gpu-samples.jsonl').read_text().splitlines()]
+    scans = [json.loads(l) for l in (run/'scan-filter.jsonl').read_text().splitlines()]
+    maximum_age = max(s['output_age_s'] for s in scans)
     renderer = [line for line in (run/'rviz.log').read_text().splitlines()
                 if line.startswith('OpenGL renderer string:')]
     source_paths = ('scripts/run_exploration_demo.sh','scripts/exploration/demo.py',
@@ -58,6 +60,7 @@ def audit(run):
         actual_explorer_coordinates=result.get('display_coordinates_consistent') is True,
         expected_renderer=len(renderer)==1 and 'NVIDIA GeForce RTX 4050' in renderer[0],
         gpu_monitor_clean=bool(samples) and 'gpu_monitor_error' in result and result['gpu_monitor_error'] is None,
+        mapping_latency_bounded=maximum_age<=.2,
         all_processes_exit_zero=all(v==0 for v in result['parent_exit_codes'].values())
             and all(v['exit_code']==0 for v in result['launch_process_exit_codes'].values()),
         no_processes_or_port=not result['remaining_owned_pids'] and not result['remaining_project_processes']
@@ -69,6 +72,7 @@ def audit(run):
         renderer=renderer,gpu_peak={key:max(s[key] for s in samples)
             for key in ('temperature_c','memory_mib','utilization_pct')},
         display_start=result.get('display_start'),dynamic=dynamic,
+        mapping_max_output_age_s=maximum_age,
         truth_final_hold_max_error_m=result['truth_final_hold_max_error_m'],
         decision_count=paths['decision_count'],path_replay=paths['path_replay'])
 

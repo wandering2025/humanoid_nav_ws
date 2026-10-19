@@ -67,3 +67,5 @@ A 定义为探索开始、机器人就绪站立时的 base_footprint 坐标系�
 运行保存ready/dynamic/arrived实际窗口截图、GPU监控、显示坐标与导航结果一致性检查；到达后保留窗口8秒再按原流程停车清理（--hold除外）。本轮不改presentation/，待用户测试反馈后再加入新命令。
 
 图形负载下的建图实时性：scan_history以整数tuple集合去重代替逐帧结构数组排序，保留原格子和每帧确认计数；120帧包含转向、移动障碍与非有限量程的差分测试对旧实现完全一致。建图分支订阅/待处理队列深度1，允许丢弃被更新帧替代的旧scan，始终按实际scan原时间戳查TF并发布；不重写时间戳，不改SLAM参数/导航或安全阈值。记录output_age_s用于验证负载时延。原始scan发布及Nav2/CM订阅均未改变。
+
+W16单独复制原w12_mapping_runtime.yaml至运行目录，只增加viewer_rate_hz=15，降低MuJoCo显示刷新负载；原LiDAR噪声/频率、2ms物理步、策略频率、target_rtf=1和0.3s安全超时全部保持。实际参数文件及sha写provenance/manifest。发生STALE_scan仍锁存停车，不自动解除或放宽门槛。

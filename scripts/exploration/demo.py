@@ -99,10 +99,11 @@ class ExplorationRun(advanced.Advanced):
 
     def launch_command(self):
         commands = super().launch_command()
-        commands = [x for x in commands if not x.startswith(('events_file:=', 'scenario:='))]
+        commands = [x for x in commands if not x.startswith(('events_file:=', 'scenario:=', 'params_file:='))]
         if not self.args.static:
             commands += [f'events_file:={WS}/src/t1_bringup/config/exploration_events.yaml', 'scenario:=EXP01']
-        return commands+[f'scene:={self.args.scene}', f'slam_params_file:={OUT}/slam.yaml']
+        return commands+[f'scene:={self.args.scene}', f'slam_params_file:={OUT}/slam.yaml',
+                         f'params_file:={OUT}/simulation.yaml']
 
     def execute(self):
         self.spawn('scan_filter', [str(Path(os.environ['T1_VENV'])/'bin/python'),
@@ -283,9 +284,14 @@ def main():
     slam = yaml.safe_load((WS/'src/t1_navigation/config/slam.yaml').read_text())
     slam['slam_toolbox']['ros__parameters']['scan_topic'] = '/scan/mapping'
     (OUT/'slam.yaml').write_text(yaml.safe_dump(slam))
+    simulation = yaml.safe_load((WS/'src/t1_navigation/config/w12_mapping_runtime.yaml').read_text())
+    # Display refresh only: preserve physics, policy, LiDAR and safety timing.
+    simulation['t1_sim']['ros__parameters']['viewer_rate_hz'] = 15.
+    (OUT/'simulation.yaml').write_text(yaml.safe_dump(simulation))
     provenance = advanced.preflight()
     provenance.update(task=args.task_data, simulator_scene=args.scene, static_control=args.static,
-                      mapping_params_sha256=base.sha(OUT/'slam.yaml'))
+                      mapping_params_sha256=base.sha(OUT/'slam.yaml'),
+                      simulation_params_sha256=base.sha(OUT/'simulation.yaml'))
     base.save('provenance.json', provenance)
     if args.preflight:
         return 0
