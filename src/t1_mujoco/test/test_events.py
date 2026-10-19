@@ -88,7 +88,10 @@ def test_exploration_approach_requires_nearby_southward_motion():
     assert not approach_ready(scenario, pose(6.1, 2.8))
     assert not approach_ready(scenario, pose(8., -math.pi/2))
     assert not approach_ready(scenario, pose(4., -math.pi/2))
-    for y in (5.6, 6.5, 7.4):
+    # A measured late-turn exploration approach starts forward at y=5.571.
+    assert approach_ready(scenario, pose(5.570923273146264, -1.7766507103206945))
+    assert not approach_ready(scenario, pose(4.99, -math.pi/2))
+    for y in (5.0, 5.6, 6.5, 7.4):
         assert approach_ready(scenario, pose(y, -math.pi/2))
         assert approach_ready(scenario, pose(y, 3*math.pi/2))
     legacy, _ = load_scenario(EVENTS, 'approach')

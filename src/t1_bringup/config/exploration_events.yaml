@@ -9,7 +9,7 @@ scenarios:
     # Start only while physically approaching the passage, not an earlier
     # eastward exploration target. World pose stays inside the simulator.
     trigger_approach:
-      y_min: 5.6
+      y_min: 5.0
       y_max: 7.4
       heading: -1.5707963267948966
       heading_tolerance: 0.65

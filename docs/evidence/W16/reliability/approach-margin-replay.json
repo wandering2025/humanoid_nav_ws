@@ -1,0 +1,69 @@
+{
+  "note": "Offline trigger eligibility only; not a closed-loop obstacle replay or acceptance pass",
+  "proposed_y_min": 5.0,
+  "rows": [
+    {
+      "case": "approach-base-01",
+      "run": "20261019T225103Z_exploration_4e7142f6-4f76-4df4-b544-73ce9e4fa492",
+      "first_eligible_sim": 104.39999999993809,
+      "y": 7.399194452147944,
+      "yaw": -0.9859796554829184
+    },
+    {
+      "case": "approach-base-02",
+      "run": "20261019T225517Z_exploration_8295a3b1-1d46-4005-b07d-a6c6d790ad68",
+      "first_eligible_sim": 102.03999999994359,
+      "y": 7.3971307240415065,
+      "yaw": -1.112184811889871
+    },
+    {
+      "case": "approach-base-03",
+      "run": "20261019T225931Z_exploration_4a2f96b2-fbc8-4622-af22-50c6e2c74a24",
+      "first_eligible_sim": 94.17999999996191,
+      "y": 7.082473745965802,
+      "yaw": -1.6872998299016428
+    },
+    {
+      "case": "approach-base-04",
+      "run": "20261019T230331Z_exploration_0c12d7c3-d9df-4104-9e85-a02980f32976",
+      "first_eligible_sim": 91.95999999996708,
+      "y": 6.603877801188865,
+      "yaw": -1.149747782514962
+    },
+    {
+      "case": "approach-base-05",
+      "run": "20261019T230727Z_exploration_0998ee34-ce78-4f15-9d80-40e48097eb5d",
+      "first_eligible_sim": 115.21999999991287,
+      "y": 6.250221827719188,
+      "yaw": -0.9219949597880437
+    },
+    {
+      "case": "base-02",
+      "run": "20261019T224415Z_exploration_82b70325-2c88-47c1-b1fe-590d5538f379",
+      "first_eligible_sim": 116.29999999991036,
+      "y": 6.720850137492909,
+      "yaw": -2.156631522928399
+    },
+    {
+      "case": "bounded-share-01",
+      "run": "20261019T233249Z_exploration_ffe8f4be-9314-4b72-b3e1-014ba1cde8ed",
+      "first_eligible_sim": 87.71999999997696,
+      "y": 5.570923273146264,
+      "yaw": -1.7766507103206945
+    },
+    {
+      "case": "final-share-01",
+      "run": "20261019T232127Z_exploration_e19f83a4-9f1f-4b77-8a6d-d8f9fd25ab29",
+      "first_eligible_sim": 106.27999999993371,
+      "y": 7.398538133826892,
+      "yaw": -1.6752608205344335
+    },
+    {
+      "case": "share-01",
+      "run": "20261019T231212Z_exploration_284a7276-3ae8-4b5a-af38-6ac5298f8512",
+      "first_eligible_sim": 98.21999999995249,
+      "y": 6.343645801758381,
+      "yaw": -0.995160597028704
+    }
+  ]
+}

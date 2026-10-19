@@ -1,0 +1,218 @@
+{
+  "run": "20261019T233249Z_exploration_ffe8f4be-9314-4b72-b3e1-014ba1cde8ed",
+  "sampling": {
+    "received": 1176,
+    "sampled": 1157,
+    "expired": 19,
+    "overflow": 0,
+    "max_pending": 6,
+    "max_wait_s": 0.48745628299730015,
+    "missing_tf_attempts": 1084,
+    "missing_obstacle_attempts": 220,
+    "tf_errors": [
+      {
+        "scan_sim": 15.000000000000002,
+        "error": "Lookup would require extrapolation into the future.  Requested time 15.000000 but the latest data is at time 14.980000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 16.900000000000002,
+        "error": "Lookup would require extrapolation into the future.  Requested time 16.900000 but the latest data is at time 16.820000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 20.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 20.100000 but the latest data is at time 20.060000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 21.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 21.100000 but the latest data is at time 20.960000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 22.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 22.100000 but the latest data is at time 22.000000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 23.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 23.100000 but the latest data is at time 23.000000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 24.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 24.100000 but the latest data is at time 24.020000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 25.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 25.100000 but the latest data is at time 25.020000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 26.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 26.100000 but the latest data is at time 26.020000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 27.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 27.100000 but the latest data is at time 27.020000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 28.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 28.100000 but the latest data is at time 28.040000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 29.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 29.100000 but the latest data is at time 28.940000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 30.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 30.100000 but the latest data is at time 30.000000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 31.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 31.100000 but the latest data is at time 31.000000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 32.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 32.100000 but the latest data is at time 31.940000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 33.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 33.100000 but the latest data is at time 33.000000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 34.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 34.100000 but the latest data is at time 34.000000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 35.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 35.100000 but the latest data is at time 35.000000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 36.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 36.100000 but the latest data is at time 36.060000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 37.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 37.100000 but the latest data is at time 36.980000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 38.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 38.100000 but the latest data is at time 37.980000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 39.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 39.100000 but the latest data is at time 39.000000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 40.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 40.100000 but the latest data is at time 39.820000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 41.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 41.100000 but the latest data is at time 41.000000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 42.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 42.100000 but the latest data is at time 42.000000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 43.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 43.100000 but the latest data is at time 42.960000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 44.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 44.100000 but the latest data is at time 44.000000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 45.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 45.100000 but the latest data is at time 45.020000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 46.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 46.100000 but the latest data is at time 46.000000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 47.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 47.100000 but the latest data is at time 47.020000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 48.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 48.100000 but the latest data is at time 48.000000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 49.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 49.100000 but the latest data is at time 48.980000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 50.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 50.100000 but the latest data is at time 50.060000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 51.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 51.100000 but the latest data is at time 51.040000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 52.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 52.100000 but the latest data is at time 52.000000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 53.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 53.100000 but the latest data is at time 53.000000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 54.1,
+        "error": "Lookup would require extrapolation into the future.  Requested time 54.100000 but the latest data is at time 54.020000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 98.9,
+        "error": "Lookup would require extrapolation into the future.  Requested time 98.900000 but the latest data is at time 98.880000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 99.9,
+        "error": "Lookup would require extrapolation into the future.  Requested time 99.900000 but the latest data is at time 99.880000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 100.9,
+        "error": "Lookup would require extrapolation into the future.  Requested time 100.900000 but the latest data is at time 100.880000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 102.80000000000001,
+        "error": "Lookup would require extrapolation into the future.  Requested time 102.800000 but the latest data is at time 102.760000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 103.80000000000001,
+        "error": "Lookup would require extrapolation into the future.  Requested time 103.800000 but the latest data is at time 103.760000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 104.80000000000001,
+        "error": "Lookup would require extrapolation into the future.  Requested time 104.800000 but the latest data is at time 104.700000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 105.80000000000001,
+        "error": "Lookup would require extrapolation into the future.  Requested time 105.800000 but the latest data is at time 105.700000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 106.80000000000001,
+        "error": "Lookup would require extrapolation into the future.  Requested time 106.800000 but the latest data is at time 106.700000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 107.9,
+        "error": "Lookup would require extrapolation into the future.  Requested time 107.900000 but the latest data is at time 107.800000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 109.2,
+        "error": "Lookup would require extrapolation into the future.  Requested time 109.200000 but the latest data is at time 109.140000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 110.5,
+        "error": "Lookup would require extrapolation into the future.  Requested time 110.500000 but the latest data is at time 110.460000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 114.30000000000001,
+        "error": "Lookup would require extrapolation into the future.  Requested time 114.300000 but the latest data is at time 114.260000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      },
+      {
+        "scan_sim": 115.30000000000001,
+        "error": "Lookup would require extrapolation into the future.  Requested time 115.300000 but the latest data is at time 115.240000, when looking up transform from frame [laser_stabilized] to frame [odom]"
+      }
+    ],
+    "pending": 0,
+    "wait_limit_s": 0.5,
+    "capacity": 25
+  }
+}
