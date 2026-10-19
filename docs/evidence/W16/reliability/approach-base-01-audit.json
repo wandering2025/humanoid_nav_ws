@@ -1,0 +1,292 @@
+{
+  "status": "PASS",
+  "run_id": "20261019T225103Z_exploration_4e7142f6-4f76-4df4-b544-73ce9e4fa492",
+  "code_sha": "9c527785ccf6d9950ec06c76115dd8cf89d3dbb0",
+  "checks": {
+    "graphical_run": true,
+    "physical_timing_preserved": true,
+    "mission_success": true,
+    "real_dynamic_response": true,
+    "all_selected_paths_observed": true,
+    "graph_contract": true,
+    "no_contact_or_fall": true,
+    "safe_stop": true,
+    "both_windows_at_all_three_stages": true,
+    "actual_explorer_coordinates": true,
+    "expected_renderer": true,
+    "gpu_monitor_clean": true,
+    "mapping_latency_bounded": true,
+    "all_processes_exit_zero": true,
+    "no_processes_or_port": true,
+    "vacated_obstacle_has_no_occupied_ghost": true,
+    "tested_sources_unchanged": true
+  },
+  "sources": {
+    "scripts/run_exploration_demo.sh": {
+      "sha256": "9fc404b5b42407e1ac7f216b138bb37f07f5f33f78d2723c4c99d2258c236bba",
+      "unchanged_since_run": true
+    },
+    "scripts/exploration/demo.py": {
+      "sha256": "31cf993eca3fbd7c92f15e04f55781808a15485b83e37b3ee16f931eb3a84631",
+      "unchanged_since_run": true
+    },
+    "scripts/exploration/controller.py": {
+      "sha256": "de1e8d51da634f86932d377cf8c2e9ab0d367e78655cfae5598006965dcdccbc",
+      "unchanged_since_run": true
+    },
+    "scripts/exploration/scan_filter.py": {
+      "sha256": "602e571900dc72a2a5eb16ff902afd86021f0496ef874c2b84002ae12450cf57",
+      "unchanged_since_run": true
+    },
+    "scripts/advanced/demo.py": {
+      "sha256": "3ba4f3f4a7174e0fa133ec8451db58b4ad5c6f13a73fed857031ea138bc769bb",
+      "unchanged_since_run": true
+    },
+    "src/t1_bringup/t1_bringup/exploration.py": {
+      "sha256": "0567368b77774fa058af6def048697b262fa8b3bcc24ec64266f69e3b57340b9",
+      "unchanged_since_run": true
+    },
+    "src/t1_bringup/t1_bringup/scan_history.py": {
+      "sha256": "a1138845f3de92b34e8bc7d622ed927425c8ccd43ff2c946721a795157a49a89",
+      "unchanged_since_run": true
+    },
+    "src/t1_mujoco/t1_mujoco/simulation.py": {
+      "sha256": "1b8df60e8164907da9a5f50776b7b192e338cd73de9a55dfa05e5257502dcbe1",
+      "unchanged_since_run": true
+    },
+    "src/t1_mujoco/t1_mujoco/exploration_display.py": {
+      "sha256": "0cfb5cb48457b82ae6f1fa19f05cc3e25ed7498ed8c6cb330ed445e83e2a26ed",
+      "unchanged_since_run": true
+    },
+    "src/t1_mujoco/t1_mujoco/advanced_presentation.py": {
+      "sha256": "a25c8d024fa8295eaa4b4b49b634aa2ab1a97ba35afa2902268d223b11e68553",
+      "unchanged_since_run": true
+    },
+    "src/t1_mujoco/t1_mujoco/runner.py": {
+      "sha256": "ebf0863116884e35aa2643da47112dcb2b00b37b30e3217200e2ae00b64a105b",
+      "unchanged_since_run": true
+    },
+    "src/t1_mujoco/t1_mujoco/events.py": {
+      "sha256": "50a29f364bf09f8989258ba75eadb7111bd405ae27042237ad1394d03b456fa3",
+      "unchanged_since_run": true
+    },
+    "src/t1_bringup/config/exploration_events.yaml": {
+      "sha256": "5620017ddf4994a4f14d8c58a17d48aaa3e555a779433f7098d2344d55f6e0cb",
+      "unchanged_since_run": true
+    },
+    "src/t1_navigation/config/exploration.rviz": {
+      "sha256": "34c3728e0cdf1b3cbd1cffeab9224851ac4f9059ec709f6a6a0a98c791934eab",
+      "unchanged_since_run": true
+    }
+  },
+  "screenshots": {
+    "ready": [
+      {
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T225103Z_exploration_4e7142f6-4f76-4df4-b544-73ce9e4fa492/ready-mujoco.png",
+        "sha256": "2a858c7ee47de0f429f5dd012a5746c61d1954256e1282f30de8690af9a0112b",
+        "size": [
+          1024,
+          640
+        ]
+      },
+      {
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T225103Z_exploration_4e7142f6-4f76-4df4-b544-73ce9e4fa492/ready-rviz.png",
+        "sha256": "f3067fa66e8a6d4ab3b01dc4ed7c5f4e6f86e4eb129e8cd5f0e408059fea3075",
+        "size": [
+          1024,
+          740
+        ]
+      }
+    ],
+    "dynamic": [
+      {
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T225103Z_exploration_4e7142f6-4f76-4df4-b544-73ce9e4fa492/dynamic-mujoco.png",
+        "sha256": "a84c1936a8374f9b7820b0e1568a9c42267d4d25fbb60d494b73aa80b3380878",
+        "size": [
+          1024,
+          640
+        ]
+      },
+      {
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T225103Z_exploration_4e7142f6-4f76-4df4-b544-73ce9e4fa492/dynamic-rviz.png",
+        "sha256": "cdd3c9c05bf2eb8f7f6861ce4ba3099c9ad641f0a546ee887baf90ad0dd2f0a3",
+        "size": [
+          1024,
+          740
+        ]
+      }
+    ],
+    "arrived": [
+      {
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T225103Z_exploration_4e7142f6-4f76-4df4-b544-73ce9e4fa492/arrived-mujoco.png",
+        "sha256": "0204c473214a1475d6ecc05274c8eb8026a41b8a2d5b988b75be5c4084c82868",
+        "size": [
+          1024,
+          640
+        ]
+      },
+      {
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T225103Z_exploration_4e7142f6-4f76-4df4-b544-73ce9e4fa492/arrived-rviz.png",
+        "sha256": "f2fc9a4920a9696eafd9f7d5972ff0517a5421c188f04aacb4394b1b7debbc25",
+        "size": [
+          1024,
+          740
+        ]
+      }
+    ]
+  },
+  "renderer": [
+    "OpenGL renderer string: D3D12 (NVIDIA GeForce RTX 4050 Laptop GPU)"
+  ],
+  "gpu_peak": {
+    "temperature_c": 63.0,
+    "memory_mib": 2231.0,
+    "utilization_pct": 54.0
+  },
+  "display_start": {
+    "anchor_odom": [
+      0.004376734171284978,
+      -0.014172437986432434,
+      0.05208841536984309
+    ],
+    "goal_odom": [
+      10.963425059208227,
+      1.0578629203413543
+    ]
+  },
+  "dynamic": {
+    "run_id": "20261019T225103Z_exploration_4e7142f6-4f76-4df4-b544-73ce9e4fa492",
+    "code_sha": "9c527785ccf6d9950ec06c76115dd8cf89d3dbb0",
+    "status": "SUCCESS",
+    "dynamic": {
+      "triggered": true,
+      "finished": true,
+      "actual_travel_m": 6.800000000000001,
+      "active_scan_hit_frames": 159,
+      "active_costmap_marked_frames": 37,
+      "blocked_wait": {
+        "stationary_s": 17.719999999999075,
+        "resumed_m": 5.238795768943978
+      },
+      "verdict": "PASS",
+      "response": "BLOCKED_PATH_WAIT_AND_CONTINUE"
+    },
+    "filter": {
+      "scan_frames": 1643,
+      "active_scan_pairs": 159,
+      "obstacle_hit_rays": 7001,
+      "obstacle_hit_rays_withheld_from_slam": 6027,
+      "withheld_fraction": 0.8608770175689188,
+      "filtered_frames": 507,
+      "max_output_gap_s": 0.10000000000002274,
+      "processing_ms_p50": 23.23916099703638,
+      "processing_ms_p99": 46.99153978013781,
+      "moving_samples": 114,
+      "holding_samples": 120,
+      "filter_sha256": "368ad935557de264783556c4d44266a866d7cbdfec65f9a21cb4abe643c0070d"
+    },
+    "vacated_footprint_in_final_slam": {
+      "observed_hold_position_odom": [
+        12.5,
+        3.0,
+        0.75
+      ],
+      "sample_count": 649,
+      "occupied_samples": 0,
+      "unknown_samples": 0,
+      "free_samples": 649
+    },
+    "graph": {
+      "map_only_slam": true,
+      "explorer_reads_map": true,
+      "explorer_reads_live_costmap": true,
+      "truth_isolated": true,
+      "obstacle_truth_isolated": true,
+      "final_only_collision_monitor": true,
+      "map_odom_only_slam": true,
+      "no_initialpose": true,
+      "physical_obstacle_count": true,
+      "raw_scan_only_simulator": true,
+      "safety_reads_raw_scan": true,
+      "nav2_reads_raw_scan": true,
+      "mapping_filter_only": true,
+      "slam_reads_filtered_scan": true
+    },
+    "static_control": false
+  },
+  "mapping_max_output_age_s": 0.020000000000010232,
+  "truth_final_hold_max_error_m": 0.1403004528720164,
+  "decision_count": 10,
+  "path_replay": [
+    {
+      "snapshot": "map-001.npz",
+      "sha256": "43a5d6d331992c9056046fac73b63a52ea04f16bfab8c5ebc61d2529318da924",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-003.npz",
+      "sha256": "56bd6449b8f34344a385fd1e1a6ea8c62db1d3d4521abdb854865a6858f20ff4",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-005.npz",
+      "sha256": "13fd776bf4a9c48024bce76b6cb73af89153c648a109be02a9fb1cdcb2c64d9f",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-006.npz",
+      "sha256": "e8b0057604461cca17e506abff94d15faae42745b86b898dead1863f8a1b89e6",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-007.npz",
+      "sha256": "6114c7e23e1ac052ab79eb78f73f0a07c529e0d354bfdd03f318310f65979f53",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-008.npz",
+      "sha256": "b774aaf80bc3156f615824b197c94e0ed1b80ad0631a3b785b626edebd3664c7",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-009.npz",
+      "sha256": "d2348e1ec69b3c7cf19ccf05b39c19a6b41f16f1ff1b341742f96f75f8884832",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-011.npz",
+      "sha256": "eefb69b5576fd10973083d0f1b4f0a45a4874f34d0b209f10e70b4e2e16c2e57",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-012.npz",
+      "sha256": "a071f7e47b08acc4aab6cc2dafddf67b5dae0b79462c8db7b35e22c316d5a5ae",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-023.npz",
+      "sha256": "133dc8aa57e170b4be8e73edbafaef1707fa0542954f748da7294e645024a109",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": true
+    }
+  ]
+}
