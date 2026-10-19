@@ -61,7 +61,7 @@ def git(*args):
 
 
 class Probe(Node):
-    def __init__(self, name='t1_evaluator', *, dynamic_sample_wait_s=0.):
+    def __init__(self, name='t1_evaluator', *, dynamic_sample_wait_s=0., tf_queue_depth=1000):
         super().__init__(name)
         self.sim = 0.
         self.clock_regressions = 0
@@ -99,7 +99,9 @@ class Probe(Node):
         self.create_subscription(Odometry, '/t1/eval/ground_truth', self.on_truth, 100)
         self.create_subscription(LaserScan, '/scan', self.on_scan, 20)
         self.create_subscription(OccupancyGrid, '/map', self.on_map, qos_tl)
-        self.create_subscription(TFMessage, '/tf', self.on_tf, 1000)
+        # Keep transport backlog bounded separately from tf2's timestamp history.
+        # Exact-stamp queries still use the real transforms stored in the buffer.
+        self.create_subscription(TFMessage, '/tf', self.on_tf, tf_queue_depth)
         self.create_subscription(TFMessage, '/tf_static', self.on_static,
                                  QoSProfile(depth=100, durability=DurabilityPolicy.TRANSIENT_LOCAL))
         self.create_subscription(PoseWithCovarianceStamped, '/initialpose',
@@ -237,9 +239,14 @@ class Probe(Node):
             return False
         try:
             tf = self.buffer.lookup_transform('odom', 'laser_stabilized', Time(nanoseconds=ns(scan.header.stamp)))
-        except Exception:
+        except Exception as exc:
             if self.dynamic_pending is not None:
                 self.dynamic_pending.stats['missing_tf_attempts'] += 1
+                errors = self.dynamic_pending.stats.setdefault('tf_errors', [])
+                if len(errors) < 180 and (not errors or t-errors[-1]['scan_sim'] >= 1.):
+                    error = dict(scan_sim=t, error=str(exc))
+                    errors.append(error)
+                    print('dynamic scan TF unavailable: '+json.dumps(error), flush=True)
             return False
         p, a = tf.transform.translation, yaw(tf.transform.rotation)
         hits = []

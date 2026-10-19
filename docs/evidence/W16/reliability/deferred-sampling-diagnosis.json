@@ -1,0 +1,16 @@
+{
+  "run": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T232127Z_exploration_e19f83a4-9f1f-4b77-8a6d-d8f9fd25ab29",
+  "sampling": {
+    "received": 1636,
+    "sampled": 659,
+    "expired": 977,
+    "overflow": 0,
+    "max_pending": 23,
+    "max_wait_s": 0.4932469969971862,
+    "missing_tf_attempts": 9194,
+    "missing_obstacle_attempts": 253,
+    "pending": 0,
+    "wait_limit_s": 0.5,
+    "capacity": 25
+  }
+}
