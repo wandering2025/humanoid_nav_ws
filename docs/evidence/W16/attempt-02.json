@@ -1,0 +1,84 @@
+{
+  "code_sha": "821b2a5eb0fe06c2bf7aba55b137ab9eba4c398d",
+  "run_id": "20261019T203624Z_exploration_df3f3761-f215-4c3b-93e6-6a5683452526",
+  "arrived": true,
+  "exploration": {
+    "status": "ARRIVED",
+    "task": {
+      "schema": 1,
+      "frame": "start",
+      "offset": [
+        11.0,
+        0.5
+      ],
+      "source_sha256": "b9e83c12fdf595f32d56ac6bc6e602fd4c7e7cf1e02d564893521554d117396d"
+    },
+    "arrival_position_tolerance_m": 0.3,
+    "anchor_odom": [
+      0.004377743367951845,
+      -0.01408816136556077,
+      0.05113581612808365
+    ],
+    "goal_odom": [
+      10.96444231595177,
+      1.0475071310095867
+    ],
+    "position_error_m": 0.13888481908133132,
+    "actual_pose": [
+      11.045129055762608,
+      1.1952710055044706,
+      -2.049347684107181
+    ],
+    "target_map": [
+      10.979999344448188,
+      1.0726043283857254
+    ],
+    "stationary_s": 2.0400000000000205,
+    "arrival_sim": 138.76000000000002,
+    "finished_sim": 138.76000000000002,
+    "decisions": 8
+  },
+  "truth_final_error_m": 0.13637977752367597,
+  "truth_final_hold_max_error_m": 0.13713557792665496,
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 12384.887150968,
+      "sim_time": 141.56,
+      "health_reason": ""
+    }
+  },
+  "parent_exit_codes": {
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "map_saver": 0,
+    "goal": 0
+  },
+  "graph_contract": {
+    "map_only_slam": true,
+    "explorer_reads_map": false,
+    "explorer_reads_live_costmap": true,
+    "truth_isolated": true,
+    "obstacle_truth_isolated": true,
+    "final_only_collision_monitor": true,
+    "map_odom_only_slam": true,
+    "no_initialpose": true,
+    "no_dynamic_entities": true
+  },
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "validation_before_port_check": false,
+  "classification": "Navigation ARRIVED, overall FAILED: graph snapshot raced DDS endpoint discovery (/map subscription missing); original result retained."
+}

@@ -44,7 +44,9 @@ class ExplorationRun(advanced.Advanced):
         def connected():
             graph = self.node.graph(topics)
             self.summary['decision_graph'] = graph
-            return 't1_explorer' in graph.get('/global_costmap/costmap',{}).get('subscribers',[]) or child.poll() is not None
+            return (all('t1_explorer' in graph.get(topic,{}).get('subscribers',[])
+                        for topic in ('/map','/global_costmap/costmap','/tf'))
+                    or child.poll() is not None)
         self.until(connected, 30)
         self.until(lambda: child.poll() is not None, self.args.time_limit*2.5+150)
         result_file = OUT/'explorer/result.json'
@@ -105,6 +107,19 @@ class ExplorationRun(advanced.Advanced):
         s['validation_before_port_check'] = bool(s['infrastructure_valid'] and s['arrived'] and exits and not s.get('error'))
         base.save('observation.json', dict(rows=self.node.rows, plans=self.node.plans))
         s['status'] = 'PENDING_PORT_CHECK' if s['validation_before_port_check'] else 'FAILED'
+
+    def save_map(self, label):
+        files = super().save_map(label)
+        # Advanced's historical default binds its own fixed scene. W16 also
+        # accepts alternate simulator worlds, so bind the actual input here.
+        scene = Path(self.args.scene)
+        if not scene.is_absolute():
+            scene = WS/'src/t1_mujoco/worlds'/f'{self.args.scene}.yaml'
+        meta = OUT/'maps'/f'{label}.meta.json'
+        data = json.loads(meta.read_text())
+        data.update(scene_file=str(scene),scene_sha256=base.sha(scene))
+        meta.write_text(json.dumps(data,indent=2)+'\n')
+        return files
 
 
 def main():

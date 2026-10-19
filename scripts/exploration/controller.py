@@ -267,6 +267,11 @@ class Explorer(Node):
                 if not final and self.sim()-last_check > 3:
                     last_check = self.sim()
                     fresh = self.observed()
+                    if not fresh.is_reachable(target):
+                        self.failed.append(list(target))
+                        self.emit('frontier_invalidated_by_observation', target=list(target),
+                                  snapshot=self.snapshot(fresh))
+                        break
                     direct = self.plan(self.target(), fresh)
                     if direct:
                         self.emit('B_route_discovered', snapshot=self.snapshot(fresh))

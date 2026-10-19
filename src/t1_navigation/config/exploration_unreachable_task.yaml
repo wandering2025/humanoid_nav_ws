@@ -1,0 +1,5 @@
+# W16 negative test: this point is outside the test world, not prevalidated
+# against its geometry. Expected result is failure with an acknowledged stop.
+schema: 1
+frame: start
+goal: {x: 50.0, y: 0.0}

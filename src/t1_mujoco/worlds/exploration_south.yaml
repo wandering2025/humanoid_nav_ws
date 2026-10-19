@@ -1,0 +1,16 @@
+# W16 simulator-only evaluation world. The explorer never reads this file.
+schema: 1
+source_model: robots/T1/T1_23dof.xml
+name: advanced_world
+purpose: South passage instead of north, same start and task offset.
+bounds: [-4, 18, -12, 4]
+initial_pose: [0, 0, 0]
+goal: [11, 0.5, 0]
+minimum_passage_m: 7.5
+obstacle_height_m: 1.5
+boxes:
+  - name: dividing_wall
+    center: [7.5, -0.25, 0.75]
+    size: [1, 8.5, 1.5]
+activity_regions: []
+obstacle_slots: []

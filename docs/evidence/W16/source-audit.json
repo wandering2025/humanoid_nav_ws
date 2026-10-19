@@ -1,0 +1,34 @@
+{
+  "starting_sha": "94cdbbb1a0e8c78d0d5c58b2f7b4d16309995513",
+  "unchanged": {
+    "src/t1_mujoco/t1_mujoco/runner.py": true,
+    "src/t1_mujoco/t1_mujoco/lidar.py": true,
+    "src/t1_mujoco/config/command_map.yaml": true,
+    "src/t1_navigation/config/safety.yaml": true,
+    "src/t1_navigation/config/navigation.yaml": true,
+    "src/t1_navigation/config/advanced_controller.yaml": true,
+    "src/t1_bringup/t1_bringup/safety.py": true,
+    "src/t1_bringup/t1_bringup/navigation_adapter.py": true,
+    "src/t1_bringup/config/advanced_route.yaml": true,
+    "scripts/run_advanced_demo.sh": true
+  },
+  "decision_inputs": [
+    "task offset",
+    "/map",
+    "/global_costmap/costmap",
+    "/tf",
+    "/tf_static",
+    "/clock",
+    "/t1/safety/state"
+  ],
+  "decision_outputs": [
+    "ComputePathToPose",
+    "NavigateToPose",
+    "/t1/safety/arm",
+    "/t1/safety/stop",
+    "/t1/exploration/status",
+    "audit files"
+  ],
+  "guided_mission_AST_preserved": true,
+  "source_sha": "821b2a5eb0fe06c2bf7aba55b137ab9eba4c398d"
+}
