@@ -1,0 +1,91 @@
+{
+  "code_sha": "856f79ced6a73c488a0ac5f55e82a4cb1c6e8961",
+  "run_id": "20261019T204414Z_exploration_e9d0fc4a-d8ff-4318-8e89-a74e521b7504",
+  "error": "RuntimeError('A launch component died; see launch.log')",
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 12770.219337451,
+      "sim_time": 69.08,
+      "health_reason": ""
+    }
+  },
+  "parent_exit_codes": {
+    "dds": 0,
+    "authority": 0,
+    "launch": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 48892,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 48893,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 48894,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 48895,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 48896,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 48897,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 49154,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 49281,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 49282,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 49283,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 49284,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 49285,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 49286,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 49287,
+      "exit_code": 1
+    }
+  },
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "classification": "FAIL_STARTUP: navigation_starter lifecycle STARTUP future did not complete successfully within 60 wall seconds; no explorer launched. No claim to prove the DDS root cause.",
+  "raw_path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T204414Z_exploration_e9d0fc4a-d8ff-4318-8e89-a74e521b7504"
+}
