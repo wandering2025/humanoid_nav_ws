@@ -1,0 +1,192 @@
+{
+  "status": "PASS",
+  "checks": {
+    "dynamic_success": true,
+    "control_success": true,
+    "real_body_and_motion": true,
+    "control_has_no_body": true,
+    "same_task": true,
+    "same_online_source": true,
+    "only_slam_scan_topic_changed": true,
+    "every_selected_path_observed": true,
+    "all_graph_contracts": true,
+    "safe_arrivals": true,
+    "no_contact_or_fall": true,
+    "clean_exit": true,
+    "cleanup_complete": true,
+    "slam_has_no_occupied_ghost_at_hold": true
+  },
+  "sources": {
+    "scripts/exploration/controller.py": {
+      "sha256": "75468c48ceea8d0e797ff8585264ceccb2e98e8b43cbb89205423c92063d3383",
+      "identical_in_runs": [
+        true,
+        true
+      ]
+    },
+    "scripts/exploration/scan_filter.py": {
+      "sha256": "3ccf7ecb28d59b55941be48b481b849580c78761c3bc0daab43df1b5d70a5cc0",
+      "identical_in_runs": [
+        true,
+        true
+      ]
+    },
+    "scripts/exploration/demo.py": {
+      "sha256": "6f160bfb827723aed5ac7fb89e527cb580e41c5c5d2799d963802865b08aa550",
+      "identical_in_runs": [
+        true,
+        true
+      ]
+    },
+    "src/t1_bringup/t1_bringup/exploration.py": {
+      "sha256": "fe8d05c24bcf4366fbca80587e88d010093574ee324b0d3d0c5ae29f54c58922",
+      "identical_in_runs": [
+        true,
+        true
+      ]
+    },
+    "src/t1_bringup/t1_bringup/scan_history.py": {
+      "sha256": "fb116eac264b7cdaa0a7ca8e5d4da27af5114f3db759d4fae93f271835dfb597",
+      "identical_in_runs": [
+        true,
+        true
+      ]
+    },
+    "src/t1_mujoco/t1_mujoco/events.py": {
+      "sha256": "01d0b1c3eef6958420e53fb1dd3de35183ac8a7fe940028c84413ce0f5df88ce",
+      "identical_in_runs": [
+        true,
+        true
+      ]
+    },
+    "src/t1_mujoco/t1_mujoco/simulation.py": {
+      "sha256": "be8c012ff1a4abb7609dad43991a1c0347fc079c3b6bdd249360533cf8991328",
+      "identical_in_runs": [
+        true,
+        true
+      ]
+    },
+    "src/t1_bringup/config/exploration_events.yaml": {
+      "sha256": "a1351acc7ee60417218cec470abd13fe01fe658eeff816731b7b3cfc6a0382ff",
+      "identical_in_runs": [
+        true,
+        true
+      ]
+    },
+    "scripts/run_exploration_demo.sh": {
+      "sha256": "97f8bc263833b524fb055b6eed9997f2ac42fd13a08daf9b2f3bf611a7d11ce4",
+      "identical_in_runs": [
+        true,
+        true
+      ]
+    },
+    "scripts/advanced/demo.py": {
+      "sha256": "0f06547876c76eaa3df3efcf23e73969d226887ce856517eef5b424803b01c53",
+      "identical_in_runs": [
+        true,
+        true
+      ]
+    },
+    "src/t1_navigation/config/exploration_task.yaml": {
+      "sha256": "b9e83c12fdf595f32d56ac6bc6e602fd4c7e7cf1e02d564893521554d117396d",
+      "identical_in_runs": [
+        true,
+        true
+      ]
+    },
+    "src/t1_navigation/config/slam.yaml": {
+      "sha256": "45ae81fab86f6d3755c9c03212a1f13f80209914ac6e46cce9bffbb9e5f3d357",
+      "identical_in_runs": [
+        true,
+        true
+      ]
+    },
+    "src/t1_navigation/config/navigation.yaml": {
+      "sha256": "94ab4486b10599f6516954e45609d3db01ffef3cfee0a72b11058f55fcc2be13",
+      "identical_in_runs": [
+        true,
+        true
+      ]
+    },
+    "src/t1_navigation/config/safety.yaml": {
+      "sha256": "d6e36287a931bf240fe9b8fea336e8443674915d32490f48d2937730f1b998bf",
+      "identical_in_runs": [
+        true,
+        true
+      ]
+    }
+  },
+  "runs": [
+    {
+      "run_id": "20261019T211008Z_exploration_daf7f2b1-9ff7-4eaf-af6f-16d4c1ab99a2",
+      "code_sha": "b8e3ca4cbf527e66cb6b88c2592c734bed3d8ee1",
+      "status": "SUCCESS"
+    },
+    {
+      "run_id": "20261019T211443Z_exploration_2a33b399-2790-4dbe-91cb-7f0969f69529",
+      "code_sha": "cb928dd231335bfda670509ca687dfc253bae0d2",
+      "status": "SUCCESS"
+    }
+  ],
+  "dynamic": {
+    "run_id": "20261019T211008Z_exploration_daf7f2b1-9ff7-4eaf-af6f-16d4c1ab99a2",
+    "code_sha": "b8e3ca4cbf527e66cb6b88c2592c734bed3d8ee1",
+    "status": "SUCCESS",
+    "dynamic": {
+      "triggered": true,
+      "finished": true,
+      "actual_travel_m": 6.800000000000001,
+      "active_scan_hit_frames": 231,
+      "active_costmap_marked_frames": 36,
+      "blocked_wait": {
+        "stationary_s": 15.099999999999852,
+        "resumed_m": 4.142091618745684
+      },
+      "verdict": "PASS",
+      "response": "BLOCKED_PATH_WAIT_AND_CONTINUE"
+    },
+    "filter": {
+      "scan_frames": 1634,
+      "active_scan_pairs": 231,
+      "obstacle_hit_rays": 9846,
+      "obstacle_hit_rays_withheld_from_slam": 8916,
+      "withheld_fraction": 0.9055453991468617,
+      "filtered_frames": 424,
+      "max_output_gap_s": 0.10000000000002274,
+      "processing_ms_p50": 37.24353599955066,
+      "processing_ms_p99": 88.98177995044534,
+      "moving_samples": 114,
+      "holding_samples": 120,
+      "filter_sha256": "4e50544abc6e3ab9b5d2db6dcbdffa46f61067ef522aac4fa7921d6a330a023d"
+    },
+    "vacated_footprint_in_final_slam": {
+      "observed_hold_position_odom": [
+        12.5,
+        3.0,
+        0.75
+      ],
+      "sample_count": 649,
+      "occupied_samples": 0,
+      "unknown_samples": 0,
+      "free_samples": 649
+    },
+    "graph": {
+      "map_only_slam": true,
+      "explorer_reads_map": true,
+      "explorer_reads_live_costmap": true,
+      "truth_isolated": true,
+      "obstacle_truth_isolated": true,
+      "final_only_collision_monitor": true,
+      "map_odom_only_slam": true,
+      "no_initialpose": true,
+      "physical_obstacle_count": true,
+      "raw_scan_only_simulator": true,
+      "safety_reads_raw_scan": true,
+      "nav2_reads_raw_scan": true,
+      "mapping_filter_only": true,
+      "slam_reads_filtered_scan": true
+    },
+    "static_control": false
+  },
+  "user_goal_sha256": "0c9169a0aec692fcde8fdc9700b999ca3f61f9f4205a8ae600687ef4a191779f"
+}

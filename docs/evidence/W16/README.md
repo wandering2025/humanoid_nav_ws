@@ -30,7 +30,7 @@ wsl.exe -d Ubuntu-24.04 --cd /home/haoyang/humanoid_nav_ws_advanced --exec bash 
 
 新环境不在本步范围。已有 overlay 若需重建：设置既有 `T1_VENV`、`T1_UPSTREAM` 后 `source scripts/env.sh`，用系统 `/usr/bin/colcon build --symlink-install --base-paths src`；运行入口明确使用配置 venv Python，不重装依赖。
 
-当前动态实现 `491d2c837e68204393bcaa129e04619fceadb2ba`，D2已通过；D3对照及最终状态见执行记录。
+当前动态实现 `491d2c837e68204393bcaa129e04619fceadb2ba`，D1–D3均已通过；动态与无障碍对照均SUCCESS。
 
 | 动态检查 | 实测结果 |
 | --- | --- |
@@ -44,7 +44,11 @@ wsl.exe -d Ubuntu-24.04 --cd /home/haoyang/humanoid_nav_ws_advanced --exec bash 
 
 [动态结果与逐路径审计](dynamic.json) · [真实地图与轨迹](dynamic.png) · [动态感知/等待/清空审计](dynamic-audit.json) · [动态响应时间图](dynamic-audit.png)。
 
-同代码无障碍对照使用 `--static`。本轮失败完整保留：回调签名不兼容、静态墙误分类后主动停止、等待取消触发安全锁存后提前退出，分别见dynamic-attempt-01/02/03.json及dynamic-failed-finalization.json；后续修复并重新运行，未把这些失败改写成成功。158项CPU测试、四包build通过；不是批量可靠性评测，原W13 FAILED保持。
+同代码无障碍对照使用 `--static`，误差0.06757m，7次决策全部逐图复验通过，零接触/跌倒、正常停车与完整清理。[对照结果](dynamic-static-control.json) · [轨迹](dynamic-static-control.png)。
+
+[最终14项审计](dynamic-final-verification.json)全部PASS；两轮14个在线源码/参数文件一致，任务快照相同，9+7条实际选择路径全部来自已观测可达区。[原始数据索引](dynamic-raw-index.json)包含本轮5次运行的291个文件，失败保持FAILED。
+
+本轮失败完整保留：回调签名不兼容、静态墙误分类后主动停止、等待取消触发安全锁存后提前退出，分别见dynamic-attempt-01/02/03.json及dynamic-failed-finalization.json；后续修复并重新运行，未把这些失败改写成成功。158项CPU测试、四包build通过；不是批量可靠性评测，原W13 FAILED保持。
 
 当前使用理想odom、有限束补偿LiDAR和不可被推动的mocap运动学障碍；仅验证headless仿真。过滤器不能保证识别最初静止于未知区域的物体，不宣称通用动态SLAM或真机能力。
 

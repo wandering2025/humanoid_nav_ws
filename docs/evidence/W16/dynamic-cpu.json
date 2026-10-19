@@ -16,7 +16,7 @@
     "observation wait retains mission budgets and unrelated fault latches",
     "rejected arm cannot resume"
   ],
-  "runtime": "DYNAMIC_PASSED_PENDING_PORT; STATIC_CONTROL_NOT_RUN",
+  "runtime": "See dynamic-final-verification.json for completed dynamic and static control acceptance",
   "implementation_sha": "491d2c837e68204393bcaa129e04619fceadb2ba",
   "built_sha": "dc33203dfed946f9adc12643acb8ad9436f6e2f7"
 }

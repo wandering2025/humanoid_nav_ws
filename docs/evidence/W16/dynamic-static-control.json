@@ -1,0 +1,221 @@
+{
+  "run_id": "20261019T211443Z_exploration_2a33b399-2790-4dbe-91cb-7f0969f69529",
+  "code_sha": "cb928dd231335bfda670509ca687dfc253bae0d2",
+  "status": "SUCCESS",
+  "raw_path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T211443Z_exploration_2a33b399-2790-4dbe-91cb-7f0969f69529",
+  "arrived": true,
+  "error": null,
+  "exploration": {
+    "status": "ARRIVED",
+    "task": {
+      "schema": 1,
+      "frame": "start",
+      "offset": [
+        11.0,
+        0.5
+      ],
+      "source_sha256": "b9e83c12fdf595f32d56ac6bc6e602fd4c7e7cf1e02d564893521554d117396d"
+    },
+    "arrival_position_tolerance_m": 0.3,
+    "anchor_odom": [
+      0.004376750802488887,
+      -0.01392145962529507,
+      0.04924380412476165
+    ],
+    "goal_odom": [
+      10.966430256306465,
+      1.0269353712923879
+    ],
+    "position_error_m": 0.06868054726476196,
+    "actual_pose": [
+      10.908880719223433,
+      1.1286004465033783,
+      -1.3879704905754127
+    ],
+    "target_map": [
+      10.952007879788669,
+      1.0751489208547351
+    ],
+    "stationary_s": 2.0400000000000063,
+    "arrival_sim": 120.50000000000001,
+    "finished_sim": 120.50000000000001,
+    "decisions": 9
+  },
+  "truth_final_error_m": 0.06756779581718197,
+  "truth_final_hold_max_error_m": 0.06756779581718197,
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 14607.280436675,
+      "sim_time": 123.78,
+      "health_reason": ""
+    }
+  },
+  "dynamic": null,
+  "static_control": true,
+  "graph_contract": {
+    "map_only_slam": true,
+    "explorer_reads_map": true,
+    "explorer_reads_live_costmap": true,
+    "truth_isolated": true,
+    "obstacle_truth_isolated": true,
+    "final_only_collision_monitor": true,
+    "map_odom_only_slam": true,
+    "no_initialpose": true,
+    "physical_obstacle_count": true,
+    "raw_scan_only_simulator": true,
+    "safety_reads_raw_scan": true,
+    "nav2_reads_raw_scan": true,
+    "mapping_filter_only": true,
+    "slam_reads_filtered_scan": true
+  },
+  "infrastructure_valid": true,
+  "parent_exit_codes": {
+    "scan_filter": 0,
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "map_saver": 0,
+    "goal": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 67900,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 67901,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 67902,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 67903,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 67904,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 67905,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 68211,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 68313,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 68314,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 68315,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 68316,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 68317,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 68318,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 68333,
+      "exit_code": 0
+    }
+  },
+  "dds_port_released": true,
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "scene": "advanced_world",
+  "decision_count": 7,
+  "exploration_target_count": 6,
+  "event_counts": {
+    "B_route_discovered": 1,
+    "decision": 7,
+    "frontier_invalidated_by_observation": 1,
+    "frontier_passed": 4,
+    "navigate": 7,
+    "start": 1
+  },
+  "path_replay": [
+    {
+      "snapshot": "map-001.npz",
+      "sha256": "7dfd24416fa419bb6e0bcf0e753d1662a6845b73c5a7ff67e3e05cd97db76ba8",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-003.npz",
+      "sha256": "0bc3ad638065532e751d1c537d3aa2b5b4d4777c71ea035cbc48f988daacbd34",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-004.npz",
+      "sha256": "9bb1e773d727187fb11526f02c53b808a8833a722a12d4abd99e7b406c72e687",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-005.npz",
+      "sha256": "8634cfb2932f1883ae9daeb7dec1aacdef03657404a2751751ea3d55e7d82590",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-006.npz",
+      "sha256": "2476fe2d5a3aa539f312ed24ec3f92a1883775c707030107d8ef8787a8361e01",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-007.npz",
+      "sha256": "2aa0cfa75bd5c47c158f16869e7d8d43793da73c7663ceeff66689bdad6a726b",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-009.npz",
+      "sha256": "5929e45129278af83e8d702ca36a6cad16517e752382129f860ee184519d7a8f",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": true
+    }
+  ],
+  "all_selected_paths_observed": true,
+  "trajectory_y_range": [
+    -0.030460594541157807,
+    8.598462357991105
+  ],
+  "trajectory_length_m": 31.559673940766746
+}

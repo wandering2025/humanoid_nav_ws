@@ -30,7 +30,10 @@ def main():
     core=('scripts/exploration/controller.py','scripts/exploration/scan_filter.py',
           'scripts/exploration/demo.py','src/t1_bringup/t1_bringup/exploration.py',
           'src/t1_bringup/t1_bringup/scan_history.py','src/t1_mujoco/t1_mujoco/events.py',
-          'src/t1_mujoco/t1_mujoco/simulation.py','src/t1_bringup/config/exploration_events.yaml')
+          'src/t1_mujoco/t1_mujoco/simulation.py','src/t1_bringup/config/exploration_events.yaml',
+          'scripts/run_exploration_demo.sh','scripts/advanced/demo.py',
+          'src/t1_navigation/config/exploration_task.yaml','src/t1_navigation/config/slam.yaml',
+          'src/t1_navigation/config/navigation.yaml','src/t1_navigation/config/safety.yaml')
     sources={}
     for name in core:
         current=(WS/name).read_bytes()
