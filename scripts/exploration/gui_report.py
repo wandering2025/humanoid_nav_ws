@@ -73,6 +73,9 @@ def audit(run):
             and all(v['exit_code']==0 for v in result['launch_process_exit_codes'].values()),
         no_processes_or_port=not result['remaining_owned_pids'] and not result['remaining_project_processes']
             and result['dds_port_released'],
+        observer_closed_before_dds=result.get('dds_shutdown',{}).get('observer_closed_before_signal') is True
+            and result.get('dds_shutdown',{}).get('clients_disconnected') is True
+            and not result.get('observer_shutdown_error'),
         vacated_obstacle_has_no_occupied_ghost=bool(cleared) and cleared['occupied_samples']==0,
         tested_sources_unchanged=all(v['unchanged_since_run'] for v in sources.values()))
     return dict(status='PASS' if all(checks.values()) else 'FAIL',run_id=result['run_id'],

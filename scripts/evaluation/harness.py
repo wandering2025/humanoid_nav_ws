@@ -246,7 +246,6 @@ class Probe(Node):
                 if len(errors) < 180 and (not errors or t-errors[-1]['scan_sim'] >= 1.):
                     error = dict(scan_sim=t, error=str(exc))
                     errors.append(error)
-                    print('dynamic scan TF unavailable: '+json.dumps(error), flush=True)
             return False
         p, a = tf.transform.translation, yaw(tf.transform.rotation)
         hits = []

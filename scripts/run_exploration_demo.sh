@@ -21,13 +21,19 @@ source "$EXP_ROOT/scripts/env.sh" >"$T1_DEMO_DIR/environment.log" 2>&1
 cmake -S "$EXP_ROOT/scripts/advanced/authority" -B "$EXP_ROOT/build/advanced-tools" -DPython3_EXECUTABLE=/usr/bin/python3 >"$T1_DEMO_DIR/authority-build.log" 2>&1
 cmake --build "$EXP_ROOT/build/advanced-tools" --parallel 2 >>"$T1_DEMO_DIR/authority-build.log" 2>&1
 runner=''
-stop() { if [[ -n "$runner" ]] && kill -0 "$runner" 2>/dev/null; then kill -TERM "$runner"; fi; }
+runner_wait_interrupted=0
+stop() { runner_wait_interrupted=1; if [[ -n "$runner" ]] && kill -0 "$runner" 2>/dev/null; then kill -TERM "$runner"; fi; }
 trap stop INT TERM
 "$T1_VENV/bin/python" "$EXP_ROOT/scripts/exploration/demo.py" "$@" &
 runner=$!
 code=0
-wait "$runner" || code=$?
-if kill -0 "$runner" 2>/dev/null; then wait "$runner" || code=$?; fi
+while :; do
+  runner_wait_interrupted=0
+  wait "$runner" && code=0 || code=$?
+  # A trapped signal interrupts Bash wait before the child's cleanup finishes.
+  # Wait again even if it just exited, retaining its actual (possibly nonzero) code.
+  if (( runner_wait_interrupted == 0 )); then break; fi
+done
 runner=''
 if [[ -f "$T1_DEMO_DIR/result.json" ]]; then
   /usr/bin/python3 "$EXP_ROOT/scripts/advanced/finalize.py" "$T1_DEMO_DIR" "$code" || code=$?

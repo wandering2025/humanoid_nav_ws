@@ -525,6 +525,23 @@ class Demo:
                         self.summary.get('safe_stop',{}).get('ack') is True and
                         self.summary.get('safe_stop',{}).get('physical_stationary') is True,
                     signal=None)
+                if getattr(self, 'close_observer_before_dds', False):
+                    try:
+                        self.close_observer()
+                        deadline=time.monotonic()+5.
+                        connections=port_connections()
+                        while connections['other_connections'] and time.monotonic()<deadline:
+                            time.sleep(.05)
+                            connections=port_connections()
+                        self.summary['dds_shutdown'].update(
+                            observer_closed_before_signal=True,
+                            connections_after_observer_close=connections,
+                            clients_disconnected=not connections['other_connections'])
+                        if connections['other_connections']:
+                            raise RuntimeError('DDS clients still connected after observer shutdown')
+                    except Exception as exc:
+                        # Continue owned-process cleanup, but never pass this run.
+                        self.summary['observer_shutdown_error']=repr(exc)
             if p.poll() is None:
                 p.send_signal(signal.SIGINT)
                 self.summary['shutdown_signals'].append([name,p.pid,'SIGINT'])
@@ -569,7 +586,15 @@ class Demo:
         self.summary['launch_process_exit_codes']={name:dict(pid=int(pid),exit_code=exits.get(name)) for name,pid in starts.items()}
         self.summary['remaining_owned_pids']=[r['pid'] for r in self.owned.values() if alive(r)]
         self.summary['remaining_project_processes']=project_processes()
-        if self.node:
+        self.close_observer()
+        self.summary['dds_port_state_before_runner_exit']=port_connections()
+        self.summary['dds_port_released']=None
+        self.summary['dds_port_check_deferred']=True
+        self.summary['wall_total_s']=time.monotonic()-self.started
+
+    def close_observer(self):
+        """Release this process's ROS participant once, retaining recorded evidence."""
+        if self.node and not getattr(self, '_observer_closed', False):
             self.summary['events']=self.node.events
             self.summary['graph']=self.runtime_graph
             self.summary['initializations']=self.node.initializations
@@ -579,10 +604,7 @@ class Demo:
             import rclpy
             if rclpy.ok():
                 rclpy.shutdown()
-        self.summary['dds_port_state_before_runner_exit']=port_connections()
-        self.summary['dds_port_released']=None
-        self.summary['dds_port_check_deferred']=True
-        self.summary['wall_total_s']=time.monotonic()-self.started
+            self._observer_closed=True
 
     def metrics(self):
         sys.path.insert(0,str(WS/'scripts'))

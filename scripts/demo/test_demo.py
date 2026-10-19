@@ -110,6 +110,41 @@ class Isolation(unittest.TestCase):
              patch.object(demo.time,'sleep'), patch.object(demo.os,'kill',side_effect=AssertionError('must not kill')):
             self.assertTrue(demo.wait_port_reusable(.5))
 
+    def test_observer_first_shutdown_is_opt_in_and_retains_disconnect_errors(self):
+        for enabled,blocked in ((False,False),(True,False),(True,True)):
+            with self.subTest(enabled=enabled,blocked=blocked):
+                events=[];state={'closed':False,'code':None,'now':0.}
+                instance=object.__new__(demo.Demo)
+                instance.close_observer_before_dds=enabled
+                instance.owned={};instance.cleanup_started=False
+                instance.summary={};instance.started=0.;instance.runtime_graph={}
+                instance.launch_log=demo.OUT/'absent-launch.log'
+                instance.node=SimpleNamespace(events=['saved evidence'],initializations=[],clock_regressions=0,
+                    destroy_node=lambda:events.append('node_closed'))
+                def shutdown():
+                    events.append('context_closed');state['closed']=True
+                def signal_child(sig):
+                    self.assertEqual(state['closed'],enabled)
+                    events.append('dds_signal');state['code']=0
+                child=SimpleNamespace(pid=987654321,poll=lambda:state['code'],
+                    wait=lambda timeout:state['code'],send_signal=signal_child)
+                instance.children={'dds':(child,io.StringIO())}
+                fake=SimpleNamespace(ok=lambda:not state['closed'],shutdown=shutdown)
+                connections=dict(listeners=[{}],time_wait=[],other_connections=[{}] if blocked else [])
+                with patch.dict(demo.sys.modules,{'rclpy':fake}),patch.object(instance,'track'), \
+                     patch.object(demo,'project_processes',return_value=[]), \
+                     patch.object(demo,'port_connections',return_value=connections), \
+                     patch.object(demo.time,'monotonic',side_effect=lambda:state['now']), \
+                     patch.object(demo.time,'sleep',side_effect=lambda dt:state.update(now=state['now']+dt)):
+                    instance.cleanup();instance.close_observer()
+                expected=['node_closed','context_closed','dds_signal'] if enabled else ['dds_signal','node_closed','context_closed']
+                self.assertEqual(events,expected)
+                self.assertEqual(instance.summary['events'],['saved evidence'])
+                self.assertEqual(instance.summary['parent_exit_codes']['dds'],0)
+                self.assertEqual(bool(instance.summary.get('observer_shutdown_error')),blocked)
+                if enabled:
+                    self.assertEqual(instance.summary['dds_shutdown']['clients_disconnected'],not blocked)
+
     def test_foreign_listener_is_never_cleaned_up(self):
         with patch.object(demo,'port_free',return_value=False), \
              patch.object(demo,'port_connections',return_value={'listeners':[{}],'time_wait':[],'other_connections':[]}), \

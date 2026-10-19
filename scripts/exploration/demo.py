@@ -36,6 +36,7 @@ class ExplorationRun(advanced.Advanced):
         # Raw scan consumers and all robot planning/control remain unchanged.
         self.dynamic_sample_wait_s = .5
         self.evaluation_tf_queue_depth = 20
+        self.close_observer_before_dds = True
 
     def markers(self):
         if not hasattr(self, 'viz'):
@@ -221,7 +222,8 @@ class ExplorationRun(advanced.Advanced):
             and s.get('safe_stop',{}).get('physical_stationary')
             and not s.get('remaining_owned_pids') and not s.get('remaining_project_processes')
             and s.get('clock_regressions')==0 and s.get('slam_shutdown',{}).get('complete')
-            and not s.get('cleanup_error'))
+            and not s.get('cleanup_error') and not s.get('observer_shutdown_error')
+            and s.get('dds_shutdown',{}).get('clients_disconnected') is True)
         n = self.node
         s['dynamic_sampling'] = n.dynamic_pending.summary() if n.dynamic_pending else None
         s['evaluation_tf_queue_depth'] = self.evaluation_tf_queue_depth
