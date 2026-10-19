@@ -1,0 +1,18 @@
+{
+  "status": "PREREGISTERED",
+  "created_at": "2026-10-20T00:38:56.967683+02:00",
+  "starting_head": "55536adff8ac5047bfd1c06b13e6d4332a1b33bf",
+  "matrix": {
+    "gui_default": 5,
+    "gui_capture_encode_proxy": 5,
+    "intentional_cancel": 2
+  },
+  "hold_after_arrival_wall_seconds": 60,
+  "task": "src/t1_navigation/config/exploration_task.yaml",
+  "dynamic": "EXP01",
+  "preserve_all_attempts": true,
+  "stop_batch_on_failure": true,
+  "reset_acceptance_after_runtime_fix": true,
+  "meeting_application_validation": "NOT_RUN; user specified meeting screen sharing but application/meeting endpoint unavailable",
+  "limitations": "Capture/encode proxy is not an actual meeting or a universal reliability guarantee"
+}
