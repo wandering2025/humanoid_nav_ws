@@ -104,7 +104,8 @@ def main(args=None):
         runtime = inspect_runtime(p['upstream_path'], p['assets_path'], p['mode'], p['task'])
         cfg = load_task_config(p['upstream_path'], p['task'])
         presentation_goal = None
-        if p['mode'] == 'advanced_mapping':
+        exploration_input = os.environ.get('T1_EXPLORATION_TASK_SNAPSHOT')
+        if p['mode'] == 'advanced_mapping' and not exploration_input:
             from .advanced_goal import runtime_goal
             presentation_goal = runtime_goal()
         from ament_index_python.packages import get_package_share_directory
@@ -142,6 +143,15 @@ def main(args=None):
             log.manifest['case'] = metadata['name'] if metadata else 'custom_mjcf'
             log.manifest['start_pose_override'] = scene_provenance.get('start_pose_override')
             log.save()
+        if p['mode'] == 'advanced_mapping' and exploration_input:
+            # Metadata/rendering only. The independent explorer resolves A from TF.
+            from .exploration_task import load_task
+            task = load_task(exploration_input)
+            x, y, a = parse_start_pose(p['start_pose']) or scene_provenance['scene_metadata']['initial_pose']
+            dx, dy = task['offset']
+            presentation_goal = dict(goal=[x+math.cos(a)*dx-math.sin(a)*dy,
+                                          y+math.sin(a)*dx+math.cos(a)*dy, 0.], task=task)
+            log.manifest['exploration_task'] = task
         if presentation_goal is not None:
             log.manifest.update(goal=presentation_goal['goal'], presentation_goal=presentation_goal)
             log.save()

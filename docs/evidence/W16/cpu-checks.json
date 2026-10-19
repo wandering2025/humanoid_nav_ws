@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-19 Europe/Berlin",
+  "stage": "C1 before first physical run",
+  "build": "system colcon, four packages PASS (3.51s), raw/build.log",
+  "tests": "149 passed in 1.28s; raw/cpu-tests-02.log; src/t1_bringup/test, src/t1_mujoco/test, scripts/advanced/test_contract.py",
+  "initial_focused_tests": "14 passed; raw/cpu-tests.log",
+  "preflight": "PASS outside socket-restricted sandbox; first sandbox preflight PermissionError retained in run_data/exploration",
+  "runtime": "NOT_RUN",
+  "assumptions": ["Existing ideal odometry and attitude compensation", "Static world, no moving-entity SLAM claim", "Costmap 99/100 blocked; unknown -1 blocked; footprint and safety unchanged"]
+}

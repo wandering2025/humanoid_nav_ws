@@ -278,6 +278,14 @@ class Advanced(base.Demo):
         assert p.returncode==0 and nav.get('verified') and nav.get('status')=='SUCCEEDED', f'{label} failed: {nav}'
         return nav
 
+    def launch_command(self):
+        return ['ros2','launch','t1_bringup','advanced.launch.py',
+            f'headless:={str(self.args.headless).lower()}','rviz:=false',f'run_id:={RUN_ID}',
+            'seed:=4000','target_rtf:=1.0','max_sim_time:=1000',
+            f'nav_to_pose_bt_xml:={WS}/src/t1_navigation/behavior_trees/navigate_to_pose_advanced.xml',
+            f'params_file:={WS}/src/t1_navigation/config/w12_mapping_runtime.yaml',
+            f'events_file:={WS}/src/t1_bringup/config/advanced_events.yaml','scenario:=ADV01']
+
     def execute(self):
         os.environ['T1_EVAL_OUT']=str(OUT);os.environ['T1_DEMO_PRESENTATION']='1'
         from evaluation.harness import Probe
@@ -307,12 +315,7 @@ class Advanced(base.Demo):
         self.node.create_subscription(OccupancyGrid,'/map',self.on_map,qos)
         self.node.create_subscription(OccupancyGrid,'/global_costmap/costmap',lambda m:setattr(self,'global_grid',m),qos)
         self.action=ActionClient(self.node,NavigateToPose,'navigate_to_pose')
-        self.spawn('launch',['ros2','launch','t1_bringup','advanced.launch.py',
-            f'headless:={str(self.args.headless).lower()}','rviz:=false',f'run_id:={RUN_ID}',
-            'seed:=4000','target_rtf:=1.0','max_sim_time:=1000',
-            f'nav_to_pose_bt_xml:={WS}/src/t1_navigation/behavior_trees/navigate_to_pose_advanced.xml',
-            f'params_file:={WS}/src/t1_navigation/config/w12_mapping_runtime.yaml',
-            f'events_file:={WS}/src/t1_bringup/config/advanced_events.yaml','scenario:=ADV01'])
+        self.spawn('launch',self.launch_command())
         self.summary['status']='SLAM_INITIALIZING'
         self.until(lambda:'"starter": "navigation active"' in self.launch_log.read_text(errors='replace'),120)
         n=self.node
@@ -346,6 +349,11 @@ class Advanced(base.Demo):
             end=n.sim+30;self.until(lambda:n.sim>=end,60)
             self.safe_stop();self.summary['startup_check_completed']=True
             return
+        self.mission()
+
+    def mission(self):
+        n=self.node
+        from std_srvs.srv import Trigger
         self.summary['initial_map']=self.save_map('initial')
         route_ready=False
         for index,pose in enumerate(self.route['mapping_waypoints']):
