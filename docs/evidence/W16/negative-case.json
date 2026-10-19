@@ -1,0 +1,15 @@
+{
+  "registered_before_run": true,
+  "online_implementation_sha": "c72179061a08416a51ca17ff5e49c0725d811502",
+  "command": "./scripts/run_exploration_demo.sh --task src/t1_navigation/config/exploration_unreachable_task.yaml --time-limit 20",
+  "task": {"frame": "start", "goal": {"x": 50.0, "y": 0.0}},
+  "expected_mission_status": "FAILED",
+  "expected_arrived": false,
+  "required_explorer_error": "exploration simulation-time budget exhausted",
+  "required_infrastructure_valid": true,
+  "required_safe_stop": {"ack": true, "physical_stationary": true},
+  "required_contacts": {"static_env": 0, "obstacle": 0, "ground_nonfoot": 0},
+  "required_fell": false,
+  "required_dds_port_released": true,
+  "interpretation": "PASS only for bounded failure and safe stop; never counts as arrived or as proof of general exploration completeness. A startup failure does not satisfy this case."
+}
