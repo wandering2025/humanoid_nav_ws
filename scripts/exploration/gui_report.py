@@ -4,6 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+import yaml
 
 from PIL import Image
 
@@ -21,6 +22,10 @@ def audit(run):
     result = json.loads((run/'final-result.json').read_text())
     paths, _, _ = path_audit(run)
     dynamic = dynamic_audit(run)
+    manifest = json.loads((WS/'run_data'/result['run_id']/'manifest.json').read_text())
+    simulation = yaml.safe_load((run/'simulation.yaml').read_text())
+    original = yaml.safe_load((WS/'src/t1_navigation/config/w12_mapping_runtime.yaml').read_text())
+    original['t1_sim']['ros__parameters']['viewer_rate_hz'] = 15.
     screenshots = {}
     for stage in ('ready', 'dynamic', 'arrived'):
         screenshots[stage] = []
@@ -50,6 +55,9 @@ def audit(run):
     cleared = dynamic['vacated_footprint_in_final_slam']
     checks = dict(
         graphical_run=result.get('headless') is False,
+        physical_timing_preserved=manifest['physics_dt']==.002 and manifest['policy_dt']==.02
+            and manifest['target_rtf']==1. and simulation==original
+            and manifest['resolved_parameters']['viewer_rate_hz']==15.,
         mission_success=result['status']=='SUCCESS' and result['arrived'],
         real_dynamic_response=result.get('dynamic',{}).get('verdict')=='PASS',
         all_selected_paths_observed=paths['all_selected_paths_observed'],

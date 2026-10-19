@@ -117,3 +117,31 @@ class ObservedMap:
             if len(spaced) >= 24:
                 break
         return sorted(spaced, key=lambda p: p['score'], reverse=True)
+
+    def reobservation_candidates(self, position, goal, visited=(), failed=()):
+        """Change viewpoint inside observed free space when frontiers are blocked.
+
+        A stationary finite-beam scan may leave old obstacle cells between rays.
+        This does not clear cells or assume the obstruction moved: Nav2 still
+        verifies and follows each candidate using the full raw scan safety chain.
+        """
+        step = max(1, round(.5/self.res))
+        proposals = []
+        for j, i in np.argwhere(self.reachable & (self.distance >= 1.5) & (self.distance <= 4.)):
+            if j % step or i % step:
+                continue
+            point = self.point((j,i))
+            if math.dist(point, position)<1.5 or any(math.dist(point,p)<1.5 for p in failed):
+                continue
+            repeat = sum(max(0.,2.5-math.dist(point,p)) for p in visited)
+            score = -.65*self.distance[j,i]-.8*math.dist(point,goal)-8*repeat
+            proposals.append(dict(point=list(point),score=float(score),travel_m=float(self.distance[j,i]),
+                                  repeat=repeat,gain=0.,reason='known_free_reobservation'))
+        proposals.sort(key=lambda p:p['score'],reverse=True)
+        spaced = []
+        for candidate in proposals:
+            if all(math.dist(candidate['point'],c['point'])>=1. for c in spaced):
+                spaced.append(candidate)
+            if len(spaced)>=8:
+                break
+        return spaced

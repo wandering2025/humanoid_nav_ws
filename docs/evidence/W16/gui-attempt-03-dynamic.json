@@ -1,0 +1,60 @@
+{
+  "run_id": "20261019T215212Z_exploration_0c0d0799-3668-4e91-a2fd-cbb601b72eee",
+  "code_sha": "6509cd4214824a5aef4976293ff047b1861ac2c8",
+  "status": "FAILED",
+  "dynamic": {
+    "triggered": true,
+    "finished": true,
+    "actual_travel_m": 6.800000000000001,
+    "active_scan_hit_frames": 125,
+    "active_costmap_marked_frames": 33,
+    "blocked_wait": {
+      "stationary_s": 17.319999999999553,
+      "resumed_m": 0.006029156710567684
+    },
+    "verdict": "FAIL",
+    "response": "UNVERIFIED"
+  },
+  "filter": {
+    "scan_frames": 1278,
+    "active_scan_pairs": 125,
+    "obstacle_hit_rays": 3936,
+    "obstacle_hit_rays_withheld_from_slam": 3325,
+    "withheld_fraction": 0.8447662601626016,
+    "filtered_frames": 260,
+    "max_output_gap_s": 0.10000000000000853,
+    "processing_ms_p50": 20.89877399885154,
+    "processing_ms_p99": 46.021497341607784,
+    "moving_samples": 113,
+    "holding_samples": 120,
+    "filter_sha256": "93aba9116dcebc6989d31b8969e3ab355e8c2efd8e21f9617258ce8f96578731"
+  },
+  "vacated_footprint_in_final_slam": {
+    "observed_hold_position_odom": [
+      12.5,
+      3.0,
+      0.75
+    ],
+    "sample_count": 649,
+    "occupied_samples": 0,
+    "unknown_samples": 596,
+    "free_samples": 53
+  },
+  "graph": {
+    "map_only_slam": true,
+    "explorer_reads_map": true,
+    "explorer_reads_live_costmap": true,
+    "truth_isolated": true,
+    "obstacle_truth_isolated": true,
+    "final_only_collision_monitor": true,
+    "map_odom_only_slam": true,
+    "no_initialpose": true,
+    "physical_obstacle_count": true,
+    "raw_scan_only_simulator": true,
+    "safety_reads_raw_scan": true,
+    "nav2_reads_raw_scan": true,
+    "mapping_filter_only": true,
+    "slam_reads_filtered_scan": true
+  },
+  "static_control": false
+}

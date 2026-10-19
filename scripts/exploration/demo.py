@@ -87,11 +87,14 @@ class ExplorationRun(advanced.Advanced):
             self.display_start = start
             self.summary['display_start'] = dict(anchor_odom=start[0], goal_odom=start[1])
         kind = event.get('event')
+        self.summary.setdefault('display_events', []).append(dict(event=kind, sim=event.get('sim')))
         if kind == 'decision':
             self.display_iteration = event['iteration']+1
             self.display_target = tuple(event['target'][:2])
             self.display_phase = ('Known route to B - navigating' if event['final'] else
                                   f'Exploring - observation target {self.display_iteration}')
+            if event.get('reason') == 'known_free_reobservation':
+                self.display_phase = 'Changing viewpoint in observed free space'
         elif kind == 'temporarily_blocked':
             self.display_phase = 'Waiting for new observations'
         elif kind == 'frontier_invalidated_by_observation':

@@ -231,13 +231,15 @@ class Explorer(Node):
         self.arm_navigation()
         self.started_sim = self.sim()
         empty_since = None
-        for iteration in range(40):
+        iteration = 0
+        while iteration < 40:
             self.wait(lambda: self.pose() is not None)
             observed = self.observed(); target = self.target(); pose = self.pose()
             snapshot = self.snapshot(observed)
             path = self.plan(target, observed)
             final = path is not None
             candidates = []
+            reason = 'known_route_to_B' if final else 'frontier'
             if not final:
                 candidates = observed.candidates(pose[:2], target, self.visited, self.failed)
                 for candidate in candidates[:8]:
@@ -245,6 +247,17 @@ class Explorer(Node):
                     candidate['nav2_valid'] = path is not None
                     if path:
                         target = candidate['point']; break
+                if not path:
+                    if empty_since is None:
+                        empty_since = self.sim()
+                    if self.sim()-empty_since >= 20:
+                        reobserve = observed.reobservation_candidates(pose[:2], target, self.visited, self.failed)
+                        candidates += reobserve
+                        for candidate in reobserve:
+                            path = self.plan(candidate['point'], observed)
+                            candidate['nav2_valid'] = path is not None
+                            if path:
+                                target = candidate['point']; reason = 'known_free_reobservation'; break
                 if not path:
                     # A live obstacle can temporarily split the known free area.
                     # Await new observations with the current action stopped.
@@ -256,7 +269,10 @@ class Explorer(Node):
                         self.latch_stop()
                         self.nav_handle = None
                         self.wait(lambda: self.gate.get('state') == 'STOPPED')
-                    if self.sim()-empty_since >= 20:
+                    # Temporary occlusion is not proof of a dead end. Permit a
+                    # bounded minute of fresh observations, still inside the
+                    # global simulation/wall deadline enforced by every spin.
+                    if self.sim()-empty_since >= 60:
                         raise RuntimeError('no reachable informative frontier after bounded observation wait')
                     until = self.sim()+2
                     self.wait(lambda: self.sim() >= until, 8)
@@ -266,7 +282,8 @@ class Explorer(Node):
                 self.emit('observation_wait_complete', snapshot=snapshot)
                 self.arm_navigation()  # gate enforces healthy, fresh zero input
             self.emit('decision', iteration=iteration, snapshot=snapshot, pose=pose,
-                      target=list(target), final=final, candidates=candidates, path=path)
+                      target=list(target), final=final, candidates=candidates, path=path, reason=reason)
+            iteration += 1  # Observation polling is not a navigation decision.
             future = self.send(target, path, final)
             started = self.sim(); last_check = started; premature = 0
             while True:

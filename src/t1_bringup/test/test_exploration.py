@@ -68,6 +68,23 @@ def test_costmap_costs_are_not_raw_occupancy_probabilities():
     assert not grid.is_reachable((25,10))  # inscribed 99 remains blocked
 
 
+def test_blocked_frontier_reobservation_stays_in_known_connected_space():
+    data=room();data[:,80:]=-1;data[:,79]=99
+    position=(8.,10.)
+    grid=ObservedMap(data,.2,(0,0,0),position,inflated=True)
+    assert not grid.candidates(position,(25,10))
+    targets=grid.reobservation_candidates(position,(25,10))
+    assert targets
+    for candidate in targets:
+        assert grid.is_reachable(candidate['point'])
+        assert 1.5<=candidate['travel_m']<=4. and candidate['gain']==0.
+        assert candidate['point'][0]<15.8  # cannot cross the blocking wall/unknown
+    revisited=grid.reobservation_candidates(position,(25,10),visited=[targets[0]['point']]*3)
+    assert math.dist(revisited[0]['point'],targets[0]['point'])>1.
+    trapped=np.full((20,20),99);trapped[10,10]=0
+    assert not ObservedMap(trapped,.2,(0,0,0),(2.1,2.1),inflated=True).reobservation_candidates((2.1,2.1),(5,5))
+
+
 def test_input_contains_only_relative_point_and_does_not_read_scene(tmp_path, monkeypatch):
     task = tmp_path/'task.yaml'
     task.write_text('schema: 1\nframe: start\ngoal: {x: -42, y: 30}\n')

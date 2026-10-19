@@ -382,6 +382,8 @@ def main(args=None):
                     markers = exploration_markers
                     if presentation and markers is not None and markers != shown_exploration_markers:
                         annotate(viewer, start=markers[0], goal=markers[1])
+                        viewer.cam.distance = 11.
+                        viewer.cam.elevation = -50.
                         shown_exploration_markers = markers
                         log.manifest['exploration_display'] = dict(anchor_odom=markers[0], goal_odom=markers[1])
                         log.save()
