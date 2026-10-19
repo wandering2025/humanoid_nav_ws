@@ -1,0 +1,100 @@
+{
+  "run_id": "20261019T214458Z_exploration_2ee32754-a9df-44f3-b085-4c70a33069b1",
+  "code_sha": "6920eaa0b29a60c13434fe031caf2e19e4fc413a",
+  "status": "FAILED",
+  "error": "RuntimeError('Exploration failed: {\\'status\\': \\'FAILED\\', \\'task\\': {\\'schema\\': 1, \\'frame\\': \\'start\\', \\'offset\\': [11.0, 0.5], \\'source_sha256\\': \\'b9e83c12fdf595f32d56ac6bc6e602fd4c7e7cf1e02d564893521554d117396d\\'}, \\'arrival_position_tolerance_m\\': 0.3, \\'anchor_odom\\': [0.0043775797537012814, -0.014109307963673694, 0.05137506050468389], \\'goal_odom\\': [10.964187857970632, 1.0501080878208984], \\'error\\': \"TimeoutError(\\'ROS operation deadline\\')\", \\'finished_sim\\': 83.4, \\'decisions\\': 6}')",
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 16357.684237721,
+      "sim_time": 88.30000000000001,
+      "health_reason": ""
+    }
+  },
+  "parent_exit_codes": {
+    "scan_filter": 0,
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "rviz": 0,
+    "map_saver": 0,
+    "goal": 2
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 78574,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 78575,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 78576,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 78577,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 78578,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 78579,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 78895,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 79042,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 79043,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 79044,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 79045,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 79046,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 79047,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 79058,
+      "exit_code": 0
+    }
+  },
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "dds_port_released": true,
+  "gpu_monitor_error": null,
+  "display_coordinates_consistent": true,
+  "raw_path": "run_data/exploration/20261019T214458Z_exploration_2ee32754-a9df-44f3-b085-4c70a33069b1",
+  "cause_evidence": "TF future extrapolation and global /scan stale; mapping filter processing exceeded 100 ms under GUI load",
+  "max_filter_processing_ms": 235.7736499998282
+}

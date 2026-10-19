@@ -65,3 +65,5 @@ A 定义为探索开始、机器人就绪站立时的 base_footprint 坐标系�
 探索状态单向发布到只读显示端。A/B采用explorer的start事件中的anchor_odom和goal_odom；MuJoCo仅改独立view_model/user_scn，RViz在odom帧发布标记并由真实map→odom换算。探索开始前不展示假定的A/B。RViz显示实际SLAM格、原始雷达、实际Nav2路径、探索器当前目标和实际TF轨迹，不计算旧guided路线概览。模拟器接收状态仅为显示，无真值/场景数据返回给探索器，不改物理状态、TF或速度ownership。
 
 运行保存ready/dynamic/arrived实际窗口截图、GPU监控、显示坐标与导航结果一致性检查；到达后保留窗口8秒再按原流程停车清理（--hold除外）。本轮不改presentation/，待用户测试反馈后再加入新命令。
+
+图形负载下的建图实时性：scan_history以整数tuple集合去重代替逐帧结构数组排序，保留原格子和每帧确认计数；120帧包含转向、移动障碍与非有限量程的差分测试对旧实现完全一致。建图分支订阅/待处理队列深度1，允许丢弃被更新帧替代的旧scan，始终按实际scan原时间戳查TF并发布；不重写时间戳，不改SLAM参数/导航或安全阈值。记录output_age_s用于验证负载时延。原始scan发布及Nav2/CM订阅均未改变。

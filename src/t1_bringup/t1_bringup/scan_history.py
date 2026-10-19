@@ -27,10 +27,11 @@ class ScanHistory:
         cells = np.floor(points/self.res).astype(np.int64)
         # Preserve previously stable surfaces despite angular projection/noise
         # near corners. Such surfaces also stop cluster propagation into walls.
+        cell_keys = [tuple(cell) for cell in cells.tolist()]
         stable = np.array([bool(ok and any(self.surfaces.get((cell[0]+dx,cell[1]+dy),0)>=self.confirmations
                             for dx in range(-2,3) for dy in range(-2,3)))
-                           for ok,cell in zip(valid,cells)])
-        was_free = np.array([self.free.get(tuple(cell), 0) >= self.confirmations for cell in cells])
+                           for ok,cell in zip(valid,cell_keys)])
+        was_free = np.array([self.free.get(cell, 0) >= self.confirmations for cell in cell_keys])
         transient = valid & ~stable & was_free
         # Circular adjacent-beam connected components, including +/-pi seam.
         links = valid & np.roll(valid, -1) & (np.linalg.norm(points-np.roll(points, -1, axis=0), axis=1) < .3)
@@ -42,8 +43,7 @@ class ScanHistory:
                     transient[j] = True; stack.append(j)
         # Never grow the static prior into previously free space: otherwise a
         # slowly moving body could drag its own 'static' neighborhood with it.
-        for cell in np.unique(cells[valid & ~transient & ~was_free],axis=0):
-            key=tuple(cell)
+        for key in set(map(tuple, cells[valid & ~transient & ~was_free].tolist())):
             self.surfaces[key]=min(self.confirmations,self.surfaces.get(key,0)+1)
         # Integrate actual ray traversals only, ending before every real hit.
         # Count each cell once per scan, not once per intersecting beam.
@@ -54,9 +54,13 @@ class ScanHistory:
         steps = np.arange(range_min, range_max, self.res*.7)
         xy = np.asarray(pose[:2])+direction[:, None, :]*steps[None, :, None]
         free_cells = np.floor(xy[steps[None, :] < lengths[:, None]]/self.res).astype(np.int64)
-        for cell in np.unique(free_cells, axis=0):
-            key = tuple(cell)
-            self.free[key] = min(self.confirmations, self.free.get(key, 0)+1)
+        # No ordering is needed: integer tuple hashing avoids sorting tens of
+        # thousands of structured NumPy records on every 10 Hz scan. Preserve
+        # exactly the same cells and once-per-scan evidence counts.
+        for key in set(map(tuple, free_cells.tolist())):
+            count = self.free.get(key, 0)
+            if count < self.confirmations:
+                self.free[key] = count+1
         if len(self.free) > 2_000_000:
             raise RuntimeError('scan history memory budget exhausted')
         filtered = raw.copy(); filtered[transient] = np.nan

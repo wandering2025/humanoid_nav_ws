@@ -1,0 +1,8 @@
+{
+  "baseline": "2808e10b1d77964eabf2c5fc991ee7b415a324e6",
+  "scans": 120,
+  "all_masks_points_ranges_and_history_identical": true,
+  "old_ms_p50": 39.21515400179487,
+  "new_ms_p50": 14.733506501215743,
+  "new_ms_p99": 24.773131008150813
+}

@@ -24,10 +24,12 @@ class MappingScanFilter(Node):
         super().__init__('t1_mapping_scan_filter')
         self.set_parameters([Parameter('use_sim_time', value=True)])
         self.buffer = Buffer(); self.listener = TransformListener(self.buffer, self)
-        self.history, self.pending = ScanHistory(), deque(maxlen=10)
+        # Mapping can drop superseded scans under load; raw safety/navigation
+        # scans are untouched. Never accumulate a stale mapping/TF backlog.
+        self.history, self.pending = ScanHistory(), deque(maxlen=1)
         self.log = output.open('w')
-        self.publisher = self.create_publisher(LaserScan, '/scan/mapping', 5)
-        self.create_subscription(LaserScan, '/scan', lambda scan: self.pending.append(scan), 5)
+        self.publisher = self.create_publisher(LaserScan, '/scan/mapping', 1)
+        self.create_subscription(LaserScan, '/scan', lambda scan: self.pending.append(scan), 1)
         self.create_timer(.02, self.process)
         self.running = True
 
@@ -52,7 +54,8 @@ class MappingScanFilter(Node):
             self.publisher.publish(scan)
             self.log.write(json.dumps(dict(sim=t, pose=pose, masked_indices=np.flatnonzero(mask).tolist(),
                 masked_points_odom=points[mask].tolist(), known_free_cells=len(self.history.free),
-                processing_ms=(time.monotonic()-begin)*1000))+'\n')
+                processing_ms=(time.monotonic()-begin)*1000,
+                output_age_s=self.get_clock().now().nanoseconds*1e-9-t))+'\n')
             self.log.flush()
 
 
