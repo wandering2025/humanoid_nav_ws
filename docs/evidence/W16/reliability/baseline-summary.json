@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "profile": "five consecutive GUI default runs",
+  "online_implementation": "9c527785ccf6d9950ec06c76115dd8cf89d3dbb0",
+  "run_ids": [
+    "20261019T225103Z_exploration_4e7142f6-4f76-4df4-b544-73ce9e4fa492",
+    "20261019T225517Z_exploration_8295a3b1-1d46-4005-b07d-a6c6d790ad68",
+    "20261019T225931Z_exploration_4a2f96b2-fbc8-4622-af22-50c6e2c74a24",
+    "20261019T230331Z_exploration_0c12d7c3-d9df-4104-9e85-a02980f32976",
+    "20261019T230727Z_exploration_0998ee34-ce78-4f15-9d80-40e48097eb5d"
+  ],
+  "wait_s": [
+    17.719999999999075,
+    19.69999999999905,
+    14.9999999999999,
+    17.699999999999747,
+    18.499999999999545
+  ],
+  "final_error_m": [
+    0.1403004528720164,
+    0.08564733713913696,
+    0.10842382270801242,
+    0.09497527169568612,
+    0.09593187255977999
+  ],
+  "readiness_wall_s": [
+    14.73329997899782,
+    18.31553278499996,
+    15.0951714920011,
+    15.125571502001549,
+    14.448279890999402
+  ],
+  "total_wall_s": [
+    245.81900988100097,
+    246.85232742800144,
+    232.23568072499984,
+    228.8166058429997,
+    251.27752014100042
+  ],
+  "original_attempts": "1 PASS / 1 FAIL retained; not included in corrected-version count",
+  "shared_meeting": "NOT_RUN"
+}

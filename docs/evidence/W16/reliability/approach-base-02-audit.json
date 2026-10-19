@@ -1,0 +1,285 @@
+{
+  "status": "PASS",
+  "run_id": "20261019T225517Z_exploration_8295a3b1-1d46-4005-b07d-a6c6d790ad68",
+  "code_sha": "9c527785ccf6d9950ec06c76115dd8cf89d3dbb0",
+  "checks": {
+    "graphical_run": true,
+    "physical_timing_preserved": true,
+    "mission_success": true,
+    "real_dynamic_response": true,
+    "all_selected_paths_observed": true,
+    "graph_contract": true,
+    "no_contact_or_fall": true,
+    "safe_stop": true,
+    "both_windows_at_all_three_stages": true,
+    "actual_explorer_coordinates": true,
+    "expected_renderer": true,
+    "gpu_monitor_clean": true,
+    "mapping_latency_bounded": true,
+    "all_processes_exit_zero": true,
+    "no_processes_or_port": true,
+    "vacated_obstacle_has_no_occupied_ghost": true,
+    "tested_sources_unchanged": true
+  },
+  "sources": {
+    "scripts/run_exploration_demo.sh": {
+      "sha256": "9fc404b5b42407e1ac7f216b138bb37f07f5f33f78d2723c4c99d2258c236bba",
+      "unchanged_since_run": true
+    },
+    "scripts/exploration/demo.py": {
+      "sha256": "31cf993eca3fbd7c92f15e04f55781808a15485b83e37b3ee16f931eb3a84631",
+      "unchanged_since_run": true
+    },
+    "scripts/exploration/controller.py": {
+      "sha256": "de1e8d51da634f86932d377cf8c2e9ab0d367e78655cfae5598006965dcdccbc",
+      "unchanged_since_run": true
+    },
+    "scripts/exploration/scan_filter.py": {
+      "sha256": "602e571900dc72a2a5eb16ff902afd86021f0496ef874c2b84002ae12450cf57",
+      "unchanged_since_run": true
+    },
+    "scripts/advanced/demo.py": {
+      "sha256": "3ba4f3f4a7174e0fa133ec8451db58b4ad5c6f13a73fed857031ea138bc769bb",
+      "unchanged_since_run": true
+    },
+    "src/t1_bringup/t1_bringup/exploration.py": {
+      "sha256": "0567368b77774fa058af6def048697b262fa8b3bcc24ec64266f69e3b57340b9",
+      "unchanged_since_run": true
+    },
+    "src/t1_bringup/t1_bringup/scan_history.py": {
+      "sha256": "a1138845f3de92b34e8bc7d622ed927425c8ccd43ff2c946721a795157a49a89",
+      "unchanged_since_run": true
+    },
+    "src/t1_mujoco/t1_mujoco/simulation.py": {
+      "sha256": "1b8df60e8164907da9a5f50776b7b192e338cd73de9a55dfa05e5257502dcbe1",
+      "unchanged_since_run": true
+    },
+    "src/t1_mujoco/t1_mujoco/exploration_display.py": {
+      "sha256": "0cfb5cb48457b82ae6f1fa19f05cc3e25ed7498ed8c6cb330ed445e83e2a26ed",
+      "unchanged_since_run": true
+    },
+    "src/t1_mujoco/t1_mujoco/advanced_presentation.py": {
+      "sha256": "a25c8d024fa8295eaa4b4b49b634aa2ab1a97ba35afa2902268d223b11e68553",
+      "unchanged_since_run": true
+    },
+    "src/t1_mujoco/t1_mujoco/runner.py": {
+      "sha256": "ebf0863116884e35aa2643da47112dcb2b00b37b30e3217200e2ae00b64a105b",
+      "unchanged_since_run": true
+    },
+    "src/t1_mujoco/t1_mujoco/events.py": {
+      "sha256": "50a29f364bf09f8989258ba75eadb7111bd405ae27042237ad1394d03b456fa3",
+      "unchanged_since_run": true
+    },
+    "src/t1_bringup/config/exploration_events.yaml": {
+      "sha256": "5620017ddf4994a4f14d8c58a17d48aaa3e555a779433f7098d2344d55f6e0cb",
+      "unchanged_since_run": true
+    },
+    "src/t1_navigation/config/exploration.rviz": {
+      "sha256": "34c3728e0cdf1b3cbd1cffeab9224851ac4f9059ec709f6a6a0a98c791934eab",
+      "unchanged_since_run": true
+    }
+  },
+  "screenshots": {
+    "ready": [
+      {
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T225517Z_exploration_8295a3b1-1d46-4005-b07d-a6c6d790ad68/ready-mujoco.png",
+        "sha256": "a43004eb86ac3328486f0c8d8b41762b0c9cf6440f5bcec3c9dc7a4152863f9c",
+        "size": [
+          1024,
+          640
+        ]
+      },
+      {
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T225517Z_exploration_8295a3b1-1d46-4005-b07d-a6c6d790ad68/ready-rviz.png",
+        "sha256": "df93afd7074b7a996e5b03c8e87126cb631237912c4ec96df13ac4872d78c441",
+        "size": [
+          1024,
+          740
+        ]
+      }
+    ],
+    "dynamic": [
+      {
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T225517Z_exploration_8295a3b1-1d46-4005-b07d-a6c6d790ad68/dynamic-mujoco.png",
+        "sha256": "f4d5f10724985c6104387c3435f52eac5a0df11838c996b5630b82b7920a51c5",
+        "size": [
+          1024,
+          640
+        ]
+      },
+      {
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T225517Z_exploration_8295a3b1-1d46-4005-b07d-a6c6d790ad68/dynamic-rviz.png",
+        "sha256": "daa91d5b9f4f65115b7c4f3daa748ec57c5f476fbee925ea7ef5e026de681430",
+        "size": [
+          1024,
+          740
+        ]
+      }
+    ],
+    "arrived": [
+      {
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T225517Z_exploration_8295a3b1-1d46-4005-b07d-a6c6d790ad68/arrived-mujoco.png",
+        "sha256": "0e861b0dfed94a4fd3e7d6bbc206ba2228800c5a1177e3916642da3e562dc920",
+        "size": [
+          1024,
+          640
+        ]
+      },
+      {
+        "path": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T225517Z_exploration_8295a3b1-1d46-4005-b07d-a6c6d790ad68/arrived-rviz.png",
+        "sha256": "2adf448f1106d07827e60e6bc4930e603b511b216b0cbd551d90de60adfb0cb3",
+        "size": [
+          1024,
+          740
+        ]
+      }
+    ]
+  },
+  "renderer": [
+    "OpenGL renderer string: D3D12 (NVIDIA GeForce RTX 4050 Laptop GPU)"
+  ],
+  "gpu_peak": {
+    "temperature_c": 63.0,
+    "memory_mib": 2228.0,
+    "utilization_pct": 51.0
+  },
+  "display_start": {
+    "anchor_odom": [
+      0.004159724289437443,
+      -0.01597083997639164,
+      0.07186929330630411
+    ],
+    "goal_odom": [
+      10.939859656178667,
+      1.2726202509744522
+    ]
+  },
+  "dynamic": {
+    "run_id": "20261019T225517Z_exploration_8295a3b1-1d46-4005-b07d-a6c6d790ad68",
+    "code_sha": "9c527785ccf6d9950ec06c76115dd8cf89d3dbb0",
+    "status": "SUCCESS",
+    "dynamic": {
+      "triggered": true,
+      "finished": true,
+      "actual_travel_m": 6.800000000000001,
+      "active_scan_hit_frames": 112,
+      "active_costmap_marked_frames": 37,
+      "blocked_wait": {
+        "stationary_s": 19.69999999999905,
+        "resumed_m": 6.833999866939886
+      },
+      "verdict": "PASS",
+      "response": "BLOCKED_PATH_WAIT_AND_CONTINUE"
+    },
+    "filter": {
+      "scan_frames": 1658,
+      "active_scan_pairs": 112,
+      "obstacle_hit_rays": 4190,
+      "obstacle_hit_rays_withheld_from_slam": 3813,
+      "withheld_fraction": 0.9100238663484487,
+      "filtered_frames": 478,
+      "max_output_gap_s": 0.10000000000002274,
+      "processing_ms_p50": 23.56651850095659,
+      "processing_ms_p99": 48.962340268371925,
+      "moving_samples": 114,
+      "holding_samples": 120,
+      "filter_sha256": "0c727b7ea6310ca9457d8757e0c03060666bf39d99f2a7a75b67024e8478f06d"
+    },
+    "vacated_footprint_in_final_slam": {
+      "observed_hold_position_odom": [
+        12.5,
+        3.0,
+        0.75
+      ],
+      "sample_count": 649,
+      "occupied_samples": 0,
+      "unknown_samples": 0,
+      "free_samples": 649
+    },
+    "graph": {
+      "map_only_slam": true,
+      "explorer_reads_map": true,
+      "explorer_reads_live_costmap": true,
+      "truth_isolated": true,
+      "obstacle_truth_isolated": true,
+      "final_only_collision_monitor": true,
+      "map_odom_only_slam": true,
+      "no_initialpose": true,
+      "physical_obstacle_count": true,
+      "raw_scan_only_simulator": true,
+      "safety_reads_raw_scan": true,
+      "nav2_reads_raw_scan": true,
+      "mapping_filter_only": true,
+      "slam_reads_filtered_scan": true
+    },
+    "static_control": false
+  },
+  "mapping_max_output_age_s": 0.08000000000000007,
+  "truth_final_hold_max_error_m": 0.08564733713913696,
+  "decision_count": 9,
+  "path_replay": [
+    {
+      "snapshot": "map-001.npz",
+      "sha256": "0e8dd89132d38bdb86a14be92d0447fb266eb489480b2cd8afaa456f0b6388ef",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-003.npz",
+      "sha256": "afc8ef0049922298d944f6f88a8ab3498edb2ed9a4e654a023b4556b2f846ec2",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-004.npz",
+      "sha256": "eb0f42e0717c93538b654b50e2393bb65b88e3100bced6ab043dc0bbb82fc439",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-005.npz",
+      "sha256": "b301f01f1cfa76ff3110763d415e20372454d91d65865161bc908113fa9f258d",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-006.npz",
+      "sha256": "e22c776bc82b3102b52bbcacae652758cd656b4a784a593139f51e92e5fdbc15",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-007.npz",
+      "sha256": "11edca889d9c203b3b1b5de5a1c66b57058d397be33178333cce93c284054c57",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-009.npz",
+      "sha256": "5b4a253c18fe959b6eecff7536734fe3f0511676621a0a0efa95674c86fa83b2",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-021.npz",
+      "sha256": "7a19684014d5ff4767c304a56bb5ea07b2a302cf30b04011b9fec52d9a9ebba5",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-022.npz",
+      "sha256": "8713dfe82cbba266705ff314a6f85bf805528b5cad7b32957b9b1c80e85ce88a",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": true
+    }
+  ]
+}

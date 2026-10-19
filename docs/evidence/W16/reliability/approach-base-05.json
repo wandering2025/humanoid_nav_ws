@@ -1,0 +1,35 @@
+{
+  "label": "approach-base-05",
+  "profile": "default",
+  "cancel": null,
+  "hold_s": 0.0,
+  "started_utc": "2026-10-19T23:07:27.014518+00:00",
+  "command": [
+    "/home/haoyang/humanoid_nav_ws_advanced/scripts/run_exploration_demo.sh"
+  ],
+  "code_sha": "e488bacc9aeb2dcde9ebf6188b348fc5454649e7",
+  "run": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T230727Z_exploration_0998ee34-ce78-4f15-9d80-40e48097eb5d",
+  "status": "PASS",
+  "launcher_pid": 136004,
+  "launcher_exit": 0,
+  "load_exit": null,
+  "finished_utc": "2026-10-19T23:11:45.283264+00:00",
+  "wall_s": 251.27752014100042,
+  "mission_status": "SUCCESS",
+  "readiness_wall_s": 14.448279890999402,
+  "dynamic": {
+    "triggered": true,
+    "finished": true,
+    "actual_travel_m": 6.800000000000001,
+    "active_scan_hit_frames": 188,
+    "active_costmap_marked_frames": 37,
+    "blocked_wait": {
+      "stationary_s": 18.499999999999545,
+      "resumed_m": 4.565673955022113
+    },
+    "verdict": "PASS",
+    "response": "BLOCKED_PATH_WAIT_AND_CONTINUE"
+  },
+  "final_error_m": 0.09593187255977999,
+  "audit_exit": 0
+}
