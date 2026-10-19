@@ -1,16 +1,22 @@
 {
   "status": "PASS",
   "build_packages": 4,
-  "tests_passed": 153,
-  "build_log": "raw/dynamic-build-01.log",
-  "test_log": "raw/dynamic-cpu-01.log",
+  "tests_passed": 158,
+  "build_log": "raw/dynamic-build-02.log",
+  "test_log": "raw/dynamic-cpu-03.log",
   "checks": [
     "scan temporal intrusion and long stop",
     "unchanged raw scan and finite ranges",
     "unknown occlusion not carved free",
     "scan timestamp and coordinate transform",
     "static wall during ego motion",
-    "existing exploration and advanced regressions"
+    "existing exploration and advanced regressions",
+    "stable surface corner protection",
+    "slow mover cannot extend static prior",
+    "observation wait retains mission budgets and unrelated fault latches",
+    "rejected arm cannot resume"
   ],
-  "runtime": "NOT_RUN"
+  "runtime": "DYNAMIC_PASSED_PENDING_PORT; STATIC_CONTROL_NOT_RUN",
+  "implementation_sha": "491d2c837e68204393bcaa129e04619fceadb2ba",
+  "built_sha": "dc33203dfed946f9adc12643acb8ad9436f6e2f7"
 }
