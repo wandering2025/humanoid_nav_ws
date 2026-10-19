@@ -53,3 +53,24 @@ def test_static_wall_preserved_when_robot_moves_and_turns():
         wall = (6-x)/np.cos(angles+heading)
         _, mask, _ = history.filter(wall, angles, (x,0,heading), tick, .15, 12)
         assert not mask.any()
+
+
+def test_stable_wall_stops_cluster_flood_at_a_noisy_corner():
+    history=ScanHistory(); angles=np.linspace(0.,.5,101)
+    wall=5/np.cos(angles)
+    for t in range(6):
+        history.filter(wall,angles,(0,0,0),t,.15,12)
+    # Accidental free-cell evidence at a wall corner cannot erase the wall.
+    point=np.array([5.,5*np.tan(angles[0])]);cell=tuple(np.floor(point/.1).astype(int))
+    history.free[cell]=3
+    _,mask,_=history.filter(wall,angles,(0,0,0),6,.15,12)
+    assert not mask.any()
+
+
+def test_slow_object_cannot_drag_static_prior_across_known_free_space():
+    history=ScanHistory(); angles=np.array([0.])
+    for t in range(5):history.filter([6.],angles,(0,0,0),t,.15,12)
+    for t in range(5,30):
+        distance=6.-(t-4)*.06
+        _,mask,_=history.filter([distance],angles,(0,0,0),t,.15,12)
+        if distance<5.4:assert mask[0]
