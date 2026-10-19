@@ -30,6 +30,24 @@ wsl.exe -d Ubuntu-24.04 --cd /home/haoyang/humanoid_nav_ws_advanced --exec bash 
 
 新环境不在本步范围。已有 overlay 若需重建：设置既有 `T1_VENV`、`T1_UPSTREAM` 后 `source scripts/env.sh`，用系统 `/usr/bin/colcon build --symlink-install --base-paths src`；运行入口明确使用配置 venv Python，不重装依赖。
 
+当前动态实现 `491d2c837e68204393bcaa129e04619fceadb2ba`，D2已通过；D3对照及最终状态见执行记录。
+
+| 动态检查 | 实测结果 |
+| --- | --- |
+| 物理实体运动 | 3×0.6×1.5m MuJoCo碰撞体，累计6.8m，轨迹完成 |
+| 原始雷达 / 实时costmap | 活动期231命中帧 / 36标记帧 |
+| 真实响应 | 站稳等待15.1s，事件结束后行走4.142m |
+| 到达 | 最后2s最大误差0.1081m，站稳≥2s |
+| 持续SLAM | 无暂停；8916/9846个活动障碍命中从建图分支排除，原始scan不变 |
+| 阻塞解除 | 最终实际SLAM图中原阻塞footprint649点全部自由，0占据/未知 |
+| 运动与回收 | 零接触/跌倒，TF与命令唯一，全部进程退出0/端口释放 |
+
+[动态结果与逐路径审计](dynamic.json) · [真实地图与轨迹](dynamic.png) · [动态感知/等待/清空审计](dynamic-audit.json) · [动态响应时间图](dynamic-audit.png)。
+
+同代码无障碍对照使用 `--static`。本轮失败完整保留：回调签名不兼容、静态墙误分类后主动停止、等待取消触发安全锁存后提前退出，分别见dynamic-attempt-01/02/03.json及dynamic-failed-finalization.json；后续修复并重新运行，未把这些失败改写成成功。158项CPU测试、四包build通过；不是批量可靠性评测，原W13 FAILED保持。
+
+当前使用理想odom、有限束补偿LiDAR和不可被推动的mocap运动学障碍；仅验证headless仿真。过滤器不能保证识别最初静止于未知区域的物体，不宣称通用动态SLAM或真机能力。
+
 以下为扩展前的静态验收历史，不能代替本轮动态验收；完整动态结果另列。历史正例使用同一任务文件和相同在线实现 `c72179061a08416a51ca17ff5e49c0725d811502`：
 
 | 检查 | 结果 | 证据 |
