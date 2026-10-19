@@ -66,7 +66,7 @@ def run_case(args, label):
                 if run:
                     ready=all((run/f'ready-{name}.png').exists() for name in ('mujoco','rviz'))
                     if ready and args.profile=='share-proxy' and load is None:
-                        load=subprocess.Popen([str(Path(os.environ['T1_VENV'])/'bin/python'),
+                        load=subprocess.Popen(['/usr/bin/python3',
                             str(WS/'scripts/exploration/share_load.py'),'--run',str(run),
                             '--output',str(case/'capture')],stdout=load_log,stderr=subprocess.STDOUT,
                             stdin=subprocess.DEVNULL,start_new_session=True)
@@ -136,7 +136,7 @@ def run_case(args, label):
         else:
             # Independent path, dynamic, graphics and timing checks after all
             # live processes have exited; audit failures stop the batch.
-            audit=subprocess.run([sys.executable,str(WS/'scripts/exploration/gui_report.py'),
+            audit=subprocess.run(['/usr/bin/python3',str(WS/'scripts/exploration/gui_report.py'),
                 str(run),str(case/'gui-audit.json')],capture_output=True,text=True)
             (case/'audit.log').write_text(audit.stdout+audit.stderr)
             info['audit_exit']=audit.returncode
