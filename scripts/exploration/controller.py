@@ -35,6 +35,7 @@ class Explorer(Node):
         self.task, self.out, self.limit = task, output, limit
         self.grid, self.costmap, self.gate, self.nav_handle = None, None, {}, None
         self.interrupted = False
+        self.observation_wait = False
         self.buffer = Buffer(); self.listener = TransformListener(self.buffer, self)
         qos = QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL)
         self.create_subscription(OccupancyGrid, '/map', self.on_map, qos)
@@ -101,7 +102,10 @@ class Explorer(Node):
                 raise TimeoutError('exploration simulation-time budget exhausted')
             if now-self.started_wall > self.limit*2.5+120:
                 raise TimeoutError('exploration wall-time budget exhausted')
-            if self.started_sim is not None and self.gate.get('state') != 'ARMED':
+            expected_wait_stop = (self.observation_wait and self.gate.get('state') == 'STOPPED'
+                                  and self.gate.get('reason') == 'EXPLICIT_STOP_OR_CANCEL'
+                                  and not self.gate.get('health_reason'))
+            if self.started_sim is not None and self.gate.get('state') != 'ARMED' and not expected_wait_stop:
                 raise RuntimeError(f'exploration safety latch: {self.gate}')
 
     def wait(self, predicate, seconds=10, check=True):
@@ -181,6 +185,14 @@ class Explorer(Node):
         if self.nav_handle:
             cancel = self.nav_handle.cancel_goal_async(); self.wait(cancel.done, check=False)
 
+    def arm_navigation(self):
+        self.wait(lambda: self.arm.service_is_ready())
+        future = self.arm.call_async(Trigger.Request()); self.wait(future.done)
+        if not future.result().success:
+            raise RuntimeError(future.result().message)
+        self.wait(lambda: self.gate.get('state') == 'ARMED')
+        self.observation_wait = False
+
     def verify_arrival(self):
         self.latch_stop()
         samples = []; held = None; deadline = self.sim()+12
@@ -216,11 +228,7 @@ class Explorer(Node):
         self.goal_odom = transform_point(self.task['offset'], self.anchor)
         self.result.update(anchor_odom=self.anchor, goal_odom=self.goal_odom)
         self.emit('start', anchor_odom=self.anchor, goal_odom=self.goal_odom)
-        self.wait(lambda: self.arm.service_is_ready())
-        future = self.arm.call_async(Trigger.Request()); self.wait(future.done)
-        if not future.result().success:
-            raise RuntimeError(future.result().message)
-        self.wait(lambda: self.gate.get('state') == 'ARMED')
+        self.arm_navigation()
         self.started_sim = self.sim()
         empty_since = None
         for iteration in range(40):
@@ -243,15 +251,20 @@ class Explorer(Node):
                     if empty_since is None:
                         empty_since = self.sim()
                     self.emit('temporarily_blocked', snapshot=snapshot, candidates=candidates)
-                    if self.nav_handle:
-                        canceled = self.nav_handle.cancel_goal_async(); self.wait(canceled.done)
+                    if not self.observation_wait:
+                        self.observation_wait = True
+                        self.latch_stop()
                         self.nav_handle = None
+                        self.wait(lambda: self.gate.get('state') == 'STOPPED')
                     if self.sim()-empty_since >= 20:
                         raise RuntimeError('no reachable informative frontier after bounded observation wait')
                     until = self.sim()+2
                     self.wait(lambda: self.sim() >= until, 8)
                     continue
             empty_since = None
+            if self.observation_wait:
+                self.emit('observation_wait_complete', snapshot=snapshot)
+                self.arm_navigation()  # gate enforces healthy, fresh zero input
             self.emit('decision', iteration=iteration, snapshot=snapshot, pose=pose,
                       target=list(target), final=final, candidates=candidates, path=path)
             future = self.send(target, path, final)

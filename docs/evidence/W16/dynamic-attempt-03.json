@@ -1,0 +1,1803 @@
+{
+  "run_id": "20261019T210629Z_exploration_fd428fe2-e437-46af-8cb9-8afa5d73114e",
+  "code_sha": "483fc8ad814082d48b36fc271ffd1ef3162b7324",
+  "scenario": "W16",
+  "seed": 4000,
+  "started_utc": "2026-10-19T21:06:31.114800+00:00",
+  "arrived": false,
+  "human_intervention": false,
+  "status": "FAILED",
+  "method": "goal_directed_frontier_exploration",
+  "map_growth": [
+    {
+      "sim": 0.76,
+      "known_cells": 1141,
+      "occupied_cells": 0,
+      "known_m2": 2.8525000850111253,
+      "width": 221,
+      "height": 320,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.01079252207625,
+        -4.009774887132359
+      ]
+    },
+    {
+      "sim": 1.76,
+      "known_cells": 1141,
+      "occupied_cells": 0,
+      "known_m2": 2.8525000850111253,
+      "width": 221,
+      "height": 320,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.01079252207625,
+        -4.009774887132359
+      ]
+    },
+    {
+      "sim": 2.7600000000000002,
+      "known_cells": 1141,
+      "occupied_cells": 0,
+      "known_m2": 2.8525000850111253,
+      "width": 221,
+      "height": 320,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.01079252207625,
+        -4.009774887132359
+      ]
+    },
+    {
+      "sim": 3.7600000000000002,
+      "known_cells": 1141,
+      "occupied_cells": 0,
+      "known_m2": 2.8525000850111253,
+      "width": 221,
+      "height": 320,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.01079252207625,
+        -4.009774887132359
+      ]
+    },
+    {
+      "sim": 4.760000000000001,
+      "known_cells": 1141,
+      "occupied_cells": 0,
+      "known_m2": 2.8525000850111253,
+      "width": 221,
+      "height": 320,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.01079252207625,
+        -4.009774887132359
+      ]
+    },
+    {
+      "sim": 5.760000000000001,
+      "known_cells": 1141,
+      "occupied_cells": 0,
+      "known_m2": 2.8525000850111253,
+      "width": 221,
+      "height": 320,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.01079252207625,
+        -4.009774887132359
+      ]
+    },
+    {
+      "sim": 6.760000000000001,
+      "known_cells": 1141,
+      "occupied_cells": 0,
+      "known_m2": 2.8525000850111253,
+      "width": 221,
+      "height": 320,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.01079252207625,
+        -4.009774887132359
+      ]
+    },
+    {
+      "sim": 7.74,
+      "known_cells": 1141,
+      "occupied_cells": 0,
+      "known_m2": 2.8525000850111253,
+      "width": 221,
+      "height": 320,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.01079252207625,
+        -4.009774887132359
+      ]
+    },
+    {
+      "sim": 8.74,
+      "known_cells": 1141,
+      "occupied_cells": 0,
+      "known_m2": 2.8525000850111253,
+      "width": 221,
+      "height": 320,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.01079252207625,
+        -4.009774887132359
+      ]
+    },
+    {
+      "sim": 9.74,
+      "known_cells": 1141,
+      "occupied_cells": 0,
+      "known_m2": 2.8525000850111253,
+      "width": 221,
+      "height": 320,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.01079252207625,
+        -4.009774887132359
+      ]
+    },
+    {
+      "sim": 10.74,
+      "known_cells": 1141,
+      "occupied_cells": 0,
+      "known_m2": 2.8525000850111253,
+      "width": 221,
+      "height": 320,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.01079252207625,
+        -4.009774887132359
+      ]
+    },
+    {
+      "sim": 11.74,
+      "known_cells": 1141,
+      "occupied_cells": 0,
+      "known_m2": 2.8525000850111253,
+      "width": 221,
+      "height": 320,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.01079252207625,
+        -4.009774887132359
+      ]
+    },
+    {
+      "sim": 12.74,
+      "known_cells": 1141,
+      "occupied_cells": 0,
+      "known_m2": 2.8525000850111253,
+      "width": 221,
+      "height": 320,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.01079252207625,
+        -4.009774887132359
+      ]
+    },
+    {
+      "sim": 13.74,
+      "known_cells": 1141,
+      "occupied_cells": 0,
+      "known_m2": 2.8525000850111253,
+      "width": 221,
+      "height": 320,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.01079252207625,
+        -4.009774887132359
+      ]
+    },
+    {
+      "sim": 14.72,
+      "known_cells": 1141,
+      "occupied_cells": 0,
+      "known_m2": 2.8525000850111253,
+      "width": 221,
+      "height": 320,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.01079252207625,
+        -4.009774887132359
+      ]
+    },
+    {
+      "sim": 15.72,
+      "known_cells": 1141,
+      "occupied_cells": 0,
+      "known_m2": 2.8525000850111253,
+      "width": 221,
+      "height": 320,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.01079252207625,
+        -4.009774887132359
+      ]
+    },
+    {
+      "sim": 16.720000000000002,
+      "known_cells": 1141,
+      "occupied_cells": 0,
+      "known_m2": 2.8525000850111253,
+      "width": 221,
+      "height": 320,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.01079252207625,
+        -4.009774887132359
+      ]
+    },
+    {
+      "sim": 17.720000000000002,
+      "known_cells": 4938,
+      "occupied_cells": 126,
+      "known_m2": 12.345000367909673,
+      "width": 221,
+      "height": 320,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.01079252207625,
+        -4.009774887132359
+      ]
+    },
+    {
+      "sim": 18.720000000000002,
+      "known_cells": 22986,
+      "occupied_cells": 535,
+      "known_m2": 57.46500171259047,
+      "width": 221,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.017549082969746,
+        -4.020750732272038
+      ]
+    },
+    {
+      "sim": 19.720000000000002,
+      "known_cells": 26222,
+      "occupied_cells": 627,
+      "known_m2": 65.55500195369126,
+      "width": 221,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.017549082969746,
+        -4.020750732272038
+      ]
+    },
+    {
+      "sim": 20.720000000000002,
+      "known_cells": 26222,
+      "occupied_cells": 627,
+      "known_m2": 65.55500195369126,
+      "width": 221,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.017549082969746,
+        -4.020750732272038
+      ]
+    },
+    {
+      "sim": 21.720000000000002,
+      "known_cells": 26222,
+      "occupied_cells": 627,
+      "known_m2": 65.55500195369126,
+      "width": 221,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.017549082969746,
+        -4.020750732272038
+      ]
+    },
+    {
+      "sim": 22.720000000000002,
+      "known_cells": 26222,
+      "occupied_cells": 627,
+      "known_m2": 65.55500195369126,
+      "width": 221,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.017549082969746,
+        -4.020750732272038
+      ]
+    },
+    {
+      "sim": 23.720000000000002,
+      "known_cells": 26222,
+      "occupied_cells": 627,
+      "known_m2": 65.55500195369126,
+      "width": 221,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.017549082969746,
+        -4.020750732272038
+      ]
+    },
+    {
+      "sim": 24.720000000000002,
+      "known_cells": 26222,
+      "occupied_cells": 627,
+      "known_m2": 65.55500195369126,
+      "width": 221,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.017549082969746,
+        -4.020750732272038
+      ]
+    },
+    {
+      "sim": 25.720000000000002,
+      "known_cells": 26222,
+      "occupied_cells": 627,
+      "known_m2": 65.55500195369126,
+      "width": 221,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.017549082969746,
+        -4.020750732272038
+      ]
+    },
+    {
+      "sim": 26.720000000000002,
+      "known_cells": 26222,
+      "occupied_cells": 627,
+      "known_m2": 65.55500195369126,
+      "width": 221,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.017549082969746,
+        -4.020750732272038
+      ]
+    },
+    {
+      "sim": 27.720000000000002,
+      "known_cells": 28754,
+      "occupied_cells": 684,
+      "known_m2": 71.88500214233996,
+      "width": 221,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.017549082969746,
+        -4.020750732272038
+      ]
+    },
+    {
+      "sim": 28.720000000000002,
+      "known_cells": 28754,
+      "occupied_cells": 684,
+      "known_m2": 71.88500214233996,
+      "width": 221,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.017549082969746,
+        -4.020750732272038
+      ]
+    },
+    {
+      "sim": 29.720000000000002,
+      "known_cells": 31065,
+      "occupied_cells": 610,
+      "known_m2": 77.66250231452288,
+      "width": 221,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.029337783035341,
+        -4.020750732272038
+      ]
+    },
+    {
+      "sim": 30.720000000000002,
+      "known_cells": 36048,
+      "occupied_cells": 796,
+      "known_m2": 90.12000268578531,
+      "width": 222,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.020750732272038
+      ]
+    },
+    {
+      "sim": 30.92,
+      "known_cells": 36048,
+      "occupied_cells": 796,
+      "known_m2": 90.12000268578531,
+      "width": 222,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.020750732272038
+      ]
+    },
+    {
+      "sim": 31.92,
+      "known_cells": 38834,
+      "occupied_cells": 796,
+      "known_m2": 97.08500289335849,
+      "width": 222,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 32.92,
+      "known_cells": 43741,
+      "occupied_cells": 885,
+      "known_m2": 109.35250325895848,
+      "width": 222,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 33.92,
+      "known_cells": 46314,
+      "occupied_cells": 918,
+      "known_m2": 115.78500345066192,
+      "width": 222,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 34.92,
+      "known_cells": 53572,
+      "occupied_cells": 991,
+      "known_m2": 133.93000399142505,
+      "width": 240,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 35.92,
+      "known_cells": 55407,
+      "occupied_cells": 1016,
+      "known_m2": 138.51750412814323,
+      "width": 243,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 36.92,
+      "known_cells": 58735,
+      "occupied_cells": 1078,
+      "known_m2": 146.83750437609854,
+      "width": 259,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 37.900000000000006,
+      "known_cells": 61156,
+      "occupied_cells": 1109,
+      "known_m2": 152.8900045564771,
+      "width": 266,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 38.900000000000006,
+      "known_cells": 62123,
+      "occupied_cells": 1128,
+      "known_m2": 155.3075046285242,
+      "width": 270,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 39.900000000000006,
+      "known_cells": 63003,
+      "occupied_cells": 1143,
+      "known_m2": 157.50750469408933,
+      "width": 276,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 40.900000000000006,
+      "known_cells": 64524,
+      "occupied_cells": 1172,
+      "known_m2": 161.31000480741267,
+      "width": 285,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 41.900000000000006,
+      "known_cells": 64524,
+      "occupied_cells": 1172,
+      "known_m2": 161.31000480741267,
+      "width": 285,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 42.900000000000006,
+      "known_cells": 64524,
+      "occupied_cells": 1172,
+      "known_m2": 161.31000480741267,
+      "width": 285,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 43.900000000000006,
+      "known_cells": 64524,
+      "occupied_cells": 1172,
+      "known_m2": 161.31000480741267,
+      "width": 285,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 44.900000000000006,
+      "known_cells": 64524,
+      "occupied_cells": 1172,
+      "known_m2": 161.31000480741267,
+      "width": 285,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 45.900000000000006,
+      "known_cells": 65148,
+      "occupied_cells": 1181,
+      "known_m2": 162.87000485390428,
+      "width": 287,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 46.900000000000006,
+      "known_cells": 65725,
+      "occupied_cells": 1189,
+      "known_m2": 164.31250489689413,
+      "width": 298,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 47.900000000000006,
+      "known_cells": 66788,
+      "occupied_cells": 1207,
+      "known_m2": 166.9700049760938,
+      "width": 311,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 48.900000000000006,
+      "known_cells": 67265,
+      "occupied_cells": 1217,
+      "known_m2": 168.16250501163307,
+      "width": 317,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 49.900000000000006,
+      "known_cells": 68604,
+      "occupied_cells": 1247,
+      "known_m2": 171.51000511139634,
+      "width": 325,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 50.900000000000006,
+      "known_cells": 69071,
+      "occupied_cells": 1260,
+      "known_m2": 172.67750514619055,
+      "width": 326,
+      "height": 321,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 51.900000000000006,
+      "known_cells": 70253,
+      "occupied_cells": 1534,
+      "known_m2": 175.63250523425643,
+      "width": 369,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.024490850094737
+      ]
+    },
+    {
+      "sim": 52.900000000000006,
+      "known_cells": 71271,
+      "occupied_cells": 1551,
+      "known_m2": 178.17750531010333,
+      "width": 370,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 53.900000000000006,
+      "known_cells": 72192,
+      "occupied_cells": 1577,
+      "known_m2": 180.48000537872318,
+      "width": 378,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 54.900000000000006,
+      "known_cells": 72817,
+      "occupied_cells": 1587,
+      "known_m2": 182.0425054252893,
+      "width": 378,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 55.900000000000006,
+      "known_cells": 73844,
+      "occupied_cells": 1607,
+      "known_m2": 184.61000550180677,
+      "width": 382,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 56.900000000000006,
+      "known_cells": 74435,
+      "occupied_cells": 1623,
+      "known_m2": 186.08750554583972,
+      "width": 382,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 57.900000000000006,
+      "known_cells": 75493,
+      "occupied_cells": 1641,
+      "known_m2": 188.73250562466686,
+      "width": 392,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 58.900000000000006,
+      "known_cells": 76079,
+      "occupied_cells": 1649,
+      "known_m2": 190.19750566832727,
+      "width": 397,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 59.900000000000006,
+      "known_cells": 77198,
+      "occupied_cells": 1672,
+      "known_m2": 192.99500575169924,
+      "width": 407,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 60.900000000000006,
+      "known_cells": 77772,
+      "occupied_cells": 1688,
+      "known_m2": 194.4300057944656,
+      "width": 407,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 61.900000000000006,
+      "known_cells": 78516,
+      "occupied_cells": 1704,
+      "known_m2": 196.2900058498979,
+      "width": 416,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 62.900000000000006,
+      "known_cells": 80501,
+      "occupied_cells": 1739,
+      "known_m2": 201.25250599779193,
+      "width": 441,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 63.06,
+      "known_cells": 80501,
+      "occupied_cells": 1739,
+      "known_m2": 201.25250599779193,
+      "width": 441,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 64.06,
+      "known_cells": 82895,
+      "occupied_cells": 1796,
+      "known_m2": 207.23750617615883,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 65.06,
+      "known_cells": 84786,
+      "occupied_cells": 1812,
+      "known_m2": 211.9650063170493,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 66.06,
+      "known_cells": 86869,
+      "occupied_cells": 1851,
+      "known_m2": 217.17250647224492,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 67.06,
+      "known_cells": 86869,
+      "occupied_cells": 1851,
+      "known_m2": 217.17250647224492,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 68.06,
+      "known_cells": 86869,
+      "occupied_cells": 1851,
+      "known_m2": 217.17250647224492,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 69.06,
+      "known_cells": 89150,
+      "occupied_cells": 1878,
+      "known_m2": 222.87500664219266,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 70.06,
+      "known_cells": 93378,
+      "occupied_cells": 1924,
+      "known_m2": 233.4450069572032,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 71.06,
+      "known_cells": 95245,
+      "occupied_cells": 1950,
+      "known_m2": 238.11250709630554,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 72.06,
+      "known_cells": 98635,
+      "occupied_cells": 2001,
+      "known_m2": 246.58750734888022,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 73.06,
+      "known_cells": 101142,
+      "occupied_cells": 2052,
+      "known_m2": 252.8550075356663,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 74.06,
+      "known_cells": 103212,
+      "occupied_cells": 2088,
+      "known_m2": 258.0300076898933,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 75.06,
+      "known_cells": 103988,
+      "occupied_cells": 2104,
+      "known_m2": 259.9700077477098,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 76.06,
+      "known_cells": 105756,
+      "occupied_cells": 2153,
+      "known_m2": 264.3900078794361,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 77.06,
+      "known_cells": 106312,
+      "occupied_cells": 2168,
+      "known_m2": 265.7800079208613,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 78.06,
+      "known_cells": 107721,
+      "occupied_cells": 2208,
+      "known_m2": 269.30250802584,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 79.06,
+      "known_cells": 108675,
+      "occupied_cells": 2234,
+      "known_m2": 271.6875080969185,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 80.06,
+      "known_cells": 110801,
+      "occupied_cells": 2294,
+      "known_m2": 277.0025082553179,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.025575799388308
+      ]
+    },
+    {
+      "sim": 81.06,
+      "known_cells": 112025,
+      "occupied_cells": 2287,
+      "known_m2": 280.06250834651297,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    },
+    {
+      "sim": 82.06,
+      "known_cells": 112025,
+      "occupied_cells": 2287,
+      "known_m2": 280.06250834651297,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    },
+    {
+      "sim": 83.06,
+      "known_cells": 112025,
+      "occupied_cells": 2287,
+      "known_m2": 280.06250834651297,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    },
+    {
+      "sim": 84.06,
+      "known_cells": 112025,
+      "occupied_cells": 2287,
+      "known_m2": 280.06250834651297,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    },
+    {
+      "sim": 85.06,
+      "known_cells": 112025,
+      "occupied_cells": 2287,
+      "known_m2": 280.06250834651297,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    },
+    {
+      "sim": 86.06,
+      "known_cells": 112025,
+      "occupied_cells": 2287,
+      "known_m2": 280.06250834651297,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    },
+    {
+      "sim": 87.06,
+      "known_cells": 112025,
+      "occupied_cells": 2287,
+      "known_m2": 280.06250834651297,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    },
+    {
+      "sim": 88.06,
+      "known_cells": 112025,
+      "occupied_cells": 2287,
+      "known_m2": 280.06250834651297,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    },
+    {
+      "sim": 89.06,
+      "known_cells": 112025,
+      "occupied_cells": 2287,
+      "known_m2": 280.06250834651297,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    },
+    {
+      "sim": 90.06,
+      "known_cells": 112025,
+      "occupied_cells": 2287,
+      "known_m2": 280.06250834651297,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    },
+    {
+      "sim": 91.06,
+      "known_cells": 112025,
+      "occupied_cells": 2287,
+      "known_m2": 280.06250834651297,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    },
+    {
+      "sim": 92.06,
+      "known_cells": 112025,
+      "occupied_cells": 2287,
+      "known_m2": 280.06250834651297,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    },
+    {
+      "sim": 93.06,
+      "known_cells": 113099,
+      "occupied_cells": 2317,
+      "known_m2": 282.7475084265322,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    },
+    {
+      "sim": 94.06,
+      "known_cells": 114174,
+      "occupied_cells": 2340,
+      "known_m2": 285.43500850662593,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    },
+    {
+      "sim": 95.06,
+      "known_cells": 115192,
+      "occupied_cells": 2364,
+      "known_m2": 287.98000858247286,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    },
+    {
+      "sim": 95.28,
+      "known_cells": 116380,
+      "occupied_cells": 2387,
+      "known_m2": 290.95000867098577,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    },
+    {
+      "sim": 96.28,
+      "known_cells": 117387,
+      "occupied_cells": 2417,
+      "known_m2": 293.4675087460131,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    },
+    {
+      "sim": 97.28,
+      "known_cells": 117387,
+      "occupied_cells": 2417,
+      "known_m2": 293.4675087460131,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    },
+    {
+      "sim": 98.28,
+      "known_cells": 117387,
+      "occupied_cells": 2417,
+      "known_m2": 293.4675087460131,
+      "width": 442,
+      "height": 322,
+      "resolution": 0.05000000074505806,
+      "origin": [
+        -4.04076848440542,
+        -4.02735794388435
+      ]
+    }
+  ],
+  "controller_goal_tolerances": [
+    0.2,
+    0.2
+  ],
+  "controller_plugin": "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController",
+  "lifecycle": {
+    "slam_toolbox": 3,
+    "controller_server": 3,
+    "planner_server": 3,
+    "behavior_server": 3,
+    "bt_navigator": 3,
+    "velocity_smoother": 3,
+    "collision_monitor": 3
+  },
+  "readiness_wall_s": 14.171136148001096,
+  "initial_map": {
+    "maps/initial.pgm": "537b50b0b062d7ec639860d668d35cc028e2a3cbfa771d27e44383adf22b87e6",
+    "maps/initial.yaml": "c24944d125bb484e6ccf195208ffc3736a4b83ef59763f225c63ea5da41c29ee"
+  },
+  "decision_graph": {
+    "/map": {
+      "publishers": [
+        "slam_toolbox"
+      ],
+      "subscribers": [
+        "slam_toolbox",
+        "t1_evaluator",
+        "t1_evaluator",
+        "t1_evaluator",
+        "global_costmap",
+        "t1_explorer"
+      ],
+      "types": [
+        "nav_msgs/msg/OccupancyGrid"
+      ]
+    },
+    "/tf": {
+      "publishers": [
+        "t1_sim",
+        "robot_state_publisher",
+        "slam_toolbox",
+        "slam_toolbox"
+      ],
+      "subscribers": [
+        "transform_listener_impl_64651adbe550",
+        "t1_command_gate",
+        "collision_monitor",
+        "t1_evaluator",
+        "transform_listener_impl_627832e50250",
+        "transform_listener_impl_580b9190f660",
+        "t1_mapping_scan_filter",
+        "behavior_server",
+        "bt_navigator",
+        "t1_explorer",
+        "advanced_tf_authority"
+      ],
+      "types": [
+        "tf2_msgs/msg/TFMessage"
+      ]
+    },
+    "/global_costmap/costmap": {
+      "publishers": [
+        "global_costmap"
+      ],
+      "subscribers": [
+        "t1_evaluator",
+        "t1_evaluator",
+        "t1_explorer"
+      ],
+      "types": [
+        "nav_msgs/msg/OccupancyGrid"
+      ]
+    },
+    "/t1/eval/ground_truth": {
+      "publishers": [
+        "t1_sim"
+      ],
+      "subscribers": [
+        "t1_evaluator"
+      ],
+      "types": [
+        "nav_msgs/msg/Odometry"
+      ]
+    },
+    "/t1/eval/obstacle": {
+      "publishers": [
+        "t1_sim"
+      ],
+      "subscribers": [
+        "t1_evaluator"
+      ],
+      "types": [
+        "std_msgs/msg/String"
+      ]
+    },
+    "/cmd_vel": {
+      "publishers": [
+        "collision_monitor"
+      ],
+      "subscribers": [
+        "t1_sim",
+        "t1_command_gate",
+        "t1_evaluator"
+      ],
+      "types": [
+        "geometry_msgs/msg/Twist"
+      ]
+    },
+    "/scan": {
+      "publishers": [
+        "t1_sim"
+      ],
+      "subscribers": [
+        "t1_command_gate",
+        "collision_monitor",
+        "t1_evaluator",
+        "local_costmap",
+        "global_costmap",
+        "t1_mapping_scan_filter"
+      ],
+      "types": [
+        "sensor_msgs/msg/LaserScan"
+      ]
+    },
+    "/scan/mapping": {
+      "publishers": [
+        "t1_mapping_scan_filter"
+      ],
+      "subscribers": [
+        "slam_toolbox"
+      ],
+      "types": [
+        "sensor_msgs/msg/LaserScan"
+      ]
+    }
+  },
+  "exploration": {
+    "status": "FAILED",
+    "task": {
+      "schema": 1,
+      "frame": "start",
+      "offset": [
+        11.0,
+        0.5
+      ],
+      "source_sha256": "b9e83c12fdf595f32d56ac6bc6e602fd4c7e7cf1e02d564893521554d117396d"
+    },
+    "arrival_position_tolerance_m": 0.3,
+    "anchor_odom": [
+      0.004369416565964222,
+      -0.013720845284383233,
+      0.046951339024191956
+    ],
+    "goal_odom": [
+      10.968780242984742,
+      1.0020031474964708
+    ],
+    "error": "RuntimeError(\"exploration safety latch: {'state': 'STOPPED', 'reason': 'EXPLICIT_STOP_OR_CANCEL', 'source': 'navigation', 'permit': False, 'wall_mono': 14096.576263339, 'sim_time': 95.80000000000001, 'health_reason': ''}\")",
+    "finished_sim": 95.80000000000001,
+    "decisions": 10
+  },
+  "nav2": {
+    "verified": false
+  },
+  "final_map": {
+    "maps/final.pgm": "fa0e27a73134fd8e089fffdcf74f2a3dd796a710666ba23a20a50b5ee4c56dc8",
+    "maps/final.yaml": "002847f22af9075b1d2f5cae72474081fffc076ca2f7cc79ffd55eb73ff16ac4"
+  },
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 14100.375072473,
+      "sim_time": 99.58000000000001,
+      "health_reason": ""
+    }
+  },
+  "error": "RuntimeError('Exploration failed: {\\'status\\': \\'FAILED\\', \\'task\\': {\\'schema\\': 1, \\'frame\\': \\'start\\', \\'offset\\': [11.0, 0.5], \\'source_sha256\\': \\'b9e83c12fdf595f32d56ac6bc6e602fd4c7e7cf1e02d564893521554d117396d\\'}, \\'arrival_position_tolerance_m\\': 0.3, \\'anchor_odom\\': [0.004369416565964222, -0.013720845284383233, 0.046951339024191956], \\'goal_odom\\': [10.968780242984742, 1.0020031474964708], \\'error\\': \\'RuntimeError(\"exploration safety latch: {\\\\\\'state\\\\\\': \\\\\\'STOPPED\\\\\\', \\\\\\'reason\\\\\\': \\\\\\'EXPLICIT_STOP_OR_CANCEL\\\\\\', \\\\\\'source\\\\\\': \\\\\\'navigation\\\\\\', \\\\\\'permit\\\\\\': False, \\\\\\'wall_mono\\\\\\': 14096.576263339, \\\\\\'sim_time\\\\\\': 95.80000000000001, \\\\\\'health_reason\\\\\\': \\\\\\'\\\\\\'}\")\\', \\'finished_sim\\': 95.80000000000001, \\'decisions\\': 10}')",
+  "slam_shutdown": {
+    "complete": true,
+    "transitions": [
+      {
+        "transition": 4,
+        "success": true,
+        "state": 2
+      },
+      {
+        "transition": 2,
+        "success": true,
+        "state": 1
+      }
+    ]
+  },
+  "shutdown_signals": [
+    [
+      "authority",
+      61683,
+      "SIGINT"
+    ],
+    [
+      "launch",
+      61686,
+      "SIGINT"
+    ],
+    [
+      "scan_filter",
+      61631,
+      "SIGINT"
+    ],
+    [
+      "dds",
+      61655,
+      "SIGINT"
+    ]
+  ],
+  "dds_shutdown": {
+    "pid": 61655,
+    "alive_before_signal": true,
+    "ros_communication_healthy": false,
+    "navigation_and_stop_complete": false,
+    "signal": "SIGINT"
+  },
+  "parent_exit_codes": {
+    "scan_filter": 0,
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "map_saver": 0,
+    "goal": 2
+  },
+  "dds_returncode": 0,
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 61737,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 61738,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 61739,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 61740,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 61741,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 61742,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 62045,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 62141,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 62142,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 62143,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 62144,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 62145,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 62146,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 62163,
+      "exit_code": 0
+    }
+  },
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "events": [
+    {
+      "kind": "gate",
+      "sim": 0.0,
+      "wall": 14000.456125498,
+      "state": "DISARMED",
+      "reason": "explicit arm required"
+    },
+    {
+      "kind": "sim_state",
+      "sim": 0.0,
+      "wall": 14000.714241832,
+      "state": "STARTING",
+      "fault": null
+    },
+    {
+      "kind": "sim_state",
+      "sim": 2.0,
+      "wall": 14002.710371398,
+      "state": "READY",
+      "fault": null
+    },
+    {
+      "kind": "gate",
+      "sim": 14.680000000000001,
+      "wall": 14015.461400814,
+      "state": "ARMED",
+      "reason": "awaiting a new source command"
+    },
+    {
+      "kind": "gate",
+      "sim": 95.80000000000001,
+      "wall": 14096.577756282,
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL"
+    }
+  ],
+  "graph": {
+    "/cmd_vel": {
+      "publishers": [
+        "collision_monitor"
+      ],
+      "subscribers": [
+        "t1_sim",
+        "t1_command_gate",
+        "t1_evaluator"
+      ],
+      "types": [
+        "geometry_msgs/msg/Twist"
+      ]
+    },
+    "/map": {
+      "publishers": [
+        "slam_toolbox"
+      ],
+      "subscribers": [
+        "slam_toolbox",
+        "t1_evaluator",
+        "t1_evaluator",
+        "t1_evaluator",
+        "global_costmap"
+      ],
+      "types": [
+        "nav_msgs/msg/OccupancyGrid"
+      ]
+    },
+    "/tf": {
+      "publishers": [
+        "t1_sim",
+        "robot_state_publisher",
+        "slam_toolbox",
+        "slam_toolbox"
+      ],
+      "subscribers": [
+        "transform_listener_impl_64651adbe550",
+        "t1_command_gate",
+        "collision_monitor",
+        "t1_evaluator",
+        "transform_listener_impl_627832e50250",
+        "transform_listener_impl_580b9190f660",
+        "t1_mapping_scan_filter",
+        "behavior_server",
+        "bt_navigator",
+        "advanced_tf_authority"
+      ],
+      "types": [
+        "tf2_msgs/msg/TFMessage"
+      ]
+    },
+    "/t1/eval/ground_truth": {
+      "publishers": [
+        "t1_sim"
+      ],
+      "subscribers": [
+        "t1_evaluator"
+      ],
+      "types": [
+        "nav_msgs/msg/Odometry"
+      ]
+    },
+    "/t1/eval/obstacle": {
+      "publishers": [
+        "t1_sim"
+      ],
+      "subscribers": [
+        "t1_evaluator"
+      ],
+      "types": [
+        "std_msgs/msg/String"
+      ]
+    }
+  },
+  "initializations": [],
+  "clock_regressions": 0,
+  "dds_port_state_before_runner_exit": {
+    "listeners": [],
+    "time_wait": [
+      {
+        "family": "tcp",
+        "local": "0100007F:A48F",
+        "state": "06"
+      }
+    ],
+    "other_connections": [
+      {
+        "family": "tcp",
+        "local": "0100007F:A48F",
+        "state": "05"
+      }
+    ]
+  },
+  "dds_port_released": null,
+  "dds_port_check_deferred": true,
+  "wall_total_s": 105.06177531100002,
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "simulator_exit_code": 0,
+  "truth_final_error_m": 5.411757518811087,
+  "truth_final_hold_max_error_m": 5.411896514527439,
+  "map_odom_authorities": [
+    "slam_toolbox"
+  ],
+  "map_odom_gids": [
+    "010f2ea22bf1ca620000000000002603"
+  ],
+  "graph_contract": {
+    "map_only_slam": true,
+    "explorer_reads_map": true,
+    "explorer_reads_live_costmap": true,
+    "truth_isolated": true,
+    "obstacle_truth_isolated": true,
+    "final_only_collision_monitor": true,
+    "map_odom_only_slam": true,
+    "no_initialpose": true,
+    "physical_obstacle_count": true,
+    "raw_scan_only_simulator": true,
+    "safety_reads_raw_scan": true,
+    "nav2_reads_raw_scan": true,
+    "mapping_filter_only": true,
+    "slam_reads_filtered_scan": true
+  },
+  "task_consistent": true,
+  "infrastructure_valid": true,
+  "static_control": false,
+  "dynamic": {
+    "triggered": true,
+    "finished": false,
+    "actual_travel_m": 5.4347999999705525,
+    "active_scan_hit_frames": 182,
+    "active_costmap_marked_frames": 34,
+    "blocked_wait": {
+      "stationary_s": 2.799999999999997,
+      "resumed_m": 0
+    },
+    "verdict": "FAIL",
+    "response": "UNVERIFIED"
+  },
+  "validation_before_port_check": false
+}
