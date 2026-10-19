@@ -1,0 +1,116 @@
+{
+  "run_id": "20261019T235802Z_exploration_a4b20e19-a335-4902-8ba6-e0dc5cc895bb",
+  "code_sha": "833d7f00c4a6d44e0630e0b51491710551e4b6da",
+  "status": "FAILED",
+  "error": "InterruptedError('User requested stop')",
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 24048.63565928,
+      "sim_time": 5.96,
+      "health_reason": ""
+    }
+  },
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "metric_error": null,
+  "cleanup_error": null,
+  "observer_shutdown_error": null,
+  "dds_shutdown": {
+    "pid": 185216,
+    "alive_before_signal": true,
+    "ros_communication_healthy": false,
+    "navigation_and_stop_complete": false,
+    "signal": "SIGINT",
+    "observer_closed_before_signal": true,
+    "connections_after_observer_close": {
+      "listeners": [
+        {
+          "family": "tcp",
+          "local": "00000000:A48F",
+          "state": "0A"
+        }
+      ],
+      "time_wait": [],
+      "other_connections": []
+    },
+    "clients_disconnected": true
+  },
+  "parent_exit_codes": {
+    "scan_filter": 0,
+    "dds": 0,
+    "authority": 0,
+    "launch": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 185309,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 185310,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 185311,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 185312,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 185313,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 185314,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 185657,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 185779,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 185780,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 185781,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 185782,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 185783,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 185784,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 185795,
+      "exit_code": 1
+    }
+  },
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "dds_port_released": true,
+  "gpu_monitor_error": null
+}
