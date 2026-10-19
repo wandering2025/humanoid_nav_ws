@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS",
+  "mission_status": "FAILED",
+  "run_id": "20261019T205033Z_exploration_b8f788af-d28c-4b09-a53e-1b435d461177",
+  "code_sha": "bc07a486f4301445de87c4cbbee1344992b877ce",
+  "elapsed_sim_to_failure_s": 20.020000000000003,
+  "checks": {
+    "task_failed": true,
+    "time_budget": true,
+    "infrastructure": true,
+    "stop": true,
+    "contacts": true,
+    "no_residual": true,
+    "port": true,
+    "exits": true
+  }
+}

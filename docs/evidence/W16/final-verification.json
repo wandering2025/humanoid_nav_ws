@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-19T22:54:04.913857+02:00",
+  "status": "PASS",
+  "cwd": "/home/haoyang/humanoid_nav_ws_advanced",
+  "starting_sha": "94cdbbb1a0e8c78d0d5c58b2f7b4d16309995513",
+  "online_implementation_sha": "c72179061a08416a51ca17ff5e49c0725d811502",
+  "checks": {
+    "positive_runs": true,
+    "same_task": true,
+    "different_route": true,
+    "all_observed_paths": true,
+    "negative_test": true,
+    "all_safe": true,
+    "online_code_identical": true,
+    "scene_hashes": true,
+    "upstreams": true,
+    "no_remaining_processes": true,
+    "user_goal_preserved": true
+  },
+  "online_sources": {
+    "scripts/exploration/controller.py": {
+      "sha256": "43a6768dba6deb3fe288f58adf7204f8e1ea8128a2badfeac27b2f209d16ffee",
+      "matches_verified_implementation": true
+    },
+    "scripts/exploration/demo.py": {
+      "sha256": "16260fd56061d6d43be5d28e7544e854526bbc07020c47c0c4c1f859ce576eb8",
+      "matches_verified_implementation": true
+    },
+    "src/t1_bringup/t1_bringup/exploration.py": {
+      "sha256": "fe8d05c24bcf4366fbca80587e88d010093574ee324b0d3d0c5ae29f54c58922",
+      "matches_verified_implementation": true
+    },
+    "src/t1_mujoco/t1_mujoco/exploration_task.py": {
+      "sha256": "fb88fd6beb99c7fea22ff0187eacd9bf0c3fa37eb63db6b8fdac46db4cd12bf8",
+      "matches_verified_implementation": true
+    },
+    "src/t1_mujoco/t1_mujoco/simulation.py": {
+      "sha256": "be8c012ff1a4abb7609dad43991a1c0347fc079c3b6bdd249360533cf8991328",
+      "matches_verified_implementation": true
+    },
+    "scripts/advanced/demo.py": {
+      "sha256": "0f06547876c76eaa3df3efcf23e73969d226887ce856517eef5b424803b01c53",
+      "matches_verified_implementation": true
+    }
+  },
+  "upstreams": {
+    "booster_deploy": {
+      "sha": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+      "clean": true,
+      "expected": true
+    },
+    "booster_assets": {
+      "sha": "12a97516f57469078707afb587a5f84c1cb110d1",
+      "clean": true,
+      "expected": true
+    }
+  },
+  "scene_bindings": {
+    "north": true,
+    "south": true
+  },
+  "remaining_pids": [],
+  "run_shas": {
+    "north": "6a7f169a731b86c226dcc9431fd72f3c4038b2dd",
+    "south": "e5e48b7392c708b0425c67da0c201b630a6a25b6",
+    "negative": "bc07a486f4301445de87c4cbbee1344992b877ce"
+  },
+  "cpu_tests": {
+    "passed": 149,
+    "log": "raw/cpu-tests-03.log"
+  },
+  "build": {
+    "packages": 4,
+    "log": "raw/build-02.log"
+  },
+  "earlier_failures": [
+    "attempt-01.json: constructor failure",
+    "attempt-02.json: graph discovery evidence incomplete despite arrival",
+    "south-startup-01.json: navigation lifecycle startup timeout"
+  ],
+  "not_tested": [
+    "GUI/video",
+    "moving-obstacle SLAM",
+    "drifting odometry",
+    "hardware",
+    "reliability campaign"
+  ],
+  "user_dirty": [
+    "presentation/goal.yaml"
+  ]
+}

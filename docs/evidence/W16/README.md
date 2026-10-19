@@ -29,6 +29,19 @@ wsl.exe -d Ubuntu-24.04 --cd /home/haoyang/humanoid_nav_ws_advanced --exec bash 
 
 新环境不在本步范围。已有 overlay 若需重建：设置既有 `T1_VENV`、`T1_UPSTREAM` 后 `source scripts/env.sh`，用系统 `/usr/bin/colcon build --symlink-install --base-paths src`；运行入口明确使用配置 venv Python，不重装依赖。
 
-证据：cpu-checks.json、source-audit.json、attempt-*.json。原始 run_data/exploration/每个ID包含决策日志、在线地图快照、ROS日志、manifest及最终结果；物理trace在 run_data/同ID。失败保留，运行通过和图形验证分开；W16未运行GUI/录像。
+已验证的正例使用同一任务文件和相同在线实现 `c72179061a08416a51ca17ff5e49c0725d811502`：
+
+| 检查 | 结果 | 证据 |
+| --- | --- | --- |
+| 四包系统构建 / 相关CPU测试 | PASS / 149 PASS | raw/build-02.log、raw/cpu-tests-03.log |
+| 北通道未知场景 | SUCCESS，误差0.0915m，轨迹最高y=8.364m | [结果](north.json)、[真实地图与轨迹](north.png) |
+| 南通道未知场景，相同B输入 | SUCCESS，误差0.0835m，轨迹最低y=−8.077m | [结果](south.json)、[真实地图与轨迹](south.png) |
+| 每次选择时路径已知可达 | 8+8条逐地图快照离线重验PASS | 两个结果的path_replay |
+
+两次正例均有1次从探索直接切换B、零环境/障碍/非足接触与跌倒、真实停车、单一TF和命令ownership、所有组件退出0及端口回收。先前失败：首轮节点字段冲突；第二轮物理到达但graph快照取证竞态；南场景首轮lifecycle启动超时。三次原FAILED分别保留在attempt-01.json、attempt-02.json和south-startup-01.json，不称为无失败可靠性验证。
+
+负例的预登记条件在negative-case.json，最终独立核验写入negative-verdict.json；任务FAILED与负例检查PASS是两个不同结论。最终完整审计见final-verification.json。
+
+原始 run_data/exploration/每个ID包含决策日志、在线地图快照、ROS日志、manifest及最终结果；物理trace在 run_data/同ID。失败保留，运行通过和图形验证分开；W16未运行GUI/录像。raw-index.json保存本步原始产物路径与哈希。
 
 详见 [探索架构](../../architecture/exploration.md)。
