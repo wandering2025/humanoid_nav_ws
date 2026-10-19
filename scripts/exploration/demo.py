@@ -40,11 +40,17 @@ class ExplorationRun(advanced.Advanced):
         child = self.spawn('goal', [str(Path(os.environ['T1_VENV'])/'bin/python'),
             str(WS/'scripts/exploration/controller.py'), '--task', str(OUT/'task.yaml'),
             '--output', str(OUT/'explorer'), '--time-limit', str(self.args.time_limit)])
-        self.until(lambda: 't1_explorer' in self.node.get_node_names() or child.poll() is not None, 30)
-        self.summary['decision_graph'] = self.node.graph(('/map','/tf','/t1/eval/ground_truth',
-                                                         '/t1/eval/obstacle','/cmd_vel'))
+        topics = ('/map','/tf','/global_costmap/costmap','/t1/eval/ground_truth','/t1/eval/obstacle','/cmd_vel')
+        def connected():
+            graph = self.node.graph(topics)
+            self.summary['decision_graph'] = graph
+            return 't1_explorer' in graph.get('/global_costmap/costmap',{}).get('subscribers',[]) or child.poll() is not None
+        self.until(connected, 30)
         self.until(lambda: child.poll() is not None, self.args.time_limit*2.5+150)
-        result = json.loads((OUT/'explorer/result.json').read_text())
+        result_file = OUT/'explorer/result.json'
+        if not result_file.is_file():
+            raise RuntimeError(f'explorer exited {child.returncode} before result; see goal.log')
+        result = json.loads(result_file.read_text())
         self.summary['exploration'] = result
         self.summary['nav2'] = dict(verified=result['status']=='ARRIVED')
         self.summary['final_map'] = self.save_map('final')
@@ -78,6 +84,7 @@ class ExplorationRun(advanced.Advanced):
         s['graph_contract'] = dict(
             map_only_slam=graph.get('/map',{}).get('publishers')==['slam_toolbox'],
             explorer_reads_map='t1_explorer' in graph.get('/map',{}).get('subscribers',[]),
+            explorer_reads_live_costmap='t1_explorer' in graph.get('/global_costmap/costmap',{}).get('subscribers',[]),
             truth_isolated=graph.get('/t1/eval/ground_truth',{}).get('subscribers')==['t1_evaluator'],
             obstacle_truth_isolated=graph.get('/t1/eval/obstacle',{}).get('subscribers')==['t1_evaluator'],
             final_only_collision_monitor=graph.get('/cmd_vel',{}).get('publishers')==['collision_monitor'],

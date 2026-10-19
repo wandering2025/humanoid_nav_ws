@@ -33,7 +33,7 @@ class Explorer(Node):
         super().__init__('t1_explorer')
         self.set_parameters([Parameter('use_sim_time', value=True)])
         self.task, self.out, self.limit = task, output, limit
-        self.grid, self.costmap, self.gate, self.handle = None, None, {}, None
+        self.grid, self.costmap, self.gate, self.nav_handle = None, None, {}, None
         self.interrupted = False
         self.buffer = Buffer(); self.listener = TransformListener(self.buffer, self)
         qos = QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL)
@@ -165,12 +165,12 @@ class Explorer(Node):
         heading = math.atan2(target[1]-reference[1], target[0]-reference[0])
         goal = NavigateToPose.Goal(); goal.pose = self.stamped(target, heading)
         sent = self.navigation.send_goal_async(goal); self.wait(sent.done)
-        self.handle = sent.result()
-        if not self.handle.accepted:
+        self.nav_handle = sent.result()
+        if not self.nav_handle.accepted:
             raise RuntimeError('navigation goal rejected')
         self.emit('navigate', target=list(target), heading=heading, final=final,
-                  goal_id=bytes(self.handle.goal_id.uuid).hex())
-        return self.handle.get_result_async()
+                  goal_id=bytes(self.nav_handle.goal_id.uuid).hex())
+        return self.nav_handle.get_result_async()
 
     def latch_stop(self):
         if not self.stop.wait_for_service(timeout_sec=2):
@@ -178,8 +178,8 @@ class Explorer(Node):
         reply = self.stop.call_async(Trigger.Request()); self.wait(reply.done, check=False)
         if not reply.result().success:
             raise RuntimeError('stop not acknowledged')
-        if self.handle:
-            cancel = self.handle.cancel_goal_async(); self.wait(cancel.done, check=False)
+        if self.nav_handle:
+            cancel = self.nav_handle.cancel_goal_async(); self.wait(cancel.done, check=False)
 
     def verify_arrival(self):
         self.latch_stop()
