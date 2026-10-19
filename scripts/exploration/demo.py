@@ -18,6 +18,8 @@ base, OUT, RUN_ID = advanced.base, advanced.OUT, advanced.RUN_ID
 
 
 class ExplorationRun(advanced.Advanced):
+    managed_shutdown_order = ('goal','rviz','authority','launch','scan_filter','dds')
+
     def __init__(self, args, provenance):
         # Do not initialize Advanced's guided route or its scene-specific input.
         base.Demo.__init__(self, args, provenance)
@@ -32,7 +34,19 @@ class ExplorationRun(advanced.Advanced):
     def launch_command(self):
         commands = super().launch_command()
         commands = [x for x in commands if not x.startswith(('events_file:=', 'scenario:='))]
-        return commands+[f'scene:={self.args.scene}']
+        if not self.args.static:
+            commands += [f'events_file:={WS}/src/t1_bringup/config/exploration_events.yaml', 'scenario:=EXP01']
+        return commands+[f'scene:={self.args.scene}', f'slam_params_file:={OUT}/slam.yaml']
+
+    def execute(self):
+        self.spawn('scan_filter', [str(Path(os.environ['T1_VENV'])/'bin/python'),
+            str(WS/'scripts/exploration/scan_filter.py'), '--output', str(OUT/'scan-filter.jsonl')])
+        super().execute()
+
+    def spin(self, check_stop=True):
+        if check_stop and 'scan_filter' in self.children and self.children['scan_filter'][0].poll() is not None:
+            raise RuntimeError('mapping scan filter exited unexpectedly')
+        super().spin(check_stop)
 
     def mission(self):
         self.summary['status'] = 'EXPLORING'
@@ -40,7 +54,8 @@ class ExplorationRun(advanced.Advanced):
         child = self.spawn('goal', [str(Path(os.environ['T1_VENV'])/'bin/python'),
             str(WS/'scripts/exploration/controller.py'), '--task', str(OUT/'task.yaml'),
             '--output', str(OUT/'explorer'), '--time-limit', str(self.args.time_limit)])
-        topics = ('/map','/tf','/global_costmap/costmap','/t1/eval/ground_truth','/t1/eval/obstacle','/cmd_vel')
+        topics = ('/map','/tf','/global_costmap/costmap','/t1/eval/ground_truth','/t1/eval/obstacle',
+                  '/cmd_vel','/scan','/scan/mapping')
         def connected():
             graph = self.node.graph(topics)
             self.summary['decision_graph'] = graph
@@ -92,7 +107,13 @@ class ExplorationRun(advanced.Advanced):
             final_only_collision_monitor=graph.get('/cmd_vel',{}).get('publishers')==['collision_monitor'],
             map_odom_only_slam=s['map_odom_authorities']==['slam_toolbox'] and len(s['map_odom_gids'])==1,
             no_initialpose=not self.node.initializations,
-            no_dynamic_entities=manifest['model_dimensions']['nmocap']==0)
+            physical_obstacle_count=manifest['model_dimensions']['nmocap']==(0 if self.args.static else 1),
+            raw_scan_only_simulator=graph.get('/scan',{}).get('publishers')==['t1_sim'],
+            safety_reads_raw_scan='collision_monitor' in graph.get('/scan',{}).get('subscribers',[]),
+            nav2_reads_raw_scan=all(name in graph.get('/scan',{}).get('subscribers',[])
+                                    for name in ('local_costmap','global_costmap')),
+            mapping_filter_only=graph.get('/scan/mapping',{}).get('publishers')==['t1_mapping_scan_filter'],
+            slam_reads_filtered_scan=graph.get('/scan/mapping',{}).get('subscribers')==['slam_toolbox'])
         s['task_consistent'] = manifest.get('exploration_task')==self.args.task_data==result.get('task')
         exits = (all(v==0 for v in s.get('parent_exit_codes',{}).values())
                  and bool(s.get('launch_process_exit_codes'))
@@ -104,8 +125,22 @@ class ExplorationRun(advanced.Advanced):
             and not s.get('remaining_owned_pids') and not s.get('remaining_project_processes')
             and s.get('clock_regressions')==0 and s.get('slam_shutdown',{}).get('complete')
             and not s.get('cleanup_error'))
-        s['validation_before_port_check'] = bool(s['infrastructure_valid'] and s['arrived'] and exits and not s.get('error'))
-        base.save('observation.json', dict(rows=self.node.rows, plans=self.node.plans))
+        n = self.node
+        s['static_control'] = self.args.static
+        if not self.args.static:
+            from advanced.verification import blocked_wait_evidence, response_verdict
+            active = [o for o in n.obstacles if o['phase'] not in ('staged','finished')]
+            positions = [o['position'][:2] for o in n.obstacles]
+            s['dynamic'] = dict(triggered=bool(active), finished=bool(n.obstacle and n.obstacle['phase']=='finished'),
+                actual_travel_m=sum(math.dist(a,b) for a,b in zip(positions,positions[1:])),
+                active_scan_hit_frames=sum(bool(x['hits']) and x['obstacle']['phase'] not in ('staged','finished') for x in n.dynamic_scans),
+                active_costmap_marked_frames=sum(x['max_cost']==100 and x['obstacle']['phase'] not in ('staged','finished') for x in n.cost_samples),
+                blocked_wait=blocked_wait_evidence(n.rows,n.obstacles,goal or [math.inf,math.inf]))
+            s['dynamic'].update(response_verdict(s['dynamic'],s['arrived']))
+        dynamic_ok = self.args.static or (s['dynamic']['verdict']=='PASS' and s['dynamic']['actual_travel_m']>=1.)
+        s['validation_before_port_check'] = bool(s['infrastructure_valid'] and s['arrived'] and exits and dynamic_ok and not s.get('error'))
+        base.save('observation.json', dict(rows=n.rows, plans=n.plans, obstacles=n.obstacles,
+                  cost_samples=n.cost_samples, dynamic_scans=n.dynamic_scans))
         s['status'] = 'PENDING_PORT_CHECK' if s['validation_before_port_check'] else 'FAILED'
 
     def save_map(self, label):
@@ -117,7 +152,8 @@ class ExplorationRun(advanced.Advanced):
             scene = WS/'src/t1_mujoco/worlds'/f'{self.args.scene}.yaml'
         meta = OUT/'maps'/f'{label}.meta.json'
         data = json.loads(meta.read_text())
-        data.update(scene_file=str(scene),scene_sha256=base.sha(scene))
+        data.update(scene_file=str(scene),scene_sha256=base.sha(scene),
+                    slam_file=str(OUT/'slam.yaml'),slam_sha256=base.sha(OUT/'slam.yaml'))
         meta.write_text(json.dumps(data,indent=2)+'\n')
         return files
 
@@ -126,12 +162,15 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--task', type=Path, default=WS/'src/t1_navigation/config/exploration_task.yaml')
     parser.add_argument('--scene', default='advanced_world', help='Simulator-only scene, never passed to explorer')
+    parser.add_argument('--static', action='store_true', help='Explicit control run without a dynamic body')
     parser.add_argument('--time-limit', type=float, default=600.)
     parser.add_argument('--preflight', action='store_true')
     args = parser.parse_args()
     args.headless, args.no_rviz, args.startup_check, args.gpu_watch = True, True, False, None
     if not 0 < args.time_limit <= 800:
         parser.error('time-limit must be in (0, 800] simulation seconds')
+    if not args.static and args.scene != 'advanced_world':
+        parser.error('EXP01 requires advanced_world; use --static for other layouts')
     (WS/'run_data/demo').mkdir(parents=True, exist_ok=True)
     lock = (WS/'run_data/demo/active.lock').open('a')
     fcntl.flock(lock, fcntl.LOCK_EX|fcntl.LOCK_NB)
@@ -144,8 +183,13 @@ def main():
     (OUT/'task.yaml').write_bytes(args.task.read_bytes())
     assert load_task(OUT/'task.yaml') == args.task_data
     os.environ[SNAPSHOT_ENV] = str(OUT/'task.yaml')
+    import yaml
+    slam = yaml.safe_load((WS/'src/t1_navigation/config/slam.yaml').read_text())
+    slam['slam_toolbox']['ros__parameters']['scan_topic'] = '/scan/mapping'
+    (OUT/'slam.yaml').write_text(yaml.safe_dump(slam))
     provenance = advanced.preflight()
-    provenance.update(task=args.task_data, simulator_scene=args.scene)
+    provenance.update(task=args.task_data, simulator_scene=args.scene, static_control=args.static,
+                      mapping_params_sha256=base.sha(OUT/'slam.yaml'))
     base.save('provenance.json', provenance)
     if args.preflight:
         return 0

@@ -2,8 +2,9 @@
 set -Eeuo pipefail
 EXP_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
 if [[ "${1:-}" == --help || "${1:-}" == -h ]]; then
-  echo 'Usage: ./scripts/run_exploration_demo.sh [--task FILE] [--scene NAME_OR_YAML] [--time-limit SECONDS] [--preflight]'
-  echo 'W16: headless physical walking, online SLAM and autonomous frontier exploration to a start-relative B.'
+  echo 'Usage: ./scripts/run_exploration_demo.sh [--task FILE] [--static] [--scene NAME_OR_YAML] [--time-limit SECONDS] [--preflight]'
+  echo 'W16: headless physical walking, online SLAM, autonomous exploration and real dynamic obstacles.'
+  echo 'Default: EXP01 dynamic encounter. --static explicitly removes the obstacle for a control run.'
   echo 'Scene is simulator-only. Default task: src/t1_navigation/config/exploration_task.yaml.'
   exit 0
 fi

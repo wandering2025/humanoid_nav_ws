@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "build_packages": 4,
+  "tests_passed": 153,
+  "build_log": "raw/dynamic-build-01.log",
+  "test_log": "raw/dynamic-cpu-01.log",
+  "checks": [
+    "scan temporal intrusion and long stop",
+    "unchanged raw scan and finite ranges",
+    "unknown occlusion not carved free",
+    "scan timestamp and coordinate transform",
+    "static wall during ego motion",
+    "existing exploration and advanced regressions"
+  ],
+  "runtime": "NOT_RUN"
+}

@@ -222,6 +222,7 @@ class Explorer(Node):
             raise RuntimeError(future.result().message)
         self.wait(lambda: self.gate.get('state') == 'ARMED')
         self.started_sim = self.sim()
+        empty_since = None
         for iteration in range(40):
             self.wait(lambda: self.pose() is not None)
             observed = self.observed(); target = self.target(); pose = self.pose()
@@ -237,8 +238,20 @@ class Explorer(Node):
                     if path:
                         target = candidate['point']; break
                 if not path:
-                    self.emit('exhausted', snapshot=snapshot, candidates=candidates)
-                    raise RuntimeError('no reachable informative frontier; B route not established')
+                    # A live obstacle can temporarily split the known free area.
+                    # Await new observations with the current action stopped.
+                    if empty_since is None:
+                        empty_since = self.sim()
+                    self.emit('temporarily_blocked', snapshot=snapshot, candidates=candidates)
+                    if self.nav_handle:
+                        canceled = self.nav_handle.cancel_goal_async(); self.wait(canceled.done)
+                        self.nav_handle = None
+                    if self.sim()-empty_since >= 20:
+                        raise RuntimeError('no reachable informative frontier after bounded observation wait')
+                    until = self.sim()+2
+                    self.wait(lambda: self.sim() >= until, 8)
+                    continue
+            empty_since = None
             self.emit('decision', iteration=iteration, snapshot=snapshot, pose=pose,
                       target=list(target), final=final, candidates=candidates, path=path)
             future = self.send(target, path, final)

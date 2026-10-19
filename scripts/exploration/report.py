@@ -34,6 +34,7 @@ def audit(run):
                 truth_final_error_m=result.get('truth_final_error_m'),
                 truth_final_hold_max_error_m=result.get('truth_final_hold_max_error_m'),
                 contacts=result['contacts'],fell=result['fell'],safe_stop=result.get('safe_stop'),
+                dynamic=result.get('dynamic'),static_control=result.get('static_control'),
                 graph_contract=result['graph_contract'],infrastructure_valid=result['infrastructure_valid'],
                 parent_exit_codes=result.get('parent_exit_codes'),
                 launch_process_exit_codes=result.get('launch_process_exit_codes'),
