@@ -214,3 +214,7 @@ mj_world / base_link_truth：仅评测真值，不进入 TF 树
 - 可执行：`navigation_adapter`、`navigation_starter`、`navigate_to_pose X Y YAW [--time-limit 120]`（0=核验成功，2=中止/取消/未核验，3=超时，1=准备失败）。详见[navigation.md](navigation.md)。
 - static_world v2（ADR-015）：14×11m，A(0,0,0)→B(9,0,0)；地图与元数据已由SLAM重建并重新绑定。
 - dynamic_crossing_world v2（ADR-017，W12前）：同14×11m外壳，A(0,0,0)→B(9,0,0)主走廊空旷，crossing/blocking/approach三个活动区；尚无地图，W12在场景冻结后建图。
+
+## W16 扩展接口（ADR-022/023，独立探索入口）
+
+`t1_explorer`仅使用任务B、在线map/costmap、TF/time、安全状态及Nav2 action，输出探索status，不订阅评测truth。`t1_mapping_scan_filter`仅读原始scan和TF/time，发布 `/scan/mapping`（LaserScan，与输入stamp/frame/geometry一致）；此入口SLAM改订阅它，Nav2与CM仍订阅原始scan。过滤器不发布TF、地图或速度，不控制SLAM暂停。运行目录的独立SLAM参数副本记录哈希；W09/W14/W15旧入口语义不变。详见[探索架构](exploration.md)。

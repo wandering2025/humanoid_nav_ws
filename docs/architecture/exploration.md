@@ -1,6 +1,6 @@
 # W16：仅知 B 相对 A 的在线探索
 
-本实现是位置目标导向的 frontier 探索，独立入口 `scripts/run_exploration_demo.sh`。当前验收范围为无图形、静态未知环境；运行结果见 [W16 记录](../plans/t1_mujoco_navigation/records/W16.md)。原 guided 演示保留原有接口和证据。
+本实现是位置目标导向的 frontier 探索，独立入口 `scripts/run_exploration_demo.sh`。当前范围为无图形未知环境与真实动态障碍；运行结果见 [W16 记录](../plans/t1_mujoco_navigation/records/W16.md)。原 guided 演示保留原有接口和证据。
 
 ## 输入与坐标
 
@@ -36,10 +36,24 @@ A 定义为探索开始、机器人就绪站立时的 base_footprint 坐标系�
 
 ## 有界失败与证据
 
-默认总预算600仿真秒、最多40次决策、单目标120仿真秒；ROS调用和墙钟有独立上限。没有可达 frontier、目标动作失败/取消、超时、TF/clock或安全故障时锁存停车并退出，保留失败结果。失败只说明本次未建立可行路线，不证明任意未知环境中 B 永远不可达。
+默认总预算600仿真秒、最多40次决策、单目标120仿真秒；ROS调用和墙钟有独立上限。无可达 frontier 时取消当前动作，最多等待20仿真秒的新观测，避免把临时阻塞立即判成永久死路。等待仍计入总预算；耗尽、取消、超时、TF/clock或安全故障时锁存停车并退出，保留失败结果。失败只说明本次未建立可行路线，不证明任意未知环境中 B 永远不可达。
 
 `explorer/decisions.jsonl` 保存位姿、候选分数、实际 NavFn 路径、动作ID和重选原因；`map-*.npz` 保存每次选择时的 costmap 与 SLAM 栅格；`result.json` 保存 A/B 换算及停稳检查。独立评测再用物理 trace 核验位置、碰撞、跌倒、停车、组件退出、进程与端口回收。原始数据留在 ignored run_data，轻量报告在 docs/evidence/W16。
 
-限制：未验证动态物体持续进入 SLAM 的清理、漂移里程计、真机、狭窄通道或普遍完备性；依然是有限束 LiDAR、理想姿态补偿和受限 T1 步态。少量正/负例不能替代可靠性评测。原 W13 的 FAILED 结论不变。
+限制：未验证任意动态场景、漂移里程计、真机、狭窄通道或普遍完备性；依然是有限束 LiDAR、理想姿态补偿和受限 T1 步态。少量正/负例不能替代可靠性评测。原 W13 的 FAILED 结论不变。
 
 算法依据：[frontier 原论文](https://www.cs.cmu.edu/~motionplanning/papers/sbp_papers/integrated1/yamauchi_frontiers.pdf)。在线地图接入依据：[Nav2 Jazzy SLAM 教程](https://docs.nav2.org/jazzy/tutorials/general_tutorials/navigation2_with_slam/navigation2_with_slam/)。这里的目标偏好、T1 安全约束及审计为本项目实现。
+
+## W16 动态障碍扩展（ADR-023）
+
+默认入口使用 `exploration_events.yaml` 的 EXP01；`--static` 完全不实例化动态实体，供对照和其他静态布局使用。3.0×0.6×1.5m方体由已有 physics owner 在每2ms物理步前移动，0.6m/s进入通道、停12s、再退回；实际 mocap 碰撞体参加 mj_step 接触检测和 LiDAR 射线，不只是视觉标记。轨迹和位置触发条件只在模拟器内部；探索和感知节点不接收它们。该物体是不可推动的运动学障碍，不代表物理驱动的行人。
+
+新增独立 `t1_mapping_scan_filter`，仅订阅原始 `/scan`、`/tf`、`/tf_static`、`/clock`，根据每帧原时间戳查询 odom→laser_stabilized。输入历史初始为空，不读 world/map 文件或 truth。0.1m稀疏格记录有限回波之前、距离端点至少0.35m的实际射线自由证据；每格每帧最多一次，至少3帧。+inf保留，但不用于长期自由先验，避免角格投影在墙角产生过强的自由证据。
+
+进入此前已观测自由格的回波判为瞬态，并沿间距<0.3m的相邻回波传播。至少3帧的稳定表面及其0.2m格邻域阻断这种传播，防止墙角单点误判删除整面墙；稳定先验不向此前自由区扩张，防止慢移物体把自己不断扩充为静态结构。暂时停住的已检测物体继续排除。
+
+过滤仅将对应量程置NaN，保留消息时间戳、frame、角度及其他量程；不会输出穿过物体的假射线。已安装Karto头文件明确在scan matching与occupancy rasterization忽略NaN（本地 `Karto.h`，源见[SLAM Toolbox](https://github.com/SteveMacenski/slam_toolbox)）。SLAM只订阅 `/scan/mapping`，仍是唯一/map与map→odom发布者，始终处理新观测；Nav2两层costmap与Collision Monitor继续订阅完整的原始 `/scan`。原SLAM参数只在运行目录复制并改变scan_topic，保存实际哈希；旧入口/参数不改。
+
+滤波器不能可靠识别最初在未知区域静止的物体，也不能修复任意已进入历史pose graph的动态回波；当前位置分类依赖本项目理想odom和有限LiDAR。这是经过具体场景验证的观测变化过滤，不宣称通用动态SLAM或运动预测。
+
+评测独立保存实际障碍位姿、雷达命中、costmap标记、命令和物理轨迹，检查≥2s站稳等待、离开后恢复≥1m、到B≤0.30m与安全清理。`scan-filter.jsonl`记录每帧被排除的索引/odom端点、处理耗时和历史格数；离线 `dynamic_report.py` 按时间对齐障碍命中与过滤索引，并从真实最终SLAM图检查阻塞位置是否留下占据残影。原始观测留ignored目录，轻量报告进入W16证据。

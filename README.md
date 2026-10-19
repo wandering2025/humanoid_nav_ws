@@ -4,7 +4,7 @@
 ./scripts/run_exploration_demo.sh
 ```
 
-独立 headless 入口：只输入 A 坐标系中的 B 点，机器人根据在线地图选择探索位置，发现可行路线后走到 B。[任务配置与运行](docs/evidence/W16/README.md) · [探索架构](docs/architecture/exploration.md) · [实际验收状态](docs/plans/t1_mujoco_navigation/records/W16.md)。现有 guided 演示和用户的 `presentation/goal.yaml` 配置保留。
+独立 headless 入口：只输入 A 坐标系中的 B 点，机器人根据在线地图选择探索位置，发现可行路线后走到 B，默认包含实际进入物理碰撞与雷达的动态障碍。[任务配置与运行](docs/evidence/W16/README.md) · [探索架构](docs/architecture/exploration.md) · [实际验收状态](docs/plans/t1_mujoco_navigation/records/W16.md)。现有 guided 演示和用户的 `presentation/goal.yaml` 配置保留。
 
 ---
 
