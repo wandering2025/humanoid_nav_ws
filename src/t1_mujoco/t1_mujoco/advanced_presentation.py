@@ -2,13 +2,13 @@
 import mujoco
 import numpy as np
 
-def annotate(viewer, goal=None):
+def annotate(viewer, goal=None, start=(0., 0.)):
     if goal is None:
         from .advanced_goal import runtime_goal
         goal = runtime_goal()['goal']
     scene = viewer.user_scn
     scene.ngeom = 0
-    for x, y, label, color in ((0., 0., 'A  START', [.10,.75,.95,1.]),
+    for x, y, label, color in ((*start[:2], 'A  START', [.10,.75,.95,1.]),
                                (*goal[:2], 'B  GOAL', [.20,.95,.45,1.])):
         for kind, size, pos, text in (
             (mujoco.mjtGeom.mjGEOM_CYLINDER,[.65,.008,0.],[x,y,.012],''),

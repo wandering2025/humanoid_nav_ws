@@ -26,10 +26,76 @@ class ExplorationRun(advanced.Advanced):
         self.summary.update(scenario='W16', method='goal_directed_frontier_exploration', map_growth=[])
         self.runtime_graph, self.global_grid, self.active_target = {}, None, None
         self.last_visual = 0.
+        self.rviz_config = WS/'src/t1_navigation/config/exploration.rviz'
+        self.display_start = None
+        self.display_target = None
+        self.display_phase = 'Waiting for online SLAM'
+        self.display_iteration = 0
+        self.dynamic_screenshot = False
 
     def markers(self):
-        # Headless validation is the W16 delivery; no claim of graphical testing.
-        pass
+        if not hasattr(self, 'viz'):
+            return
+        from visualization_msgs.msg import Marker, MarkerArray
+        from geometry_msgs.msg import Point
+        markers = MarkerArray()
+        def marker(ns, kind, color, frame='map'):
+            m = Marker(); m.header.frame_id = frame; m.ns = ns; m.id = 0
+            m.type = kind; m.pose.orientation.w = 1.
+            m.color.r, m.color.g, m.color.b = color; m.color.a = 1.
+            markers.markers.append(m)
+            return m
+        def text(ns, value, xy, color, size=.55, frame='map'):
+            m = marker(ns, Marker.TEXT_VIEW_FACING, color, frame)
+            m.pose.position.x, m.pose.position.y = xy; m.pose.position.z = .15
+            m.scale.z = size; m.text = value
+        def line(ns, points, color, width, frame='map'):
+            m = marker(ns, Marker.LINE_STRIP, color, frame); m.scale.x = width
+            m.points = [Point(x=float(x), y=float(y), z=.12) for x, y in points]
+        if self.display_start:
+            # RViz applies live map->odom. These are the explorer's actual A/B,
+            # not scene coordinates or a guessed initial robot heading.
+            for label, xy, color in (('A START', self.display_start[0][:2], (.05,.45,.65)),
+                                     ('B GOAL', self.display_start[1], (.05,.5,.22))):
+                x, y = xy
+                line(label, [(x+.65*math.cos(j*math.pi/40), y+.65*math.sin(j*math.pi/40))
+                             for j in range(81)], color, .06, 'odom')
+                text(label+' label', label, (x,y-1.), color, frame='odom')
+        phase = self.display_phase
+        if self.summary['status'] == 'ARRIVED_SAFE_STOP':
+            phase = 'B reached - safely stopped'
+        elif self.display_target and self.node.odom:
+            v = self.node.odom.twist.twist
+            if abs(v.linear.x)<.05 and abs(v.angular.z)<.05 and self.node.cmds['final']==(0.,0.):
+                phase = 'Waiting / replanning from live observations'
+        text('phase', phase, (7.,14.), (.1,.2,.3), .65)
+        text('legend', 'Blue: latest Nav2 plan | Orange: selected target | Purple: travelled',
+             (7.,13.), (.1,.2,.3), .42)
+        if self.display_target:
+            x, y = self.display_target
+            line('selected_target', [(x-.25,y),(x+.25,y),(x,y),(x,y-.25),(x,y+.25)], (.95,.45,.05), .10)
+        trail = [(r['mx'],r['my']) for r in self.node.rows[::3] if r['mx'] is not None]
+        if len(trail)>1:
+            line('actual_trail', trail, (.5,.18,.65), .035)
+        self.viz.publish(markers)
+
+    def on_exploration(self, msg):
+        from t1_mujoco.exploration_display import start_markers
+        event = json.loads(msg.data)
+        start = start_markers(event)
+        if start:
+            self.display_start = start
+            self.summary['display_start'] = dict(anchor_odom=start[0], goal_odom=start[1])
+        kind = event.get('event')
+        if kind == 'decision':
+            self.display_iteration = event['iteration']+1
+            self.display_target = tuple(event['target'][:2])
+            self.display_phase = ('Known route to B - navigating' if event['final'] else
+                                  f'Exploring - observation target {self.display_iteration}')
+        elif kind == 'temporarily_blocked':
+            self.display_phase = 'Waiting for new observations'
+        elif kind == 'frontier_invalidated_by_observation':
+            self.display_phase = 'New obstacle observed - selecting another target'
 
     def launch_command(self):
         commands = super().launch_command()
@@ -47,8 +113,16 @@ class ExplorationRun(advanced.Advanced):
         if check_stop and 'scan_filter' in self.children and self.children['scan_filter'][0].poll() is not None:
             raise RuntimeError('mapping scan filter exited unexpectedly')
         super().spin(check_stop)
+        if (check_stop and not self.args.headless and not self.dynamic_screenshot
+                and self.node and self.node.obstacle and self.node.obstacle['phase'].startswith('hold_')):
+            self.dynamic_screenshot = True
+            self.screenshot('dynamic')
 
     def mission(self):
+        from std_msgs.msg import String
+        from rclpy.qos import QoSProfile, DurabilityPolicy
+        self.node.create_subscription(String, '/t1/exploration/status', self.on_exploration,
+            QoSProfile(depth=10, durability=DurabilityPolicy.TRANSIENT_LOCAL))
         self.summary['status'] = 'EXPLORING'
         self.summary['initial_map'] = self.save_map('initial')
         child = self.spawn('goal', [str(Path(os.environ['T1_VENV'])/'bin/python'),
@@ -75,6 +149,15 @@ class ExplorationRun(advanced.Advanced):
         if child.returncode != 0 or result['status'] != 'ARRIVED':
             raise RuntimeError(f'Exploration failed: {result}')
         self.summary['status'] = 'ARRIVED_SAFE_STOP'
+        self.markers()
+        if not self.args.headless:
+            # Allow RViz to draw the final status before capturing actual windows.
+            ready = self.node.sim+.5
+            self.until(lambda: self.node.sim >= ready, 5, False)
+            self.screenshot('arrived')
+            end = time.monotonic()+8
+            while not base.STOP and (self.args.hold or time.monotonic()<end):
+                self.spin(False)
 
     def metrics(self):
         import numpy as np
@@ -115,6 +198,12 @@ class ExplorationRun(advanced.Advanced):
             mapping_filter_only=graph.get('/scan/mapping',{}).get('publishers')==['t1_mapping_scan_filter'],
             slam_reads_filtered_scan=graph.get('/scan/mapping',{}).get('subscribers')==['slam_toolbox'])
         s['task_consistent'] = manifest.get('exploration_task')==self.args.task_data==result.get('task')
+        s['headless'] = self.args.headless
+        if not self.args.headless:
+            expected = dict(anchor_odom=result.get('anchor_odom'), goal_odom=result.get('goal_odom'))
+            # JSON normalizes the immutable display tuples for comparison.
+            s['display_coordinates_consistent'] = (manifest.get('exploration_display') == expected
+                == json.loads(json.dumps(s.get('display_start'))))
         exits = (all(v==0 for v in s.get('parent_exit_codes',{}).values())
                  and bool(s.get('launch_process_exit_codes'))
                  and all(v['exit_code']==0 for v in s['launch_process_exit_codes'].values()))
@@ -138,7 +227,10 @@ class ExplorationRun(advanced.Advanced):
                 blocked_wait=blocked_wait_evidence(n.rows,n.obstacles,goal or [math.inf,math.inf]))
             s['dynamic'].update(response_verdict(s['dynamic'],s['arrived']))
         dynamic_ok = self.args.static or (s['dynamic']['verdict']=='PASS' and s['dynamic']['actual_travel_m']>=1.)
-        s['validation_before_port_check'] = bool(s['infrastructure_valid'] and s['arrived'] and exits and dynamic_ok and not s.get('error'))
+        graphics_ok = self.args.headless or (s['display_coordinates_consistent'] and not s.get('gpu_monitor_error')
+            and bool(s.get('arrived_screenshots')))
+        s['validation_before_port_check'] = bool(s['infrastructure_valid'] and s['arrived'] and exits and dynamic_ok
+                                               and graphics_ok and not s.get('error'))
         base.save('observation.json', dict(rows=n.rows, plans=n.plans, obstacles=n.obstacles,
                   cost_samples=n.cost_samples, dynamic_scans=n.dynamic_scans))
         s['status'] = 'PENDING_PORT_CHECK' if s['validation_before_port_check'] else 'FAILED'
@@ -165,8 +257,11 @@ def main():
     parser.add_argument('--static', action='store_true', help='Explicit control run without a dynamic body')
     parser.add_argument('--time-limit', type=float, default=600.)
     parser.add_argument('--preflight', action='store_true')
+    parser.add_argument('--headless', action='store_true', help='CPU-only run without windows')
+    parser.add_argument('--no-rviz', action='store_true', help='Show only the MuJoCo window')
+    parser.add_argument('--hold', action='store_true', help='Keep windows open after safe arrival until Ctrl+C')
     args = parser.parse_args()
-    args.headless, args.no_rviz, args.startup_check, args.gpu_watch = True, True, False, None
+    args.startup_check, args.gpu_watch = False, None
     if not 0 < args.time_limit <= 800:
         parser.error('time-limit must be in (0, 800] simulation seconds')
     if not args.static and args.scene != 'advanced_world':
@@ -176,8 +271,9 @@ def main():
     fcntl.flock(lock, fcntl.LOCK_EX|fcntl.LOCK_NB)
     signal.signal(signal.SIGINT, lambda *_: setattr(base,'STOP',True))
     signal.signal(signal.SIGTERM, lambda *_: setattr(base,'STOP',True))
-    from cpu_guard import enter
-    base.save('cpu-guard.json', enter())
+    if args.headless or args.preflight:
+        from cpu_guard import enter
+        base.save('cpu-guard.json', enter())
     from t1_mujoco.exploration_task import load_task, SNAPSHOT_ENV
     args.task_data = load_task(args.task)
     (OUT/'task.yaml').write_bytes(args.task.read_bytes())
@@ -193,6 +289,10 @@ def main():
     base.save('provenance.json', provenance)
     if args.preflight:
         return 0
+    if not args.headless:
+        from gpu_watch import Watch, GPU_ENV
+        os.environ.update(GPU_ENV)
+        args.gpu_watch = Watch(OUT/'gpu', idle_wait_s=60, idle_max_utilization_pct=60.)
     run = ExplorationRun(args, provenance)
     base.say(f'W16 run {RUN_ID}; {OUT}')
     try:

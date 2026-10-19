@@ -2,8 +2,8 @@
 set -Eeuo pipefail
 EXP_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
 if [[ "${1:-}" == --help || "${1:-}" == -h ]]; then
-  echo 'Usage: ./scripts/run_exploration_demo.sh [--task FILE] [--static] [--scene NAME_OR_YAML] [--time-limit SECONDS] [--preflight]'
-  echo 'W16: headless physical walking, online SLAM, autonomous exploration and real dynamic obstacles.'
+  echo 'Usage: ./scripts/run_exploration_demo.sh [--headless] [--no-rviz] [--hold] [--task FILE] [--static] [--scene NAME_OR_YAML] [--time-limit SECONDS] [--preflight]'
+  echo 'W16: MuJoCo + RViz, physical walking, online SLAM, autonomous exploration and real dynamic obstacles.'
   echo 'Default: EXP01 dynamic encounter. --static explicitly removes the obstacle for a control run.'
   echo 'Scene is simulator-only. Default task: src/t1_navigation/config/exploration_task.yaml.'
   exit 0
@@ -17,6 +17,7 @@ export T1_DEMO_DIR="$EXP_ROOT/run_data/exploration/$T1_DEMO_RUN_ID"
 mkdir -p "$T1_DEMO_DIR"
 export ROS_LOG_DIR="$T1_DEMO_DIR/ros-log"
 source "$EXP_ROOT/scripts/env.sh" >"$T1_DEMO_DIR/environment.log" 2>&1
+"$EXP_ROOT/scripts/demo/build_rviz.sh" >"$T1_DEMO_DIR/rviz-build.log" 2>&1
 cmake -S "$EXP_ROOT/scripts/advanced/authority" -B "$EXP_ROOT/build/advanced-tools" -DPython3_EXECUTABLE=/usr/bin/python3 >"$T1_DEMO_DIR/authority-build.log" 2>&1
 cmake --build "$EXP_ROOT/build/advanced-tools" --parallel 2 >>"$T1_DEMO_DIR/authority-build.log" 2>&1
 runner=''

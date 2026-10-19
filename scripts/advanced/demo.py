@@ -338,7 +338,7 @@ class Advanced(base.Demo):
         self.summary.update(lifecycle=lifecycle,readiness_wall_s=time.monotonic()-self.started)
         if not self.args.headless and not self.args.no_rviz:
             os.environ['T1_RVIZ_HEARTBEAT']=str(OUT/'rviz-heartbeat')
-            self.spawn('rviz',[str(WS/'build/demo-rviz/t1_demo_rviz'),'-d',str(WS/'src/t1_navigation/config/advanced.rviz'),
+            self.spawn('rviz',[str(WS/'build/demo-rviz/t1_demo_rviz'),'-d',str(getattr(self,'rviz_config',WS/'src/t1_navigation/config/advanced.rviz')),
                              '--ros-args','-p','use_sim_time:=true'])
             self.until(lambda:(OUT/'rviz-heartbeat').exists() and 'RVIZ_LIFECYCLE ready' in (OUT/'rviz.log').read_text(errors='replace'),25)
             from gpu_watch import renderer_verified

@@ -1,0 +1,15 @@
+{
+  "start_head": "53bd2cac79214219d5bd40f9c4d080070ce1bcd1",
+  "build": {
+    "packages": 4,
+    "status": "PASS",
+    "log": "raw/gui-build-01.log"
+  },
+  "cpu": {
+    "passed": 166,
+    "status": "PASS",
+    "log": "raw/gui-cpu-01.log"
+  },
+  "graphics_status": "NOT_RUN",
+  "presentation_untouched_sha256": "0c9169a0aec692fcde8fdc9700b999ca3f61f9f4205a8ae600687ef4a191779f"
+}

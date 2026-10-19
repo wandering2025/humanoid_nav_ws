@@ -232,6 +232,22 @@ def main(args=None):
             return response
         node.create_service(SetBool, '/t1/sim/pause', pause)
         node.create_service(Trigger, '/t1/sim/reset', reset)
+        # One-way explorer -> display. Callback only replaces an immutable tuple;
+        # neither physical MjData nor navigation receives visualization feedback.
+        exploration_markers = None
+        shown_exploration_markers = None
+        if exploration_input and not p['headless']:
+            from .exploration_display import start_markers
+            def display_exploration(msg):
+                nonlocal exploration_markers
+                try:
+                    markers = start_markers(json.loads(msg.data))
+                except (ValueError, TypeError):
+                    return
+                if markers is not None:
+                    exploration_markers = markers
+            node.create_subscription(String, '/t1/exploration/status', display_exploration,
+                                     QoSProfile(depth=10, durability=DurabilityPolicy.TRANSIENT_LOCAL))
         executor = SingleThreadedExecutor(context=context)
         executor.add_node(node)
         worker = threading.Thread(target=executor.spin, name='t1_ros_callbacks')
@@ -262,7 +278,7 @@ def main(args=None):
                                                   show_left_ui=False, show_right_ui=False)
             viewer_threads = [t for t in threading.enumerate() if t not in before_viewer_threads]
             viewer.cam.elevation = -20
-            if presentation:
+            if presentation and not exploration_input:
                 with viewer.lock():
                     if presentation_goal is not None:
                         annotate(viewer, goal=presentation_goal['goal'])
@@ -363,6 +379,12 @@ def main(args=None):
                 with viewer.lock():
                     mujoco.mj_copyData(view_data, view_model, runner.mj_data)
                     viewer.cam.lookat[:] = runner.mj_data.qpos[:3]
+                    markers = exploration_markers
+                    if presentation and markers is not None and markers != shown_exploration_markers:
+                        annotate(viewer, start=markers[0], goal=markers[1])
+                        shown_exploration_markers = markers
+                        log.manifest['exploration_display'] = dict(anchor_odom=markers[0], goal_odom=markers[1])
+                        log.save()
                 viewer.sync(state_only=True)
                 last_view = before
             if runner.state in ('FAULT', 'FALLEN'):

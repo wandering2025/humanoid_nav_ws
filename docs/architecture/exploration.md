@@ -1,6 +1,6 @@
 # W16：仅知 B 相对 A 的在线探索
 
-本实现是位置目标导向的 frontier 探索，独立入口 `scripts/run_exploration_demo.sh`。当前范围为无图形未知环境与真实动态障碍；运行结果见 [W16 记录](../plans/t1_mujoco_navigation/records/W16.md)。原 guided 演示保留原有接口和证据。
+本实现是位置目标导向的 frontier 探索，独立入口 `scripts/run_exploration_demo.sh`。默认同时打开MuJoCo与RViz，执行未知环境探索与真实动态障碍避让；运行结果见 [W16 记录](../plans/t1_mujoco_navigation/records/W16.md)。原 guided 演示保留原有接口和证据。
 
 ## 输入与坐标
 
@@ -57,3 +57,11 @@ A 定义为探索开始、机器人就绪站立时的 base_footprint 坐标系�
 滤波器不能可靠识别最初在未知区域静止的物体，也不能修复任意已进入历史pose graph的动态回波；当前位置分类依赖本项目理想odom和有限LiDAR。这是经过具体场景验证的观测变化过滤，不宣称通用动态SLAM或运动预测。
 
 评测独立保存实际障碍位姿、雷达命中、costmap标记、命令和物理轨迹，检查≥2s站稳等待、离开后恢复≥1m、到B≤0.30m与安全清理。`scan-filter.jsonl`记录每帧被排除的索引/odom端点、处理耗时和历史格数；离线 `dynamic_report.py` 按时间对齐障碍命中与过滤索引，并从真实最终SLAM图检查阻塞位置是否留下占据残影。原始观测留ignored目录，轻量报告进入W16证据。
+
+## W16 图形入口（ADR-024）
+
+默认 `./scripts/run_exploration_demo.sh` 同时打开 MuJoCo 和 RViz；`--headless` 保留CPU验证，`--no-rviz`只显示MuJoCo，`--hold`到达站稳后保持窗口直到Ctrl+C。沿用既有D3D12/NVIDIA选择、GPU/宿主日志监控、退出join与精确PID回收；不新增渲染后端。
+
+探索状态单向发布到只读显示端。A/B采用explorer的start事件中的anchor_odom和goal_odom；MuJoCo仅改独立view_model/user_scn，RViz在odom帧发布标记并由真实map→odom换算。探索开始前不展示假定的A/B。RViz显示实际SLAM格、原始雷达、实际Nav2路径、探索器当前目标和实际TF轨迹，不计算旧guided路线概览。模拟器接收状态仅为显示，无真值/场景数据返回给探索器，不改物理状态、TF或速度ownership。
+
+运行保存ready/dynamic/arrived实际窗口截图、GPU监控、显示坐标与导航结果一致性检查；到达后保留窗口8秒再按原流程停车清理（--hold除外）。本轮不改presentation/，待用户测试反馈后再加入新命令。

@@ -14,11 +14,14 @@ Windows PowerShell 中使用：
 wsl.exe -d Ubuntu-24.04 --cd /home/haoyang/humanoid_nav_ws_advanced --exec bash ./scripts/run_exploration_demo.sh
 ```
 
-默认启用真实动态障碍 EXP01，headless，持续打印进度，结束写 final-result.json。Ctrl+C 请求锁存停车并清理本次进程，等待脚本返回；DDS 退出后本机 TCP 回收可能额外等待约65秒。
+默认启用真实动态障碍 EXP01，并同时打开MuJoCo与RViz；持续打印进度，结束写 final-result.json。到达后窗口保留8秒；加 `--hold` 则保持到Ctrl+C。图形实现正在G2验收，状态以W16记录为准。Ctrl+C 请求锁存停车并清理本次进程，等待脚本返回；DDS 退出后本机 TCP 回收可能额外等待约65秒。
 
 编辑 `src/t1_navigation/config/exploration_task.yaml` 中的 x/y，即 B 在探索开始时 A 身体系中的米制偏移。A 的 +x 向前、+y 向左；输入不是固定 map 绝对坐标，不指定终点 yaw。运行开始会保存任务快照，中途改文件仅影响下次。原 `presentation/goal.yaml` 属于旧 guided 演示，本入口不读取它。
 
 ```bash
+./scripts/run_exploration_demo.sh --headless  # 无图形CPU验证
+./scripts/run_exploration_demo.sh --no-rviz  # 只显示MuJoCo
+./scripts/run_exploration_demo.sh --hold  # 到达后保持窗口
 ./scripts/run_exploration_demo.sh --preflight
 ./scripts/run_exploration_demo.sh --static  # 无动态实体的对照
 ./scripts/run_exploration_demo.sh --task /absolute/path/task.yaml
