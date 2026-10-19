@@ -61,7 +61,7 @@ def git(*args):
 
 
 class Probe(Node):
-    def __init__(self, name='t1_evaluator'):
+    def __init__(self, name='t1_evaluator', *, dynamic_sample_wait_s=0.):
         super().__init__(name)
         self.sim = 0.
         self.clock_regressions = 0
@@ -70,6 +70,11 @@ class Probe(Node):
         self.map_tf = self.pose = self.plan = self.adapter = None
         self.obstacle = None
         self.obstacles, self.dynamic_scans, self.cost_samples = [], [], []
+        self.dynamic_pending = None
+        if dynamic_sample_wait_s:
+            from evaluation.scan_evidence import DeferredSamples
+            self.dynamic_pending = DeferredSamples(dynamic_sample_wait_s)
+            self.create_timer(.05, self.drain_dynamic_scans)
         self.cmds = {key: None for key, _ in LAYERS}
         self.buffer = Buffer()
         self.rows, self.events, self.scans, self.poses, self.initializations = [], [], [], [], []
@@ -175,7 +180,10 @@ class Probe(Node):
         self.scan_stats['known_min'] = min(self.scan_stats['known_min'], known)
         self.scan_stats['min_range'] = min(self.scan_stats.get('min_range', math.inf), min(finite) if finite else math.inf)
         self.scan = m
-        self.sample_dynamic_scan(m)
+        if self.dynamic_pending is None:
+            self.sample_dynamic_scan(m, self.cm)
+        else:
+            self.dynamic_pending.add((m,self.cm),time.monotonic())
         if not self.scans or ns(m.header.stamp) - ns(self.scans[-1].header.stamp) >= 500_000_000:
             self.scans.append(m)
 
@@ -217,15 +225,22 @@ class Probe(Node):
         data = min(self.obstacles[-20:], key=lambda d: abs(d['sim_time']-t))
         return data if abs(data['sim_time']-t) < .2 else None
 
-    def sample_dynamic_scan(self, scan):
+    def drain_dynamic_scans(self):
+        self.dynamic_pending.drain(lambda item:self.sample_dynamic_scan(*item),time.monotonic())
+
+    def sample_dynamic_scan(self, scan, cm_snapshot=None):
         t = ns(scan.header.stamp)*1e-9
         obstacle = self.match_obstacle(t)
         if obstacle is None:
-            return
+            if self.dynamic_pending is not None:
+                self.dynamic_pending.stats['missing_obstacle_attempts'] += 1
+            return False
         try:
             tf = self.buffer.lookup_transform('odom', 'laser_stabilized', Time(nanoseconds=ns(scan.header.stamp)))
         except Exception:
-            return
+            if self.dynamic_pending is not None:
+                self.dynamic_pending.stats['missing_tf_attempts'] += 1
+            return False
         p, a = tf.transform.translation, yaw(tf.transform.rotation)
         hits = []
         x, y, _ = obstacle['position']
@@ -238,7 +253,8 @@ class Probe(Node):
                     hits.append([i, r, px, py])
         self.dynamic_scans.append(dict(sim=t, obstacle=obstacle, hits=hits,
                                        laser_pose_odom=[p.x, p.y, p.z, a],
-                                       scan_frame=scan.header.frame_id, cm=self.cm))
+                                       scan_frame=scan.header.frame_id, cm=cm_snapshot))
+        return True
 
     def on_local_costmap(self, msg):
         t = ns(msg.header.stamp)*1e-9

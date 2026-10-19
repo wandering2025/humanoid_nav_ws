@@ -303,7 +303,7 @@ class Advanced(base.Demo):
         self.until(lambda:'### Server is running ###' in (OUT/'dds.log').read_text(errors='replace')
                    and bool(base.port_connections()['listeners']),10)
         rclpy.init(signal_handler_options=SignalHandlerOptions.NO)
-        self.node=Probe()
+        self.node=Probe(dynamic_sample_wait_s=getattr(self,'dynamic_sample_wait_s',0.))
         self.spawn('authority',[str(WS/'build/advanced-tools/tf_authority')])
         from grid_visuals import GridVisuals
         self.grid_visuals=GridVisuals(self.node)

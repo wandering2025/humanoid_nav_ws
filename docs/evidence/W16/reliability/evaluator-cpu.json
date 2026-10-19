@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "cpu_passed": 254,
+  "deselected": 1,
+  "log": "../raw/reliability-cpu-07.log",
+  "previous_test_setup_failure": "cpu-06 test import lacked T1_EVAL_OUT; fixed test-only temp fixture, no environment installation",
+  "legacy_exclusion": "test_simulation_changes_are_only_view_copy_hooks",
+  "colcon": "previous four-package build still applicable; only scripts/evaluation and orchestrator opt-in changed",
+  "new_checks": [
+    "delayed exact-time TF retains original ray hits and CM context once",
+    "missing evidence expires without latest-TF fallback",
+    "bounded overflow and no head-of-line blocking"
+  ],
+  "physical_rehearsal": "PENDING; final matrix reset; load case first"
+}

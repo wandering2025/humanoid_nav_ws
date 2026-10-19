@@ -32,6 +32,9 @@ class ExplorationRun(advanced.Advanced):
         self.display_phase = 'Waiting for online SLAM'
         self.display_iteration = 0
         self.dynamic_screenshot = False
+        # Evaluation only: allow exact scan-time TF/obstacle callbacks to arrive.
+        # Raw scan consumers and all robot planning/control remain unchanged.
+        self.dynamic_sample_wait_s = .5
 
     def markers(self):
         if not hasattr(self, 'viz'):
@@ -219,6 +222,7 @@ class ExplorationRun(advanced.Advanced):
             and s.get('clock_regressions')==0 and s.get('slam_shutdown',{}).get('complete')
             and not s.get('cleanup_error'))
         n = self.node
+        s['dynamic_sampling'] = n.dynamic_pending.summary() if n.dynamic_pending else None
         s['static_control'] = self.args.static
         if not self.args.static:
             from advanced.verification import blocked_wait_evidence, response_verdict
