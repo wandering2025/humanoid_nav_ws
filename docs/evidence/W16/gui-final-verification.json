@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "checks": {
+    "gui_audit_pass": true,
+    "control_success": true,
+    "same_online_source": true,
+    "same_task": true,
+    "control_has_no_body": true,
+    "all_paths_observed": true,
+    "all_graph_contracts": true,
+    "safe_stop": true,
+    "no_contact_or_fall": true,
+    "clean_exit": true,
+    "clean_processes_and_ports": true,
+    "failed_attempts_preserved_and_clean": true,
+    "frozen_motion_and_safety_unchanged": true,
+    "presentation_untouched": true,
+    "upstreams_clean": true
+  },
+  "gui_run": "20261019T220018Z_exploration_f55dc7ff-76c0-4473-af02-96b4fc3657a1",
+  "gui_code_sha": "0e2b302721fc11324f2392a20f6c892e7e7eac86",
+  "control_run": "20261019T220515Z_exploration_43ca27a8-1688-4c8e-b631-e6e1b2704ee3",
+  "control_code_sha": "e91599bb27e1ba7076bc6f2e82e7072a9c442a28",
+  "path_count": 15,
+  "user_feedback": "PENDING; presentation/ must wait",
+  "limitations": [
+    "Known-free reobservation branch has CPU validation; it was not exercised in the successful GUI run.",
+    "Captured arrived RViz frame retains Waiting text; arrival uses physical trace and stopped-state evidence.",
+    "Three failed development GUI runs retained; not a reliability campaign."
+  ]
+}

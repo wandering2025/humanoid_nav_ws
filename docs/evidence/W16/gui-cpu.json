@@ -10,7 +10,8 @@
     "status": "PASS",
     "log": "raw/gui-cpu-05.log"
   },
-  "graphics_status": "ATTEMPT_03_FAILED_RETEST_PENDING",
+  "graphics_status": "FULL_GUI_DYNAMIC_PASS",
   "presentation_untouched_sha256": "0c9169a0aec692fcde8fdc9700b999ca3f61f9f4205a8ae600687ef4a191779f",
-  "differential_benchmark": "gui-filter-benchmark.json"
+  "differential_benchmark": "gui-filter-benchmark.json",
+  "graphics_evidence": "gui-verification.json"
 }

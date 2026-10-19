@@ -1,0 +1,22 @@
+{
+  "starting_head": "53bd2cac79214219d5bd40f9c4d080070ce1bcd1",
+  "frozen_files_unchanged": {
+    "src/t1_mujoco/t1_mujoco/runner.py": true,
+    "src/t1_navigation/config/safety.yaml": true,
+    "src/t1_navigation/config/navigation.yaml": true,
+    "src/t1_mujoco/config/command_map.yaml": true,
+    "src/t1_bringup/t1_bringup/safety.py": true
+  },
+  "user_goal_sha256": "0c9169a0aec692fcde8fdc9700b999ca3f61f9f4205a8ae600687ef4a191779f",
+  "presentation_committed_changes": "",
+  "upstreams": {
+    "/home/haoyang/robot_sim_sources/booster_deploy": {
+      "sha": "7bb1462e2ac742eba5c01659b815e2e99fbe617f",
+      "dirty": ""
+    },
+    "/home/haoyang/robot_sim_sources/booster_assets": {
+      "sha": "12a97516f57469078707afb587a5f84c1cb110d1",
+      "dirty": ""
+    }
+  }
+}
