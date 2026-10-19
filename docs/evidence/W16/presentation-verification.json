@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "scope": "W16 G3 documentation after user acceptance; no runtime changes",
+  "starting_head": "1af3cd13c84a183c7c9c9110d89ad9ea46594341",
+  "branch": "feature/advanced-slam-demo-v0.2",
+  "cwd": "/home/haoyang/humanoid_nav_ws_advanced",
+  "started_at": "2026-10-20T00:26:50.037822+02:00",
+  "finished_at": "2026-10-20T00:26:50.100685+02:00",
+  "user_feedback": "User reports testing succeeded and explicitly requests presentation update; no new user-run metrics inferred",
+  "checks": {
+    "local_links_and_anchors": true,
+    "bash_examples_parse": true,
+    "launcher_bash_syntax": true,
+    "launcher_help_from_outside_workspace_without_run_directory": true,
+    "powershell_command_matches_existing_launcher": true,
+    "documented_exploration_task_valid_and_matches_default": true,
+    "documented_full_commit_shas_exist": true,
+    "reported_run_ids_and_key_metrics_match_saved_evidence": true,
+    "runtime_source_and_historical_audit_unchanged": true,
+    "user_goal_preserved_and_not_staged": true,
+    "git_diff_check": true
+  },
+  "local_link_count": 50,
+  "bash_block_count": 8,
+  "checked_files_sha256": {
+    "presentation/COMMANDS.md": "76efd8a95b79798d0d16178ce136aeae239b2391f24e3a84c107c7d2b60ce1f9",
+    "presentation/GOAL_CONFIGURATION.md": "469bebbc1cc4ae0a564695a93b7fbc9ee76c24ac02cee6b6c93a867d7e9345f6",
+    "presentation/README.md": "5725111475f805165081f138799773dc68e64f6366a0a3d420aac0d6a3e7f84b",
+    "presentation/TALK_TRACK.md": "7526e264bacfa1f434274dd0b67d9fa6773f7b05e458dc0b08a1e3ee4a698015",
+    "presentation/VALIDATION.md": "5ebe79b89cca535fbc6c22374ea66f20397544166ab23ff58dfc14285c22d14e",
+    "docs/architecture/exploration.md": "9a26ab9369ca17b3c5dcd3bc7eeca3d0cb0c2ee9c9a22999b7024500caea221f",
+    "docs/evidence/W16/README.md": "5fec70dd3c98b3057765c7bfd28be742e122c60d1bd6d03c65e912150eb5f7af"
+  },
+  "user_goal_sha256": "0c9169a0aec692fcde8fdc9700b999ca3f61f9f4205a8ae600687ef4a191779f",
+  "commands_executed": [
+    "bash -n scripts/run_exploration_demo.sh",
+    "/home/haoyang/humanoid_nav_ws_advanced/scripts/run_exploration_demo.sh --help (cwd=/tmp)",
+    "bash -n for each documented Bash block (syntax only)",
+    "one-off Python local-link/anchor, task-loader, commit and saved-evidence checks",
+    "git diff --exit-code 1af3cd13c84a183c7c9c9110d89ad9ea46594341 -- src scripts",
+    "git diff --check"
+  ],
+  "not_run": [
+    "new simulation / GUI / CPU regression suite / colcon build (documentation only)",
+    "PowerShell execution (command inspected from WSL)"
+  ],
+  "owned_runtime_pids": [],
+  "runtime_evidence": "gui.json, gui-static-control.json and gui-final-verification.json; historical evidence unchanged"
+}

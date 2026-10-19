@@ -2,6 +2,8 @@
 
 状态以 [W16 执行记录](../../plans/t1_mujoco_navigation/records/W16.md) 为准。
 
+2026-10-20（Europe/Berlin）：用户已测试图形演示并反馈“看起来很棒”，明确要求更新presentation/；现已将一行启动、相对B配置、中英讲稿和验证边界写入 [presentation](../../../presentation/README.md)。这是用户反馈后的文档交付，不新增运行测量；历史审计JSON中的待反馈字段保留其当时含义。
+
 在 Ubuntu Bash 中，从 `/home/haoyang/humanoid_nav_ws_advanced` 执行：
 
 ```bash
@@ -41,13 +43,13 @@ wsl.exe -d Ubuntu-24.04 --cd /home/haoyang/humanoid_nav_ws_advanced --exec bash 
 
 图形审计17项全true：NVIDIA renderer、A/B显示坐标与实际目标一致、六张实际窗口截图、GPU/宿主监控无故障；温度最高65°C、显存2159MiB、负载64%。mapping输出最大年龄0.06s。最终真实SLAM旧阻塞footprint649个采样点全自由、无占据/未知。构建四包PASS，171 CPU tests PASS。
 
-同代码 `--headless --static` 对照 **SUCCESS**，末段最大误差0.062906m、8条观测路径全通过；模型nmocap=0。安全/graph/退出/无残留/端口全部PASS。`gui-final-verification.json` 15项全true，动态+对照共15条路径，所有src/scripts字节相同；`gui-raw-index.json` 为本轮5次运行与原始日志的389文件索引。用户反馈仍待收，presentation/未改。
+同代码 `--headless --static` 对照 **SUCCESS**，末段最大误差0.062906m、8条观测路径全通过；模型nmocap=0。安全/graph/退出/无残留/端口全部PASS。`gui-final-verification.json` 15项全true，动态+对照共15条路径，所有src/scripts字节相同；`gui-raw-index.json` 为本轮5次运行与原始日志的389文件索引。该审计生成时用户反馈尚待收；后续反馈与presentation交付见上方日期说明。
 
 本轮3次开发失败完整保留：GUI负载下mapping积压/TF外推、原始scan墙钟间隔超过0.3s触发停车、局部等待预算在costmap仍阻塞时耗尽。修复含过滤计算优化/队列限制、15Hz显示刷新、有限等待后从已知安全区换位观察；所有安全与物理时限不变。成功GUI轮使用Nav2等待后继续，新的known_free_reobservation分支本轮未触发，其CPU验证不算单独物理验证。`arrived-rviz`截图保留了上一渲染帧的Waiting状态文字；到达结论依据真实轨迹/站稳和运行结果，不依据文字。
 
 证据：gui.json/png、gui-verification.json、gui-dynamic-audit.json/png、gui-{ready,dynamic,arrived}-{mujoco,rviz}.png、gui-attempt-01/02/03.json。原始run_data和构建日志均ignored。不要把少量成功当作任意负载/布局的可靠性保证；原W13 FAILED及历史启动偶发超时保持。
 
-**presentation/本轮不修改**。按用户要求，待用户用新命令测试并反馈之后才把命令加入该目录。
+图形交付时按用户要求保留presentation/，待用户测试反馈；该条件已于2026-10-20满足，新增命令见 [演示启动说明](../../../presentation/COMMANDS.md)。
 
 此前headless动态实现 `491d2c837e68204393bcaa129e04619fceadb2ba` 的D1–D3已通过；下表是该历史版本，不能替代当前GUI版本验收。
 
@@ -69,7 +71,7 @@ wsl.exe -d Ubuntu-24.04 --cd /home/haoyang/humanoid_nav_ws_advanced --exec bash 
 
 本轮失败完整保留：回调签名不兼容、静态墙误分类后主动停止、等待取消触发安全锁存后提前退出，分别见dynamic-attempt-01/02/03.json及dynamic-failed-finalization.json；后续修复并重新运行，未把这些失败改写成成功。158项CPU测试、四包build通过；不是批量可靠性评测，原W13 FAILED保持。
 
-当前使用理想odom、有限束补偿LiDAR和不可被推动的mocap运动学障碍；仅验证headless仿真。过滤器不能保证识别最初静止于未知区域的物体，不宣称通用动态SLAM或真机能力。
+该历史版本使用理想odom、有限束补偿LiDAR和不可被推动的mocap运动学障碍，当时仅验证headless仿真；后续GUI结果见上方。过滤器不能保证识别最初静止于未知区域的物体，不宣称通用动态SLAM或真机能力。
 
 以下为扩展前的静态验收历史，不能代替本轮动态验收；完整动态结果另列。历史正例使用同一任务文件和相同在线实现 `c72179061a08416a51ca17ff5e49c0725d811502`：
 
@@ -84,6 +86,6 @@ wsl.exe -d Ubuntu-24.04 --cd /home/haoyang/humanoid_nav_ws_advanced --exec bash 
 
 负例的预登记条件在negative-case.json，最终独立核验写入negative-verdict.json；任务FAILED与负例检查PASS是两个不同结论。最终完整审计见final-verification.json。
 
-原始 run_data/exploration/每个ID包含决策日志、在线地图快照、ROS日志、manifest及最终结果；物理trace在 run_data/同ID。失败保留，运行通过和图形验证分开；W16未运行GUI/录像。raw-index.json保存本步原始产物路径与哈希。
+原始 run_data/exploration/每个ID包含决策日志、在线地图快照、ROS日志、manifest及最终结果；物理trace在 run_data/同ID。失败保留，运行通过和图形验证分开；以上早期静态阶段未运行GUI/录像，后续GUI验证见上方，W16仍未录制视频。raw-index.json保存早期静态阶段原始产物路径与哈希。
 
 详见 [探索架构](../../architecture/exploration.md)。

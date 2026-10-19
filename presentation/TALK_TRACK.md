@@ -1,24 +1,32 @@
 # Presentation talk track
 
-Use the English lines when presenting. The Chinese lines are rehearsal notes. Each row corresponds to a visible stage; pause while the robot moves.
+Use these lines for **W16 exploration** (`run_exploration_demo.sh`). The English lines are for presenting; the Chinese lines are rehearsal notes. Pause while the robot moves. The older backup video shows guided waypoints, so it needs the legacy explanation at the end.
 
 | Stage | English | 中文 |
 |---|---|---|
-| A and initial map | This is Booster T1 in MuJoCo. It starts at A with a new SLAM session and no complete map. | 这是MuJoCo中的Booster T1。机器人从A点开始，SLAM会话是新的，还没有完整地图。 |
-| Moving and mapping | The robot follows an autonomous mapping route. LiDAR builds the map as it moves through the rooms and turns around the partition. | 机器人自主执行建图路线，用LiDAR逐步建立地图，并通过多个区域、绕过隔墙。 |
-| Planning | Blue shows the current Nav2 path. Cyan shows the full A-to-B route on the acquired map. Purple shows where the robot has walked. | 蓝线是当前Nav2路径，青线是所得地图上的A到B概览，紫线是实际已走轨迹。 |
-| Dynamic obstacle | The orange cart enters the passage. The robot detects it through LiDAR and waits for a safe route. | 橙色障碍进入通路。机器人通过LiDAR感知它，等待安全通路恢复。 |
-| Continuing | The cart has cleared the route. The robot plans again and continues to B. | 障碍已经撤离，机器人重新规划并继续前往B。 |
-| Arrival | The robot has reached B and stopped. The final checks confirm arrival, zero contacts, no falls and clean shutdown. | 机器人到达B并停车。最终检查确认到达、零接触、无跌倒及正常清理。 |
+| A and prior knowledge | This is Booster T1 in MuJoCo. Its task specifies only B relative to A. The navigation system starts without a map of the walls or passages. | 这是MuJoCo中的Booster T1。任务只给出B相对A的坐标，导航系统起初不知道墙和通道。 |
+| Observing and deciding | LiDAR builds the map as the robot walks. The explorer chooses where to observe next from the boundary between known free space and unknown space. | 机器人边走边用LiDAR建图。探索器根据已知自由区域与未知区域的边界，自主选择下一个观察位置。 |
+| Planning | Blue is the latest Nav2 plan, orange is the selected target, and purple is the travelled path. The robot may first move away from B to find a passage around a wall. | 蓝线是最新Nav2规划，橙色是当前目标，紫线是已走轨迹。为找到绕墙通道，机器人可能先远离B。 |
+| Dynamic obstacle | The moving obstacle has real collision geometry and appears in LiDAR. When it blocks the passage, the robot waits while continuing to observe. | 移动障碍有真实碰撞几何，也会进入LiDAR观测。通路被阻挡时，机器人等待并继续观察。 |
+| Continuing toward B | The obstacle has withdrawn. The robot continues when its live observations provide a safe route. It heads to B once a known route becomes available. | 障碍撤离后，实时观测确认存在安全路线，机器人继续行走；发现通往B的已知路线后就前往B。 |
+| Arrival and result | The robot has reached B and stopped. After cleanup, the terminal reports the arrival, contact, fall and shutdown checks. | 机器人到达B并站稳。清理结束后，终端报告到达、接触、跌倒和退出检查结果。 |
 
 ## Technical choices
 
 | English | 中文 |
 |---|---|
 | I use SLAM Toolbox for mapping, NavFn for global planning and Regulated Pure Pursuit for path tracking. The existing safety chain filters motion commands. | 使用SLAM Toolbox建图、NavFn全局规划、Regulated Pure Pursuit跟踪路径，现有安全链过滤运动指令。 |
-| The mapping route is guided by waypoints. It is not frontier exploration. The motion itself is autonomous. | 建图采用预设航点引导，不是frontier exploration；运动过程自主执行。 |
-| The main challenge was matching navigation to a walking policy with limited low-speed control. Continuous mapping passes and direct path tracking reduced redundant motion. | 主要挑战是导航与低速控制受限的步行策略配合。连续通过观测点和直接路径跟踪减少了冗余运动。 |
-| This simulation uses ideal odometry and truth attitude compensation. During dynamic navigation, SLAM corrections pause; LiDAR costmaps and obstacle avoidance remain live. | 仿真使用理想里程计和真值姿态补偿。动态导航期间暂停SLAM修正，LiDAR代价地图和避障仍实时运行。 |
-| The B-point file is read at each launch. I can change the destination within the supported area without changing code. | 每次启动都会读取B点配置文件。在支持区域内可以直接修改目标，无需修改代码。 |
+| Observation goals are selected online from reachable known free space. The explorer receives no scene geometry, preset waypoints or obstacle trajectory. | 观察目标从已知可达自由区域在线选出。探索器不接收场景几何、预设航点或障碍轨迹。 |
+| Walking comes from the existing policy and MuJoCo contact dynamics. The planner must respect the walking and safety constraints. | 行走由既有策略与MuJoCo接触动力学产生，规划必须满足步态和安全约束。 |
+| SLAM stays active throughout. A filter uses changes in observed scans to suppress transient returns in the mapping branch; navigation and the safety monitor still receive the full raw scan. | 全程持续SLAM。过滤器根据扫描观测变化抑制建图分支中的瞬态回波；导航与安全监控仍接收完整原始扫描。 |
+| This simulation uses ideal odometry and truth attitude compensation. The moving obstacle is collidable but kinematic and cannot be pushed. | 仿真使用理想里程计和真值姿态补偿。移动障碍参与碰撞检测，但属于不可被推动的运动学实体。 |
+| The task file gives B in metres: forward and left relative to the robot at A. I can change it between runs; reachability is discovered online. | 任务文件以米给出B相对A的前向、左向偏移。可在运行之间修改，能否到达由在线探索发现。 |
+| A time limit or lack of a safe route leads to a recorded failure and safe stop. These demonstrations do not establish success in every unknown environment. | 超时或没有安全路线会记录失败并安全停车；这些演示不证明任意未知环境中都能成功。 |
 
-Do not promise a fixed waiting time or final error: read this run's results. Say “planning wait” unless the logs confirm a Collision Monitor protective stop. If interrupted, say “The stop path was exercised; this run was canceled.” / 如中断，可说：“本次验证了停车路径，任务已取消。”
+Do not promise a fixed route, waiting time or final error: read this run's results. Say “planning wait” unless logs confirm a Collision Monitor protective stop. During `--hold`, cleanup is still pending; only report clean shutdown after the final terminal result. An RViz label can retain an earlier rendered state, so use the physical settling and final result to confirm arrival. If interrupted before arrival, say “The stop path was exercised; this run was canceled.” / 如到达前中断，可说：“本次验证了停车路径，任务已取消。”
+
+## Legacy video explanation
+
+“This earlier recording follows preset observation waypoints. It uses an absolute map goal at B=(12,0), with SLAM corrections paused during dynamic navigation while live LiDAR obstacle avoidance continues. The current W16 live demo chooses observation targets online and keeps SLAM active.”
+
+“这段旧录像采用预设观测航点和map系绝对目标B=(12,0)。动态导航时暂停SLAM修正，实时LiDAR避障继续工作。当前W16现场演示在线选择观察目标，并保持SLAM运行。”

@@ -1,6 +1,35 @@
 # B-point runtime interface
 
-Edit only [goal.yaml](goal.yaml):
+## W16 exploration: B relative to A
+
+The recommended `run_exploration_demo.sh` entry reads [exploration_task.yaml](../src/t1_navigation/config/exploration_task.yaml):
+
+```yaml
+schema: 1
+frame: start
+goal:
+  x: 11.0
+  y: 0.5
+```
+
+| Setting | Rule |
+|---|---|
+| x / y | Finite numeric offsets in metres; +x forward at A, +y left at A |
+| frame | Exactly `start`: the robot's actual base frame when standing ready at exploration start |
+| Final heading | Not specified; chosen from the online approach path |
+| Prior knowledge | Only B; no wall geometry, passage layout, prior map, route or observation waypoints |
+
+Keep `schema: 1` and `frame: start`. Use numbers, not quoted strings, booleans, NaN or infinity; extra or duplicate keys are rejected. A is latched after the robot is ready, so small initial yaw drift means these offsets are not literal world/map coordinates. The explorer resolves B through odom and the current SLAM map transform. This currently relies on ideal odometry.
+
+Save the file before launching; no rebuild is needed. Use `--task /absolute/path/task.yaml` to select a different file. Every run saves an immutable `run_data/exploration/<RUN_ID>/task.yaml`; edits during a run affect the next run. The explorer's `result.json` records the actual A/B conversion. A/B graphics and arrival checks use those same resolved coordinates.
+
+W16 does not read `presentation/goal.yaml` or apply the legacy coordinate rectangle below. There is no offline wall/reachability check and no fixed final approach. If B is unobserved, exploration selects reachable observation goals; once an observed safe route exists, Nav2 heads to B. A target inside a wall, outside the world or still unreachable at the time limit can end in a bounded failure and safe stop. Failure does not prove that B is impossible to reach in every unknown environment.
+
+Arrival requires position error at most 0.30m and physical settling for at least two seconds; there is no fixed final-yaw requirement. Changing B does not move walls or the dynamic obstacle. The validated default task is (11.0, 0.5); other targets may change or avoid the EXP01 encounter. See [validation](VALIDATION.md) for the actual measured runs.
+
+## Legacy guided demo: absolute map goal
+
+Only `run_advanced_demo.sh` reads [goal.yaml](goal.yaml). Its historical default is shown below; retain any locally edited values when using that demo:
 
 ```yaml
 schema: 1
@@ -20,7 +49,7 @@ goal:
 
 Example alternate B: `x: 11.5`, `y: -0.25`. Use numeric YAML values, not quoted strings, booleans, NaN or infinity. Unknown or duplicate keys are rejected. Keep schema/frame unchanged.
 
-These bounds preserve the occluding partition, the broad east-room passage and cart interaction. Every point on the2.5m vertical approach must have at least 2.4m static/parked-cart clearance. The navigation footprint remains 2.05m, stop zone 1.65m and slow zone 1.95m. The cart temporarily blocks this route; live LiDAR/costmaps handle it. This check does not provide a geometry-generated map to SLAM or Nav2.
+These bounds preserve the occluding partition, the broad east-room passage and cart interaction. Every point on the 2.5m vertical approach must have at least 2.4m static/parked-cart clearance. The navigation footprint remains 2.05m, stop zone 1.65m and slow zone 1.95m. The cart temporarily blocks this route; live LiDAR/costmaps handle it. This check does not provide a geometry-generated map to SLAM or Nav2.
 
 Run `./scripts/run_advanced_demo.sh --check-goal` before presenting. An invalid or missing configuration stops startup; there is no fallback to the old B. No rebuild is needed. Broader locations or arbitrary headings require a separate route/scenario review and are intentionally rejected.
 
