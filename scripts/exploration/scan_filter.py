@@ -27,7 +27,7 @@ class MappingScanFilter(Node):
         self.history, self.pending = ScanHistory(), deque(maxlen=10)
         self.log = output.open('w')
         self.publisher = self.create_publisher(LaserScan, '/scan/mapping', 5)
-        self.create_subscription(LaserScan, '/scan', self.pending.append, 5)
+        self.create_subscription(LaserScan, '/scan', lambda scan: self.pending.append(scan), 5)
         self.create_timer(.02, self.process)
         self.running = True
 

@@ -1,0 +1,231 @@
+{
+  "run_id": "20261019T210201Z_exploration_eed4eea8-0f96-4005-9c70-28960b0f5179",
+  "code_sha": "09ebbd5c32558be33140089bd4f44feaee726434",
+  "scenario": "W16",
+  "seed": 4000,
+  "started_utc": "2026-10-19T21:02:03.708577+00:00",
+  "arrived": false,
+  "human_intervention": false,
+  "status": "FAILED",
+  "method": "goal_directed_frontier_exploration",
+  "map_growth": [],
+  "error": "RuntimeError('mapping scan filter exited unexpectedly')",
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 13744.643097589,
+      "sim_time": 3.4800000000000004,
+      "health_reason": "COMMAND_OWNERSHIP"
+    }
+  },
+  "slam_shutdown": {
+    "complete": true,
+    "transitions": [
+      {
+        "transition": 4,
+        "success": true,
+        "state": 2
+      },
+      {
+        "transition": 2,
+        "success": true,
+        "state": 1
+      }
+    ]
+  },
+  "shutdown_signals": [
+    [
+      "authority",
+      58176,
+      "SIGINT"
+    ],
+    [
+      "launch",
+      58179,
+      "SIGINT"
+    ],
+    [
+      "dds",
+      58150,
+      "SIGINT"
+    ]
+  ],
+  "dds_shutdown": {
+    "pid": 58150,
+    "alive_before_signal": true,
+    "ros_communication_healthy": false,
+    "navigation_and_stop_complete": false,
+    "signal": "SIGINT"
+  },
+  "parent_exit_codes": {
+    "scan_filter": 1,
+    "dds": 0,
+    "authority": 0,
+    "launch": 0
+  },
+  "dds_returncode": 0,
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 58230,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 58231,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 58232,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 58233,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 58234,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 58235,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 58527,
+      "exit_code": 0
+    }
+  },
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "events": [
+    {
+      "kind": "gate",
+      "sim": 0.0,
+      "wall": 13739.140279083,
+      "state": "DISARMED",
+      "reason": "explicit arm required"
+    },
+    {
+      "kind": "gate",
+      "sim": 0.0,
+      "wall": 13739.143717303,
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL"
+    },
+    {
+      "kind": "sim_state",
+      "sim": 0.0,
+      "wall": 13740.814949609,
+      "state": "STARTING",
+      "fault": null
+    },
+    {
+      "kind": "sim_state",
+      "sim": 2.0,
+      "wall": 13743.153510347,
+      "state": "READY",
+      "fault": null
+    }
+  ],
+  "graph": {
+    "/cmd_vel": {
+      "publishers": [],
+      "subscribers": [
+        "t1_evaluator"
+      ],
+      "types": []
+    },
+    "/map": {
+      "publishers": [],
+      "subscribers": [
+        "t1_evaluator",
+        "t1_evaluator",
+        "t1_evaluator"
+      ],
+      "types": []
+    },
+    "/tf": {
+      "publishers": [],
+      "subscribers": [
+        "t1_evaluator"
+      ],
+      "types": []
+    },
+    "/t1/eval/ground_truth": {
+      "publishers": [],
+      "subscribers": [
+        "t1_evaluator"
+      ],
+      "types": []
+    },
+    "/t1/eval/obstacle": {
+      "publishers": [],
+      "subscribers": [
+        "t1_evaluator"
+      ],
+      "types": []
+    }
+  },
+  "initializations": [],
+  "clock_regressions": 0,
+  "dds_port_state_before_runner_exit": {
+    "listeners": [],
+    "time_wait": [],
+    "other_connections": [
+      {
+        "family": "tcp",
+        "local": "0100007F:A48F",
+        "state": "05"
+      }
+    ]
+  },
+  "dds_port_released": null,
+  "dds_port_check_deferred": true,
+  "wall_total_s": 9.966141820999837,
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "simulator_exit_code": 0,
+  "map_odom_authorities": [],
+  "map_odom_gids": [],
+  "graph_contract": {
+    "map_only_slam": false,
+    "explorer_reads_map": false,
+    "explorer_reads_live_costmap": false,
+    "truth_isolated": false,
+    "obstacle_truth_isolated": false,
+    "final_only_collision_monitor": false,
+    "map_odom_only_slam": false,
+    "no_initialpose": true,
+    "physical_obstacle_count": true,
+    "raw_scan_only_simulator": false,
+    "safety_reads_raw_scan": false,
+    "nav2_reads_raw_scan": false,
+    "mapping_filter_only": false,
+    "slam_reads_filtered_scan": false
+  },
+  "task_consistent": false,
+  "infrastructure_valid": false,
+  "static_control": false,
+  "dynamic": {
+    "triggered": false,
+    "finished": false,
+    "actual_travel_m": 0.0,
+    "active_scan_hit_frames": 0,
+    "active_costmap_marked_frames": 0,
+    "blocked_wait": {
+      "stationary_s": 0.0,
+      "resumed_m": 0.0
+    },
+    "verdict": "FAIL",
+    "response": "UNVERIFIED"
+  },
+  "validation_before_port_check": false
+}
