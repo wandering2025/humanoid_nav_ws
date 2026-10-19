@@ -1,0 +1,40 @@
+{
+  "label": "final-cancel-moving-01",
+  "profile": "default",
+  "cancel": "moving",
+  "hold_s": 0.0,
+  "started_utc": "2026-10-19T23:39:00.349562+00:00",
+  "command": [
+    "/home/haoyang/humanoid_nav_ws_advanced/scripts/run_exploration_demo.sh"
+  ],
+  "code_sha": "3275916f560682c1d9e9a64419e352e09c6e770b",
+  "run": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T233900Z_exploration_33e43744-2c80-4c94-9d77-4ad55a9e1d4e",
+  "status": "PASS",
+  "launcher_pid": 163195,
+  "signal": {
+    "kind": "SIGINT",
+    "elapsed_s": 48.960414074001164,
+    "reason": "moving"
+  },
+  "launcher_exit": 1,
+  "load_exit": null,
+  "finished_utc": "2026-10-19T23:41:01.594021+00:00",
+  "wall_s": 117.670608962002,
+  "mission_status": "FAILED",
+  "readiness_wall_s": 15.871380243999738,
+  "dynamic": {
+    "triggered": false,
+    "finished": false,
+    "actual_travel_m": 0.0,
+    "active_scan_hit_frames": 0,
+    "active_costmap_marked_frames": 0,
+    "blocked_wait": {
+      "stationary_s": 0.0,
+      "resumed_m": 0.0
+    },
+    "verdict": "FAIL",
+    "response": "UNVERIFIED"
+  },
+  "final_error_m": null,
+  "expected_cancellation": true
+}

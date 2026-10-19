@@ -1,0 +1,98 @@
+{
+  "run_id": "20261019T233900Z_exploration_33e43744-2c80-4c94-9d77-4ad55a9e1d4e",
+  "code_sha": "3275916f560682c1d9e9a64419e352e09c6e770b",
+  "status": "FAILED",
+  "error": "InterruptedError('User requested stop')",
+  "safe_stop": {
+    "ack": true,
+    "physical_stationary": true,
+    "gate": {
+      "state": "STOPPED",
+      "reason": "EXPLICIT_STOP_OR_CANCEL",
+      "source": "navigation",
+      "permit": false,
+      "wall_mono": 22966.701335591,
+      "sim_time": 39.980000000000004,
+      "health_reason": ""
+    }
+  },
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "metric_error": null,
+  "cleanup_error": null,
+  "parent_exit_codes": {
+    "scan_filter": 0,
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "rviz": 0,
+    "map_saver": 0,
+    "goal": 2
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 163461,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 163462,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 163463,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 163464,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 163465,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 163466,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 163819,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 163922,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 163923,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 163924,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 163925,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 163926,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 163927,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 163944,
+      "exit_code": 0
+    }
+  },
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "dds_port_released": true,
+  "gpu_monitor_error": null
+}
