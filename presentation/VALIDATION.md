@@ -4,6 +4,8 @@
 
 **FAILED — live-demo reliability has not been accepted.** The user requested local load tests first because Google Meet sharing was unavailable. The test load continuously read both real windows and encoded1920×1080 H264 at15fps on CPU. Unique window captures were about6–7fps, recorded separately from encoded frames. This is a local proxy, not a Google Meet/network/recipient test.
 
+The user subsequently confirmed that the test computer is currently connected to AC power and the live demonstration will also use AC power. This is user-reported context, not per-run power telemetry; no additional run or power-setting change was made, and the failure verdict is unchanged.
+
 Current online implementation: `5f1d1d3837551d5d68e0ed899c709cbef508326d`. The one-line graphical command remains unchanged. The frozen walking controller,2ms physics,20ms policy,10Hz LiDAR,target_rtf1 and0.3s safety timeout were preserved; all current-version run source hashes match.
 
 | Current-version test | Result |

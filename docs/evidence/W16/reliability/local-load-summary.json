@@ -1275,5 +1275,13 @@
   ],
   "user_goal_sha256": "0c9169a0aec692fcde8fdc9700b999ca3f61f9f4205a8ae600687ef4a191779f",
   "remaining_task_processes": [],
-  "next_acceptance": "After proven remedies, restart final5 default GUI +5 unchanged proxy-load (hold>=60s) +2 cancellation matrix; do not count mixed-version historical successes as final acceptance."
+  "next_acceptance": "After proven remedies, restart final5 default GUI +5 unchanged proxy-load (hold>=60s) +2 cancellation matrix; do not count mixed-version historical successes as final acceptance.",
+  "user_confirmed_power_context": {
+    "confirmed_at": "2026-10-20T08:31:48.748226+02:00",
+    "source": "User reply: \u73b0\u5728\u548c\u73b0\u573a\u90fd\u4f1a\u63a5\u7535",
+    "current_test_computer_on_ac": true,
+    "planned_live_demo_on_ac": true,
+    "per_run_power_telemetry_available": false,
+    "effect_on_verdict": "Context clarification only; original failures and actual Google Meet NOT_RUN unchanged. No new run or power-setting change."
+  }
 }
