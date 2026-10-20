@@ -1,0 +1,36 @@
+{
+  "note": "Synthetic two-thread CPU diagnostic, not robot or GUI acceptance",
+  "original_interval_s": 0.005,
+  "results": [
+    {
+      "interval_s": 0.005,
+      "median_ms": 2.664996500243433,
+      "p95_ms": 51.372982998145744,
+      "max_ms": 52.34178200043971,
+      "median_cpu_ms": 0.1466260000000108
+    },
+    {
+      "interval_s": 0.001,
+      "median_ms": 0.06189899977471214,
+      "p95_ms": 11.162476999743376,
+      "max_ms": 22.144986000057543,
+      "median_cpu_ms": 0.06506499999998916
+    },
+    {
+      "interval_s": 0.001,
+      "median_ms": 10.19160850046319,
+      "p95_ms": 11.566667002625763,
+      "max_ms": 11.736888001905754,
+      "median_cpu_ms": 0.6812905000000424
+    },
+    {
+      "interval_s": 0.005,
+      "median_ms": 51.591339499282185,
+      "p95_ms": 52.011620999110164,
+      "max_ms": 52.382042002136586,
+      "median_cpu_ms": 0.910143499999988
+    }
+  ],
+  "python_reference": "https://docs.python.org/3.12/library/sys.html#sys.setswitchinterval",
+  "interpretation": "Synthetic experiment establishes plausibility of GIL contention, not proof of real-demo cause and not acceptance evidence."
+}
