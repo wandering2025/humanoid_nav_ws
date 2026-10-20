@@ -1,0 +1,121 @@
+{
+  "run": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261020T000754Z_exploration_f580d244-534c-4597-b0be-bc0cb12476b3",
+  "code_sha": "0e949816d7feab10e8fd1c82012b500273fb54c5",
+  "status": "FAILED_DDS_EXIT",
+  "physical_scan_timeout": false,
+  "arrived": true,
+  "parent_exits": {
+    "scan_filter": 0,
+    "dds": -11,
+    "authority": 0,
+    "launch": 0,
+    "rviz": 0,
+    "map_saver": 0,
+    "goal": 0
+  },
+  "dds_shutdown": {
+    "pid": 194068,
+    "alive_before_signal": true,
+    "ros_communication_healthy": true,
+    "navigation_and_stop_complete": true,
+    "signal": "SIGINT",
+    "observer_closed_before_signal": true,
+    "connections_after_observer_close": {
+      "listeners": [
+        {
+          "family": "tcp",
+          "local": "00000000:A48F",
+          "state": "0A"
+        }
+      ],
+      "time_wait": [],
+      "other_connections": []
+    },
+    "clients_disconnected": true
+  },
+  "main_thread_samples": 1734,
+  "peak_step_windows": [
+    {
+      "sim": 97.87999999995328,
+      "step_ms": 54.273345002002316,
+      "physics_ms": 30.08958200007328,
+      "window_s": 0.7207140539976535,
+      "main_cpu_runtime_s": 0.554207809,
+      "runnable_queue_wait_s": 0.005268689
+    },
+    {
+      "sim": 97.93999999995314,
+      "step_ms": 49.95695500110742,
+      "physics_ms": 25.892983001540415,
+      "window_s": 0.7200451729986526,
+      "main_cpu_runtime_s": 0.527554944,
+      "runnable_queue_wait_s": 0.007378691
+    },
+    {
+      "sim": 97.89999999995324,
+      "step_ms": 44.417681001505116,
+      "physics_ms": 28.209217998664826,
+      "window_s": 0.7201526600001671,
+      "main_cpu_runtime_s": 0.540303444,
+      "runnable_queue_wait_s": 0.006558011
+    },
+    {
+      "sim": 89.29999999997328,
+      "step_ms": 41.995054998551495,
+      "physics_ms": 24.2405079989112,
+      "window_s": 0.7267504170013126,
+      "main_cpu_runtime_s": 0.590035999,
+      "runnable_queue_wait_s": 0.014134296
+    },
+    {
+      "sim": 89.57999999997263,
+      "step_ms": 41.33700999955181,
+      "physics_ms": 30.1789680015645,
+      "window_s": 0.7166538010023942,
+      "main_cpu_runtime_s": 0.533372563,
+      "runnable_queue_wait_s": 0.011988037
+    },
+    {
+      "sim": 89.31999999997323,
+      "step_ms": 37.585568003123626,
+      "physics_ms": 18.151619002310326,
+      "window_s": 0.7267504170013126,
+      "main_cpu_runtime_s": 0.590035999,
+      "runnable_queue_wait_s": 0.014134296
+    },
+    {
+      "sim": 89.75999999997221,
+      "step_ms": 37.112622001586715,
+      "physics_ms": 25.87271599986707,
+      "window_s": 0.7174707560006937,
+      "main_cpu_runtime_s": 0.512178973,
+      "runnable_queue_wait_s": 0.005078151
+    },
+    {
+      "sim": 97.75999999995356,
+      "step_ms": 34.743082000204595,
+      "physics_ms": 19.538264998118393,
+      "window_s": 0.7208482139976695,
+      "main_cpu_runtime_s": 0.583949416,
+      "runnable_queue_wait_s": 0.003804548
+    },
+    {
+      "sim": 27.199999999995804,
+      "step_ms": 34.052156002871925,
+      "physics_ms": 15.346272000897443,
+      "window_s": 0.7203152799993404,
+      "main_cpu_runtime_s": 0.560473109,
+      "runnable_queue_wait_s": 0.00605813
+    },
+    {
+      "sim": 97.91999999995319,
+      "step_ms": 33.87620699868421,
+      "physics_ms": 17.356606000248576,
+      "window_s": 0.6186531919993286,
+      "main_cpu_runtime_s": 0.460442941,
+      "runnable_queue_wait_s": 0.006525513
+    }
+  ],
+  "interpretation": "High CPU runtime in slow windows does not establish GIL contention as root cause. Guest /proc scheduling cannot establish host scheduling/frequency. No scheduling change accepted on this evidence.",
+  "profile_sha256": "fb75894ee524818ec59736a73ff7f6b8c34d3addeea6ac1cf07985d08f27dfba"
+}

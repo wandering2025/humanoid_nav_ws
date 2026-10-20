@@ -1,0 +1,37 @@
+{
+  "note": "Local proxy artifact validation only; not actual Meet or mission acceptance",
+  "results": [
+    {
+      "case": "stable-share-01",
+      "status": "PASS",
+      "frames": 3307,
+      "expected_frames": 3307,
+      "shapes": [
+        [
+          1080,
+          1920,
+          3
+        ]
+      ],
+      "decode_s": 6.894960882000305,
+      "unique_capture_fps": 6.8633017705345845,
+      "encoded_fps": 15.001281530177046
+    },
+    {
+      "case": "latency-profile-01",
+      "status": "PASS",
+      "frames": 2084,
+      "expected_frames": 2084,
+      "shapes": [
+        [
+          1080,
+          1920,
+          3
+        ]
+      ],
+      "decode_s": 4.3864428470005805,
+      "unique_capture_fps": 6.34025538312057,
+      "encoded_fps": 14.997834527154673
+    }
+  ]
+}

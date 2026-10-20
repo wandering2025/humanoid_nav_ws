@@ -1,8 +1,32 @@
 # Validation
 
+## Local reliability rehearsal (2026-10-20)
+
+**FAILED — live-demo reliability has not been accepted.** The user requested local load tests first because Google Meet sharing was unavailable. The test load continuously read both real windows and encoded1920×1080 H264 at15fps on CPU. Unique window captures were about6–7fps, recorded separately from encoded frames. This is a local proxy, not a Google Meet/network/recipient test.
+
+Current online implementation: `5f1d1d3837551d5d68e0ed899c709cbef508326d`. The one-line graphical command remains unchanged. The frozen walking controller,2ms physics,20ms policy,10Hz LiDAR,target_rtf1 and0.3s safety timeout were preserved; all current-version run source hashes match.
+
+| Current-version test | Result |
+|---|---|
+| GUI + capture/encode +60s arrival hold, started from /tmp | PASS; all18 independent audits;230 active obstacle scan frames,34 marked costmaps,18.22s wait,4.132m resumption,0.103683m final-window error; all exits0 |
+| Next loaded GUI mission | FAIL; actual0.374138s scan gap triggered the original0.3s timeout and latched safe stop; batch stopped |
+| Additional loaded GUI profiling mission | FAIL; reached B at0.058079m and passed dynamic response, but DDS exited−11 after all clients disconnected |
+| Deliberate startup / walking interruptions | Both PASS for safe cancellation and cleanup; missions correctly remain FAILED, not successful arrivals |
+| Five ordinary GUI repetitions / remaining three planned load repetitions | NOT_RUN on final implementation after fail-fast rejection; earlier versions are historical |
+| CPU / build |260 passed,1 known historical v0.1 source-identity assertion deselected; four ROS packages built with system colcon |
+| Actual Google Meet screen sharing | NOT_RUN |
+
+Across this investigation there were20 robot/GUI attempts on multiple implementations:8 successful and6 failed full-mission attempts,2 failed diagnostic runs, and4 successful expected-cancellation tests. This is **not a final-version success rate**. All20 recorded physical safe stop, zero environment/dynamic/non-foot contacts and falls, and complete owned-process/port recovery. Failed missions remain failed despite safe recovery.
+
+Verified changes improve the controlled obstacle encounter trigger, exact-time evaluator evidence, and Ctrl+C/hold exit handling. Closing the evaluator before DDS is retained, but it did not eliminate the native crash. A separate robot-free reproducer captured the same libfastrtps2.14.7 TCP receive-thread crash. Waiting for receive threads to drain still failed on trial13; UDP discovery delivered no cross-process messages. Neither experiment was adopted. A synthetic Python thread-switch experiment did not establish the real scan-delay cause, so no scheduler or host power settings were changed.
+
+The two unresolved items are physical scan latency under load and DDS native teardown. The preregistered5 ordinary GUI +5 proxy-load (including hold) +2 cancellation acceptance matrix must restart after proven remedies. No failure exception, reduced load or relaxed safety threshold was used to pass it. The earlier success below remains valid for its recorded version, but does not establish current live-demo reliability.
+
+[Local test summary](../docs/evidence/W16/reliability/local-load-summary.json) · [Every robot attempt](../docs/evidence/W16/reliability/history.json) · [Physical latency evidence](../docs/evidence/W16/reliability/physical-latency-diagnosis.json) · [Native DDS diagnosis](../docs/evidence/W16/reliability/dds-native-diagnosis.json) · [Isolated reproducer](../docs/evidence/W16/reliability/reproduce_dds.py) · [Capture decoding checks](../docs/evidence/W16/reliability/capture-verification.json).
+
 ## W16 exploration with graphical simulation and dynamic obstacles
 
-**Verified GUI run: SUCCESS. User test accepted on 2026-10-20 (Europe/Berlin).** The user reported “我测试过了，看起来很棒” and requested this presentation update. That feedback is separate from the measured runs below; no additional user-run metrics are inferred. This update changes documentation only and does not rerun simulation. Its command, link and configuration checks are recorded in the [documentation verification](../docs/evidence/W16/presentation-verification.json).
+**Verified GUI run: SUCCESS. User test accepted on 2026-10-20 (Europe/Berlin).** The user reported “我测试过了，看起来很棒” and requested this presentation update. That feedback is separate from the measured runs below; no additional user-run metrics are inferred. That earlier presentation update changed documentation only and did not rerun simulation. Its command, link and configuration checks are recorded in the [documentation verification](../docs/evidence/W16/presentation-verification.json).
 
 Online implementation: `7fa9eeb1daed42cb74cd8067f547c46b4c643920`. Final evidence/documentation: `06efd73da967abf822a63a0183637fb91440a8c0`. The task specifies B=(11.0, 0.5) **relative to the actual starting frame A**.
 
@@ -27,7 +51,7 @@ Static control: `20261019T220515Z_exploration_43ca27a8-1688-4c8e-b631-e6e1b2704e
 
 Actual window evidence: [dynamic MuJoCo](../docs/evidence/W16/gui-dynamic-mujoco.png), [dynamic RViz](../docs/evidence/W16/gui-dynamic-rviz.png), [arrived MuJoCo](../docs/evidence/W16/gui-arrived-mujoco.png), [arrived RViz](../docs/evidence/W16/gui-arrived-rviz.png). The arrived RViz screenshot retains an earlier “Waiting” label; the physical trace, settling checks and final result establish arrival.
 
-Three GUI development failures remain in the [full W16 evidence](../docs/evidence/W16/README.md): mapping backlog/TF extrapolation, a stale raw scan that correctly latched safety stop, and expiration of the former local waiting budget. The successful GUI run used Nav2 waiting and resumption; the added `known_free_reobservation` branch has CPU coverage but was not exercised in that successful physical run. These runs are not a reliability campaign; the historical W13 FAILED result and occasional lifecycle startup timeouts remain recorded.
+Three GUI development failures remain in the [full W16 evidence](../docs/evidence/W16/README.md): mapping backlog/TF extrapolation, a stale raw scan that correctly latched safety stop, and expiration of the former local waiting budget. The successful GUI run used Nav2 waiting and resumption; the added `known_free_reobservation` branch has CPU coverage but was not exercised in that successful physical run. Those earlier runs are not the reliability campaign above; the historical W13 FAILED result and occasional lifecycle startup timeouts remain recorded.
 
 The robot uses physical policy-driven walking, ideal odometry and limited LiDAR with truth attitude compensation. The obstacle is a collidable, non-pushable kinematic body. Observation-based filtering affects only SLAM input; Nav2 and Collision Monitor still receive raw LiDAR. This does not establish general dynamic SLAM, motion prediction, real-robot readiness or success in arbitrary layouts. No W16 video was recorded. Older evidence fields marked `USER_TEST_PENDING` describe the pre-feedback audit and are preserved as historical data.
 

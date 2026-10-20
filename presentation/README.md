@@ -2,6 +2,8 @@
 
 Start here: [Commands](COMMANDS.md) · [English / Chinese talk track](TALK_TRACK.md) · [B-point configuration](GOAL_CONFIGURATION.md).
 
+**Local reliability rehearsal (2026-10-20): FAILED.** The current version is not yet accepted for a reliable live demonstration under screen-sharing load. Local capture/encoding tests exposed intermittent scan-timeout stops and a DDS shutdown crash. [Current results and limits](VALIDATION.md#local-reliability-rehearsal-2026-10-20) supersede the earlier single-run success for readiness decisions. Actual Google Meet sharing was not run.
+
 The default presentation is **W16: unknown-environment exploration with real dynamic obstacles**. Starting with a new SLAM session, the robot knows only B relative to A. It selects observation goals from its current map and uses Nav2 to reach B through observed free space. The user tested the graphical demo and approved this presentation update on 2026-10-20 (Europe/Berlin).
 
 Recommended start from an **Ubuntu / WSL Bash** terminal, from any directory:

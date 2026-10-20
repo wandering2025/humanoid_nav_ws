@@ -1,0 +1,317 @@
+{
+  "installed_version": "2.14.7-1noble.20260911.035053",
+  "status": "REPRODUCED_NOT_FIXED",
+  "first_churn": [
+    {
+      "index": 1,
+      "client_exit": 0,
+      "server_exit": -6
+    }
+  ],
+  "traced_churn": [
+    {
+      "index": 1,
+      "client_exit": 0,
+      "server_exit": 0
+    },
+    {
+      "index": 2,
+      "client_exit": 0,
+      "server_exit": 0
+    },
+    {
+      "index": 3,
+      "client_exit": 0,
+      "server_exit": 0
+    },
+    {
+      "index": 4,
+      "client_exit": 0,
+      "server_exit": 0
+    },
+    {
+      "index": 5,
+      "client_exit": 0,
+      "server_exit": 0
+    },
+    {
+      "index": 6,
+      "client_exit": 0,
+      "server_exit": -11
+    }
+  ],
+  "fatal_stack": "### Server is running ###\n  Participant Type:   SERVER\n  Security:           NO\n  Server ID:          0\n  Server GUID prefix: 44.53.00.5f.45.50.52.4f.53.49.4d.41\n  Server Addresses:   TCPv4:[127.0.0.1]:42129-42129\n\n### Server shut down ###\n\nW16 diagnostic crash backtrace (original fatal signal retained)\n/tmp/w16_dds_backtrace.so(+0x127d)[0x7ae5d88bf27d]\n/lib/x86_64-linux-gnu/libc.so.6(+0x45330)[0x7ae5d7645330]\n/opt/ros/jazzy/lib/libfastrtps.so.2.14(+0x3c4181)[0x7ae5d81c4181]\n/opt/ros/jazzy/lib/libfastrtps.so.2.14(_ZN8eprosima7fastdds4rtps21TCPTransportInterface24perform_listen_operationESt8weak_ptrINS1_18TCPChannelResourceEES3_INS1_18RTCPMessageManagerEE+0x607)[0x7ae5d81d52f7]\n/opt/ros/jazzy/lib/libfastrtps.so.2.14(+0x3e0300)[0x7ae5d81e0300]\n/lib/x86_64-linux-gnu/libc.so.6(+0x9cb84)[0x7ae5d769cb84]\n/lib/x86_64-linux-gnu/libc.so.6(+0x129ecc)[0x7ae5d7729ecc]\n",
+  "udp_alternative": [
+    {
+      "index": 1,
+      "publisher_exit": 0,
+      "subscriber_exit": 2,
+      "server_exit": 0
+    }
+  ],
+  "udp_result": "Cross-process receiver got zero messages, rejected; no runtime transport change.",
+  "upstream_source": "https://github.com/eProsima/Fast-DDS/blob/v2.14.7/src/cpp/rtps/transport/TCPTransportInterface.cpp",
+  "limits": "Diagnostics only on dedicated localhost port42129/domain38. Original signals and failures retained; no dependency or host configuration changed.",
+  "drain_first_batch": [
+    {
+      "index": 1,
+      "client_exit": 0,
+      "server_exit": 0,
+      "baseline_threads": [
+        "fast-discovery-",
+        "dds.tcp_accept",
+        "dds.tcp_keep",
+        "dds.ev.0",
+        "dds.asyn.0.1",
+        "dds.ds_ev.0",
+        "dds.asyn.0.0"
+      ],
+      "tcp_threads": [],
+      "drain_s": 0.11395447000177228
+    },
+    {
+      "index": 2,
+      "client_exit": 0,
+      "server_exit": 0,
+      "baseline_threads": [
+        "fast-discovery-",
+        "dds.tcp_accept",
+        "dds.tcp_keep",
+        "dds.ev.0",
+        "dds.asyn.0.1",
+        "dds.ds_ev.0",
+        "dds.asyn.0.0"
+      ],
+      "tcp_threads": [],
+      "drain_s": 0.11640397799783386
+    }
+  ],
+  "drain_first_batch_harness_error": "Third attempt refused reused port with EADDRINUSE/TIME_WAIT; no third server launched.",
+  "drain_distinct_ports": [
+    {
+      "index": 1,
+      "client_exit": 0,
+      "server_exit": 0,
+      "baseline_threads": [
+        "fast-discovery-",
+        "dds.tcp_accept",
+        "dds.tcp_keep",
+        "dds.ev.0",
+        "dds.asyn.0.1",
+        "dds.ds_ev.0",
+        "dds.asyn.0.0"
+      ],
+      "tcp_threads": [],
+      "drain_s": 0.6190854609994858
+    },
+    {
+      "index": 2,
+      "client_exit": 0,
+      "server_exit": 0,
+      "baseline_threads": [
+        "fast-discovery-",
+        "dds.tcp_accept",
+        "dds.tcp_keep",
+        "dds.ev.0",
+        "dds.asyn.0.1",
+        "dds.ds_ev.0",
+        "dds.asyn.0.0"
+      ],
+      "tcp_threads": [],
+      "drain_s": 0.6188857660017675
+    },
+    {
+      "index": 3,
+      "client_exit": 0,
+      "server_exit": 0,
+      "baseline_threads": [
+        "fast-discovery-",
+        "dds.tcp_accept",
+        "dds.tcp_keep",
+        "dds.ev.0",
+        "dds.asyn.0.1",
+        "dds.ds_ev.0",
+        "dds.asyn.0.0"
+      ],
+      "tcp_threads": [],
+      "drain_s": 0.6182637849997263
+    },
+    {
+      "index": 4,
+      "client_exit": 0,
+      "server_exit": 0,
+      "baseline_threads": [
+        "fast-discovery-",
+        "dds.tcp_accept",
+        "dds.tcp_keep",
+        "dds.ev.0",
+        "dds.asyn.0.1",
+        "dds.ds_ev.0",
+        "dds.asyn.0.0"
+      ],
+      "tcp_threads": [],
+      "drain_s": 0.618161020000116
+    },
+    {
+      "index": 5,
+      "client_exit": 0,
+      "server_exit": 0,
+      "baseline_threads": [
+        "fast-discovery-",
+        "dds.tcp_accept",
+        "dds.tcp_keep",
+        "dds.ev.0",
+        "dds.asyn.0.1",
+        "dds.ds_ev.0",
+        "dds.asyn.0.0"
+      ],
+      "tcp_threads": [],
+      "drain_s": 0.61845340400032
+    },
+    {
+      "index": 6,
+      "client_exit": 0,
+      "server_exit": 0,
+      "baseline_threads": [
+        "fast-discovery-",
+        "dds.tcp_accept",
+        "dds.tcp_keep",
+        "dds.ev.0",
+        "dds.asyn.0.1",
+        "dds.ds_ev.0",
+        "dds.asyn.0.0"
+      ],
+      "tcp_threads": [],
+      "drain_s": 0.6181413609992887
+    },
+    {
+      "index": 7,
+      "client_exit": 0,
+      "server_exit": 0,
+      "baseline_threads": [
+        "fast-discovery-",
+        "dds.tcp_accept",
+        "dds.tcp_keep",
+        "dds.ev.0",
+        "dds.asyn.0.1",
+        "dds.ds_ev.0",
+        "dds.asyn.0.0"
+      ],
+      "tcp_threads": [],
+      "drain_s": 0.6184367700006987
+    },
+    {
+      "index": 8,
+      "client_exit": 0,
+      "server_exit": 0,
+      "baseline_threads": [
+        "fast-discovery-",
+        "dds.tcp_accept",
+        "dds.tcp_keep",
+        "dds.ev.0",
+        "dds.asyn.0.1",
+        "dds.ds_ev.0",
+        "dds.asyn.0.0"
+      ],
+      "tcp_threads": [],
+      "drain_s": 0.6184061849999125
+    },
+    {
+      "index": 9,
+      "client_exit": 0,
+      "server_exit": 0,
+      "baseline_threads": [
+        "fast-discovery-",
+        "dds.tcp_accept",
+        "dds.tcp_keep",
+        "dds.ev.0",
+        "dds.asyn.0.1",
+        "dds.ds_ev.0",
+        "dds.asyn.0.0"
+      ],
+      "tcp_threads": [],
+      "drain_s": 0.6181546190018707
+    },
+    {
+      "index": 10,
+      "client_exit": 0,
+      "server_exit": 0,
+      "baseline_threads": [
+        "fast-discovery-",
+        "dds.tcp_accept",
+        "dds.tcp_keep",
+        "dds.ev.0",
+        "dds.asyn.0.1",
+        "dds.ds_ev.0",
+        "dds.asyn.0.0"
+      ],
+      "tcp_threads": [],
+      "drain_s": 0.6181095940009982
+    },
+    {
+      "index": 11,
+      "client_exit": 0,
+      "server_exit": 0,
+      "baseline_threads": [
+        "fast-discovery-",
+        "dds.tcp_accept",
+        "dds.tcp_keep",
+        "dds.ev.0",
+        "dds.asyn.0.1",
+        "dds.ds_ev.0",
+        "dds.asyn.0.0"
+      ],
+      "tcp_threads": [],
+      "drain_s": 0.6182272299993201
+    },
+    {
+      "index": 12,
+      "client_exit": 0,
+      "server_exit": 0,
+      "baseline_threads": [
+        "fast-discovery-",
+        "dds.tcp_accept",
+        "dds.tcp_keep",
+        "dds.ev.0",
+        "dds.asyn.0.1",
+        "dds.ds_ev.0",
+        "dds.asyn.0.0"
+      ],
+      "tcp_threads": [],
+      "drain_s": 0.6183490040020843
+    },
+    {
+      "index": 13,
+      "client_exit": 0,
+      "server_exit": -11,
+      "baseline_threads": [
+        "fast-discovery-",
+        "dds.tcp_accept",
+        "dds.tcp_keep",
+        "dds.ev.0",
+        "dds.asyn.0.1",
+        "dds.ds_ev.0",
+        "dds.asyn.0.0"
+      ],
+      "tcp_threads": [],
+      "drain_s": 0.6692803549995006
+    }
+  ],
+  "drain_verdict": "REJECTED: round13 SIGSEGV at same stack despite no receive threads for0.5s; not implemented",
+  "drain_fatal_stack": "### Server is running ###\n  Participant Type:   SERVER\n  Security:           NO\n  Server ID:          0\n  Server GUID prefix: 44.53.00.5f.45.50.52.4f.53.49.4d.41\n  Server Addresses:   TCPv4:[127.0.0.1]:42143-42143\n\n### Server shut down ###\n\nW16 diagnostic crash backtrace (original fatal signal retained)\n/tmp/w16_dds_backtrace.so(+0x127d)[0x7a6bd456a27d]\n/lib/x86_64-linux-gnu/libc.so.6(+0x45330)[0x7a6bd3445330]\n/opt/ros/jazzy/lib/libfastrtps.so.2.14(+0x3c4181)[0x7a6bd3fc4181]\n/opt/ros/jazzy/lib/libfastrtps.so.2.14(_ZN8eprosima7fastdds4rtps21TCPTransportInterface24perform_listen_operationESt8weak_ptrINS1_18TCPChannelResourceEES3_INS1_18RTCPMessageManagerEE+0x607)[0x7a6bd3fd52f7]\n/opt/ros/jazzy/lib/libfastrtps.so.2.14(+0x3e0300)[0x7a6bd3fe0300]\n/lib/x86_64-linux-gnu/libc.so.6(+0x9cb84)[0x7a6bd349cb84]\n/lib/x86_64-linux-gnu/libc.so.6(+0x129ecc)[0x7a6bd3529ecc]\n",
+  "reproducer": "docs/evidence/W16/reliability/reproduce_dds.py",
+  "backtrace_source": "docs/evidence/W16/reliability/dds_backtrace.c",
+  "checked_in_reproducer_smoke": [
+    {
+      "index": 1,
+      "port": 42147,
+      "client_exit": 0,
+      "server_exit": 0,
+      "drain_requested": false,
+      "tcp_threads": [],
+      "wait_and_shutdown_s": 1.1137892330007162
+    }
+  ],
+  "reproducer_sha256": "6b26ca6a8ae67cd68bf9289d33964cf8dfdc07de470b0bb275207d1173cf0b47",
+  "backtrace_source_sha256": "11f0191b4880f6afb28884e40c1134bfc8e538949dcfa9f33e9d0c0d5e90cd28"
+}

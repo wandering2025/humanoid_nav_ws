@@ -2,6 +2,8 @@
 
 状态以 [W16 执行记录](../../plans/t1_mujoco_navigation/records/W16.md) 为准。
 
+2026-10-20本地可靠性复验：**FAILED，尚未满足现场稳定演示要求**。当前在线5f1d1d3837551d5d68e0ed899c709cbef508326d的负载hold通过，但后续负载触发真实scan超时；另一完整到达轮在DDS退出时−11。保留全部20次不同版本机器人尝试、独立通信崩溃复现和被否决方案；不把安全停车或历史成功改算完整通过。实际Google Meet未运行。见[本地负载汇总](reliability/local-load-summary.json)、[全部尝试](reliability/history.json)、[当前演示验证说明](../../../presentation/VALIDATION.md#local-reliability-rehearsal-2026-10-20)。下文的用户反馈与单次成功是此前历史。
+
 2026-10-20（Europe/Berlin）：用户已测试图形演示并反馈“看起来很棒”，明确要求更新presentation/；现已将一行启动、相对B配置、中英讲稿和验证边界写入 [presentation](../../../presentation/README.md)。这是用户反馈后的文档交付，不新增运行测量；历史审计JSON中的待反馈字段保留其当时含义。
 
 在 Ubuntu Bash 中，从 `/home/haoyang/humanoid_nav_ws_advanced` 执行：

@@ -1,9 +1,9 @@
 {
-  "note": "Historical development/rehearsal attempts. Original results remain unchanged and are not counted in final stable-version matrix.",
-  "complete_mission_successes": 7,
-  "complete_mission_failures": 5,
-  "diagnostic_failures": 1,
-  "intentional_interruption_passes": 2,
+  "note": "All20 local robot/GUI attempts in this campaign, across multiple documented implementations. No aggregate success rate is inferred. Diagnostics and expected cancellations are separate. Original results unchanged.",
+  "complete_mission_successes": 8,
+  "complete_mission_failures": 6,
+  "diagnostic_failures": 2,
+  "intentional_interruption_passes": 4,
   "attempts": [
     {
       "label": "base-01",
@@ -39,14 +39,49 @@
       "dds_port_released": true
     },
     {
+      "label": "base-02",
+      "category": "complete_mission_attempt",
+      "status": "FAIL",
+      "mission_status": "FAILED",
+      "run_id": "20261019T224415Z_exploration_82b70325-2c88-47c1-b1fe-590d5538f379",
+      "code_sha": "ae30baaa851ba06b12048d668a2e9f67787bab8e",
+      "profile": "default",
+      "reason": "Obstacle triggered before final route; no stationary wait",
+      "final_result": "run_data/exploration/20261019T224415Z_exploration_82b70325-2c88-47c1-b1fe-590d5538f379/final-result.json",
+      "final_result_sha256": "df143515e4d42d4431757d14840b4f130f0a80752427af7ed6e0aac4016d7e81",
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "safe_stop": {
+        "ack": true,
+        "physical_stationary": true,
+        "gate": {
+          "state": "STOPPED",
+          "reason": "EXPLICIT_STOP_OR_CANCEL",
+          "source": "navigation",
+          "permit": false,
+          "wall_mono": 19882.289331517,
+          "sim_time": 151.5,
+          "health_reason": ""
+        }
+      },
+      "remaining_owned_pids": [],
+      "remaining_project_processes": [],
+      "dds_port_released": true
+    },
+    {
       "label": "approach-base-01",
       "category": "complete_mission_attempt",
       "status": "PASS",
       "mission_status": "SUCCESS",
       "run_id": "20261019T225103Z_exploration_4e7142f6-4f76-4df4-b544-73ce9e4fa492",
       "code_sha": "9c527785ccf6d9950ec06c76115dd8cf89d3dbb0",
+      "profile": "default",
       "reason": null,
-      "final_result": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T225103Z_exploration_4e7142f6-4f76-4df4-b544-73ce9e4fa492/final-result.json",
+      "final_result": "run_data/exploration/20261019T225103Z_exploration_4e7142f6-4f76-4df4-b544-73ce9e4fa492/final-result.json",
       "final_result_sha256": "953544ef676755b3042966732ba517b18eee736b9b2cac6de9f10ee7a93780e8",
       "contacts": {
         "static_env": 0,
@@ -78,8 +113,9 @@
       "mission_status": "SUCCESS",
       "run_id": "20261019T225517Z_exploration_8295a3b1-1d46-4005-b07d-a6c6d790ad68",
       "code_sha": "9c527785ccf6d9950ec06c76115dd8cf89d3dbb0",
+      "profile": "default",
       "reason": null,
-      "final_result": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T225517Z_exploration_8295a3b1-1d46-4005-b07d-a6c6d790ad68/final-result.json",
+      "final_result": "run_data/exploration/20261019T225517Z_exploration_8295a3b1-1d46-4005-b07d-a6c6d790ad68/final-result.json",
       "final_result_sha256": "102a9e675318950f3ddff8b256e31e12f14510814411f39b1c7a3cf9c271e0b5",
       "contacts": {
         "static_env": 0,
@@ -111,8 +147,9 @@
       "mission_status": "SUCCESS",
       "run_id": "20261019T225931Z_exploration_4a2f96b2-fbc8-4622-af22-50c6e2c74a24",
       "code_sha": "cdc3398663e05cae7778e911c8c3c910b71ec5d4",
+      "profile": "default",
       "reason": null,
-      "final_result": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T225931Z_exploration_4a2f96b2-fbc8-4622-af22-50c6e2c74a24/final-result.json",
+      "final_result": "run_data/exploration/20261019T225931Z_exploration_4a2f96b2-fbc8-4622-af22-50c6e2c74a24/final-result.json",
       "final_result_sha256": "0ec03eb7b6080d3c3fdf1f302c51620e4fc695bc1fb3d531282a6181d6877d98",
       "contacts": {
         "static_env": 0,
@@ -144,8 +181,9 @@
       "mission_status": "SUCCESS",
       "run_id": "20261019T230331Z_exploration_0c12d7c3-d9df-4104-9e85-a02980f32976",
       "code_sha": "cdc3398663e05cae7778e911c8c3c910b71ec5d4",
+      "profile": "default",
       "reason": null,
-      "final_result": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T230331Z_exploration_0c12d7c3-d9df-4104-9e85-a02980f32976/final-result.json",
+      "final_result": "run_data/exploration/20261019T230331Z_exploration_0c12d7c3-d9df-4104-9e85-a02980f32976/final-result.json",
       "final_result_sha256": "2f6fdaf471bf4da1b1747e5b075808d755c5824ddf115001d83ee9e6e8dd8869",
       "contacts": {
         "static_env": 0,
@@ -177,8 +215,9 @@
       "mission_status": "SUCCESS",
       "run_id": "20261019T230727Z_exploration_0998ee34-ce78-4f15-9d80-40e48097eb5d",
       "code_sha": "e488bacc9aeb2dcde9ebf6188b348fc5454649e7",
+      "profile": "default",
       "reason": null,
-      "final_result": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T230727Z_exploration_0998ee34-ce78-4f15-9d80-40e48097eb5d/final-result.json",
+      "final_result": "run_data/exploration/20261019T230727Z_exploration_0998ee34-ce78-4f15-9d80-40e48097eb5d/final-result.json",
       "final_result_sha256": "4abaad98daf855e896e0885eabc0e7f7edf1235359cc6edf3405c28f600b891c",
       "contacts": {
         "static_env": 0,
@@ -204,15 +243,16 @@
       "dds_port_released": true
     },
     {
-      "label": "base-02",
+      "label": "share-01",
       "category": "complete_mission_attempt",
       "status": "FAIL",
       "mission_status": "FAILED",
-      "run_id": "20261019T224415Z_exploration_82b70325-2c88-47c1-b1fe-590d5538f379",
-      "code_sha": "ae30baaa851ba06b12048d668a2e9f67787bab8e",
-      "reason": "Obstacle triggered before final route; no stationary wait",
-      "final_result": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T224415Z_exploration_82b70325-2c88-47c1-b1fe-590d5538f379/final-result.json",
-      "final_result_sha256": "df143515e4d42d4431757d14840b4f130f0a80752427af7ed6e0aac4016d7e81",
+      "run_id": "20261019T231212Z_exploration_284a7276-3ae8-4b5a-af38-6ac5298f8512",
+      "code_sha": "ab179554bee785ec938f434af00c8dd395affb5b",
+      "profile": "share-proxy",
+      "reason": "Evaluator dropped scan-time TF evidence under capture load",
+      "final_result": "run_data/exploration/20261019T231212Z_exploration_284a7276-3ae8-4b5a-af38-6ac5298f8512/final-result.json",
+      "final_result_sha256": "e5ca4ae8c8245d0a7a18571fa960ebefd69170cced1313d6e4a4b6c7d30d2cc5",
       "contacts": {
         "static_env": 0,
         "obstacle": 0,
@@ -227,107 +267,8 @@
           "reason": "EXPLICIT_STOP_OR_CANCEL",
           "source": "navigation",
           "permit": false,
-          "wall_mono": 19882.289331517,
-          "sim_time": 151.5,
-          "health_reason": ""
-        }
-      },
-      "remaining_owned_pids": [],
-      "remaining_project_processes": [],
-      "dds_port_released": true
-    },
-    {
-      "label": "bounded-share-01",
-      "category": "complete_mission_attempt",
-      "status": "FAIL",
-      "mission_status": "FAILED",
-      "run_id": "20261019T233249Z_exploration_ffe8f4be-9314-4b72-b3e1-014ba1cde8ed",
-      "code_sha": "7496f7167c61f49b7835b8a970d97d31af1669b2",
-      "reason": "Late southward turn missed 5.6m approach lower bound",
-      "final_result": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T233249Z_exploration_ffe8f4be-9314-4b72-b3e1-014ba1cde8ed/final-result.json",
-      "final_result_sha256": "1fffac7025f7ff2e713ae5eb937507825c0ac64b0d3ee1860816282c9da38194",
-      "contacts": {
-        "static_env": 0,
-        "obstacle": 0,
-        "ground_nonfoot": 0
-      },
-      "fell": false,
-      "safe_stop": {
-        "ack": true,
-        "physical_stationary": true,
-        "gate": {
-          "state": "STOPPED",
-          "reason": "EXPLICIT_STOP_OR_CANCEL",
-          "source": "navigation",
-          "permit": false,
-          "wall_mono": 22694.900083273,
-          "sim_time": 117.64,
-          "health_reason": ""
-        }
-      },
-      "remaining_owned_pids": [],
-      "remaining_project_processes": [],
-      "dds_port_released": true
-    },
-    {
-      "label": "final-cancel-moving-01",
-      "category": "intentional_interruption",
-      "status": "PASS",
-      "mission_status": "FAILED",
-      "run_id": "20261019T233900Z_exploration_33e43744-2c80-4c94-9d77-4ad55a9e1d4e",
-      "code_sha": "3275916f560682c1d9e9a64419e352e09c6e770b",
-      "reason": null,
-      "final_result": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T233900Z_exploration_33e43744-2c80-4c94-9d77-4ad55a9e1d4e/final-result.json",
-      "final_result_sha256": "12dedd77e83754ca7862cd48c0dc90d49dbd397ad40cf4ef5892a874b8a2544d",
-      "contacts": {
-        "static_env": 0,
-        "obstacle": 0,
-        "ground_nonfoot": 0
-      },
-      "fell": false,
-      "safe_stop": {
-        "ack": true,
-        "physical_stationary": true,
-        "gate": {
-          "state": "STOPPED",
-          "reason": "EXPLICIT_STOP_OR_CANCEL",
-          "source": "navigation",
-          "permit": false,
-          "wall_mono": 22966.701335591,
-          "sim_time": 39.980000000000004,
-          "health_reason": ""
-        }
-      },
-      "remaining_owned_pids": [],
-      "remaining_project_processes": [],
-      "dds_port_released": true
-    },
-    {
-      "label": "final-cancel-startup-01",
-      "category": "intentional_interruption",
-      "status": "PASS",
-      "mission_status": "FAILED",
-      "run_id": "20261019T233716Z_exploration_5cba353d-3e15-403e-ac92-9ed79b05f690",
-      "code_sha": "3275916f560682c1d9e9a64419e352e09c6e770b",
-      "reason": null,
-      "final_result": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T233716Z_exploration_5cba353d-3e15-403e-ac92-9ed79b05f690/final-result.json",
-      "final_result_sha256": "d5ff078cb077acd82f76ad9cd954f51acabd06cb72afd89771e717d541facb96",
-      "contacts": {
-        "static_env": 0,
-        "obstacle": 0,
-        "ground_nonfoot": 0
-      },
-      "fell": false,
-      "safe_stop": {
-        "ack": true,
-        "physical_stationary": true,
-        "gate": {
-          "state": "STOPPED",
-          "reason": "EXPLICIT_STOP_OR_CANCEL",
-          "source": "navigation",
-          "permit": false,
-          "wall_mono": 22833.806000392,
-          "sim_time": 5.48,
+          "wall_mono": 21534.729135481,
+          "sim_time": 153.60000000000002,
           "health_reason": ""
         }
       },
@@ -342,8 +283,9 @@
       "mission_status": "FAILED",
       "run_id": "20261019T232127Z_exploration_e19f83a4-9f1f-4b77-8a6d-d8f9fd25ab29",
       "code_sha": "34d6e1ce6688212e0cfcfbac595b919f184eeb5a",
+      "profile": "share-proxy",
       "reason": "0.5s scan deferral still insufficient for stale TF queue",
-      "final_result": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T232127Z_exploration_e19f83a4-9f1f-4b77-8a6d-d8f9fd25ab29/final-result.json",
+      "final_result": "run_data/exploration/20261019T232127Z_exploration_e19f83a4-9f1f-4b77-8a6d-d8f9fd25ab29/final-result.json",
       "final_result_sha256": "1ddee2f111f9691617d6d6129fe6e8f9a8327cf626b15e5ed5b40b66856f2adf",
       "contacts": {
         "static_env": 0,
@@ -369,14 +311,151 @@
       "dds_port_released": true
     },
     {
+      "label": "tf-diagnostic-01",
+      "category": "diagnostic",
+      "status": "FAIL",
+      "mission_status": "FAILED",
+      "run_id": "20261019T233006Z_exploration_6a623b84-8e89-419f-a2a6-aa639662aace",
+      "code_sha": "34d6e1ce6688212e0cfcfbac595b919f184eeb5a",
+      "profile": "share-proxy",
+      "reason": "Physical scan gap 0.307602s latched unchanged 0.3s safety timeout; capture later lost closed windows",
+      "final_result": "run_data/exploration/20261019T233006Z_exploration_6a623b84-8e89-419f-a2a6-aa639662aace/final-result.json",
+      "final_result_sha256": "21389bcfcf0979e2b1d3436de0b0d5138f9abc46f24290168fe59e549e8285dd",
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "safe_stop": {
+        "ack": true,
+        "physical_stationary": true,
+        "gate": {
+          "state": "STOPPED",
+          "reason": "EXPLICIT_STOP_OR_CANCEL",
+          "source": "navigation",
+          "permit": false,
+          "wall_mono": 22443.651625876,
+          "sim_time": 32.78,
+          "health_reason": ""
+        }
+      },
+      "remaining_owned_pids": [],
+      "remaining_project_processes": [],
+      "dds_port_released": true
+    },
+    {
+      "label": "bounded-share-01",
+      "category": "complete_mission_attempt",
+      "status": "FAIL",
+      "mission_status": "FAILED",
+      "run_id": "20261019T233249Z_exploration_ffe8f4be-9314-4b72-b3e1-014ba1cde8ed",
+      "code_sha": "7496f7167c61f49b7835b8a970d97d31af1669b2",
+      "profile": "share-proxy",
+      "reason": "Late southward turn missed 5.6m approach lower bound",
+      "final_result": "run_data/exploration/20261019T233249Z_exploration_ffe8f4be-9314-4b72-b3e1-014ba1cde8ed/final-result.json",
+      "final_result_sha256": "1fffac7025f7ff2e713ae5eb937507825c0ac64b0d3ee1860816282c9da38194",
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "safe_stop": {
+        "ack": true,
+        "physical_stationary": true,
+        "gate": {
+          "state": "STOPPED",
+          "reason": "EXPLICIT_STOP_OR_CANCEL",
+          "source": "navigation",
+          "permit": false,
+          "wall_mono": 22694.900083273,
+          "sim_time": 117.64,
+          "health_reason": ""
+        }
+      },
+      "remaining_owned_pids": [],
+      "remaining_project_processes": [],
+      "dds_port_released": true
+    },
+    {
+      "label": "final-cancel-startup-01",
+      "category": "intentional_interruption",
+      "status": "PASS",
+      "mission_status": "FAILED",
+      "run_id": "20261019T233716Z_exploration_5cba353d-3e15-403e-ac92-9ed79b05f690",
+      "code_sha": "3275916f560682c1d9e9a64419e352e09c6e770b",
+      "profile": "default",
+      "reason": null,
+      "final_result": "run_data/exploration/20261019T233716Z_exploration_5cba353d-3e15-403e-ac92-9ed79b05f690/final-result.json",
+      "final_result_sha256": "d5ff078cb077acd82f76ad9cd954f51acabd06cb72afd89771e717d541facb96",
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "safe_stop": {
+        "ack": true,
+        "physical_stationary": true,
+        "gate": {
+          "state": "STOPPED",
+          "reason": "EXPLICIT_STOP_OR_CANCEL",
+          "source": "navigation",
+          "permit": false,
+          "wall_mono": 22833.806000392,
+          "sim_time": 5.48,
+          "health_reason": ""
+        }
+      },
+      "remaining_owned_pids": [],
+      "remaining_project_processes": [],
+      "dds_port_released": true
+    },
+    {
+      "label": "final-cancel-moving-01",
+      "category": "intentional_interruption",
+      "status": "PASS",
+      "mission_status": "FAILED",
+      "run_id": "20261019T233900Z_exploration_33e43744-2c80-4c94-9d77-4ad55a9e1d4e",
+      "code_sha": "3275916f560682c1d9e9a64419e352e09c6e770b",
+      "profile": "default",
+      "reason": null,
+      "final_result": "run_data/exploration/20261019T233900Z_exploration_33e43744-2c80-4c94-9d77-4ad55a9e1d4e/final-result.json",
+      "final_result_sha256": "12dedd77e83754ca7862cd48c0dc90d49dbd397ad40cf4ef5892a874b8a2544d",
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "safe_stop": {
+        "ack": true,
+        "physical_stationary": true,
+        "gate": {
+          "state": "STOPPED",
+          "reason": "EXPLICIT_STOP_OR_CANCEL",
+          "source": "navigation",
+          "permit": false,
+          "wall_mono": 22966.701335591,
+          "sim_time": 39.980000000000004,
+          "health_reason": ""
+        }
+      },
+      "remaining_owned_pids": [],
+      "remaining_project_processes": [],
+      "dds_port_released": true
+    },
+    {
       "label": "release-share-01",
       "category": "complete_mission_attempt",
       "status": "PASS",
       "mission_status": "SUCCESS",
       "run_id": "20261019T234126Z_exploration_515c9a23-0a0e-4d1e-aef4-12d7e95c6edc",
       "code_sha": "635ab4d1dd788584cf89378446ec5d515183c1ce",
+      "profile": "share-proxy",
       "reason": null,
-      "final_result": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T234126Z_exploration_515c9a23-0a0e-4d1e-aef4-12d7e95c6edc/final-result.json",
+      "final_result": "run_data/exploration/20261019T234126Z_exploration_515c9a23-0a0e-4d1e-aef4-12d7e95c6edc/final-result.json",
       "final_result_sha256": "cdbc955c89878cdaeb3a36cceb274227e909ccac82fe38a2d4f028e2bf6a2973",
       "contacts": {
         "static_env": 0,
@@ -408,8 +487,9 @@
       "mission_status": "FAILED",
       "run_id": "20261019T234535Z_exploration_434459c2-58a9-47bd-bd2b-29ebb4d9a965",
       "code_sha": "635ab4d1dd788584cf89378446ec5d515183c1ce",
+      "profile": "share-proxy",
       "reason": "DDS exited -11 during teardown while evaluator remained connected",
-      "final_result": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T234535Z_exploration_434459c2-58a9-47bd-bd2b-29ebb4d9a965/final-result.json",
+      "final_result": "run_data/exploration/20261019T234535Z_exploration_434459c2-58a9-47bd-bd2b-29ebb4d9a965/final-result.json",
       "final_result_sha256": "ce3bff102280c8ffa5906fdba0a065bd7baf27e8f60eca8ad495a052650717cd",
       "contacts": {
         "static_env": 0,
@@ -435,15 +515,16 @@
       "dds_port_released": true
     },
     {
-      "label": "share-01",
+      "label": "stable-share-01",
       "category": "complete_mission_attempt",
-      "status": "FAIL",
-      "mission_status": "FAILED",
-      "run_id": "20261019T231212Z_exploration_284a7276-3ae8-4b5a-af38-6ac5298f8512",
-      "code_sha": "ab179554bee785ec938f434af00c8dd395affb5b",
-      "reason": "Evaluator dropped scan-time TF evidence under capture load",
-      "final_result": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T231212Z_exploration_284a7276-3ae8-4b5a-af38-6ac5298f8512/final-result.json",
-      "final_result_sha256": "e5ca4ae8c8245d0a7a18571fa960ebefd69170cced1313d6e4a4b6c7d30d2cc5",
+      "status": "PASS",
+      "mission_status": "SUCCESS",
+      "run_id": "20261019T235310Z_exploration_a92c8ddb-e09d-4a63-a47c-8022c08f7f16",
+      "code_sha": "5f1d1d3837551d5d68e0ed899c709cbef508326d",
+      "profile": "share-proxy",
+      "reason": null,
+      "final_result": "run_data/exploration/20261019T235310Z_exploration_a92c8ddb-e09d-4a63-a47c-8022c08f7f16/final-result.json",
+      "final_result_sha256": "ca9b34529e810189a27f57f3a8e36d0561f84f35522070d0deb092a7561f5f9d",
       "contacts": {
         "static_env": 0,
         "obstacle": 0,
@@ -458,8 +539,8 @@
           "reason": "EXPLICIT_STOP_OR_CANCEL",
           "source": "navigation",
           "permit": false,
-          "wall_mono": 21534.729135481,
-          "sim_time": 153.60000000000002,
+          "wall_mono": 23992.856604702,
+          "sim_time": 214.68,
           "health_reason": ""
         }
       },
@@ -468,15 +549,16 @@
       "dds_port_released": true
     },
     {
-      "label": "tf-diagnostic-01",
-      "category": "diagnostic",
-      "status": "FAIL",
+      "label": "stable-cancel-startup-01",
+      "category": "intentional_interruption",
+      "status": "PASS",
       "mission_status": "FAILED",
-      "run_id": "20261019T233006Z_exploration_6a623b84-8e89-419f-a2a6-aa639662aace",
-      "code_sha": "34d6e1ce6688212e0cfcfbac595b919f184eeb5a",
-      "reason": "Physical scan gap 0.307602s latched unchanged 0.3s safety timeout; capture later lost closed windows",
-      "final_result": "/home/haoyang/humanoid_nav_ws_advanced/run_data/exploration/20261019T233006Z_exploration_6a623b84-8e89-419f-a2a6-aa639662aace/final-result.json",
-      "final_result_sha256": "21389bcfcf0979e2b1d3436de0b0d5138f9abc46f24290168fe59e549e8285dd",
+      "run_id": "20261019T235802Z_exploration_a4b20e19-a335-4902-8ba6-e0dc5cc895bb",
+      "code_sha": "833d7f00c4a6d44e0630e0b51491710551e4b6da",
+      "profile": "default",
+      "reason": null,
+      "final_result": "run_data/exploration/20261019T235802Z_exploration_a4b20e19-a335-4902-8ba6-e0dc5cc895bb/final-result.json",
+      "final_result_sha256": "9b885500f5765eb2062527f16f02a6cfddcbb21b2976011bd520316f0d5c52a2",
       "contacts": {
         "static_env": 0,
         "obstacle": 0,
@@ -491,8 +573,110 @@
           "reason": "EXPLICIT_STOP_OR_CANCEL",
           "source": "navigation",
           "permit": false,
-          "wall_mono": 22443.651625876,
-          "sim_time": 32.78,
+          "wall_mono": 24048.63565928,
+          "sim_time": 5.96,
+          "health_reason": ""
+        }
+      },
+      "remaining_owned_pids": [],
+      "remaining_project_processes": [],
+      "dds_port_released": true
+    },
+    {
+      "label": "stable-cancel-moving-01",
+      "category": "intentional_interruption",
+      "status": "PASS",
+      "mission_status": "FAILED",
+      "run_id": "20261019T235830Z_exploration_a44afed1-101c-4cce-93b5-80bbef07f67a",
+      "code_sha": "833d7f00c4a6d44e0630e0b51491710551e4b6da",
+      "profile": "default",
+      "reason": null,
+      "final_result": "run_data/exploration/20261019T235830Z_exploration_a44afed1-101c-4cce-93b5-80bbef07f67a/final-result.json",
+      "final_result_sha256": "7f4053a1aba5088c532e9e0040e57bd754f1b4a1b2605de42d6721c1be6b7f3d",
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "safe_stop": {
+        "ack": true,
+        "physical_stationary": true,
+        "gate": {
+          "state": "STOPPED",
+          "reason": "EXPLICIT_STOP_OR_CANCEL",
+          "source": "navigation",
+          "permit": false,
+          "wall_mono": 24109.737768891,
+          "sim_time": 41.32,
+          "health_reason": ""
+        }
+      },
+      "remaining_owned_pids": [],
+      "remaining_project_processes": [],
+      "dds_port_released": true
+    },
+    {
+      "label": "stable-share-02",
+      "category": "complete_mission_attempt",
+      "status": "FAIL",
+      "mission_status": "FAILED",
+      "run_id": "20261019T235957Z_exploration_efe34656-8e7f-4540-9d2c-d7afbbabdfcb",
+      "code_sha": "4e311b3e1112295c3ebccdd04802c90902292106",
+      "profile": "share-proxy",
+      "reason": "Real physical scan gap0.374138s latched unchanged0.3s safety timeout; capture timed out after windows closed",
+      "final_result": "run_data/exploration/20261019T235957Z_exploration_efe34656-8e7f-4540-9d2c-d7afbbabdfcb/final-result.json",
+      "final_result_sha256": "c5634e1210bfff210f4cdbd29d33f1d1821457d8f53f0d1a8747c1db1ab6dfe0",
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "safe_stop": {
+        "ack": true,
+        "physical_stationary": true,
+        "gate": {
+          "state": "STOPPED",
+          "reason": "EXPLICIT_STOP_OR_CANCEL",
+          "source": "navigation",
+          "permit": false,
+          "wall_mono": 24263.419128958,
+          "sim_time": 96.66000000000001,
+          "health_reason": ""
+        }
+      },
+      "remaining_owned_pids": [],
+      "remaining_project_processes": [],
+      "dds_port_released": true
+    },
+    {
+      "label": "latency-profile-01",
+      "category": "diagnostic",
+      "status": "FAIL",
+      "mission_status": "FAILED",
+      "run_id": "20261020T000754Z_exploration_f580d244-534c-4597-b0be-bc0cb12476b3",
+      "code_sha": "0e949816d7feab10e8fd1c82012b500273fb54c5",
+      "profile": "share-proxy",
+      "reason": "Physical arrival and dynamic response passed; DDS teardown -11 despite observer disconnected",
+      "final_result": "run_data/exploration/20261020T000754Z_exploration_f580d244-534c-4597-b0be-bc0cb12476b3/final-result.json",
+      "final_result_sha256": "58ab0c9dfc05814d637fa5185b688eb4a13274030743a8b4a0bd4947f7ef31d7",
+      "contacts": {
+        "static_env": 0,
+        "obstacle": 0,
+        "ground_nonfoot": 0
+      },
+      "fell": false,
+      "safe_stop": {
+        "ack": true,
+        "physical_stationary": true,
+        "gate": {
+          "state": "STOPPED",
+          "reason": "EXPLICIT_STOP_OR_CANCEL",
+          "source": "navigation",
+          "permit": false,
+          "wall_mono": 24786.948867095,
+          "sim_time": 148.92000000000002,
           "health_reason": ""
         }
       },
