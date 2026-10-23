@@ -1,0 +1,23 @@
+# Public source snapshots contain the current English project presentation.
+/AGENTS.md export-ignore
+/SETUP_REPORT.md export-ignore
+/docs/plans export-ignore
+/docs/baseline export-ignore
+/docs/evidence export-ignore
+/docs/advanced export-ignore
+/docs/architecture export-ignore
+/docs/demo export-ignore
+/docs/results export-ignore
+/docs/start_commands.md export-ignore
+/docs/gazebo_hw_render_check.png export-ignore
+/docs/rviz2_hw_render_check.png export-ignore
+/presentation/COMMANDS.md export-ignore
+/presentation/GOAL_CONFIGURATION.md export-ignore
+/presentation/TALK_TRACK.md export-ignore
+/presentation/VALIDATION.md export-ignore
+/scripts/evaluate.py export-ignore
+/scripts/report_evaluation.py export-ignore
+/scripts/run_demo.sh export-ignore
+/scripts/demo/assess_release_evidence.py export-ignore
+/scripts/demo/review_checks.py export-ignore
+/scripts/demo/test_dds_teardown.py export-ignore

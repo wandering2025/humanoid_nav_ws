@@ -1,0 +1,30 @@
+schema: 1
+frame: base_footprint
+units: m
+polygon:
+- - -0.37
+  - -0.45
+- - 0.53
+  - -0.45
+- - 0.53
+  - 0.44
+- - -0.37
+  - 0.44
+geometry_margin_per_side_m: 0.05
+rotation_diameter_m: 1.3905394636614958
+measured_collision_extents_m:
+- - -0.3116631321500086
+  - -0.39056018153087224
+- - 0.47311898797109386
+  - 0.3768429181078988
+measured_collision_and_visual_extents_m:
+- - -0.31315187242582704
+  - -0.3938207858327532
+- - 0.479483336548825
+  - 0.3804021955522764
+evidence: docs/evidence/W07/description-envelope.json
+scope: Frozen W05 gait; 10 representative C3 envelope corner replays, warmup/forward/turn/stop.
+  Geometry envelope, not braking or latency safety zone.
+foot_bodies:
+- left_ankle_roll_link
+- right_ankle_roll_link

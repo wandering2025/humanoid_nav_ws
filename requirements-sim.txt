@@ -1,0 +1,9 @@
+# Direct dependencies from the recorded Python 3.12 simulation environment.
+# ROS packages are installed through apt and sourced by scripts/env.sh.
+mujoco==3.15.0
+torch==2.14.1
+numpy==2.5.4
+scipy==1.18.1
+PyYAML==6.0.3
+onnxruntime==1.31.0
+evdev==2.0.0

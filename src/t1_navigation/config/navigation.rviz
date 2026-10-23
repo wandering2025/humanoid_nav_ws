@@ -1,0 +1,167 @@
+Panels:
+- Class: rviz_common/Displays
+  Name: Displays
+Visualization Manager:
+  Class: ''
+  Global Options:
+    Background Color: 220; 220; 220
+    Fixed Frame: map
+    Frame Rate: 30
+  Displays:
+  - Class: rviz_default_plugins/Grid
+    Name: Ground z=0
+    Enabled: true
+    Cell Size: 0.5
+    Plane Cell Count: 40
+    Reference Frame: odom
+  - Class: rviz_default_plugins/RobotModel
+    Name: T1 (external URDF)
+    Enabled: true
+    Description Source: Topic
+    Description Topic:
+      Value: /robot_description
+      Durability Policy: Transient Local
+      Reliability Policy: Reliable
+      History Policy: Keep Last
+      Depth: 1
+    Visual Enabled: true
+    Collision Enabled: false
+    Alpha: 1
+  - Class: rviz_default_plugins/Axes
+    Name: base_link axes
+    Enabled: true
+    Reference Frame: base_link
+    Length: 0.3
+    Radius: 0.025
+  - Class: rviz_default_plugins/Odometry
+    Name: Ideal truth odom
+    Enabled: true
+    Topic:
+      Value: /odom
+      Reliability Policy: Reliable
+      Durability Policy: Volatile
+      History Policy: Keep Last
+      Depth: 10
+    Keep: 20
+    Position Tolerance: 0.05
+    Angle Tolerance: 0.1
+    Shape: Arrow
+  - Class: rviz_default_plugins/TF
+    Name: TF
+    Enabled: true
+    Show Axes: false
+    Show Arrows: false
+    Show Names: false
+  - Class: rviz_default_plugins/LaserScan
+    Name: Compensated LiDAR
+    Enabled: true
+    Topic:
+      Value: /scan
+      Reliability Policy: Reliable
+      Durability Policy: Volatile
+      History Policy: Keep Last
+      Depth: 5
+    Size (m): 0.035
+    Style: Points
+    Color Transformer: FlatColor
+    Color: 220; 30; 30
+    Decay Time: 0
+  - Class: rviz_default_plugins/Map
+    Name: SLAM map
+    Enabled: true
+    Alpha: 0.7
+    Draw Behind: true
+    Topic:
+      Value: /map
+      Durability Policy: Transient Local
+      Reliability Policy: Reliable
+      History Policy: Keep Last
+      Depth: 1
+  - Class: rviz_default_plugins/Map
+    Name: Global costmap
+    Enabled: true
+    Alpha: 0.35
+    Color Scheme: costmap
+    Draw Behind: false
+    Topic:
+      Value: /global_costmap/costmap
+      Durability Policy: Transient Local
+      Reliability Policy: Reliable
+      History Policy: Keep Last
+      Depth: 1
+  - Class: rviz_default_plugins/Map
+    Name: Local costmap
+    Enabled: true
+    Alpha: 0.5
+    Color Scheme: costmap
+    Draw Behind: false
+    Topic:
+      Value: /local_costmap/costmap
+      Durability Policy: Volatile
+      Reliability Policy: Reliable
+      History Policy: Keep Last
+      Depth: 1
+  - Class: rviz_default_plugins/Path
+    Name: Global plan
+    Enabled: true
+    Color: 25; 90; 220
+    Line Style: Billboards
+    Line Width: 0.05
+    Topic:
+      Value: /plan
+      Durability Policy: Volatile
+      Reliability Policy: Reliable
+      History Policy: Keep Last
+      Depth: 1
+  - Class: rviz_default_plugins/Polygon
+    Name: W10 stop zone
+    Enabled: true
+    Color: 220; 0; 0
+    Topic:
+      Value: /safety/stop_zone
+      Durability Policy: Volatile
+      Reliability Policy: Reliable
+      History Policy: Keep Last
+      Depth: 1
+  - Class: rviz_default_plugins/Polygon
+    Name: W10 slowdown zone
+    Enabled: true
+    Color: 230; 160; 0
+    Topic:
+      Value: /safety/slow_zone
+      Durability Policy: Volatile
+      Reliability Policy: Reliable
+      History Policy: Keep Last
+      Depth: 1
+  - Class: rviz_default_plugins/Pose
+    Name: Navigation goal
+    Enabled: true
+    Color: 0; 160; 0
+    Shape: Arrow
+    Topic:
+      Value: /goal_pose
+      Durability Policy: Volatile
+      Reliability Policy: Reliable
+      History Policy: Keep Last
+      Depth: 1
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 20
+      Pitch: 1.35
+      Yaw: 0.7
+      Focal Point:
+        X: 4.5
+        Y: 0
+        Z: 0.55
+      Target Frame: map
+  Tools:
+  - Class: rviz_default_plugins/Interact
+  - Class: rviz_default_plugins/MoveCamera
+  - Class: rviz_default_plugins/SetInitialPose
+    Topic: /initialpose
+  - Class: rviz_default_plugins/SetGoal
+    Topic: /goal_pose
+Window Geometry:
+  Width: 1200
+  Height: 900

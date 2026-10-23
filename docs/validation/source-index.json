@@ -1,0 +1,22 @@
+{
+  "source_revision": "f19db50e16344bd9af116f0f26cd3ee74752db81",
+  "description": "Selected recorded results. Host workspace prefixes are replaced by $WORKSPACE; measurement values and run revisions are preserved. Referenced raw logs stay in the development archive.",
+  "media": {
+    "exploration-mujoco.png": {
+      "source": "docs/evidence/W16/gui-dynamic-mujoco.png",
+      "sha256": "18318414b7695cba5476374e27b2a55e445b205d6b340f4126e5662e1a76b21b"
+    },
+    "exploration-rviz.png": {
+      "source": "docs/evidence/W16/gui-dynamic-rviz.png",
+      "sha256": "032a982865be649ef0bee16be77a6e12ef11eeb0d84dd1105649678b93639990"
+    },
+    "exploration-map.png": {
+      "source": "docs/evidence/W16/gui.png",
+      "sha256": "a01022bf3e1a3c4cc49eb306cf5304fbe7f93d95e5200ecc3d587c1d45b5afd8"
+    },
+    "obstacle-response.png": {
+      "source": "docs/evidence/W16/gui-dynamic-audit.png",
+      "sha256": "aa546591c1b25aaee02197a2172e2c460064304a720ab7ba779d95797bfef12f"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+schema: 1
+scene: advanced_world
+scenarios:
+  ADV01:
+    slot: approach_slot
+    seed: 4000
+    require_enable: true
+    trigger_x: 10.0
+    start: [15.9, 3.0]
+    legs:
+      - {to: [12.5, 3.0], speed: 0.6, hold: 8.0}
+      - {to: [15.9, 3.0], speed: 0.6, hold: 0.0}

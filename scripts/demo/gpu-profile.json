@@ -1,0 +1,28 @@
+{
+  "status": "GUI_VALIDATED",
+  "adapter": "NVIDIA GeForce RTX 4050",
+  "rviz": "NVIDIA lifecycle wrapper",
+  "stages": {
+    "docs/evidence/W14/raw/nvidia-stages/20261015T124013Z_01-minimal-gl_203309/offline-parser-assessment.json": "2d162a53d5e9348ed1c5e3a4ef402f1b3fd217cc6e9c6969f3f8948bc899fae0",
+    "docs/evidence/W14/raw/nvidia-stages/20261015T124135Z_02-small-window_ba98e0/result.json": "68a25a534d44992107e3f713f64466797107834d1e5cbe97e129757a7d8cbd5e",
+    "docs/evidence/W14/raw/nvidia-stages/20261015T124206Z_03-static-t1_0354ff/result.json": "01348129bb2854b53f32dc4aef50d9406c2e25d90697f334baa046166c935c42",
+    "docs/evidence/W14/nvidia-recovery/cpu-rgb-assessment.json": "5cf59a644babe683b2220f5acfc291dee9a9bf94d14d4125593adcac687b30e1",
+    "docs/evidence/W14/nvidia-recovery/rgb-standing-final-result.json": "06727a0cf5d813c23b03a2e8ee046d6994b14f4dc1c1f5b02d155e2278e782e9",
+    "docs/evidence/W14/rviz-lifecycle/minimal-result.json": "5a1e1a231ea72656df6de1652f50f8accce112718cb5f7d54119fab793781ad9",
+    "docs/evidence/W14/dds-teardown-release/publication-assessment.json": "76bf7aacbcc98f772548cde6e3cd1d2300e412053333a855958867fa7d4cfd95",
+    "docs/evidence/W15/recovery/minimal-summary.json": "aa7de1bd3f3884f61fe81e3bf776da7cb93bb75f806e73e05f5efb5c55862b2d",
+    "docs/evidence/W15/recovery/full-summary.json": "f2d9aaecead9d7fe8404e3ba17b6fd64497f76f724ccb1966b10a059b5ca0378"
+  },
+  "halt_reason": "",
+  "halt_evidence": {
+    "path": "docs/evidence/W14/raw/dds-teardown-release/dds-only-halt-original.json",
+    "sha256": "51ff001974ea062a8c1821644869ead973e4246586335653ca9259f42199494f"
+  },
+  "display_path": "NVIDIA RGB PointCloud2; local Qt-thread lifecycle wrapper; no MapDisplay shader",
+  "release_status": "DEMO_RELEASE_READY_WITH_KNOWN_LIMITATIONS",
+  "dds_teardown_exception_decision_sha": "f687f21922245aa6cace42a9cef204c18f50f9b2",
+  "w15_prior_halt": {
+    "path": "docs/evidence/W15/recovery/prior-gpu-halt.json",
+    "sha256": "ca4c281e9118ae011d2353de24fab5cb33efe5fa5cb65480ae53df1d115aefd5"
+  }
+}

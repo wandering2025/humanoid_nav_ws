@@ -1,0 +1,61 @@
+schema: 1
+source_model: robots/T1/T1_23dof.xml
+# v2 (ADR-015, W11): sized so both detours keep >=2.25 m clearance under the
+# frozen W10 1.65 m stop / 1.95 m slowdown circles. v1 A->B was unreachable.
+bounds:
+- -2.5
+- 11.5
+- -5.5
+- 5.5
+initial_pose:
+- 0
+- 0
+- 0
+goal:
+- 9
+- 0
+- 0
+minimum_passage_m: 5.0
+obstacle_height_m: 1.5
+name: static_world
+purpose: Straight, corner and two alternatives around a blocking island; wall features
+  break symmetry for AMCL. W08-W11 static navigation (v2, ADR-015).
+boxes:
+- name: island
+  center:
+  - 4.5
+  - 0
+  - 0.75
+  size:
+  - 1
+  - 1
+  - 1.5
+- name: north_ledge
+  center:
+  - 9.5
+  - 5.1
+  - 0.75
+  size:
+  - 1.2
+  - 0.8
+  - 1.5
+- name: south_pillar
+  center:
+  - -1.9
+  - -4.9
+  - 0.75
+  size:
+  - 1.2
+  - 1.2
+  - 1.5
+- name: east_bump
+  center:
+  - 11.2
+  - -2.0
+  - 0.75
+  size:
+  - 0.6
+  - 1.0
+  - 1.5
+activity_regions: []
+obstacle_slots: []

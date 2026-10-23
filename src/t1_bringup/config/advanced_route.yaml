@@ -1,0 +1,19 @@
+schema: 1
+method: guided_autonomous_mapping
+# Pass-through observation targets, not exact-pose arrival tests.
+# Continue from the north gallery to B; never retrace the building to A.
+mapping_waypoints:
+  - [3.5, 0.0, 0.0]
+  - [3.5, 3.5, 1.5707963267948966]
+  - [3.5, 7.8, 1.5707963267948966]
+  - [7.5, 8.0, 0.0]
+  - [11.5, 6.5, -0.36]
+  - [13.4, 6.5, 0.0]
+mapping_pass_radius_m: 0.65
+# B and its 2.5m handover are resolved from presentation/goal.yaml every run.
+waypoint_time_limit_s: 120.0
+navigation_time_limit_s: 200.0
+# Survey the main east-room passage; x>=14.4 is the cart parking/occlusion bay.
+# Full-room coverage is reported separately from the actual saved map.
+mapping_coverage_region: [9.0, 14.0, -2.0, 10.0]
+mapping_min_known_fraction: 0.95

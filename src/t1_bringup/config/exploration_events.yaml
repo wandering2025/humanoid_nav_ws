@@ -1,0 +1,19 @@
+# Simulator-only. Never passed to the explorer or scan-history process.
+schema: 1
+scene: advanced_world
+scenarios:
+  EXP01:
+    slot: approach_slot
+    seed: 4000
+    trigger_x: 10.0
+    # Start only while physically approaching the passage, not an earlier
+    # eastward exploration target. World pose stays inside the simulator.
+    trigger_approach:
+      y_min: 5.0
+      y_max: 7.4
+      heading: -1.5707963267948966
+      heading_tolerance: 0.65
+    start: [15.9, 3.0]
+    legs:
+      - {to: [12.5, 3.0], speed: 0.6, hold: 12.0}
+      - {to: [15.9, 3.0], speed: 0.6, hold: 0.0}

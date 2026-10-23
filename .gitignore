@@ -1,0 +1,39 @@
+# ROS 2 / colcon build artifacts
+build/
+install/
+log/
+
+# rosbag / rosbag2 recordings
+*.bag
+*.db3
+
+# python
+__pycache__/
+
+# editors / tooling caches
+.vscode/
+.cache/
+
+# virtual environments and Python/tool caches
+.venv/
+venv/
+venvs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.py[cod]
+*.egg-info/
+
+# large recordings / raw experiment output (small CSV and maps remain tracked)
+*.mcap
+*.mp4
+*.avi
+*.mov
+docs/evidence/**/raw/
+run_data/
+
+# Distribution archives and local environment settings
+dist/
+.env
+.env.*
+!.env.example

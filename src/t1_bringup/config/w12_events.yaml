@@ -1,0 +1,39 @@
+schema: 1
+scene: dynamic_crossing_world
+# Independent of the map-bound scene bytes. Seed is recorded; paths are deterministic.
+# Maximum robot speed .45 m/s; W10 stop 1.65, slowdown 1.95 m, braking .245 m.
+# A(0,0,0) -> B(9,0,0), B approach corridor 1.5 m. No manual rescue.
+scenarios:
+  crossing:
+    slot: crossing_slot
+    seed: 1201
+    start: [2.75, -3.0]
+    trigger_x: 0.6
+    initial_surface_gap_lower_bound_m: 2.75
+    allowed: safe_wait_then_continue_or_detour
+    end: obstacle_clear_and_goal_verified_within_120_sim_s
+    legs:
+      - {to: [2.75, 3.0], speed: 0.5, hold: 180.0}
+  blocking:
+    slot: blocking_slot
+    seed: 1202
+    start: [4.5, 3.0]
+    trigger_x: 0.25
+    initial_surface_gap_lower_bound_m: 3.75
+    allowed: real_detour_while_blocker_remains
+    end: goal_verified_within_120_sim_s_and_blocker_still_present
+    legs:
+      - {to: [4.5, 0.0], speed: 0.6, hold: 180.0}
+  approach:
+    slot: approach_slot
+    seed: 1203
+    start: [6.0, 3.0]
+    trigger_x: 3.2
+    initial_surface_gap_lower_bound_m: 2.55
+    # 2.55 > 1.65 + .245(robot braking) + .6*.65(obstacle advance)
+    # + .2*.45(sensor/control travel) = 2.375 m. Must retreat: B pregoal gap1.25.
+    allowed: physical_stop_then_resume_when_scan_clear
+    end: obstacle_retreat_and_goal_verified_within_120_sim_s
+    legs:
+      - {to: [6.0, 0.0], speed: 0.6, hold: 3.0}
+      - {to: [6.0, 3.0], speed: 0.6, hold: 180.0}

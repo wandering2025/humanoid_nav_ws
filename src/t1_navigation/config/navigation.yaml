@@ -1,0 +1,307 @@
+# W11 Nav2 (installed Jazzy 1.3.13). Derivation: docs/evidence/W11/README.md, ADR-015/016.
+# Motion limits come from W05 command_map.yaml (vx [0.315,0.75], walking |wz|<=0.45,
+# in-place |wz| [0.56,0.85], no reverse/lateral); safety zones from W10 safety.yaml.
+# Controller/behavior outputs go to /t1/nav/cmd_vel_raw -> t1_navigation_adapter ->
+# /t1/cmd_navigation -> W10 gate/smoother/collision_monitor. Nothing here publishes /cmd_vel.
+bt_navigator:
+  ros__parameters:
+    use_sim_time: true
+    global_frame: map
+    robot_base_frame: base_footprint
+    odom_topic: /odom
+    bt_loop_duration: 10
+    default_server_timeout: 20
+    wait_for_service_timeout: 1000
+    action_server_result_timeout: 900.0
+    transform_tolerance: 0.2
+    navigators: ["navigate_to_pose"]
+    navigate_to_pose:
+      plugin: "nav2_bt_navigator::NavigateToPoseNavigator"
+    # default_nav_to_pose_bt_xml is set by navigation.launch.py (installed share path).
+    error_code_names:
+      - compute_path_error_code
+      - follow_path_error_code
+
+controller_server:
+  ros__parameters:
+    use_sim_time: true
+    enable_stamped_cmd_vel: false
+    controller_frequency: 20.0
+    costmap_update_timeout: 0.30
+    min_x_velocity_threshold: 0.001
+    min_y_velocity_threshold: 0.5
+    min_theta_velocity_threshold: 0.001
+    failure_tolerance: 0.5
+    odom_topic: /odom
+    progress_checker_plugins: ["progress_checker"]
+    goal_checker_plugins: ["general_goal_checker"]
+    controller_plugins: ["FollowPath"]
+    use_realtime_priority: false
+    # Gait start (t90 <=1.8 s), in-place turns (<=3.1 s settle) and safety waits
+    # count; a stuck robot fails after 20 s without 0.3 m or 0.5 rad of progress.
+    progress_checker:
+      plugin: "nav2_controller::PoseProgressChecker"
+      required_movement_radius: 0.3
+      required_movement_angle: 0.5
+      movement_time_allowance: 20.0
+    # Success only when stationary inside tolerance: W05/W11 measured up to 17-26 deg
+    # yaw rebound after stopping an in-place turn, so "entered the band while
+    # turning" is not arrival. Frozen in W11 C2; see README "terminal criteria".
+    general_goal_checker:
+      plugin: "nav2_controller::StoppedGoalChecker"
+      stateful: true
+      xy_goal_tolerance: 0.20
+      yaw_goal_tolerance: 0.20
+      trans_stopped_velocity: 0.08
+      rot_stopped_velocity: 0.08
+    FollowPath:
+      plugin: "nav2_rotation_shim_controller::RotationShimController"
+      primary_controller: "nav2_mppi_controller::MPPIController"
+      # In-place turns use the W05 in-place band; walking turns stay with MPPI.
+      angular_dist_threshold: 0.60
+      angular_disengage_threshold: 0.25
+      forward_sampling_distance: 0.6
+      rotate_to_heading_angular_vel: 0.65
+      # Stop-profile sqrt(2*a*theta) falls below the adapter's 0.2 rad/s zero threshold
+      # only within 0.1 rad of the target; in between the adapter keeps the W05 band.
+      max_angular_accel: 0.2
+      simulate_ahead_time: 1.0
+      rotate_to_goal_heading: true
+      # Re-check heading on every (5 s / invalid / new-goal) path; rotate in place only
+      # when the path direction is >0.6 rad off, else MPPI turns while walking.
+      rotate_to_heading_once: false
+      closed_loop: false
+      use_path_orientations: false
+      time_steps: 56
+      model_dt: 0.05
+      batch_size: 1000
+      iteration_count: 1
+      # MPPI clamps its first command to odom speed + ax*model_dt. From standstill the
+      # W05 deadband (vx<0.315 -> 0) would deadlock a 0.5 m/s^2 limit (0.025 m/s per
+      # step, robot never moves). Physical ramps stay in the frozen W10 smoother
+      # (0.5 / -0.75 m/s^2) downstream; these only shape MPPI's internal model.
+      ax_max: 10.0
+      ax_min: -3.0
+      ay_max: 0.0
+      ay_min: 0.0
+      az_max: 1.0
+      vx_std: 0.2
+      vy_std: 0.0
+      wz_std: 0.3
+      # 0.45: walking turn radius 0.45/0.45 = 1.0 m and <=0.245 m stop distance (W05).
+      vx_max: 0.45
+      # vx_min 0: MPPI must be able to plan stopping. Walking-only sampling (0.33)
+      # left no collision-free 2.8 s trajectory near goals 2.4 m from a wall (W11 C2).
+      # The adapter maps its sub-gait requests by curvature (ADR-016).
+      vx_min: 0.0
+      vy_max: 0.0
+      wz_max: 0.45
+      prune_distance: 2.5
+      transform_tolerance: 0.2
+      temperature: 0.3
+      gamma: 0.015
+      motion_model: "DiffDrive"
+      visualize: false
+      regenerate_noises: true
+      critics: ["ConstraintCritic", "CostCritic", "GoalCritic", "GoalAngleCritic",
+                "PathAlignCritic", "PathFollowCritic", "PathAngleCritic", "PreferForwardCritic"]
+      ConstraintCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 4.0
+      GoalCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 5.0
+        threshold_to_consider: 1.4
+      GoalAngleCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 3.0
+        threshold_to_consider: 0.5
+      PreferForwardCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 5.0
+        threshold_to_consider: 0.5
+      CostCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 3.81
+        near_collision_cost: 253
+        critical_cost: 300.0
+        consider_footprint: false
+        collision_cost: 1000000.0
+        near_goal_distance: 1.0
+        trajectory_point_step: 2
+      PathAlignCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 14.0
+        max_path_occupancy_ratio: 0.05
+        trajectory_point_step: 4
+        threshold_to_consider: 0.5
+        offset_from_furthest: 20
+        use_path_orientations: false
+      PathFollowCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 5.0
+        offset_from_furthest: 5
+        threshold_to_consider: 1.4
+      PathAngleCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 2.0
+        offset_from_furthest: 4
+        threshold_to_consider: 0.5
+        max_angle_to_furthest: 1.0
+        mode: 0
+
+# Navigation footprint = circle 2.05 m: W10 slowdown circle 1.95 m + 0.10 m
+# (one 0.05 m cell + localization). It contains the 0.695 m body rotation radius
+# and the 1.65 m stop circle, so nominal paths never trigger CM stop/slowdown.
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      use_sim_time: true
+      update_frequency: 5.0
+      publish_frequency: 2.0
+      global_frame: odom
+      robot_base_frame: base_footprint
+      transform_tolerance: 0.2
+      rolling_window: true
+      width: 10
+      height: 10
+      resolution: 0.05
+      robot_radius: 2.05
+      track_unknown_space: false
+      plugins: ["obstacle_layer", "inflation_layer"]
+      obstacle_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        enabled: true
+        observation_sources: scan
+        # /scan is W08's compensated planar projection of hits 0.15-1.20 m above
+        # ground in laser_stabilized; its points sit at lidar height. These height
+        # bounds only pass that plane; they do not imply 3D occupancy.
+        scan:
+          topic: /scan
+          data_type: "LaserScan"
+          sensor_frame: laser_stabilized
+          expected_update_rate: 0.3
+          min_obstacle_height: 0.0
+          max_obstacle_height: 2.0
+          marking: true
+          clearing: true
+          inf_is_valid: true
+          obstacle_min_range: 0.15
+          obstacle_max_range: 6.0
+          raytrace_min_range: 0.15
+          raytrace_max_range: 6.5
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        cost_scaling_factor: 4.0
+        inflation_radius: 2.60
+      always_send_full_costmap: true
+
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      use_sim_time: true
+      update_frequency: 1.0
+      publish_frequency: 1.0
+      global_frame: map
+      robot_base_frame: base_footprint
+      transform_tolerance: 0.2
+      robot_radius: 2.05
+      resolution: 0.05
+      track_unknown_space: true
+      plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+      static_layer:
+        plugin: "nav2_costmap_2d::StaticLayer"
+        map_subscribe_transient_local: true
+      obstacle_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        enabled: true
+        observation_sources: scan
+        scan:
+          topic: /scan
+          data_type: "LaserScan"
+          sensor_frame: laser_stabilized
+          expected_update_rate: 0.3
+          min_obstacle_height: 0.0
+          max_obstacle_height: 2.0
+          marking: true
+          clearing: true
+          inf_is_valid: true
+          obstacle_min_range: 0.15
+          obstacle_max_range: 6.0
+          raytrace_min_range: 0.15
+          raytrace_max_range: 6.5
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        cost_scaling_factor: 4.0
+        inflation_radius: 2.60
+      always_send_full_costmap: true
+
+planner_server:
+  ros__parameters:
+    use_sim_time: true
+    expected_planner_frequency: 1.0
+    costmap_update_timeout: 1.0
+    planner_plugins: ["GridBased"]
+    # One global planner (W11 C1): NavFn Dijkstra treats inscribed (>=253) cells
+    # as obstacles, i.e. keeps the robot centre >=2.05 m from mapped/scanned surfaces.
+    GridBased:
+      plugin: "nav2_navfn_planner::NavfnPlanner"
+      tolerance: 0.0
+      use_astar: false
+      allow_unknown: false
+      use_final_approach_orientation: false
+
+# Only Wait is loaded. Spin/backup/drive_on_heading are disabled: W05 forbids
+# reverse; an unconditional spin would ignore W10 slowdown and the in-place band.
+behavior_server:
+  ros__parameters:
+    use_sim_time: true
+    enable_stamped_cmd_vel: false
+    local_costmap_topic: local_costmap/costmap_raw
+    global_costmap_topic: global_costmap/costmap_raw
+    local_footprint_topic: local_costmap/published_footprint
+    global_footprint_topic: global_costmap/published_footprint
+    cycle_frequency: 10.0
+    behavior_plugins: ["wait"]
+    wait:
+      plugin: "nav2_behaviors::Wait"
+    local_frame: odom
+    global_frame: map
+    robot_base_frame: base_footprint
+    transform_tolerance: 0.2
+
+lifecycle_manager_navigation:
+  ros__parameters:
+    use_sim_time: true
+    autostart: false
+    bond_timeout: 4.0
+    attempt_respawn_reconnection: false
+    node_names: ["controller_server", "planner_server", "behavior_server", "bt_navigator"]
+
+t1_navigation_adapter:
+  ros__parameters:
+    use_sim_time: true
+    publish_rate_hz: 50.0
+    input_timeout_s: 0.15
+    # Pre-collision-monitor shaping (ADR-016). Below these a request is zeroed;
+    # between them and the W05 minimum it is raised to the minimum.
+    vx_lift_threshold: 0.01
+    vx_lift_target: 0.33
+    # Sub-gait requests curving tighter than the W05 walking minimum radius
+    # vx_min/wz_walking_max = 0.70 m become in-place turns instead of lifted walking.
+    min_walking_radius: 0.70
+    wz_lift_threshold: 0.20
+    wz_in_place_target: 0.60
+
+t1_navigation_starter:
+  ros__parameters:
+    use_sim_time: true
+    ready_timeout_wall_s: 120.0
