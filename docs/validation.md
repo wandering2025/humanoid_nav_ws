@@ -4,7 +4,11 @@ The project records both navigation decisions and physical outcomes. Results bel
 
 ## Full-mission video
 
-The [October 23 recording](https://github.com/wandering2025/humanoid_nav_ws/releases/tag/demo-2026-10-23) shows MuJoCo and RViz together for the complete mission: six exploration targets, route discovery, a dynamic obstacle encounter, arrival, and standstill. The 2:19 video preserves wall-clock duration at 1× playback. Frames were captured during the mission; H.264 encoding ran after the simulator had exited.
+The [October 23 recording](https://github.com/wandering2025/humanoid_nav_ws/releases/tag/demo-2026-10-23) shows MuJoCo and RViz together for the complete mission: six exploration targets, route discovery, a dynamic obstacle encounter, arrival, and standstill. The README presents the entire sequence at **5× speed in 27.8 seconds**, as a looping GIF with a matching [HD MP4](https://github.com/wandering2025/humanoid_nav_ws/releases/download/demo-2026-10-23/booster-t1-demo-5x.mp4).
+
+The [accelerated demo verification](validation/accelerated-demo.json) records both outputs and their checksums. The 1920 × 900 MP4 retains all 556 source frames in order at 20 fps; the 960 × 450 GIF samples the same timeline at 10 fps and loops continuously. Both files were fully decoded to verify their duration and reviewed at the start, obstacle encounter, and arrival. Frame labels identify the playback speed and the original elapsed time.
+
+The [original 2:19 recording](https://github.com/wandering2025/humanoid_nav_ws/releases/download/demo-2026-10-23/booster-t1-full-mission.mp4) preserves wall-clock duration at 1× playback. Frames were captured during the mission; H.264 encoding ran after the simulator had exited.
 
 The robot travelled **28.63 m**, waited **14.00 s** for the obstacle, and travelled another **6.27 m** after it withdrew. All **7 selected paths** passed checks against their contemporaneous costmaps. Maximum physical goal error in the final two seconds was **0.110052 m**, with zero contacts and falls. All components exited with code 0, and the DDS port was released.
 

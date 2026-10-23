@@ -4,9 +4,9 @@
 
 A ROS 2 and MuJoCo project connecting physical bipedal locomotion, LiDAR SLAM, goal-directed exploration, and Nav2. Starting with a relative goal, the T1 builds a map, selects observation targets, finds a route through observed free space, and responds to moving obstacles along the way.
 
-[![Full mission video: MuJoCo physical walking alongside RViz live mapping and navigation](docs/media/full-mission-preview.png)](https://github.com/wandering2025/humanoid_nav_ws/releases/download/demo-2026-10-23/booster-t1-full-mission.mp4)
+![Complete mission at 5x speed: MuJoCo physical walking alongside RViz live mapping and navigation](docs/media/mission-demo.gif)
 
-**[Full mission video — 2:19, MP4](https://github.com/wandering2025/humanoid_nav_ws/releases/download/demo-2026-10-23/booster-t1-full-mission.mp4)** · MuJoCo and RViz side by side, from mission readiness to arrival and standstill, at 1× playback. Recorded on October 23, 2026.
+**Complete mission in 27.8 seconds · 5× playback.** MuJoCo and RViz side by side, from mission readiness to arrival and standstill. [HD video (MP4)](https://github.com/wandering2025/humanoid_nav_ws/releases/download/demo-2026-10-23/booster-t1-demo-5x.mp4).
 
 The robot discovers the route, walks around the wall, waits for a moving obstacle, and continues to the destination. [Video and run evidence](https://github.com/wandering2025/humanoid_nav_ws/releases/tag/demo-2026-10-23).
 
@@ -21,7 +21,7 @@ The project focuses on the engineering boundary between a learned walking policy
 
 ## Demonstrated behavior
 
-In the video above, the robot received **B = (+11.0, +0.5) m relative to its starting frame**. It selected six exploration targets and walked a **28.63 m** route through observed free space to B.
+In the demo above, the robot received **B = (+11.0, +0.5) m relative to its starting frame**. It selected six exploration targets and walked a **28.63 m** route through observed free space to B.
 
 | Measurement | Recorded result |
 | --- | ---: |

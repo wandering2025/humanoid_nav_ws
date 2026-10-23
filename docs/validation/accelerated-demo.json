@@ -1,0 +1,41 @@
+{
+  "source_file": "booster-t1-full-mission.mp4",
+  "source_sha256": "6176fd3f11cdd4a6ce01af96d96b21fb0f9e1a0a893805a8bb3a360d4058ebc1",
+  "source_seconds": 139.0,
+  "source_run_id": "20261023T093312Z_exploration_fb9164f4-88c9-438a-bf06-003371995c15",
+  "playback_speed": 5,
+  "complete_mission": true,
+  "mp4": {
+    "file": "booster-t1-demo-5x.mp4",
+    "bytes": 2818418,
+    "sha256": "413b1588bd39ccca8f64c207ec83698222860381d8084e8e333a34e815113052",
+    "width": 1920,
+    "height": 900,
+    "fps": 20,
+    "seconds": 27.8,
+    "frames": 556,
+    "full_decode_verified": true,
+    "all_source_frames_in_order": true,
+    "url": "https://github.com/wandering2025/humanoid_nav_ws/releases/download/demo-2026-10-23/booster-t1-demo-5x.mp4"
+  },
+  "gif": {
+    "file": "mission-demo.gif",
+    "bytes": 8453451,
+    "sha256": "e23f439e524ab36d6b96f753dcede54d1ba59e0acb7686c80ef6440f188f9dd0",
+    "width": 960,
+    "height": 450,
+    "seconds": 27.8,
+    "frames": 278,
+    "loop": 0,
+    "full_decode_verified": true,
+    "palette": "Shared-palette quantization with delta-frame optimization",
+    "optimization_max_frame_mean_channel_error": 0.21930015432098765,
+    "repository_path": "docs/media/mission-demo.gif"
+  },
+  "visual_review_pending": false,
+  "reviewed_stages": [
+    "mission_start",
+    "dynamic_obstacle_wait",
+    "arrival_and_standstill"
+  ]
+}
