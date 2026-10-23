@@ -4,18 +4,11 @@
 
 A ROS 2 and MuJoCo project connecting physical bipedal locomotion, LiDAR SLAM, goal-directed exploration, and Nav2. Starting with a relative goal, the T1 builds a map, selects observation targets, finds a route through observed free space, and responds to moving obstacles along the way.
 
-<table>
-  <tr>
-    <td><img src="docs/media/exploration-mujoco.png" alt="Booster T1 facing a moving orange obstacle in MuJoCo" width="480" /></td>
-    <td><img src="docs/media/exploration-rviz.png" alt="RViz showing the live LiDAR map, Nav2 plan, travelled path and collision-monitor zones" width="480" /></td>
-  </tr>
-  <tr>
-    <td align="center">Physical walking and obstacle interaction</td>
-    <td align="center">Live mapping, planning, and execution</td>
-  </tr>
-</table>
+[![Full mission video: MuJoCo physical walking alongside RViz live mapping and navigation](docs/media/full-mission-preview.png)](https://github.com/wandering2025/humanoid_nav_ws/releases/download/demo-2026-10-23/booster-t1-full-mission.mp4)
 
-*Actual screenshots from the recorded autonomous exploration run.*
+**[Full mission video — 2:19, MP4](https://github.com/wandering2025/humanoid_nav_ws/releases/download/demo-2026-10-23/booster-t1-full-mission.mp4)** · MuJoCo and RViz side by side, from mission readiness to arrival and standstill, at 1× playback. Recorded on October 23, 2026.
+
+The robot discovers the route, walks around the wall, waits for a moving obstacle, and continues to the destination. [Video and run evidence](https://github.com/wandering2025/humanoid_nav_ws/releases/tag/demo-2026-10-23).
 
 ## Core capabilities
 
@@ -28,19 +21,19 @@ The project focuses on the engineering boundary between a learned walking policy
 
 ## Demonstrated behavior
 
-In the showcased run, the robot received **B = (+11.0, +0.5) m relative to its starting frame**. It selected six exploration targets, discovered the passage around an occluding wall, waited for a moving obstacle, and continued to B.
+In the video above, the robot received **B = (+11.0, +0.5) m relative to its starting frame**. It selected six exploration targets and walked a **28.63 m** route through observed free space to B.
 
 | Measurement | Recorded result |
 | --- | ---: |
 | Selected paths checked against their observed costmaps | 7 / 7 |
-| Stationary wait during the obstacle encounter | 17.72 s |
-| Travel after the obstacle withdrew | 4.13 m |
-| Maximum goal error during the final two seconds | 0.095 m |
+| Stationary wait during the obstacle encounter | 14.00 s |
+| Travel after the obstacle withdrew | 6.27 m |
+| Maximum goal error during the final two seconds | 0.110 m |
 | Environment / obstacle contacts; falls | 0; 0 |
 
-![Online SLAM map with the measured route and selected exploration targets](docs/media/exploration-map.png)
+![Online SLAM map from the video, with the measured route and selected exploration targets](docs/media/full-mission-map.png)
 
-[Run evidence and validation](docs/validation.md) includes source revisions, the static control, alternate layouts, and load-test results. The simulation uses ideal odometry and attitude compensation; world geometry and obstacle trajectories stay outside the exploration and planning interfaces.
+[Recording verification](docs/validation/full-mission-video.json) ties the video to its source revision, physical results, and all 18 GUI audit checks. [Run evidence and validation](docs/validation.md) also covers the static control, alternate layouts, and load tests. The simulation uses ideal odometry and attitude compensation; world geometry and obstacle trajectories stay outside the exploration and planning interfaces.
 
 ## Quick start
 

@@ -2,7 +2,17 @@
 
 The project records both navigation decisions and physical outcomes. Results below refer to their recorded source revisions. The GitHub packaging update changes documentation, packaging, and startup provenance checks.
 
-## Autonomous exploration showcase
+## Full-mission video
+
+The [October 23 recording](https://github.com/wandering2025/humanoid_nav_ws/releases/tag/demo-2026-10-23) shows MuJoCo and RViz together for the complete mission: six exploration targets, route discovery, a dynamic obstacle encounter, arrival, and standstill. The 2:19 video preserves wall-clock duration at 1× playback. Frames were captured during the mission; H.264 encoding ran after the simulator had exited.
+
+The robot travelled **28.63 m**, waited **14.00 s** for the obstacle, and travelled another **6.27 m** after it withdrew. All **7 selected paths** passed checks against their contemporaneous costmaps. Maximum physical goal error in the final two seconds was **0.110052 m**, with zero contacts and falls. All components exited with code 0, and the DDS port was released.
+
+The [recording verification](validation/full-mission-video.json) contains all **18 passing GUI audit checks**, component exits, video SHA-256, and capture timing. The 1920 × 900 MP4 contains 556 fully decoded frames at 4 fps, composed from 450 captured window pairs. Start, obstacle encounter, and arrival frames were visually reviewed.
+
+Run: `20261023T093312Z_exploration_fb9164f4-88c9-438a-bf06-003371995c15`. Source: `7d7377941d7edb52590293ee5c4247c8f819c0f6`.
+
+## Exploration reference run
 
 The [graphical exploration run](validation/exploration-gui.json) starts with B=(+11.0,+0.5) m in frame A. Its six exploration targets and final approach form a measured **25.40 m** route. All seven selected paths passed replay checks against the costmaps captured when they were chosen.
 
@@ -40,7 +50,7 @@ The earlier saved-map stack completed **36 of 40** registered missions: static *
 
 The measured platform is an indoor, flat-floor MuJoCo simulation with ideal odometry, truth-based attitude compensation, a finite-height LiDAR projection, and a kinematic moving obstacle. It provides a platform for studying humanoid navigation integration and reproducible scenario evaluation. Hardware deployment requires measured odometry and inertial inputs through the same interfaces.
 
-The [local capture-load campaign](validation/load-tests.json) tested simultaneous GUI capture and CPU video encoding. On its final implementation, one loaded mission passed and the next triggered the unchanged 0.3 s scan timeout. A supplementary mission reached B and passed obstacle-response checks, then recorded a DDS shutdown exit of −11. The reliability campaign therefore remains open. Dedicated simulation runs and the recorded visuals are the current presentation paths; concurrent capture needs renewed validation after scan scheduling and DDS teardown are resolved.
+The [local capture-load campaign](validation/load-tests.json) tested simultaneous GUI capture and CPU video encoding. On its final implementation, one loaded mission passed and the next triggered the unchanged 0.3 s scan timeout. A supplementary mission reached B and passed obstacle-response checks, then recorded a DDS shutdown exit of −11. The October 23 recording separates window capture from encoding and passes the complete mission and cleanup checks. It validates that recording workflow for this run; repeated-load reliability is tracked by the earlier campaign.
 
 Both deliberate cancellation tests passed. Across all 20 attempts in that investigation, physical stop and process/port cleanup completed, with zero contacts and falls. The attempts span multiple revisions and are not pooled into a success rate.
 

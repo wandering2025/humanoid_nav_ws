@@ -1,0 +1,225 @@
+{
+  "run_id": "20261023T093312Z_exploration_fb9164f4-88c9-438a-bf06-003371995c15",
+  "code_sha": "7d7377941d7edb52590293ee5c4247c8f819c0f6",
+  "recorded_utc": "2026-10-23T09:33:20.949011+00:00",
+  "status": "SUCCESS",
+  "gui_audit_status": "PASS",
+  "checks": {
+    "graphical_run": true,
+    "physical_timing_preserved": true,
+    "mission_success": true,
+    "real_dynamic_response": true,
+    "all_selected_paths_observed": true,
+    "graph_contract": true,
+    "no_contact_or_fall": true,
+    "safe_stop": true,
+    "both_windows_at_all_three_stages": true,
+    "actual_explorer_coordinates": true,
+    "expected_renderer": true,
+    "gpu_monitor_clean": true,
+    "mapping_latency_bounded": true,
+    "all_processes_exit_zero": true,
+    "no_processes_or_port": true,
+    "observer_closed_before_dds": true,
+    "vacated_obstacle_has_no_occupied_ghost": true,
+    "tested_sources_unchanged": true
+  },
+  "task": {
+    "schema": 1,
+    "frame": "start",
+    "offset": [
+      11.0,
+      0.5
+    ],
+    "source_sha256": "b9e83c12fdf595f32d56ac6bc6e602fd4c7e7cf1e02d564893521554d117396d"
+  },
+  "arrived": true,
+  "exploration_targets": 6,
+  "selected_paths": 7,
+  "trajectory_length_m": 28.629742569719376,
+  "path_replay": [
+    {
+      "snapshot": "map-001.npz",
+      "sha256": "1cf67ab3c902d7bd41a633d37f803a3dbeb7673811723e0e4dcdd65b6e12b9cc",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-003.npz",
+      "sha256": "854ba58cadd9eb3f0aeb2a6c4c8c9f0bcb90d9b02476f1a154bb41151260e586",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-004.npz",
+      "sha256": "145b7258d33a7c365737fc0600d49af0d285e7f0e182ce2ac136f11c5d89638d",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-005.npz",
+      "sha256": "79d88326252dae6072a7d5f8ffb45ee9e50a7a1daaa0a92efa487449d07c606b",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-006.npz",
+      "sha256": "bc28dbd37be7c83439675d2e2d13d0818935399e560607590170b5ec3fcceed2",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-008.npz",
+      "sha256": "5ebf11f4be317f5f07d5fad03f1a67adea860616e0194a3703a4489120b0d306",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": false
+    },
+    {
+      "snapshot": "map-010.npz",
+      "sha256": "f2935f5e5d31ffad41fc0e2bc07b490fbb6bc5e25d649fc31efed1f2147bb6b9",
+      "target_known_reachable": true,
+      "entire_path_known_reachable": true,
+      "final": true
+    }
+  ],
+  "dynamic": {
+    "triggered": true,
+    "finished": true,
+    "actual_travel_m": 6.800000000000001,
+    "active_scan_hit_frames": 232,
+    "active_costmap_marked_frames": 38,
+    "blocked_wait": {
+      "stationary_s": 14.0,
+      "resumed_m": 6.265633340587362
+    },
+    "verdict": "PASS",
+    "response": "BLOCKED_PATH_WAIT_AND_CONTINUE"
+  },
+  "truth_final_hold_max_error_m": 0.11005216718103739,
+  "arrival_stationary_s": 2.0400000000000205,
+  "contacts": {
+    "static_env": 0,
+    "obstacle": 0,
+    "ground_nonfoot": 0
+  },
+  "fell": false,
+  "physical_stationary": true,
+  "parent_exit_codes": {
+    "scan_filter": 0,
+    "dds": 0,
+    "authority": 0,
+    "launch": 0,
+    "rviz": 0,
+    "map_saver": 0,
+    "goal": 0
+  },
+  "launch_process_exit_codes": {
+    "t1_sim-1": {
+      "pid": 23206,
+      "exit_code": 0
+    },
+    "robot_state_publisher-2": {
+      "pid": 23207,
+      "exit_code": 0
+    },
+    "async_slam_toolbox_node-3": {
+      "pid": 23208,
+      "exit_code": 0
+    },
+    "advanced_command_gate-4": {
+      "pid": 23209,
+      "exit_code": 0
+    },
+    "velocity_smoother-5": {
+      "pid": 23210,
+      "exit_code": 0
+    },
+    "collision_monitor-6": {
+      "pid": 23211,
+      "exit_code": 0
+    },
+    "lifecycle_manager-7": {
+      "pid": 23528,
+      "exit_code": 0
+    },
+    "controller_server-8": {
+      "pid": 23656,
+      "exit_code": 0
+    },
+    "planner_server-9": {
+      "pid": 23657,
+      "exit_code": 0
+    },
+    "behavior_server-10": {
+      "pid": 23658,
+      "exit_code": 0
+    },
+    "bt_navigator-11": {
+      "pid": 23659,
+      "exit_code": 0
+    },
+    "lifecycle_manager-12": {
+      "pid": 23660,
+      "exit_code": 0
+    },
+    "navigation_adapter-13": {
+      "pid": 23661,
+      "exit_code": 0
+    },
+    "navigation_starter-14": {
+      "pid": 23662,
+      "exit_code": 0
+    }
+  },
+  "dds_port_released": true,
+  "remaining_owned_pids": [],
+  "remaining_project_processes": [],
+  "mapping_max_output_age_s": 0.060000000000002274,
+  "vacated_obstacle_footprint": {
+    "observed_hold_position_odom": [
+      12.5,
+      3.0,
+      0.75
+    ],
+    "sample_count": 649,
+    "occupied_samples": 0,
+    "unknown_samples": 0,
+    "free_samples": 649
+  },
+  "video": {
+    "run_id": "20261023T093312Z_exploration_fb9164f4-88c9-438a-bf06-003371995c15",
+    "source_sha": "7d7377941d7edb52590293ee5c4247c8f819c0f6",
+    "file": "booster-t1-full-mission.mp4",
+    "bytes": 4969462,
+    "sha256": "6176fd3f11cdd4a6ce01af96d96b21fb0f9e1a0a893805a8bb3a360d4058ebc1",
+    "width": 1920,
+    "height": 900,
+    "fps": 4.0,
+    "seconds": 139.0,
+    "decoded_frames": 556,
+    "capture_pairs": 450,
+    "full_decode_verified": true,
+    "playback_speed": 1,
+    "max_pair_gap_s": 0.8824239890000172,
+    "max_view_skew_s": 0.5049991350001619,
+    "visual_review_pending": false,
+    "visually_reviewed_frames": [
+      0,
+      370,
+      555
+    ],
+    "url": "https://github.com/wandering2025/humanoid_nav_ws/releases/download/demo-2026-10-23/booster-t1-full-mission.mp4"
+  },
+  "capture_method": "Serial ImageMagick window capture at up to 4 paired frames/s; offline CPU H264 encoding.",
+  "preview": {
+    "file": "docs/media/full-mission-preview.png",
+    "video_frame": 370,
+    "video_seconds": 92.5
+  }
+}
