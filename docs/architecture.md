@@ -2,6 +2,10 @@
 
 The system closes the loop from LiDAR observations to map-based decisions, Nav2 commands, joint torques, and new observations. Its central integration task is to make a mobile-robot navigation stack execute through a bipedal walking policy.
 
+![Booster T1 system architecture: five layers, two scan paths, and the closed command loop](media/system-architecture.png)
+
+[Open the vector diagram](media/system-architecture.svg). Mapping receives filtered scans; costmaps and Collision Monitor receive the unfiltered, attitude-compensated scan. The evaluator records physical outcomes independently of the command path.
+
 ## Engineering decisions
 
 | Engineering requirement | Design decision | Result / validation |

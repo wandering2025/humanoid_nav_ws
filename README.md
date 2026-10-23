@@ -17,7 +17,7 @@ A ROS 2 and MuJoCo project connecting physical bipedal locomotion, LiDAR SLAM, g
 
 *Actual screenshots from the recorded autonomous exploration run.*
 
-## What makes this project different
+## Core capabilities
 
 - **Navigation grounded in a walking robot.** The official T1 policy drives joint targets and PD torques at 500 Hz physics / 50 Hz policy rates. A calibrated gait adapter connects Nav2 requests to the measured walking and turning envelope.
 - **A destination is enough.** The explorer scores reachable frontiers by travel cost, progress toward the goal, information gain, and visit history. It switches to the destination as soon as an observed route becomes available.
@@ -69,21 +69,11 @@ goal: {x: 11.0, y: 0.5}  # metres: forward, left
 
 Changes apply on the next run. Add `--static` for the obstacle-free control or `--hold` to keep the final view open. **Ctrl+C requests a latched stop and cleans up the run's processes.** Results are written to `run_data/exploration/<run-id>/final-result.json`.
 
-## How it works
+## System architecture
 
-```mermaid
-flowchart LR
-    P[MuJoCo + T1 walking policy] --> L[Attitude-compensated LiDAR]
-    L --> F[Mapping scan filter]
-    F --> S[SLAM Toolbox]
-    S --> E[Goal-directed frontier explorer]
-    E --> N[Nav2 planning + path tracking]
-    L --> N
-    N --> G[Gait adapter + command gate]
-    G --> V[Velocity smoother + Collision Monitor]
-    L --> V
-    V --> P
-```
+![Five-layer architecture showing simulation, mapping, exploration, navigation, command supervision, and the closed control loop](docs/media/system-architecture.png)
+
+The blue path keeps unfiltered scans available to costmaps and Collision Monitor. The green loop returns the final command to the walking policy. [View the vector diagram](docs/media/system-architecture.svg).
 
 | Package | Responsibility |
 | --- | --- |

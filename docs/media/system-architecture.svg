@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1460" viewBox="0 0 1100 1460" role="img" aria-labelledby="title description">
+  <title id="title">Booster T1 — closed-loop navigation architecture</title>
+  <desc id="description">Five layers connect MuJoCo simulation, continuous mapping, goal-directed exploration, Nav2 planning and command supervision. Unfiltered attitude-compensated scans feed costmaps and Collision Monitor directly. Final commands return to the walking policy. An independent evaluator checks ground-truth arrival, contacts, falls and shutdown.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#526579"/>
+    </marker>
+    <marker id="scan-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#2672ae"/>
+    </marker>
+    <marker id="command-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#16816d"/>
+    </marker>
+    <style>
+      text { font-family: 'DejaVu Sans', Arial, sans-serif; fill: #1c3045; }
+      .title { font-size: 30px; font-weight: 700; letter-spacing: -.5px; }
+      .subtitle { font-size: 18px; fill: #53677b; }
+      .heading { font-size: 23px; font-weight: 700; }
+      .body { font-size: 20px; }
+      .detail { font-size: 18px; fill: #53677b; }
+      .number { font-size: 18px; font-weight: 700; fill: #ffffff; text-anchor: middle; }
+      .label { font-size: 17px; font-weight: 600; fill: #526579; }
+      .card { fill: #ffffff; stroke: #d5dfe8; stroke-width: 1.5; }
+      .flow { fill: none; stroke: #526579; stroke-width: 2.5; marker-end: url(#arrow); }
+      .scan { fill: none; stroke: #2672ae; stroke-width: 3; }
+      .command { fill: none; stroke: #16816d; stroke-width: 3.5; }
+    </style>
+  </defs>
+
+  <rect width="1100" height="1460" rx="16" fill="#f6f8fb"/>
+  <text x="155" y="48" class="title">From observations to physical motion</text>
+  <text x="155" y="79" class="subtitle">Booster T1 · ROS 2 / MuJoCo · goal-directed exploration</text>
+
+  <!-- Layer 1: physical motion and sensor production. -->
+  <rect x="155" y="110" width="790" height="190" rx="12" class="card"/>
+  <rect x="155" y="110" width="7" height="190" rx="3" fill="#334f6c"/>
+  <circle cx="191" cy="143" r="17" fill="#334f6c"/>
+  <text x="191" y="149" class="number">01</text>
+  <text x="222" y="151" class="heading">Simulation &amp; locomotion</text>
+  <text x="183" y="190" class="body">T1 walking policy, 50 Hz → joint targets → PD torques</text>
+  <text x="183" y="222" class="body">MuJoCo contacts, 500 Hz · kinematic moving obstacle</text>
+  <text x="183" y="254" class="body">Torso LiDAR, 10 Hz → attitude-compensated 2D scan</text>
+  <text x="183" y="283" class="detail">9 × 360 beams · 12 m range · ideal odometry · TF · /clock</text>
+
+  <!-- The main sequence follows the five-layer presentation. -->
+  <path d="M 550 300 V 355" class="flow"/>
+  <text x="572" y="334" class="label">/scan · /odom · TF · /clock</text>
+
+  <!-- Layer 2: scan filtering applies only to the mapping branch. -->
+  <rect x="155" y="355" width="790" height="205" rx="12" class="card"/>
+  <rect x="155" y="355" width="7" height="205" rx="3" fill="#2672ae"/>
+  <circle cx="191" cy="389" r="17" fill="#2672ae"/>
+  <text x="191" y="395" class="number">02</text>
+  <text x="222" y="397" class="heading">Perception &amp; continuous mapping</text>
+  <text x="183" y="438" class="body">Scan filter → /scan/mapping → SLAM Toolbox</text>
+  <text x="183" y="470" class="detail">Suppress transient returns; continuously update /map and map → odom</text>
+  <line x1="183" y1="487" x2="917" y2="487" stroke="#e1e7ee"/>
+  <text x="183" y="519" class="body">Nav2 global + local costmaps</text>
+  <text x="183" y="545" class="detail">Combine the SLAM map with the unfiltered /scan</text>
+
+  <path d="M 550 560 V 615" class="flow"/>
+  <text x="572" y="594" class="label">/map · live costmap · robot pose</text>
+
+  <!-- Layer 3: task-level choice is based on live observations. -->
+  <rect x="155" y="615" width="790" height="235" rx="12" class="card"/>
+  <rect x="155" y="615" width="7" height="235" rx="3" fill="#7660a7"/>
+  <circle cx="191" cy="649" r="17" fill="#7660a7"/>
+  <text x="191" y="655" class="number">03</text>
+  <text x="222" y="657" class="heading">Decision · Exploration Manager</text>
+  <text x="183" y="698" class="body">Task input: destination B relative to start frame A</text>
+  <rect x="180" y="714" width="740" height="39" rx="7" fill="#f1eef8"/>
+  <text x="195" y="740" class="body" font-weight="600">Known-free route to B? → Validate and navigate to B</text>
+  <text x="183" y="783" class="body">Otherwise: rank reachable frontiers → NavFn path check</text>
+  <text x="183" y="810" class="detail">Travel cost · goal distance · information gain · visit history</text>
+  <text x="183" y="837" class="detail">Recheck every 3 s · blocked route → stop and observe</text>
+
+  <path d="M 550 850 V 905" class="flow"/>
+  <text x="572" y="884" class="label">NavigateToPose · selected target</text>
+
+  <!-- Layer 4: execute the selected frontier or final destination. -->
+  <rect x="155" y="905" width="790" height="150" rx="12" class="card"/>
+  <rect x="155" y="905" width="7" height="150" rx="3" fill="#466fc0"/>
+  <circle cx="191" cy="939" r="17" fill="#466fc0"/>
+  <text x="191" y="945" class="number">04</text>
+  <text x="222" y="947" class="heading">Navigation · Nav2</text>
+  <text x="183" y="987" class="body">NavFn → Rotation Shim → Regulated Pure Pursuit</text>
+  <text x="183" y="1017" class="detail">Plan through observed free space; track the selected path</text>
+  <text x="183" y="1043" class="detail">Replan every 5 s or when the path becomes invalid</text>
+
+  <path d="M 550 1055 V 1110" class="flow"/>
+  <text x="572" y="1089" class="label">Body velocity request</text>
+
+  <!-- Layer 5: final velocity authority and the return to physical execution. -->
+  <rect x="155" y="1110" width="790" height="175" rx="12" class="card"/>
+  <rect x="155" y="1110" width="7" height="175" rx="3" fill="#16816d"/>
+  <circle cx="191" cy="1144" r="17" fill="#16816d"/>
+  <text x="191" y="1150" class="number">05</text>
+  <text x="222" y="1152" class="heading">Safety chain &amp; gait adaptation</text>
+  <text x="183" y="1192" class="body">Gait adapter → command gate → velocity smoother</text>
+  <text x="183" y="1226" class="body">Collision Monitor → /cmd_vel → reducing-only bridge</text>
+  <text x="183" y="1257" class="detail">Stop zone: 1.65 m · slow zone: 1.95 m · latched fault stops</text>
+
+  <!-- Blue bypass: filtering never removes data from obstacle-response inputs. -->
+  <path d="M 155 251 H 76 V 1220 H 155" class="scan" marker-end="url(#scan-arrow)"/>
+  <path d="M 76 513 H 155" class="scan" marker-end="url(#scan-arrow)"/>
+  <circle cx="76" cy="513" r="5" fill="#2672ae"/>
+  <rect x="24" y="648" width="104" height="75" rx="8" fill="#e9f2fa" stroke="#b9d5ea"/>
+  <text x="76" y="675" font-size="16" text-anchor="middle" style="fill:#2672ae">Unfiltered</text>
+  <text x="76" y="702" font-size="20" font-weight="700" text-anchor="middle" style="fill:#2672ae">/scan</text>
+  <text x="52" y="1007" font-size="18" style="fill:#2672ae" transform="rotate(-90 52 1007)">Live obstacle response</text>
+
+  <!-- Green return: the bridge passes the final command to the walking policy. -->
+  <path d="M 945 1220 H 1024 V 184 H 945" class="command" marker-end="url(#command-arrow)"/>
+  <rect x="1004" y="600" width="40" height="272" rx="8" fill="#e8f5f0"/>
+  <text x="1031" y="736" font-size="19" font-weight="600" text-anchor="middle" style="fill:#16816d" transform="rotate(-90 1031 736)">Final command → walking</text>
+
+  <!-- Evaluation is independent of the motion-command path. -->
+  <rect x="155" y="1330" width="790" height="94" rx="12" fill="#eef2f6" stroke="#b8c5d2" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="183" y="1364" font-size="22" font-weight="700">Independent evaluator</text>
+  <text x="183" y="1397" class="body">Ground-truth checks: arrival · contacts · falls · shutdown</text>
+</svg>
